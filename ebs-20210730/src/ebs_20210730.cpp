@@ -96,6 +96,43 @@ ApplyLensServiceResponse Alibabacloud_Ebs20210730::Client::applyLensService() {
   return applyLensServiceWithOptions(runtime);
 }
 
+BindEnterpriseSnapshotPolicyResponse Alibabacloud_Ebs20210730::Client::bindEnterpriseSnapshotPolicyWithOptions(shared_ptr<BindEnterpriseSnapshotPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->diskTargets)) {
+    query->insert(pair<string, vector<string>>("DiskTargets", *request->diskTargets));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyId)) {
+    query->insert(pair<string, string>("PolicyId", *request->policyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BindEnterpriseSnapshotPolicy"))},
+    {"version", boost::any(string("2021-07-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BindEnterpriseSnapshotPolicyResponse(callApi(params, req, runtime));
+}
+
+BindEnterpriseSnapshotPolicyResponse Alibabacloud_Ebs20210730::Client::bindEnterpriseSnapshotPolicy(shared_ptr<BindEnterpriseSnapshotPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return bindEnterpriseSnapshotPolicyWithOptions(request, runtime);
+}
+
 CancelLensServiceResponse Alibabacloud_Ebs20210730::Client::cancelLensServiceWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -411,6 +448,87 @@ CreateDiskReplicaPairResponse Alibabacloud_Ebs20210730::Client::createDiskReplic
   return createDiskReplicaPairWithOptions(request, runtime);
 }
 
+CreateEnterpriseSnapshotPolicyResponse Alibabacloud_Ebs20210730::Client::createEnterpriseSnapshotPolicyWithOptions(shared_ptr<CreateEnterpriseSnapshotPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateEnterpriseSnapshotPolicyShrinkRequest> request = make_shared<CreateEnterpriseSnapshotPolicyShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo>(tmpReq->crossRegionCopyInfo)) {
+    request->crossRegionCopyInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->crossRegionCopyInfo, make_shared<string>("CrossRegionCopyInfo"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateEnterpriseSnapshotPolicyRequestRetainRule>(tmpReq->retainRule)) {
+    request->retainRuleShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->retainRule, make_shared<string>("RetainRule"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateEnterpriseSnapshotPolicyRequestSchedule>(tmpReq->schedule)) {
+    request->scheduleShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->schedule, make_shared<string>("Schedule"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules>(tmpReq->specialRetainRules)) {
+    request->specialRetainRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->specialRetainRules, make_shared<string>("SpecialRetainRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateEnterpriseSnapshotPolicyRequestStorageRule>(tmpReq->storageRule)) {
+    request->storageRuleShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->storageRule, make_shared<string>("StorageRule"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->crossRegionCopyInfoShrink)) {
+    query->insert(pair<string, string>("CrossRegionCopyInfo", *request->crossRegionCopyInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->desc)) {
+    query->insert(pair<string, string>("Desc", *request->desc));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->retainRuleShrink)) {
+    query->insert(pair<string, string>("RetainRule", *request->retainRuleShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleShrink)) {
+    query->insert(pair<string, string>("Schedule", *request->scheduleShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->specialRetainRulesShrink)) {
+    query->insert(pair<string, string>("SpecialRetainRules", *request->specialRetainRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
+    query->insert(pair<string, string>("State", *request->state));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageRuleShrink)) {
+    query->insert(pair<string, string>("StorageRule", *request->storageRuleShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateEnterpriseSnapshotPolicyShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateEnterpriseSnapshotPolicyShrinkRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
+    query->insert(pair<string, string>("TargetType", *request->targetType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateEnterpriseSnapshotPolicy"))},
+    {"version", boost::any(string("2021-07-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateEnterpriseSnapshotPolicyResponse(callApi(params, req, runtime));
+}
+
+CreateEnterpriseSnapshotPolicyResponse Alibabacloud_Ebs20210730::Client::createEnterpriseSnapshotPolicy(shared_ptr<CreateEnterpriseSnapshotPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createEnterpriseSnapshotPolicyWithOptions(request, runtime);
+}
+
 DeleteDiskReplicaGroupResponse Alibabacloud_Ebs20210730::Client::deleteDiskReplicaGroupWithOptions(shared_ptr<DeleteDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -477,6 +595,40 @@ DeleteDiskReplicaPairResponse Alibabacloud_Ebs20210730::Client::deleteDiskReplic
 DeleteDiskReplicaPairResponse Alibabacloud_Ebs20210730::Client::deleteDiskReplicaPair(shared_ptr<DeleteDiskReplicaPairRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteDiskReplicaPairWithOptions(request, runtime);
+}
+
+DeleteEnterpriseSnapshotPolicyResponse Alibabacloud_Ebs20210730::Client::deleteEnterpriseSnapshotPolicyWithOptions(shared_ptr<DeleteEnterpriseSnapshotPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyId)) {
+    query->insert(pair<string, string>("PolicyId", *request->policyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteEnterpriseSnapshotPolicy"))},
+    {"version", boost::any(string("2021-07-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteEnterpriseSnapshotPolicyResponse(callApi(params, req, runtime));
+}
+
+DeleteEnterpriseSnapshotPolicyResponse Alibabacloud_Ebs20210730::Client::deleteEnterpriseSnapshotPolicy(shared_ptr<DeleteEnterpriseSnapshotPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteEnterpriseSnapshotPolicyWithOptions(request, runtime);
 }
 
 DescribeDedicatedBlockStorageClusterDisksResponse Alibabacloud_Ebs20210730::Client::describeDedicatedBlockStorageClusterDisksWithOptions(shared_ptr<DescribeDedicatedBlockStorageClusterDisksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -855,6 +1007,58 @@ DescribeDiskReplicaPairsResponse Alibabacloud_Ebs20210730::Client::describeDiskR
   return describeDiskReplicaPairsWithOptions(request, runtime);
 }
 
+DescribeEnterpriseSnapshotPolicyResponse Alibabacloud_Ebs20210730::Client::describeEnterpriseSnapshotPolicyWithOptions(shared_ptr<DescribeEnterpriseSnapshotPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->policyIds)) {
+    query->insert(pair<string, vector<string>>("PolicyIds", *request->policyIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeEnterpriseSnapshotPolicyRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<DescribeEnterpriseSnapshotPolicyRequestTag>>("Tag", *request->tag));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeEnterpriseSnapshotPolicy"))},
+    {"version", boost::any(string("2021-07-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeEnterpriseSnapshotPolicyResponse(callApi(params, req, runtime));
+}
+
+DescribeEnterpriseSnapshotPolicyResponse Alibabacloud_Ebs20210730::Client::describeEnterpriseSnapshotPolicy(shared_ptr<DescribeEnterpriseSnapshotPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeEnterpriseSnapshotPolicyWithOptions(request, runtime);
+}
+
 DescribeLensServiceStatusResponse Alibabacloud_Ebs20210730::Client::describeLensServiceStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -874,6 +1078,49 @@ DescribeLensServiceStatusResponse Alibabacloud_Ebs20210730::Client::describeLens
 DescribeLensServiceStatusResponse Alibabacloud_Ebs20210730::Client::describeLensServiceStatus() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeLensServiceStatusWithOptions(runtime);
+}
+
+DescribeMetricDataResponse Alibabacloud_Ebs20210730::Client::describeMetricDataWithOptions(shared_ptr<DescribeMetricDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dimensions)) {
+    query->insert(pair<string, string>("Dimensions", *request->dimensions));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metricName)) {
+    query->insert(pair<string, string>("MetricName", *request->metricName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
+    query->insert(pair<string, long>("Period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeMetricData"))},
+    {"version", boost::any(string("2021-07-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeMetricDataResponse(callApi(params, req, runtime));
+}
+
+DescribeMetricDataResponse Alibabacloud_Ebs20210730::Client::describeMetricData(shared_ptr<DescribeMetricDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeMetricDataWithOptions(request, runtime);
 }
 
 DescribePairDrillsResponse Alibabacloud_Ebs20210730::Client::describePairDrillsWithOptions(shared_ptr<DescribePairDrillsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1678,6 +1925,43 @@ TagResourcesResponse Alibabacloud_Ebs20210730::Client::tagResources(shared_ptr<T
   return tagResourcesWithOptions(request, runtime);
 }
 
+UnbindEnterpriseSnapshotPolicyResponse Alibabacloud_Ebs20210730::Client::unbindEnterpriseSnapshotPolicyWithOptions(shared_ptr<UnbindEnterpriseSnapshotPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->diskTargets)) {
+    query->insert(pair<string, vector<string>>("DiskTargets", *request->diskTargets));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyId)) {
+    query->insert(pair<string, string>("PolicyId", *request->policyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UnbindEnterpriseSnapshotPolicy"))},
+    {"version", boost::any(string("2021-07-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UnbindEnterpriseSnapshotPolicyResponse(callApi(params, req, runtime));
+}
+
+UnbindEnterpriseSnapshotPolicyResponse Alibabacloud_Ebs20210730::Client::unbindEnterpriseSnapshotPolicy(shared_ptr<UnbindEnterpriseSnapshotPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return unbindEnterpriseSnapshotPolicyWithOptions(request, runtime);
+}
+
 UntagResourcesResponse Alibabacloud_Ebs20210730::Client::untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1719,5 +2003,80 @@ UntagResourcesResponse Alibabacloud_Ebs20210730::Client::untagResourcesWithOptio
 UntagResourcesResponse Alibabacloud_Ebs20210730::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return untagResourcesWithOptions(request, runtime);
+}
+
+UpdateEnterpriseSnapshotPolicyResponse Alibabacloud_Ebs20210730::Client::updateEnterpriseSnapshotPolicyWithOptions(shared_ptr<UpdateEnterpriseSnapshotPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateEnterpriseSnapshotPolicyShrinkRequest> request = make_shared<UpdateEnterpriseSnapshotPolicyShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo>(tmpReq->crossRegionCopyInfo)) {
+    request->crossRegionCopyInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->crossRegionCopyInfo, make_shared<string>("CrossRegionCopyInfo"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateEnterpriseSnapshotPolicyRequestRetainRule>(tmpReq->retainRule)) {
+    request->retainRuleShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->retainRule, make_shared<string>("RetainRule"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateEnterpriseSnapshotPolicyRequestSchedule>(tmpReq->schedule)) {
+    request->scheduleShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->schedule, make_shared<string>("Schedule"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRules>(tmpReq->specialRetainRules)) {
+    request->specialRetainRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->specialRetainRules, make_shared<string>("SpecialRetainRules"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateEnterpriseSnapshotPolicyRequestStorageRule>(tmpReq->storageRule)) {
+    request->storageRuleShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->storageRule, make_shared<string>("StorageRule"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->crossRegionCopyInfoShrink)) {
+    query->insert(pair<string, string>("CrossRegionCopyInfo", *request->crossRegionCopyInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->desc)) {
+    query->insert(pair<string, string>("Desc", *request->desc));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyId)) {
+    query->insert(pair<string, string>("PolicyId", *request->policyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->retainRuleShrink)) {
+    query->insert(pair<string, string>("RetainRule", *request->retainRuleShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleShrink)) {
+    query->insert(pair<string, string>("Schedule", *request->scheduleShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->specialRetainRulesShrink)) {
+    query->insert(pair<string, string>("SpecialRetainRules", *request->specialRetainRulesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
+    query->insert(pair<string, string>("State", *request->state));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageRuleShrink)) {
+    query->insert(pair<string, string>("StorageRule", *request->storageRuleShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateEnterpriseSnapshotPolicy"))},
+    {"version", boost::any(string("2021-07-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateEnterpriseSnapshotPolicyResponse(callApi(params, req, runtime));
+}
+
+UpdateEnterpriseSnapshotPolicyResponse Alibabacloud_Ebs20210730::Client::updateEnterpriseSnapshotPolicy(shared_ptr<UpdateEnterpriseSnapshotPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateEnterpriseSnapshotPolicyWithOptions(request, runtime);
 }
 
