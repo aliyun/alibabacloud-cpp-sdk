@@ -123,6 +123,12 @@ CreateInstanceResponse Alibabacloud_OceanBasePro20190901::Client::createInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
     body->insert(pair<string, string>("PeriodUnit", *request->periodUnit));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->primaryInstance)) {
+    body->insert(pair<string, string>("PrimaryInstance", *request->primaryInstance));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->primaryRegion)) {
+    body->insert(pair<string, string>("PrimaryRegion", *request->primaryRegion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->replicaMode)) {
     body->insert(pair<string, string>("ReplicaMode", *request->replicaMode));
   }
@@ -1619,8 +1625,13 @@ DescribeMetricsDataResponse Alibabacloud_OceanBasePro20190901::Client::describeM
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->replicaType)) {
+    body->insert(pair<string, string>("ReplicaType", *request->replicaType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeMetricsData"))},
@@ -3692,6 +3703,9 @@ ModifyInstanceSpecResponse Alibabacloud_OceanBasePro20190901::Client::modifyInst
   if (!Darabonba_Util::Client::isUnset<long>(request->diskSize)) {
     body->insert(pair<string, long>("DiskSize", *request->diskSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->diskType)) {
+    body->insert(pair<string, string>("DiskType", *request->diskType));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     body->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
@@ -3757,6 +3771,9 @@ ModifyInstanceTagsResponse Alibabacloud_OceanBasePro20190901::Client::modifyInst
 ModifyInstanceTemporaryCapacityResponse Alibabacloud_OceanBasePro20190901::Client::modifyInstanceTemporaryCapacityWithOptions(shared_ptr<ModifyInstanceTemporaryCapacityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    body->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->diskSize)) {
     body->insert(pair<string, string>("DiskSize", *request->diskSize));
   }
@@ -3908,11 +3925,17 @@ ModifyTenantPrimaryZoneResponse Alibabacloud_OceanBasePro20190901::Client::modif
   if (!Darabonba_Util::Client::isUnset<string>(request->primaryZone)) {
     body->insert(pair<string, string>("PrimaryZone", *request->primaryZone));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantEndpointDirectId)) {
+    body->insert(pair<string, string>("TenantEndpointDirectId", *request->tenantEndpointDirectId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tenantEndpointId)) {
     body->insert(pair<string, string>("TenantEndpointId", *request->tenantEndpointId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tenantId)) {
     body->insert(pair<string, string>("TenantId", *request->tenantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userDirectVSwitchId)) {
+    body->insert(pair<string, string>("UserDirectVSwitchId", *request->userDirectVSwitchId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userVSwitchId)) {
     body->insert(pair<string, string>("UserVSwitchId", *request->userVSwitchId));

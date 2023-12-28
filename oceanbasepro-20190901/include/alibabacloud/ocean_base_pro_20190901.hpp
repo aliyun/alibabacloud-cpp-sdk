@@ -594,6 +594,8 @@ public:
   shared_ptr<string> obVersion{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
+  shared_ptr<string> primaryInstance{};
+  shared_ptr<string> primaryRegion{};
   shared_ptr<string> replicaMode{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> series{};
@@ -644,6 +646,12 @@ public:
     }
     if (periodUnit) {
       res["PeriodUnit"] = boost::any(*periodUnit);
+    }
+    if (primaryInstance) {
+      res["PrimaryInstance"] = boost::any(*primaryInstance);
+    }
+    if (primaryRegion) {
+      res["PrimaryRegion"] = boost::any(*primaryRegion);
     }
     if (replicaMode) {
       res["ReplicaMode"] = boost::any(*replicaMode);
@@ -696,6 +704,12 @@ public:
     }
     if (m.find("PeriodUnit") != m.end() && !m["PeriodUnit"].empty()) {
       periodUnit = make_shared<string>(boost::any_cast<string>(m["PeriodUnit"]));
+    }
+    if (m.find("PrimaryInstance") != m.end() && !m["PrimaryInstance"].empty()) {
+      primaryInstance = make_shared<string>(boost::any_cast<string>(m["PrimaryInstance"]));
+    }
+    if (m.find("PrimaryRegion") != m.end() && !m["PrimaryRegion"].empty()) {
+      primaryRegion = make_shared<string>(boost::any_cast<string>(m["PrimaryRegion"]));
     }
     if (m.find("ReplicaMode") != m.end() && !m["ReplicaMode"].empty()) {
       replicaMode = make_shared<string>(boost::any_cast<string>(m["ReplicaMode"]));
@@ -6711,7 +6725,7 @@ public:
 class CreateTenantUserResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<vector<CreateTenantUserResponseBodyTenantUser>> tenantUser{};
+  shared_ptr<CreateTenantUserResponseBodyTenantUser> tenantUser{};
 
   CreateTenantUserResponseBody() {}
 
@@ -6727,11 +6741,7 @@ public:
       res["RequestId"] = boost::any(*requestId);
     }
     if (tenantUser) {
-      vector<boost::any> temp1;
-      for(auto item1:*tenantUser){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["TenantUser"] = boost::any(temp1);
+      res["TenantUser"] = tenantUser ? boost::any(tenantUser->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -6741,16 +6751,10 @@ public:
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("TenantUser") != m.end() && !m["TenantUser"].empty()) {
-      if (typeid(vector<boost::any>) == m["TenantUser"].type()) {
-        vector<CreateTenantUserResponseBodyTenantUser> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["TenantUser"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            CreateTenantUserResponseBodyTenantUser model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        tenantUser = make_shared<vector<CreateTenantUserResponseBodyTenantUser>>(expect1);
+      if (typeid(map<string, boost::any>) == m["TenantUser"].type()) {
+        CreateTenantUserResponseBodyTenantUser model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantUser"]));
+        tenantUser = make_shared<CreateTenantUserResponseBodyTenantUser>(model1);
       }
     }
   }
@@ -9401,6 +9405,7 @@ public:
 class DescribeAvailableSpecResponseBodyDataAvailableSpecifications : public Darabonba::Model {
 public:
   shared_ptr<DescribeAvailableSpecResponseBodyDataAvailableSpecificationsDiskSizeRange> diskSizeRange{};
+  shared_ptr<vector<string>> diskTypes{};
   shared_ptr<string> instanceClass{};
   shared_ptr<DescribeAvailableSpecResponseBodyDataAvailableSpecificationsLogDiskSizeRange> logDiskSizeRange{};
   shared_ptr<vector<long>> nodeNum{};
@@ -9418,6 +9423,9 @@ public:
     map<string, boost::any> res;
     if (diskSizeRange) {
       res["DiskSizeRange"] = diskSizeRange ? boost::any(diskSizeRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (diskTypes) {
+      res["DiskTypes"] = boost::any(*diskTypes);
     }
     if (instanceClass) {
       res["InstanceClass"] = boost::any(*instanceClass);
@@ -9441,6 +9449,16 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DiskSizeRange"]));
         diskSizeRange = make_shared<DescribeAvailableSpecResponseBodyDataAvailableSpecificationsDiskSizeRange>(model1);
       }
+    }
+    if (m.find("DiskTypes") != m.end() && !m["DiskTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DiskTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DiskTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      diskTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("InstanceClass") != m.end() && !m["InstanceClass"].empty()) {
       instanceClass = make_shared<string>(boost::any_cast<string>(m["InstanceClass"]));
@@ -10799,6 +10817,382 @@ public:
 
   virtual ~DescribeInstanceResponseBodyInstanceDataDiskAutoScaleConfig() = default;
 };
+class DescribeInstanceResponseBodyInstanceReadOnlyResourceCapacityUnit : public Darabonba::Model {
+public:
+  shared_ptr<long> maxCapacityUnit{};
+  shared_ptr<long> minCapacityUnit{};
+  shared_ptr<string> usedCapacityUnit{};
+
+  DescribeInstanceResponseBodyInstanceReadOnlyResourceCapacityUnit() {}
+
+  explicit DescribeInstanceResponseBodyInstanceReadOnlyResourceCapacityUnit(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxCapacityUnit) {
+      res["MaxCapacityUnit"] = boost::any(*maxCapacityUnit);
+    }
+    if (minCapacityUnit) {
+      res["MinCapacityUnit"] = boost::any(*minCapacityUnit);
+    }
+    if (usedCapacityUnit) {
+      res["UsedCapacityUnit"] = boost::any(*usedCapacityUnit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxCapacityUnit") != m.end() && !m["MaxCapacityUnit"].empty()) {
+      maxCapacityUnit = make_shared<long>(boost::any_cast<long>(m["MaxCapacityUnit"]));
+    }
+    if (m.find("MinCapacityUnit") != m.end() && !m["MinCapacityUnit"].empty()) {
+      minCapacityUnit = make_shared<long>(boost::any_cast<long>(m["MinCapacityUnit"]));
+    }
+    if (m.find("UsedCapacityUnit") != m.end() && !m["UsedCapacityUnit"].empty()) {
+      usedCapacityUnit = make_shared<string>(boost::any_cast<string>(m["UsedCapacityUnit"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceResponseBodyInstanceReadOnlyResourceCapacityUnit() = default;
+};
+class DescribeInstanceResponseBodyInstanceReadOnlyResourceCpu : public Darabonba::Model {
+public:
+  shared_ptr<long> originalTotalCpu{};
+  shared_ptr<long> totalCpu{};
+  shared_ptr<long> unitCpu{};
+  shared_ptr<long> usedCpu{};
+
+  DescribeInstanceResponseBodyInstanceReadOnlyResourceCpu() {}
+
+  explicit DescribeInstanceResponseBodyInstanceReadOnlyResourceCpu(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (originalTotalCpu) {
+      res["OriginalTotalCpu"] = boost::any(*originalTotalCpu);
+    }
+    if (totalCpu) {
+      res["TotalCpu"] = boost::any(*totalCpu);
+    }
+    if (unitCpu) {
+      res["UnitCpu"] = boost::any(*unitCpu);
+    }
+    if (usedCpu) {
+      res["UsedCpu"] = boost::any(*usedCpu);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OriginalTotalCpu") != m.end() && !m["OriginalTotalCpu"].empty()) {
+      originalTotalCpu = make_shared<long>(boost::any_cast<long>(m["OriginalTotalCpu"]));
+    }
+    if (m.find("TotalCpu") != m.end() && !m["TotalCpu"].empty()) {
+      totalCpu = make_shared<long>(boost::any_cast<long>(m["TotalCpu"]));
+    }
+    if (m.find("UnitCpu") != m.end() && !m["UnitCpu"].empty()) {
+      unitCpu = make_shared<long>(boost::any_cast<long>(m["UnitCpu"]));
+    }
+    if (m.find("UsedCpu") != m.end() && !m["UsedCpu"].empty()) {
+      usedCpu = make_shared<long>(boost::any_cast<long>(m["UsedCpu"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceResponseBodyInstanceReadOnlyResourceCpu() = default;
+};
+class DescribeInstanceResponseBodyInstanceReadOnlyResourceDiskSize : public Darabonba::Model {
+public:
+  shared_ptr<double> dataUsedSize{};
+  shared_ptr<double> maxDiskSize{};
+  shared_ptr<vector<string>> maxDiskUsedObServer{};
+  shared_ptr<double> maxDiskUsedPercent{};
+  shared_ptr<long> originalTotalDiskSize{};
+  shared_ptr<long> totalDiskSize{};
+  shared_ptr<long> unitDiskSize{};
+  shared_ptr<long> usedDiskSize{};
+
+  DescribeInstanceResponseBodyInstanceReadOnlyResourceDiskSize() {}
+
+  explicit DescribeInstanceResponseBodyInstanceReadOnlyResourceDiskSize(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataUsedSize) {
+      res["DataUsedSize"] = boost::any(*dataUsedSize);
+    }
+    if (maxDiskSize) {
+      res["MaxDiskSize"] = boost::any(*maxDiskSize);
+    }
+    if (maxDiskUsedObServer) {
+      res["MaxDiskUsedObServer"] = boost::any(*maxDiskUsedObServer);
+    }
+    if (maxDiskUsedPercent) {
+      res["MaxDiskUsedPercent"] = boost::any(*maxDiskUsedPercent);
+    }
+    if (originalTotalDiskSize) {
+      res["OriginalTotalDiskSize"] = boost::any(*originalTotalDiskSize);
+    }
+    if (totalDiskSize) {
+      res["TotalDiskSize"] = boost::any(*totalDiskSize);
+    }
+    if (unitDiskSize) {
+      res["UnitDiskSize"] = boost::any(*unitDiskSize);
+    }
+    if (usedDiskSize) {
+      res["UsedDiskSize"] = boost::any(*usedDiskSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataUsedSize") != m.end() && !m["DataUsedSize"].empty()) {
+      dataUsedSize = make_shared<double>(boost::any_cast<double>(m["DataUsedSize"]));
+    }
+    if (m.find("MaxDiskSize") != m.end() && !m["MaxDiskSize"].empty()) {
+      maxDiskSize = make_shared<double>(boost::any_cast<double>(m["MaxDiskSize"]));
+    }
+    if (m.find("MaxDiskUsedObServer") != m.end() && !m["MaxDiskUsedObServer"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxDiskUsedObServer"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxDiskUsedObServer"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      maxDiskUsedObServer = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxDiskUsedPercent") != m.end() && !m["MaxDiskUsedPercent"].empty()) {
+      maxDiskUsedPercent = make_shared<double>(boost::any_cast<double>(m["MaxDiskUsedPercent"]));
+    }
+    if (m.find("OriginalTotalDiskSize") != m.end() && !m["OriginalTotalDiskSize"].empty()) {
+      originalTotalDiskSize = make_shared<long>(boost::any_cast<long>(m["OriginalTotalDiskSize"]));
+    }
+    if (m.find("TotalDiskSize") != m.end() && !m["TotalDiskSize"].empty()) {
+      totalDiskSize = make_shared<long>(boost::any_cast<long>(m["TotalDiskSize"]));
+    }
+    if (m.find("UnitDiskSize") != m.end() && !m["UnitDiskSize"].empty()) {
+      unitDiskSize = make_shared<long>(boost::any_cast<long>(m["UnitDiskSize"]));
+    }
+    if (m.find("UsedDiskSize") != m.end() && !m["UsedDiskSize"].empty()) {
+      usedDiskSize = make_shared<long>(boost::any_cast<long>(m["UsedDiskSize"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceResponseBodyInstanceReadOnlyResourceDiskSize() = default;
+};
+class DescribeInstanceResponseBodyInstanceReadOnlyResourceLogDiskSize : public Darabonba::Model {
+public:
+  shared_ptr<string> logAssignedSize{};
+  shared_ptr<vector<string>> maxLogAssignedObServer{};
+  shared_ptr<string> maxLogAssignedPercent{};
+  shared_ptr<long> totalDiskSize{};
+  shared_ptr<long> unitDiskSize{};
+
+  DescribeInstanceResponseBodyInstanceReadOnlyResourceLogDiskSize() {}
+
+  explicit DescribeInstanceResponseBodyInstanceReadOnlyResourceLogDiskSize(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logAssignedSize) {
+      res["LogAssignedSize"] = boost::any(*logAssignedSize);
+    }
+    if (maxLogAssignedObServer) {
+      res["MaxLogAssignedObServer"] = boost::any(*maxLogAssignedObServer);
+    }
+    if (maxLogAssignedPercent) {
+      res["MaxLogAssignedPercent"] = boost::any(*maxLogAssignedPercent);
+    }
+    if (totalDiskSize) {
+      res["TotalDiskSize"] = boost::any(*totalDiskSize);
+    }
+    if (unitDiskSize) {
+      res["UnitDiskSize"] = boost::any(*unitDiskSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogAssignedSize") != m.end() && !m["LogAssignedSize"].empty()) {
+      logAssignedSize = make_shared<string>(boost::any_cast<string>(m["LogAssignedSize"]));
+    }
+    if (m.find("MaxLogAssignedObServer") != m.end() && !m["MaxLogAssignedObServer"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MaxLogAssignedObServer"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaxLogAssignedObServer"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      maxLogAssignedObServer = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxLogAssignedPercent") != m.end() && !m["MaxLogAssignedPercent"].empty()) {
+      maxLogAssignedPercent = make_shared<string>(boost::any_cast<string>(m["MaxLogAssignedPercent"]));
+    }
+    if (m.find("TotalDiskSize") != m.end() && !m["TotalDiskSize"].empty()) {
+      totalDiskSize = make_shared<long>(boost::any_cast<long>(m["TotalDiskSize"]));
+    }
+    if (m.find("UnitDiskSize") != m.end() && !m["UnitDiskSize"].empty()) {
+      unitDiskSize = make_shared<long>(boost::any_cast<long>(m["UnitDiskSize"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceResponseBodyInstanceReadOnlyResourceLogDiskSize() = default;
+};
+class DescribeInstanceResponseBodyInstanceReadOnlyResourceMemory : public Darabonba::Model {
+public:
+  shared_ptr<long> originalTotalMemory{};
+  shared_ptr<long> totalMemory{};
+  shared_ptr<long> unitMemory{};
+  shared_ptr<long> usedMemory{};
+
+  DescribeInstanceResponseBodyInstanceReadOnlyResourceMemory() {}
+
+  explicit DescribeInstanceResponseBodyInstanceReadOnlyResourceMemory(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (originalTotalMemory) {
+      res["OriginalTotalMemory"] = boost::any(*originalTotalMemory);
+    }
+    if (totalMemory) {
+      res["TotalMemory"] = boost::any(*totalMemory);
+    }
+    if (unitMemory) {
+      res["UnitMemory"] = boost::any(*unitMemory);
+    }
+    if (usedMemory) {
+      res["UsedMemory"] = boost::any(*usedMemory);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OriginalTotalMemory") != m.end() && !m["OriginalTotalMemory"].empty()) {
+      originalTotalMemory = make_shared<long>(boost::any_cast<long>(m["OriginalTotalMemory"]));
+    }
+    if (m.find("TotalMemory") != m.end() && !m["TotalMemory"].empty()) {
+      totalMemory = make_shared<long>(boost::any_cast<long>(m["TotalMemory"]));
+    }
+    if (m.find("UnitMemory") != m.end() && !m["UnitMemory"].empty()) {
+      unitMemory = make_shared<long>(boost::any_cast<long>(m["UnitMemory"]));
+    }
+    if (m.find("UsedMemory") != m.end() && !m["UsedMemory"].empty()) {
+      usedMemory = make_shared<long>(boost::any_cast<long>(m["UsedMemory"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceResponseBodyInstanceReadOnlyResourceMemory() = default;
+};
+class DescribeInstanceResponseBodyInstanceReadOnlyResource : public Darabonba::Model {
+public:
+  shared_ptr<DescribeInstanceResponseBodyInstanceReadOnlyResourceCapacityUnit> capacityUnit{};
+  shared_ptr<DescribeInstanceResponseBodyInstanceReadOnlyResourceCpu> cpu{};
+  shared_ptr<DescribeInstanceResponseBodyInstanceReadOnlyResourceDiskSize> diskSize{};
+  shared_ptr<DescribeInstanceResponseBodyInstanceReadOnlyResourceLogDiskSize> logDiskSize{};
+  shared_ptr<DescribeInstanceResponseBodyInstanceReadOnlyResourceMemory> memory{};
+  shared_ptr<long> unitCount{};
+
+  DescribeInstanceResponseBodyInstanceReadOnlyResource() {}
+
+  explicit DescribeInstanceResponseBodyInstanceReadOnlyResource(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (capacityUnit) {
+      res["CapacityUnit"] = capacityUnit ? boost::any(capacityUnit->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (cpu) {
+      res["Cpu"] = cpu ? boost::any(cpu->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (diskSize) {
+      res["DiskSize"] = diskSize ? boost::any(diskSize->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (logDiskSize) {
+      res["LogDiskSize"] = logDiskSize ? boost::any(logDiskSize->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (memory) {
+      res["Memory"] = memory ? boost::any(memory->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (unitCount) {
+      res["UnitCount"] = boost::any(*unitCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CapacityUnit") != m.end() && !m["CapacityUnit"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CapacityUnit"].type()) {
+        DescribeInstanceResponseBodyInstanceReadOnlyResourceCapacityUnit model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CapacityUnit"]));
+        capacityUnit = make_shared<DescribeInstanceResponseBodyInstanceReadOnlyResourceCapacityUnit>(model1);
+      }
+    }
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Cpu"].type()) {
+        DescribeInstanceResponseBodyInstanceReadOnlyResourceCpu model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Cpu"]));
+        cpu = make_shared<DescribeInstanceResponseBodyInstanceReadOnlyResourceCpu>(model1);
+      }
+    }
+    if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DiskSize"].type()) {
+        DescribeInstanceResponseBodyInstanceReadOnlyResourceDiskSize model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DiskSize"]));
+        diskSize = make_shared<DescribeInstanceResponseBodyInstanceReadOnlyResourceDiskSize>(model1);
+      }
+    }
+    if (m.find("LogDiskSize") != m.end() && !m["LogDiskSize"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LogDiskSize"].type()) {
+        DescribeInstanceResponseBodyInstanceReadOnlyResourceLogDiskSize model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LogDiskSize"]));
+        logDiskSize = make_shared<DescribeInstanceResponseBodyInstanceReadOnlyResourceLogDiskSize>(model1);
+      }
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Memory"].type()) {
+        DescribeInstanceResponseBodyInstanceReadOnlyResourceMemory model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Memory"]));
+        memory = make_shared<DescribeInstanceResponseBodyInstanceReadOnlyResourceMemory>(model1);
+      }
+    }
+    if (m.find("UnitCount") != m.end() && !m["UnitCount"].empty()) {
+      unitCount = make_shared<long>(boost::any_cast<long>(m["UnitCount"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceResponseBodyInstanceReadOnlyResource() = default;
+};
 class DescribeInstanceResponseBodyInstanceResourceCapacityUnit : public Darabonba::Model {
 public:
   shared_ptr<long> maxCapacityUnit{};
@@ -10982,6 +11376,7 @@ public:
   shared_ptr<string> logAssignedSize{};
   shared_ptr<vector<string>> maxLogAssignedObServer{};
   shared_ptr<string> maxLogAssignedPercent{};
+  shared_ptr<long> originalTotalDiskSize{};
   shared_ptr<long> totalDiskSize{};
   shared_ptr<long> unitDiskSize{};
 
@@ -11003,6 +11398,9 @@ public:
     }
     if (maxLogAssignedPercent) {
       res["MaxLogAssignedPercent"] = boost::any(*maxLogAssignedPercent);
+    }
+    if (originalTotalDiskSize) {
+      res["OriginalTotalDiskSize"] = boost::any(*originalTotalDiskSize);
     }
     if (totalDiskSize) {
       res["TotalDiskSize"] = boost::any(*totalDiskSize);
@@ -11029,6 +11427,9 @@ public:
     }
     if (m.find("MaxLogAssignedPercent") != m.end() && !m["MaxLogAssignedPercent"].empty()) {
       maxLogAssignedPercent = make_shared<string>(boost::any_cast<string>(m["MaxLogAssignedPercent"]));
+    }
+    if (m.find("OriginalTotalDiskSize") != m.end() && !m["OriginalTotalDiskSize"].empty()) {
+      originalTotalDiskSize = make_shared<long>(boost::any_cast<long>(m["OriginalTotalDiskSize"]));
     }
     if (m.find("TotalDiskSize") != m.end() && !m["TotalDiskSize"].empty()) {
       totalDiskSize = make_shared<long>(boost::any_cast<long>(m["TotalDiskSize"]));
@@ -11242,6 +11643,7 @@ public:
   shared_ptr<string> payType{};
   shared_ptr<string> proxyClusterId{};
   shared_ptr<string> proxyServiceStatus{};
+  shared_ptr<DescribeInstanceResponseBodyInstanceReadOnlyResource> readOnlyResource{};
   shared_ptr<string> replicaMode{};
   shared_ptr<DescribeInstanceResponseBodyInstanceResource> resource{};
   shared_ptr<string> series{};
@@ -11346,6 +11748,9 @@ public:
     }
     if (proxyServiceStatus) {
       res["ProxyServiceStatus"] = boost::any(*proxyServiceStatus);
+    }
+    if (readOnlyResource) {
+      res["ReadOnlyResource"] = readOnlyResource ? boost::any(readOnlyResource->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (replicaMode) {
       res["ReplicaMode"] = boost::any(*replicaMode);
@@ -11469,6 +11874,13 @@ public:
     }
     if (m.find("ProxyServiceStatus") != m.end() && !m["ProxyServiceStatus"].empty()) {
       proxyServiceStatus = make_shared<string>(boost::any_cast<string>(m["ProxyServiceStatus"]));
+    }
+    if (m.find("ReadOnlyResource") != m.end() && !m["ReadOnlyResource"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ReadOnlyResource"].type()) {
+        DescribeInstanceResponseBodyInstanceReadOnlyResource model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ReadOnlyResource"]));
+        readOnlyResource = make_shared<DescribeInstanceResponseBodyInstanceReadOnlyResource>(model1);
+      }
     }
     if (m.find("ReplicaMode") != m.end() && !m["ReplicaMode"].empty()) {
       replicaMode = make_shared<string>(boost::any_cast<string>(m["ReplicaMode"]));
@@ -12625,6 +13037,7 @@ public:
   shared_ptr<bool> enableMigrateUnit{};
   shared_ptr<bool> manualMigrate{};
   shared_ptr<string> nodeId{};
+  shared_ptr<string> replicaType{};
   shared_ptr<double> unitCpu{};
   shared_ptr<long> unitDataSize{};
   shared_ptr<string> unitId{};
@@ -12652,6 +13065,9 @@ public:
     }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
+    }
+    if (replicaType) {
+      res["ReplicaType"] = boost::any(*replicaType);
     }
     if (unitCpu) {
       res["UnitCpu"] = boost::any(*unitCpu);
@@ -12683,6 +13099,9 @@ public:
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+    if (m.find("ReplicaType") != m.end() && !m["ReplicaType"].empty()) {
+      replicaType = make_shared<string>(boost::any_cast<string>(m["ReplicaType"]));
     }
     if (m.find("UnitCpu") != m.end() && !m["UnitCpu"].empty()) {
       unitCpu = make_shared<double>(boost::any_cast<double>(m["UnitCpu"]));
@@ -13039,10 +13458,13 @@ public:
 };
 class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodes : public Darabonba::Model {
 public:
+  shared_ptr<long> fullCopyId{};
   shared_ptr<long> nodeCopyId{};
   shared_ptr<string> nodeId{};
   shared_ptr<vector<DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource>> nodeResource{};
   shared_ptr<string> nodeStatus{};
+  shared_ptr<long> readOnlyCopyId{};
+  shared_ptr<string> replicaType{};
 
   DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodes() {}
 
@@ -13054,6 +13476,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (fullCopyId) {
+      res["FullCopyId"] = boost::any(*fullCopyId);
+    }
     if (nodeCopyId) {
       res["NodeCopyId"] = boost::any(*nodeCopyId);
     }
@@ -13070,10 +13495,19 @@ public:
     if (nodeStatus) {
       res["NodeStatus"] = boost::any(*nodeStatus);
     }
+    if (readOnlyCopyId) {
+      res["ReadOnlyCopyId"] = boost::any(*readOnlyCopyId);
+    }
+    if (replicaType) {
+      res["ReplicaType"] = boost::any(*replicaType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FullCopyId") != m.end() && !m["FullCopyId"].empty()) {
+      fullCopyId = make_shared<long>(boost::any_cast<long>(m["FullCopyId"]));
+    }
     if (m.find("NodeCopyId") != m.end() && !m["NodeCopyId"].empty()) {
       nodeCopyId = make_shared<long>(boost::any_cast<long>(m["NodeCopyId"]));
     }
@@ -13095,6 +13529,12 @@ public:
     }
     if (m.find("NodeStatus") != m.end() && !m["NodeStatus"].empty()) {
       nodeStatus = make_shared<string>(boost::any_cast<string>(m["NodeStatus"]));
+    }
+    if (m.find("ReadOnlyCopyId") != m.end() && !m["ReadOnlyCopyId"].empty()) {
+      readOnlyCopyId = make_shared<long>(boost::any_cast<long>(m["ReadOnlyCopyId"]));
+    }
+    if (m.find("ReplicaType") != m.end() && !m["ReplicaType"].empty()) {
+      replicaType = make_shared<string>(boost::any_cast<string>(m["ReplicaType"]));
     }
   }
 
@@ -14186,6 +14626,7 @@ public:
   shared_ptr<string> labels{};
   shared_ptr<string> limit{};
   shared_ptr<string> metrics{};
+  shared_ptr<string> replicaType{};
   shared_ptr<string> sortMetricKey{};
   shared_ptr<string> sortOrder{};
   shared_ptr<string> startTime{};
@@ -14218,6 +14659,9 @@ public:
     if (metrics) {
       res["Metrics"] = boost::any(*metrics);
     }
+    if (replicaType) {
+      res["ReplicaType"] = boost::any(*replicaType);
+    }
     if (sortMetricKey) {
       res["SortMetricKey"] = boost::any(*sortMetricKey);
     }
@@ -14248,6 +14692,9 @@ public:
     }
     if (m.find("Metrics") != m.end() && !m["Metrics"].empty()) {
       metrics = make_shared<string>(boost::any_cast<string>(m["Metrics"]));
+    }
+    if (m.find("ReplicaType") != m.end() && !m["ReplicaType"].empty()) {
+      replicaType = make_shared<string>(boost::any_cast<string>(m["ReplicaType"]));
     }
     if (m.find("SortMetricKey") != m.end() && !m["SortMetricKey"].empty()) {
       sortMetricKey = make_shared<string>(boost::any_cast<string>(m["SortMetricKey"]));
@@ -32875,9 +33322,288 @@ public:
 
   virtual ~DescribeTenantRequest() = default;
 };
+class DescribeTenantResponseBodyTenantReadOnlyResourceCapacityUnit : public Darabonba::Model {
+public:
+  shared_ptr<long> maxCapacityUnit{};
+  shared_ptr<long> minCapacityUnit{};
+  shared_ptr<long> usedCapacit{};
+
+  DescribeTenantResponseBodyTenantReadOnlyResourceCapacityUnit() {}
+
+  explicit DescribeTenantResponseBodyTenantReadOnlyResourceCapacityUnit(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxCapacityUnit) {
+      res["MaxCapacityUnit"] = boost::any(*maxCapacityUnit);
+    }
+    if (minCapacityUnit) {
+      res["MinCapacityUnit"] = boost::any(*minCapacityUnit);
+    }
+    if (usedCapacit) {
+      res["UsedCapacit"] = boost::any(*usedCapacit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxCapacityUnit") != m.end() && !m["MaxCapacityUnit"].empty()) {
+      maxCapacityUnit = make_shared<long>(boost::any_cast<long>(m["MaxCapacityUnit"]));
+    }
+    if (m.find("MinCapacityUnit") != m.end() && !m["MinCapacityUnit"].empty()) {
+      minCapacityUnit = make_shared<long>(boost::any_cast<long>(m["MinCapacityUnit"]));
+    }
+    if (m.find("UsedCapacit") != m.end() && !m["UsedCapacit"].empty()) {
+      usedCapacit = make_shared<long>(boost::any_cast<long>(m["UsedCapacit"]));
+    }
+  }
+
+
+  virtual ~DescribeTenantResponseBodyTenantReadOnlyResourceCapacityUnit() = default;
+};
+class DescribeTenantResponseBodyTenantReadOnlyResourceCpu : public Darabonba::Model {
+public:
+  shared_ptr<double> totalCpu{};
+  shared_ptr<double> unitCpu{};
+  shared_ptr<double> usedCpu{};
+
+  DescribeTenantResponseBodyTenantReadOnlyResourceCpu() {}
+
+  explicit DescribeTenantResponseBodyTenantReadOnlyResourceCpu(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (totalCpu) {
+      res["TotalCpu"] = boost::any(*totalCpu);
+    }
+    if (unitCpu) {
+      res["UnitCpu"] = boost::any(*unitCpu);
+    }
+    if (usedCpu) {
+      res["UsedCpu"] = boost::any(*usedCpu);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TotalCpu") != m.end() && !m["TotalCpu"].empty()) {
+      totalCpu = make_shared<double>(boost::any_cast<double>(m["TotalCpu"]));
+    }
+    if (m.find("UnitCpu") != m.end() && !m["UnitCpu"].empty()) {
+      unitCpu = make_shared<double>(boost::any_cast<double>(m["UnitCpu"]));
+    }
+    if (m.find("UsedCpu") != m.end() && !m["UsedCpu"].empty()) {
+      usedCpu = make_shared<double>(boost::any_cast<double>(m["UsedCpu"]));
+    }
+  }
+
+
+  virtual ~DescribeTenantResponseBodyTenantReadOnlyResourceCpu() = default;
+};
+class DescribeTenantResponseBodyTenantReadOnlyResourceDiskSize : public Darabonba::Model {
+public:
+  shared_ptr<double> usedDiskSize{};
+
+  DescribeTenantResponseBodyTenantReadOnlyResourceDiskSize() {}
+
+  explicit DescribeTenantResponseBodyTenantReadOnlyResourceDiskSize(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (usedDiskSize) {
+      res["UsedDiskSize"] = boost::any(*usedDiskSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UsedDiskSize") != m.end() && !m["UsedDiskSize"].empty()) {
+      usedDiskSize = make_shared<double>(boost::any_cast<double>(m["UsedDiskSize"]));
+    }
+  }
+
+
+  virtual ~DescribeTenantResponseBodyTenantReadOnlyResourceDiskSize() = default;
+};
+class DescribeTenantResponseBodyTenantReadOnlyResourceLogDiskSize : public Darabonba::Model {
+public:
+  shared_ptr<long> totalLogDisk{};
+  shared_ptr<long> unitLogDisk{};
+
+  DescribeTenantResponseBodyTenantReadOnlyResourceLogDiskSize() {}
+
+  explicit DescribeTenantResponseBodyTenantReadOnlyResourceLogDiskSize(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (totalLogDisk) {
+      res["TotalLogDisk"] = boost::any(*totalLogDisk);
+    }
+    if (unitLogDisk) {
+      res["UnitLogDisk"] = boost::any(*unitLogDisk);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TotalLogDisk") != m.end() && !m["TotalLogDisk"].empty()) {
+      totalLogDisk = make_shared<long>(boost::any_cast<long>(m["TotalLogDisk"]));
+    }
+    if (m.find("UnitLogDisk") != m.end() && !m["UnitLogDisk"].empty()) {
+      unitLogDisk = make_shared<long>(boost::any_cast<long>(m["UnitLogDisk"]));
+    }
+  }
+
+
+  virtual ~DescribeTenantResponseBodyTenantReadOnlyResourceLogDiskSize() = default;
+};
+class DescribeTenantResponseBodyTenantReadOnlyResourceMemory : public Darabonba::Model {
+public:
+  shared_ptr<double> totalMemory{};
+  shared_ptr<double> unitMemory{};
+  shared_ptr<double> usedMemory{};
+
+  DescribeTenantResponseBodyTenantReadOnlyResourceMemory() {}
+
+  explicit DescribeTenantResponseBodyTenantReadOnlyResourceMemory(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (totalMemory) {
+      res["TotalMemory"] = boost::any(*totalMemory);
+    }
+    if (unitMemory) {
+      res["UnitMemory"] = boost::any(*unitMemory);
+    }
+    if (usedMemory) {
+      res["UsedMemory"] = boost::any(*usedMemory);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TotalMemory") != m.end() && !m["TotalMemory"].empty()) {
+      totalMemory = make_shared<double>(boost::any_cast<double>(m["TotalMemory"]));
+    }
+    if (m.find("UnitMemory") != m.end() && !m["UnitMemory"].empty()) {
+      unitMemory = make_shared<double>(boost::any_cast<double>(m["UnitMemory"]));
+    }
+    if (m.find("UsedMemory") != m.end() && !m["UsedMemory"].empty()) {
+      usedMemory = make_shared<double>(boost::any_cast<double>(m["UsedMemory"]));
+    }
+  }
+
+
+  virtual ~DescribeTenantResponseBodyTenantReadOnlyResourceMemory() = default;
+};
+class DescribeTenantResponseBodyTenantReadOnlyResource : public Darabonba::Model {
+public:
+  shared_ptr<DescribeTenantResponseBodyTenantReadOnlyResourceCapacityUnit> capacityUnit{};
+  shared_ptr<DescribeTenantResponseBodyTenantReadOnlyResourceCpu> cpu{};
+  shared_ptr<DescribeTenantResponseBodyTenantReadOnlyResourceDiskSize> diskSize{};
+  shared_ptr<DescribeTenantResponseBodyTenantReadOnlyResourceLogDiskSize> logDiskSize{};
+  shared_ptr<DescribeTenantResponseBodyTenantReadOnlyResourceMemory> memory{};
+  shared_ptr<long> unitNum{};
+
+  DescribeTenantResponseBodyTenantReadOnlyResource() {}
+
+  explicit DescribeTenantResponseBodyTenantReadOnlyResource(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (capacityUnit) {
+      res["CapacityUnit"] = capacityUnit ? boost::any(capacityUnit->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (cpu) {
+      res["Cpu"] = cpu ? boost::any(cpu->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (diskSize) {
+      res["DiskSize"] = diskSize ? boost::any(diskSize->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (logDiskSize) {
+      res["LogDiskSize"] = logDiskSize ? boost::any(logDiskSize->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (memory) {
+      res["Memory"] = memory ? boost::any(memory->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (unitNum) {
+      res["UnitNum"] = boost::any(*unitNum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CapacityUnit") != m.end() && !m["CapacityUnit"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CapacityUnit"].type()) {
+        DescribeTenantResponseBodyTenantReadOnlyResourceCapacityUnit model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CapacityUnit"]));
+        capacityUnit = make_shared<DescribeTenantResponseBodyTenantReadOnlyResourceCapacityUnit>(model1);
+      }
+    }
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Cpu"].type()) {
+        DescribeTenantResponseBodyTenantReadOnlyResourceCpu model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Cpu"]));
+        cpu = make_shared<DescribeTenantResponseBodyTenantReadOnlyResourceCpu>(model1);
+      }
+    }
+    if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DiskSize"].type()) {
+        DescribeTenantResponseBodyTenantReadOnlyResourceDiskSize model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DiskSize"]));
+        diskSize = make_shared<DescribeTenantResponseBodyTenantReadOnlyResourceDiskSize>(model1);
+      }
+    }
+    if (m.find("LogDiskSize") != m.end() && !m["LogDiskSize"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LogDiskSize"].type()) {
+        DescribeTenantResponseBodyTenantReadOnlyResourceLogDiskSize model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LogDiskSize"]));
+        logDiskSize = make_shared<DescribeTenantResponseBodyTenantReadOnlyResourceLogDiskSize>(model1);
+      }
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Memory"].type()) {
+        DescribeTenantResponseBodyTenantReadOnlyResourceMemory model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Memory"]));
+        memory = make_shared<DescribeTenantResponseBodyTenantReadOnlyResourceMemory>(model1);
+      }
+    }
+    if (m.find("UnitNum") != m.end() && !m["UnitNum"].empty()) {
+      unitNum = make_shared<long>(boost::any_cast<long>(m["UnitNum"]));
+    }
+  }
+
+
+  virtual ~DescribeTenantResponseBodyTenantReadOnlyResource() = default;
+};
 class DescribeTenantResponseBodyTenantTenantConnections : public Darabonba::Model {
 public:
   shared_ptr<string> addressType{};
+  shared_ptr<string> connectionReplicaType{};
   shared_ptr<vector<string>> connectionZones{};
   shared_ptr<bool> enableTransactionSplit{};
   shared_ptr<string> internetAddress{};
@@ -32907,6 +33633,9 @@ public:
     map<string, boost::any> res;
     if (addressType) {
       res["AddressType"] = boost::any(*addressType);
+    }
+    if (connectionReplicaType) {
+      res["ConnectionReplicaType"] = boost::any(*connectionReplicaType);
     }
     if (connectionZones) {
       res["ConnectionZones"] = boost::any(*connectionZones);
@@ -32962,6 +33691,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
       addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
+    }
+    if (m.find("ConnectionReplicaType") != m.end() && !m["ConnectionReplicaType"].empty()) {
+      connectionReplicaType = make_shared<string>(boost::any_cast<string>(m["ConnectionReplicaType"]));
     }
     if (m.find("ConnectionZones") != m.end() && !m["ConnectionZones"].empty()) {
       vector<string> toVec1;
@@ -33301,10 +34033,75 @@ public:
 
   virtual ~DescribeTenantResponseBodyTenantTenantResource() = default;
 };
+class DescribeTenantResponseBodyTenantTenantZonesTenantZoneReplicas : public Darabonba::Model {
+public:
+  shared_ptr<long> fullCopyId{};
+  shared_ptr<string> logicZoneName{};
+  shared_ptr<string> readOnlyCopyId{};
+  shared_ptr<long> zoneCopyId{};
+  shared_ptr<string> zoneNodes{};
+  shared_ptr<string> zoneReplicaType{};
+
+  DescribeTenantResponseBodyTenantTenantZonesTenantZoneReplicas() {}
+
+  explicit DescribeTenantResponseBodyTenantTenantZonesTenantZoneReplicas(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fullCopyId) {
+      res["FullCopyId"] = boost::any(*fullCopyId);
+    }
+    if (logicZoneName) {
+      res["LogicZoneName"] = boost::any(*logicZoneName);
+    }
+    if (readOnlyCopyId) {
+      res["ReadOnlyCopyId"] = boost::any(*readOnlyCopyId);
+    }
+    if (zoneCopyId) {
+      res["ZoneCopyId"] = boost::any(*zoneCopyId);
+    }
+    if (zoneNodes) {
+      res["ZoneNodes"] = boost::any(*zoneNodes);
+    }
+    if (zoneReplicaType) {
+      res["ZoneReplicaType"] = boost::any(*zoneReplicaType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FullCopyId") != m.end() && !m["FullCopyId"].empty()) {
+      fullCopyId = make_shared<long>(boost::any_cast<long>(m["FullCopyId"]));
+    }
+    if (m.find("LogicZoneName") != m.end() && !m["LogicZoneName"].empty()) {
+      logicZoneName = make_shared<string>(boost::any_cast<string>(m["LogicZoneName"]));
+    }
+    if (m.find("ReadOnlyCopyId") != m.end() && !m["ReadOnlyCopyId"].empty()) {
+      readOnlyCopyId = make_shared<string>(boost::any_cast<string>(m["ReadOnlyCopyId"]));
+    }
+    if (m.find("ZoneCopyId") != m.end() && !m["ZoneCopyId"].empty()) {
+      zoneCopyId = make_shared<long>(boost::any_cast<long>(m["ZoneCopyId"]));
+    }
+    if (m.find("ZoneNodes") != m.end() && !m["ZoneNodes"].empty()) {
+      zoneNodes = make_shared<string>(boost::any_cast<string>(m["ZoneNodes"]));
+    }
+    if (m.find("ZoneReplicaType") != m.end() && !m["ZoneReplicaType"].empty()) {
+      zoneReplicaType = make_shared<string>(boost::any_cast<string>(m["ZoneReplicaType"]));
+    }
+  }
+
+
+  virtual ~DescribeTenantResponseBodyTenantTenantZonesTenantZoneReplicas() = default;
+};
 class DescribeTenantResponseBodyTenantTenantZones : public Darabonba::Model {
 public:
   shared_ptr<string> region{};
   shared_ptr<string> tenantZoneId{};
+  shared_ptr<vector<DescribeTenantResponseBodyTenantTenantZonesTenantZoneReplicas>> tenantZoneReplicas{};
   shared_ptr<string> tenantZoneRole{};
 
   DescribeTenantResponseBodyTenantTenantZones() {}
@@ -33323,6 +34120,13 @@ public:
     if (tenantZoneId) {
       res["TenantZoneId"] = boost::any(*tenantZoneId);
     }
+    if (tenantZoneReplicas) {
+      vector<boost::any> temp1;
+      for(auto item1:*tenantZoneReplicas){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TenantZoneReplicas"] = boost::any(temp1);
+    }
     if (tenantZoneRole) {
       res["TenantZoneRole"] = boost::any(*tenantZoneRole);
     }
@@ -33335,6 +34139,19 @@ public:
     }
     if (m.find("TenantZoneId") != m.end() && !m["TenantZoneId"].empty()) {
       tenantZoneId = make_shared<string>(boost::any_cast<string>(m["TenantZoneId"]));
+    }
+    if (m.find("TenantZoneReplicas") != m.end() && !m["TenantZoneReplicas"].empty()) {
+      if (typeid(vector<boost::any>) == m["TenantZoneReplicas"].type()) {
+        vector<DescribeTenantResponseBodyTenantTenantZonesTenantZoneReplicas> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TenantZoneReplicas"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeTenantResponseBodyTenantTenantZonesTenantZoneReplicas model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tenantZoneReplicas = make_shared<vector<DescribeTenantResponseBodyTenantTenantZonesTenantZoneReplicas>>(expect1);
+      }
     }
     if (m.find("TenantZoneRole") != m.end() && !m["TenantZoneRole"].empty()) {
       tenantZoneRole = make_shared<string>(boost::any_cast<string>(m["TenantZoneRole"]));
@@ -33351,6 +34168,7 @@ public:
   shared_ptr<string> clogServiceStatus{};
   shared_ptr<string> collation{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> dataMergeTime{};
   shared_ptr<string> deployMode{};
   shared_ptr<string> deployType{};
   shared_ptr<string> description{};
@@ -33366,6 +34184,7 @@ public:
   shared_ptr<string> payType{};
   shared_ptr<string> primaryZone{};
   shared_ptr<string> primaryZoneDeployType{};
+  shared_ptr<DescribeTenantResponseBodyTenantReadOnlyResource> readOnlyResource{};
   shared_ptr<string> series{};
   shared_ptr<string> status{};
   shared_ptr<vector<DescribeTenantResponseBodyTenantTenantConnections>> tenantConnections{};
@@ -33401,6 +34220,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (dataMergeTime) {
+      res["DataMergeTime"] = boost::any(*dataMergeTime);
     }
     if (deployMode) {
       res["DeployMode"] = boost::any(*deployMode);
@@ -33446,6 +34268,9 @@ public:
     }
     if (primaryZoneDeployType) {
       res["PrimaryZoneDeployType"] = boost::any(*primaryZoneDeployType);
+    }
+    if (readOnlyResource) {
+      res["ReadOnlyResource"] = readOnlyResource ? boost::any(readOnlyResource->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (series) {
       res["Series"] = boost::any(*series);
@@ -33511,6 +34336,9 @@ public:
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
+    if (m.find("DataMergeTime") != m.end() && !m["DataMergeTime"].empty()) {
+      dataMergeTime = make_shared<string>(boost::any_cast<string>(m["DataMergeTime"]));
+    }
     if (m.find("DeployMode") != m.end() && !m["DeployMode"].empty()) {
       deployMode = make_shared<string>(boost::any_cast<string>(m["DeployMode"]));
     }
@@ -33555,6 +34383,13 @@ public:
     }
     if (m.find("PrimaryZoneDeployType") != m.end() && !m["PrimaryZoneDeployType"].empty()) {
       primaryZoneDeployType = make_shared<string>(boost::any_cast<string>(m["PrimaryZoneDeployType"]));
+    }
+    if (m.find("ReadOnlyResource") != m.end() && !m["ReadOnlyResource"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ReadOnlyResource"].type()) {
+        DescribeTenantResponseBodyTenantReadOnlyResource model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ReadOnlyResource"]));
+        readOnlyResource = make_shared<DescribeTenantResponseBodyTenantReadOnlyResource>(model1);
+      }
     }
     if (m.find("Series") != m.end() && !m["Series"].empty()) {
       series = make_shared<string>(boost::any_cast<string>(m["Series"]));
@@ -42673,6 +43508,7 @@ public:
 class ModifyInstanceSpecRequest : public Darabonba::Model {
 public:
   shared_ptr<long> diskSize{};
+  shared_ptr<string> diskType{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> instanceClass{};
   shared_ptr<string> instanceId{};
@@ -42690,6 +43526,9 @@ public:
     if (diskSize) {
       res["DiskSize"] = boost::any(*diskSize);
     }
+    if (diskType) {
+      res["DiskType"] = boost::any(*diskType);
+    }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
     }
@@ -42705,6 +43544,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
       diskSize = make_shared<long>(boost::any_cast<long>(m["DiskSize"]));
+    }
+    if (m.find("DiskType") != m.end() && !m["DiskType"].empty()) {
+      diskType = make_shared<string>(boost::any_cast<string>(m["DiskType"]));
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
@@ -42994,6 +43836,7 @@ public:
 };
 class ModifyInstanceTemporaryCapacityRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> acceptLanguage{};
   shared_ptr<string> diskSize{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> spec{};
@@ -43008,6 +43851,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
     if (diskSize) {
       res["DiskSize"] = boost::any(*diskSize);
     }
@@ -43021,6 +43867,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
     if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
       diskSize = make_shared<string>(boost::any_cast<string>(m["DiskSize"]));
     }
@@ -43702,8 +44551,10 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> masterIntranetAddressZone{};
   shared_ptr<string> primaryZone{};
+  shared_ptr<string> tenantEndpointDirectId{};
   shared_ptr<string> tenantEndpointId{};
   shared_ptr<string> tenantId{};
+  shared_ptr<string> userDirectVSwitchId{};
   shared_ptr<string> userVSwitchId{};
 
   ModifyTenantPrimaryZoneRequest() {}
@@ -43725,11 +44576,17 @@ public:
     if (primaryZone) {
       res["PrimaryZone"] = boost::any(*primaryZone);
     }
+    if (tenantEndpointDirectId) {
+      res["TenantEndpointDirectId"] = boost::any(*tenantEndpointDirectId);
+    }
     if (tenantEndpointId) {
       res["TenantEndpointId"] = boost::any(*tenantEndpointId);
     }
     if (tenantId) {
       res["TenantId"] = boost::any(*tenantId);
+    }
+    if (userDirectVSwitchId) {
+      res["UserDirectVSwitchId"] = boost::any(*userDirectVSwitchId);
     }
     if (userVSwitchId) {
       res["UserVSwitchId"] = boost::any(*userVSwitchId);
@@ -43747,11 +44604,17 @@ public:
     if (m.find("PrimaryZone") != m.end() && !m["PrimaryZone"].empty()) {
       primaryZone = make_shared<string>(boost::any_cast<string>(m["PrimaryZone"]));
     }
+    if (m.find("TenantEndpointDirectId") != m.end() && !m["TenantEndpointDirectId"].empty()) {
+      tenantEndpointDirectId = make_shared<string>(boost::any_cast<string>(m["TenantEndpointDirectId"]));
+    }
     if (m.find("TenantEndpointId") != m.end() && !m["TenantEndpointId"].empty()) {
       tenantEndpointId = make_shared<string>(boost::any_cast<string>(m["TenantEndpointId"]));
     }
     if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
       tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
+    }
+    if (m.find("UserDirectVSwitchId") != m.end() && !m["UserDirectVSwitchId"].empty()) {
+      userDirectVSwitchId = make_shared<string>(boost::any_cast<string>(m["UserDirectVSwitchId"]));
     }
     if (m.find("UserVSwitchId") != m.end() && !m["UserVSwitchId"].empty()) {
       userVSwitchId = make_shared<string>(boost::any_cast<string>(m["UserVSwitchId"]));
