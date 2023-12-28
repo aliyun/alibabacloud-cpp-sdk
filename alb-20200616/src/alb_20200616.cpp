@@ -2164,6 +2164,9 @@ ListServerGroupsResponse Alibabacloud_Alb20200616::Client::listServerGroupsWithO
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->serverGroupNames)) {
     query->insert(pair<string, vector<string>>("ServerGroupNames", *request->serverGroupNames));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverGroupType)) {
+    query->insert(pair<string, string>("ServerGroupType", *request->serverGroupType));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ListServerGroupsRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<ListServerGroupsRequestTag>>("Tag", *request->tag));
   }

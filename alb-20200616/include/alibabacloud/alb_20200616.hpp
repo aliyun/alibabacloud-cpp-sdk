@@ -18915,6 +18915,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<string>> serverGroupIds{};
   shared_ptr<vector<string>> serverGroupNames{};
+  shared_ptr<string> serverGroupType{};
   shared_ptr<vector<ListServerGroupsRequestTag>> tag{};
   shared_ptr<string> vpcId{};
 
@@ -18942,6 +18943,9 @@ public:
     }
     if (serverGroupNames) {
       res["ServerGroupNames"] = boost::any(*serverGroupNames);
+    }
+    if (serverGroupType) {
+      res["ServerGroupType"] = boost::any(*serverGroupType);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -18985,6 +18989,9 @@ public:
         }
       }
       serverGroupNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ServerGroupType") != m.end() && !m["ServerGroupType"].empty()) {
+      serverGroupType = make_shared<string>(boost::any_cast<string>(m["ServerGroupType"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -19249,6 +19256,7 @@ public:
   shared_ptr<ListServerGroupsResponseBodyServerGroupsHealthCheckConfig> healthCheckConfig{};
   shared_ptr<bool> ipv6Enabled{};
   shared_ptr<string> protocol{};
+  shared_ptr<vector<string>> relatedLoadBalancerIds{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> scheduler{};
   shared_ptr<long> serverCount{};
@@ -19287,6 +19295,9 @@ public:
     }
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
+    }
+    if (relatedLoadBalancerIds) {
+      res["RelatedLoadBalancerIds"] = boost::any(*relatedLoadBalancerIds);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -19353,6 +19364,16 @@ public:
     }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RelatedLoadBalancerIds") != m.end() && !m["RelatedLoadBalancerIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RelatedLoadBalancerIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RelatedLoadBalancerIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      relatedLoadBalancerIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
