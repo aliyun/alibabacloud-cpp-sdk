@@ -38,6 +38,34 @@ string Alibabacloud_Chatbot20220408::Client::getEndpoint(shared_ptr<string> prod
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+ApplyForStreamAccessTokenResponse Alibabacloud_Chatbot20220408::Client::applyForStreamAccessTokenWithOptions(shared_ptr<ApplyForStreamAccessTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
+    query->insert(pair<string, string>("AgentKey", *request->agentKey));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ApplyForStreamAccessToken"))},
+    {"version", boost::any(string("2022-04-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ApplyForStreamAccessTokenResponse(callApi(params, req, runtime));
+}
+
+ApplyForStreamAccessTokenResponse Alibabacloud_Chatbot20220408::Client::applyForStreamAccessToken(shared_ptr<ApplyForStreamAccessTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return applyForStreamAccessTokenWithOptions(request, runtime);
+}
+
 AssociateResponse Alibabacloud_Chatbot20220408::Client::associateWithOptions(shared_ptr<AssociateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<AssociateShrinkRequest> request = make_shared<AssociateShrinkRequest>();
