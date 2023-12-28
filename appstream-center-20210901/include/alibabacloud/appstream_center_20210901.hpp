@@ -2011,8 +2011,11 @@ public:
 };
 class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps : public Darabonba::Model {
 public:
+  shared_ptr<string> appIcon{};
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
+  shared_ptr<string> appVersion{};
+  shared_ptr<string> appVersionName{};
 
   GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps() {}
 
@@ -2024,21 +2027,39 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appIcon) {
+      res["AppIcon"] = boost::any(*appIcon);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
     if (appName) {
       res["AppName"] = boost::any(*appName);
     }
+    if (appVersion) {
+      res["AppVersion"] = boost::any(*appVersion);
+    }
+    if (appVersionName) {
+      res["AppVersionName"] = boost::any(*appVersionName);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppIcon") != m.end() && !m["AppIcon"].empty()) {
+      appIcon = make_shared<string>(boost::any_cast<string>(m["AppIcon"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("AppVersion") != m.end() && !m["AppVersion"].empty()) {
+      appVersion = make_shared<string>(boost::any_cast<string>(m["AppVersion"]));
+    }
+    if (m.find("AppVersionName") != m.end() && !m["AppVersionName"].empty()) {
+      appVersionName = make_shared<string>(boost::any_cast<string>(m["AppVersionName"]));
     }
   }
 
@@ -2735,6 +2756,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<vector<string>> appInstanceGroupIdList{};
   shared_ptr<string> appInstanceId{};
+  shared_ptr<string> appInstancePersistentId{};
   shared_ptr<string> appStartParam{};
   shared_ptr<string> appVersion{};
   shared_ptr<string> bizRegionId{};
@@ -2760,6 +2782,9 @@ public:
     }
     if (appInstanceId) {
       res["AppInstanceId"] = boost::any(*appInstanceId);
+    }
+    if (appInstancePersistentId) {
+      res["AppInstancePersistentId"] = boost::any(*appInstancePersistentId);
     }
     if (appStartParam) {
       res["AppStartParam"] = boost::any(*appStartParam);
@@ -2799,6 +2824,9 @@ public:
     if (m.find("AppInstanceId") != m.end() && !m["AppInstanceId"].empty()) {
       appInstanceId = make_shared<string>(boost::any_cast<string>(m["AppInstanceId"]));
     }
+    if (m.find("AppInstancePersistentId") != m.end() && !m["AppInstancePersistentId"].empty()) {
+      appInstancePersistentId = make_shared<string>(boost::any_cast<string>(m["AppInstancePersistentId"]));
+    }
     if (m.find("AppStartParam") != m.end() && !m["AppStartParam"].empty()) {
       appStartParam = make_shared<string>(boost::any_cast<string>(m["AppStartParam"]));
     }
@@ -2826,6 +2854,7 @@ class GetConnectionTicketResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> appInstanceGroupId{};
   shared_ptr<string> appInstanceId{};
+  shared_ptr<string> appInstancePersistentId{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> osType{};
   shared_ptr<string> requestId{};
@@ -2849,6 +2878,9 @@ public:
     }
     if (appInstanceId) {
       res["AppInstanceId"] = boost::any(*appInstanceId);
+    }
+    if (appInstancePersistentId) {
+      res["AppInstancePersistentId"] = boost::any(*appInstancePersistentId);
     }
     if (bizRegionId) {
       res["BizRegionId"] = boost::any(*bizRegionId);
@@ -2880,6 +2912,9 @@ public:
     }
     if (m.find("AppInstanceId") != m.end() && !m["AppInstanceId"].empty()) {
       appInstanceId = make_shared<string>(boost::any_cast<string>(m["AppInstanceId"]));
+    }
+    if (m.find("AppInstancePersistentId") != m.end() && !m["AppInstancePersistentId"].empty()) {
+      appInstancePersistentId = make_shared<string>(boost::any_cast<string>(m["AppInstancePersistentId"]));
     }
     if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
       bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
@@ -7819,6 +7854,7 @@ class UnbindRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appInstanceGroupId{};
   shared_ptr<string> appInstanceId{};
+  shared_ptr<string> appInstancePersistentId{};
   shared_ptr<string> endUserId{};
   shared_ptr<string> productType{};
 
@@ -7838,6 +7874,9 @@ public:
     if (appInstanceId) {
       res["AppInstanceId"] = boost::any(*appInstanceId);
     }
+    if (appInstancePersistentId) {
+      res["AppInstancePersistentId"] = boost::any(*appInstancePersistentId);
+    }
     if (endUserId) {
       res["EndUserId"] = boost::any(*endUserId);
     }
@@ -7853,6 +7892,9 @@ public:
     }
     if (m.find("AppInstanceId") != m.end() && !m["AppInstanceId"].empty()) {
       appInstanceId = make_shared<string>(boost::any_cast<string>(m["AppInstanceId"]));
+    }
+    if (m.find("AppInstancePersistentId") != m.end() && !m["AppInstancePersistentId"].empty()) {
+      appInstancePersistentId = make_shared<string>(boost::any_cast<string>(m["AppInstancePersistentId"]));
     }
     if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
       endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));

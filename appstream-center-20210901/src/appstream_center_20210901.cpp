@@ -394,6 +394,9 @@ GetConnectionTicketResponse Alibabacloud_Appstream-center20210901::Client::getCo
   if (!Darabonba_Util::Client::isUnset<string>(request->appInstanceId)) {
     body->insert(pair<string, string>("AppInstanceId", *request->appInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appInstancePersistentId)) {
+    body->insert(pair<string, string>("AppInstancePersistentId", *request->appInstancePersistentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appStartParam)) {
     body->insert(pair<string, string>("AppStartParam", *request->appStartParam));
   }
@@ -1069,6 +1072,9 @@ UnbindResponse Alibabacloud_Appstream-center20210901::Client::unbindWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->appInstanceId)) {
     body->insert(pair<string, string>("AppInstanceId", *request->appInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appInstancePersistentId)) {
+    body->insert(pair<string, string>("AppInstancePersistentId", *request->appInstancePersistentId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endUserId)) {
     body->insert(pair<string, string>("EndUserId", *request->endUserId));
