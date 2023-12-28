@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_yic_console_20240118Targets.cmake")
+check_required_components("alibabacloud_yic_console_20240118")
