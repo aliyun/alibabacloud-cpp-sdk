@@ -135,6 +135,47 @@ DeleteResourceResponse Alibabacloud_Cloudcontrol20220830::Client::deleteResource
   return deleteResourceWithOptions(requestPath, request, headers, runtime);
 }
 
+GetPriceResponse Alibabacloud_Cloudcontrol20220830::Client::getPriceWithOptions(shared_ptr<string> requestPath,
+                                                                                shared_ptr<GetPriceRequest> tmpReq,
+                                                                                shared_ptr<map<string, string>> headers,
+                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetPriceShrinkRequest> request = make_shared<GetPriceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->resourceAttributes)) {
+    request->resourceAttributesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceAttributes, make_shared<string>("resourceAttributes"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceAttributesShrink)) {
+    query->insert(pair<string, string>("resourceAttributes", *request->resourceAttributesShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPrice"))},
+    {"version", boost::any(string("2022-08-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string(*requestPath))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPriceResponse(callApi(params, req, runtime));
+}
+
+GetPriceResponse Alibabacloud_Cloudcontrol20220830::Client::getPrice(shared_ptr<string> requestPath, shared_ptr<GetPriceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getPriceWithOptions(requestPath, request, headers, runtime);
+}
+
 GetResourceTypeResponse Alibabacloud_Cloudcontrol20220830::Client::getResourceTypeWithOptions(shared_ptr<string> requestPath, shared_ptr<GetResourceTypeHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
