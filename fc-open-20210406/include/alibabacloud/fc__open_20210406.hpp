@@ -3542,6 +3542,7 @@ class StatefulAsyncInvocation : public Darabonba::Model {
 public:
   shared_ptr<long> alreadyRetriedTimes{};
   shared_ptr<string> destinationStatus{};
+  shared_ptr<long> durationMs{};
   shared_ptr<long> endTime{};
   shared_ptr<vector<StatefulAsyncInvocationEvent>> events{};
   shared_ptr<string> functionName{};
@@ -3551,6 +3552,7 @@ public:
   shared_ptr<string> invocationPayload{};
   shared_ptr<string> qualifier{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> returnPayload{};
   shared_ptr<string> serviceName{};
   shared_ptr<long> startedTime{};
   shared_ptr<string> status{};
@@ -3570,6 +3572,9 @@ public:
     }
     if (destinationStatus) {
       res["destinationStatus"] = boost::any(*destinationStatus);
+    }
+    if (durationMs) {
+      res["durationMs"] = boost::any(*durationMs);
     }
     if (endTime) {
       res["endTime"] = boost::any(*endTime);
@@ -3602,6 +3607,9 @@ public:
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
+    if (returnPayload) {
+      res["returnPayload"] = boost::any(*returnPayload);
+    }
     if (serviceName) {
       res["serviceName"] = boost::any(*serviceName);
     }
@@ -3620,6 +3628,9 @@ public:
     }
     if (m.find("destinationStatus") != m.end() && !m["destinationStatus"].empty()) {
       destinationStatus = make_shared<string>(boost::any_cast<string>(m["destinationStatus"]));
+    }
+    if (m.find("durationMs") != m.end() && !m["durationMs"].empty()) {
+      durationMs = make_shared<long>(boost::any_cast<long>(m["durationMs"]));
     }
     if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
@@ -3657,6 +3668,9 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("returnPayload") != m.end() && !m["returnPayload"].empty()) {
+      returnPayload = make_shared<string>(boost::any_cast<string>(m["returnPayload"]));
     }
     if (m.find("serviceName") != m.end() && !m["serviceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["serviceName"]));
@@ -4538,6 +4552,8 @@ public:
   shared_ptr<string> createdTime{};
   shared_ptr<string> description{};
   shared_ptr<string> lastModifiedTime{};
+  shared_ptr<string> resolvePolicy{};
+  shared_ptr<RoutePolicy> routePolicy{};
   shared_ptr<string> versionId{};
 
   CreateAliasResponseBody() {}
@@ -4565,6 +4581,12 @@ public:
     if (lastModifiedTime) {
       res["lastModifiedTime"] = boost::any(*lastModifiedTime);
     }
+    if (resolvePolicy) {
+      res["resolvePolicy"] = boost::any(*resolvePolicy);
+    }
+    if (routePolicy) {
+      res["routePolicy"] = routePolicy ? boost::any(routePolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (versionId) {
       res["versionId"] = boost::any(*versionId);
     }
@@ -4591,6 +4613,16 @@ public:
     }
     if (m.find("lastModifiedTime") != m.end() && !m["lastModifiedTime"].empty()) {
       lastModifiedTime = make_shared<string>(boost::any_cast<string>(m["lastModifiedTime"]));
+    }
+    if (m.find("resolvePolicy") != m.end() && !m["resolvePolicy"].empty()) {
+      resolvePolicy = make_shared<string>(boost::any_cast<string>(m["resolvePolicy"]));
+    }
+    if (m.find("routePolicy") != m.end() && !m["routePolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["routePolicy"].type()) {
+        RoutePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["routePolicy"]));
+        routePolicy = make_shared<RoutePolicy>(model1);
+      }
     }
     if (m.find("versionId") != m.end() && !m["versionId"].empty()) {
       versionId = make_shared<string>(boost::any_cast<string>(m["versionId"]));
@@ -6014,6 +6046,7 @@ public:
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<TracingConfig> tracingConfig{};
+  shared_ptr<bool> useSLRAuthentication{};
   shared_ptr<VPCConfig> vpcConfig{};
 
   CreateServiceResponseBody() {}
@@ -6058,6 +6091,9 @@ public:
     }
     if (tracingConfig) {
       res["tracingConfig"] = tracingConfig ? boost::any(tracingConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (useSLRAuthentication) {
+      res["useSLRAuthentication"] = boost::any(*useSLRAuthentication);
     }
     if (vpcConfig) {
       res["vpcConfig"] = vpcConfig ? boost::any(vpcConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6114,6 +6150,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tracingConfig"]));
         tracingConfig = make_shared<TracingConfig>(model1);
       }
+    }
+    if (m.find("useSLRAuthentication") != m.end() && !m["useSLRAuthentication"].empty()) {
+      useSLRAuthentication = make_shared<bool>(boost::any_cast<bool>(m["useSLRAuthentication"]));
     }
     if (m.find("vpcConfig") != m.end() && !m["vpcConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["vpcConfig"].type()) {
@@ -10114,6 +10153,7 @@ public:
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<TracingConfig> tracingConfig{};
+  shared_ptr<bool> useSLRAuthentication{};
   shared_ptr<VPCConfig> vpcConfig{};
 
   GetServiceResponseBody() {}
@@ -10158,6 +10198,9 @@ public:
     }
     if (tracingConfig) {
       res["tracingConfig"] = tracingConfig ? boost::any(tracingConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (useSLRAuthentication) {
+      res["useSLRAuthentication"] = boost::any(*useSLRAuthentication);
     }
     if (vpcConfig) {
       res["vpcConfig"] = vpcConfig ? boost::any(vpcConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -10214,6 +10257,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tracingConfig"]));
         tracingConfig = make_shared<TracingConfig>(model1);
       }
+    }
+    if (m.find("useSLRAuthentication") != m.end() && !m["useSLRAuthentication"].empty()) {
+      useSLRAuthentication = make_shared<bool>(boost::any_cast<bool>(m["useSLRAuthentication"]));
     }
     if (m.find("vpcConfig") != m.end() && !m["vpcConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["vpcConfig"].type()) {
@@ -14305,6 +14351,7 @@ public:
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<TracingConfig> tracingConfig{};
+  shared_ptr<bool> useSLRAuthentication{};
   shared_ptr<VPCConfig> vpcConfig{};
 
   ListServicesResponseBodyServices() {}
@@ -14349,6 +14396,9 @@ public:
     }
     if (tracingConfig) {
       res["tracingConfig"] = tracingConfig ? boost::any(tracingConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (useSLRAuthentication) {
+      res["useSLRAuthentication"] = boost::any(*useSLRAuthentication);
     }
     if (vpcConfig) {
       res["vpcConfig"] = vpcConfig ? boost::any(vpcConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -14405,6 +14455,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tracingConfig"]));
         tracingConfig = make_shared<TracingConfig>(model1);
       }
+    }
+    if (m.find("useSLRAuthentication") != m.end() && !m["useSLRAuthentication"].empty()) {
+      useSLRAuthentication = make_shared<bool>(boost::any_cast<bool>(m["useSLRAuthentication"]));
     }
     if (m.find("vpcConfig") != m.end() && !m["vpcConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["vpcConfig"].type()) {
@@ -17640,6 +17693,8 @@ public:
   shared_ptr<string> createdTime{};
   shared_ptr<string> description{};
   shared_ptr<string> lastModifiedTime{};
+  shared_ptr<string> resolvePolicy{};
+  shared_ptr<RoutePolicy> routePolicy{};
   shared_ptr<string> versionId{};
 
   UpdateAliasResponseBody() {}
@@ -17667,6 +17722,12 @@ public:
     if (lastModifiedTime) {
       res["lastModifiedTime"] = boost::any(*lastModifiedTime);
     }
+    if (resolvePolicy) {
+      res["resolvePolicy"] = boost::any(*resolvePolicy);
+    }
+    if (routePolicy) {
+      res["routePolicy"] = routePolicy ? boost::any(routePolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (versionId) {
       res["versionId"] = boost::any(*versionId);
     }
@@ -17693,6 +17754,16 @@ public:
     }
     if (m.find("lastModifiedTime") != m.end() && !m["lastModifiedTime"].empty()) {
       lastModifiedTime = make_shared<string>(boost::any_cast<string>(m["lastModifiedTime"]));
+    }
+    if (m.find("resolvePolicy") != m.end() && !m["resolvePolicy"].empty()) {
+      resolvePolicy = make_shared<string>(boost::any_cast<string>(m["resolvePolicy"]));
+    }
+    if (m.find("routePolicy") != m.end() && !m["routePolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["routePolicy"].type()) {
+        RoutePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["routePolicy"]));
+        routePolicy = make_shared<RoutePolicy>(model1);
+      }
     }
     if (m.find("versionId") != m.end() && !m["versionId"].empty()) {
       versionId = make_shared<string>(boost::any_cast<string>(m["versionId"]));
@@ -18835,6 +18906,7 @@ public:
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<TracingConfig> tracingConfig{};
+  shared_ptr<bool> useSLRAuthentication{};
   shared_ptr<VPCConfig> vpcConfig{};
 
   UpdateServiceResponseBody() {}
@@ -18879,6 +18951,9 @@ public:
     }
     if (tracingConfig) {
       res["tracingConfig"] = tracingConfig ? boost::any(tracingConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (useSLRAuthentication) {
+      res["useSLRAuthentication"] = boost::any(*useSLRAuthentication);
     }
     if (vpcConfig) {
       res["vpcConfig"] = vpcConfig ? boost::any(vpcConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -18935,6 +19010,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tracingConfig"]));
         tracingConfig = make_shared<TracingConfig>(model1);
       }
+    }
+    if (m.find("useSLRAuthentication") != m.end() && !m["useSLRAuthentication"].empty()) {
+      useSLRAuthentication = make_shared<bool>(boost::any_cast<bool>(m["useSLRAuthentication"]));
     }
     if (m.find("vpcConfig") != m.end() && !m["vpcConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["vpcConfig"].type()) {
@@ -19131,6 +19209,8 @@ public:
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<string> qualifier{};
   shared_ptr<string> sourceArn{};
+  shared_ptr<string> status{};
+  shared_ptr<string> targetArn{};
   shared_ptr<string> triggerConfig{};
   shared_ptr<string> triggerId{};
   shared_ptr<string> triggerName{};
@@ -19168,6 +19248,12 @@ public:
     }
     if (sourceArn) {
       res["sourceArn"] = boost::any(*sourceArn);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (targetArn) {
+      res["targetArn"] = boost::any(*targetArn);
     }
     if (triggerConfig) {
       res["triggerConfig"] = boost::any(*triggerConfig);
@@ -19211,6 +19297,12 @@ public:
     }
     if (m.find("sourceArn") != m.end() && !m["sourceArn"].empty()) {
       sourceArn = make_shared<string>(boost::any_cast<string>(m["sourceArn"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("targetArn") != m.end() && !m["targetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["targetArn"]));
     }
     if (m.find("triggerConfig") != m.end() && !m["triggerConfig"].empty()) {
       triggerConfig = make_shared<string>(boost::any_cast<string>(m["triggerConfig"]));
