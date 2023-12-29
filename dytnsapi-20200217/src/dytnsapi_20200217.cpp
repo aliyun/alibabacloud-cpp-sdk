@@ -1382,6 +1382,9 @@ UAIDVerificationResponse Alibabacloud_Dytnsapi20200217::Client::uAIDVerification
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->province)) {
+    query->insert(pair<string, string>("Province", *request->province));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
