@@ -1200,6 +1200,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> sceneCode{};
   shared_ptr<string> url{};
 
   GetAuthTokenRequest() {}
@@ -1224,6 +1225,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (sceneCode) {
+      res["SceneCode"] = boost::any(*sceneCode);
+    }
     if (url) {
       res["Url"] = boost::any(*url);
     }
@@ -1242,6 +1246,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SceneCode") != m.end() && !m["SceneCode"].empty()) {
+      sceneCode = make_shared<string>(boost::any_cast<string>(m["SceneCode"]));
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
@@ -2484,6 +2491,473 @@ public:
 
 
   virtual ~GetSmsAuthTokensResponse() = default;
+};
+class JyCreateVerifySchemeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appName{};
+  shared_ptr<string> bundleId{};
+  shared_ptr<long> cmApiCode{};
+  shared_ptr<long> ctApiCode{};
+  shared_ptr<long> cuApiCode{};
+  shared_ptr<string> osType{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> packName{};
+  shared_ptr<string> packSign{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> schemeName{};
+
+  JyCreateVerifySchemeRequest() {}
+
+  explicit JyCreateVerifySchemeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (bundleId) {
+      res["BundleId"] = boost::any(*bundleId);
+    }
+    if (cmApiCode) {
+      res["CmApiCode"] = boost::any(*cmApiCode);
+    }
+    if (ctApiCode) {
+      res["CtApiCode"] = boost::any(*ctApiCode);
+    }
+    if (cuApiCode) {
+      res["CuApiCode"] = boost::any(*cuApiCode);
+    }
+    if (osType) {
+      res["OsType"] = boost::any(*osType);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (packName) {
+      res["PackName"] = boost::any(*packName);
+    }
+    if (packSign) {
+      res["PackSign"] = boost::any(*packSign);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (schemeName) {
+      res["SchemeName"] = boost::any(*schemeName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("BundleId") != m.end() && !m["BundleId"].empty()) {
+      bundleId = make_shared<string>(boost::any_cast<string>(m["BundleId"]));
+    }
+    if (m.find("CmApiCode") != m.end() && !m["CmApiCode"].empty()) {
+      cmApiCode = make_shared<long>(boost::any_cast<long>(m["CmApiCode"]));
+    }
+    if (m.find("CtApiCode") != m.end() && !m["CtApiCode"].empty()) {
+      ctApiCode = make_shared<long>(boost::any_cast<long>(m["CtApiCode"]));
+    }
+    if (m.find("CuApiCode") != m.end() && !m["CuApiCode"].empty()) {
+      cuApiCode = make_shared<long>(boost::any_cast<long>(m["CuApiCode"]));
+    }
+    if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
+      osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PackName") != m.end() && !m["PackName"].empty()) {
+      packName = make_shared<string>(boost::any_cast<string>(m["PackName"]));
+    }
+    if (m.find("PackSign") != m.end() && !m["PackSign"].empty()) {
+      packSign = make_shared<string>(boost::any_cast<string>(m["PackSign"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SchemeName") != m.end() && !m["SchemeName"].empty()) {
+      schemeName = make_shared<string>(boost::any_cast<string>(m["SchemeName"]));
+    }
+  }
+
+
+  virtual ~JyCreateVerifySchemeRequest() = default;
+};
+class JyCreateVerifySchemeResponseBodyGateVerifySchemeData : public Darabonba::Model {
+public:
+  shared_ptr<string> schemeCode{};
+
+  JyCreateVerifySchemeResponseBodyGateVerifySchemeData() {}
+
+  explicit JyCreateVerifySchemeResponseBodyGateVerifySchemeData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (schemeCode) {
+      res["SchemeCode"] = boost::any(*schemeCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SchemeCode") != m.end() && !m["SchemeCode"].empty()) {
+      schemeCode = make_shared<string>(boost::any_cast<string>(m["SchemeCode"]));
+    }
+  }
+
+
+  virtual ~JyCreateVerifySchemeResponseBodyGateVerifySchemeData() = default;
+};
+class JyCreateVerifySchemeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<JyCreateVerifySchemeResponseBodyGateVerifySchemeData> gateVerifySchemeData{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  JyCreateVerifySchemeResponseBody() {}
+
+  explicit JyCreateVerifySchemeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (gateVerifySchemeData) {
+      res["GateVerifySchemeData"] = gateVerifySchemeData ? boost::any(gateVerifySchemeData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("GateVerifySchemeData") != m.end() && !m["GateVerifySchemeData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GateVerifySchemeData"].type()) {
+        JyCreateVerifySchemeResponseBodyGateVerifySchemeData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GateVerifySchemeData"]));
+        gateVerifySchemeData = make_shared<JyCreateVerifySchemeResponseBodyGateVerifySchemeData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~JyCreateVerifySchemeResponseBody() = default;
+};
+class JyCreateVerifySchemeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<JyCreateVerifySchemeResponseBody> body{};
+
+  JyCreateVerifySchemeResponse() {}
+
+  explicit JyCreateVerifySchemeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        JyCreateVerifySchemeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<JyCreateVerifySchemeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~JyCreateVerifySchemeResponse() = default;
+};
+class JyQueryAppInfoBySceneCodeRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> sceneCode{};
+
+  JyQueryAppInfoBySceneCodeRequest() {}
+
+  explicit JyQueryAppInfoBySceneCodeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (sceneCode) {
+      res["SceneCode"] = boost::any(*sceneCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SceneCode") != m.end() && !m["SceneCode"].empty()) {
+      sceneCode = make_shared<string>(boost::any_cast<string>(m["SceneCode"]));
+    }
+  }
+
+
+  virtual ~JyQueryAppInfoBySceneCodeRequest() = default;
+};
+class JyQueryAppInfoBySceneCodeResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> cmAppId{};
+  shared_ptr<string> cmAppKey{};
+  shared_ptr<string> ctAppId{};
+  shared_ptr<string> ctAppKey{};
+
+  JyQueryAppInfoBySceneCodeResponseBodyData() {}
+
+  explicit JyQueryAppInfoBySceneCodeResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cmAppId) {
+      res["CmAppId"] = boost::any(*cmAppId);
+    }
+    if (cmAppKey) {
+      res["CmAppKey"] = boost::any(*cmAppKey);
+    }
+    if (ctAppId) {
+      res["CtAppId"] = boost::any(*ctAppId);
+    }
+    if (ctAppKey) {
+      res["CtAppKey"] = boost::any(*ctAppKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CmAppId") != m.end() && !m["CmAppId"].empty()) {
+      cmAppId = make_shared<string>(boost::any_cast<string>(m["CmAppId"]));
+    }
+    if (m.find("CmAppKey") != m.end() && !m["CmAppKey"].empty()) {
+      cmAppKey = make_shared<string>(boost::any_cast<string>(m["CmAppKey"]));
+    }
+    if (m.find("CtAppId") != m.end() && !m["CtAppId"].empty()) {
+      ctAppId = make_shared<string>(boost::any_cast<string>(m["CtAppId"]));
+    }
+    if (m.find("CtAppKey") != m.end() && !m["CtAppKey"].empty()) {
+      ctAppKey = make_shared<string>(boost::any_cast<string>(m["CtAppKey"]));
+    }
+  }
+
+
+  virtual ~JyQueryAppInfoBySceneCodeResponseBodyData() = default;
+};
+class JyQueryAppInfoBySceneCodeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<JyQueryAppInfoBySceneCodeResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  JyQueryAppInfoBySceneCodeResponseBody() {}
+
+  explicit JyQueryAppInfoBySceneCodeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        JyQueryAppInfoBySceneCodeResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<JyQueryAppInfoBySceneCodeResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~JyQueryAppInfoBySceneCodeResponseBody() = default;
+};
+class JyQueryAppInfoBySceneCodeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<JyQueryAppInfoBySceneCodeResponseBody> body{};
+
+  JyQueryAppInfoBySceneCodeResponse() {}
+
+  explicit JyQueryAppInfoBySceneCodeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        JyQueryAppInfoBySceneCodeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<JyQueryAppInfoBySceneCodeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~JyQueryAppInfoBySceneCodeResponse() = default;
 };
 class QueryGateVerifyBillingPublicRequest : public Darabonba::Model {
 public:
@@ -4518,6 +4992,10 @@ public:
   GetPhoneWithTokenResponse getPhoneWithToken(shared_ptr<GetPhoneWithTokenRequest> request);
   GetSmsAuthTokensResponse getSmsAuthTokensWithOptions(shared_ptr<GetSmsAuthTokensRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetSmsAuthTokensResponse getSmsAuthTokens(shared_ptr<GetSmsAuthTokensRequest> request);
+  JyCreateVerifySchemeResponse jyCreateVerifySchemeWithOptions(shared_ptr<JyCreateVerifySchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  JyCreateVerifySchemeResponse jyCreateVerifyScheme(shared_ptr<JyCreateVerifySchemeRequest> request);
+  JyQueryAppInfoBySceneCodeResponse jyQueryAppInfoBySceneCodeWithOptions(shared_ptr<JyQueryAppInfoBySceneCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  JyQueryAppInfoBySceneCodeResponse jyQueryAppInfoBySceneCode(shared_ptr<JyQueryAppInfoBySceneCodeRequest> request);
   QueryGateVerifyBillingPublicResponse queryGateVerifyBillingPublicWithOptions(shared_ptr<QueryGateVerifyBillingPublicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryGateVerifyBillingPublicResponse queryGateVerifyBillingPublic(shared_ptr<QueryGateVerifyBillingPublicRequest> request);
   QueryGateVerifyStatisticPublicResponse queryGateVerifyStatisticPublicWithOptions(shared_ptr<QueryGateVerifyStatisticPublicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
