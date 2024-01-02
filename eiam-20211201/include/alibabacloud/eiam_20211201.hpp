@@ -10699,6 +10699,7 @@ public:
   shared_ptr<string> applicationId{};
   shared_ptr<string> applicationName{};
   shared_ptr<string> applicationSourceType{};
+  shared_ptr<string> applicationTemplateId{};
   shared_ptr<string> clientId{};
   shared_ptr<long> createTime{};
   shared_ptr<string> description{};
@@ -10729,6 +10730,9 @@ public:
     }
     if (applicationSourceType) {
       res["ApplicationSourceType"] = boost::any(*applicationSourceType);
+    }
+    if (applicationTemplateId) {
+      res["ApplicationTemplateId"] = boost::any(*applicationTemplateId);
     }
     if (clientId) {
       res["ClientId"] = boost::any(*clientId);
@@ -10775,6 +10779,9 @@ public:
     }
     if (m.find("ApplicationSourceType") != m.end() && !m["ApplicationSourceType"].empty()) {
       applicationSourceType = make_shared<string>(boost::any_cast<string>(m["ApplicationSourceType"]));
+    }
+    if (m.find("ApplicationTemplateId") != m.end() && !m["ApplicationTemplateId"].empty()) {
+      applicationTemplateId = make_shared<string>(boost::any_cast<string>(m["ApplicationTemplateId"]));
     }
     if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
       clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
