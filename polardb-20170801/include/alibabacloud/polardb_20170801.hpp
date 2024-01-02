@@ -19023,6 +19023,7 @@ public:
 class DescribeMaskingRulesResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> ruleList{};
+  shared_ptr<string> ruleVersion{};
 
   DescribeMaskingRulesResponseBodyData() {}
 
@@ -19037,6 +19038,9 @@ public:
     if (ruleList) {
       res["RuleList"] = boost::any(*ruleList);
     }
+    if (ruleVersion) {
+      res["RuleVersion"] = boost::any(*ruleVersion);
+    }
     return res;
   }
 
@@ -19050,6 +19054,9 @@ public:
         }
       }
       ruleList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RuleVersion") != m.end() && !m["RuleVersion"].empty()) {
+      ruleVersion = make_shared<string>(boost::any_cast<string>(m["RuleVersion"]));
     }
   }
 
@@ -31256,6 +31263,7 @@ public:
   shared_ptr<string> ruleConfig{};
   shared_ptr<string> ruleName{};
   shared_ptr<string> ruleNameList{};
+  shared_ptr<string> ruleVersion{};
 
   ModifyMaskingRulesRequest() {}
 
@@ -31282,6 +31290,9 @@ public:
     if (ruleNameList) {
       res["RuleNameList"] = boost::any(*ruleNameList);
     }
+    if (ruleVersion) {
+      res["RuleVersion"] = boost::any(*ruleVersion);
+    }
     return res;
   }
 
@@ -31300,6 +31311,9 @@ public:
     }
     if (m.find("RuleNameList") != m.end() && !m["RuleNameList"].empty()) {
       ruleNameList = make_shared<string>(boost::any_cast<string>(m["RuleNameList"]));
+    }
+    if (m.find("RuleVersion") != m.end() && !m["RuleVersion"].empty()) {
+      ruleVersion = make_shared<string>(boost::any_cast<string>(m["RuleVersion"]));
     }
   }
 

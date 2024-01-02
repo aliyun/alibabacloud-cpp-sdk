@@ -6486,6 +6486,9 @@ ModifyMaskingRulesResponse Alibabacloud_Polardb20170801::Client::modifyMaskingRu
   if (!Darabonba_Util::Client::isUnset<string>(request->ruleNameList)) {
     query->insert(pair<string, string>("RuleNameList", *request->ruleNameList));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleVersion)) {
+    query->insert(pair<string, string>("RuleVersion", *request->ruleVersion));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
