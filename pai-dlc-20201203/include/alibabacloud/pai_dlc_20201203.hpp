@@ -2897,6 +2897,70 @@ public:
 
   virtual ~Resources() = default;
 };
+class SanityCheckResultItem : public Darabonba::Model {
+public:
+  shared_ptr<long> checkNumber{};
+  shared_ptr<string> finishedAt{};
+  shared_ptr<string> message{};
+  shared_ptr<string> phase{};
+  shared_ptr<string> startedAt{};
+  shared_ptr<string> status{};
+
+  SanityCheckResultItem() {}
+
+  explicit SanityCheckResultItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkNumber) {
+      res["CheckNumber"] = boost::any(*checkNumber);
+    }
+    if (finishedAt) {
+      res["FinishedAt"] = boost::any(*finishedAt);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (phase) {
+      res["Phase"] = boost::any(*phase);
+    }
+    if (startedAt) {
+      res["StartedAt"] = boost::any(*startedAt);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckNumber") != m.end() && !m["CheckNumber"].empty()) {
+      checkNumber = make_shared<long>(boost::any_cast<long>(m["CheckNumber"]));
+    }
+    if (m.find("FinishedAt") != m.end() && !m["FinishedAt"].empty()) {
+      finishedAt = make_shared<string>(boost::any_cast<string>(m["FinishedAt"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Phase") != m.end() && !m["Phase"].empty()) {
+      phase = make_shared<string>(boost::any_cast<string>(m["Phase"]));
+    }
+    if (m.find("StartedAt") != m.end() && !m["StartedAt"].empty()) {
+      startedAt = make_shared<string>(boost::any_cast<string>(m["StartedAt"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~SanityCheckResultItem() = default;
+};
 class SmartCache : public Darabonba::Model {
 public:
   shared_ptr<long> cacheWorkerNum{};
@@ -4640,6 +4704,7 @@ public:
   shared_ptr<string> restartTimes{};
   shared_ptr<JobSettings> settings{};
   shared_ptr<string> status{};
+  shared_ptr<vector<StatusTransitionItem>> statusHistory{};
   shared_ptr<string> subStatus{};
   shared_ptr<string> thirdpartyLibDir{};
   shared_ptr<vector<string>> thirdpartyLibs{};
@@ -4753,6 +4818,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (statusHistory) {
+      vector<boost::any> temp1;
+      for(auto item1:*statusHistory){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["StatusHistory"] = boost::any(temp1);
     }
     if (subStatus) {
       res["SubStatus"] = boost::any(*subStatus);
@@ -4909,6 +4981,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StatusHistory") != m.end() && !m["StatusHistory"].empty()) {
+      if (typeid(vector<boost::any>) == m["StatusHistory"].type()) {
+        vector<StatusTransitionItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["StatusHistory"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StatusTransitionItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        statusHistory = make_shared<vector<StatusTransitionItem>>(expect1);
+      }
     }
     if (m.find("SubStatus") != m.end() && !m["SubStatus"].empty()) {
       subStatus = make_shared<string>(boost::any_cast<string>(m["SubStatus"]));
@@ -5335,6 +5420,161 @@ public:
 
 
   virtual ~GetJobMetricsResponse() = default;
+};
+class GetJobSanityCheckResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> sanityCheckNumber{};
+  shared_ptr<string> sanityCheckPhase{};
+
+  GetJobSanityCheckResultRequest() {}
+
+  explicit GetJobSanityCheckResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sanityCheckNumber) {
+      res["SanityCheckNumber"] = boost::any(*sanityCheckNumber);
+    }
+    if (sanityCheckPhase) {
+      res["SanityCheckPhase"] = boost::any(*sanityCheckPhase);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SanityCheckNumber") != m.end() && !m["SanityCheckNumber"].empty()) {
+      sanityCheckNumber = make_shared<long>(boost::any_cast<long>(m["SanityCheckNumber"]));
+    }
+    if (m.find("SanityCheckPhase") != m.end() && !m["SanityCheckPhase"].empty()) {
+      sanityCheckPhase = make_shared<string>(boost::any_cast<string>(m["SanityCheckPhase"]));
+    }
+  }
+
+
+  virtual ~GetJobSanityCheckResultRequest() = default;
+};
+class GetJobSanityCheckResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> requestID{};
+  shared_ptr<vector<SanityCheckResultItem>> sanityCheckResult{};
+
+  GetJobSanityCheckResultResponseBody() {}
+
+  explicit GetJobSanityCheckResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (requestID) {
+      res["RequestID"] = boost::any(*requestID);
+    }
+    if (sanityCheckResult) {
+      vector<boost::any> temp1;
+      for(auto item1:*sanityCheckResult){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SanityCheckResult"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("RequestID") != m.end() && !m["RequestID"].empty()) {
+      requestID = make_shared<string>(boost::any_cast<string>(m["RequestID"]));
+    }
+    if (m.find("SanityCheckResult") != m.end() && !m["SanityCheckResult"].empty()) {
+      if (typeid(vector<boost::any>) == m["SanityCheckResult"].type()) {
+        vector<SanityCheckResultItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SanityCheckResult"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SanityCheckResultItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sanityCheckResult = make_shared<vector<SanityCheckResultItem>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetJobSanityCheckResultResponseBody() = default;
+};
+class GetJobSanityCheckResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetJobSanityCheckResultResponseBody> body{};
+
+  GetJobSanityCheckResultResponse() {}
+
+  explicit GetJobSanityCheckResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetJobSanityCheckResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetJobSanityCheckResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetJobSanityCheckResultResponse() = default;
 };
 class GetPodEventsRequest : public Darabonba::Model {
 public:
@@ -6377,6 +6617,164 @@ public:
 
 
   virtual ~ListEcsSpecsResponse() = default;
+};
+class ListJobSanityCheckResultsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> order{};
+
+  ListJobSanityCheckResultsRequest() {}
+
+  explicit ListJobSanityCheckResultsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+  }
+
+
+  virtual ~ListJobSanityCheckResultsRequest() = default;
+};
+class ListJobSanityCheckResultsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestID{};
+  shared_ptr<vector<vector<SanityCheckResultItem>>> sanityCheckResults{};
+  shared_ptr<long> totalCount{};
+
+  ListJobSanityCheckResultsResponseBody() {}
+
+  explicit ListJobSanityCheckResultsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestID) {
+      res["RequestID"] = boost::any(*requestID);
+    }
+    if (sanityCheckResults) {
+      vector<boost::any> temp1;
+      for(auto item1:*sanityCheckResults){
+        vector<boost::any> temp2;
+        for(auto item2:item1){
+          temp2.push_back(boost::any(item2.toMap()));
+        }
+        temp1 = boost::any(temp2);
+      }
+      res["SanityCheckResults"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestID") != m.end() && !m["RequestID"].empty()) {
+      requestID = make_shared<string>(boost::any_cast<string>(m["RequestID"]));
+    }
+    if (m.find("SanityCheckResults") != m.end() && !m["SanityCheckResults"].empty()) {
+      if (typeid(vector<boost::any>) == m["SanityCheckResults"].type()) {
+        vector<vector<SanityCheckResultItem>> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SanityCheckResults"])){
+          if (typeid(vector<boost::any>) == item1.type()) {
+            vector<SanityCheckResultItem> expect2;
+            for(auto item2:boost::any_cast<vector<boost::any>>(item1)){
+              if (typeid(map<string, boost::any>) == item2.type()) {
+                SanityCheckResultItem model3;
+                model3.fromMap(boost::any_cast<map<string, boost::any>>(item2));
+                expect2.push_back(model3);
+              }
+            }
+            expect1.push_back(expect2);
+          }
+        }
+        sanityCheckResults = make_shared<vector<vector<SanityCheckResultItem>>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListJobSanityCheckResultsResponseBody() = default;
+};
+class ListJobSanityCheckResultsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListJobSanityCheckResultsResponseBody> body{};
+
+  ListJobSanityCheckResultsResponse() {}
+
+  explicit ListJobSanityCheckResultsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListJobSanityCheckResultsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListJobSanityCheckResultsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListJobSanityCheckResultsResponse() = default;
 };
 class ListJobsRequest : public Darabonba::Model {
 public:
@@ -7707,6 +8105,11 @@ public:
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetJobMetricsResponse getJobMetrics(shared_ptr<string> JobId, shared_ptr<GetJobMetricsRequest> request);
+  GetJobSanityCheckResultResponse getJobSanityCheckResultWithOptions(shared_ptr<string> JobId,
+                                                                     shared_ptr<GetJobSanityCheckResultRequest> request,
+                                                                     shared_ptr<map<string, string>> headers,
+                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetJobSanityCheckResultResponse getJobSanityCheckResult(shared_ptr<string> JobId, shared_ptr<GetJobSanityCheckResultRequest> request);
   GetPodEventsResponse getPodEventsWithOptions(shared_ptr<string> JobId,
                                                shared_ptr<string> PodId,
                                                shared_ptr<GetPodEventsRequest> request,
@@ -7739,6 +8142,11 @@ public:
   GetWebTerminalResponse getWebTerminal(shared_ptr<string> JobId, shared_ptr<string> PodId, shared_ptr<GetWebTerminalRequest> request);
   ListEcsSpecsResponse listEcsSpecsWithOptions(shared_ptr<ListEcsSpecsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListEcsSpecsResponse listEcsSpecs(shared_ptr<ListEcsSpecsRequest> request);
+  ListJobSanityCheckResultsResponse listJobSanityCheckResultsWithOptions(shared_ptr<string> JobId,
+                                                                         shared_ptr<ListJobSanityCheckResultsRequest> request,
+                                                                         shared_ptr<map<string, string>> headers,
+                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListJobSanityCheckResultsResponse listJobSanityCheckResults(shared_ptr<string> JobId, shared_ptr<ListJobSanityCheckResultsRequest> request);
   ListJobsResponse listJobsWithOptions(shared_ptr<ListJobsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListJobsResponse listJobs(shared_ptr<ListJobsRequest> request);
   ListTensorboardsResponse listTensorboardsWithOptions(shared_ptr<ListTensorboardsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -421,6 +421,42 @@ GetJobMetricsResponse Alibabacloud_Pai-dlc20201203::Client::getJobMetrics(shared
   return getJobMetricsWithOptions(JobId, request, headers, runtime);
 }
 
+GetJobSanityCheckResultResponse Alibabacloud_Pai-dlc20201203::Client::getJobSanityCheckResultWithOptions(shared_ptr<string> JobId,
+                                                                                                         shared_ptr<GetJobSanityCheckResultRequest> request,
+                                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->sanityCheckNumber)) {
+    query->insert(pair<string, long>("SanityCheckNumber", *request->sanityCheckNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sanityCheckPhase)) {
+    query->insert(pair<string, string>("SanityCheckPhase", *request->sanityCheckPhase));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetJobSanityCheckResult"))},
+    {"version", boost::any(string("2020-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId)) + string("/sanitycheckresult"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetJobSanityCheckResultResponse(callApi(params, req, runtime));
+}
+
+GetJobSanityCheckResultResponse Alibabacloud_Pai-dlc20201203::Client::getJobSanityCheckResult(shared_ptr<string> JobId, shared_ptr<GetJobSanityCheckResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getJobSanityCheckResultWithOptions(JobId, request, headers, runtime);
+}
+
 GetPodEventsResponse Alibabacloud_Pai-dlc20201203::Client::getPodEventsWithOptions(shared_ptr<string> JobId,
                                                                                    shared_ptr<string> PodId,
                                                                                    shared_ptr<GetPodEventsRequest> request,
@@ -695,6 +731,39 @@ ListEcsSpecsResponse Alibabacloud_Pai-dlc20201203::Client::listEcsSpecs(shared_p
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listEcsSpecsWithOptions(request, headers, runtime);
+}
+
+ListJobSanityCheckResultsResponse Alibabacloud_Pai-dlc20201203::Client::listJobSanityCheckResultsWithOptions(shared_ptr<string> JobId,
+                                                                                                             shared_ptr<ListJobSanityCheckResultsRequest> request,
+                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    query->insert(pair<string, string>("Order", *request->order));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListJobSanityCheckResults"))},
+    {"version", boost::any(string("2020-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId)) + string("/sanitycheckresults"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListJobSanityCheckResultsResponse(callApi(params, req, runtime));
+}
+
+ListJobSanityCheckResultsResponse Alibabacloud_Pai-dlc20201203::Client::listJobSanityCheckResults(shared_ptr<string> JobId, shared_ptr<ListJobSanityCheckResultsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listJobSanityCheckResultsWithOptions(JobId, request, headers, runtime);
 }
 
 ListJobsResponse Alibabacloud_Pai-dlc20201203::Client::listJobsWithOptions(shared_ptr<ListJobsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
