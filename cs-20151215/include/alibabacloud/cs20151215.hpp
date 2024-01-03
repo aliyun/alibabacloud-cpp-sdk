@@ -72,11 +72,11 @@ public:
   shared_ptr<bool> burstingEnabled{};
   shared_ptr<string> category{};
   shared_ptr<string> device{};
+  shared_ptr<string> diskName{};
   shared_ptr<string> encrypted{};
   shared_ptr<string> fileSystem{};
   shared_ptr<string> kmsKeyId{};
   shared_ptr<string> mountTarget{};
-  shared_ptr<string> name{};
   shared_ptr<string> performanceLevel{};
   shared_ptr<long> provisionedIops{};
   shared_ptr<long> size{};
@@ -107,6 +107,9 @@ public:
     if (device) {
       res["device"] = boost::any(*device);
     }
+    if (diskName) {
+      res["disk_name"] = boost::any(*diskName);
+    }
     if (encrypted) {
       res["encrypted"] = boost::any(*encrypted);
     }
@@ -118,9 +121,6 @@ public:
     }
     if (mountTarget) {
       res["mount_target"] = boost::any(*mountTarget);
-    }
-    if (name) {
-      res["name"] = boost::any(*name);
     }
     if (performanceLevel) {
       res["performance_level"] = boost::any(*performanceLevel);
@@ -153,6 +153,9 @@ public:
     if (m.find("device") != m.end() && !m["device"].empty()) {
       device = make_shared<string>(boost::any_cast<string>(m["device"]));
     }
+    if (m.find("disk_name") != m.end() && !m["disk_name"].empty()) {
+      diskName = make_shared<string>(boost::any_cast<string>(m["disk_name"]));
+    }
     if (m.find("encrypted") != m.end() && !m["encrypted"].empty()) {
       encrypted = make_shared<string>(boost::any_cast<string>(m["encrypted"]));
     }
@@ -164,9 +167,6 @@ public:
     }
     if (m.find("mount_target") != m.end() && !m["mount_target"].empty()) {
       mountTarget = make_shared<string>(boost::any_cast<string>(m["mount_target"]));
-    }
-    if (m.find("name") != m.end() && !m["name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
     if (m.find("performance_level") != m.end() && !m["performance_level"].empty()) {
       performanceLevel = make_shared<string>(boost::any_cast<string>(m["performance_level"]));
