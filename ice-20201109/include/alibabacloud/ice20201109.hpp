@@ -18392,6 +18392,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<string> templateId{};
   shared_ptr<string> timeline{};
+  shared_ptr<string> userData{};
   shared_ptr<string> vodMediaId{};
 
   GetMediaProducingJobResponseBodyMediaProducingJob() {}
@@ -18446,6 +18447,9 @@ public:
     if (timeline) {
       res["Timeline"] = boost::any(*timeline);
     }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
     if (vodMediaId) {
       res["VodMediaId"] = boost::any(*vodMediaId);
     }
@@ -18494,6 +18498,9 @@ public:
     }
     if (m.find("Timeline") != m.end() && !m["Timeline"].empty()) {
       timeline = make_shared<string>(boost::any_cast<string>(m["Timeline"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
     if (m.find("VodMediaId") != m.end() && !m["VodMediaId"].empty()) {
       vodMediaId = make_shared<string>(boost::any_cast<string>(m["VodMediaId"]));
