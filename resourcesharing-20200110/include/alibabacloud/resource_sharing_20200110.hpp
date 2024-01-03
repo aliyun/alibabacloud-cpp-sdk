@@ -418,6 +418,7 @@ public:
   shared_ptr<string> entityType{};
   shared_ptr<string> resourceShareId{};
   shared_ptr<string> resourceShareName{};
+  shared_ptr<string> targetProperty{};
   shared_ptr<string> updateTime{};
 
   AssociateResourceShareResponseBodyResourceShareAssociations() {}
@@ -454,6 +455,9 @@ public:
     if (resourceShareName) {
       res["ResourceShareName"] = boost::any(*resourceShareName);
     }
+    if (targetProperty) {
+      res["TargetProperty"] = boost::any(*targetProperty);
+    }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
@@ -484,6 +488,9 @@ public:
     }
     if (m.find("ResourceShareName") != m.end() && !m["ResourceShareName"].empty()) {
       resourceShareName = make_shared<string>(boost::any_cast<string>(m["ResourceShareName"]));
+    }
+    if (m.find("TargetProperty") != m.end() && !m["TargetProperty"].empty()) {
+      targetProperty = make_shared<string>(boost::any_cast<string>(m["TargetProperty"]));
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -1686,6 +1693,7 @@ public:
   shared_ptr<string> entityType{};
   shared_ptr<string> resourceShareId{};
   shared_ptr<string> resourceShareName{};
+  shared_ptr<string> targetProperty{};
   shared_ptr<string> updateTime{};
 
   DisassociateResourceShareResponseBodyResourceShareAssociations() {}
@@ -1722,6 +1730,9 @@ public:
     if (resourceShareName) {
       res["ResourceShareName"] = boost::any(*resourceShareName);
     }
+    if (targetProperty) {
+      res["TargetProperty"] = boost::any(*targetProperty);
+    }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
@@ -1752,6 +1763,9 @@ public:
     }
     if (m.find("ResourceShareName") != m.end() && !m["ResourceShareName"].empty()) {
       resourceShareName = make_shared<string>(boost::any_cast<string>(m["ResourceShareName"]));
+    }
+    if (m.find("TargetProperty") != m.end() && !m["TargetProperty"].empty()) {
+      targetProperty = make_shared<string>(boost::any_cast<string>(m["TargetProperty"]));
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -2851,8 +2865,66 @@ public:
 
   virtual ~ListResourceShareAssociationsRequest() = default;
 };
+class ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> associateType{};
+  shared_ptr<string> entityId{};
+  shared_ptr<string> entityType{};
+  shared_ptr<string> status{};
+  shared_ptr<string> statusMessage{};
+
+  ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails() {}
+
+  explicit ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (associateType) {
+      res["AssociateType"] = boost::any(*associateType);
+    }
+    if (entityId) {
+      res["EntityId"] = boost::any(*entityId);
+    }
+    if (entityType) {
+      res["EntityType"] = boost::any(*entityType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (statusMessage) {
+      res["StatusMessage"] = boost::any(*statusMessage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssociateType") != m.end() && !m["AssociateType"].empty()) {
+      associateType = make_shared<string>(boost::any_cast<string>(m["AssociateType"]));
+    }
+    if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
+      entityId = make_shared<string>(boost::any_cast<string>(m["EntityId"]));
+    }
+    if (m.find("EntityType") != m.end() && !m["EntityType"].empty()) {
+      entityType = make_shared<string>(boost::any_cast<string>(m["EntityType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StatusMessage") != m.end() && !m["StatusMessage"].empty()) {
+      statusMessage = make_shared<string>(boost::any_cast<string>(m["StatusMessage"]));
+    }
+  }
+
+
+  virtual ~ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails() = default;
+};
 class ListResourceShareAssociationsResponseBodyResourceShareAssociations : public Darabonba::Model {
 public:
+  shared_ptr<vector<ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails>> associationFailedDetails{};
   shared_ptr<string> associationStatus{};
   shared_ptr<string> associationStatusMessage{};
   shared_ptr<string> associationType{};
@@ -2862,6 +2934,7 @@ public:
   shared_ptr<bool> external{};
   shared_ptr<string> resourceShareId{};
   shared_ptr<string> resourceShareName{};
+  shared_ptr<string> targetProperty{};
   shared_ptr<string> updateTime{};
 
   ListResourceShareAssociationsResponseBodyResourceShareAssociations() {}
@@ -2874,6 +2947,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (associationFailedDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*associationFailedDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AssociationFailedDetails"] = boost::any(temp1);
+    }
     if (associationStatus) {
       res["AssociationStatus"] = boost::any(*associationStatus);
     }
@@ -2901,6 +2981,9 @@ public:
     if (resourceShareName) {
       res["ResourceShareName"] = boost::any(*resourceShareName);
     }
+    if (targetProperty) {
+      res["TargetProperty"] = boost::any(*targetProperty);
+    }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
@@ -2908,6 +2991,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssociationFailedDetails") != m.end() && !m["AssociationFailedDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["AssociationFailedDetails"].type()) {
+        vector<ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AssociationFailedDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        associationFailedDetails = make_shared<vector<ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails>>(expect1);
+      }
+    }
     if (m.find("AssociationStatus") != m.end() && !m["AssociationStatus"].empty()) {
       associationStatus = make_shared<string>(boost::any_cast<string>(m["AssociationStatus"]));
     }
@@ -2934,6 +3030,9 @@ public:
     }
     if (m.find("ResourceShareName") != m.end() && !m["ResourceShareName"].empty()) {
       resourceShareName = make_shared<string>(boost::any_cast<string>(m["ResourceShareName"]));
+    }
+    if (m.find("TargetProperty") != m.end() && !m["TargetProperty"].empty()) {
+      targetProperty = make_shared<string>(boost::any_cast<string>(m["TargetProperty"]));
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -4268,6 +4367,7 @@ public:
   shared_ptr<bool> external{};
   shared_ptr<string> resourceShareId{};
   shared_ptr<string> targetId{};
+  shared_ptr<string> targetProperty{};
   shared_ptr<string> updateTime{};
 
   ListSharedTargetsResponseBodySharedTargets() {}
@@ -4292,6 +4392,9 @@ public:
     if (targetId) {
       res["TargetId"] = boost::any(*targetId);
     }
+    if (targetProperty) {
+      res["TargetProperty"] = boost::any(*targetProperty);
+    }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
@@ -4310,6 +4413,9 @@ public:
     }
     if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
       targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
+    }
+    if (m.find("TargetProperty") != m.end() && !m["TargetProperty"].empty()) {
+      targetProperty = make_shared<string>(boost::any_cast<string>(m["TargetProperty"]));
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
