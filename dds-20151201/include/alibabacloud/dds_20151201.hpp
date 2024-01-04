@@ -8352,6 +8352,7 @@ class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardListShard
 public:
   shared_ptr<string> connectString{};
   shared_ptr<long> maxConnections{};
+  shared_ptr<string> maxDiskMbps{};
   shared_ptr<long> maxIOPS{};
   shared_ptr<string> nodeClass{};
   shared_ptr<string> nodeDescription{};
@@ -8376,6 +8377,9 @@ public:
     }
     if (maxConnections) {
       res["MaxConnections"] = boost::any(*maxConnections);
+    }
+    if (maxDiskMbps) {
+      res["MaxDiskMbps"] = boost::any(*maxDiskMbps);
     }
     if (maxIOPS) {
       res["MaxIOPS"] = boost::any(*maxIOPS);
@@ -8410,6 +8414,9 @@ public:
     }
     if (m.find("MaxConnections") != m.end() && !m["MaxConnections"].empty()) {
       maxConnections = make_shared<long>(boost::any_cast<long>(m["MaxConnections"]));
+    }
+    if (m.find("MaxDiskMbps") != m.end() && !m["MaxDiskMbps"].empty()) {
+      maxDiskMbps = make_shared<string>(boost::any_cast<string>(m["MaxDiskMbps"]));
     }
     if (m.find("MaxIOPS") != m.end() && !m["MaxIOPS"].empty()) {
       maxIOPS = make_shared<long>(boost::any_cast<long>(m["MaxIOPS"]));
@@ -8592,6 +8599,7 @@ public:
   shared_ptr<string> maintainStartTime{};
   shared_ptr<long> maxConnections{};
   shared_ptr<long> maxIOPS{};
+  shared_ptr<long> maxMBPS{};
   shared_ptr<DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceMongosList> mongosList{};
   shared_ptr<string> networkType{};
   shared_ptr<string> protocolType{};
@@ -8709,6 +8717,9 @@ public:
     }
     if (maxIOPS) {
       res["MaxIOPS"] = boost::any(*maxIOPS);
+    }
+    if (maxMBPS) {
+      res["MaxMBPS"] = boost::any(*maxMBPS);
     }
     if (mongosList) {
       res["MongosList"] = mongosList ? boost::any(mongosList->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8870,6 +8881,9 @@ public:
     }
     if (m.find("MaxIOPS") != m.end() && !m["MaxIOPS"].empty()) {
       maxIOPS = make_shared<long>(boost::any_cast<long>(m["MaxIOPS"]));
+    }
+    if (m.find("MaxMBPS") != m.end() && !m["MaxMBPS"].empty()) {
+      maxMBPS = make_shared<long>(boost::any_cast<long>(m["MaxMBPS"]));
     }
     if (m.find("MongosList") != m.end() && !m["MongosList"].empty()) {
       if (typeid(map<string, boost::any>) == m["MongosList"].type()) {
