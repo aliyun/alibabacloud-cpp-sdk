@@ -4388,6 +4388,9 @@ EnableCenVbrHealthCheckResponse Alibabacloud_Cbn20170912::Client::enableCenVbrHe
   if (!Darabonba_Util::Client::isUnset<string>(request->cenId)) {
     query->insert(pair<string, string>("CenId", *request->cenId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->healthCheckInterval)) {
     query->insert(pair<string, long>("HealthCheckInterval", *request->healthCheckInterval));
   }

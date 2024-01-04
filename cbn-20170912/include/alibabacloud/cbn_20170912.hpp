@@ -16123,6 +16123,7 @@ public:
 class DescribeCenVbrHealthCheckResponseBodyVbrHealthChecksVbrHealthCheck : public Darabonba::Model {
 public:
   shared_ptr<string> cenId{};
+  shared_ptr<string> description{};
   shared_ptr<long> healthCheckInterval{};
   shared_ptr<bool> healthCheckOnly{};
   shared_ptr<string> healthCheckSourceIp{};
@@ -16143,6 +16144,9 @@ public:
     map<string, boost::any> res;
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (healthCheckInterval) {
       res["HealthCheckInterval"] = boost::any(*healthCheckInterval);
@@ -16171,6 +16175,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("HealthCheckInterval") != m.end() && !m["HealthCheckInterval"].empty()) {
       healthCheckInterval = make_shared<long>(boost::any_cast<long>(m["HealthCheckInterval"]));
@@ -18108,6 +18115,7 @@ public:
   shared_ptr<long> childInstanceOwnerId{};
   shared_ptr<string> childInstanceRegionId{};
   shared_ptr<string> childInstanceType{};
+  shared_ptr<long> createTime{};
   shared_ptr<string> orderType{};
 
   DescribeGrantRulesToCenResponseBodyGrantRulesGrantRule() {}
@@ -18138,6 +18146,9 @@ public:
     if (childInstanceType) {
       res["ChildInstanceType"] = boost::any(*childInstanceType);
     }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
     if (orderType) {
       res["OrderType"] = boost::any(*orderType);
     }
@@ -18162,6 +18173,9 @@ public:
     }
     if (m.find("ChildInstanceType") != m.end() && !m["ChildInstanceType"].empty()) {
       childInstanceType = make_shared<string>(boost::any_cast<string>(m["ChildInstanceType"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
     }
     if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
       orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
@@ -18426,6 +18440,7 @@ class DescribeGrantRulesToResourceResponseBodyGrantRules : public Darabonba::Mod
 public:
   shared_ptr<string> cenId{};
   shared_ptr<long> cenOwnerId{};
+  shared_ptr<string> createTime{};
   shared_ptr<string> orderType{};
 
   DescribeGrantRulesToResourceResponseBodyGrantRules() {}
@@ -18444,6 +18459,9 @@ public:
     if (cenOwnerId) {
       res["CenOwnerId"] = boost::any(*cenOwnerId);
     }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
     if (orderType) {
       res["OrderType"] = boost::any(*orderType);
     }
@@ -18456,6 +18474,9 @@ public:
     }
     if (m.find("CenOwnerId") != m.end() && !m["CenOwnerId"].empty()) {
       cenOwnerId = make_shared<long>(boost::any_cast<long>(m["CenOwnerId"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
     if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
       orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
@@ -21148,6 +21169,7 @@ public:
 class EnableCenVbrHealthCheckRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cenId{};
+  shared_ptr<string> description{};
   shared_ptr<long> healthCheckInterval{};
   shared_ptr<bool> healthCheckOnly{};
   shared_ptr<string> healthCheckSourceIp{};
@@ -21173,6 +21195,9 @@ public:
     map<string, boost::any> res;
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (healthCheckInterval) {
       res["HealthCheckInterval"] = boost::any(*healthCheckInterval);
@@ -21216,6 +21241,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("HealthCheckInterval") != m.end() && !m["HealthCheckInterval"].empty()) {
       healthCheckInterval = make_shared<long>(boost::any_cast<long>(m["HealthCheckInterval"]));
@@ -28967,6 +28995,7 @@ public:
   shared_ptr<bool> autoPublishRouteEnabled{};
   shared_ptr<string> cenId{};
   shared_ptr<string> creationTime{};
+  shared_ptr<string> orderType{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
   shared_ptr<vector<ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachmentsTags>> tags{};
@@ -28996,6 +29025,9 @@ public:
     }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (orderType) {
+      res["OrderType"] = boost::any(*orderType);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -29043,6 +29075,9 @@ public:
     }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
+      orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
