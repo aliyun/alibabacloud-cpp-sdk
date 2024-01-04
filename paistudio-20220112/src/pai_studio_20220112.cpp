@@ -207,6 +207,9 @@ CreateResourceGroupResponse Alibabacloud_PaiStudio20220112::Client::createResour
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     body->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateResourceGroupRequestTag>>(request->tag)) {
+    body->insert(pair<string, vector<CreateResourceGroupRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<UserVpc>(request->userVpc)) {
     body->insert(pair<string, UserVpc>("UserVpc", *request->userVpc));
   }
@@ -272,6 +275,9 @@ CreateTrainingJobResponse Alibabacloud_PaiStudio20220112::Client::createTraining
   }
   if (!Darabonba_Util::Client::isUnset<CreateTrainingJobRequestScheduler>(request->scheduler)) {
     body->insert(pair<string, CreateTrainingJobRequestScheduler>("Scheduler", *request->scheduler));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateTrainingJobRequestSettings>(request->settings)) {
+    body->insert(pair<string, CreateTrainingJobRequestSettings>("Settings", *request->settings));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->trainingJobDescription)) {
     body->insert(pair<string, string>("TrainingJobDescription", *request->trainingJobDescription));
@@ -554,13 +560,21 @@ GetQuotaResponse Alibabacloud_PaiStudio20220112::Client::getQuota(shared_ptr<str
 }
 
 GetResourceGroupResponse Alibabacloud_PaiStudio20220112::Client::getResourceGroupWithOptions(shared_ptr<string> ResourceGroupID,
-                                                                                             shared_ptr<GetResourceGroupRequest> request,
+                                                                                             shared_ptr<GetResourceGroupRequest> tmpReq,
                                                                                              shared_ptr<map<string, string>> headers,
                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetResourceGroupShrinkRequest> request = make_shared<GetResourceGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<GetResourceGroupRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->isAIWorkspaceDataEnabled)) {
     query->insert(pair<string, bool>("IsAIWorkspaceDataEnabled", *request->isAIWorkspaceDataEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -588,10 +602,22 @@ GetResourceGroupResponse Alibabacloud_PaiStudio20220112::Client::getResourceGrou
 
 GetResourceGroupMachineGroupResponse Alibabacloud_PaiStudio20220112::Client::getResourceGroupMachineGroupWithOptions(shared_ptr<string> MachineGroupID,
                                                                                                                      shared_ptr<string> ResourceGroupID,
+                                                                                                                     shared_ptr<GetResourceGroupMachineGroupRequest> tmpReq,
                                                                                                                      shared_ptr<map<string, string>> headers,
                                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetResourceGroupMachineGroupShrinkRequest> request = make_shared<GetResourceGroupMachineGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<GetResourceGroupMachineGroupRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetResourceGroupMachineGroup"))},
@@ -607,10 +633,10 @@ GetResourceGroupMachineGroupResponse Alibabacloud_PaiStudio20220112::Client::get
   return GetResourceGroupMachineGroupResponse(callApi(params, req, runtime));
 }
 
-GetResourceGroupMachineGroupResponse Alibabacloud_PaiStudio20220112::Client::getResourceGroupMachineGroup(shared_ptr<string> MachineGroupID, shared_ptr<string> ResourceGroupID) {
+GetResourceGroupMachineGroupResponse Alibabacloud_PaiStudio20220112::Client::getResourceGroupMachineGroup(shared_ptr<string> MachineGroupID, shared_ptr<string> ResourceGroupID, shared_ptr<GetResourceGroupMachineGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getResourceGroupMachineGroupWithOptions(MachineGroupID, ResourceGroupID, headers, runtime);
+  return getResourceGroupMachineGroupWithOptions(MachineGroupID, ResourceGroupID, request, headers, runtime);
 }
 
 GetResourceGroupRequestResponse Alibabacloud_PaiStudio20220112::Client::getResourceGroupRequestWithOptions(shared_ptr<GetResourceGroupRequestRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1359,6 +1385,12 @@ UpdateResourceGroupResponse Alibabacloud_PaiStudio20220112::Client::updateResour
                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->unbind)) {
     body->insert(pair<string, bool>("Unbind", *request->unbind));
   }

@@ -4456,12 +4456,49 @@ public:
 
   virtual ~CreateQuotaResponse() = default;
 };
+class CreateResourceGroupRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateResourceGroupRequestTag() {}
+
+  explicit CreateResourceGroupRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateResourceGroupRequestTag() = default;
+};
 class CreateResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> computingResourceProvider{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> resourceType{};
+  shared_ptr<vector<CreateResourceGroupRequestTag>> tag{};
   shared_ptr<UserVpc> userVpc{};
 
   CreateResourceGroupRequest() {}
@@ -4486,6 +4523,13 @@ public:
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     if (userVpc) {
       res["UserVpc"] = userVpc ? boost::any(userVpc->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -4504,6 +4548,19 @@ public:
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateResourceGroupRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateResourceGroupRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateResourceGroupRequestTag>>(expect1);
+      }
     }
     if (m.find("UserVpc") != m.end() && !m["UserVpc"].empty()) {
       if (typeid(map<string, boost::any>) == m["UserVpc"].type()) {
@@ -4920,6 +4977,56 @@ public:
 
   virtual ~CreateTrainingJobRequestScheduler() = default;
 };
+class CreateTrainingJobRequestSettings : public Darabonba::Model {
+public:
+  shared_ptr<string> AIMasterType{};
+  shared_ptr<bool> enableErrorMonitoringInAIMaster{};
+  shared_ptr<string> errorMonitoringArgs{};
+  shared_ptr<long> priority{};
+
+  CreateTrainingJobRequestSettings() {}
+
+  explicit CreateTrainingJobRequestSettings(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (AIMasterType) {
+      res["AIMasterType"] = boost::any(*AIMasterType);
+    }
+    if (enableErrorMonitoringInAIMaster) {
+      res["EnableErrorMonitoringInAIMaster"] = boost::any(*enableErrorMonitoringInAIMaster);
+    }
+    if (errorMonitoringArgs) {
+      res["ErrorMonitoringArgs"] = boost::any(*errorMonitoringArgs);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AIMasterType") != m.end() && !m["AIMasterType"].empty()) {
+      AIMasterType = make_shared<string>(boost::any_cast<string>(m["AIMasterType"]));
+    }
+    if (m.find("EnableErrorMonitoringInAIMaster") != m.end() && !m["EnableErrorMonitoringInAIMaster"].empty()) {
+      enableErrorMonitoringInAIMaster = make_shared<bool>(boost::any_cast<bool>(m["EnableErrorMonitoringInAIMaster"]));
+    }
+    if (m.find("ErrorMonitoringArgs") != m.end() && !m["ErrorMonitoringArgs"].empty()) {
+      errorMonitoringArgs = make_shared<string>(boost::any_cast<string>(m["ErrorMonitoringArgs"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+  }
+
+
+  virtual ~CreateTrainingJobRequestSettings() = default;
+};
 class CreateTrainingJobRequestUserVpc : public Darabonba::Model {
 public:
   shared_ptr<string> defaultRoute{};
@@ -4998,6 +5105,7 @@ public:
   shared_ptr<vector<CreateTrainingJobRequestOutputChannels>> outputChannels{};
   shared_ptr<string> roleArn{};
   shared_ptr<CreateTrainingJobRequestScheduler> scheduler{};
+  shared_ptr<CreateTrainingJobRequestSettings> settings{};
   shared_ptr<string> trainingJobDescription{};
   shared_ptr<string> trainingJobName{};
   shared_ptr<CreateTrainingJobRequestUserVpc> userVpc{};
@@ -5064,6 +5172,9 @@ public:
     }
     if (scheduler) {
       res["Scheduler"] = scheduler ? boost::any(scheduler->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (settings) {
+      res["Settings"] = settings ? boost::any(settings->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (trainingJobDescription) {
       res["TrainingJobDescription"] = boost::any(*trainingJobDescription);
@@ -5171,6 +5282,13 @@ public:
         CreateTrainingJobRequestScheduler model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Scheduler"]));
         scheduler = make_shared<CreateTrainingJobRequestScheduler>(model1);
+      }
+    }
+    if (m.find("Settings") != m.end() && !m["Settings"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Settings"].type()) {
+        CreateTrainingJobRequestSettings model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Settings"]));
+        settings = make_shared<CreateTrainingJobRequestSettings>(model1);
       }
     }
     if (m.find("TrainingJobDescription") != m.end() && !m["TrainingJobDescription"].empty()) {
@@ -6681,9 +6799,46 @@ public:
 
   virtual ~GetQuotaResponse() = default;
 };
+class GetResourceGroupRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetResourceGroupRequestTag() {}
+
+  explicit GetResourceGroupRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetResourceGroupRequestTag() = default;
+};
 class GetResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> isAIWorkspaceDataEnabled{};
+  shared_ptr<vector<GetResourceGroupRequestTag>> tag{};
 
   GetResourceGroupRequest() {}
 
@@ -6698,6 +6853,13 @@ public:
     if (isAIWorkspaceDataEnabled) {
       res["IsAIWorkspaceDataEnabled"] = boost::any(*isAIWorkspaceDataEnabled);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -6705,16 +6867,102 @@ public:
     if (m.find("IsAIWorkspaceDataEnabled") != m.end() && !m["IsAIWorkspaceDataEnabled"].empty()) {
       isAIWorkspaceDataEnabled = make_shared<bool>(boost::any_cast<bool>(m["IsAIWorkspaceDataEnabled"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<GetResourceGroupRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResourceGroupRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<GetResourceGroupRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~GetResourceGroupRequest() = default;
+};
+class GetResourceGroupShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> isAIWorkspaceDataEnabled{};
+  shared_ptr<string> tagShrink{};
+
+  GetResourceGroupShrinkRequest() {}
+
+  explicit GetResourceGroupShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isAIWorkspaceDataEnabled) {
+      res["IsAIWorkspaceDataEnabled"] = boost::any(*isAIWorkspaceDataEnabled);
+    }
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsAIWorkspaceDataEnabled") != m.end() && !m["IsAIWorkspaceDataEnabled"].empty()) {
+      isAIWorkspaceDataEnabled = make_shared<bool>(boost::any_cast<bool>(m["IsAIWorkspaceDataEnabled"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~GetResourceGroupShrinkRequest() = default;
+};
+class GetResourceGroupResponseBodyTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetResourceGroupResponseBodyTags() {}
+
+  explicit GetResourceGroupResponseBodyTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetResourceGroupResponseBodyTags() = default;
 };
 class GetResourceGroupResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> clusterID{};
   shared_ptr<string> computingResourceProvider{};
   shared_ptr<string> creatorID{};
+  shared_ptr<string> description{};
   shared_ptr<string> gmtCreatedTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<string> name{};
@@ -6722,6 +6970,7 @@ public:
   shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
   shared_ptr<bool> supportRDMA{};
+  shared_ptr<vector<GetResourceGroupResponseBodyTags>> tags{};
   shared_ptr<UserVpc> userVpc{};
   shared_ptr<string> workspaceID{};
 
@@ -6744,6 +6993,9 @@ public:
     if (creatorID) {
       res["CreatorID"] = boost::any(*creatorID);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (gmtCreatedTime) {
       res["GmtCreatedTime"] = boost::any(*gmtCreatedTime);
     }
@@ -6765,6 +7017,13 @@ public:
     if (supportRDMA) {
       res["SupportRDMA"] = boost::any(*supportRDMA);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     if (userVpc) {
       res["UserVpc"] = userVpc ? boost::any(userVpc->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -6783,6 +7042,9 @@ public:
     }
     if (m.find("CreatorID") != m.end() && !m["CreatorID"].empty()) {
       creatorID = make_shared<string>(boost::any_cast<string>(m["CreatorID"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("GmtCreatedTime") != m.end() && !m["GmtCreatedTime"].empty()) {
       gmtCreatedTime = make_shared<string>(boost::any_cast<string>(m["GmtCreatedTime"]));
@@ -6804,6 +7066,19 @@ public:
     }
     if (m.find("SupportRDMA") != m.end() && !m["SupportRDMA"].empty()) {
       supportRDMA = make_shared<bool>(boost::any_cast<bool>(m["SupportRDMA"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetResourceGroupResponseBodyTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResourceGroupResponseBodyTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetResourceGroupResponseBodyTags>>(expect1);
+      }
     }
     if (m.find("UserVpc") != m.end() && !m["UserVpc"].empty()) {
       if (typeid(map<string, boost::any>) == m["UserVpc"].type()) {
@@ -6882,6 +7157,150 @@ public:
 
   virtual ~GetResourceGroupResponse() = default;
 };
+class GetResourceGroupMachineGroupRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetResourceGroupMachineGroupRequestTag() {}
+
+  explicit GetResourceGroupMachineGroupRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetResourceGroupMachineGroupRequestTag() = default;
+};
+class GetResourceGroupMachineGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetResourceGroupMachineGroupRequestTag>> tag{};
+
+  GetResourceGroupMachineGroupRequest() {}
+
+  explicit GetResourceGroupMachineGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<GetResourceGroupMachineGroupRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResourceGroupMachineGroupRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<GetResourceGroupMachineGroupRequestTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetResourceGroupMachineGroupRequest() = default;
+};
+class GetResourceGroupMachineGroupShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> tagShrink{};
+
+  GetResourceGroupMachineGroupShrinkRequest() {}
+
+  explicit GetResourceGroupMachineGroupShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagShrink) {
+      res["Tag"] = boost::any(*tagShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tagShrink = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+  }
+
+
+  virtual ~GetResourceGroupMachineGroupShrinkRequest() = default;
+};
+class GetResourceGroupMachineGroupResponseBodyTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetResourceGroupMachineGroupResponseBodyTags() {}
+
+  explicit GetResourceGroupMachineGroupResponseBodyTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetResourceGroupMachineGroupResponseBodyTags() = default;
+};
 class GetResourceGroupMachineGroupResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> cpu{};
@@ -6896,6 +7315,7 @@ public:
   shared_ptr<string> gpuType{};
   shared_ptr<string> machineGroupID{};
   shared_ptr<string> memory{};
+  shared_ptr<string> name{};
   shared_ptr<string> paymentDuration{};
   shared_ptr<string> paymentDurationUnit{};
   shared_ptr<string> paymentType{};
@@ -6903,6 +7323,7 @@ public:
   shared_ptr<string> resourceGroupID{};
   shared_ptr<string> status{};
   shared_ptr<vector<string>> supportedDrivers{};
+  shared_ptr<vector<GetResourceGroupMachineGroupResponseBodyTags>> tags{};
 
   GetResourceGroupMachineGroupResponseBody() {}
 
@@ -6950,6 +7371,9 @@ public:
     if (memory) {
       res["Memory"] = boost::any(*memory);
     }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
     if (paymentDuration) {
       res["PaymentDuration"] = boost::any(*paymentDuration);
     }
@@ -6970,6 +7394,13 @@ public:
     }
     if (supportedDrivers) {
       res["SupportedDrivers"] = boost::any(*supportedDrivers);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     return res;
   }
@@ -7011,6 +7442,9 @@ public:
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<string>(boost::any_cast<string>(m["Memory"]));
     }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
     if (m.find("PaymentDuration") != m.end() && !m["PaymentDuration"].empty()) {
       paymentDuration = make_shared<string>(boost::any_cast<string>(m["PaymentDuration"]));
     }
@@ -7038,6 +7472,19 @@ public:
         }
       }
       supportedDrivers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetResourceGroupMachineGroupResponseBodyTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResourceGroupMachineGroupResponseBodyTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetResourceGroupMachineGroupResponseBodyTags>>(expect1);
+      }
     }
   }
 
@@ -7966,6 +8413,56 @@ public:
 
   virtual ~GetTrainingJobResponseBodyScheduler() = default;
 };
+class GetTrainingJobResponseBodySettings : public Darabonba::Model {
+public:
+  shared_ptr<string> AIMasterType{};
+  shared_ptr<bool> enableErrorMonitoringInAIMaster{};
+  shared_ptr<string> errorMonitoringArgs{};
+  shared_ptr<long> priority{};
+
+  GetTrainingJobResponseBodySettings() {}
+
+  explicit GetTrainingJobResponseBodySettings(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (AIMasterType) {
+      res["AIMasterType"] = boost::any(*AIMasterType);
+    }
+    if (enableErrorMonitoringInAIMaster) {
+      res["EnableErrorMonitoringInAIMaster"] = boost::any(*enableErrorMonitoringInAIMaster);
+    }
+    if (errorMonitoringArgs) {
+      res["ErrorMonitoringArgs"] = boost::any(*errorMonitoringArgs);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AIMasterType") != m.end() && !m["AIMasterType"].empty()) {
+      AIMasterType = make_shared<string>(boost::any_cast<string>(m["AIMasterType"]));
+    }
+    if (m.find("EnableErrorMonitoringInAIMaster") != m.end() && !m["EnableErrorMonitoringInAIMaster"].empty()) {
+      enableErrorMonitoringInAIMaster = make_shared<bool>(boost::any_cast<bool>(m["EnableErrorMonitoringInAIMaster"]));
+    }
+    if (m.find("ErrorMonitoringArgs") != m.end() && !m["ErrorMonitoringArgs"].empty()) {
+      errorMonitoringArgs = make_shared<string>(boost::any_cast<string>(m["ErrorMonitoringArgs"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+  }
+
+
+  virtual ~GetTrainingJobResponseBodySettings() = default;
+};
 class GetTrainingJobResponseBodyStatusTransitions : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
@@ -8104,6 +8601,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> roleArn{};
   shared_ptr<GetTrainingJobResponseBodyScheduler> scheduler{};
+  shared_ptr<GetTrainingJobResponseBodySettings> settings{};
   shared_ptr<string> status{};
   shared_ptr<vector<GetTrainingJobResponseBodyStatusTransitions>> statusTransitions{};
   shared_ptr<string> trainingJobDescription{};
@@ -8213,6 +8711,9 @@ public:
     }
     if (scheduler) {
       res["Scheduler"] = scheduler ? boost::any(scheduler->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (settings) {
+      res["Settings"] = settings ? boost::any(settings->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -8393,6 +8894,13 @@ public:
         GetTrainingJobResponseBodyScheduler model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Scheduler"]));
         scheduler = make_shared<GetTrainingJobResponseBodyScheduler>(model1);
+      }
+    }
+    if (m.find("Settings") != m.end() && !m["Settings"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Settings"].type()) {
+        GetTrainingJobResponseBodySettings model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Settings"]));
+        settings = make_shared<GetTrainingJobResponseBodySettings>(model1);
       }
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
@@ -11975,6 +12483,8 @@ public:
 };
 class UpdateResourceGroupRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
   shared_ptr<bool> unbind{};
   shared_ptr<UserVpc> userVpc{};
 
@@ -11988,6 +12498,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
     if (unbind) {
       res["Unbind"] = boost::any(*unbind);
     }
@@ -11998,6 +12514,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
     if (m.find("Unbind") != m.end() && !m["Unbind"].empty()) {
       unbind = make_shared<bool>(boost::any_cast<bool>(m["Unbind"]));
     }
@@ -12334,15 +12856,16 @@ public:
   GetQuotaResponse getQuotaWithOptions(shared_ptr<string> QuotaId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetQuotaResponse getQuota(shared_ptr<string> QuotaId);
   GetResourceGroupResponse getResourceGroupWithOptions(shared_ptr<string> ResourceGroupID,
-                                                       shared_ptr<GetResourceGroupRequest> request,
+                                                       shared_ptr<GetResourceGroupRequest> tmpReq,
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetResourceGroupResponse getResourceGroup(shared_ptr<string> ResourceGroupID, shared_ptr<GetResourceGroupRequest> request);
   GetResourceGroupMachineGroupResponse getResourceGroupMachineGroupWithOptions(shared_ptr<string> MachineGroupID,
                                                                                shared_ptr<string> ResourceGroupID,
+                                                                               shared_ptr<GetResourceGroupMachineGroupRequest> tmpReq,
                                                                                shared_ptr<map<string, string>> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetResourceGroupMachineGroupResponse getResourceGroupMachineGroup(shared_ptr<string> MachineGroupID, shared_ptr<string> ResourceGroupID);
+  GetResourceGroupMachineGroupResponse getResourceGroupMachineGroup(shared_ptr<string> MachineGroupID, shared_ptr<string> ResourceGroupID, shared_ptr<GetResourceGroupMachineGroupRequest> request);
   GetResourceGroupRequestResponse getResourceGroupRequestWithOptions(shared_ptr<GetResourceGroupRequestRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetResourceGroupRequestResponse getResourceGroupRequest(shared_ptr<GetResourceGroupRequestRequest> request);
   GetResourceGroupTotalResponse getResourceGroupTotalWithOptions(shared_ptr<GetResourceGroupTotalRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
