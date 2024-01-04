@@ -2394,6 +2394,46 @@ DetachAppPolicyFromIdentityResponse Alibabacloud_Vod20170321::Client::detachAppP
   return detachAppPolicyFromIdentityWithOptions(request, runtime);
 }
 
+GenerateDownloadSecretKeyResponse Alibabacloud_Vod20170321::Client::generateDownloadSecretKeyWithOptions(shared_ptr<GenerateDownloadSecretKeyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appDecryptKey)) {
+    query->insert(pair<string, string>("AppDecryptKey", *request->appDecryptKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appIdentification)) {
+    query->insert(pair<string, string>("AppIdentification", *request->appIdentification));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GenerateDownloadSecretKey"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GenerateDownloadSecretKeyResponse(callApi(params, req, runtime));
+}
+
+GenerateDownloadSecretKeyResponse Alibabacloud_Vod20170321::Client::generateDownloadSecretKey(shared_ptr<GenerateDownloadSecretKeyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return generateDownloadSecretKeyWithOptions(request, runtime);
+}
+
 GenerateKMSDataKeyResponse Alibabacloud_Vod20170321::Client::generateKMSDataKeyWithOptions(shared_ptr<GenerateKMSDataKeyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
