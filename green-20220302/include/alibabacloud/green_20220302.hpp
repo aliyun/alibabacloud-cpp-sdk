@@ -679,7 +679,7 @@ public:
 };
 class DescribeImageModerationResultResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
+  shared_ptr<long> code{};
   shared_ptr<DescribeImageModerationResultResponseBodyData> data{};
   shared_ptr<string> msg{};
   shared_ptr<string> requestId{};
@@ -711,7 +711,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(map<string, boost::any>) == m["Data"].type()) {
@@ -2503,6 +2503,42 @@ public:
 
   virtual ~VideoModerationResultRequest() = default;
 };
+class VideoModerationResultResponseBodyDataAudioResultAudioSummarys : public Darabonba::Model {
+public:
+  shared_ptr<string> label{};
+  shared_ptr<long> labelSum{};
+
+  VideoModerationResultResponseBodyDataAudioResultAudioSummarys() {}
+
+  explicit VideoModerationResultResponseBodyDataAudioResultAudioSummarys(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (labelSum) {
+      res["LabelSum"] = boost::any(*labelSum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("LabelSum") != m.end() && !m["LabelSum"].empty()) {
+      labelSum = make_shared<long>(boost::any_cast<long>(m["LabelSum"]));
+    }
+  }
+
+
+  virtual ~VideoModerationResultResponseBodyDataAudioResultAudioSummarys() = default;
+};
 class VideoModerationResultResponseBodyDataAudioResultSliceDetails : public Darabonba::Model {
 public:
   shared_ptr<long> endTime{};
@@ -2604,6 +2640,7 @@ public:
 };
 class VideoModerationResultResponseBodyDataAudioResult : public Darabonba::Model {
 public:
+  shared_ptr<vector<VideoModerationResultResponseBodyDataAudioResultAudioSummarys>> audioSummarys{};
   shared_ptr<vector<VideoModerationResultResponseBodyDataAudioResultSliceDetails>> sliceDetails{};
 
   VideoModerationResultResponseBodyDataAudioResult() {}
@@ -2616,6 +2653,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (audioSummarys) {
+      vector<boost::any> temp1;
+      for(auto item1:*audioSummarys){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AudioSummarys"] = boost::any(temp1);
+    }
     if (sliceDetails) {
       vector<boost::any> temp1;
       for(auto item1:*sliceDetails){
@@ -2627,6 +2671,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AudioSummarys") != m.end() && !m["AudioSummarys"].empty()) {
+      if (typeid(vector<boost::any>) == m["AudioSummarys"].type()) {
+        vector<VideoModerationResultResponseBodyDataAudioResultAudioSummarys> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AudioSummarys"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            VideoModerationResultResponseBodyDataAudioResultAudioSummarys model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        audioSummarys = make_shared<vector<VideoModerationResultResponseBodyDataAudioResultAudioSummarys>>(expect1);
+      }
+    }
     if (m.find("SliceDetails") != m.end() && !m["SliceDetails"].empty()) {
       if (typeid(vector<boost::any>) == m["SliceDetails"].type()) {
         vector<VideoModerationResultResponseBodyDataAudioResultSliceDetails> expect1;
@@ -2644,6 +2701,42 @@ public:
 
 
   virtual ~VideoModerationResultResponseBodyDataAudioResult() = default;
+};
+class VideoModerationResultResponseBodyDataFrameResultFrameSummarys : public Darabonba::Model {
+public:
+  shared_ptr<string> label{};
+  shared_ptr<long> labelSum{};
+
+  VideoModerationResultResponseBodyDataFrameResultFrameSummarys() {}
+
+  explicit VideoModerationResultResponseBodyDataFrameResultFrameSummarys(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (labelSum) {
+      res["LabelSum"] = boost::any(*labelSum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("LabelSum") != m.end() && !m["LabelSum"].empty()) {
+      labelSum = make_shared<long>(boost::any_cast<long>(m["LabelSum"]));
+    }
+  }
+
+
+  virtual ~VideoModerationResultResponseBodyDataFrameResultFrameSummarys() = default;
 };
 class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult : public Darabonba::Model {
 public:
@@ -2736,6 +2829,7 @@ public:
   shared_ptr<double> offset{};
   shared_ptr<vector<VideoModerationResultResponseBodyDataFrameResultFramesResults>> results{};
   shared_ptr<string> tempUrl{};
+  shared_ptr<long> timestamp{};
 
   VideoModerationResultResponseBodyDataFrameResultFrames() {}
 
@@ -2760,6 +2854,9 @@ public:
     if (tempUrl) {
       res["TempUrl"] = boost::any(*tempUrl);
     }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
     return res;
   }
 
@@ -2783,6 +2880,9 @@ public:
     if (m.find("TempUrl") != m.end() && !m["TempUrl"].empty()) {
       tempUrl = make_shared<string>(boost::any_cast<string>(m["TempUrl"]));
     }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
+    }
   }
 
 
@@ -2791,6 +2891,7 @@ public:
 class VideoModerationResultResponseBodyDataFrameResult : public Darabonba::Model {
 public:
   shared_ptr<long> frameNum{};
+  shared_ptr<vector<VideoModerationResultResponseBodyDataFrameResultFrameSummarys>> frameSummarys{};
   shared_ptr<vector<VideoModerationResultResponseBodyDataFrameResultFrames>> frames{};
 
   VideoModerationResultResponseBodyDataFrameResult() {}
@@ -2806,6 +2907,13 @@ public:
     if (frameNum) {
       res["FrameNum"] = boost::any(*frameNum);
     }
+    if (frameSummarys) {
+      vector<boost::any> temp1;
+      for(auto item1:*frameSummarys){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FrameSummarys"] = boost::any(temp1);
+    }
     if (frames) {
       vector<boost::any> temp1;
       for(auto item1:*frames){
@@ -2819,6 +2927,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("FrameNum") != m.end() && !m["FrameNum"].empty()) {
       frameNum = make_shared<long>(boost::any_cast<long>(m["FrameNum"]));
+    }
+    if (m.find("FrameSummarys") != m.end() && !m["FrameSummarys"].empty()) {
+      if (typeid(vector<boost::any>) == m["FrameSummarys"].type()) {
+        vector<VideoModerationResultResponseBodyDataFrameResultFrameSummarys> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FrameSummarys"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            VideoModerationResultResponseBodyDataFrameResultFrameSummarys model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        frameSummarys = make_shared<vector<VideoModerationResultResponseBodyDataFrameResultFrameSummarys>>(expect1);
+      }
     }
     if (m.find("Frames") != m.end() && !m["Frames"].empty()) {
       if (typeid(vector<boost::any>) == m["Frames"].type()) {
