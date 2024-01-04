@@ -125,6 +125,37 @@ AuthUserResponse Alibabacloud_XrEngine20230313::Client::authUser(shared_ptr<Auth
   return authUserWithOptions(request, runtime);
 }
 
+BatchQueryMotionShopTaskStatusResponse Alibabacloud_XrEngine20230313::Client::batchQueryMotionShopTaskStatusWithOptions(shared_ptr<BatchQueryMotionShopTaskStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jwtToken)) {
+    body->insert(pair<string, string>("JwtToken", *request->jwtToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    body->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchQueryMotionShopTaskStatus"))},
+    {"version", boost::any(string("2023-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchQueryMotionShopTaskStatusResponse(callApi(params, req, runtime));
+}
+
+BatchQueryMotionShopTaskStatusResponse Alibabacloud_XrEngine20230313::Client::batchQueryMotionShopTaskStatus(shared_ptr<BatchQueryMotionShopTaskStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return batchQueryMotionShopTaskStatusWithOptions(request, runtime);
+}
+
 CreateDigitalHumanProjectResponse Alibabacloud_XrEngine20230313::Client::createDigitalHumanProjectWithOptions(shared_ptr<CreateDigitalHumanProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -272,6 +303,34 @@ CreateLivePortraitProjectResponse Alibabacloud_XrEngine20230313::Client::createL
   return createLivePortraitProjectWithOptions(request, runtime);
 }
 
+GenerateMotionShopVideoUploadUrlResponse Alibabacloud_XrEngine20230313::Client::generateMotionShopVideoUploadUrlWithOptions(shared_ptr<GenerateMotionShopVideoUploadUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jwtToken)) {
+    query->insert(pair<string, string>("JwtToken", *request->jwtToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GenerateMotionShopVideoUploadUrl"))},
+    {"version", boost::any(string("2023-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GenerateMotionShopVideoUploadUrlResponse(callApi(params, req, runtime));
+}
+
+GenerateMotionShopVideoUploadUrlResponse Alibabacloud_XrEngine20230313::Client::generateMotionShopVideoUploadUrl(shared_ptr<GenerateMotionShopVideoUploadUrlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return generateMotionShopVideoUploadUrlWithOptions(request, runtime);
+}
+
 GetMapDataResponse Alibabacloud_XrEngine20230313::Client::getMapDataWithOptions(shared_ptr<GetMapDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -365,6 +424,37 @@ InitLocateResponse Alibabacloud_XrEngine20230313::Client::initLocate(shared_ptr<
   return initLocateWithOptions(request, runtime);
 }
 
+ListCommonMaterialsResponse Alibabacloud_XrEngine20230313::Client::listCommonMaterialsWithOptions(shared_ptr<ListCommonMaterialsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jwtToken)) {
+    query->insert(pair<string, string>("JwtToken", *request->jwtToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCommonMaterials"))},
+    {"version", boost::any(string("2023-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCommonMaterialsResponse(callApi(params, req, runtime));
+}
+
+ListCommonMaterialsResponse Alibabacloud_XrEngine20230313::Client::listCommonMaterials(shared_ptr<ListCommonMaterialsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCommonMaterialsWithOptions(request, runtime);
+}
+
 ListDigitalHumanMaterialsResponse Alibabacloud_XrEngine20230313::Client::listDigitalHumanMaterialsWithOptions(shared_ptr<ListDigitalHumanMaterialsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -445,6 +535,40 @@ ListLocationServiceResponse Alibabacloud_XrEngine20230313::Client::listLocationS
 ListLocationServiceResponse Alibabacloud_XrEngine20230313::Client::listLocationService(shared_ptr<ListLocationServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listLocationServiceWithOptions(request, runtime);
+}
+
+ListMotionShopTasksResponse Alibabacloud_XrEngine20230313::Client::listMotionShopTasksWithOptions(shared_ptr<ListMotionShopTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->current)) {
+    body->insert(pair<string, long>("Current", *request->current));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jwtToken)) {
+    body->insert(pair<string, string>("JwtToken", *request->jwtToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->size)) {
+    body->insert(pair<string, long>("Size", *request->size));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListMotionShopTasks"))},
+    {"version", boost::any(string("2023-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListMotionShopTasksResponse(callApi(params, req, runtime));
+}
+
+ListMotionShopTasksResponse Alibabacloud_XrEngine20230313::Client::listMotionShopTasks(shared_ptr<ListMotionShopTasksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listMotionShopTasksWithOptions(request, runtime);
 }
 
 LivePortraitFaceDetectResponse Alibabacloud_XrEngine20230313::Client::livePortraitFaceDetectWithOptions(shared_ptr<LivePortraitFaceDetectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -549,6 +673,39 @@ LoginModelScopeResponse Alibabacloud_XrEngine20230313::Client::loginModelScopeWi
 LoginModelScopeResponse Alibabacloud_XrEngine20230313::Client::loginModelScope(shared_ptr<LoginModelScopeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return loginModelScopeWithOptions(request, runtime);
+}
+
+MotionShopVideoDetectResponse Alibabacloud_XrEngine20230313::Client::motionShopVideoDetectWithOptions(shared_ptr<MotionShopVideoDetectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jwtToken)) {
+    query->insert(pair<string, string>("JwtToken", *request->jwtToken));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossKey)) {
+    body->insert(pair<string, string>("OssKey", *request->ossKey));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("MotionShopVideoDetect"))},
+    {"version", boost::any(string("2023-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return MotionShopVideoDetectResponse(callApi(params, req, runtime));
+}
+
+MotionShopVideoDetectResponse Alibabacloud_XrEngine20230313::Client::motionShopVideoDetect(shared_ptr<MotionShopVideoDetectRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return motionShopVideoDetectWithOptions(request, runtime);
 }
 
 PopBatchQueryObjectGenerationProjectStatusResponse Alibabacloud_XrEngine20230313::Client::popBatchQueryObjectGenerationProjectStatusWithOptions(shared_ptr<PopBatchQueryObjectGenerationProjectStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1977,6 +2134,39 @@ QueryLongTtsResultResponse Alibabacloud_XrEngine20230313::Client::queryLongTtsRe
   return queryLongTtsResultWithOptions(request, runtime);
 }
 
+QueryMotionShopVideoDetectResultResponse Alibabacloud_XrEngine20230313::Client::queryMotionShopVideoDetectResultWithOptions(shared_ptr<QueryMotionShopVideoDetectResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jwtToken)) {
+    query->insert(pair<string, string>("JwtToken", *request->jwtToken));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    body->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryMotionShopVideoDetectResult"))},
+    {"version", boost::any(string("2023-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryMotionShopVideoDetectResultResponse(callApi(params, req, runtime));
+}
+
+QueryMotionShopVideoDetectResultResponse Alibabacloud_XrEngine20230313::Client::queryMotionShopVideoDetectResult(shared_ptr<QueryMotionShopVideoDetectResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryMotionShopVideoDetectResultWithOptions(request, runtime);
+}
+
 SubmitLongTtsTaskResponse Alibabacloud_XrEngine20230313::Client::submitLongTtsTaskWithOptions(shared_ptr<SubmitLongTtsTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2011,6 +2201,43 @@ SubmitLongTtsTaskResponse Alibabacloud_XrEngine20230313::Client::submitLongTtsTa
 SubmitLongTtsTaskResponse Alibabacloud_XrEngine20230313::Client::submitLongTtsTask(shared_ptr<SubmitLongTtsTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return submitLongTtsTaskWithOptions(request, runtime);
+}
+
+SubmitMotionShopTaskResponse Alibabacloud_XrEngine20230313::Client::submitMotionShopTaskWithOptions(shared_ptr<SubmitMotionShopTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->avatarId)) {
+    body->insert(pair<string, string>("AvatarId", *request->avatarId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jwtToken)) {
+    body->insert(pair<string, string>("JwtToken", *request->jwtToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
+    body->insert(pair<string, string>("Title", *request->title));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoId)) {
+    body->insert(pair<string, string>("VideoId", *request->videoId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitMotionShopTask"))},
+    {"version", boost::any(string("2023-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitMotionShopTaskResponse(callApi(params, req, runtime));
+}
+
+SubmitMotionShopTaskResponse Alibabacloud_XrEngine20230313::Client::submitMotionShopTask(shared_ptr<SubmitMotionShopTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitMotionShopTaskWithOptions(request, runtime);
 }
 
 UpdateUserEmailResponse Alibabacloud_XrEngine20230313::Client::updateUserEmailWithOptions(shared_ptr<UpdateUserEmailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
