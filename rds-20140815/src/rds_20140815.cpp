@@ -752,6 +752,9 @@ CloneDBInstanceResponse Alibabacloud_Rds20140815::Client::cloneDBInstanceWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceNetworkType)) {
     query->insert(pair<string, string>("InstanceNetworkType", *request->instanceNetworkType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioAccelerationEnabled)) {
+    query->insert(pair<string, string>("IoAccelerationEnabled", *request->ioAccelerationEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->payType)) {
     query->insert(pair<string, string>("PayType", *request->payType));
   }
@@ -1221,6 +1224,9 @@ CreateDBInstanceResponse Alibabacloud_Rds20140815::Client::createDBInstanceWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->coldDataEnabled)) {
+    query->insert(pair<string, bool>("ColdDataEnabled", *request->coldDataEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->connectionMode)) {
     query->insert(pair<string, string>("ConnectionMode", *request->connectionMode));
   }
@@ -1274,6 +1280,9 @@ CreateDBInstanceResponse Alibabacloud_Rds20140815::Client::createDBInstanceWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceNetworkType)) {
     query->insert(pair<string, string>("InstanceNetworkType", *request->instanceNetworkType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioAccelerationEnabled)) {
+    query->insert(pair<string, string>("IoAccelerationEnabled", *request->ioAccelerationEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->payType)) {
     query->insert(pair<string, string>("PayType", *request->payType));
@@ -2424,6 +2433,9 @@ CreateReadOnlyDBInstanceResponse Alibabacloud_Rds20140815::Client::createReadOnl
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instructionSetArch)) {
     query->insert(pair<string, string>("InstructionSetArch", *request->instructionSetArch));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioAccelerationEnabled)) {
+    query->insert(pair<string, string>("IoAccelerationEnabled", *request->ioAccelerationEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
@@ -10029,6 +10041,9 @@ MigrateToOtherZoneResponse Alibabacloud_Rds20140815::Client::migrateToOtherZoneW
   if (!Darabonba_Util::Client::isUnset<string>(request->effectiveTime)) {
     query->insert(pair<string, string>("EffectiveTime", *request->effectiveTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioAccelerationEnabled)) {
+    query->insert(pair<string, string>("IoAccelerationEnabled", *request->ioAccelerationEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->isModifySpec)) {
     query->insert(pair<string, string>("IsModifySpec", *request->isModifySpec));
   }
@@ -11407,6 +11422,9 @@ ModifyDBInstanceSpecResponse Alibabacloud_Rds20140815::Client::modifyDBInstanceS
   if (!Darabonba_Util::Client::isUnset<string>(request->category)) {
     query->insert(pair<string, string>("Category", *request->category));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->coldDataEnabled)) {
+    query->insert(pair<string, bool>("ColdDataEnabled", *request->coldDataEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceClass)) {
     query->insert(pair<string, string>("DBInstanceClass", *request->DBInstanceClass));
   }
@@ -11430,6 +11448,9 @@ ModifyDBInstanceSpecResponse Alibabacloud_Rds20140815::Client::modifyDBInstanceS
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->engineVersion)) {
     query->insert(pair<string, string>("EngineVersion", *request->engineVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioAccelerationEnabled)) {
+    query->insert(pair<string, string>("IoAccelerationEnabled", *request->ioAccelerationEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));

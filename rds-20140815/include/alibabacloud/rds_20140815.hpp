@@ -2528,6 +2528,7 @@ public:
   shared_ptr<string> dedicatedHostGroupId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<string> instanceNetworkType{};
+  shared_ptr<string> ioAccelerationEnabled{};
   shared_ptr<string> payType{};
   shared_ptr<string> period{};
   shared_ptr<string> privateIpAddress{};
@@ -2595,6 +2596,9 @@ public:
     }
     if (instanceNetworkType) {
       res["InstanceNetworkType"] = boost::any(*instanceNetworkType);
+    }
+    if (ioAccelerationEnabled) {
+      res["IoAccelerationEnabled"] = boost::any(*ioAccelerationEnabled);
     }
     if (payType) {
       res["PayType"] = boost::any(*payType);
@@ -2687,6 +2691,9 @@ public:
     if (m.find("InstanceNetworkType") != m.end() && !m["InstanceNetworkType"].empty()) {
       instanceNetworkType = make_shared<string>(boost::any_cast<string>(m["InstanceNetworkType"]));
     }
+    if (m.find("IoAccelerationEnabled") != m.end() && !m["IoAccelerationEnabled"].empty()) {
+      ioAccelerationEnabled = make_shared<string>(boost::any_cast<string>(m["IoAccelerationEnabled"]));
+    }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
     }
@@ -2757,6 +2764,7 @@ public:
   shared_ptr<string> dedicatedHostGroupId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<string> instanceNetworkType{};
+  shared_ptr<string> ioAccelerationEnabled{};
   shared_ptr<string> payType{};
   shared_ptr<string> period{};
   shared_ptr<string> privateIpAddress{};
@@ -2824,6 +2832,9 @@ public:
     }
     if (instanceNetworkType) {
       res["InstanceNetworkType"] = boost::any(*instanceNetworkType);
+    }
+    if (ioAccelerationEnabled) {
+      res["IoAccelerationEnabled"] = boost::any(*ioAccelerationEnabled);
     }
     if (payType) {
       res["PayType"] = boost::any(*payType);
@@ -2915,6 +2926,9 @@ public:
     }
     if (m.find("InstanceNetworkType") != m.end() && !m["InstanceNetworkType"].empty()) {
       instanceNetworkType = make_shared<string>(boost::any_cast<string>(m["InstanceNetworkType"]));
+    }
+    if (m.find("IoAccelerationEnabled") != m.end() && !m["IoAccelerationEnabled"].empty()) {
+      ioAccelerationEnabled = make_shared<string>(boost::any_cast<string>(m["IoAccelerationEnabled"]));
     }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
@@ -4563,6 +4577,7 @@ public:
   shared_ptr<string> businessInfo{};
   shared_ptr<string> category{};
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> coldDataEnabled{};
   shared_ptr<string> connectionMode{};
   shared_ptr<string> connectionString{};
   shared_ptr<string> createStrategy{};
@@ -4581,6 +4596,7 @@ public:
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
   shared_ptr<string> instanceNetworkType{};
+  shared_ptr<string> ioAccelerationEnabled{};
   shared_ptr<string> payType{};
   shared_ptr<string> period{};
   shared_ptr<string> port{};
@@ -4645,6 +4661,9 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (coldDataEnabled) {
+      res["ColdDataEnabled"] = boost::any(*coldDataEnabled);
+    }
     if (connectionMode) {
       res["ConnectionMode"] = boost::any(*connectionMode);
     }
@@ -4698,6 +4717,9 @@ public:
     }
     if (instanceNetworkType) {
       res["InstanceNetworkType"] = boost::any(*instanceNetworkType);
+    }
+    if (ioAccelerationEnabled) {
+      res["IoAccelerationEnabled"] = boost::any(*ioAccelerationEnabled);
     }
     if (payType) {
       res["PayType"] = boost::any(*payType);
@@ -4812,6 +4834,9 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("ColdDataEnabled") != m.end() && !m["ColdDataEnabled"].empty()) {
+      coldDataEnabled = make_shared<bool>(boost::any_cast<bool>(m["ColdDataEnabled"]));
+    }
     if (m.find("ConnectionMode") != m.end() && !m["ConnectionMode"].empty()) {
       connectionMode = make_shared<string>(boost::any_cast<string>(m["ConnectionMode"]));
     }
@@ -4865,6 +4890,9 @@ public:
     }
     if (m.find("InstanceNetworkType") != m.end() && !m["InstanceNetworkType"].empty()) {
       instanceNetworkType = make_shared<string>(boost::any_cast<string>(m["InstanceNetworkType"]));
+    }
+    if (m.find("IoAccelerationEnabled") != m.end() && !m["IoAccelerationEnabled"].empty()) {
+      ioAccelerationEnabled = make_shared<string>(boost::any_cast<string>(m["IoAccelerationEnabled"]));
     }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
@@ -5010,6 +5038,7 @@ public:
   shared_ptr<string> businessInfo{};
   shared_ptr<string> category{};
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> coldDataEnabled{};
   shared_ptr<string> connectionMode{};
   shared_ptr<string> connectionString{};
   shared_ptr<string> createStrategy{};
@@ -5028,6 +5057,7 @@ public:
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
   shared_ptr<string> instanceNetworkType{};
+  shared_ptr<string> ioAccelerationEnabled{};
   shared_ptr<string> payType{};
   shared_ptr<string> period{};
   shared_ptr<string> port{};
@@ -5092,6 +5122,9 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (coldDataEnabled) {
+      res["ColdDataEnabled"] = boost::any(*coldDataEnabled);
+    }
     if (connectionMode) {
       res["ConnectionMode"] = boost::any(*connectionMode);
     }
@@ -5145,6 +5178,9 @@ public:
     }
     if (instanceNetworkType) {
       res["InstanceNetworkType"] = boost::any(*instanceNetworkType);
+    }
+    if (ioAccelerationEnabled) {
+      res["IoAccelerationEnabled"] = boost::any(*ioAccelerationEnabled);
     }
     if (payType) {
       res["PayType"] = boost::any(*payType);
@@ -5259,6 +5295,9 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("ColdDataEnabled") != m.end() && !m["ColdDataEnabled"].empty()) {
+      coldDataEnabled = make_shared<bool>(boost::any_cast<bool>(m["ColdDataEnabled"]));
+    }
     if (m.find("ConnectionMode") != m.end() && !m["ConnectionMode"].empty()) {
       connectionMode = make_shared<string>(boost::any_cast<string>(m["ConnectionMode"]));
     }
@@ -5312,6 +5351,9 @@ public:
     }
     if (m.find("InstanceNetworkType") != m.end() && !m["InstanceNetworkType"].empty()) {
       instanceNetworkType = make_shared<string>(boost::any_cast<string>(m["InstanceNetworkType"]));
+    }
+    if (m.find("IoAccelerationEnabled") != m.end() && !m["IoAccelerationEnabled"].empty()) {
+      ioAccelerationEnabled = make_shared<string>(boost::any_cast<string>(m["IoAccelerationEnabled"]));
     }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
@@ -10042,6 +10084,7 @@ public:
   shared_ptr<string> gdnInstanceName{};
   shared_ptr<string> instanceNetworkType{};
   shared_ptr<string> instructionSetArch{};
+  shared_ptr<string> ioAccelerationEnabled{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> payType{};
@@ -10120,6 +10163,9 @@ public:
     }
     if (instructionSetArch) {
       res["InstructionSetArch"] = boost::any(*instructionSetArch);
+    }
+    if (ioAccelerationEnabled) {
+      res["IoAccelerationEnabled"] = boost::any(*ioAccelerationEnabled);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -10226,6 +10272,9 @@ public:
     }
     if (m.find("InstructionSetArch") != m.end() && !m["InstructionSetArch"].empty()) {
       instructionSetArch = make_shared<string>(boost::any_cast<string>(m["InstructionSetArch"]));
+    }
+    if (m.find("IoAccelerationEnabled") != m.end() && !m["IoAccelerationEnabled"].empty()) {
+      ioAccelerationEnabled = make_shared<string>(boost::any_cast<string>(m["IoAccelerationEnabled"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -23117,6 +23166,7 @@ public:
   shared_ptr<string> bpeEnabled{};
   shared_ptr<bool> burstingEnabled{};
   shared_ptr<string> category{};
+  shared_ptr<bool> coldDataEnabled{};
   shared_ptr<string> collation{};
   shared_ptr<string> connectionMode{};
   shared_ptr<string> connectionString{};
@@ -23149,6 +23199,7 @@ public:
   shared_ptr<string> incrementSourceDBInstanceId{};
   shared_ptr<string> instanceNetworkType{};
   shared_ptr<string> instructionSetArch{};
+  shared_ptr<string> ioAccelerationEnabled{};
   shared_ptr<string> latestKernelVersion{};
   shared_ptr<string> lockMode{};
   shared_ptr<string> lockReason{};
@@ -23214,6 +23265,9 @@ public:
     }
     if (category) {
       res["Category"] = boost::any(*category);
+    }
+    if (coldDataEnabled) {
+      res["ColdDataEnabled"] = boost::any(*coldDataEnabled);
     }
     if (collation) {
       res["Collation"] = boost::any(*collation);
@@ -23310,6 +23364,9 @@ public:
     }
     if (instructionSetArch) {
       res["InstructionSetArch"] = boost::any(*instructionSetArch);
+    }
+    if (ioAccelerationEnabled) {
+      res["IoAccelerationEnabled"] = boost::any(*ioAccelerationEnabled);
     }
     if (latestKernelVersion) {
       res["LatestKernelVersion"] = boost::any(*latestKernelVersion);
@@ -23436,6 +23493,9 @@ public:
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
     }
+    if (m.find("ColdDataEnabled") != m.end() && !m["ColdDataEnabled"].empty()) {
+      coldDataEnabled = make_shared<bool>(boost::any_cast<bool>(m["ColdDataEnabled"]));
+    }
     if (m.find("Collation") != m.end() && !m["Collation"].empty()) {
       collation = make_shared<string>(boost::any_cast<string>(m["Collation"]));
     }
@@ -23539,6 +23599,9 @@ public:
     }
     if (m.find("InstructionSetArch") != m.end() && !m["InstructionSetArch"].empty()) {
       instructionSetArch = make_shared<string>(boost::any_cast<string>(m["InstructionSetArch"]));
+    }
+    if (m.find("IoAccelerationEnabled") != m.end() && !m["IoAccelerationEnabled"].empty()) {
+      ioAccelerationEnabled = make_shared<string>(boost::any_cast<string>(m["IoAccelerationEnabled"]));
     }
     if (m.find("LatestKernelVersion") != m.end() && !m["LatestKernelVersion"].empty()) {
       latestKernelVersion = make_shared<string>(boost::any_cast<string>(m["LatestKernelVersion"]));
@@ -29222,6 +29285,7 @@ public:
   shared_ptr<string> bpeEnabled{};
   shared_ptr<bool> burstingEnabled{};
   shared_ptr<string> category{};
+  shared_ptr<bool> coldDataEnabled{};
   shared_ptr<string> connectionMode{};
   shared_ptr<string> connectionString{};
   shared_ptr<string> createTime{};
@@ -29251,6 +29315,7 @@ public:
   shared_ptr<string> generalGroupName{};
   shared_ptr<string> guardDBInstanceId{};
   shared_ptr<string> instanceNetworkType{};
+  shared_ptr<string> ioAccelerationEnabled{};
   shared_ptr<string> lockMode{};
   shared_ptr<string> lockReason{};
   shared_ptr<string> masterInstanceId{};
@@ -29287,6 +29352,9 @@ public:
     }
     if (category) {
       res["Category"] = boost::any(*category);
+    }
+    if (coldDataEnabled) {
+      res["ColdDataEnabled"] = boost::any(*coldDataEnabled);
     }
     if (connectionMode) {
       res["ConnectionMode"] = boost::any(*connectionMode);
@@ -29375,6 +29443,9 @@ public:
     if (instanceNetworkType) {
       res["InstanceNetworkType"] = boost::any(*instanceNetworkType);
     }
+    if (ioAccelerationEnabled) {
+      res["IoAccelerationEnabled"] = boost::any(*ioAccelerationEnabled);
+    }
     if (lockMode) {
       res["LockMode"] = boost::any(*lockMode);
     }
@@ -29438,6 +29509,9 @@ public:
     }
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("ColdDataEnabled") != m.end() && !m["ColdDataEnabled"].empty()) {
+      coldDataEnabled = make_shared<bool>(boost::any_cast<bool>(m["ColdDataEnabled"]));
     }
     if (m.find("ConnectionMode") != m.end() && !m["ConnectionMode"].empty()) {
       connectionMode = make_shared<string>(boost::any_cast<string>(m["ConnectionMode"]));
@@ -29525,6 +29599,9 @@ public:
     }
     if (m.find("InstanceNetworkType") != m.end() && !m["InstanceNetworkType"].empty()) {
       instanceNetworkType = make_shared<string>(boost::any_cast<string>(m["InstanceNetworkType"]));
+    }
+    if (m.find("IoAccelerationEnabled") != m.end() && !m["IoAccelerationEnabled"].empty()) {
+      ioAccelerationEnabled = make_shared<string>(boost::any_cast<string>(m["IoAccelerationEnabled"]));
     }
     if (m.find("LockMode") != m.end() && !m["LockMode"].empty()) {
       lockMode = make_shared<string>(boost::any_cast<string>(m["LockMode"]));
@@ -58069,6 +58146,7 @@ public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<long> DBInstanceStorage{};
   shared_ptr<string> effectiveTime{};
+  shared_ptr<string> ioAccelerationEnabled{};
   shared_ptr<string> isModifySpec{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -58105,6 +58183,9 @@ public:
     }
     if (effectiveTime) {
       res["EffectiveTime"] = boost::any(*effectiveTime);
+    }
+    if (ioAccelerationEnabled) {
+      res["IoAccelerationEnabled"] = boost::any(*ioAccelerationEnabled);
     }
     if (isModifySpec) {
       res["IsModifySpec"] = boost::any(*isModifySpec);
@@ -58157,6 +58238,9 @@ public:
     }
     if (m.find("EffectiveTime") != m.end() && !m["EffectiveTime"].empty()) {
       effectiveTime = make_shared<string>(boost::any_cast<string>(m["EffectiveTime"]));
+    }
+    if (m.find("IoAccelerationEnabled") != m.end() && !m["IoAccelerationEnabled"].empty()) {
+      ioAccelerationEnabled = make_shared<string>(boost::any_cast<string>(m["IoAccelerationEnabled"]));
     }
     if (m.find("IsModifySpec") != m.end() && !m["IsModifySpec"].empty()) {
       isModifySpec = make_shared<string>(boost::any_cast<string>(m["IsModifySpec"]));
@@ -63182,6 +63266,7 @@ public:
   shared_ptr<bool> autoUseCoupon{};
   shared_ptr<bool> burstingEnabled{};
   shared_ptr<string> category{};
+  shared_ptr<bool> coldDataEnabled{};
   shared_ptr<string> DBInstanceClass{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<long> DBInstanceStorage{};
@@ -63190,6 +63275,7 @@ public:
   shared_ptr<string> direction{};
   shared_ptr<string> effectiveTime{};
   shared_ptr<string> engineVersion{};
+  shared_ptr<string> ioAccelerationEnabled{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> payType{};
@@ -63222,6 +63308,9 @@ public:
     if (category) {
       res["Category"] = boost::any(*category);
     }
+    if (coldDataEnabled) {
+      res["ColdDataEnabled"] = boost::any(*coldDataEnabled);
+    }
     if (DBInstanceClass) {
       res["DBInstanceClass"] = boost::any(*DBInstanceClass);
     }
@@ -63245,6 +63334,9 @@ public:
     }
     if (engineVersion) {
       res["EngineVersion"] = boost::any(*engineVersion);
+    }
+    if (ioAccelerationEnabled) {
+      res["IoAccelerationEnabled"] = boost::any(*ioAccelerationEnabled);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -63295,6 +63387,9 @@ public:
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
     }
+    if (m.find("ColdDataEnabled") != m.end() && !m["ColdDataEnabled"].empty()) {
+      coldDataEnabled = make_shared<bool>(boost::any_cast<bool>(m["ColdDataEnabled"]));
+    }
     if (m.find("DBInstanceClass") != m.end() && !m["DBInstanceClass"].empty()) {
       DBInstanceClass = make_shared<string>(boost::any_cast<string>(m["DBInstanceClass"]));
     }
@@ -63318,6 +63413,9 @@ public:
     }
     if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
       engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
+    }
+    if (m.find("IoAccelerationEnabled") != m.end() && !m["IoAccelerationEnabled"].empty()) {
+      ioAccelerationEnabled = make_shared<string>(boost::any_cast<string>(m["IoAccelerationEnabled"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -63369,6 +63467,7 @@ public:
   shared_ptr<bool> autoUseCoupon{};
   shared_ptr<bool> burstingEnabled{};
   shared_ptr<string> category{};
+  shared_ptr<bool> coldDataEnabled{};
   shared_ptr<string> DBInstanceClass{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<long> DBInstanceStorage{};
@@ -63377,6 +63476,7 @@ public:
   shared_ptr<string> direction{};
   shared_ptr<string> effectiveTime{};
   shared_ptr<string> engineVersion{};
+  shared_ptr<string> ioAccelerationEnabled{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> payType{};
@@ -63409,6 +63509,9 @@ public:
     if (category) {
       res["Category"] = boost::any(*category);
     }
+    if (coldDataEnabled) {
+      res["ColdDataEnabled"] = boost::any(*coldDataEnabled);
+    }
     if (DBInstanceClass) {
       res["DBInstanceClass"] = boost::any(*DBInstanceClass);
     }
@@ -63432,6 +63535,9 @@ public:
     }
     if (engineVersion) {
       res["EngineVersion"] = boost::any(*engineVersion);
+    }
+    if (ioAccelerationEnabled) {
+      res["IoAccelerationEnabled"] = boost::any(*ioAccelerationEnabled);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -63482,6 +63588,9 @@ public:
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
     }
+    if (m.find("ColdDataEnabled") != m.end() && !m["ColdDataEnabled"].empty()) {
+      coldDataEnabled = make_shared<bool>(boost::any_cast<bool>(m["ColdDataEnabled"]));
+    }
     if (m.find("DBInstanceClass") != m.end() && !m["DBInstanceClass"].empty()) {
       DBInstanceClass = make_shared<string>(boost::any_cast<string>(m["DBInstanceClass"]));
     }
@@ -63505,6 +63614,9 @@ public:
     }
     if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
       engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
+    }
+    if (m.find("IoAccelerationEnabled") != m.end() && !m["IoAccelerationEnabled"].empty()) {
+      ioAccelerationEnabled = make_shared<string>(boost::any_cast<string>(m["IoAccelerationEnabled"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
