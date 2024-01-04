@@ -2364,6 +2364,281 @@ public:
 
   virtual ~AllocateEipSegmentAddressResponse() = default;
 };
+class AllocateIpv6AddressRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  AllocateIpv6AddressRequestTag() {}
+
+  explicit AllocateIpv6AddressRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~AllocateIpv6AddressRequestTag() = default;
+};
+class AllocateIpv6AddressRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ipv6Address{};
+  shared_ptr<string> ipv6AddressDescription{};
+  shared_ptr<string> ipv6AddressName{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<AllocateIpv6AddressRequestTag>> tag{};
+  shared_ptr<string> vSwitchId{};
+
+  AllocateIpv6AddressRequest() {}
+
+  explicit AllocateIpv6AddressRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ipv6Address) {
+      res["Ipv6Address"] = boost::any(*ipv6Address);
+    }
+    if (ipv6AddressDescription) {
+      res["Ipv6AddressDescription"] = boost::any(*ipv6AddressDescription);
+    }
+    if (ipv6AddressName) {
+      res["Ipv6AddressName"] = boost::any(*ipv6AddressName);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Ipv6Address") != m.end() && !m["Ipv6Address"].empty()) {
+      ipv6Address = make_shared<string>(boost::any_cast<string>(m["Ipv6Address"]));
+    }
+    if (m.find("Ipv6AddressDescription") != m.end() && !m["Ipv6AddressDescription"].empty()) {
+      ipv6AddressDescription = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressDescription"]));
+    }
+    if (m.find("Ipv6AddressName") != m.end() && !m["Ipv6AddressName"].empty()) {
+      ipv6AddressName = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressName"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<AllocateIpv6AddressRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AllocateIpv6AddressRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<AllocateIpv6AddressRequestTag>>(expect1);
+      }
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+  }
+
+
+  virtual ~AllocateIpv6AddressRequest() = default;
+};
+class AllocateIpv6AddressResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> ipv6Address{};
+  shared_ptr<string> ipv6AddressId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
+
+  AllocateIpv6AddressResponseBody() {}
+
+  explicit AllocateIpv6AddressResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipv6Address) {
+      res["Ipv6Address"] = boost::any(*ipv6Address);
+    }
+    if (ipv6AddressId) {
+      res["Ipv6AddressId"] = boost::any(*ipv6AddressId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ipv6Address") != m.end() && !m["Ipv6Address"].empty()) {
+      ipv6Address = make_shared<string>(boost::any_cast<string>(m["Ipv6Address"]));
+    }
+    if (m.find("Ipv6AddressId") != m.end() && !m["Ipv6AddressId"].empty()) {
+      ipv6AddressId = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~AllocateIpv6AddressResponseBody() = default;
+};
+class AllocateIpv6AddressResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AllocateIpv6AddressResponseBody> body{};
+
+  AllocateIpv6AddressResponse() {}
+
+  explicit AllocateIpv6AddressResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AllocateIpv6AddressResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AllocateIpv6AddressResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AllocateIpv6AddressResponse() = default;
+};
 class AllocateIpv6InternetBandwidthRequest : public Darabonba::Model {
 public:
   shared_ptr<long> bandwidth{};
@@ -93774,6 +94049,175 @@ public:
 
   virtual ~ReleaseEipSegmentAddressResponse() = default;
 };
+class ReleaseIpv6AddressRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ipv6AddressId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  ReleaseIpv6AddressRequest() {}
+
+  explicit ReleaseIpv6AddressRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ipv6AddressId) {
+      res["Ipv6AddressId"] = boost::any(*ipv6AddressId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Ipv6AddressId") != m.end() && !m["Ipv6AddressId"].empty()) {
+      ipv6AddressId = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~ReleaseIpv6AddressRequest() = default;
+};
+class ReleaseIpv6AddressResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ReleaseIpv6AddressResponseBody() {}
+
+  explicit ReleaseIpv6AddressResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ReleaseIpv6AddressResponseBody() = default;
+};
+class ReleaseIpv6AddressResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ReleaseIpv6AddressResponseBody> body{};
+
+  ReleaseIpv6AddressResponse() {}
+
+  explicit ReleaseIpv6AddressResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ReleaseIpv6AddressResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ReleaseIpv6AddressResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ReleaseIpv6AddressResponse() = default;
+};
 class RemoveCommonBandwidthPackageIpRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bandwidthPackageId{};
@@ -101576,6 +102020,8 @@ public:
   AllocateEipAddressProResponse allocateEipAddressPro(shared_ptr<AllocateEipAddressProRequest> request);
   AllocateEipSegmentAddressResponse allocateEipSegmentAddressWithOptions(shared_ptr<AllocateEipSegmentAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AllocateEipSegmentAddressResponse allocateEipSegmentAddress(shared_ptr<AllocateEipSegmentAddressRequest> request);
+  AllocateIpv6AddressResponse allocateIpv6AddressWithOptions(shared_ptr<AllocateIpv6AddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AllocateIpv6AddressResponse allocateIpv6Address(shared_ptr<AllocateIpv6AddressRequest> request);
   AllocateIpv6InternetBandwidthResponse allocateIpv6InternetBandwidthWithOptions(shared_ptr<AllocateIpv6InternetBandwidthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AllocateIpv6InternetBandwidthResponse allocateIpv6InternetBandwidth(shared_ptr<AllocateIpv6InternetBandwidthRequest> request);
   AllocateVpcIpv6CidrResponse allocateVpcIpv6CidrWithOptions(shared_ptr<AllocateVpcIpv6CidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -102204,6 +102650,8 @@ public:
   ReleaseEipAddressResponse releaseEipAddress(shared_ptr<ReleaseEipAddressRequest> request);
   ReleaseEipSegmentAddressResponse releaseEipSegmentAddressWithOptions(shared_ptr<ReleaseEipSegmentAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReleaseEipSegmentAddressResponse releaseEipSegmentAddress(shared_ptr<ReleaseEipSegmentAddressRequest> request);
+  ReleaseIpv6AddressResponse releaseIpv6AddressWithOptions(shared_ptr<ReleaseIpv6AddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ReleaseIpv6AddressResponse releaseIpv6Address(shared_ptr<ReleaseIpv6AddressRequest> request);
   RemoveCommonBandwidthPackageIpResponse removeCommonBandwidthPackageIpWithOptions(shared_ptr<RemoveCommonBandwidthPackageIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveCommonBandwidthPackageIpResponse removeCommonBandwidthPackageIp(shared_ptr<RemoveCommonBandwidthPackageIpRequest> request);
   RemoveGlobalAccelerationInstanceIpResponse removeGlobalAccelerationInstanceIpWithOptions(shared_ptr<RemoveGlobalAccelerationInstanceIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -766,6 +766,73 @@ AllocateEipSegmentAddressResponse Alibabacloud_Vpc20160428::Client::allocateEipS
   return allocateEipSegmentAddressWithOptions(request, runtime);
 }
 
+AllocateIpv6AddressResponse Alibabacloud_Vpc20160428::Client::allocateIpv6AddressWithOptions(shared_ptr<AllocateIpv6AddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipv6Address)) {
+    query->insert(pair<string, string>("Ipv6Address", *request->ipv6Address));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipv6AddressDescription)) {
+    query->insert(pair<string, string>("Ipv6AddressDescription", *request->ipv6AddressDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipv6AddressName)) {
+    query->insert(pair<string, string>("Ipv6AddressName", *request->ipv6AddressName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<AllocateIpv6AddressRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<AllocateIpv6AddressRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
+    query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AllocateIpv6Address"))},
+    {"version", boost::any(string("2016-04-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AllocateIpv6AddressResponse(callApi(params, req, runtime));
+}
+
+AllocateIpv6AddressResponse Alibabacloud_Vpc20160428::Client::allocateIpv6Address(shared_ptr<AllocateIpv6AddressRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return allocateIpv6AddressWithOptions(request, runtime);
+}
+
 AllocateIpv6InternetBandwidthResponse Alibabacloud_Vpc20160428::Client::allocateIpv6InternetBandwidthWithOptions(shared_ptr<AllocateIpv6InternetBandwidthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -18259,6 +18326,58 @@ ReleaseEipSegmentAddressResponse Alibabacloud_Vpc20160428::Client::releaseEipSeg
 ReleaseEipSegmentAddressResponse Alibabacloud_Vpc20160428::Client::releaseEipSegmentAddress(shared_ptr<ReleaseEipSegmentAddressRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return releaseEipSegmentAddressWithOptions(request, runtime);
+}
+
+ReleaseIpv6AddressResponse Alibabacloud_Vpc20160428::Client::releaseIpv6AddressWithOptions(shared_ptr<ReleaseIpv6AddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipv6AddressId)) {
+    query->insert(pair<string, string>("Ipv6AddressId", *request->ipv6AddressId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ReleaseIpv6Address"))},
+    {"version", boost::any(string("2016-04-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ReleaseIpv6AddressResponse(callApi(params, req, runtime));
+}
+
+ReleaseIpv6AddressResponse Alibabacloud_Vpc20160428::Client::releaseIpv6Address(shared_ptr<ReleaseIpv6AddressRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return releaseIpv6AddressWithOptions(request, runtime);
 }
 
 RemoveCommonBandwidthPackageIpResponse Alibabacloud_Vpc20160428::Client::removeCommonBandwidthPackageIpWithOptions(shared_ptr<RemoveCommonBandwidthPackageIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
