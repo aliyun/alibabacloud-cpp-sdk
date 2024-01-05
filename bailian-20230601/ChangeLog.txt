@@ -1,3 +1,6 @@
+2024-01-05 Version: 1.0.2
+- Generated cpp 2023-06-01 for bailian.
+
 2023-12-14 Version: 1.0.1
 - Generated cpp 2023-06-01 for bailian.
 

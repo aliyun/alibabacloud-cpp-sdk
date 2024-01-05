@@ -3871,6 +3871,315 @@ public:
 
   virtual ~GetPromptResponse() = default;
 };
+class GetText2ImageJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> taskId{};
+
+  GetText2ImageJobRequest() {}
+
+  explicit GetText2ImageJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~GetText2ImageJobRequest() = default;
+};
+class GetText2ImageJobResponseBodyImages : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> URL{};
+
+  GetText2ImageJobResponseBodyImages() {}
+
+  explicit GetText2ImageJobResponseBodyImages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (URL) {
+      res["URL"] = boost::any(*URL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URL = make_shared<string>(boost::any_cast<string>(m["URL"]));
+    }
+  }
+
+
+  virtual ~GetText2ImageJobResponseBodyImages() = default;
+};
+class GetText2ImageJobResponseBodyTaskMetrics : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> succeeded{};
+  shared_ptr<long> total{};
+
+  GetText2ImageJobResponseBodyTaskMetrics() {}
+
+  explicit GetText2ImageJobResponseBodyTaskMetrics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (succeeded) {
+      res["Succeeded"] = boost::any(*succeeded);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Succeeded") != m.end() && !m["Succeeded"].empty()) {
+      succeeded = make_shared<long>(boost::any_cast<long>(m["Succeeded"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetText2ImageJobResponseBodyTaskMetrics() = default;
+};
+class GetText2ImageJobResponseBodyUsage : public Darabonba::Model {
+public:
+  shared_ptr<long> imageCount{};
+
+  GetText2ImageJobResponseBodyUsage() {}
+
+  explicit GetText2ImageJobResponseBodyUsage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageCount) {
+      res["ImageCount"] = boost::any(*imageCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageCount") != m.end() && !m["ImageCount"].empty()) {
+      imageCount = make_shared<long>(boost::any_cast<long>(m["ImageCount"]));
+    }
+  }
+
+
+  virtual ~GetText2ImageJobResponseBodyUsage() = default;
+};
+class GetText2ImageJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetText2ImageJobResponseBodyImages>> images{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+  shared_ptr<GetText2ImageJobResponseBodyTaskMetrics> taskMetrics{};
+  shared_ptr<string> taskStatus{};
+  shared_ptr<vector<GetText2ImageJobResponseBodyUsage>> usage{};
+
+  GetText2ImageJobResponseBody() {}
+
+  explicit GetText2ImageJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (images) {
+      vector<boost::any> temp1;
+      for(auto item1:*images){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Images"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskMetrics) {
+      res["TaskMetrics"] = taskMetrics ? boost::any(taskMetrics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (taskStatus) {
+      res["TaskStatus"] = boost::any(*taskStatus);
+    }
+    if (usage) {
+      vector<boost::any> temp1;
+      for(auto item1:*usage){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Usage"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<GetText2ImageJobResponseBodyImages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Images"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetText2ImageJobResponseBodyImages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        images = make_shared<vector<GetText2ImageJobResponseBodyImages>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskMetrics") != m.end() && !m["TaskMetrics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TaskMetrics"].type()) {
+        GetText2ImageJobResponseBodyTaskMetrics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TaskMetrics"]));
+        taskMetrics = make_shared<GetText2ImageJobResponseBodyTaskMetrics>(model1);
+      }
+    }
+    if (m.find("TaskStatus") != m.end() && !m["TaskStatus"].empty()) {
+      taskStatus = make_shared<string>(boost::any_cast<string>(m["TaskStatus"]));
+    }
+    if (m.find("Usage") != m.end() && !m["Usage"].empty()) {
+      if (typeid(vector<boost::any>) == m["Usage"].type()) {
+        vector<GetText2ImageJobResponseBodyUsage> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Usage"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetText2ImageJobResponseBodyUsage model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        usage = make_shared<vector<GetText2ImageJobResponseBodyUsage>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetText2ImageJobResponseBody() = default;
+};
+class GetText2ImageJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetText2ImageJobResponseBody> body{};
+
+  GetText2ImageJobResponse() {}
+
+  explicit GetText2ImageJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetText2ImageJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetText2ImageJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetText2ImageJobResponse() = default;
+};
 class ImportEnterpriseDocumentRequestDocumentList : public Darabonba::Model {
 public:
   shared_ptr<string> bizId{};
@@ -6435,6 +6744,189 @@ public:
 
   virtual ~SearchEnterpriseDataResponse() = default;
 };
+class SubmitText2ImageJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> appId{};
+  shared_ptr<long> n{};
+  shared_ptr<string> negativePrompt{};
+  shared_ptr<string> prompt{};
+  shared_ptr<long> seed{};
+  shared_ptr<string> size{};
+  shared_ptr<string> style{};
+
+  SubmitText2ImageJobRequest() {}
+
+  explicit SubmitText2ImageJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (n) {
+      res["N"] = boost::any(*n);
+    }
+    if (negativePrompt) {
+      res["NegativePrompt"] = boost::any(*negativePrompt);
+    }
+    if (prompt) {
+      res["Prompt"] = boost::any(*prompt);
+    }
+    if (seed) {
+      res["Seed"] = boost::any(*seed);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    if (style) {
+      res["Style"] = boost::any(*style);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("N") != m.end() && !m["N"].empty()) {
+      n = make_shared<long>(boost::any_cast<long>(m["N"]));
+    }
+    if (m.find("NegativePrompt") != m.end() && !m["NegativePrompt"].empty()) {
+      negativePrompt = make_shared<string>(boost::any_cast<string>(m["NegativePrompt"]));
+    }
+    if (m.find("Prompt") != m.end() && !m["Prompt"].empty()) {
+      prompt = make_shared<string>(boost::any_cast<string>(m["Prompt"]));
+    }
+    if (m.find("Seed") != m.end() && !m["Seed"].empty()) {
+      seed = make_shared<long>(boost::any_cast<long>(m["Seed"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<string>(boost::any_cast<string>(m["Size"]));
+    }
+    if (m.find("Style") != m.end() && !m["Style"].empty()) {
+      style = make_shared<string>(boost::any_cast<string>(m["Style"]));
+    }
+  }
+
+
+  virtual ~SubmitText2ImageJobRequest() = default;
+};
+class SubmitText2ImageJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskStatus{};
+
+  SubmitText2ImageJobResponseBody() {}
+
+  explicit SubmitText2ImageJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskStatus) {
+      res["TaskStatus"] = boost::any(*taskStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskStatus") != m.end() && !m["TaskStatus"].empty()) {
+      taskStatus = make_shared<string>(boost::any_cast<string>(m["TaskStatus"]));
+    }
+  }
+
+
+  virtual ~SubmitText2ImageJobResponseBody() = default;
+};
+class SubmitText2ImageJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitText2ImageJobResponseBody> body{};
+
+  SubmitText2ImageJobResponse() {}
+
+  explicit SubmitText2ImageJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitText2ImageJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitText2ImageJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitText2ImageJobResponse() = default;
+};
 class UpdateEnterpriseDataInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
@@ -7073,6 +7565,8 @@ public:
   GetImportTaskResultResponse getImportTaskResult(shared_ptr<GetImportTaskResultRequest> request);
   GetPromptResponse getPromptWithOptions(shared_ptr<GetPromptRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPromptResponse getPrompt(shared_ptr<GetPromptRequest> request);
+  GetText2ImageJobResponse getText2ImageJobWithOptions(shared_ptr<GetText2ImageJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetText2ImageJobResponse getText2ImageJob(shared_ptr<GetText2ImageJobRequest> request);
   ImportEnterpriseDocumentResponse importEnterpriseDocumentWithOptions(shared_ptr<ImportEnterpriseDocumentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportEnterpriseDocumentResponse importEnterpriseDocument(shared_ptr<ImportEnterpriseDocumentRequest> request);
   ImportUserDocumentResponse importUserDocumentWithOptions(shared_ptr<ImportUserDocumentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7091,6 +7585,8 @@ public:
   QueryUserDocumentResponse queryUserDocument(shared_ptr<QueryUserDocumentRequest> request);
   SearchEnterpriseDataResponse searchEnterpriseDataWithOptions(shared_ptr<SearchEnterpriseDataRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchEnterpriseDataResponse searchEnterpriseData(shared_ptr<SearchEnterpriseDataRequest> request);
+  SubmitText2ImageJobResponse submitText2ImageJobWithOptions(shared_ptr<SubmitText2ImageJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitText2ImageJobResponse submitText2ImageJob(shared_ptr<SubmitText2ImageJobRequest> request);
   UpdateEnterpriseDataInfoResponse updateEnterpriseDataInfoWithOptions(shared_ptr<UpdateEnterpriseDataInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateEnterpriseDataInfoResponse updateEnterpriseDataInfo(shared_ptr<UpdateEnterpriseDataInfoRequest> request);
   UpdateEnterpriseDataTagResponse updateEnterpriseDataTagWithOptions(shared_ptr<UpdateEnterpriseDataTagRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

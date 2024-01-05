@@ -684,6 +684,31 @@ GetPromptResponse Alibabacloud_Bailian20230601::Client::getPrompt(shared_ptr<Get
   return getPromptWithOptions(request, runtime);
 }
 
+GetText2ImageJobResponse Alibabacloud_Bailian20230601::Client::getText2ImageJobWithOptions(shared_ptr<GetText2ImageJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetText2ImageJob"))},
+    {"version", boost::any(string("2023-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetText2ImageJobResponse(callApi(params, req, runtime));
+}
+
+GetText2ImageJobResponse Alibabacloud_Bailian20230601::Client::getText2ImageJob(shared_ptr<GetText2ImageJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getText2ImageJobWithOptions(request, runtime);
+}
+
 ImportEnterpriseDocumentResponse Alibabacloud_Bailian20230601::Client::importEnterpriseDocumentWithOptions(shared_ptr<ImportEnterpriseDocumentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ImportEnterpriseDocumentShrinkRequest> request = make_shared<ImportEnterpriseDocumentShrinkRequest>();
@@ -1047,6 +1072,55 @@ SearchEnterpriseDataResponse Alibabacloud_Bailian20230601::Client::searchEnterpr
 SearchEnterpriseDataResponse Alibabacloud_Bailian20230601::Client::searchEnterpriseData(shared_ptr<SearchEnterpriseDataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return searchEnterpriseDataWithOptions(request, runtime);
+}
+
+SubmitText2ImageJobResponse Alibabacloud_Bailian20230601::Client::submitText2ImageJobWithOptions(shared_ptr<SubmitText2ImageJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
+    query->insert(pair<string, string>("AgentKey", *request->agentKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->n)) {
+    query->insert(pair<string, long>("N", *request->n));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->negativePrompt)) {
+    query->insert(pair<string, string>("NegativePrompt", *request->negativePrompt));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prompt)) {
+    query->insert(pair<string, string>("Prompt", *request->prompt));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->seed)) {
+    query->insert(pair<string, long>("Seed", *request->seed));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->size)) {
+    query->insert(pair<string, string>("Size", *request->size));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->style)) {
+    query->insert(pair<string, string>("Style", *request->style));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitText2ImageJob"))},
+    {"version", boost::any(string("2023-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitText2ImageJobResponse(callApi(params, req, runtime));
+}
+
+SubmitText2ImageJobResponse Alibabacloud_Bailian20230601::Client::submitText2ImageJob(shared_ptr<SubmitText2ImageJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitText2ImageJobWithOptions(request, runtime);
 }
 
 UpdateEnterpriseDataInfoResponse Alibabacloud_Bailian20230601::Client::updateEnterpriseDataInfoWithOptions(shared_ptr<UpdateEnterpriseDataInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
