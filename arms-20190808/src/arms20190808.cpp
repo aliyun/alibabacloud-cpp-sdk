@@ -398,6 +398,49 @@ AddRecordingRuleResponse Alibabacloud_ARMS20190808::Client::addRecordingRule(sha
   return addRecordingRuleWithOptions(request, runtime);
 }
 
+AddTagToFlinkClusterResponse Alibabacloud_ARMS20190808::Client::addTagToFlinkClusterWithOptions(shared_ptr<AddTagToFlinkClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flinkWorkSpaceId)) {
+    query->insert(pair<string, string>("FlinkWorkSpaceId", *request->flinkWorkSpaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flinkWorkSpaceName)) {
+    query->insert(pair<string, string>("FlinkWorkSpaceName", *request->flinkWorkSpaceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetUserId)) {
+    query->insert(pair<string, string>("TargetUserId", *request->targetUserId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddTagToFlinkCluster"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddTagToFlinkClusterResponse(callApi(params, req, runtime));
+}
+
+AddTagToFlinkClusterResponse Alibabacloud_ARMS20190808::Client::addTagToFlinkCluster(shared_ptr<AddTagToFlinkClusterRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addTagToFlinkClusterWithOptions(request, runtime);
+}
+
 AppendInstancesToPrometheusGlobalViewResponse Alibabacloud_ARMS20190808::Client::appendInstancesToPrometheusGlobalViewWithOptions(shared_ptr<AppendInstancesToPrometheusGlobalViewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
