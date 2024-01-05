@@ -1743,6 +1743,9 @@ UpdatePublicPatchBaselineResponse Alibabacloud_Oosops20190601::Client::updatePub
 UpdatePublicTemplateResponse Alibabacloud_Oosops20190601::Client::updatePublicTemplateWithOptions(shared_ptr<UpdatePublicTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->category)) {
+    query->insert(pair<string, string>("Category", *request->category));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     query->insert(pair<string, string>("Content", *request->content));
   }

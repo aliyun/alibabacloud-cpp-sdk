@@ -9603,6 +9603,7 @@ public:
 };
 class UpdatePublicTemplateRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> category{};
   shared_ptr<string> content{};
   shared_ptr<long> popularity{};
   shared_ptr<string> publisher{};
@@ -9619,6 +9620,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
     if (content) {
       res["Content"] = boost::any(*content);
     }
@@ -9638,6 +9642,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
     }
@@ -9660,6 +9667,7 @@ public:
 };
 class UpdatePublicTemplateResponseBodyTemplate : public Darabonba::Model {
 public:
+  shared_ptr<string> category{};
   shared_ptr<string> createdBy{};
   shared_ptr<string> createdDate{};
   shared_ptr<string> description{};
@@ -9683,6 +9691,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
     if (createdBy) {
       res["CreatedBy"] = boost::any(*createdBy);
     }
@@ -9723,6 +9734,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
     if (m.find("CreatedBy") != m.end() && !m["CreatedBy"].empty()) {
       createdBy = make_shared<string>(boost::any_cast<string>(m["CreatedBy"]));
     }
