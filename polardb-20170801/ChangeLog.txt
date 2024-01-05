@@ -1,3 +1,6 @@
+2024-01-05 Version: 3.1.2
+- Generated cpp 2017-08-01 for polardb.
+
 2024-01-02 Version: 3.1.1
 - Generated cpp 2017-08-01 for polardb.
 
