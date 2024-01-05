@@ -48201,6 +48201,7 @@ public:
   shared_ptr<string> gmtModified{};
   shared_ptr<string> ipVersion{};
   shared_ptr<DescribeRouteEntryListResponseBodyRouteEntrysRouteEntryNextHops> nextHops{};
+  shared_ptr<string> origin{};
   shared_ptr<string> routeEntryId{};
   shared_ptr<string> routeEntryName{};
   shared_ptr<string> routeTableId{};
@@ -48232,6 +48233,9 @@ public:
     }
     if (nextHops) {
       res["NextHops"] = nextHops ? boost::any(nextHops->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (origin) {
+      res["Origin"] = boost::any(*origin);
     }
     if (routeEntryId) {
       res["RouteEntryId"] = boost::any(*routeEntryId);
@@ -48273,6 +48277,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NextHops"]));
         nextHops = make_shared<DescribeRouteEntryListResponseBodyRouteEntrysRouteEntryNextHops>(model1);
       }
+    }
+    if (m.find("Origin") != m.end() && !m["Origin"].empty()) {
+      origin = make_shared<string>(boost::any_cast<string>(m["Origin"]));
     }
     if (m.find("RouteEntryId") != m.end() && !m["RouteEntryId"].empty()) {
       routeEntryId = make_shared<string>(boost::any_cast<string>(m["RouteEntryId"]));
@@ -48785,6 +48792,7 @@ public:
   shared_ptr<DescribeRouteTableListResponseBodyRouterTableListRouterTableListTypeGatewayIds> gatewayIds{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<bool> routePropagationEnable{};
   shared_ptr<string> routeTableId{};
   shared_ptr<string> routeTableName{};
   shared_ptr<string> routeTableType{};
@@ -48822,6 +48830,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (routePropagationEnable) {
+      res["RoutePropagationEnable"] = boost::any(*routePropagationEnable);
     }
     if (routeTableId) {
       res["RouteTableId"] = boost::any(*routeTableId);
@@ -48875,6 +48886,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("RoutePropagationEnable") != m.end() && !m["RoutePropagationEnable"].empty()) {
+      routePropagationEnable = make_shared<bool>(boost::any_cast<bool>(m["RoutePropagationEnable"]));
     }
     if (m.find("RouteTableId") != m.end() && !m["RouteTableId"].empty()) {
       routeTableId = make_shared<string>(boost::any_cast<string>(m["RouteTableId"]));
@@ -57462,6 +57476,106 @@ public:
 
   virtual ~DescribeVpcAttributeResponseBodyAssociatedCens() = default;
 };
+class DescribeVpcAttributeResponseBodyAssociatedPropagationSourcesAssociatedPropagationSources : public Darabonba::Model {
+public:
+  shared_ptr<bool> routePropagated{};
+  shared_ptr<string> sourceInstanceId{};
+  shared_ptr<long> sourceOwnerId{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> status{};
+
+  DescribeVpcAttributeResponseBodyAssociatedPropagationSourcesAssociatedPropagationSources() {}
+
+  explicit DescribeVpcAttributeResponseBodyAssociatedPropagationSourcesAssociatedPropagationSources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (routePropagated) {
+      res["RoutePropagated"] = boost::any(*routePropagated);
+    }
+    if (sourceInstanceId) {
+      res["SourceInstanceId"] = boost::any(*sourceInstanceId);
+    }
+    if (sourceOwnerId) {
+      res["SourceOwnerId"] = boost::any(*sourceOwnerId);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RoutePropagated") != m.end() && !m["RoutePropagated"].empty()) {
+      routePropagated = make_shared<bool>(boost::any_cast<bool>(m["RoutePropagated"]));
+    }
+    if (m.find("SourceInstanceId") != m.end() && !m["SourceInstanceId"].empty()) {
+      sourceInstanceId = make_shared<string>(boost::any_cast<string>(m["SourceInstanceId"]));
+    }
+    if (m.find("SourceOwnerId") != m.end() && !m["SourceOwnerId"].empty()) {
+      sourceOwnerId = make_shared<long>(boost::any_cast<long>(m["SourceOwnerId"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeVpcAttributeResponseBodyAssociatedPropagationSourcesAssociatedPropagationSources() = default;
+};
+class DescribeVpcAttributeResponseBodyAssociatedPropagationSources : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeVpcAttributeResponseBodyAssociatedPropagationSourcesAssociatedPropagationSources>> associatedPropagationSources{};
+
+  DescribeVpcAttributeResponseBodyAssociatedPropagationSources() {}
+
+  explicit DescribeVpcAttributeResponseBodyAssociatedPropagationSources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (associatedPropagationSources) {
+      vector<boost::any> temp1;
+      for(auto item1:*associatedPropagationSources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AssociatedPropagationSources"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssociatedPropagationSources") != m.end() && !m["AssociatedPropagationSources"].empty()) {
+      if (typeid(vector<boost::any>) == m["AssociatedPropagationSources"].type()) {
+        vector<DescribeVpcAttributeResponseBodyAssociatedPropagationSourcesAssociatedPropagationSources> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AssociatedPropagationSources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVpcAttributeResponseBodyAssociatedPropagationSourcesAssociatedPropagationSources model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        associatedPropagationSources = make_shared<vector<DescribeVpcAttributeResponseBodyAssociatedPropagationSourcesAssociatedPropagationSources>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVpcAttributeResponseBodyAssociatedPropagationSources() = default;
+};
 class DescribeVpcAttributeResponseBodyCloudResourcesCloudResourceSetType : public Darabonba::Model {
 public:
   shared_ptr<long> resourceCount{};
@@ -57810,6 +57924,7 @@ public:
 class DescribeVpcAttributeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<DescribeVpcAttributeResponseBodyAssociatedCens> associatedCens{};
+  shared_ptr<DescribeVpcAttributeResponseBodyAssociatedPropagationSources> associatedPropagationSources{};
   shared_ptr<string> cidrBlock{};
   shared_ptr<bool> classicLinkEnabled{};
   shared_ptr<DescribeVpcAttributeResponseBodyCloudResources> cloudResources{};
@@ -57847,6 +57962,9 @@ public:
     map<string, boost::any> res;
     if (associatedCens) {
       res["AssociatedCens"] = associatedCens ? boost::any(associatedCens->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (associatedPropagationSources) {
+      res["AssociatedPropagationSources"] = associatedPropagationSources ? boost::any(associatedPropagationSources->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (cidrBlock) {
       res["CidrBlock"] = boost::any(*cidrBlock);
@@ -57929,6 +58047,13 @@ public:
         DescribeVpcAttributeResponseBodyAssociatedCens model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AssociatedCens"]));
         associatedCens = make_shared<DescribeVpcAttributeResponseBodyAssociatedCens>(model1);
+      }
+    }
+    if (m.find("AssociatedPropagationSources") != m.end() && !m["AssociatedPropagationSources"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AssociatedPropagationSources"].type()) {
+        DescribeVpcAttributeResponseBodyAssociatedPropagationSources model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AssociatedPropagationSources"]));
+        associatedPropagationSources = make_shared<DescribeVpcAttributeResponseBodyAssociatedPropagationSources>(model1);
       }
     }
     if (m.find("CidrBlock") != m.end() && !m["CidrBlock"].empty()) {
