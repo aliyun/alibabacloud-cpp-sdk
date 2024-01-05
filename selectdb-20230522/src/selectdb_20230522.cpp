@@ -120,9 +120,6 @@ CheckCreateDBInstanceResponse Alibabacloud_Selectdb20230522::Client::checkCreate
   if (!Darabonba_Util::Client::isUnset<string>(request->securityIPList)) {
     query->insert(pair<string, string>("SecurityIPList", *request->securityIPList));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->storageSize)) {
-    query->insert(pair<string, string>("StorageSize", *request->storageSize));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->usedTime)) {
     query->insert(pair<string, long>("UsedTime", *request->usedTime));
   }
@@ -218,9 +215,6 @@ CreateDBClusterResponse Alibabacloud_Selectdb20230522::Client::createDBClusterWi
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->storageSize)) {
-    query->insert(pair<string, string>("StorageSize", *request->storageSize));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->usedTime)) {
     query->insert(pair<string, string>("UsedTime", *request->usedTime));
   }
@@ -301,9 +295,6 @@ CreateDBInstanceResponse Alibabacloud_Selectdb20230522::Client::createDBInstance
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityIPList)) {
     query->insert(pair<string, string>("SecurityIPList", *request->securityIPList));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->storageSize)) {
-    query->insert(pair<string, string>("StorageSize", *request->storageSize));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->usedTime)) {
     query->insert(pair<string, long>("UsedTime", *request->usedTime));
