@@ -4706,6 +4706,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<vector<StatusTransitionItem>> statusHistory{};
   shared_ptr<string> subStatus{};
+  shared_ptr<string> tenantId{};
   shared_ptr<string> thirdpartyLibDir{};
   shared_ptr<vector<string>> thirdpartyLibs{};
   shared_ptr<string> userCommand{};
@@ -4828,6 +4829,9 @@ public:
     }
     if (subStatus) {
       res["SubStatus"] = boost::any(*subStatus);
+    }
+    if (tenantId) {
+      res["TenantId"] = boost::any(*tenantId);
     }
     if (thirdpartyLibDir) {
       res["ThirdpartyLibDir"] = boost::any(*thirdpartyLibDir);
@@ -4997,6 +5001,9 @@ public:
     }
     if (m.find("SubStatus") != m.end() && !m["SubStatus"].empty()) {
       subStatus = make_shared<string>(boost::any_cast<string>(m["SubStatus"]));
+    }
+    if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
     }
     if (m.find("ThirdpartyLibDir") != m.end() && !m["ThirdpartyLibDir"].empty()) {
       thirdpartyLibDir = make_shared<string>(boost::any_cast<string>(m["ThirdpartyLibDir"]));
