@@ -3211,6 +3211,42 @@ public:
 
   virtual ~CreateHanaRestoreResponse() = default;
 };
+class CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsCommonFileSystemDetail : public Darabonba::Model {
+public:
+  shared_ptr<long> fetchSliceSize{};
+  shared_ptr<bool> fullOnIncrementFail{};
+
+  CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsCommonFileSystemDetail() {}
+
+  explicit CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsCommonFileSystemDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fetchSliceSize) {
+      res["FetchSliceSize"] = boost::any(*fetchSliceSize);
+    }
+    if (fullOnIncrementFail) {
+      res["FullOnIncrementFail"] = boost::any(*fullOnIncrementFail);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FetchSliceSize") != m.end() && !m["FetchSliceSize"].empty()) {
+      fetchSliceSize = make_shared<long>(boost::any_cast<long>(m["FetchSliceSize"]));
+    }
+    if (m.find("FullOnIncrementFail") != m.end() && !m["FullOnIncrementFail"].empty()) {
+      fullOnIncrementFail = make_shared<bool>(boost::any_cast<bool>(m["FullOnIncrementFail"]));
+    }
+  }
+
+
+  virtual ~CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsCommonFileSystemDetail() = default;
+};
 class CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsCommonNasDetail : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -3434,6 +3470,7 @@ public:
 };
 class CreatePolicyBindingsRequestPolicyBindingListAdvancedOptions : public Darabonba::Model {
 public:
+  shared_ptr<CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsCommonFileSystemDetail> commonFileSystemDetail{};
   shared_ptr<CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsCommonNasDetail> commonNasDetail{};
   shared_ptr<CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsFileDetail> fileDetail{};
   shared_ptr<CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsOssDetail> ossDetail{};
@@ -3449,6 +3486,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (commonFileSystemDetail) {
+      res["CommonFileSystemDetail"] = commonFileSystemDetail ? boost::any(commonFileSystemDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (commonNasDetail) {
       res["CommonNasDetail"] = commonNasDetail ? boost::any(commonNasDetail->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -3465,6 +3505,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommonFileSystemDetail") != m.end() && !m["CommonFileSystemDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CommonFileSystemDetail"].type()) {
+        CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsCommonFileSystemDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CommonFileSystemDetail"]));
+        commonFileSystemDetail = make_shared<CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsCommonFileSystemDetail>(model1);
+      }
+    }
     if (m.find("CommonNasDetail") != m.end() && !m["CommonNasDetail"].empty()) {
       if (typeid(map<string, boost::any>) == m["CommonNasDetail"].type()) {
         CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsCommonNasDetail model1;
@@ -13982,6 +14029,42 @@ public:
 
   virtual ~DescribePolicyBindingsShrinkRequest() = default;
 };
+class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonFileSystemDetail : public Darabonba::Model {
+public:
+  shared_ptr<long> fetchSliceSize{};
+  shared_ptr<bool> fullOnIncrementFail{};
+
+  DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonFileSystemDetail() {}
+
+  explicit DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonFileSystemDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fetchSliceSize) {
+      res["FetchSliceSize"] = boost::any(*fetchSliceSize);
+    }
+    if (fullOnIncrementFail) {
+      res["FullOnIncrementFail"] = boost::any(*fullOnIncrementFail);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FetchSliceSize") != m.end() && !m["FetchSliceSize"].empty()) {
+      fetchSliceSize = make_shared<long>(boost::any_cast<long>(m["FetchSliceSize"]));
+    }
+    if (m.find("FullOnIncrementFail") != m.end() && !m["FullOnIncrementFail"].empty()) {
+      fullOnIncrementFail = make_shared<bool>(boost::any_cast<bool>(m["FullOnIncrementFail"]));
+    }
+  }
+
+
+  virtual ~DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonFileSystemDetail() = default;
+};
 class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonNasDetail : public Darabonba::Model {
 public:
   shared_ptr<string> clientId{};
@@ -14219,6 +14302,7 @@ public:
 };
 class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptions : public Darabonba::Model {
 public:
+  shared_ptr<DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonFileSystemDetail> commonFileSystemDetail{};
   shared_ptr<DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonNasDetail> commonNasDetail{};
   shared_ptr<DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsFileDetail> fileDetail{};
   shared_ptr<DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsOssDetail> ossDetail{};
@@ -14234,6 +14318,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (commonFileSystemDetail) {
+      res["CommonFileSystemDetail"] = commonFileSystemDetail ? boost::any(commonFileSystemDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (commonNasDetail) {
       res["CommonNasDetail"] = commonNasDetail ? boost::any(commonNasDetail->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -14250,6 +14337,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommonFileSystemDetail") != m.end() && !m["CommonFileSystemDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CommonFileSystemDetail"].type()) {
+        DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonFileSystemDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CommonFileSystemDetail"]));
+        commonFileSystemDetail = make_shared<DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonFileSystemDetail>(model1);
+      }
+    }
     if (m.find("CommonNasDetail") != m.end() && !m["CommonNasDetail"].empty()) {
       if (typeid(map<string, boost::any>) == m["CommonNasDetail"].type()) {
         DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonNasDetail model1;
@@ -19664,7 +19758,9 @@ class SearchHistoricalSnapshotsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> order{};
   shared_ptr<vector<boost::any>> query{};
+  shared_ptr<string> sortBy{};
   shared_ptr<string> sourceType{};
 
   SearchHistoricalSnapshotsRequest() {}
@@ -19683,8 +19779,14 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
     if (query) {
       res["Query"] = boost::any(*query);
+    }
+    if (sortBy) {
+      res["SortBy"] = boost::any(*sortBy);
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
@@ -19699,6 +19801,9 @@ public:
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
     if (m.find("Query") != m.end() && !m["Query"].empty()) {
       vector<boost::any> toVec1;
       if (typeid(vector<boost::any>) == m["Query"].type()) {
@@ -19708,6 +19813,9 @@ public:
         }
       }
       query = make_shared<vector<boost::any>>(toVec1);
+    }
+    if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
+      sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
@@ -19721,7 +19829,9 @@ class SearchHistoricalSnapshotsShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> order{};
   shared_ptr<string> queryShrink{};
+  shared_ptr<string> sortBy{};
   shared_ptr<string> sourceType{};
 
   SearchHistoricalSnapshotsShrinkRequest() {}
@@ -19740,8 +19850,14 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
     if (queryShrink) {
       res["Query"] = boost::any(*queryShrink);
+    }
+    if (sortBy) {
+      res["SortBy"] = boost::any(*sortBy);
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
@@ -19756,8 +19872,14 @@ public:
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
     if (m.find("Query") != m.end() && !m["Query"].empty()) {
       queryShrink = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
+    if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
+      sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
@@ -22893,6 +23015,42 @@ public:
 
   virtual ~UpdateHanaRetentionSettingResponse() = default;
 };
+class UpdatePolicyBindingRequestAdvancedOptionsCommonFileSystemDetail : public Darabonba::Model {
+public:
+  shared_ptr<long> fetchSliceSize{};
+  shared_ptr<bool> fullOnIncrementFail{};
+
+  UpdatePolicyBindingRequestAdvancedOptionsCommonFileSystemDetail() {}
+
+  explicit UpdatePolicyBindingRequestAdvancedOptionsCommonFileSystemDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fetchSliceSize) {
+      res["FetchSliceSize"] = boost::any(*fetchSliceSize);
+    }
+    if (fullOnIncrementFail) {
+      res["FullOnIncrementFail"] = boost::any(*fullOnIncrementFail);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FetchSliceSize") != m.end() && !m["FetchSliceSize"].empty()) {
+      fetchSliceSize = make_shared<long>(boost::any_cast<long>(m["FetchSliceSize"]));
+    }
+    if (m.find("FullOnIncrementFail") != m.end() && !m["FullOnIncrementFail"].empty()) {
+      fullOnIncrementFail = make_shared<bool>(boost::any_cast<bool>(m["FullOnIncrementFail"]));
+    }
+  }
+
+
+  virtual ~UpdatePolicyBindingRequestAdvancedOptionsCommonFileSystemDetail() = default;
+};
 class UpdatePolicyBindingRequestAdvancedOptionsOssDetail : public Darabonba::Model {
 public:
   shared_ptr<string> inventoryCleanupPolicy{};
@@ -23037,6 +23195,7 @@ public:
 };
 class UpdatePolicyBindingRequestAdvancedOptions : public Darabonba::Model {
 public:
+  shared_ptr<UpdatePolicyBindingRequestAdvancedOptionsCommonFileSystemDetail> commonFileSystemDetail{};
   shared_ptr<UpdatePolicyBindingRequestAdvancedOptionsOssDetail> ossDetail{};
   shared_ptr<UpdatePolicyBindingRequestAdvancedOptionsUdmDetail> udmDetail{};
 
@@ -23050,6 +23209,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (commonFileSystemDetail) {
+      res["CommonFileSystemDetail"] = commonFileSystemDetail ? boost::any(commonFileSystemDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (ossDetail) {
       res["OssDetail"] = ossDetail ? boost::any(ossDetail->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -23060,6 +23222,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommonFileSystemDetail") != m.end() && !m["CommonFileSystemDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CommonFileSystemDetail"].type()) {
+        UpdatePolicyBindingRequestAdvancedOptionsCommonFileSystemDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CommonFileSystemDetail"]));
+        commonFileSystemDetail = make_shared<UpdatePolicyBindingRequestAdvancedOptionsCommonFileSystemDetail>(model1);
+      }
+    }
     if (m.find("OssDetail") != m.end() && !m["OssDetail"].empty()) {
       if (typeid(map<string, boost::any>) == m["OssDetail"].type()) {
         UpdatePolicyBindingRequestAdvancedOptionsOssDetail model1;

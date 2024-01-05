@@ -2776,8 +2776,14 @@ SearchHistoricalSnapshotsResponse Alibabacloud_Hbr20170908::Client::searchHistor
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    query->insert(pair<string, string>("Order", *request->order));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->queryShrink)) {
     query->insert(pair<string, string>("Query", *request->queryShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
+    query->insert(pair<string, string>("SortBy", *request->sortBy));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
     query->insert(pair<string, string>("SourceType", *request->sourceType));
