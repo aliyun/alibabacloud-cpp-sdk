@@ -348,6 +348,7 @@ public:
   shared_ptr<bool> pptExtractionEnabled{};
   shared_ptr<CreateTaskRequestParametersSummarization> summarization{};
   shared_ptr<bool> summarizationEnabled{};
+  shared_ptr<bool> textPolishEnabled{};
   shared_ptr<CreateTaskRequestParametersTranscoding> transcoding{};
   shared_ptr<CreateTaskRequestParametersTranscription> transcription{};
   shared_ptr<CreateTaskRequestParametersTranslation> translation{};
@@ -380,6 +381,9 @@ public:
     }
     if (summarizationEnabled) {
       res["SummarizationEnabled"] = boost::any(*summarizationEnabled);
+    }
+    if (textPolishEnabled) {
+      res["TextPolishEnabled"] = boost::any(*textPolishEnabled);
     }
     if (transcoding) {
       res["Transcoding"] = transcoding ? boost::any(transcoding->toMap()) : boost::any(map<string,boost::any>({}));
@@ -422,6 +426,9 @@ public:
     }
     if (m.find("SummarizationEnabled") != m.end() && !m["SummarizationEnabled"].empty()) {
       summarizationEnabled = make_shared<bool>(boost::any_cast<bool>(m["SummarizationEnabled"]));
+    }
+    if (m.find("TextPolishEnabled") != m.end() && !m["TextPolishEnabled"].empty()) {
+      textPolishEnabled = make_shared<bool>(boost::any_cast<bool>(m["TextPolishEnabled"]));
     }
     if (m.find("Transcoding") != m.end() && !m["Transcoding"].empty()) {
       if (typeid(map<string, boost::any>) == m["Transcoding"].type()) {
