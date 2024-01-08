@@ -1013,6 +1013,9 @@ DescribeEnterpriseSnapshotPolicyResponse Alibabacloud_Ebs20210730::Client::descr
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->diskIds)) {
+    query->insert(pair<string, vector<string>>("DiskIds", *request->diskIds));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }

@@ -5941,6 +5941,7 @@ public:
 class DescribeEnterpriseSnapshotPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<vector<string>> diskIds{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<long> pageNumber{};
@@ -5962,6 +5963,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (diskIds) {
+      res["DiskIds"] = boost::any(*diskIds);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -5997,6 +6001,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DiskIds") != m.end() && !m["DiskIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DiskIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DiskIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      diskIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
@@ -6365,6 +6379,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfo> crossRegionCopyInfo{};
   shared_ptr<string> desc{};
+  shared_ptr<vector<string>> diskIds{};
   shared_ptr<bool> managedForEcs{};
   shared_ptr<string> name{};
   shared_ptr<string> policyId{};
@@ -6396,6 +6411,9 @@ public:
     }
     if (desc) {
       res["Desc"] = boost::any(*desc);
+    }
+    if (diskIds) {
+      res["DiskIds"] = boost::any(*diskIds);
     }
     if (managedForEcs) {
       res["ManagedForEcs"] = boost::any(*managedForEcs);
@@ -6453,6 +6471,16 @@ public:
     }
     if (m.find("Desc") != m.end() && !m["Desc"].empty()) {
       desc = make_shared<string>(boost::any_cast<string>(m["Desc"]));
+    }
+    if (m.find("DiskIds") != m.end() && !m["DiskIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DiskIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DiskIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      diskIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ManagedForEcs") != m.end() && !m["ManagedForEcs"].empty()) {
       managedForEcs = make_shared<bool>(boost::any_cast<bool>(m["ManagedForEcs"]));
