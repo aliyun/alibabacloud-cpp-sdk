@@ -5432,6 +5432,7 @@ class GetJobSanityCheckResultRequest : public Darabonba::Model {
 public:
   shared_ptr<long> sanityCheckNumber{};
   shared_ptr<string> sanityCheckPhase{};
+  shared_ptr<string> token{};
 
   GetJobSanityCheckResultRequest() {}
 
@@ -5449,6 +5450,9 @@ public:
     if (sanityCheckPhase) {
       res["SanityCheckPhase"] = boost::any(*sanityCheckPhase);
     }
+    if (token) {
+      res["Token"] = boost::any(*token);
+    }
     return res;
   }
 
@@ -5458,6 +5462,9 @@ public:
     }
     if (m.find("SanityCheckPhase") != m.end() && !m["SanityCheckPhase"].empty()) {
       sanityCheckPhase = make_shared<string>(boost::any_cast<string>(m["SanityCheckPhase"]));
+    }
+    if (m.find("Token") != m.end() && !m["Token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
     }
   }
 
