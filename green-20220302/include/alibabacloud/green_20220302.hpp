@@ -2145,6 +2145,358 @@ public:
 
   virtual ~TextModerationResponse() = default;
 };
+class TextModerationPlusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> service{};
+  shared_ptr<string> serviceParameters{};
+
+  TextModerationPlusRequest() {}
+
+  explicit TextModerationPlusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (service) {
+      res["Service"] = boost::any(*service);
+    }
+    if (serviceParameters) {
+      res["ServiceParameters"] = boost::any(*serviceParameters);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Service") != m.end() && !m["Service"].empty()) {
+      service = make_shared<string>(boost::any_cast<string>(m["Service"]));
+    }
+    if (m.find("ServiceParameters") != m.end() && !m["ServiceParameters"].empty()) {
+      serviceParameters = make_shared<string>(boost::any_cast<string>(m["ServiceParameters"]));
+    }
+  }
+
+
+  virtual ~TextModerationPlusRequest() = default;
+};
+class TextModerationPlusResponseBodyDataAdvice : public Darabonba::Model {
+public:
+  shared_ptr<string> answer{};
+
+  TextModerationPlusResponseBodyDataAdvice() {}
+
+  explicit TextModerationPlusResponseBodyDataAdvice(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answer) {
+      res["Answer"] = boost::any(*answer);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Answer") != m.end() && !m["Answer"].empty()) {
+      answer = make_shared<string>(boost::any_cast<string>(m["Answer"]));
+    }
+  }
+
+
+  virtual ~TextModerationPlusResponseBodyDataAdvice() = default;
+};
+class TextModerationPlusResponseBodyDataResultCustomizedHit : public Darabonba::Model {
+public:
+  shared_ptr<string> keyWords{};
+  shared_ptr<string> libName{};
+
+  TextModerationPlusResponseBodyDataResultCustomizedHit() {}
+
+  explicit TextModerationPlusResponseBodyDataResultCustomizedHit(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keyWords) {
+      res["KeyWords"] = boost::any(*keyWords);
+    }
+    if (libName) {
+      res["LibName"] = boost::any(*libName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("KeyWords") != m.end() && !m["KeyWords"].empty()) {
+      keyWords = make_shared<string>(boost::any_cast<string>(m["KeyWords"]));
+    }
+    if (m.find("LibName") != m.end() && !m["LibName"].empty()) {
+      libName = make_shared<string>(boost::any_cast<string>(m["LibName"]));
+    }
+  }
+
+
+  virtual ~TextModerationPlusResponseBodyDataResultCustomizedHit() = default;
+};
+class TextModerationPlusResponseBodyDataResult : public Darabonba::Model {
+public:
+  shared_ptr<double> confidence{};
+  shared_ptr<vector<TextModerationPlusResponseBodyDataResultCustomizedHit>> customizedHit{};
+  shared_ptr<string> label{};
+  shared_ptr<string> riskWords{};
+
+  TextModerationPlusResponseBodyDataResult() {}
+
+  explicit TextModerationPlusResponseBodyDataResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (customizedHit) {
+      vector<boost::any> temp1;
+      for(auto item1:*customizedHit){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomizedHit"] = boost::any(temp1);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (riskWords) {
+      res["RiskWords"] = boost::any(*riskWords);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("CustomizedHit") != m.end() && !m["CustomizedHit"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomizedHit"].type()) {
+        vector<TextModerationPlusResponseBodyDataResultCustomizedHit> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomizedHit"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TextModerationPlusResponseBodyDataResultCustomizedHit model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customizedHit = make_shared<vector<TextModerationPlusResponseBodyDataResultCustomizedHit>>(expect1);
+      }
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("RiskWords") != m.end() && !m["RiskWords"].empty()) {
+      riskWords = make_shared<string>(boost::any_cast<string>(m["RiskWords"]));
+    }
+  }
+
+
+  virtual ~TextModerationPlusResponseBodyDataResult() = default;
+};
+class TextModerationPlusResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<TextModerationPlusResponseBodyDataAdvice>> advice{};
+  shared_ptr<vector<TextModerationPlusResponseBodyDataResult>> result{};
+  shared_ptr<double> score{};
+
+  TextModerationPlusResponseBodyData() {}
+
+  explicit TextModerationPlusResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (advice) {
+      vector<boost::any> temp1;
+      for(auto item1:*advice){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Advice"] = boost::any(temp1);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Result"] = boost::any(temp1);
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Advice") != m.end() && !m["Advice"].empty()) {
+      if (typeid(vector<boost::any>) == m["Advice"].type()) {
+        vector<TextModerationPlusResponseBodyDataAdvice> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Advice"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TextModerationPlusResponseBodyDataAdvice model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        advice = make_shared<vector<TextModerationPlusResponseBodyDataAdvice>>(expect1);
+      }
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(vector<boost::any>) == m["Result"].type()) {
+        vector<TextModerationPlusResponseBodyDataResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TextModerationPlusResponseBodyDataResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<TextModerationPlusResponseBodyDataResult>>(expect1);
+      }
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+  }
+
+
+  virtual ~TextModerationPlusResponseBodyData() = default;
+};
+class TextModerationPlusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<TextModerationPlusResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  TextModerationPlusResponseBody() {}
+
+  explicit TextModerationPlusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        TextModerationPlusResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<TextModerationPlusResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~TextModerationPlusResponseBody() = default;
+};
+class TextModerationPlusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<TextModerationPlusResponseBody> body{};
+
+  TextModerationPlusResponse() {}
+
+  explicit TextModerationPlusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        TextModerationPlusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<TextModerationPlusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~TextModerationPlusResponse() = default;
+};
 class VideoModerationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> service{};
@@ -3808,6 +4160,8 @@ public:
   ImageModerationResponse imageModeration(shared_ptr<ImageModerationRequest> request);
   TextModerationResponse textModerationWithOptions(shared_ptr<TextModerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TextModerationResponse textModeration(shared_ptr<TextModerationRequest> request);
+  TextModerationPlusResponse textModerationPlusWithOptions(shared_ptr<TextModerationPlusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  TextModerationPlusResponse textModerationPlus(shared_ptr<TextModerationPlusRequest> request);
   VideoModerationResponse videoModerationWithOptions(shared_ptr<VideoModerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   VideoModerationResponse videoModeration(shared_ptr<VideoModerationRequest> request);
   VideoModerationCancelResponse videoModerationCancelWithOptions(shared_ptr<VideoModerationCancelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
