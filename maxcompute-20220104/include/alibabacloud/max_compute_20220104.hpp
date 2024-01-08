@@ -1668,6 +1668,35 @@ public:
 
   virtual ~GetPackageResponse() = default;
 };
+class GetProjectRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> verbose{};
+
+  GetProjectRequest() {}
+
+  explicit GetProjectRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (verbose) {
+      res["verbose"] = boost::any(*verbose);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("verbose") != m.end() && !m["verbose"].empty()) {
+      verbose = make_shared<bool>(boost::any_cast<bool>(m["verbose"]));
+    }
+  }
+
+
+  virtual ~GetProjectRequest() = default;
+};
 class GetProjectResponseBodyDataIpWhiteList : public Darabonba::Model {
 public:
   shared_ptr<string> ipList{};
@@ -1793,6 +1822,7 @@ public:
 class GetProjectResponseBodyDataPropertiesStorageTierInfo : public Darabonba::Model {
 public:
   shared_ptr<long> projectBackupSize{};
+  shared_ptr<long> projectTotalSize{};
   shared_ptr<GetProjectResponseBodyDataPropertiesStorageTierInfoStorageTierSize> storageTierSize{};
 
   GetProjectResponseBodyDataPropertiesStorageTierInfo() {}
@@ -1808,6 +1838,9 @@ public:
     if (projectBackupSize) {
       res["projectBackupSize"] = boost::any(*projectBackupSize);
     }
+    if (projectTotalSize) {
+      res["projectTotalSize"] = boost::any(*projectTotalSize);
+    }
     if (storageTierSize) {
       res["storageTierSize"] = storageTierSize ? boost::any(storageTierSize->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1817,6 +1850,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("projectBackupSize") != m.end() && !m["projectBackupSize"].empty()) {
       projectBackupSize = make_shared<long>(boost::any_cast<long>(m["projectBackupSize"]));
+    }
+    if (m.find("projectTotalSize") != m.end() && !m["projectTotalSize"].empty()) {
+      projectTotalSize = make_shared<long>(boost::any_cast<long>(m["projectTotalSize"]));
     }
     if (m.find("storageTierSize") != m.end() && !m["storageTierSize"].empty()) {
       if (typeid(map<string, boost::any>) == m["storageTierSize"].type()) {
@@ -1869,6 +1905,7 @@ public:
 class GetProjectResponseBodyDataProperties : public Darabonba::Model {
 public:
   shared_ptr<bool> allowFullScan{};
+  shared_ptr<string> elderTunnelQuota{};
   shared_ptr<bool> enableDecimal2{};
   shared_ptr<bool> enableTunnelQuotaRoute{};
   shared_ptr<GetProjectResponseBodyDataPropertiesEncryption> encryption{};
@@ -1892,6 +1929,9 @@ public:
     map<string, boost::any> res;
     if (allowFullScan) {
       res["allowFullScan"] = boost::any(*allowFullScan);
+    }
+    if (elderTunnelQuota) {
+      res["elderTunnelQuota"] = boost::any(*elderTunnelQuota);
     }
     if (enableDecimal2) {
       res["enableDecimal2"] = boost::any(*enableDecimal2);
@@ -1929,6 +1969,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("allowFullScan") != m.end() && !m["allowFullScan"].empty()) {
       allowFullScan = make_shared<bool>(boost::any_cast<bool>(m["allowFullScan"]));
+    }
+    if (m.find("elderTunnelQuota") != m.end() && !m["elderTunnelQuota"].empty()) {
+      elderTunnelQuota = make_shared<string>(boost::any_cast<string>(m["elderTunnelQuota"]));
     }
     if (m.find("enableDecimal2") != m.end() && !m["enableDecimal2"].empty()) {
       enableDecimal2 = make_shared<bool>(boost::any_cast<bool>(m["enableDecimal2"]));
@@ -2128,16 +2171,19 @@ class GetProjectResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> comment{};
   shared_ptr<string> costStorage{};
+  shared_ptr<long> createdTime{};
   shared_ptr<string> defaultQuota{};
   shared_ptr<GetProjectResponseBodyDataIpWhiteList> ipWhiteList{};
   shared_ptr<string> name{};
   shared_ptr<string> owner{};
   shared_ptr<string> productType{};
   shared_ptr<GetProjectResponseBodyDataProperties> properties{};
+  shared_ptr<string> regionId{};
   shared_ptr<GetProjectResponseBodyDataSaleTag> saleTag{};
   shared_ptr<GetProjectResponseBodyDataSecurityProperties> securityProperties{};
   shared_ptr<string> status{};
   shared_ptr<vector<string>> superAdmins{};
+  shared_ptr<bool> threeTierModel{};
   shared_ptr<string> type{};
 
   GetProjectResponseBodyData() {}
@@ -2155,6 +2201,9 @@ public:
     }
     if (costStorage) {
       res["costStorage"] = boost::any(*costStorage);
+    }
+    if (createdTime) {
+      res["createdTime"] = boost::any(*createdTime);
     }
     if (defaultQuota) {
       res["defaultQuota"] = boost::any(*defaultQuota);
@@ -2174,6 +2223,9 @@ public:
     if (properties) {
       res["properties"] = properties ? boost::any(properties->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
     if (saleTag) {
       res["saleTag"] = saleTag ? boost::any(saleTag->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -2185,6 +2237,9 @@ public:
     }
     if (superAdmins) {
       res["superAdmins"] = boost::any(*superAdmins);
+    }
+    if (threeTierModel) {
+      res["threeTierModel"] = boost::any(*threeTierModel);
     }
     if (type) {
       res["type"] = boost::any(*type);
@@ -2198,6 +2253,9 @@ public:
     }
     if (m.find("costStorage") != m.end() && !m["costStorage"].empty()) {
       costStorage = make_shared<string>(boost::any_cast<string>(m["costStorage"]));
+    }
+    if (m.find("createdTime") != m.end() && !m["createdTime"].empty()) {
+      createdTime = make_shared<long>(boost::any_cast<long>(m["createdTime"]));
     }
     if (m.find("defaultQuota") != m.end() && !m["defaultQuota"].empty()) {
       defaultQuota = make_shared<string>(boost::any_cast<string>(m["defaultQuota"]));
@@ -2224,6 +2282,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["properties"]));
         properties = make_shared<GetProjectResponseBodyDataProperties>(model1);
       }
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
     }
     if (m.find("saleTag") != m.end() && !m["saleTag"].empty()) {
       if (typeid(map<string, boost::any>) == m["saleTag"].type()) {
@@ -2252,6 +2313,9 @@ public:
       }
       superAdmins = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("threeTierModel") != m.end() && !m["threeTierModel"].empty()) {
+      threeTierModel = make_shared<bool>(boost::any_cast<bool>(m["threeTierModel"]));
+    }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
     }
@@ -2263,6 +2327,8 @@ public:
 class GetProjectResponseBody : public Darabonba::Model {
 public:
   shared_ptr<GetProjectResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
   shared_ptr<long> httpCode{};
   shared_ptr<string> requestId{};
 
@@ -2278,6 +2344,12 @@ public:
     map<string, boost::any> res;
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
     }
     if (httpCode) {
       res["httpCode"] = boost::any(*httpCode);
@@ -2295,6 +2367,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
         data = make_shared<GetProjectResponseBodyData>(model1);
       }
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
     }
     if (m.find("httpCode") != m.end() && !m["httpCode"].empty()) {
       httpCode = make_shared<long>(boost::any_cast<long>(m["httpCode"]));
@@ -8010,11 +8088,13 @@ public:
   shared_ptr<vector<ListProjectsResponseBodyDataProjectsTags>> tags{};
   shared_ptr<string> comment{};
   shared_ptr<string> costStorage{};
+  shared_ptr<long> createdTime{};
   shared_ptr<string> defaultQuota{};
   shared_ptr<ListProjectsResponseBodyDataProjectsIpWhiteList> ipWhiteList{};
   shared_ptr<string> name{};
   shared_ptr<string> owner{};
   shared_ptr<ListProjectsResponseBodyDataProjectsProperties> properties{};
+  shared_ptr<string> regionId{};
   shared_ptr<ListProjectsResponseBodyDataProjectsSaleTag> saleTag{};
   shared_ptr<ListProjectsResponseBodyDataProjectsSecurityProperties> securityProperties{};
   shared_ptr<string> status{};
@@ -8044,6 +8124,9 @@ public:
     if (costStorage) {
       res["costStorage"] = boost::any(*costStorage);
     }
+    if (createdTime) {
+      res["createdTime"] = boost::any(*createdTime);
+    }
     if (defaultQuota) {
       res["defaultQuota"] = boost::any(*defaultQuota);
     }
@@ -8058,6 +8141,9 @@ public:
     }
     if (properties) {
       res["properties"] = properties ? boost::any(properties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
     }
     if (saleTag) {
       res["saleTag"] = saleTag ? boost::any(saleTag->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8097,6 +8183,9 @@ public:
     if (m.find("costStorage") != m.end() && !m["costStorage"].empty()) {
       costStorage = make_shared<string>(boost::any_cast<string>(m["costStorage"]));
     }
+    if (m.find("createdTime") != m.end() && !m["createdTime"].empty()) {
+      createdTime = make_shared<long>(boost::any_cast<long>(m["createdTime"]));
+    }
     if (m.find("defaultQuota") != m.end() && !m["defaultQuota"].empty()) {
       defaultQuota = make_shared<string>(boost::any_cast<string>(m["defaultQuota"]));
     }
@@ -8119,6 +8208,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["properties"]));
         properties = make_shared<ListProjectsResponseBodyDataProjectsProperties>(model1);
       }
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
     }
     if (m.find("saleTag") != m.end() && !m["saleTag"].empty()) {
       if (typeid(map<string, boost::any>) == m["saleTag"].type()) {
@@ -13508,8 +13600,11 @@ public:
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPackageResponse getPackage(shared_ptr<string> projectName, shared_ptr<string> packageName, shared_ptr<GetPackageRequest> request);
-  GetProjectResponse getProjectWithOptions(shared_ptr<string> projectName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetProjectResponse getProject(shared_ptr<string> projectName);
+  GetProjectResponse getProjectWithOptions(shared_ptr<string> projectName,
+                                           shared_ptr<GetProjectRequest> request,
+                                           shared_ptr<map<string, string>> headers,
+                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetProjectResponse getProject(shared_ptr<string> projectName, shared_ptr<GetProjectRequest> request);
   GetQuotaResponse getQuotaWithOptions(shared_ptr<string> nickname,
                                        shared_ptr<GetQuotaRequest> request,
                                        shared_ptr<map<string, string>> headers,

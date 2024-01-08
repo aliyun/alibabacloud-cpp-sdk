@@ -379,9 +379,18 @@ GetPackageResponse Alibabacloud_MaxCompute20220104::Client::getPackage(shared_pt
   return getPackageWithOptions(projectName, packageName, request, headers, runtime);
 }
 
-GetProjectResponse Alibabacloud_MaxCompute20220104::Client::getProjectWithOptions(shared_ptr<string> projectName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetProjectResponse Alibabacloud_MaxCompute20220104::Client::getProjectWithOptions(shared_ptr<string> projectName,
+                                                                                  shared_ptr<GetProjectRequest> request,
+                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->verbose)) {
+    query->insert(pair<string, bool>("verbose", *request->verbose));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetProject"))},
@@ -397,10 +406,10 @@ GetProjectResponse Alibabacloud_MaxCompute20220104::Client::getProjectWithOption
   return GetProjectResponse(callApi(params, req, runtime));
 }
 
-GetProjectResponse Alibabacloud_MaxCompute20220104::Client::getProject(shared_ptr<string> projectName) {
+GetProjectResponse Alibabacloud_MaxCompute20220104::Client::getProject(shared_ptr<string> projectName, shared_ptr<GetProjectRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getProjectWithOptions(projectName, headers, runtime);
+  return getProjectWithOptions(projectName, request, headers, runtime);
 }
 
 GetQuotaResponse Alibabacloud_MaxCompute20220104::Client::getQuotaWithOptions(shared_ptr<string> nickname,
