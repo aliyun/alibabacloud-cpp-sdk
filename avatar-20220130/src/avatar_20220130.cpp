@@ -968,6 +968,9 @@ SubmitAudioTo2DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::subm
   if (!Darabonba_Util::Client::isUnset<SubmitAudioTo2DAvatarVideoTaskRequestApp>(tmpReq->app)) {
     request->appShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->app, make_shared<string>("App"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<SubmitAudioTo2DAvatarVideoTaskRequestAudioInfo>(tmpReq->audioInfo)) {
+    request->audioInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->audioInfo, make_shared<string>("AudioInfo"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo>(tmpReq->avatarInfo)) {
     request->avatarInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->avatarInfo, make_shared<string>("AvatarInfo"), make_shared<string>("json")));
   }
@@ -977,6 +980,9 @@ SubmitAudioTo2DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::subm
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appShrink)) {
     query->insert(pair<string, string>("App", *request->appShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->audioInfoShrink)) {
+    query->insert(pair<string, string>("AudioInfo", *request->audioInfoShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->avatarInfoShrink)) {
     query->insert(pair<string, string>("AvatarInfo", *request->avatarInfoShrink));
@@ -1031,6 +1037,9 @@ SubmitAudioTo3DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::subm
   if (!Darabonba_Util::Client::isUnset<SubmitAudioTo3DAvatarVideoTaskRequestApp>(tmpReq->app)) {
     request->appShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->app, make_shared<string>("App"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<SubmitAudioTo3DAvatarVideoTaskRequestAudioInfo>(tmpReq->audioInfo)) {
+    request->audioInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->audioInfo, make_shared<string>("AudioInfo"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo>(tmpReq->avatarInfo)) {
     request->avatarInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->avatarInfo, make_shared<string>("AvatarInfo"), make_shared<string>("json")));
   }
@@ -1040,6 +1049,9 @@ SubmitAudioTo3DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::subm
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appShrink)) {
     query->insert(pair<string, string>("App", *request->appShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->audioInfoShrink)) {
+    query->insert(pair<string, string>("AudioInfo", *request->audioInfoShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->avatarInfoShrink)) {
     query->insert(pair<string, string>("AvatarInfo", *request->avatarInfoShrink));

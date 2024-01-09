@@ -6937,6 +6937,35 @@ public:
 
   virtual ~SubmitAudioTo2DAvatarVideoTaskRequestApp() = default;
 };
+class SubmitAudioTo2DAvatarVideoTaskRequestAudioInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> sampleRate{};
+
+  SubmitAudioTo2DAvatarVideoTaskRequestAudioInfo() {}
+
+  explicit SubmitAudioTo2DAvatarVideoTaskRequestAudioInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<long>(boost::any_cast<long>(m["SampleRate"]));
+    }
+  }
+
+
+  virtual ~SubmitAudioTo2DAvatarVideoTaskRequestAudioInfo() = default;
+};
 class SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
@@ -7047,6 +7076,7 @@ public:
 class SubmitAudioTo2DAvatarVideoTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<SubmitAudioTo2DAvatarVideoTaskRequestApp> app{};
+  shared_ptr<SubmitAudioTo2DAvatarVideoTaskRequestAudioInfo> audioInfo{};
   shared_ptr<SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo> avatarInfo{};
   shared_ptr<bool> callback{};
   shared_ptr<string> callbackParams{};
@@ -7068,6 +7098,9 @@ public:
     map<string, boost::any> res;
     if (app) {
       res["App"] = app ? boost::any(app->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (audioInfo) {
+      res["AudioInfo"] = audioInfo ? boost::any(audioInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (avatarInfo) {
       res["AvatarInfo"] = avatarInfo ? boost::any(avatarInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -7102,6 +7135,13 @@ public:
         SubmitAudioTo2DAvatarVideoTaskRequestApp model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["App"]));
         app = make_shared<SubmitAudioTo2DAvatarVideoTaskRequestApp>(model1);
+      }
+    }
+    if (m.find("AudioInfo") != m.end() && !m["AudioInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AudioInfo"].type()) {
+        SubmitAudioTo2DAvatarVideoTaskRequestAudioInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AudioInfo"]));
+        audioInfo = make_shared<SubmitAudioTo2DAvatarVideoTaskRequestAudioInfo>(model1);
       }
     }
     if (m.find("AvatarInfo") != m.end() && !m["AvatarInfo"].empty()) {
@@ -7144,6 +7184,7 @@ public:
 class SubmitAudioTo2DAvatarVideoTaskShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appShrink{};
+  shared_ptr<string> audioInfoShrink{};
   shared_ptr<string> avatarInfoShrink{};
   shared_ptr<bool> callback{};
   shared_ptr<string> callbackParams{};
@@ -7165,6 +7206,9 @@ public:
     map<string, boost::any> res;
     if (appShrink) {
       res["App"] = boost::any(*appShrink);
+    }
+    if (audioInfoShrink) {
+      res["AudioInfo"] = boost::any(*audioInfoShrink);
     }
     if (avatarInfoShrink) {
       res["AvatarInfo"] = boost::any(*avatarInfoShrink);
@@ -7196,6 +7240,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("App") != m.end() && !m["App"].empty()) {
       appShrink = make_shared<string>(boost::any_cast<string>(m["App"]));
+    }
+    if (m.find("AudioInfo") != m.end() && !m["AudioInfo"].empty()) {
+      audioInfoShrink = make_shared<string>(boost::any_cast<string>(m["AudioInfo"]));
     }
     if (m.find("AvatarInfo") != m.end() && !m["AvatarInfo"].empty()) {
       avatarInfoShrink = make_shared<string>(boost::any_cast<string>(m["AvatarInfo"]));
@@ -7407,6 +7454,35 @@ public:
 
   virtual ~SubmitAudioTo3DAvatarVideoTaskRequestApp() = default;
 };
+class SubmitAudioTo3DAvatarVideoTaskRequestAudioInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> sampleRate{};
+
+  SubmitAudioTo3DAvatarVideoTaskRequestAudioInfo() {}
+
+  explicit SubmitAudioTo3DAvatarVideoTaskRequestAudioInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<long>(boost::any_cast<long>(m["SampleRate"]));
+    }
+  }
+
+
+  virtual ~SubmitAudioTo3DAvatarVideoTaskRequestAudioInfo() = default;
+};
 class SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo : public Darabonba::Model {
 public:
   shared_ptr<long> angle{};
@@ -7510,6 +7586,7 @@ public:
 class SubmitAudioTo3DAvatarVideoTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<SubmitAudioTo3DAvatarVideoTaskRequestApp> app{};
+  shared_ptr<SubmitAudioTo3DAvatarVideoTaskRequestAudioInfo> audioInfo{};
   shared_ptr<SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo> avatarInfo{};
   shared_ptr<bool> callback{};
   shared_ptr<string> callbackParams{};
@@ -7531,6 +7608,9 @@ public:
     map<string, boost::any> res;
     if (app) {
       res["App"] = app ? boost::any(app->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (audioInfo) {
+      res["AudioInfo"] = audioInfo ? boost::any(audioInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (avatarInfo) {
       res["AvatarInfo"] = avatarInfo ? boost::any(avatarInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -7565,6 +7645,13 @@ public:
         SubmitAudioTo3DAvatarVideoTaskRequestApp model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["App"]));
         app = make_shared<SubmitAudioTo3DAvatarVideoTaskRequestApp>(model1);
+      }
+    }
+    if (m.find("AudioInfo") != m.end() && !m["AudioInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AudioInfo"].type()) {
+        SubmitAudioTo3DAvatarVideoTaskRequestAudioInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AudioInfo"]));
+        audioInfo = make_shared<SubmitAudioTo3DAvatarVideoTaskRequestAudioInfo>(model1);
       }
     }
     if (m.find("AvatarInfo") != m.end() && !m["AvatarInfo"].empty()) {
@@ -7607,6 +7694,7 @@ public:
 class SubmitAudioTo3DAvatarVideoTaskShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appShrink{};
+  shared_ptr<string> audioInfoShrink{};
   shared_ptr<string> avatarInfoShrink{};
   shared_ptr<bool> callback{};
   shared_ptr<string> callbackParams{};
@@ -7628,6 +7716,9 @@ public:
     map<string, boost::any> res;
     if (appShrink) {
       res["App"] = boost::any(*appShrink);
+    }
+    if (audioInfoShrink) {
+      res["AudioInfo"] = boost::any(*audioInfoShrink);
     }
     if (avatarInfoShrink) {
       res["AvatarInfo"] = boost::any(*avatarInfoShrink);
@@ -7659,6 +7750,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("App") != m.end() && !m["App"].empty()) {
       appShrink = make_shared<string>(boost::any_cast<string>(m["App"]));
+    }
+    if (m.find("AudioInfo") != m.end() && !m["AudioInfo"].empty()) {
+      audioInfoShrink = make_shared<string>(boost::any_cast<string>(m["AudioInfo"]));
     }
     if (m.find("AvatarInfo") != m.end() && !m["AvatarInfo"].empty()) {
       avatarInfoShrink = make_shared<string>(boost::any_cast<string>(m["AvatarInfo"]));
@@ -8200,6 +8294,7 @@ public:
 class SubmitTextTo2DAvatarVideoTaskRequestAudioInfo : public Darabonba::Model {
 public:
   shared_ptr<long> pitchRate{};
+  shared_ptr<long> sampleRate{};
   shared_ptr<long> speechRate{};
   shared_ptr<string> voice{};
   shared_ptr<long> volume{};
@@ -8217,6 +8312,9 @@ public:
     if (pitchRate) {
       res["PitchRate"] = boost::any(*pitchRate);
     }
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
     if (speechRate) {
       res["SpeechRate"] = boost::any(*speechRate);
     }
@@ -8232,6 +8330,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("PitchRate") != m.end() && !m["PitchRate"].empty()) {
       pitchRate = make_shared<long>(boost::any_cast<long>(m["PitchRate"]));
+    }
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<long>(boost::any_cast<long>(m["SampleRate"]));
     }
     if (m.find("SpeechRate") != m.end() && !m["SpeechRate"].empty()) {
       speechRate = make_shared<long>(boost::any_cast<long>(m["SpeechRate"]));
@@ -8304,6 +8405,63 @@ public:
 
   virtual ~SubmitTextTo2DAvatarVideoTaskRequestAvatarInfo() = default;
 };
+class SubmitTextTo2DAvatarVideoTaskRequestVideoInfoSubtitleStyle : public Darabonba::Model {
+public:
+  shared_ptr<string> color{};
+  shared_ptr<string> name{};
+  shared_ptr<string> outlineColor{};
+  shared_ptr<long> size{};
+  shared_ptr<long> y{};
+
+  SubmitTextTo2DAvatarVideoTaskRequestVideoInfoSubtitleStyle() {}
+
+  explicit SubmitTextTo2DAvatarVideoTaskRequestVideoInfoSubtitleStyle(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (color) {
+      res["Color"] = boost::any(*color);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (outlineColor) {
+      res["OutlineColor"] = boost::any(*outlineColor);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Color") != m.end() && !m["Color"].empty()) {
+      color = make_shared<string>(boost::any_cast<string>(m["Color"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OutlineColor") != m.end() && !m["OutlineColor"].empty()) {
+      outlineColor = make_shared<string>(boost::any_cast<string>(m["OutlineColor"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~SubmitTextTo2DAvatarVideoTaskRequestVideoInfoSubtitleStyle() = default;
+};
 class SubmitTextTo2DAvatarVideoTaskRequestVideoInfo : public Darabonba::Model {
 public:
   shared_ptr<long> alphaFormat{};
@@ -8312,6 +8470,7 @@ public:
   shared_ptr<bool> isSubtitles{};
   shared_ptr<long> resolution{};
   shared_ptr<bool> subtitleEmbedded{};
+  shared_ptr<SubmitTextTo2DAvatarVideoTaskRequestVideoInfoSubtitleStyle> subtitleStyle{};
 
   SubmitTextTo2DAvatarVideoTaskRequestVideoInfo() {}
 
@@ -8341,6 +8500,9 @@ public:
     if (subtitleEmbedded) {
       res["SubtitleEmbedded"] = boost::any(*subtitleEmbedded);
     }
+    if (subtitleStyle) {
+      res["SubtitleStyle"] = subtitleStyle ? boost::any(subtitleStyle->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -8362,6 +8524,13 @@ public:
     }
     if (m.find("SubtitleEmbedded") != m.end() && !m["SubtitleEmbedded"].empty()) {
       subtitleEmbedded = make_shared<bool>(boost::any_cast<bool>(m["SubtitleEmbedded"]));
+    }
+    if (m.find("SubtitleStyle") != m.end() && !m["SubtitleStyle"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SubtitleStyle"].type()) {
+        SubmitTextTo2DAvatarVideoTaskRequestVideoInfoSubtitleStyle model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SubtitleStyle"]));
+        subtitleStyle = make_shared<SubmitTextTo2DAvatarVideoTaskRequestVideoInfoSubtitleStyle>(model1);
+      }
     }
   }
 
@@ -8752,6 +8921,7 @@ public:
 class SubmitTextTo3DAvatarVideoTaskRequestAudioInfo : public Darabonba::Model {
 public:
   shared_ptr<long> pitchRate{};
+  shared_ptr<long> sampleRate{};
   shared_ptr<long> speechRate{};
   shared_ptr<string> voice{};
   shared_ptr<long> volume{};
@@ -8769,6 +8939,9 @@ public:
     if (pitchRate) {
       res["PitchRate"] = boost::any(*pitchRate);
     }
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
     if (speechRate) {
       res["SpeechRate"] = boost::any(*speechRate);
     }
@@ -8784,6 +8957,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("PitchRate") != m.end() && !m["PitchRate"].empty()) {
       pitchRate = make_shared<long>(boost::any_cast<long>(m["PitchRate"]));
+    }
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<long>(boost::any_cast<long>(m["SampleRate"]));
     }
     if (m.find("SpeechRate") != m.end() && !m["SpeechRate"].empty()) {
       speechRate = make_shared<long>(boost::any_cast<long>(m["SpeechRate"]));
@@ -8849,6 +9025,63 @@ public:
 
   virtual ~SubmitTextTo3DAvatarVideoTaskRequestAvatarInfo() = default;
 };
+class SubmitTextTo3DAvatarVideoTaskRequestVideoInfoSubtitleStyle : public Darabonba::Model {
+public:
+  shared_ptr<string> color{};
+  shared_ptr<string> name{};
+  shared_ptr<string> outlineColor{};
+  shared_ptr<long> size{};
+  shared_ptr<long> y{};
+
+  SubmitTextTo3DAvatarVideoTaskRequestVideoInfoSubtitleStyle() {}
+
+  explicit SubmitTextTo3DAvatarVideoTaskRequestVideoInfoSubtitleStyle(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (color) {
+      res["Color"] = boost::any(*color);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (outlineColor) {
+      res["OutlineColor"] = boost::any(*outlineColor);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Color") != m.end() && !m["Color"].empty()) {
+      color = make_shared<string>(boost::any_cast<string>(m["Color"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OutlineColor") != m.end() && !m["OutlineColor"].empty()) {
+      outlineColor = make_shared<string>(boost::any_cast<string>(m["OutlineColor"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~SubmitTextTo3DAvatarVideoTaskRequestVideoInfoSubtitleStyle() = default;
+};
 class SubmitTextTo3DAvatarVideoTaskRequestVideoInfo : public Darabonba::Model {
 public:
   shared_ptr<long> alphaFormat{};
@@ -8857,6 +9090,7 @@ public:
   shared_ptr<bool> isSubtitles{};
   shared_ptr<long> resolution{};
   shared_ptr<bool> subtitleEmbedded{};
+  shared_ptr<SubmitTextTo3DAvatarVideoTaskRequestVideoInfoSubtitleStyle> subtitleStyle{};
 
   SubmitTextTo3DAvatarVideoTaskRequestVideoInfo() {}
 
@@ -8886,6 +9120,9 @@ public:
     if (subtitleEmbedded) {
       res["SubtitleEmbedded"] = boost::any(*subtitleEmbedded);
     }
+    if (subtitleStyle) {
+      res["SubtitleStyle"] = subtitleStyle ? boost::any(subtitleStyle->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -8907,6 +9144,13 @@ public:
     }
     if (m.find("SubtitleEmbedded") != m.end() && !m["SubtitleEmbedded"].empty()) {
       subtitleEmbedded = make_shared<bool>(boost::any_cast<bool>(m["SubtitleEmbedded"]));
+    }
+    if (m.find("SubtitleStyle") != m.end() && !m["SubtitleStyle"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SubtitleStyle"].type()) {
+        SubmitTextTo3DAvatarVideoTaskRequestVideoInfoSubtitleStyle model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SubtitleStyle"]));
+        subtitleStyle = make_shared<SubmitTextTo3DAvatarVideoTaskRequestVideoInfoSubtitleStyle>(model1);
+      }
     }
   }
 
