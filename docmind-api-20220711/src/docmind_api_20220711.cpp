@@ -152,6 +152,12 @@ GetDocStructureResultResponse Alibabacloud_Docmind-api20220711::Client::getDocSt
   if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
     query->insert(pair<string, string>("Id", *request->id));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageStrategy)) {
+    query->insert(pair<string, string>("ImageStrategy", *request->imageStrategy));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->revealMarkdown)) {
+    query->insert(pair<string, bool>("RevealMarkdown", *request->revealMarkdown));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -769,6 +775,12 @@ SubmitDigitalDocStructureJobResponse Alibabacloud_Docmind-api20220711::Client::s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileUrl)) {
     query->insert(pair<string, string>("FileUrl", *request->fileUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageStrategy)) {
+    query->insert(pair<string, string>("ImageStrategy", *request->imageStrategy));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->revealMarkdown)) {
+    query->insert(pair<string, bool>("RevealMarkdown", *request->revealMarkdown));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

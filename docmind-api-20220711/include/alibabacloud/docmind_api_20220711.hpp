@@ -265,6 +265,8 @@ public:
 class GetDocStructureResultRequest : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
+  shared_ptr<string> imageStrategy{};
+  shared_ptr<bool> revealMarkdown{};
 
   GetDocStructureResultRequest() {}
 
@@ -279,12 +281,24 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (imageStrategy) {
+      res["ImageStrategy"] = boost::any(*imageStrategy);
+    }
+    if (revealMarkdown) {
+      res["RevealMarkdown"] = boost::any(*revealMarkdown);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("ImageStrategy") != m.end() && !m["ImageStrategy"].empty()) {
+      imageStrategy = make_shared<string>(boost::any_cast<string>(m["ImageStrategy"]));
+    }
+    if (m.find("RevealMarkdown") != m.end() && !m["RevealMarkdown"].empty()) {
+      revealMarkdown = make_shared<bool>(boost::any_cast<bool>(m["RevealMarkdown"]));
     }
   }
 
@@ -2751,6 +2765,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileNameExtension{};
   shared_ptr<string> fileUrl{};
+  shared_ptr<string> imageStrategy{};
+  shared_ptr<bool> revealMarkdown{};
 
   SubmitDigitalDocStructureJobRequest() {}
 
@@ -2771,6 +2787,12 @@ public:
     if (fileUrl) {
       res["FileUrl"] = boost::any(*fileUrl);
     }
+    if (imageStrategy) {
+      res["ImageStrategy"] = boost::any(*imageStrategy);
+    }
+    if (revealMarkdown) {
+      res["RevealMarkdown"] = boost::any(*revealMarkdown);
+    }
     return res;
   }
 
@@ -2784,6 +2806,12 @@ public:
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
     }
+    if (m.find("ImageStrategy") != m.end() && !m["ImageStrategy"].empty()) {
+      imageStrategy = make_shared<string>(boost::any_cast<string>(m["ImageStrategy"]));
+    }
+    if (m.find("RevealMarkdown") != m.end() && !m["RevealMarkdown"].empty()) {
+      revealMarkdown = make_shared<bool>(boost::any_cast<bool>(m["RevealMarkdown"]));
+    }
   }
 
 
@@ -2794,6 +2822,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileNameExtension{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<string> imageStrategy{};
+  shared_ptr<bool> revealMarkdown{};
 
   SubmitDigitalDocStructureJobAdvanceRequest() {}
 
@@ -2814,6 +2844,12 @@ public:
     if (fileUrlObject) {
       res["FileUrl"] = boost::any(*fileUrlObject);
     }
+    if (imageStrategy) {
+      res["ImageStrategy"] = boost::any(*imageStrategy);
+    }
+    if (revealMarkdown) {
+      res["RevealMarkdown"] = boost::any(*revealMarkdown);
+    }
     return res;
   }
 
@@ -2826,6 +2862,12 @@ public:
     }
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("ImageStrategy") != m.end() && !m["ImageStrategy"].empty()) {
+      imageStrategy = make_shared<string>(boost::any_cast<string>(m["ImageStrategy"]));
+    }
+    if (m.find("RevealMarkdown") != m.end() && !m["RevealMarkdown"].empty()) {
+      revealMarkdown = make_shared<bool>(boost::any_cast<bool>(m["RevealMarkdown"]));
     }
   }
 
