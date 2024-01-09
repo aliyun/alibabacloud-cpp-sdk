@@ -186,6 +186,9 @@ CreateCollectionResponse Alibabacloud_Gpdb20160503::Client::createCollectionWith
   if (!Darabonba_Util::Client::isUnset<long>(request->dimension)) {
     query->insert(pair<string, long>("Dimension", *request->dimension));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->externalStorage)) {
+    query->insert(pair<string, long>("ExternalStorage", *request->externalStorage));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fullTextRetrievalFields)) {
     query->insert(pair<string, string>("FullTextRetrievalFields", *request->fullTextRetrievalFields));
   }
@@ -309,6 +312,9 @@ CreateDBInstanceResponse Alibabacloud_Gpdb20160503::Client::createDBInstanceWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->privateIpAddress)) {
     query->insert(pair<string, string>("PrivateIpAddress", *request->privateIpAddress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prodType)) {
+    query->insert(pair<string, string>("ProdType", *request->prodType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -446,6 +452,9 @@ CreateDocumentCollectionResponse Alibabacloud_Gpdb20160503::Client::createDocume
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->embeddingModel)) {
     query->insert(pair<string, string>("EmbeddingModel", *request->embeddingModel));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->externalStorage)) {
+    query->insert(pair<string, long>("ExternalStorage", *request->externalStorage));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fullTextRetrievalFields)) {
     query->insert(pair<string, string>("FullTextRetrievalFields", *request->fullTextRetrievalFields));
@@ -621,6 +630,9 @@ CreateVectorIndexResponse Alibabacloud_Gpdb20160503::Client::createVectorIndexWi
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->dimension)) {
     query->insert(pair<string, long>("Dimension", *request->dimension));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->externalStorage)) {
+    query->insert(pair<string, long>("ExternalStorage", *request->externalStorage));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->hnswM)) {
     query->insert(pair<string, long>("HnswM", *request->hnswM));
@@ -1038,6 +1050,58 @@ DescribeAccountsResponse Alibabacloud_Gpdb20160503::Client::describeAccountsWith
 DescribeAccountsResponse Alibabacloud_Gpdb20160503::Client::describeAccounts(shared_ptr<DescribeAccountsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeAccountsWithOptions(request, runtime);
+}
+
+DescribeActiveSQLRecordsResponse Alibabacloud_Gpdb20160503::Client::describeActiveSQLRecordsWithOptions(shared_ptr<DescribeActiveSQLRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
+    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->database)) {
+    query->insert(pair<string, string>("Database", *request->database));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    query->insert(pair<string, string>("Keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxDuration)) {
+    query->insert(pair<string, string>("MaxDuration", *request->maxDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->minDuration)) {
+    query->insert(pair<string, string>("MinDuration", *request->minDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    query->insert(pair<string, string>("Order", *request->order));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->user)) {
+    query->insert(pair<string, string>("User", *request->user));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeActiveSQLRecords"))},
+    {"version", boost::any(string("2016-05-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeActiveSQLRecordsResponse(callApi(params, req, runtime));
+}
+
+DescribeActiveSQLRecordsResponse Alibabacloud_Gpdb20160503::Client::describeActiveSQLRecords(shared_ptr<DescribeActiveSQLRecordsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeActiveSQLRecordsWithOptions(request, runtime);
 }
 
 DescribeAvailableResourcesResponse Alibabacloud_Gpdb20160503::Client::describeAvailableResourcesWithOptions(shared_ptr<DescribeAvailableResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
