@@ -132,11 +132,17 @@ RecognizeAllTextResponse Alibabacloud_Ocr-api20210707::Client::recognizeAllTextW
   if (!Darabonba_Util::Client::isUnset<RecognizeAllTextRequestIdCardConfig>(tmpReq->idCardConfig)) {
     request->idCardConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->idCardConfig, make_shared<string>("IdCardConfig"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<RecognizeAllTextRequestInternationalBusinessLicenseConfig>(tmpReq->internationalBusinessLicenseConfig)) {
+    request->internationalBusinessLicenseConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->internationalBusinessLicenseConfig, make_shared<string>("InternationalBusinessLicenseConfig"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<RecognizeAllTextRequestInternationalIdCardConfig>(tmpReq->internationalIdCardConfig)) {
     request->internationalIdCardConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->internationalIdCardConfig, make_shared<string>("InternationalIdCardConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<RecognizeAllTextRequestMultiLanConfig>(tmpReq->multiLanConfig)) {
     request->multiLanConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->multiLanConfig, make_shared<string>("MultiLanConfig"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<RecognizeAllTextRequestTableConfig>(tmpReq->tableConfig)) {
+    request->tableConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tableConfig, make_shared<string>("TableConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->advancedConfigShrink)) {
@@ -144,6 +150,9 @@ RecognizeAllTextResponse Alibabacloud_Ocr-api20210707::Client::recognizeAllTextW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->idCardConfigShrink)) {
     query->insert(pair<string, string>("IdCardConfig", *request->idCardConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->internationalBusinessLicenseConfigShrink)) {
+    query->insert(pair<string, string>("InternationalBusinessLicenseConfig", *request->internationalBusinessLicenseConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->internationalIdCardConfigShrink)) {
     query->insert(pair<string, string>("InternationalIdCardConfig", *request->internationalIdCardConfigShrink));
@@ -174,6 +183,9 @@ RecognizeAllTextResponse Alibabacloud_Ocr-api20210707::Client::recognizeAllTextW
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
     query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableConfigShrink)) {
+    query->insert(pair<string, string>("TableConfig", *request->tableConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("Type", *request->type));

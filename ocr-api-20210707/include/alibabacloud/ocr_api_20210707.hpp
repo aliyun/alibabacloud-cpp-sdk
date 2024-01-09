@@ -860,6 +860,35 @@ public:
 
   virtual ~RecognizeAllTextRequestIdCardConfig() = default;
 };
+class RecognizeAllTextRequestInternationalBusinessLicenseConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> country{};
+
+  RecognizeAllTextRequestInternationalBusinessLicenseConfig() {}
+
+  explicit RecognizeAllTextRequestInternationalBusinessLicenseConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (country) {
+      res["Country"] = boost::any(*country);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Country") != m.end() && !m["Country"].empty()) {
+      country = make_shared<string>(boost::any_cast<string>(m["Country"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextRequestInternationalBusinessLicenseConfig() = default;
+};
 class RecognizeAllTextRequestInternationalIdCardConfig : public Darabonba::Model {
 public:
   shared_ptr<string> country{};
@@ -918,10 +947,61 @@ public:
 
   virtual ~RecognizeAllTextRequestMultiLanConfig() = default;
 };
+class RecognizeAllTextRequestTableConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> isHandWritingTable{};
+  shared_ptr<bool> isLineLessTable{};
+  shared_ptr<bool> outputTableExcel{};
+  shared_ptr<bool> outputTableHtml{};
+
+  RecognizeAllTextRequestTableConfig() {}
+
+  explicit RecognizeAllTextRequestTableConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isHandWritingTable) {
+      res["IsHandWritingTable"] = boost::any(*isHandWritingTable);
+    }
+    if (isLineLessTable) {
+      res["IsLineLessTable"] = boost::any(*isLineLessTable);
+    }
+    if (outputTableExcel) {
+      res["OutputTableExcel"] = boost::any(*outputTableExcel);
+    }
+    if (outputTableHtml) {
+      res["OutputTableHtml"] = boost::any(*outputTableHtml);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsHandWritingTable") != m.end() && !m["IsHandWritingTable"].empty()) {
+      isHandWritingTable = make_shared<bool>(boost::any_cast<bool>(m["IsHandWritingTable"]));
+    }
+    if (m.find("IsLineLessTable") != m.end() && !m["IsLineLessTable"].empty()) {
+      isLineLessTable = make_shared<bool>(boost::any_cast<bool>(m["IsLineLessTable"]));
+    }
+    if (m.find("OutputTableExcel") != m.end() && !m["OutputTableExcel"].empty()) {
+      outputTableExcel = make_shared<bool>(boost::any_cast<bool>(m["OutputTableExcel"]));
+    }
+    if (m.find("OutputTableHtml") != m.end() && !m["OutputTableHtml"].empty()) {
+      outputTableHtml = make_shared<bool>(boost::any_cast<bool>(m["OutputTableHtml"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextRequestTableConfig() = default;
+};
 class RecognizeAllTextRequest : public Darabonba::Model {
 public:
   shared_ptr<RecognizeAllTextRequestAdvancedConfig> advancedConfig{};
   shared_ptr<RecognizeAllTextRequestIdCardConfig> idCardConfig{};
+  shared_ptr<RecognizeAllTextRequestInternationalBusinessLicenseConfig> internationalBusinessLicenseConfig{};
   shared_ptr<RecognizeAllTextRequestInternationalIdCardConfig> internationalIdCardConfig{};
   shared_ptr<RecognizeAllTextRequestMultiLanConfig> multiLanConfig{};
   shared_ptr<bool> outputBarCode{};
@@ -932,6 +1012,7 @@ public:
   shared_ptr<bool> outputQrcode{};
   shared_ptr<bool> outputStamp{};
   shared_ptr<long> pageNo{};
+  shared_ptr<RecognizeAllTextRequestTableConfig> tableConfig{};
   shared_ptr<string> type{};
   shared_ptr<string> url{};
   shared_ptr<Darabonba::Stream> body{};
@@ -951,6 +1032,9 @@ public:
     }
     if (idCardConfig) {
       res["IdCardConfig"] = idCardConfig ? boost::any(idCardConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (internationalBusinessLicenseConfig) {
+      res["InternationalBusinessLicenseConfig"] = internationalBusinessLicenseConfig ? boost::any(internationalBusinessLicenseConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (internationalIdCardConfig) {
       res["InternationalIdCardConfig"] = internationalIdCardConfig ? boost::any(internationalIdCardConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -982,6 +1066,9 @@ public:
     if (pageNo) {
       res["PageNo"] = boost::any(*pageNo);
     }
+    if (tableConfig) {
+      res["TableConfig"] = tableConfig ? boost::any(tableConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -1007,6 +1094,13 @@ public:
         RecognizeAllTextRequestIdCardConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IdCardConfig"]));
         idCardConfig = make_shared<RecognizeAllTextRequestIdCardConfig>(model1);
+      }
+    }
+    if (m.find("InternationalBusinessLicenseConfig") != m.end() && !m["InternationalBusinessLicenseConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InternationalBusinessLicenseConfig"].type()) {
+        RecognizeAllTextRequestInternationalBusinessLicenseConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InternationalBusinessLicenseConfig"]));
+        internationalBusinessLicenseConfig = make_shared<RecognizeAllTextRequestInternationalBusinessLicenseConfig>(model1);
       }
     }
     if (m.find("InternationalIdCardConfig") != m.end() && !m["InternationalIdCardConfig"].empty()) {
@@ -1047,6 +1141,13 @@ public:
     if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
       pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
     }
+    if (m.find("TableConfig") != m.end() && !m["TableConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TableConfig"].type()) {
+        RecognizeAllTextRequestTableConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TableConfig"]));
+        tableConfig = make_shared<RecognizeAllTextRequestTableConfig>(model1);
+      }
+    }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
@@ -1065,6 +1166,7 @@ class RecognizeAllTextShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> advancedConfigShrink{};
   shared_ptr<string> idCardConfigShrink{};
+  shared_ptr<string> internationalBusinessLicenseConfigShrink{};
   shared_ptr<string> internationalIdCardConfigShrink{};
   shared_ptr<string> multiLanConfigShrink{};
   shared_ptr<bool> outputBarCode{};
@@ -1075,6 +1177,7 @@ public:
   shared_ptr<bool> outputQrcode{};
   shared_ptr<bool> outputStamp{};
   shared_ptr<long> pageNo{};
+  shared_ptr<string> tableConfigShrink{};
   shared_ptr<string> type{};
   shared_ptr<string> url{};
   shared_ptr<Darabonba::Stream> body{};
@@ -1094,6 +1197,9 @@ public:
     }
     if (idCardConfigShrink) {
       res["IdCardConfig"] = boost::any(*idCardConfigShrink);
+    }
+    if (internationalBusinessLicenseConfigShrink) {
+      res["InternationalBusinessLicenseConfig"] = boost::any(*internationalBusinessLicenseConfigShrink);
     }
     if (internationalIdCardConfigShrink) {
       res["InternationalIdCardConfig"] = boost::any(*internationalIdCardConfigShrink);
@@ -1125,6 +1231,9 @@ public:
     if (pageNo) {
       res["PageNo"] = boost::any(*pageNo);
     }
+    if (tableConfigShrink) {
+      res["TableConfig"] = boost::any(*tableConfigShrink);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -1143,6 +1252,9 @@ public:
     }
     if (m.find("IdCardConfig") != m.end() && !m["IdCardConfig"].empty()) {
       idCardConfigShrink = make_shared<string>(boost::any_cast<string>(m["IdCardConfig"]));
+    }
+    if (m.find("InternationalBusinessLicenseConfig") != m.end() && !m["InternationalBusinessLicenseConfig"].empty()) {
+      internationalBusinessLicenseConfigShrink = make_shared<string>(boost::any_cast<string>(m["InternationalBusinessLicenseConfig"]));
     }
     if (m.find("InternationalIdCardConfig") != m.end() && !m["InternationalIdCardConfig"].empty()) {
       internationalIdCardConfigShrink = make_shared<string>(boost::any_cast<string>(m["InternationalIdCardConfig"]));
@@ -1173,6 +1285,9 @@ public:
     }
     if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
       pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("TableConfig") != m.end() && !m["TableConfig"].empty()) {
+      tableConfigShrink = make_shared<string>(boost::any_cast<string>(m["TableConfig"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
