@@ -65,8 +65,8 @@ public:
 };
 class ActualDeductResourceResult : public Darabonba::Model {
 public:
+  shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
-  shared_ptr<string> errorcode{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -80,11 +80,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
-    }
-    if (errorcode) {
-      res["errorcode"] = boost::any(*errorcode);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -96,11 +96,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
-    }
-    if (m.find("errorcode") != m.end() && !m["errorcode"].empty()) {
-      errorcode = make_shared<string>(boost::any_cast<string>(m["errorcode"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -186,8 +186,8 @@ public:
 };
 class DirectDeductResourceResult : public Darabonba::Model {
 public:
+  shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
-  shared_ptr<string> errorcode{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -201,11 +201,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
-    }
-    if (errorcode) {
-      res["errorcode"] = boost::any(*errorcode);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -217,11 +217,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
-    }
-    if (m.find("errorcode") != m.end() && !m["errorcode"].empty()) {
-      errorcode = make_shared<string>(boost::any_cast<string>(m["errorcode"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -307,8 +307,8 @@ public:
 };
 class ExpectDeductResourceResult : public Darabonba::Model {
 public:
+  shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
-  shared_ptr<string> errorcode{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
   shared_ptr<string> taskId{};
@@ -323,11 +323,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
     if (errorMessage) {
       res["errorMessage"] = boost::any(*errorMessage);
-    }
-    if (errorcode) {
-      res["errorcode"] = boost::any(*errorcode);
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -342,11 +342,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
     if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
-    }
-    if (m.find("errorcode") != m.end() && !m["errorcode"].empty()) {
-      errorcode = make_shared<string>(boost::any_cast<string>(m["errorcode"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
