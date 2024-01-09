@@ -863,6 +863,9 @@ UpdateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::updateInstanceWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
     body->insert(pair<string, string>("Accessibility", *request->accessibility));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateInstanceRequestCloudDisks>>(request->cloudDisks)) {
+    body->insert(pair<string, vector<UpdateInstanceRequestCloudDisks>>("CloudDisks", *request->cloudDisks));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<UpdateInstanceRequestDatasets>>(request->datasets)) {
     body->insert(pair<string, vector<UpdateInstanceRequestDatasets>>("Datasets", *request->datasets));
   }
@@ -871,6 +874,9 @@ UpdateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::updateInstanceWithO
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->disassociateDriver)) {
     body->insert(pair<string, bool>("DisassociateDriver", *request->disassociateDriver));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->disassociateForwardInfos)) {
+    body->insert(pair<string, bool>("DisassociateForwardInfos", *request->disassociateForwardInfos));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->disassociateVpc)) {
     body->insert(pair<string, bool>("DisassociateVpc", *request->disassociateVpc));

@@ -510,11 +510,55 @@ public:
 
   virtual ~CreateIdleInstanceCullerResponse() = default;
 };
+class CreateInstanceRequestCloudDisksStatus : public Darabonba::Model {
+public:
+  shared_ptr<long> available{};
+  shared_ptr<long> capacity{};
+  shared_ptr<long> usage{};
+
+  CreateInstanceRequestCloudDisksStatus() {}
+
+  explicit CreateInstanceRequestCloudDisksStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (available) {
+      res["Available"] = boost::any(*available);
+    }
+    if (capacity) {
+      res["Capacity"] = boost::any(*capacity);
+    }
+    if (usage) {
+      res["Usage"] = boost::any(*usage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Available") != m.end() && !m["Available"].empty()) {
+      available = make_shared<long>(boost::any_cast<long>(m["Available"]));
+    }
+    if (m.find("Capacity") != m.end() && !m["Capacity"].empty()) {
+      capacity = make_shared<long>(boost::any_cast<long>(m["Capacity"]));
+    }
+    if (m.find("Usage") != m.end() && !m["Usage"].empty()) {
+      usage = make_shared<long>(boost::any_cast<long>(m["Usage"]));
+    }
+  }
+
+
+  virtual ~CreateInstanceRequestCloudDisksStatus() = default;
+};
 class CreateInstanceRequestCloudDisks : public Darabonba::Model {
 public:
   shared_ptr<string> capacity{};
   shared_ptr<string> mountPath{};
   shared_ptr<string> path{};
+  shared_ptr<CreateInstanceRequestCloudDisksStatus> status{};
   shared_ptr<string> subType{};
 
   CreateInstanceRequestCloudDisks() {}
@@ -536,6 +580,9 @@ public:
     if (path) {
       res["Path"] = boost::any(*path);
     }
+    if (status) {
+      res["Status"] = status ? boost::any(status->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (subType) {
       res["SubType"] = boost::any(*subType);
     }
@@ -551,6 +598,13 @@ public:
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Status"].type()) {
+        CreateInstanceRequestCloudDisksStatus model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Status"]));
+        status = make_shared<CreateInstanceRequestCloudDisksStatus>(model1);
+      }
     }
     if (m.find("SubType") != m.end() && !m["SubType"].empty()) {
       subType = make_shared<string>(boost::any_cast<string>(m["SubType"]));
@@ -7065,6 +7119,42 @@ public:
 
   virtual ~StopInstanceResponse() = default;
 };
+class UpdateInstanceRequestCloudDisks : public Darabonba::Model {
+public:
+  shared_ptr<string> capacity{};
+  shared_ptr<string> subType{};
+
+  UpdateInstanceRequestCloudDisks() {}
+
+  explicit UpdateInstanceRequestCloudDisks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (capacity) {
+      res["Capacity"] = boost::any(*capacity);
+    }
+    if (subType) {
+      res["SubType"] = boost::any(*subType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Capacity") != m.end() && !m["Capacity"].empty()) {
+      capacity = make_shared<string>(boost::any_cast<string>(m["Capacity"]));
+    }
+    if (m.find("SubType") != m.end() && !m["SubType"].empty()) {
+      subType = make_shared<string>(boost::any_cast<string>(m["SubType"]));
+    }
+  }
+
+
+  virtual ~UpdateInstanceRequestCloudDisks() = default;
+};
 class UpdateInstanceRequestDatasets : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
@@ -7246,9 +7336,11 @@ public:
 class UpdateInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessibility{};
+  shared_ptr<vector<UpdateInstanceRequestCloudDisks>> cloudDisks{};
   shared_ptr<vector<UpdateInstanceRequestDatasets>> datasets{};
   shared_ptr<bool> disassociateDatasets{};
   shared_ptr<bool> disassociateDriver{};
+  shared_ptr<bool> disassociateForwardInfos{};
   shared_ptr<bool> disassociateVpc{};
   shared_ptr<string> driver{};
   shared_ptr<string> ecsSpec{};
@@ -7274,6 +7366,13 @@ public:
     if (accessibility) {
       res["Accessibility"] = boost::any(*accessibility);
     }
+    if (cloudDisks) {
+      vector<boost::any> temp1;
+      for(auto item1:*cloudDisks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CloudDisks"] = boost::any(temp1);
+    }
     if (datasets) {
       vector<boost::any> temp1;
       for(auto item1:*datasets){
@@ -7286,6 +7385,9 @@ public:
     }
     if (disassociateDriver) {
       res["DisassociateDriver"] = boost::any(*disassociateDriver);
+    }
+    if (disassociateForwardInfos) {
+      res["DisassociateForwardInfos"] = boost::any(*disassociateForwardInfos);
     }
     if (disassociateVpc) {
       res["DisassociateVpc"] = boost::any(*disassociateVpc);
@@ -7327,6 +7429,19 @@ public:
     if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
       accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
     }
+    if (m.find("CloudDisks") != m.end() && !m["CloudDisks"].empty()) {
+      if (typeid(vector<boost::any>) == m["CloudDisks"].type()) {
+        vector<UpdateInstanceRequestCloudDisks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CloudDisks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateInstanceRequestCloudDisks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cloudDisks = make_shared<vector<UpdateInstanceRequestCloudDisks>>(expect1);
+      }
+    }
     if (m.find("Datasets") != m.end() && !m["Datasets"].empty()) {
       if (typeid(vector<boost::any>) == m["Datasets"].type()) {
         vector<UpdateInstanceRequestDatasets> expect1;
@@ -7345,6 +7460,9 @@ public:
     }
     if (m.find("DisassociateDriver") != m.end() && !m["DisassociateDriver"].empty()) {
       disassociateDriver = make_shared<bool>(boost::any_cast<bool>(m["DisassociateDriver"]));
+    }
+    if (m.find("DisassociateForwardInfos") != m.end() && !m["DisassociateForwardInfos"].empty()) {
+      disassociateForwardInfos = make_shared<bool>(boost::any_cast<bool>(m["DisassociateForwardInfos"]));
     }
     if (m.find("DisassociateVpc") != m.end() && !m["DisassociateVpc"].empty()) {
       disassociateVpc = make_shared<bool>(boost::any_cast<bool>(m["DisassociateVpc"]));
