@@ -875,7 +875,9 @@ public:
   shared_ptr<vector<CreateClusterRequestNetworksIpAllocationPolicy>> ipAllocationPolicy{};
   shared_ptr<CreateClusterRequestNetworksNewVpdInfo> newVpdInfo{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<string> vSwitchId{};
   shared_ptr<string> vSwitchZoneId{};
+  shared_ptr<string> vpcId{};
   shared_ptr<CreateClusterRequestNetworksVpdInfo> vpdInfo{};
 
   CreateClusterRequestNetworks() {}
@@ -901,8 +903,14 @@ public:
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
     }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
     if (vSwitchZoneId) {
       res["VSwitchZoneId"] = boost::any(*vSwitchZoneId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
     }
     if (vpdInfo) {
       res["VpdInfo"] = vpdInfo ? boost::any(vpdInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -934,8 +942,14 @@ public:
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
     }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
     if (m.find("VSwitchZoneId") != m.end() && !m["VSwitchZoneId"].empty()) {
       vSwitchZoneId = make_shared<string>(boost::any_cast<string>(m["VSwitchZoneId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
     if (m.find("VpdInfo") != m.end() && !m["VpdInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["VpdInfo"].type()) {
