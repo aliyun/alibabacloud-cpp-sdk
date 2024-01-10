@@ -408,6 +408,27 @@ ListApplicationResponse Alibabacloud_BPStudio20210931::Client::listApplication(s
   return listApplicationWithOptions(request, runtime);
 }
 
+ListFoCreatedAppsResponse Alibabacloud_BPStudio20210931::Client::listFoCreatedAppsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListFoCreatedApps"))},
+    {"version", boost::any(string("2021-09-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListFoCreatedAppsResponse(callApi(params, req, runtime));
+}
+
+ListFoCreatedAppsResponse Alibabacloud_BPStudio20210931::Client::listFoCreatedApps() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listFoCreatedAppsWithOptions(runtime);
+}
+
 ListTagResourcesResponse Alibabacloud_BPStudio20210931::Client::listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
