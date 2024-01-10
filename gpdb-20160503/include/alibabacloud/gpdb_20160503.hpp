@@ -177,6 +177,182 @@ public:
 
   virtual ~AllocateInstancePublicConnectionResponse() = default;
 };
+class CancelUpsertCollectionDataJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> collection{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespacePassword{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+
+  CancelUpsertCollectionDataJobRequest() {}
+
+  explicit CancelUpsertCollectionDataJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (collection) {
+      res["Collection"] = boost::any(*collection);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespacePassword) {
+      res["NamespacePassword"] = boost::any(*namespacePassword);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
+      collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespacePassword") != m.end() && !m["NamespacePassword"].empty()) {
+      namespacePassword = make_shared<string>(boost::any_cast<string>(m["NamespacePassword"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~CancelUpsertCollectionDataJobRequest() = default;
+};
+class CancelUpsertCollectionDataJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  CancelUpsertCollectionDataJobResponseBody() {}
+
+  explicit CancelUpsertCollectionDataJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~CancelUpsertCollectionDataJobResponseBody() = default;
+};
+class CancelUpsertCollectionDataJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CancelUpsertCollectionDataJobResponseBody> body{};
+
+  CancelUpsertCollectionDataJobResponse() {}
+
+  explicit CancelUpsertCollectionDataJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CancelUpsertCollectionDataJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CancelUpsertCollectionDataJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CancelUpsertCollectionDataJobResponse() = default;
+};
 class CheckServiceLinkedRoleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -18718,6 +18894,264 @@ public:
 
   virtual ~DownloadSQLLogsRecordsResponse() = default;
 };
+class GetUpsertCollectionDataJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> collection{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespacePassword{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+
+  GetUpsertCollectionDataJobRequest() {}
+
+  explicit GetUpsertCollectionDataJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (collection) {
+      res["Collection"] = boost::any(*collection);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespacePassword) {
+      res["NamespacePassword"] = boost::any(*namespacePassword);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
+      collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespacePassword") != m.end() && !m["NamespacePassword"].empty()) {
+      namespacePassword = make_shared<string>(boost::any_cast<string>(m["NamespacePassword"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetUpsertCollectionDataJobRequest() = default;
+};
+class GetUpsertCollectionDataJobResponseBodyJob : public Darabonba::Model {
+public:
+  shared_ptr<bool> completed{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> error{};
+  shared_ptr<string> id{};
+  shared_ptr<long> progress{};
+  shared_ptr<string> status{};
+  shared_ptr<string> updateTime{};
+
+  GetUpsertCollectionDataJobResponseBodyJob() {}
+
+  explicit GetUpsertCollectionDataJobResponseBodyJob(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (completed) {
+      res["Completed"] = boost::any(*completed);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (error) {
+      res["Error"] = boost::any(*error);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Completed") != m.end() && !m["Completed"].empty()) {
+      completed = make_shared<bool>(boost::any_cast<bool>(m["Completed"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Error") != m.end() && !m["Error"].empty()) {
+      error = make_shared<string>(boost::any_cast<string>(m["Error"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+  }
+
+
+  virtual ~GetUpsertCollectionDataJobResponseBodyJob() = default;
+};
+class GetUpsertCollectionDataJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetUpsertCollectionDataJobResponseBodyJob> job{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  GetUpsertCollectionDataJobResponseBody() {}
+
+  explicit GetUpsertCollectionDataJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (job) {
+      res["Job"] = job ? boost::any(job->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Job") != m.end() && !m["Job"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Job"].type()) {
+        GetUpsertCollectionDataJobResponseBodyJob model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Job"]));
+        job = make_shared<GetUpsertCollectionDataJobResponseBodyJob>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetUpsertCollectionDataJobResponseBody() = default;
+};
+class GetUpsertCollectionDataJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetUpsertCollectionDataJobResponseBody> body{};
+
+  GetUpsertCollectionDataJobResponse() {}
+
+  explicit GetUpsertCollectionDataJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetUpsertCollectionDataJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetUpsertCollectionDataJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetUpsertCollectionDataJobResponse() = default;
+};
 class GrantCollectionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> collection{};
@@ -26965,6 +27399,260 @@ public:
 
   virtual ~UpsertCollectionDataResponse() = default;
 };
+class UpsertCollectionDataAsyncRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> collection{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespacePassword{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+
+  UpsertCollectionDataAsyncRequest() {}
+
+  explicit UpsertCollectionDataAsyncRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (collection) {
+      res["Collection"] = boost::any(*collection);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespacePassword) {
+      res["NamespacePassword"] = boost::any(*namespacePassword);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
+      collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespacePassword") != m.end() && !m["NamespacePassword"].empty()) {
+      namespacePassword = make_shared<string>(boost::any_cast<string>(m["NamespacePassword"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpsertCollectionDataAsyncRequest() = default;
+};
+class UpsertCollectionDataAsyncAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> collection{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespacePassword{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+
+  UpsertCollectionDataAsyncAdvanceRequest() {}
+
+  explicit UpsertCollectionDataAsyncAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (collection) {
+      res["Collection"] = boost::any(*collection);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (fileUrlObject) {
+      res["FileUrl"] = boost::any(*fileUrlObject);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespacePassword) {
+      res["NamespacePassword"] = boost::any(*namespacePassword);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
+      collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespacePassword") != m.end() && !m["NamespacePassword"].empty()) {
+      namespacePassword = make_shared<string>(boost::any_cast<string>(m["NamespacePassword"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpsertCollectionDataAsyncAdvanceRequest() = default;
+};
+class UpsertCollectionDataAsyncResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  UpsertCollectionDataAsyncResponseBody() {}
+
+  explicit UpsertCollectionDataAsyncResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~UpsertCollectionDataAsyncResponseBody() = default;
+};
+class UpsertCollectionDataAsyncResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpsertCollectionDataAsyncResponseBody> body{};
+
+  UpsertCollectionDataAsyncResponse() {}
+
+  explicit UpsertCollectionDataAsyncResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpsertCollectionDataAsyncResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpsertCollectionDataAsyncResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpsertCollectionDataAsyncResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -26977,6 +27665,8 @@ public:
                      shared_ptr<string> endpoint);
   AllocateInstancePublicConnectionResponse allocateInstancePublicConnectionWithOptions(shared_ptr<AllocateInstancePublicConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AllocateInstancePublicConnectionResponse allocateInstancePublicConnection(shared_ptr<AllocateInstancePublicConnectionRequest> request);
+  CancelUpsertCollectionDataJobResponse cancelUpsertCollectionDataJobWithOptions(shared_ptr<CancelUpsertCollectionDataJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CancelUpsertCollectionDataJobResponse cancelUpsertCollectionDataJob(shared_ptr<CancelUpsertCollectionDataJobRequest> request);
   CheckServiceLinkedRoleResponse checkServiceLinkedRoleWithOptions(shared_ptr<CheckServiceLinkedRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckServiceLinkedRoleResponse checkServiceLinkedRole(shared_ptr<CheckServiceLinkedRoleRequest> request);
   CreateAccountResponse createAccountWithOptions(shared_ptr<CreateAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -27117,6 +27807,8 @@ public:
   DownloadDiagnosisRecordsResponse downloadDiagnosisRecords(shared_ptr<DownloadDiagnosisRecordsRequest> request);
   DownloadSQLLogsRecordsResponse downloadSQLLogsRecordsWithOptions(shared_ptr<DownloadSQLLogsRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DownloadSQLLogsRecordsResponse downloadSQLLogsRecords(shared_ptr<DownloadSQLLogsRecordsRequest> request);
+  GetUpsertCollectionDataJobResponse getUpsertCollectionDataJobWithOptions(shared_ptr<GetUpsertCollectionDataJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetUpsertCollectionDataJobResponse getUpsertCollectionDataJob(shared_ptr<GetUpsertCollectionDataJobRequest> request);
   GrantCollectionResponse grantCollectionWithOptions(shared_ptr<GrantCollectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GrantCollectionResponse grantCollection(shared_ptr<GrantCollectionRequest> request);
   HandleActiveSQLRecordResponse handleActiveSQLRecordWithOptions(shared_ptr<HandleActiveSQLRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -27201,6 +27893,9 @@ public:
   UpsertChunksResponse upsertChunks(shared_ptr<UpsertChunksRequest> request);
   UpsertCollectionDataResponse upsertCollectionDataWithOptions(shared_ptr<UpsertCollectionDataRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpsertCollectionDataResponse upsertCollectionData(shared_ptr<UpsertCollectionDataRequest> request);
+  UpsertCollectionDataAsyncResponse upsertCollectionDataAsyncWithOptions(shared_ptr<UpsertCollectionDataAsyncRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpsertCollectionDataAsyncResponse upsertCollectionDataAsync(shared_ptr<UpsertCollectionDataAsyncRequest> request);
+  UpsertCollectionDataAsyncResponse upsertCollectionDataAsyncAdvance(shared_ptr<UpsertCollectionDataAsyncAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
 
   virtual ~Client() = default;
 };
