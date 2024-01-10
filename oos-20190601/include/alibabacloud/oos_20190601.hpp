@@ -3797,6 +3797,7 @@ public:
   shared_ptr<bool> force{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
+  shared_ptr<bool> retainResource{};
 
   DeleteApplicationRequest() {}
 
@@ -3817,6 +3818,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (retainResource) {
+      res["RetainResource"] = boost::any(*retainResource);
+    }
     return res;
   }
 
@@ -3829,6 +3833,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RetainResource") != m.end() && !m["RetainResource"].empty()) {
+      retainResource = make_shared<bool>(boost::any_cast<bool>(m["RetainResource"]));
     }
   }
 
@@ -3931,6 +3938,7 @@ public:
   shared_ptr<string> applicationName{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
+  shared_ptr<bool> retainResource{};
 
   DeleteApplicationGroupRequest() {}
 
@@ -3951,6 +3959,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (retainResource) {
+      res["RetainResource"] = boost::any(*retainResource);
+    }
     return res;
   }
 
@@ -3963,6 +3974,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RetainResource") != m.end() && !m["RetainResource"].empty()) {
+      retainResource = make_shared<bool>(boost::any_cast<bool>(m["RetainResource"]));
     }
   }
 
@@ -6881,7 +6895,6 @@ public:
   shared_ptr<string> category{};
   shared_ptr<string> createBy{};
   shared_ptr<string> createDate{};
-  shared_ptr<string> dedupString{};
   shared_ptr<string> description{};
   shared_ptr<string> lastModifiedBy{};
   shared_ptr<string> opsItemId{};
@@ -6917,9 +6930,6 @@ public:
     }
     if (createDate) {
       res["CreateDate"] = boost::any(*createDate);
-    }
-    if (dedupString) {
-      res["DedupString"] = boost::any(*dedupString);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -6980,9 +6990,6 @@ public:
     }
     if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
       createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
-    }
-    if (m.find("DedupString") != m.end() && !m["DedupString"].empty()) {
-      dedupString = make_shared<string>(boost::any_cast<string>(m["DedupString"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
