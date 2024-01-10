@@ -774,6 +774,30 @@ CreateSavedSearchResponse Alibabacloud_Sls20201230::Client::createSavedSearch(sh
   return createSavedSearchWithOptions(project, request, headers, runtime);
 }
 
+CreateTicketResponse Alibabacloud_Sls20201230::Client::createTicketWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateTicket"))},
+    {"version", boost::any(string("2020-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/tickets"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateTicketResponse(execute(params, req, runtime));
+}
+
+CreateTicketResponse Alibabacloud_Sls20201230::Client::createTicket() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createTicketWithOptions(headers, runtime);
+}
+
 DeleteAnnotationDataResponse Alibabacloud_Sls20201230::Client::deleteAnnotationDataWithOptions(shared_ptr<string> datasetId,
                                                                                                shared_ptr<string> annotationdataId,
                                                                                                shared_ptr<map<string, string>> headers,
