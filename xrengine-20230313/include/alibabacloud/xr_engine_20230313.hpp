@@ -2784,6 +2784,56 @@ public:
 
   virtual ~ListMotionShopTasksRequest() = default;
 };
+class ListMotionShopTasksResponseBodyDataMaterial : public Darabonba::Model {
+public:
+  shared_ptr<string> avatarId{};
+  shared_ptr<vector<double>> box{};
+  shared_ptr<string> coverUrl{};
+
+  ListMotionShopTasksResponseBodyDataMaterial() {}
+
+  explicit ListMotionShopTasksResponseBodyDataMaterial(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (avatarId) {
+      res["AvatarId"] = boost::any(*avatarId);
+    }
+    if (box) {
+      res["Box"] = boost::any(*box);
+    }
+    if (coverUrl) {
+      res["CoverUrl"] = boost::any(*coverUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AvatarId") != m.end() && !m["AvatarId"].empty()) {
+      avatarId = make_shared<string>(boost::any_cast<string>(m["AvatarId"]));
+    }
+    if (m.find("Box") != m.end() && !m["Box"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Box"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Box"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      box = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("CoverUrl") != m.end() && !m["CoverUrl"].empty()) {
+      coverUrl = make_shared<string>(boost::any_cast<string>(m["CoverUrl"]));
+    }
+  }
+
+
+  virtual ~ListMotionShopTasksResponseBodyDataMaterial() = default;
+};
 class ListMotionShopTasksResponseBodyDataResult : public Darabonba::Model {
 public:
   shared_ptr<string> coverUrl{};
@@ -2829,6 +2879,7 @@ public:
 };
 class ListMotionShopTasksResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<ListMotionShopTasksResponseBodyDataMaterial> material{};
   shared_ptr<ListMotionShopTasksResponseBodyDataResult> result{};
   shared_ptr<string> status{};
   shared_ptr<string> taskId{};
@@ -2843,6 +2894,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (material) {
+      res["Material"] = material ? boost::any(material->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -2856,6 +2910,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Material") != m.end() && !m["Material"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Material"].type()) {
+        ListMotionShopTasksResponseBodyDataMaterial model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Material"]));
+        material = make_shared<ListMotionShopTasksResponseBodyDataMaterial>(model1);
+      }
+    }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(map<string, boost::any>) == m["Result"].type()) {
         ListMotionShopTasksResponseBodyDataResult model1;
