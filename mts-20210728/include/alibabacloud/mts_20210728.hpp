@@ -2104,6 +2104,7 @@ class SubmitTraceExtractRequest : public Darabonba::Model {
 public:
   shared_ptr<string> callBack{};
   shared_ptr<string> input{};
+  shared_ptr<string> params{};
   shared_ptr<string> url{};
   shared_ptr<string> userData{};
 
@@ -2123,6 +2124,9 @@ public:
     if (input) {
       res["Input"] = boost::any(*input);
     }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
     if (url) {
       res["Url"] = boost::any(*url);
     }
@@ -2138,6 +2142,9 @@ public:
     }
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       input = make_shared<string>(boost::any_cast<string>(m["Input"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      params = make_shared<string>(boost::any_cast<string>(m["Params"]));
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
@@ -2300,6 +2307,7 @@ public:
   shared_ptr<string> keyUri{};
   shared_ptr<string> mediaId{};
   shared_ptr<string> output{};
+  shared_ptr<string> params{};
   shared_ptr<string> trace{};
 
   SubmitTracemuRequest() {}
@@ -2321,6 +2329,9 @@ public:
     if (output) {
       res["Output"] = boost::any(*output);
     }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
     if (trace) {
       res["Trace"] = boost::any(*trace);
     }
@@ -2336,6 +2347,9 @@ public:
     }
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      params = make_shared<string>(boost::any_cast<string>(m["Params"]));
     }
     if (m.find("Trace") != m.end() && !m["Trace"].empty()) {
       trace = make_shared<string>(boost::any_cast<string>(m["Trace"]));

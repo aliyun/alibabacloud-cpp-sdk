@@ -476,6 +476,9 @@ SubmitTraceExtractResponse Alibabacloud_Mts20210728::Client::submitTraceExtractW
   if (!Darabonba_Util::Client::isUnset<string>(request->input)) {
     body->insert(pair<string, string>("Input", *request->input));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    body->insert(pair<string, string>("Params", *request->params));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
     body->insert(pair<string, string>("Url", *request->url));
   }
@@ -517,6 +520,9 @@ SubmitTracemuResponse Alibabacloud_Mts20210728::Client::submitTracemuWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->output)) {
     body->insert(pair<string, string>("Output", *request->output));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    body->insert(pair<string, string>("Params", *request->params));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->trace)) {
     body->insert(pair<string, string>("Trace", *request->trace));
