@@ -8571,9 +8571,6 @@ UpdateTimingSyntheticTaskResponse Alibabacloud_ARMS20190808::Client::updateTimin
   if (!Darabonba_Util::Client::isUnset<string>(request->frequency)) {
     query->insert(pair<string, string>("Frequency", *request->frequency));
   }
-  if (!Darabonba_Util::Client::isUnset<long>(request->monitorCategory)) {
-    query->insert(pair<string, long>("MonitorCategory", *request->monitorCategory));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->monitorConfShrink)) {
     query->insert(pair<string, string>("MonitorConf", *request->monitorConfShrink));
   }
@@ -8594,9 +8591,6 @@ UpdateTimingSyntheticTaskResponse Alibabacloud_ARMS20190808::Client::updateTimin
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("TaskId", *request->taskId));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->taskType)) {
-    query->insert(pair<string, long>("TaskType", *request->taskType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

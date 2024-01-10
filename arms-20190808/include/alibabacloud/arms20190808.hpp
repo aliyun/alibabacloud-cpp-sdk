@@ -64422,7 +64422,6 @@ public:
   shared_ptr<UpdateTimingSyntheticTaskRequestCommonSetting> commonSetting{};
   shared_ptr<UpdateTimingSyntheticTaskRequestCustomPeriod> customPeriod{};
   shared_ptr<string> frequency{};
-  shared_ptr<long> monitorCategory{};
   shared_ptr<UpdateTimingSyntheticTaskRequestMonitorConf> monitorConf{};
   shared_ptr<vector<UpdateTimingSyntheticTaskRequestMonitors>> monitors{};
   shared_ptr<string> name{};
@@ -64430,7 +64429,6 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<UpdateTimingSyntheticTaskRequestTags>> tags{};
   shared_ptr<string> taskId{};
-  shared_ptr<long> taskType{};
 
   UpdateTimingSyntheticTaskRequest() {}
 
@@ -64457,9 +64455,6 @@ public:
     }
     if (frequency) {
       res["Frequency"] = boost::any(*frequency);
-    }
-    if (monitorCategory) {
-      res["MonitorCategory"] = boost::any(*monitorCategory);
     }
     if (monitorConf) {
       res["MonitorConf"] = monitorConf ? boost::any(monitorConf->toMap()) : boost::any(map<string,boost::any>({}));
@@ -64489,9 +64484,6 @@ public:
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
-    }
-    if (taskType) {
-      res["TaskType"] = boost::any(*taskType);
     }
     return res;
   }
@@ -64526,9 +64518,6 @@ public:
     }
     if (m.find("Frequency") != m.end() && !m["Frequency"].empty()) {
       frequency = make_shared<string>(boost::any_cast<string>(m["Frequency"]));
-    }
-    if (m.find("MonitorCategory") != m.end() && !m["MonitorCategory"].empty()) {
-      monitorCategory = make_shared<long>(boost::any_cast<long>(m["MonitorCategory"]));
     }
     if (m.find("MonitorConf") != m.end() && !m["MonitorConf"].empty()) {
       if (typeid(map<string, boost::any>) == m["MonitorConf"].type()) {
@@ -64575,9 +64564,6 @@ public:
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
-    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
-      taskType = make_shared<long>(boost::any_cast<long>(m["TaskType"]));
-    }
   }
 
 
@@ -64589,7 +64575,6 @@ public:
   shared_ptr<string> commonSettingShrink{};
   shared_ptr<string> customPeriodShrink{};
   shared_ptr<string> frequency{};
-  shared_ptr<long> monitorCategory{};
   shared_ptr<string> monitorConfShrink{};
   shared_ptr<string> monitorsShrink{};
   shared_ptr<string> name{};
@@ -64597,7 +64582,6 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> tagsShrink{};
   shared_ptr<string> taskId{};
-  shared_ptr<long> taskType{};
 
   UpdateTimingSyntheticTaskShrinkRequest() {}
 
@@ -64621,9 +64605,6 @@ public:
     if (frequency) {
       res["Frequency"] = boost::any(*frequency);
     }
-    if (monitorCategory) {
-      res["MonitorCategory"] = boost::any(*monitorCategory);
-    }
     if (monitorConfShrink) {
       res["MonitorConf"] = boost::any(*monitorConfShrink);
     }
@@ -64645,9 +64626,6 @@ public:
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
-    if (taskType) {
-      res["TaskType"] = boost::any(*taskType);
-    }
     return res;
   }
 
@@ -64663,9 +64641,6 @@ public:
     }
     if (m.find("Frequency") != m.end() && !m["Frequency"].empty()) {
       frequency = make_shared<string>(boost::any_cast<string>(m["Frequency"]));
-    }
-    if (m.find("MonitorCategory") != m.end() && !m["MonitorCategory"].empty()) {
-      monitorCategory = make_shared<long>(boost::any_cast<long>(m["MonitorCategory"]));
     }
     if (m.find("MonitorConf") != m.end() && !m["MonitorConf"].empty()) {
       monitorConfShrink = make_shared<string>(boost::any_cast<string>(m["MonitorConf"]));
@@ -64687,9 +64662,6 @@ public:
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
-    }
-    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
-      taskType = make_shared<long>(boost::any_cast<long>(m["TaskType"]));
     }
   }
 
