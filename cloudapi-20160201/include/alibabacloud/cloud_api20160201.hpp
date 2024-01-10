@@ -1427,6 +1427,7 @@ class CreateApiGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<string> groupName{};
+  shared_ptr<string> securityToken{};
 
   CreateApiGroupRequest() {}
 
@@ -1444,6 +1445,9 @@ public:
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -1453,6 +1457,9 @@ public:
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
