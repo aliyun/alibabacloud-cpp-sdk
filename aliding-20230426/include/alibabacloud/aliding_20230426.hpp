@@ -6018,7 +6018,7 @@ public:
 };
 class CreateDeliveryPlanHeadersAccountContext : public Darabonba::Model {
 public:
-  shared_ptr<string> accountId{};
+  shared_ptr<string> userToken{};
 
   CreateDeliveryPlanHeadersAccountContext() {}
 
@@ -6030,15 +6030,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accountId) {
-      res["accountId"] = boost::any(*accountId);
+    if (userToken) {
+      res["userToken"] = boost::any(*userToken);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
-      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    if (m.find("userToken") != m.end() && !m["userToken"].empty()) {
+      userToken = make_shared<string>(boost::any_cast<string>(m["userToken"]));
     }
   }
 
@@ -38258,6 +38258,8 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
   shared_ptr<string> syncToken{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
 
   ListEventsResponseBody() {}
 
@@ -38285,6 +38287,12 @@ public:
     if (syncToken) {
       res["syncToken"] = boost::any(*syncToken);
     }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
     return res;
   }
 
@@ -38310,6 +38318,12 @@ public:
     }
     if (m.find("syncToken") != m.end() && !m["syncToken"].empty()) {
       syncToken = make_shared<string>(boost::any_cast<string>(m["syncToken"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
     }
   }
 
