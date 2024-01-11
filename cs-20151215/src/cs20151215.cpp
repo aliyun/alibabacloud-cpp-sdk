@@ -3196,6 +3196,9 @@ ModifyClusterResponse Alibabacloud_CS20151215::Client::modifyClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<MaintenanceWindow>(request->maintenanceWindow)) {
     body->insert(pair<string, MaintenanceWindow>("maintenance_window", *request->maintenanceWindow));
   }
+  if (!Darabonba_Util::Client::isUnset<ModifyClusterRequestOperationPolicy>(request->operationPolicy)) {
+    body->insert(pair<string, ModifyClusterRequestOperationPolicy>("operation_policy", *request->operationPolicy));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("resource_group_id", *request->resourceGroupId));
   }

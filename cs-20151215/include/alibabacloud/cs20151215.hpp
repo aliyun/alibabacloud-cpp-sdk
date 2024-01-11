@@ -21333,6 +21333,75 @@ public:
 
   virtual ~MigrateClusterResponse() = default;
 };
+class ModifyClusterRequestOperationPolicyClusterAutoUpgrade : public Darabonba::Model {
+public:
+  shared_ptr<string> channel{};
+  shared_ptr<bool> enabled{};
+
+  ModifyClusterRequestOperationPolicyClusterAutoUpgrade() {}
+
+  explicit ModifyClusterRequestOperationPolicyClusterAutoUpgrade(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channel) {
+      res["channel"] = boost::any(*channel);
+    }
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("channel") != m.end() && !m["channel"].empty()) {
+      channel = make_shared<string>(boost::any_cast<string>(m["channel"]));
+    }
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+  }
+
+
+  virtual ~ModifyClusterRequestOperationPolicyClusterAutoUpgrade() = default;
+};
+class ModifyClusterRequestOperationPolicy : public Darabonba::Model {
+public:
+  shared_ptr<ModifyClusterRequestOperationPolicyClusterAutoUpgrade> clusterAutoUpgrade{};
+
+  ModifyClusterRequestOperationPolicy() {}
+
+  explicit ModifyClusterRequestOperationPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterAutoUpgrade) {
+      res["cluster_auto_upgrade"] = clusterAutoUpgrade ? boost::any(clusterAutoUpgrade->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cluster_auto_upgrade") != m.end() && !m["cluster_auto_upgrade"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cluster_auto_upgrade"].type()) {
+        ModifyClusterRequestOperationPolicyClusterAutoUpgrade model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["cluster_auto_upgrade"]));
+        clusterAutoUpgrade = make_shared<ModifyClusterRequestOperationPolicyClusterAutoUpgrade>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyClusterRequestOperationPolicy() = default;
+};
 class ModifyClusterRequestSystemEventsLogging : public Darabonba::Model {
 public:
   shared_ptr<bool> enabled{};
@@ -21381,6 +21450,7 @@ public:
   shared_ptr<string> ingressLoadbalancerId{};
   shared_ptr<bool> instanceDeletionProtection{};
   shared_ptr<MaintenanceWindow> maintenanceWindow{};
+  shared_ptr<ModifyClusterRequestOperationPolicy> operationPolicy{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<ModifyClusterRequestSystemEventsLogging> systemEventsLogging{};
 
@@ -21423,6 +21493,9 @@ public:
     }
     if (maintenanceWindow) {
       res["maintenance_window"] = maintenanceWindow ? boost::any(maintenanceWindow->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (operationPolicy) {
+      res["operation_policy"] = operationPolicy ? boost::any(operationPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (resourceGroupId) {
       res["resource_group_id"] = boost::any(*resourceGroupId);
@@ -21473,6 +21546,13 @@ public:
         MaintenanceWindow model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["maintenance_window"]));
         maintenanceWindow = make_shared<MaintenanceWindow>(model1);
+      }
+    }
+    if (m.find("operation_policy") != m.end() && !m["operation_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["operation_policy"].type()) {
+        ModifyClusterRequestOperationPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["operation_policy"]));
+        operationPolicy = make_shared<ModifyClusterRequestOperationPolicy>(model1);
       }
     }
     if (m.find("resource_group_id") != m.end() && !m["resource_group_id"].empty()) {
