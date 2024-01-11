@@ -230,9 +230,6 @@ CreateChangeSetResponse Alibabacloud_ROS20190910::Client::createChangeSetWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->stackPolicyURL)) {
     query->insert(pair<string, string>("StackPolicyURL", *request->stackPolicyURL));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
-    query->insert(pair<string, string>("TemplateBody", *request->templateBody));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
@@ -251,8 +248,13 @@ CreateChangeSetResponse Alibabacloud_ROS20190910::Client::createChangeSetWithOpt
   if (!Darabonba_Util::Client::isUnset<bool>(request->usePreviousParameters)) {
     query->insert(pair<string, bool>("UsePreviousParameters", *request->usePreviousParameters));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
+    body->insert(pair<string, string>("TemplateBody", *request->templateBody));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateChangeSet"))},
@@ -355,9 +357,6 @@ CreateStackResponse Alibabacloud_ROS20190910::Client::createStackWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<vector<CreateStackRequestTags>>(request->tags)) {
     query->insert(pair<string, vector<CreateStackRequestTags>>("Tags", *request->tags));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
-    query->insert(pair<string, string>("TemplateBody", *request->templateBody));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
@@ -376,8 +375,13 @@ CreateStackResponse Alibabacloud_ROS20190910::Client::createStackWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<long>(request->timeoutInMinutes)) {
     query->insert(pair<string, long>("TimeoutInMinutes", *request->timeoutInMinutes));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
+    body->insert(pair<string, string>("TemplateBody", *request->templateBody));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateStack"))},
@@ -442,9 +446,6 @@ CreateStackGroupResponse Alibabacloud_ROS20190910::Client::createStackGroupWithO
   if (!Darabonba_Util::Client::isUnset<vector<CreateStackGroupShrinkRequestTags>>(request->tags)) {
     query->insert(pair<string, vector<CreateStackGroupShrinkRequestTags>>("Tags", *request->tags));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
-    query->insert(pair<string, string>("TemplateBody", *request->templateBody));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
@@ -454,8 +455,13 @@ CreateStackGroupResponse Alibabacloud_ROS20190910::Client::createStackGroupWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->templateVersion)) {
     query->insert(pair<string, string>("TemplateVersion", *request->templateVersion));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
+    body->insert(pair<string, string>("TemplateBody", *request->templateBody));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateStackGroup"))},
@@ -2873,9 +2879,6 @@ PreviewStackResponse Alibabacloud_ROS20190910::Client::previewStackWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->stackPolicyURL)) {
     query->insert(pair<string, string>("StackPolicyURL", *request->stackPolicyURL));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
-    query->insert(pair<string, string>("TemplateBody", *request->templateBody));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
@@ -2894,8 +2897,13 @@ PreviewStackResponse Alibabacloud_ROS20190910::Client::previewStackWithOptions(s
   if (!Darabonba_Util::Client::isUnset<long>(request->timeoutInMinutes)) {
     query->insert(pair<string, long>("TimeoutInMinutes", *request->timeoutInMinutes));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
+    body->insert(pair<string, string>("TemplateBody", *request->templateBody));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("PreviewStack"))},
@@ -3311,9 +3319,6 @@ UpdateStackResponse Alibabacloud_ROS20190910::Client::updateStackWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<vector<UpdateStackRequestTags>>(request->tags)) {
     query->insert(pair<string, vector<UpdateStackRequestTags>>("Tags", *request->tags));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
-    query->insert(pair<string, string>("TemplateBody", *request->templateBody));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
@@ -3329,8 +3334,13 @@ UpdateStackResponse Alibabacloud_ROS20190910::Client::updateStackWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<bool>(request->usePreviousParameters)) {
     query->insert(pair<string, bool>("UsePreviousParameters", *request->usePreviousParameters));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
+    body->insert(pair<string, string>("TemplateBody", *request->templateBody));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateStack"))},
@@ -3416,9 +3426,6 @@ UpdateStackGroupResponse Alibabacloud_ROS20190910::Client::updateStackGroupWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->stackGroupName)) {
     query->insert(pair<string, string>("StackGroupName", *request->stackGroupName));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
-    query->insert(pair<string, string>("TemplateBody", *request->templateBody));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
@@ -3428,8 +3435,13 @@ UpdateStackGroupResponse Alibabacloud_ROS20190910::Client::updateStackGroupWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->templateVersion)) {
     query->insert(pair<string, string>("TemplateVersion", *request->templateVersion));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
+    body->insert(pair<string, string>("TemplateBody", *request->templateBody));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateStackGroup"))},
