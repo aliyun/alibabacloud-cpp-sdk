@@ -19714,6 +19714,7 @@ public:
   shared_ptr<long> id{};
   shared_ptr<string> name{};
   shared_ptr<string> reviewOpinionStatus{};
+  shared_ptr<string> reviewTime{};
   shared_ptr<string> state{};
   shared_ptr<string> username{};
 
@@ -19745,6 +19746,9 @@ public:
     if (reviewOpinionStatus) {
       res["reviewOpinionStatus"] = boost::any(*reviewOpinionStatus);
     }
+    if (reviewTime) {
+      res["reviewTime"] = boost::any(*reviewTime);
+    }
     if (state) {
       res["state"] = boost::any(*state);
     }
@@ -19772,6 +19776,9 @@ public:
     }
     if (m.find("reviewOpinionStatus") != m.end() && !m["reviewOpinionStatus"].empty()) {
       reviewOpinionStatus = make_shared<string>(boost::any_cast<string>(m["reviewOpinionStatus"]));
+    }
+    if (m.find("reviewTime") != m.end() && !m["reviewTime"].empty()) {
+      reviewTime = make_shared<string>(boost::any_cast<string>(m["reviewTime"]));
     }
     if (m.find("state") != m.end() && !m["state"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["state"]));
@@ -22991,6 +22998,7 @@ class GetProjectMemberResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<long> accessLevel{};
   shared_ptr<string> avatarUrl{};
+  shared_ptr<string> email{};
   shared_ptr<long> id{};
   shared_ptr<string> name{};
 
@@ -23010,6 +23018,9 @@ public:
     if (avatarUrl) {
       res["avatarUrl"] = boost::any(*avatarUrl);
     }
+    if (email) {
+      res["email"] = boost::any(*email);
+    }
     if (id) {
       res["id"] = boost::any(*id);
     }
@@ -23025,6 +23036,9 @@ public:
     }
     if (m.find("avatarUrl") != m.end() && !m["avatarUrl"].empty()) {
       avatarUrl = make_shared<string>(boost::any_cast<string>(m["avatarUrl"]));
+    }
+    if (m.find("email") != m.end() && !m["email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["email"]));
     }
     if (m.find("id") != m.end() && !m["id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["id"]));
@@ -33738,6 +33752,7 @@ public:
   shared_ptr<string> email{};
   shared_ptr<long> id{};
   shared_ptr<string> name{};
+  shared_ptr<string> reviewTime{};
   shared_ptr<string> state{};
   shared_ptr<string> status{};
   shared_ptr<string> username{};
@@ -33764,6 +33779,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (reviewTime) {
+      res["reviewTime"] = boost::any(*reviewTime);
+    }
     if (state) {
       res["state"] = boost::any(*state);
     }
@@ -33788,6 +33806,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("reviewTime") != m.end() && !m["reviewTime"].empty()) {
+      reviewTime = make_shared<string>(boost::any_cast<string>(m["reviewTime"]));
     }
     if (m.find("state") != m.end() && !m["state"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["state"]));
