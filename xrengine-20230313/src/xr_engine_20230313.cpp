@@ -156,6 +156,48 @@ BatchQueryMotionShopTaskStatusResponse Alibabacloud_XrEngine20230313::Client::ba
   return batchQueryMotionShopTaskStatusWithOptions(request, runtime);
 }
 
+CreateAvatarTalkProjectResponse Alibabacloud_XrEngine20230313::Client::createAvatarTalkProjectWithOptions(shared_ptr<CreateAvatarTalkProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jwtToken)) {
+    query->insert(pair<string, string>("JwtToken", *request->jwtToken));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->avatarProjectId)) {
+    body->insert(pair<string, string>("AvatarProjectId", *request->avatarProjectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
+    body->insert(pair<string, string>("Title", *request->title));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ttsVoice)) {
+    body->insert(pair<string, string>("TtsVoice", *request->ttsVoice));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->txtContent)) {
+    body->insert(pair<string, string>("TxtContent", *request->txtContent));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateAvatarTalkProject"))},
+    {"version", boost::any(string("2023-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateAvatarTalkProjectResponse(callApi(params, req, runtime));
+}
+
+CreateAvatarTalkProjectResponse Alibabacloud_XrEngine20230313::Client::createAvatarTalkProject(shared_ptr<CreateAvatarTalkProjectRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createAvatarTalkProjectWithOptions(request, runtime);
+}
+
 CreateDigitalHumanProjectResponse Alibabacloud_XrEngine20230313::Client::createDigitalHumanProjectWithOptions(shared_ptr<CreateDigitalHumanProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
