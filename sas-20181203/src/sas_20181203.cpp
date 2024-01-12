@@ -6725,6 +6725,27 @@ DescribeFieldStatisticsResponse Alibabacloud_Sas20181203::Client::describeFieldS
   return describeFieldStatisticsWithOptions(request, runtime);
 }
 
+DescribeFixUsedCountResponse Alibabacloud_Sas20181203::Client::describeFixUsedCountWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeFixUsedCount"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeFixUsedCountResponse(callApi(params, req, runtime));
+}
+
+DescribeFixUsedCountResponse Alibabacloud_Sas20181203::Client::describeFixUsedCount() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeFixUsedCountWithOptions(runtime);
+}
+
 DescribeFrontVulPatchListResponse Alibabacloud_Sas20181203::Client::describeFrontVulPatchListWithOptions(shared_ptr<DescribeFrontVulPatchListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -21013,6 +21034,9 @@ ModifyTagWithUuidResponse Alibabacloud_Sas20181203::Client::modifyTagWithUuidWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tagList)) {
     query->insert(pair<string, string>("TagList", *request->tagList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->target)) {
+    query->insert(pair<string, string>("Target", *request->target));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->uuidList)) {
     query->insert(pair<string, string>("UuidList", *request->uuidList));
