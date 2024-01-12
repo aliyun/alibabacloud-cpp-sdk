@@ -2014,8 +2014,10 @@ public:
   shared_ptr<string> subStatus{};
   shared_ptr<string> thirdpartyLibDir{};
   shared_ptr<vector<string>> thirdpartyLibs{};
+  shared_ptr<bool> useOversoldResource{};
   shared_ptr<string> userCommand{};
   shared_ptr<string> userId{};
+  shared_ptr<string> username{};
   shared_ptr<string> workspaceId{};
   shared_ptr<string> workspaceName{};
 
@@ -2118,11 +2120,17 @@ public:
     if (thirdpartyLibs) {
       res["ThirdpartyLibs"] = boost::any(*thirdpartyLibs);
     }
+    if (useOversoldResource) {
+      res["UseOversoldResource"] = boost::any(*useOversoldResource);
+    }
     if (userCommand) {
       res["UserCommand"] = boost::any(*userCommand);
     }
     if (userId) {
       res["UserId"] = boost::any(*userId);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
@@ -2255,11 +2263,17 @@ public:
       }
       thirdpartyLibs = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("UseOversoldResource") != m.end() && !m["UseOversoldResource"].empty()) {
+      useOversoldResource = make_shared<bool>(boost::any_cast<bool>(m["UseOversoldResource"]));
+    }
     if (m.find("UserCommand") != m.end() && !m["UserCommand"].empty()) {
       userCommand = make_shared<string>(boost::any_cast<string>(m["UserCommand"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
@@ -6810,6 +6824,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<map<string, string>> tags{};
   shared_ptr<string> userIdForFilter{};
+  shared_ptr<string> username{};
   shared_ptr<string> workspaceId{};
 
   ListJobsRequest() {}
@@ -6875,6 +6890,9 @@ public:
     }
     if (userIdForFilter) {
       res["UserIdForFilter"] = boost::any(*userIdForFilter);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
@@ -6942,6 +6960,9 @@ public:
     if (m.find("UserIdForFilter") != m.end() && !m["UserIdForFilter"].empty()) {
       userIdForFilter = make_shared<string>(boost::any_cast<string>(m["UserIdForFilter"]));
     }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
@@ -6970,6 +6991,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<string> tagsShrink{};
   shared_ptr<string> userIdForFilter{};
+  shared_ptr<string> username{};
   shared_ptr<string> workspaceId{};
 
   ListJobsShrinkRequest() {}
@@ -7036,6 +7058,9 @@ public:
     if (userIdForFilter) {
       res["UserIdForFilter"] = boost::any(*userIdForFilter);
     }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
     }
@@ -7096,6 +7121,9 @@ public:
     }
     if (m.find("UserIdForFilter") != m.end() && !m["UserIdForFilter"].empty()) {
       userIdForFilter = make_shared<string>(boost::any_cast<string>(m["UserIdForFilter"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
