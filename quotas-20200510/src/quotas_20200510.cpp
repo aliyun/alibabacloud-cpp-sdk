@@ -788,6 +788,9 @@ ListQuotaApplicationTemplatesResponse Alibabacloud_Quotas20200510::Client::listQ
 ListQuotaApplicationsResponse Alibabacloud_Quotas20200510::Client::listQuotaApplicationsWithOptions(shared_ptr<ListQuotaApplicationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    body->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ListQuotaApplicationsRequestDimensions>>(request->dimensions)) {
     body->insert(pair<string, vector<ListQuotaApplicationsRequestDimensions>>("Dimensions", *request->dimensions));
   }

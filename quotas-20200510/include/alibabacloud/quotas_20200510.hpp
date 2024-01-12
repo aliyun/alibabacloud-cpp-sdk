@@ -5735,6 +5735,7 @@ public:
 };
 class ListQuotaApplicationsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> acceptLanguage{};
   shared_ptr<vector<ListQuotaApplicationsRequestDimensions>> dimensions{};
   shared_ptr<string> keyWord{};
   shared_ptr<long> maxResults{};
@@ -5754,6 +5755,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
     if (dimensions) {
       vector<boost::any> temp1;
       for(auto item1:*dimensions){
@@ -5786,6 +5790,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
     if (m.find("Dimensions") != m.end() && !m["Dimensions"].empty()) {
       if (typeid(vector<boost::any>) == m["Dimensions"].type()) {
         vector<ListQuotaApplicationsRequestDimensions> expect1;
@@ -6706,6 +6713,7 @@ public:
 };
 class ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> aliyunUids{};
   shared_ptr<string> applyTime{};
   shared_ptr<vector<ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplicationsAuditStatusVos>> auditStatusVos{};
   shared_ptr<string> batchQuotaApplicationId{};
@@ -6716,6 +6724,7 @@ public:
   shared_ptr<string> productCode{};
   shared_ptr<string> quotaActionCode{};
   shared_ptr<string> quotaCategory{};
+  shared_ptr<string> reason{};
 
   ListQuotaApplicationsForTemplateResponseBodyQuotaBatchApplications() {}
 
@@ -6727,6 +6736,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aliyunUids) {
+      res["AliyunUids"] = boost::any(*aliyunUids);
+    }
     if (applyTime) {
       res["ApplyTime"] = boost::any(*applyTime);
     }
@@ -6761,10 +6773,23 @@ public:
     if (quotaCategory) {
       res["QuotaCategory"] = boost::any(*quotaCategory);
     }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunUids") != m.end() && !m["AliyunUids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AliyunUids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AliyunUids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      aliyunUids = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ApplyTime") != m.end() && !m["ApplyTime"].empty()) {
       applyTime = make_shared<string>(boost::any_cast<string>(m["ApplyTime"]));
     }
@@ -6809,6 +6834,9 @@ public:
     }
     if (m.find("QuotaCategory") != m.end() && !m["QuotaCategory"].empty()) {
       quotaCategory = make_shared<string>(boost::any_cast<string>(m["QuotaCategory"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
     }
   }
 
