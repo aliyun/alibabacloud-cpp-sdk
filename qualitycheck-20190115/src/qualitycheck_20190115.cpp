@@ -41,6 +41,9 @@ string Alibabacloud_Qualitycheck20190115::Client::getEndpoint(shared_ptr<string>
 AddBusinessCategoryResponse Alibabacloud_Qualitycheck20190115::Client::addBusinessCategoryWithOptions(shared_ptr<AddBusinessCategoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -69,6 +72,9 @@ AddBusinessCategoryResponse Alibabacloud_Qualitycheck20190115::Client::addBusine
 AddRuleCategoryResponse Alibabacloud_Qualitycheck20190115::Client::addRuleCategoryWithOptions(shared_ptr<AddRuleCategoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -96,6 +102,10 @@ AddRuleCategoryResponse Alibabacloud_Qualitycheck20190115::Client::addRuleCatego
 
 AddRuleV4Response Alibabacloud_Qualitycheck20190115::Client::addRuleV4WithOptions(shared_ptr<AddRuleV4Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->isCopy)) {
     body->insert(pair<string, bool>("IsCopy", *request->isCopy));
@@ -104,6 +114,7 @@ AddRuleV4Response Alibabacloud_Qualitycheck20190115::Client::addRuleV4WithOption
     body->insert(pair<string, string>("JsonStrForRule", *request->jsonStrForRule));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -128,6 +139,9 @@ AddRuleV4Response Alibabacloud_Qualitycheck20190115::Client::addRuleV4(shared_pt
 AddThesaurusForApiResponse Alibabacloud_Qualitycheck20190115::Client::addThesaurusForApiWithOptions(shared_ptr<AddThesaurusForApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -156,6 +170,9 @@ AddThesaurusForApiResponse Alibabacloud_Qualitycheck20190115::Client::addThesaur
 AssignReviewerResponse Alibabacloud_Qualitycheck20190115::Client::assignReviewerWithOptions(shared_ptr<AssignReviewerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -184,6 +201,9 @@ AssignReviewerResponse Alibabacloud_Qualitycheck20190115::Client::assignReviewer
 AssignReviewerBySessionGroupResponse Alibabacloud_Qualitycheck20190115::Client::assignReviewerBySessionGroupWithOptions(shared_ptr<AssignReviewerBySessionGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -212,6 +232,9 @@ AssignReviewerBySessionGroupResponse Alibabacloud_Qualitycheck20190115::Client::
 BatchSubmitReviewInfoResponse Alibabacloud_Qualitycheck20190115::Client::batchSubmitReviewInfoWithOptions(shared_ptr<BatchSubmitReviewInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -240,6 +263,9 @@ BatchSubmitReviewInfoResponse Alibabacloud_Qualitycheck20190115::Client::batchSu
 CreateAsrVocabResponse Alibabacloud_Qualitycheck20190115::Client::createAsrVocabWithOptions(shared_ptr<CreateAsrVocabRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -268,6 +294,9 @@ CreateAsrVocabResponse Alibabacloud_Qualitycheck20190115::Client::createAsrVocab
 CreateCheckTypeToSchemeResponse Alibabacloud_Qualitycheck20190115::Client::createCheckTypeToSchemeWithOptions(shared_ptr<CreateCheckTypeToSchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -296,6 +325,9 @@ CreateCheckTypeToSchemeResponse Alibabacloud_Qualitycheck20190115::Client::creat
 CreateQualityCheckSchemeResponse Alibabacloud_Qualitycheck20190115::Client::createQualityCheckSchemeWithOptions(shared_ptr<CreateQualityCheckSchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -324,6 +356,9 @@ CreateQualityCheckSchemeResponse Alibabacloud_Qualitycheck20190115::Client::crea
 CreateSchemeTaskConfigResponse Alibabacloud_Qualitycheck20190115::Client::createSchemeTaskConfigWithOptions(shared_ptr<CreateSchemeTaskConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -352,6 +387,9 @@ CreateSchemeTaskConfigResponse Alibabacloud_Qualitycheck20190115::Client::create
 CreateSkillGroupConfigResponse Alibabacloud_Qualitycheck20190115::Client::createSkillGroupConfigWithOptions(shared_ptr<CreateSkillGroupConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -380,6 +418,9 @@ CreateSkillGroupConfigResponse Alibabacloud_Qualitycheck20190115::Client::create
 CreateTaskAssignRuleResponse Alibabacloud_Qualitycheck20190115::Client::createTaskAssignRuleWithOptions(shared_ptr<CreateTaskAssignRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -408,6 +449,9 @@ CreateTaskAssignRuleResponse Alibabacloud_Qualitycheck20190115::Client::createTa
 CreateUserResponse Alibabacloud_Qualitycheck20190115::Client::createUserWithOptions(shared_ptr<CreateUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -436,6 +480,9 @@ CreateUserResponse Alibabacloud_Qualitycheck20190115::Client::createUser(shared_
 CreateWarningConfigResponse Alibabacloud_Qualitycheck20190115::Client::createWarningConfigWithOptions(shared_ptr<CreateWarningConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -464,6 +511,9 @@ CreateWarningConfigResponse Alibabacloud_Qualitycheck20190115::Client::createWar
 CreateWarningStrategyConfigResponse Alibabacloud_Qualitycheck20190115::Client::createWarningStrategyConfigWithOptions(shared_ptr<CreateWarningStrategyConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -492,6 +542,9 @@ CreateWarningStrategyConfigResponse Alibabacloud_Qualitycheck20190115::Client::c
 DelRuleCategoryResponse Alibabacloud_Qualitycheck20190115::Client::delRuleCategoryWithOptions(shared_ptr<DelRuleCategoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -520,6 +573,9 @@ DelRuleCategoryResponse Alibabacloud_Qualitycheck20190115::Client::delRuleCatego
 DelThesaurusForApiResponse Alibabacloud_Qualitycheck20190115::Client::delThesaurusForApiWithOptions(shared_ptr<DelThesaurusForApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -548,6 +604,9 @@ DelThesaurusForApiResponse Alibabacloud_Qualitycheck20190115::Client::delThesaur
 DeleteAsrVocabResponse Alibabacloud_Qualitycheck20190115::Client::deleteAsrVocabWithOptions(shared_ptr<DeleteAsrVocabRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -576,6 +635,9 @@ DeleteAsrVocabResponse Alibabacloud_Qualitycheck20190115::Client::deleteAsrVocab
 DeleteBusinessCategoryResponse Alibabacloud_Qualitycheck20190115::Client::deleteBusinessCategoryWithOptions(shared_ptr<DeleteBusinessCategoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -604,6 +666,9 @@ DeleteBusinessCategoryResponse Alibabacloud_Qualitycheck20190115::Client::delete
 DeleteCustomizationConfigResponse Alibabacloud_Qualitycheck20190115::Client::deleteCustomizationConfigWithOptions(shared_ptr<DeleteCustomizationConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -632,6 +697,9 @@ DeleteCustomizationConfigResponse Alibabacloud_Qualitycheck20190115::Client::del
 DeleteDataSetResponse Alibabacloud_Qualitycheck20190115::Client::deleteDataSetWithOptions(shared_ptr<DeleteDataSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -660,6 +728,9 @@ DeleteDataSetResponse Alibabacloud_Qualitycheck20190115::Client::deleteDataSet(s
 DeletePrecisionTaskResponse Alibabacloud_Qualitycheck20190115::Client::deletePrecisionTaskWithOptions(shared_ptr<DeletePrecisionTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -688,6 +759,9 @@ DeletePrecisionTaskResponse Alibabacloud_Qualitycheck20190115::Client::deletePre
 DeleteQualityCheckSchemeResponse Alibabacloud_Qualitycheck20190115::Client::deleteQualityCheckSchemeWithOptions(shared_ptr<DeleteQualityCheckSchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -715,6 +789,10 @@ DeleteQualityCheckSchemeResponse Alibabacloud_Qualitycheck20190115::Client::dele
 
 DeleteRuleResponse Alibabacloud_Qualitycheck20190115::Client::deleteRuleWithOptions(shared_ptr<DeleteRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->forceDelete)) {
     body->insert(pair<string, bool>("ForceDelete", *request->forceDelete));
@@ -726,6 +804,7 @@ DeleteRuleResponse Alibabacloud_Qualitycheck20190115::Client::deleteRuleWithOpti
     body->insert(pair<string, long>("RuleId", *request->ruleId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -749,6 +828,10 @@ DeleteRuleResponse Alibabacloud_Qualitycheck20190115::Client::deleteRule(shared_
 
 DeleteRuleV4Response Alibabacloud_Qualitycheck20190115::Client::deleteRuleV4WithOptions(shared_ptr<DeleteRuleV4Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->forceDelete)) {
     body->insert(pair<string, bool>("ForceDelete", *request->forceDelete));
@@ -757,6 +840,7 @@ DeleteRuleV4Response Alibabacloud_Qualitycheck20190115::Client::deleteRuleV4With
     body->insert(pair<string, long>("RuleId", *request->ruleId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -781,6 +865,9 @@ DeleteRuleV4Response Alibabacloud_Qualitycheck20190115::Client::deleteRuleV4(sha
 DeleteSchemeTaskConfigResponse Alibabacloud_Qualitycheck20190115::Client::deleteSchemeTaskConfigWithOptions(shared_ptr<DeleteSchemeTaskConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -809,6 +896,9 @@ DeleteSchemeTaskConfigResponse Alibabacloud_Qualitycheck20190115::Client::delete
 DeleteScoreForApiResponse Alibabacloud_Qualitycheck20190115::Client::deleteScoreForApiWithOptions(shared_ptr<DeleteScoreForApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -837,6 +927,9 @@ DeleteScoreForApiResponse Alibabacloud_Qualitycheck20190115::Client::deleteScore
 DeleteSkillGroupConfigResponse Alibabacloud_Qualitycheck20190115::Client::deleteSkillGroupConfigWithOptions(shared_ptr<DeleteSkillGroupConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -865,6 +958,9 @@ DeleteSkillGroupConfigResponse Alibabacloud_Qualitycheck20190115::Client::delete
 DeleteSubScoreForApiResponse Alibabacloud_Qualitycheck20190115::Client::deleteSubScoreForApiWithOptions(shared_ptr<DeleteSubScoreForApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -893,6 +989,9 @@ DeleteSubScoreForApiResponse Alibabacloud_Qualitycheck20190115::Client::deleteSu
 DeleteTaskAssignRuleResponse Alibabacloud_Qualitycheck20190115::Client::deleteTaskAssignRuleWithOptions(shared_ptr<DeleteTaskAssignRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -921,6 +1020,9 @@ DeleteTaskAssignRuleResponse Alibabacloud_Qualitycheck20190115::Client::deleteTa
 DeleteUserResponse Alibabacloud_Qualitycheck20190115::Client::deleteUserWithOptions(shared_ptr<DeleteUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -949,6 +1051,9 @@ DeleteUserResponse Alibabacloud_Qualitycheck20190115::Client::deleteUser(shared_
 DeleteWarningConfigResponse Alibabacloud_Qualitycheck20190115::Client::deleteWarningConfigWithOptions(shared_ptr<DeleteWarningConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -977,6 +1082,9 @@ DeleteWarningConfigResponse Alibabacloud_Qualitycheck20190115::Client::deleteWar
 DeleteWarningStrategyConfigResponse Alibabacloud_Qualitycheck20190115::Client::deleteWarningStrategyConfigWithOptions(shared_ptr<DeleteWarningStrategyConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1005,6 +1113,9 @@ DeleteWarningStrategyConfigResponse Alibabacloud_Qualitycheck20190115::Client::d
 EditThesaurusForApiResponse Alibabacloud_Qualitycheck20190115::Client::editThesaurusForApiWithOptions(shared_ptr<EditThesaurusForApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1033,6 +1144,9 @@ EditThesaurusForApiResponse Alibabacloud_Qualitycheck20190115::Client::editThesa
 GetAsrVocabResponse Alibabacloud_Qualitycheck20190115::Client::getAsrVocabWithOptions(shared_ptr<GetAsrVocabRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1061,6 +1175,9 @@ GetAsrVocabResponse Alibabacloud_Qualitycheck20190115::Client::getAsrVocab(share
 GetBusinessCategoryListResponse Alibabacloud_Qualitycheck20190115::Client::getBusinessCategoryListWithOptions(shared_ptr<GetBusinessCategoryListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1089,6 +1206,9 @@ GetBusinessCategoryListResponse Alibabacloud_Qualitycheck20190115::Client::getBu
 GetCustomizationConfigListResponse Alibabacloud_Qualitycheck20190115::Client::getCustomizationConfigListWithOptions(shared_ptr<GetCustomizationConfigListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1117,6 +1237,9 @@ GetCustomizationConfigListResponse Alibabacloud_Qualitycheck20190115::Client::ge
 GetHitResultResponse Alibabacloud_Qualitycheck20190115::Client::getHitResultWithOptions(shared_ptr<GetHitResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1145,6 +1268,9 @@ GetHitResultResponse Alibabacloud_Qualitycheck20190115::Client::getHitResult(sha
 GetNextResultToVerifyResponse Alibabacloud_Qualitycheck20190115::Client::getNextResultToVerifyWithOptions(shared_ptr<GetNextResultToVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1173,6 +1299,9 @@ GetNextResultToVerifyResponse Alibabacloud_Qualitycheck20190115::Client::getNext
 GetPrecisionTaskResponse Alibabacloud_Qualitycheck20190115::Client::getPrecisionTaskWithOptions(shared_ptr<GetPrecisionTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1201,6 +1330,9 @@ GetPrecisionTaskResponse Alibabacloud_Qualitycheck20190115::Client::getPrecision
 GetQualityCheckSchemeResponse Alibabacloud_Qualitycheck20190115::Client::getQualityCheckSchemeWithOptions(shared_ptr<GetQualityCheckSchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -1229,6 +1361,9 @@ GetQualityCheckSchemeResponse Alibabacloud_Qualitycheck20190115::Client::getQual
 GetResultResponse Alibabacloud_Qualitycheck20190115::Client::getResultWithOptions(shared_ptr<GetResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1257,6 +1392,9 @@ GetResultResponse Alibabacloud_Qualitycheck20190115::Client::getResult(shared_pt
 GetResultCallbackResponse Alibabacloud_Qualitycheck20190115::Client::getResultCallbackWithOptions(shared_ptr<GetResultCallbackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1285,6 +1423,9 @@ GetResultCallbackResponse Alibabacloud_Qualitycheck20190115::Client::getResultCa
 GetResultToReviewResponse Alibabacloud_Qualitycheck20190115::Client::getResultToReviewWithOptions(shared_ptr<GetResultToReviewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1313,6 +1454,9 @@ GetResultToReviewResponse Alibabacloud_Qualitycheck20190115::Client::getResultTo
 GetRuleResponse Alibabacloud_Qualitycheck20190115::Client::getRuleWithOptions(shared_ptr<GetRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1340,11 +1484,16 @@ GetRuleResponse Alibabacloud_Qualitycheck20190115::Client::getRule(shared_ptr<Ge
 
 GetRuleByIdResponse Alibabacloud_Qualitycheck20190115::Client::getRuleByIdWithOptions(shared_ptr<GetRuleByIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->ruleId)) {
     body->insert(pair<string, long>("RuleId", *request->ruleId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -1369,6 +1518,9 @@ GetRuleByIdResponse Alibabacloud_Qualitycheck20190115::Client::getRuleById(share
 GetRuleCategoryResponse Alibabacloud_Qualitycheck20190115::Client::getRuleCategoryWithOptions(shared_ptr<GetRuleCategoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1397,6 +1549,9 @@ GetRuleCategoryResponse Alibabacloud_Qualitycheck20190115::Client::getRuleCatego
 GetRuleDetailResponse Alibabacloud_Qualitycheck20190115::Client::getRuleDetailWithOptions(shared_ptr<GetRuleDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1450,8 +1605,43 @@ GetRuleV4Response Alibabacloud_Qualitycheck20190115::Client::getRuleV4(shared_pt
   return getRuleV4WithOptions(request, runtime);
 }
 
+GetRuleV4StrResponse Alibabacloud_Qualitycheck20190115::Client::getRuleV4StrWithOptions(shared_ptr<GetRuleV4StrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->isSchemeData)) {
+    body->insert(pair<string, long>("IsSchemeData", *request->isSchemeData));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ruleId)) {
+    body->insert(pair<string, long>("RuleId", *request->ruleId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetRuleV4Str"))},
+    {"version", boost::any(string("2019-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetRuleV4StrResponse(callApi(params, req, runtime));
+}
+
+GetRuleV4StrResponse Alibabacloud_Qualitycheck20190115::Client::getRuleV4Str(shared_ptr<GetRuleV4StrRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getRuleV4StrWithOptions(request, runtime);
+}
+
 GetRulesCountListResponse Alibabacloud_Qualitycheck20190115::Client::getRulesCountListWithOptions(shared_ptr<GetRulesCountListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->businessName)) {
     body->insert(pair<string, string>("BusinessName", *request->businessName));
@@ -1529,6 +1719,7 @@ GetRulesCountListResponse Alibabacloud_Qualitycheck20190115::Client::getRulesCou
     body->insert(pair<string, long>("UpdateUserId", *request->updateUserId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -1553,6 +1744,9 @@ GetRulesCountListResponse Alibabacloud_Qualitycheck20190115::Client::getRulesCou
 GetScoreInfoResponse Alibabacloud_Qualitycheck20190115::Client::getScoreInfoWithOptions(shared_ptr<GetScoreInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1581,6 +1775,9 @@ GetScoreInfoResponse Alibabacloud_Qualitycheck20190115::Client::getScoreInfo(sha
 GetSkillGroupConfigResponse Alibabacloud_Qualitycheck20190115::Client::getSkillGroupConfigWithOptions(shared_ptr<GetSkillGroupConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1609,6 +1806,9 @@ GetSkillGroupConfigResponse Alibabacloud_Qualitycheck20190115::Client::getSkillG
 GetSyncResultResponse Alibabacloud_Qualitycheck20190115::Client::getSyncResultWithOptions(shared_ptr<GetSyncResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1637,6 +1837,9 @@ GetSyncResultResponse Alibabacloud_Qualitycheck20190115::Client::getSyncResult(s
 GetThesaurusBySynonymForApiResponse Alibabacloud_Qualitycheck20190115::Client::getThesaurusBySynonymForApiWithOptions(shared_ptr<GetThesaurusBySynonymForApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1665,6 +1868,9 @@ GetThesaurusBySynonymForApiResponse Alibabacloud_Qualitycheck20190115::Client::g
 GetWarningStrategyConfigResponse Alibabacloud_Qualitycheck20190115::Client::getWarningStrategyConfigWithOptions(shared_ptr<GetWarningStrategyConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1693,6 +1899,9 @@ GetWarningStrategyConfigResponse Alibabacloud_Qualitycheck20190115::Client::getW
 HandleComplaintResponse Alibabacloud_Qualitycheck20190115::Client::handleComplaintWithOptions(shared_ptr<HandleComplaintRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1721,6 +1930,9 @@ HandleComplaintResponse Alibabacloud_Qualitycheck20190115::Client::handleComplai
 InsertScoreForApiResponse Alibabacloud_Qualitycheck20190115::Client::insertScoreForApiWithOptions(shared_ptr<InsertScoreForApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1749,6 +1961,9 @@ InsertScoreForApiResponse Alibabacloud_Qualitycheck20190115::Client::insertScore
 InsertSubScoreForApiResponse Alibabacloud_Qualitycheck20190115::Client::insertSubScoreForApiWithOptions(shared_ptr<InsertSubScoreForApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1777,6 +1992,9 @@ InsertSubScoreForApiResponse Alibabacloud_Qualitycheck20190115::Client::insertSu
 InvalidRuleResponse Alibabacloud_Qualitycheck20190115::Client::invalidRuleWithOptions(shared_ptr<InvalidRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1805,6 +2023,9 @@ InvalidRuleResponse Alibabacloud_Qualitycheck20190115::Client::invalidRule(share
 ListAsrVocabResponse Alibabacloud_Qualitycheck20190115::Client::listAsrVocabWithOptions(shared_ptr<ListAsrVocabRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1861,6 +2082,9 @@ ListBusinessSpacesResponse Alibabacloud_Qualitycheck20190115::Client::listBusine
 ListDataSetResponse Alibabacloud_Qualitycheck20190115::Client::listDataSetWithOptions(shared_ptr<ListDataSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1889,6 +2113,9 @@ ListDataSetResponse Alibabacloud_Qualitycheck20190115::Client::listDataSet(share
 ListHotWordsTasksResponse Alibabacloud_Qualitycheck20190115::Client::listHotWordsTasksWithOptions(shared_ptr<ListHotWordsTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1917,6 +2144,9 @@ ListHotWordsTasksResponse Alibabacloud_Qualitycheck20190115::Client::listHotWord
 ListPrecisionTaskResponse Alibabacloud_Qualitycheck20190115::Client::listPrecisionTaskWithOptions(shared_ptr<ListPrecisionTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1945,6 +2175,9 @@ ListPrecisionTaskResponse Alibabacloud_Qualitycheck20190115::Client::listPrecisi
 ListQualityCheckSchemeResponse Alibabacloud_Qualitycheck20190115::Client::listQualityCheckSchemeWithOptions(shared_ptr<ListQualityCheckSchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -1973,6 +2206,9 @@ ListQualityCheckSchemeResponse Alibabacloud_Qualitycheck20190115::Client::listQu
 ListRolesResponse Alibabacloud_Qualitycheck20190115::Client::listRolesWithOptions(shared_ptr<ListRolesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2001,6 +2237,9 @@ ListRolesResponse Alibabacloud_Qualitycheck20190115::Client::listRoles(shared_pt
 ListRulesResponse Alibabacloud_Qualitycheck20190115::Client::listRulesWithOptions(shared_ptr<ListRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2028,6 +2267,10 @@ ListRulesResponse Alibabacloud_Qualitycheck20190115::Client::listRules(shared_pt
 
 ListRulesV4Response Alibabacloud_Qualitycheck20190115::Client::listRulesV4WithOptions(shared_ptr<ListRulesV4Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->businessName)) {
     body->insert(pair<string, string>("BusinessName", *request->businessName));
@@ -2105,6 +2348,7 @@ ListRulesV4Response Alibabacloud_Qualitycheck20190115::Client::listRulesV4WithOp
     body->insert(pair<string, long>("UpdateUserId", *request->updateUserId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -2129,6 +2373,9 @@ ListRulesV4Response Alibabacloud_Qualitycheck20190115::Client::listRulesV4(share
 ListSchemeTaskConfigResponse Alibabacloud_Qualitycheck20190115::Client::listSchemeTaskConfigWithOptions(shared_ptr<ListSchemeTaskConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -2157,6 +2404,9 @@ ListSchemeTaskConfigResponse Alibabacloud_Qualitycheck20190115::Client::listSche
 ListSessionGroupResponse Alibabacloud_Qualitycheck20190115::Client::listSessionGroupWithOptions(shared_ptr<ListSessionGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -2185,6 +2435,9 @@ ListSessionGroupResponse Alibabacloud_Qualitycheck20190115::Client::listSessionG
 ListSkillGroupConfigResponse Alibabacloud_Qualitycheck20190115::Client::listSkillGroupConfigWithOptions(shared_ptr<ListSkillGroupConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2213,6 +2466,9 @@ ListSkillGroupConfigResponse Alibabacloud_Qualitycheck20190115::Client::listSkil
 ListTaskAssignRulesResponse Alibabacloud_Qualitycheck20190115::Client::listTaskAssignRulesWithOptions(shared_ptr<ListTaskAssignRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2241,6 +2497,9 @@ ListTaskAssignRulesResponse Alibabacloud_Qualitycheck20190115::Client::listTaskA
 ListUsersResponse Alibabacloud_Qualitycheck20190115::Client::listUsersWithOptions(shared_ptr<ListUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2269,6 +2528,9 @@ ListUsersResponse Alibabacloud_Qualitycheck20190115::Client::listUsers(shared_pt
 ListWarningConfigResponse Alibabacloud_Qualitycheck20190115::Client::listWarningConfigWithOptions(shared_ptr<ListWarningConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2297,6 +2559,9 @@ ListWarningConfigResponse Alibabacloud_Qualitycheck20190115::Client::listWarning
 ListWarningStrategyConfigResponse Alibabacloud_Qualitycheck20190115::Client::listWarningStrategyConfigWithOptions(shared_ptr<ListWarningStrategyConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2325,6 +2590,9 @@ ListWarningStrategyConfigResponse Alibabacloud_Qualitycheck20190115::Client::lis
 RestartAsrTaskResponse Alibabacloud_Qualitycheck20190115::Client::restartAsrTaskWithOptions(shared_ptr<RestartAsrTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2353,6 +2621,9 @@ RestartAsrTaskResponse Alibabacloud_Qualitycheck20190115::Client::restartAsrTask
 RevertAssignedSessionResponse Alibabacloud_Qualitycheck20190115::Client::revertAssignedSessionWithOptions(shared_ptr<RevertAssignedSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -2381,6 +2652,9 @@ RevertAssignedSessionResponse Alibabacloud_Qualitycheck20190115::Client::revertA
 RevertAssignedSessionGroupResponse Alibabacloud_Qualitycheck20190115::Client::revertAssignedSessionGroupWithOptions(shared_ptr<RevertAssignedSessionGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -2409,6 +2683,9 @@ RevertAssignedSessionGroupResponse Alibabacloud_Qualitycheck20190115::Client::re
 SaveConfigDataSetResponse Alibabacloud_Qualitycheck20190115::Client::saveConfigDataSetWithOptions(shared_ptr<SaveConfigDataSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2437,6 +2714,9 @@ SaveConfigDataSetResponse Alibabacloud_Qualitycheck20190115::Client::saveConfigD
 SubmitComplaintResponse Alibabacloud_Qualitycheck20190115::Client::submitComplaintWithOptions(shared_ptr<SubmitComplaintRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2465,6 +2745,9 @@ SubmitComplaintResponse Alibabacloud_Qualitycheck20190115::Client::submitComplai
 SubmitPrecisionTaskResponse Alibabacloud_Qualitycheck20190115::Client::submitPrecisionTaskWithOptions(shared_ptr<SubmitPrecisionTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2493,6 +2776,9 @@ SubmitPrecisionTaskResponse Alibabacloud_Qualitycheck20190115::Client::submitPre
 SubmitQualityCheckTaskResponse Alibabacloud_Qualitycheck20190115::Client::submitQualityCheckTaskWithOptions(shared_ptr<SubmitQualityCheckTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2521,6 +2807,9 @@ SubmitQualityCheckTaskResponse Alibabacloud_Qualitycheck20190115::Client::submit
 SubmitReviewInfoResponse Alibabacloud_Qualitycheck20190115::Client::submitReviewInfoWithOptions(shared_ptr<SubmitReviewInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2549,6 +2838,9 @@ SubmitReviewInfoResponse Alibabacloud_Qualitycheck20190115::Client::submitReview
 SyncQualityCheckResponse Alibabacloud_Qualitycheck20190115::Client::syncQualityCheckWithOptions(shared_ptr<SyncQualityCheckRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2574,9 +2866,43 @@ SyncQualityCheckResponse Alibabacloud_Qualitycheck20190115::Client::syncQualityC
   return syncQualityCheckWithOptions(request, runtime);
 }
 
+TestRuleV4Response Alibabacloud_Qualitycheck20190115::Client::testRuleV4WithOptions(shared_ptr<TestRuleV4Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->isSchemeData)) {
+    body->insert(pair<string, long>("IsSchemeData", *request->isSchemeData));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->testJson)) {
+    body->insert(pair<string, string>("TestJson", *request->testJson));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TestRuleV4"))},
+    {"version", boost::any(string("2019-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return TestRuleV4Response(callApi(params, req, runtime));
+}
+
+TestRuleV4Response Alibabacloud_Qualitycheck20190115::Client::testRuleV4(shared_ptr<TestRuleV4Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return testRuleV4WithOptions(request, runtime);
+}
+
 UpdateAsrVocabResponse Alibabacloud_Qualitycheck20190115::Client::updateAsrVocabWithOptions(shared_ptr<UpdateAsrVocabRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2605,6 +2931,9 @@ UpdateAsrVocabResponse Alibabacloud_Qualitycheck20190115::Client::updateAsrVocab
 UpdateCheckTypeToSchemeResponse Alibabacloud_Qualitycheck20190115::Client::updateCheckTypeToSchemeWithOptions(shared_ptr<UpdateCheckTypeToSchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -2633,6 +2962,9 @@ UpdateCheckTypeToSchemeResponse Alibabacloud_Qualitycheck20190115::Client::updat
 UpdateQualityCheckDataResponse Alibabacloud_Qualitycheck20190115::Client::updateQualityCheckDataWithOptions(shared_ptr<UpdateQualityCheckDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2661,6 +2993,9 @@ UpdateQualityCheckDataResponse Alibabacloud_Qualitycheck20190115::Client::update
 UpdateQualityCheckSchemeResponse Alibabacloud_Qualitycheck20190115::Client::updateQualityCheckSchemeWithOptions(shared_ptr<UpdateQualityCheckSchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -2689,6 +3024,9 @@ UpdateQualityCheckSchemeResponse Alibabacloud_Qualitycheck20190115::Client::upda
 UpdateRuleResponse Alibabacloud_Qualitycheck20190115::Client::updateRuleWithOptions(shared_ptr<UpdateRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2716,6 +3054,10 @@ UpdateRuleResponse Alibabacloud_Qualitycheck20190115::Client::updateRule(shared_
 
 UpdateRuleByIdResponse Alibabacloud_Qualitycheck20190115::Client::updateRuleByIdWithOptions(shared_ptr<UpdateRuleByIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->isCopy)) {
     body->insert(pair<string, bool>("IsCopy", *request->isCopy));
@@ -2730,6 +3072,7 @@ UpdateRuleByIdResponse Alibabacloud_Qualitycheck20190115::Client::updateRuleById
     body->insert(pair<string, long>("RuleId", *request->ruleId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -2754,6 +3097,9 @@ UpdateRuleByIdResponse Alibabacloud_Qualitycheck20190115::Client::updateRuleById
 UpdateRuleToSchemeResponse Alibabacloud_Qualitycheck20190115::Client::updateRuleToSchemeWithOptions(shared_ptr<UpdateRuleToSchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -2781,6 +3127,10 @@ UpdateRuleToSchemeResponse Alibabacloud_Qualitycheck20190115::Client::updateRule
 
 UpdateRuleV4Response Alibabacloud_Qualitycheck20190115::Client::updateRuleV4WithOptions(shared_ptr<UpdateRuleV4Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStrForRule)) {
     body->insert(pair<string, string>("JsonStrForRule", *request->jsonStrForRule));
@@ -2789,6 +3139,7 @@ UpdateRuleV4Response Alibabacloud_Qualitycheck20190115::Client::updateRuleV4With
     body->insert(pair<string, long>("RuleId", *request->ruleId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -2813,6 +3164,9 @@ UpdateRuleV4Response Alibabacloud_Qualitycheck20190115::Client::updateRuleV4(sha
 UpdateSchemeTaskConfigResponse Alibabacloud_Qualitycheck20190115::Client::updateSchemeTaskConfigWithOptions(shared_ptr<UpdateSchemeTaskConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("jsonStr", *request->jsonStr));
   }
@@ -2841,6 +3195,9 @@ UpdateSchemeTaskConfigResponse Alibabacloud_Qualitycheck20190115::Client::update
 UpdateScoreForApiResponse Alibabacloud_Qualitycheck20190115::Client::updateScoreForApiWithOptions(shared_ptr<UpdateScoreForApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2869,6 +3226,9 @@ UpdateScoreForApiResponse Alibabacloud_Qualitycheck20190115::Client::updateScore
 UpdateSkillGroupConfigResponse Alibabacloud_Qualitycheck20190115::Client::updateSkillGroupConfigWithOptions(shared_ptr<UpdateSkillGroupConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2897,6 +3257,9 @@ UpdateSkillGroupConfigResponse Alibabacloud_Qualitycheck20190115::Client::update
 UpdateSubScoreForApiResponse Alibabacloud_Qualitycheck20190115::Client::updateSubScoreForApiWithOptions(shared_ptr<UpdateSubScoreForApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2925,6 +3288,9 @@ UpdateSubScoreForApiResponse Alibabacloud_Qualitycheck20190115::Client::updateSu
 UpdateSyncQualityCheckDataResponse Alibabacloud_Qualitycheck20190115::Client::updateSyncQualityCheckDataWithOptions(shared_ptr<UpdateSyncQualityCheckDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2953,6 +3319,9 @@ UpdateSyncQualityCheckDataResponse Alibabacloud_Qualitycheck20190115::Client::up
 UpdateTaskAssignRuleResponse Alibabacloud_Qualitycheck20190115::Client::updateTaskAssignRuleWithOptions(shared_ptr<UpdateTaskAssignRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -2981,6 +3350,9 @@ UpdateTaskAssignRuleResponse Alibabacloud_Qualitycheck20190115::Client::updateTa
 UpdateUserResponse Alibabacloud_Qualitycheck20190115::Client::updateUserWithOptions(shared_ptr<UpdateUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -3009,6 +3381,9 @@ UpdateUserResponse Alibabacloud_Qualitycheck20190115::Client::updateUser(shared_
 UpdateUserConfigResponse Alibabacloud_Qualitycheck20190115::Client::updateUserConfigWithOptions(shared_ptr<UpdateUserConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -3037,6 +3412,9 @@ UpdateUserConfigResponse Alibabacloud_Qualitycheck20190115::Client::updateUserCo
 UpdateWarningConfigResponse Alibabacloud_Qualitycheck20190115::Client::updateWarningConfigWithOptions(shared_ptr<UpdateWarningConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -3065,6 +3443,9 @@ UpdateWarningConfigResponse Alibabacloud_Qualitycheck20190115::Client::updateWar
 UpdateWarningStrategyConfigResponse Alibabacloud_Qualitycheck20190115::Client::updateWarningStrategyConfigWithOptions(shared_ptr<UpdateWarningStrategyConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -3093,6 +3474,9 @@ UpdateWarningStrategyConfigResponse Alibabacloud_Qualitycheck20190115::Client::u
 UploadAudioDataResponse Alibabacloud_Qualitycheck20190115::Client::uploadAudioDataWithOptions(shared_ptr<UploadAudioDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -3121,6 +3505,9 @@ UploadAudioDataResponse Alibabacloud_Qualitycheck20190115::Client::uploadAudioDa
 UploadDataResponse Alibabacloud_Qualitycheck20190115::Client::uploadDataWithOptions(shared_ptr<UploadDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -3149,6 +3536,9 @@ UploadDataResponse Alibabacloud_Qualitycheck20190115::Client::uploadData(shared_
 UploadDataSyncResponse Alibabacloud_Qualitycheck20190115::Client::uploadDataSyncWithOptions(shared_ptr<UploadDataSyncRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -3174,9 +3564,43 @@ UploadDataSyncResponse Alibabacloud_Qualitycheck20190115::Client::uploadDataSync
   return uploadDataSyncWithOptions(request, runtime);
 }
 
+UploadDataV4Response Alibabacloud_Qualitycheck20190115::Client::uploadDataV4WithOptions(shared_ptr<UploadDataV4Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    body->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
+    body->insert(pair<string, string>("JsonStr", *request->jsonStr));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UploadDataV4"))},
+    {"version", boost::any(string("2019-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UploadDataV4Response(callApi(params, req, runtime));
+}
+
+UploadDataV4Response Alibabacloud_Qualitycheck20190115::Client::uploadDataV4(shared_ptr<UploadDataV4Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return uploadDataV4WithOptions(request, runtime);
+}
+
 UploadRuleResponse Alibabacloud_Qualitycheck20190115::Client::uploadRuleWithOptions(shared_ptr<UploadRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -3205,6 +3629,9 @@ UploadRuleResponse Alibabacloud_Qualitycheck20190115::Client::uploadRule(shared_
 VerifyFileResponse Alibabacloud_Qualitycheck20190115::Client::verifyFileWithOptions(shared_ptr<VerifyFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
@@ -3233,6 +3660,9 @@ VerifyFileResponse Alibabacloud_Qualitycheck20190115::Client::verifyFile(shared_
 VerifySentenceResponse Alibabacloud_Qualitycheck20190115::Client::verifySentenceWithOptions(shared_ptr<VerifySentenceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->baseMeAgentId)) {
+    query->insert(pair<string, long>("BaseMeAgentId", *request->baseMeAgentId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jsonStr)) {
     query->insert(pair<string, string>("JsonStr", *request->jsonStr));
   }
