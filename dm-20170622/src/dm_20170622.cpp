@@ -170,6 +170,46 @@ CheckDomainResponse Alibabacloud_Dm20170622::Client::checkDomain(shared_ptr<Chec
   return checkDomainWithOptions(request, runtime);
 }
 
+CheckDomainDnsResponse Alibabacloud_Dm20170622::Client::checkDomainDnsWithOptions(shared_ptr<CheckDomainDnsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->domainId)) {
+    query->insert(pair<string, long>("DomainId", *request->domainId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CheckDomainDns"))},
+    {"version", boost::any(string("2017-06-22"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CheckDomainDnsResponse(callApi(params, req, runtime));
+}
+
+CheckDomainDnsResponse Alibabacloud_Dm20170622::Client::checkDomainDns(shared_ptr<CheckDomainDnsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return checkDomainDnsWithOptions(request, runtime);
+}
+
 CreateDomainResponse Alibabacloud_Dm20170622::Client::createDomainWithOptions(shared_ptr<CreateDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -304,6 +344,9 @@ CreateTagResponse Alibabacloud_Dm20170622::Client::createTagWithOptions(shared_p
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagDescription)) {
+    query->insert(pair<string, string>("TagDescription", *request->tagDescription));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tagName)) {
     query->insert(pair<string, string>("TagName", *request->tagName));
@@ -662,6 +705,9 @@ DescDomainResponse Alibabacloud_Dm20170622::Client::descDomainWithOptions(shared
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->requireRealTimeDnsRecords)) {
+    query->insert(pair<string, bool>("RequireRealTimeDnsRecords", *request->requireRealTimeDnsRecords));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
@@ -965,6 +1011,9 @@ ModifyTagResponse Alibabacloud_Dm20170622::Client::modifyTagWithOptions(shared_p
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagDescription)) {
+    query->insert(pair<string, string>("TagDescription", *request->tagDescription));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tagId)) {
     query->insert(pair<string, long>("TagId", *request->tagId));

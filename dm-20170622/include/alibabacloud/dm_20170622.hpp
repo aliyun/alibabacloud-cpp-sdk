@@ -507,6 +507,161 @@ public:
 
   virtual ~CheckDomainResponse() = default;
 };
+class CheckDomainDnsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> domainId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> type{};
+
+  CheckDomainDnsRequest() {}
+
+  explicit CheckDomainDnsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainId) {
+      res["DomainId"] = boost::any(*domainId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
+      domainId = make_shared<long>(boost::any_cast<long>(m["DomainId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CheckDomainDnsRequest() = default;
+};
+class CheckDomainDnsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> status{};
+
+  CheckDomainDnsResponseBody() {}
+
+  explicit CheckDomainDnsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~CheckDomainDnsResponseBody() = default;
+};
+class CheckDomainDnsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CheckDomainDnsResponseBody> body{};
+
+  CheckDomainDnsResponse() {}
+
+  explicit CheckDomainDnsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CheckDomainDnsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CheckDomainDnsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckDomainDnsResponse() = default;
+};
 class CreateDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
@@ -984,6 +1139,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> tagDescription{};
   shared_ptr<string> tagName{};
 
   CreateTagRequest() {}
@@ -1005,6 +1161,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (tagDescription) {
+      res["TagDescription"] = boost::any(*tagDescription);
+    }
     if (tagName) {
       res["TagName"] = boost::any(*tagName);
     }
@@ -1020,6 +1179,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TagDescription") != m.end() && !m["TagDescription"].empty()) {
+      tagDescription = make_shared<string>(boost::any_cast<string>(m["TagDescription"]));
     }
     if (m.find("TagName") != m.end() && !m["TagName"].empty()) {
       tagName = make_shared<string>(boost::any_cast<string>(m["TagName"]));
@@ -2441,6 +2603,7 @@ class DescDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<long> domainId{};
   shared_ptr<long> ownerId{};
+  shared_ptr<bool> requireRealTimeDnsRecords{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
 
@@ -2460,6 +2623,9 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (requireRealTimeDnsRecords) {
+      res["RequireRealTimeDnsRecords"] = boost::any(*requireRealTimeDnsRecords);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -2475,6 +2641,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RequireRealTimeDnsRecords") != m.end() && !m["RequireRealTimeDnsRecords"].empty()) {
+      requireRealTimeDnsRecords = make_shared<bool>(boost::any_cast<bool>(m["RequireRealTimeDnsRecords"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
@@ -2497,6 +2666,10 @@ public:
   shared_ptr<string> dkimAuthStatus{};
   shared_ptr<string> dkimPublicKey{};
   shared_ptr<string> dkimRR{};
+  shared_ptr<long> dmarcAuthStatus{};
+  shared_ptr<string> dmarcHostRecord{};
+  shared_ptr<string> dmarcRecord{};
+  shared_ptr<string> dnsDmarc{};
   shared_ptr<string> dnsMx{};
   shared_ptr<string> dnsSpf{};
   shared_ptr<string> dnsTxt{};
@@ -2548,6 +2721,18 @@ public:
     }
     if (dkimRR) {
       res["DkimRR"] = boost::any(*dkimRR);
+    }
+    if (dmarcAuthStatus) {
+      res["DmarcAuthStatus"] = boost::any(*dmarcAuthStatus);
+    }
+    if (dmarcHostRecord) {
+      res["DmarcHostRecord"] = boost::any(*dmarcHostRecord);
+    }
+    if (dmarcRecord) {
+      res["DmarcRecord"] = boost::any(*dmarcRecord);
+    }
+    if (dnsDmarc) {
+      res["DnsDmarc"] = boost::any(*dnsDmarc);
     }
     if (dnsMx) {
       res["DnsMx"] = boost::any(*dnsMx);
@@ -2627,6 +2812,18 @@ public:
     }
     if (m.find("DkimRR") != m.end() && !m["DkimRR"].empty()) {
       dkimRR = make_shared<string>(boost::any_cast<string>(m["DkimRR"]));
+    }
+    if (m.find("DmarcAuthStatus") != m.end() && !m["DmarcAuthStatus"].empty()) {
+      dmarcAuthStatus = make_shared<long>(boost::any_cast<long>(m["DmarcAuthStatus"]));
+    }
+    if (m.find("DmarcHostRecord") != m.end() && !m["DmarcHostRecord"].empty()) {
+      dmarcHostRecord = make_shared<string>(boost::any_cast<string>(m["DmarcHostRecord"]));
+    }
+    if (m.find("DmarcRecord") != m.end() && !m["DmarcRecord"].empty()) {
+      dmarcRecord = make_shared<string>(boost::any_cast<string>(m["DmarcRecord"]));
+    }
+    if (m.find("DnsDmarc") != m.end() && !m["DnsDmarc"].empty()) {
+      dnsDmarc = make_shared<string>(boost::any_cast<string>(m["DnsDmarc"]));
     }
     if (m.find("DnsMx") != m.end() && !m["DnsMx"].empty()) {
       dnsMx = make_shared<string>(boost::any_cast<string>(m["DnsMx"]));
@@ -4099,6 +4296,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> tagDescription{};
   shared_ptr<long> tagId{};
   shared_ptr<string> tagName{};
 
@@ -4121,6 +4319,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (tagDescription) {
+      res["TagDescription"] = boost::any(*tagDescription);
+    }
     if (tagId) {
       res["TagId"] = boost::any(*tagId);
     }
@@ -4139,6 +4340,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TagDescription") != m.end() && !m["TagDescription"].empty()) {
+      tagDescription = make_shared<string>(boost::any_cast<string>(m["TagDescription"]));
     }
     if (m.find("TagId") != m.end() && !m["TagId"].empty()) {
       tagId = make_shared<long>(boost::any_cast<long>(m["TagId"]));
@@ -6066,6 +6270,7 @@ public:
 };
 class QueryTagByParamResponseBodyDataTag : public Darabonba::Model {
 public:
+  shared_ptr<string> tagDescription{};
   shared_ptr<string> tagId{};
   shared_ptr<string> tagName{};
 
@@ -6079,6 +6284,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (tagDescription) {
+      res["TagDescription"] = boost::any(*tagDescription);
+    }
     if (tagId) {
       res["TagId"] = boost::any(*tagId);
     }
@@ -6089,6 +6297,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagDescription") != m.end() && !m["TagDescription"].empty()) {
+      tagDescription = make_shared<string>(boost::any_cast<string>(m["TagDescription"]));
+    }
     if (m.find("TagId") != m.end() && !m["TagId"].empty()) {
       tagId = make_shared<string>(boost::any_cast<string>(m["TagId"]));
     }
@@ -8440,6 +8651,8 @@ public:
   BatchSendMailResponse batchSendMail(shared_ptr<BatchSendMailRequest> request);
   CheckDomainResponse checkDomainWithOptions(shared_ptr<CheckDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckDomainResponse checkDomain(shared_ptr<CheckDomainRequest> request);
+  CheckDomainDnsResponse checkDomainDnsWithOptions(shared_ptr<CheckDomainDnsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CheckDomainDnsResponse checkDomainDns(shared_ptr<CheckDomainDnsRequest> request);
   CreateDomainResponse createDomainWithOptions(shared_ptr<CreateDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDomainResponse createDomain(shared_ptr<CreateDomainRequest> request);
   CreateMailAddressResponse createMailAddressWithOptions(shared_ptr<CreateMailAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
