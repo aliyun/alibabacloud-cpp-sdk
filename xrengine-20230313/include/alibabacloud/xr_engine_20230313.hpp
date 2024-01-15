@@ -22546,6 +22546,7 @@ class PopSubmitAITryOnJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bottomsId{};
   shared_ptr<string> clothingType{};
+  shared_ptr<long> generatePictureNum{};
   shared_ptr<string> jwtToken{};
   shared_ptr<string> modelId{};
   shared_ptr<string> shoeType{};
@@ -22567,6 +22568,9 @@ public:
     }
     if (clothingType) {
       res["ClothingType"] = boost::any(*clothingType);
+    }
+    if (generatePictureNum) {
+      res["GeneratePictureNum"] = boost::any(*generatePictureNum);
     }
     if (jwtToken) {
       res["JwtToken"] = boost::any(*jwtToken);
@@ -22592,6 +22596,9 @@ public:
     }
     if (m.find("ClothingType") != m.end() && !m["ClothingType"].empty()) {
       clothingType = make_shared<string>(boost::any_cast<string>(m["ClothingType"]));
+    }
+    if (m.find("GeneratePictureNum") != m.end() && !m["GeneratePictureNum"].empty()) {
+      generatePictureNum = make_shared<long>(boost::any_cast<long>(m["GeneratePictureNum"]));
     }
     if (m.find("JwtToken") != m.end() && !m["JwtToken"].empty()) {
       jwtToken = make_shared<string>(boost::any_cast<string>(m["JwtToken"]));

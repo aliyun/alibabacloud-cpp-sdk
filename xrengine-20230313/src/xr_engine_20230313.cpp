@@ -2009,6 +2009,9 @@ PopSubmitAITryOnJobResponse Alibabacloud_XrEngine20230313::Client::popSubmitAITr
   if (!Darabonba_Util::Client::isUnset<string>(request->clothingType)) {
     query->insert(pair<string, string>("ClothingType", *request->clothingType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->generatePictureNum)) {
+    query->insert(pair<string, long>("GeneratePictureNum", *request->generatePictureNum));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jwtToken)) {
     query->insert(pair<string, string>("JwtToken", *request->jwtToken));
   }
