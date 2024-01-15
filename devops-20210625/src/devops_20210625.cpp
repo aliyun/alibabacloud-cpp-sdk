@@ -4067,6 +4067,34 @@ GetWorkitemCommentListResponse Alibabacloud_Devops20210625::Client::getWorkitemC
   return getWorkitemCommentListWithOptions(organizationId, workitemId, headers, runtime);
 }
 
+GetWorkitemFileResponse Alibabacloud_Devops20210625::Client::getWorkitemFileWithOptions(shared_ptr<string> organizationId,
+                                                                                        shared_ptr<string> workitemIdentifier,
+                                                                                        shared_ptr<string> fileIdentifier,
+                                                                                        shared_ptr<map<string, string>> headers,
+                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetWorkitemFile"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/organization/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(organizationId)) + string("/workitem/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workitemIdentifier)) + string("/files/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(fileIdentifier)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetWorkitemFileResponse(callApi(params, req, runtime));
+}
+
+GetWorkitemFileResponse Alibabacloud_Devops20210625::Client::getWorkitemFile(shared_ptr<string> organizationId, shared_ptr<string> workitemIdentifier, shared_ptr<string> fileIdentifier) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getWorkitemFileWithOptions(organizationId, workitemIdentifier, fileIdentifier, headers, runtime);
+}
+
 GetWorkitemRelationsResponse Alibabacloud_Devops20210625::Client::getWorkitemRelationsWithOptions(shared_ptr<string> organizationId,
                                                                                                   shared_ptr<string> workitemId,
                                                                                                   shared_ptr<GetWorkitemRelationsRequest> request,

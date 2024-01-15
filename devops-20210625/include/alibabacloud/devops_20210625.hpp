@@ -29106,6 +29106,186 @@ public:
 
   virtual ~GetWorkitemCommentListResponse() = default;
 };
+class GetWorkitemFileResponseBodyWorkitemFile : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<long> size{};
+  shared_ptr<string> suffix{};
+  shared_ptr<string> url{};
+
+  GetWorkitemFileResponseBodyWorkitemFile() {}
+
+  explicit GetWorkitemFileResponseBodyWorkitemFile(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (size) {
+      res["size"] = boost::any(*size);
+    }
+    if (suffix) {
+      res["suffix"] = boost::any(*suffix);
+    }
+    if (url) {
+      res["url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("size") != m.end() && !m["size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["size"]));
+    }
+    if (m.find("suffix") != m.end() && !m["suffix"].empty()) {
+      suffix = make_shared<string>(boost::any_cast<string>(m["suffix"]));
+    }
+    if (m.find("url") != m.end() && !m["url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["url"]));
+    }
+  }
+
+
+  virtual ~GetWorkitemFileResponseBodyWorkitemFile() = default;
+};
+class GetWorkitemFileResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+  shared_ptr<GetWorkitemFileResponseBodyWorkitemFile> workitemFile{};
+
+  GetWorkitemFileResponseBody() {}
+
+  explicit GetWorkitemFileResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (workitemFile) {
+      res["workitemFile"] = workitemFile ? boost::any(workitemFile->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["success"]));
+    }
+    if (m.find("workitemFile") != m.end() && !m["workitemFile"].empty()) {
+      if (typeid(map<string, boost::any>) == m["workitemFile"].type()) {
+        GetWorkitemFileResponseBodyWorkitemFile model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["workitemFile"]));
+        workitemFile = make_shared<GetWorkitemFileResponseBodyWorkitemFile>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetWorkitemFileResponseBody() = default;
+};
+class GetWorkitemFileResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetWorkitemFileResponseBody> body{};
+
+  GetWorkitemFileResponse() {}
+
+  explicit GetWorkitemFileResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetWorkitemFileResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetWorkitemFileResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetWorkitemFileResponse() = default;
+};
 class GetWorkitemRelationsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> relationType{};
@@ -60744,6 +60924,12 @@ public:
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetWorkitemCommentListResponse getWorkitemCommentList(shared_ptr<string> organizationId, shared_ptr<string> workitemId);
+  GetWorkitemFileResponse getWorkitemFileWithOptions(shared_ptr<string> organizationId,
+                                                     shared_ptr<string> workitemIdentifier,
+                                                     shared_ptr<string> fileIdentifier,
+                                                     shared_ptr<map<string, string>> headers,
+                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetWorkitemFileResponse getWorkitemFile(shared_ptr<string> organizationId, shared_ptr<string> workitemIdentifier, shared_ptr<string> fileIdentifier);
   GetWorkitemRelationsResponse getWorkitemRelationsWithOptions(shared_ptr<string> organizationId,
                                                                shared_ptr<string> workitemId,
                                                                shared_ptr<GetWorkitemRelationsRequest> request,
