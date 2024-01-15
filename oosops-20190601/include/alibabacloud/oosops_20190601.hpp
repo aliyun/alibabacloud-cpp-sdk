@@ -5279,12 +5279,15 @@ public:
 class ListPublicTemplateRegistrationsResponseBodyRegistrations : public Darabonba::Model {
 public:
   shared_ptr<string> comment{};
+  shared_ptr<string> createdDate{};
   shared_ptr<string> detail{};
   shared_ptr<string> registrationId{};
+  shared_ptr<string> showPages{};
   shared_ptr<string> status{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateName{};
   shared_ptr<string> templateVersion{};
+  shared_ptr<string> updatedDate{};
 
   ListPublicTemplateRegistrationsResponseBodyRegistrations() {}
 
@@ -5299,11 +5302,17 @@ public:
     if (comment) {
       res["Comment"] = boost::any(*comment);
     }
+    if (createdDate) {
+      res["CreatedDate"] = boost::any(*createdDate);
+    }
     if (detail) {
       res["Detail"] = boost::any(*detail);
     }
     if (registrationId) {
       res["RegistrationId"] = boost::any(*registrationId);
+    }
+    if (showPages) {
+      res["ShowPages"] = boost::any(*showPages);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -5317,6 +5326,9 @@ public:
     if (templateVersion) {
       res["TemplateVersion"] = boost::any(*templateVersion);
     }
+    if (updatedDate) {
+      res["UpdatedDate"] = boost::any(*updatedDate);
+    }
     return res;
   }
 
@@ -5324,11 +5336,17 @@ public:
     if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
       comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
     }
+    if (m.find("CreatedDate") != m.end() && !m["CreatedDate"].empty()) {
+      createdDate = make_shared<string>(boost::any_cast<string>(m["CreatedDate"]));
+    }
     if (m.find("Detail") != m.end() && !m["Detail"].empty()) {
       detail = make_shared<string>(boost::any_cast<string>(m["Detail"]));
     }
     if (m.find("RegistrationId") != m.end() && !m["RegistrationId"].empty()) {
       registrationId = make_shared<string>(boost::any_cast<string>(m["RegistrationId"]));
+    }
+    if (m.find("ShowPages") != m.end() && !m["ShowPages"].empty()) {
+      showPages = make_shared<string>(boost::any_cast<string>(m["ShowPages"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -5341,6 +5359,9 @@ public:
     }
     if (m.find("TemplateVersion") != m.end() && !m["TemplateVersion"].empty()) {
       templateVersion = make_shared<string>(boost::any_cast<string>(m["TemplateVersion"]));
+    }
+    if (m.find("UpdatedDate") != m.end() && !m["UpdatedDate"].empty()) {
+      updatedDate = make_shared<string>(boost::any_cast<string>(m["UpdatedDate"]));
     }
   }
 
