@@ -2681,6 +2681,7 @@ class DescDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<long> domainId{};
   shared_ptr<long> ownerId{};
+  shared_ptr<bool> requireRealTimeDnsRecords{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
 
@@ -2700,6 +2701,9 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (requireRealTimeDnsRecords) {
+      res["RequireRealTimeDnsRecords"] = boost::any(*requireRealTimeDnsRecords);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -2715,6 +2719,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RequireRealTimeDnsRecords") != m.end() && !m["RequireRealTimeDnsRecords"].empty()) {
+      requireRealTimeDnsRecords = make_shared<bool>(boost::any_cast<bool>(m["RequireRealTimeDnsRecords"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
@@ -2737,6 +2744,10 @@ public:
   shared_ptr<string> dkimAuthStatus{};
   shared_ptr<string> dkimPublicKey{};
   shared_ptr<string> dkimRR{};
+  shared_ptr<long> dmarcAuthStatus{};
+  shared_ptr<string> dmarcHostRecord{};
+  shared_ptr<string> dmarcRecord{};
+  shared_ptr<string> dnsDmarc{};
   shared_ptr<string> dnsMx{};
   shared_ptr<string> dnsSpf{};
   shared_ptr<string> dnsTxt{};
@@ -2788,6 +2799,18 @@ public:
     }
     if (dkimRR) {
       res["DkimRR"] = boost::any(*dkimRR);
+    }
+    if (dmarcAuthStatus) {
+      res["DmarcAuthStatus"] = boost::any(*dmarcAuthStatus);
+    }
+    if (dmarcHostRecord) {
+      res["DmarcHostRecord"] = boost::any(*dmarcHostRecord);
+    }
+    if (dmarcRecord) {
+      res["DmarcRecord"] = boost::any(*dmarcRecord);
+    }
+    if (dnsDmarc) {
+      res["DnsDmarc"] = boost::any(*dnsDmarc);
     }
     if (dnsMx) {
       res["DnsMx"] = boost::any(*dnsMx);
@@ -2867,6 +2890,18 @@ public:
     }
     if (m.find("DkimRR") != m.end() && !m["DkimRR"].empty()) {
       dkimRR = make_shared<string>(boost::any_cast<string>(m["DkimRR"]));
+    }
+    if (m.find("DmarcAuthStatus") != m.end() && !m["DmarcAuthStatus"].empty()) {
+      dmarcAuthStatus = make_shared<long>(boost::any_cast<long>(m["DmarcAuthStatus"]));
+    }
+    if (m.find("DmarcHostRecord") != m.end() && !m["DmarcHostRecord"].empty()) {
+      dmarcHostRecord = make_shared<string>(boost::any_cast<string>(m["DmarcHostRecord"]));
+    }
+    if (m.find("DmarcRecord") != m.end() && !m["DmarcRecord"].empty()) {
+      dmarcRecord = make_shared<string>(boost::any_cast<string>(m["DmarcRecord"]));
+    }
+    if (m.find("DnsDmarc") != m.end() && !m["DnsDmarc"].empty()) {
+      dnsDmarc = make_shared<string>(boost::any_cast<string>(m["DnsDmarc"]));
     }
     if (m.find("DnsMx") != m.end() && !m["DnsMx"].empty()) {
       dnsMx = make_shared<string>(boost::any_cast<string>(m["DnsMx"]));

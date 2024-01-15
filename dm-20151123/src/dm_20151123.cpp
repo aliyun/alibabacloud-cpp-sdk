@@ -721,6 +721,9 @@ DescDomainResponse Alibabacloud_Dm20151123::Client::descDomainWithOptions(shared
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->requireRealTimeDnsRecords)) {
+    query->insert(pair<string, bool>("RequireRealTimeDnsRecords", *request->requireRealTimeDnsRecords));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
