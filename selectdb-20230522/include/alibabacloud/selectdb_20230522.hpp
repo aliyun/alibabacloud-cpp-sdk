@@ -73,11 +73,8 @@ public:
 };
 class AllocateInstancePublicConnectionResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
   shared_ptr<string> instanceName{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
   shared_ptr<long> taskId{};
 
   AllocateInstancePublicConnectionResponseBody() {}
@@ -90,20 +87,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
     }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
@@ -112,20 +100,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
     }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<long>(boost::any_cast<long>(m["TaskId"]));
@@ -340,10 +319,7 @@ public:
 };
 class CheckCreateDBInstanceResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> success{};
 
   CheckCreateDBInstanceResponseBody() {}
 
@@ -355,33 +331,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
     }
   }
 
@@ -3089,12 +3047,9 @@ public:
 };
 class DescribeSecurityIPListResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
   shared_ptr<string> DBInstanceName{};
   shared_ptr<vector<DescribeSecurityIPListResponseBodyGroupItems>> groupItems{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
 
   DescribeSecurityIPListResponseBody() {}
 
@@ -3106,9 +3061,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
     if (DBInstanceName) {
       res["DBInstanceName"] = boost::any(*DBInstanceName);
     }
@@ -3119,22 +3071,13 @@ public:
       }
       res["GroupItems"] = boost::any(temp1);
     }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
     if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
       DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
     }
@@ -3151,14 +3094,8 @@ public:
         groupItems = make_shared<vector<DescribeSecurityIPListResponseBodyGroupItems>>(expect1);
       }
     }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -3293,10 +3230,7 @@ public:
 };
 class ModifyBEClusterAttributeResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> success{};
 
   ModifyBEClusterAttributeResponseBody() {}
 
@@ -3308,33 +3242,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
     }
   }
 
@@ -3678,10 +3594,7 @@ public:
 };
 class ModifyDBInstanceAttributeResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
 
   ModifyDBInstanceAttributeResponseBody() {}
 
@@ -3693,33 +3606,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -3854,15 +3749,12 @@ public:
 };
 class ModifySecurityIPListResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
   shared_ptr<string> DBInstanceName{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupTag{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<string> securityIPList{};
   shared_ptr<string> securityIPType{};
-  shared_ptr<bool> success{};
   shared_ptr<long> taskId{};
   shared_ptr<string> whitelistNetType{};
 
@@ -3876,9 +3768,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
     if (DBInstanceName) {
       res["DBInstanceName"] = boost::any(*DBInstanceName);
     }
@@ -3888,9 +3777,6 @@ public:
     if (groupTag) {
       res["GroupTag"] = boost::any(*groupTag);
     }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -3899,9 +3785,6 @@ public:
     }
     if (securityIPType) {
       res["SecurityIPType"] = boost::any(*securityIPType);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
@@ -3913,9 +3796,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
     if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
       DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
     }
@@ -3925,9 +3805,6 @@ public:
     if (m.find("GroupTag") != m.end() && !m["GroupTag"].empty()) {
       groupTag = make_shared<string>(boost::any_cast<string>(m["GroupTag"]));
     }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -3936,9 +3813,6 @@ public:
     }
     if (m.find("SecurityIPType") != m.end() && !m["SecurityIPType"].empty()) {
       securityIPType = make_shared<string>(boost::any_cast<string>(m["SecurityIPType"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<long>(boost::any_cast<long>(m["TaskId"]));
@@ -4065,10 +3939,7 @@ public:
 };
 class ReleaseInstancePublicConnectionResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
 
   ReleaseInstancePublicConnectionResponseBody() {}
 
@@ -4080,33 +3951,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -4711,8 +4564,6 @@ public:
 };
 class StopBEClusterResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   StopBEClusterResponseBody() {}
@@ -4725,12 +4576,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -4738,12 +4583,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -4873,8 +4712,6 @@ public:
 };
 class UpgradeDBInstanceEngineVersionResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   UpgradeDBInstanceEngineVersionResponseBody() {}
@@ -4887,12 +4724,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -4900,12 +4731,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
