@@ -14,6 +14,49 @@
 using namespace std;
 
 namespace Alibabacloud_Eds-user20210308 {
+class GroupResources : public Darabonba::Model {
+public:
+  shared_ptr<string> region{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+
+  GroupResources() {}
+
+  explicit GroupResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~GroupResources() = default;
+};
 class WaIdPermissions : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
@@ -696,6 +739,7 @@ public:
   shared_ptr<string> ownerType{};
   shared_ptr<string> password{};
   shared_ptr<string> phone{};
+  shared_ptr<string> realNickName{};
   shared_ptr<string> remark{};
 
   CreateUsersRequestUsers() {}
@@ -726,6 +770,9 @@ public:
     if (phone) {
       res["Phone"] = boost::any(*phone);
     }
+    if (realNickName) {
+      res["RealNickName"] = boost::any(*realNickName);
+    }
     if (remark) {
       res["Remark"] = boost::any(*remark);
     }
@@ -750,6 +797,9 @@ public:
     }
     if (m.find("Phone") != m.end() && !m["Phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["Phone"]));
+    }
+    if (m.find("RealNickName") != m.end() && !m["RealNickName"].empty()) {
+      realNickName = make_shared<string>(boost::any_cast<string>(m["RealNickName"]));
     }
     if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
@@ -821,6 +871,7 @@ public:
   shared_ptr<string> email{};
   shared_ptr<string> endUserId{};
   shared_ptr<string> phone{};
+  shared_ptr<string> realNickName{};
   shared_ptr<string> remark{};
 
   CreateUsersResponseBodyCreateResultCreatedUsers() {}
@@ -842,6 +893,9 @@ public:
     if (phone) {
       res["Phone"] = boost::any(*phone);
     }
+    if (realNickName) {
+      res["RealNickName"] = boost::any(*realNickName);
+    }
     if (remark) {
       res["Remark"] = boost::any(*remark);
     }
@@ -857,6 +911,9 @@ public:
     }
     if (m.find("Phone") != m.end() && !m["Phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["Phone"]));
+    }
+    if (m.find("RealNickName") != m.end() && !m["RealNickName"].empty()) {
+      realNickName = make_shared<string>(boost::any_cast<string>(m["RealNickName"]));
     }
     if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
