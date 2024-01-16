@@ -82,7 +82,7 @@ class CreateTokenResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<CreateTokenResponseBodyData> data{};
-  shared_ptr<string> httpStatusCode{};
+  shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -130,7 +130,7 @@ public:
       }
     }
     if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
-      httpStatusCode = make_shared<string>(boost::any_cast<string>(m["HttpStatusCode"]));
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
