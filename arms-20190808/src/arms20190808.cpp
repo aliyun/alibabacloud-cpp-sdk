@@ -1108,6 +1108,9 @@ CreateEnvironmentResponse Alibabacloud_ARMS20190808::Client::createEnvironmentWi
   if (!Darabonba_Util::Client::isUnset<string>(request->environmentType)) {
     query->insert(pair<string, string>("EnvironmentType", *request->environmentType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->managedType)) {
+    query->insert(pair<string, string>("ManagedType", *request->managedType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -1137,6 +1140,63 @@ CreateEnvironmentResponse Alibabacloud_ARMS20190808::Client::createEnvironmentWi
 CreateEnvironmentResponse Alibabacloud_ARMS20190808::Client::createEnvironment(shared_ptr<CreateEnvironmentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createEnvironmentWithOptions(request, runtime);
+}
+
+CreateGrafanaWorkspaceResponse Alibabacloud_ARMS20190808::Client::createGrafanaWorkspaceWithOptions(shared_ptr<CreateGrafanaWorkspaceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateGrafanaWorkspaceShrinkRequest> request = make_shared<CreateGrafanaWorkspaceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateGrafanaWorkspaceRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliyunLang)) {
+    query->insert(pair<string, string>("AliyunLang", *request->aliyunLang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grafanaVersion)) {
+    query->insert(pair<string, string>("GrafanaVersion", *request->grafanaVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grafanaWorkspaceEdition)) {
+    query->insert(pair<string, string>("GrafanaWorkspaceEdition", *request->grafanaWorkspaceEdition));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grafanaWorkspaceName)) {
+    query->insert(pair<string, string>("GrafanaWorkspaceName", *request->grafanaWorkspaceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
+    query->insert(pair<string, string>("Password", *request->password));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("Tags", *request->tagsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateGrafanaWorkspace"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateGrafanaWorkspaceResponse(callApi(params, req, runtime));
+}
+
+CreateGrafanaWorkspaceResponse Alibabacloud_ARMS20190808::Client::createGrafanaWorkspace(shared_ptr<CreateGrafanaWorkspaceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createGrafanaWorkspaceWithOptions(request, runtime);
 }
 
 CreateIntegrationResponse Alibabacloud_ARMS20190808::Client::createIntegrationWithOptions(shared_ptr<CreateIntegrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2632,6 +2692,37 @@ DeleteGrafanaResourceResponse Alibabacloud_ARMS20190808::Client::deleteGrafanaRe
   return deleteGrafanaResourceWithOptions(request, runtime);
 }
 
+DeleteGrafanaWorkspaceResponse Alibabacloud_ARMS20190808::Client::deleteGrafanaWorkspaceWithOptions(shared_ptr<DeleteGrafanaWorkspaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->grafanaWorkspaceId)) {
+    query->insert(pair<string, string>("GrafanaWorkspaceId", *request->grafanaWorkspaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteGrafanaWorkspace"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteGrafanaWorkspaceResponse(callApi(params, req, runtime));
+}
+
+DeleteGrafanaWorkspaceResponse Alibabacloud_ARMS20190808::Client::deleteGrafanaWorkspace(shared_ptr<DeleteGrafanaWorkspaceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteGrafanaWorkspaceWithOptions(request, runtime);
+}
+
 DeleteIMRobotResponse Alibabacloud_ARMS20190808::Client::deleteIMRobotWithOptions(shared_ptr<DeleteIMRobotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3990,6 +4081,40 @@ GetExploreUrlResponse Alibabacloud_ARMS20190808::Client::getExploreUrl(shared_pt
   return getExploreUrlWithOptions(request, runtime);
 }
 
+GetGrafanaWorkspaceResponse Alibabacloud_ARMS20190808::Client::getGrafanaWorkspaceWithOptions(shared_ptr<GetGrafanaWorkspaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliyunLang)) {
+    query->insert(pair<string, string>("AliyunLang", *request->aliyunLang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grafanaWorkspaceId)) {
+    query->insert(pair<string, string>("GrafanaWorkspaceId", *request->grafanaWorkspaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetGrafanaWorkspace"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetGrafanaWorkspaceResponse(callApi(params, req, runtime));
+}
+
+GetGrafanaWorkspaceResponse Alibabacloud_ARMS20190808::Client::getGrafanaWorkspace(shared_ptr<GetGrafanaWorkspaceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getGrafanaWorkspaceWithOptions(request, runtime);
+}
+
 GetIntegrationStateResponse Alibabacloud_ARMS20190808::Client::getIntegrationStateWithOptions(shared_ptr<GetIntegrationStateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4856,6 +4981,9 @@ InitEnvironmentResponse Alibabacloud_ARMS20190808::Client::initEnvironmentWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->environmentId)) {
     query->insert(pair<string, string>("EnvironmentId", *request->environmentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->managedType)) {
+    query->insert(pair<string, string>("ManagedType", *request->managedType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -8162,6 +8290,83 @@ UpdateEnvironmentResponse Alibabacloud_ARMS20190808::Client::updateEnvironmentWi
 UpdateEnvironmentResponse Alibabacloud_ARMS20190808::Client::updateEnvironment(shared_ptr<UpdateEnvironmentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateEnvironmentWithOptions(request, runtime);
+}
+
+UpdateGrafanaWorkspaceResponse Alibabacloud_ARMS20190808::Client::updateGrafanaWorkspaceWithOptions(shared_ptr<UpdateGrafanaWorkspaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliyunLang)) {
+    query->insert(pair<string, string>("AliyunLang", *request->aliyunLang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grafanaWorkspaceId)) {
+    query->insert(pair<string, string>("GrafanaWorkspaceId", *request->grafanaWorkspaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grafanaWorkspaceName)) {
+    query->insert(pair<string, string>("GrafanaWorkspaceName", *request->grafanaWorkspaceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateGrafanaWorkspace"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateGrafanaWorkspaceResponse(callApi(params, req, runtime));
+}
+
+UpdateGrafanaWorkspaceResponse Alibabacloud_ARMS20190808::Client::updateGrafanaWorkspace(shared_ptr<UpdateGrafanaWorkspaceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateGrafanaWorkspaceWithOptions(request, runtime);
+}
+
+UpdateGrafanaWorkspaceVersionResponse Alibabacloud_ARMS20190808::Client::updateGrafanaWorkspaceVersionWithOptions(shared_ptr<UpdateGrafanaWorkspaceVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliyunLang)) {
+    query->insert(pair<string, string>("AliyunLang", *request->aliyunLang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grafanaVersion)) {
+    query->insert(pair<string, string>("GrafanaVersion", *request->grafanaVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grafanaWorkspaceId)) {
+    query->insert(pair<string, string>("GrafanaWorkspaceId", *request->grafanaWorkspaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateGrafanaWorkspaceVersion"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateGrafanaWorkspaceVersionResponse(callApi(params, req, runtime));
+}
+
+UpdateGrafanaWorkspaceVersionResponse Alibabacloud_ARMS20190808::Client::updateGrafanaWorkspaceVersion(shared_ptr<UpdateGrafanaWorkspaceVersionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateGrafanaWorkspaceVersionWithOptions(request, runtime);
 }
 
 UpdateIntegrationResponse Alibabacloud_ARMS20190808::Client::updateIntegrationWithOptions(shared_ptr<UpdateIntegrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

@@ -7251,6 +7251,7 @@ public:
   shared_ptr<string> environmentName{};
   shared_ptr<string> environmentSubType{};
   shared_ptr<string> environmentType{};
+  shared_ptr<string> managedType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<CreateEnvironmentRequestTags>> tags{};
@@ -7279,6 +7280,9 @@ public:
     }
     if (environmentType) {
       res["EnvironmentType"] = boost::any(*environmentType);
+    }
+    if (managedType) {
+      res["ManagedType"] = boost::any(*managedType);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -7311,6 +7315,9 @@ public:
     }
     if (m.find("EnvironmentType") != m.end() && !m["EnvironmentType"].empty()) {
       environmentType = make_shared<string>(boost::any_cast<string>(m["EnvironmentType"]));
+    }
+    if (m.find("ManagedType") != m.end() && !m["ManagedType"].empty()) {
+      managedType = make_shared<string>(boost::any_cast<string>(m["ManagedType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -7447,6 +7454,356 @@ public:
 
 
   virtual ~CreateEnvironmentResponse() = default;
+};
+class CreateGrafanaWorkspaceRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateGrafanaWorkspaceRequestTags() {}
+
+  explicit CreateGrafanaWorkspaceRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateGrafanaWorkspaceRequestTags() = default;
+};
+class CreateGrafanaWorkspaceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunLang{};
+  shared_ptr<string> description{};
+  shared_ptr<string> grafanaVersion{};
+  shared_ptr<string> grafanaWorkspaceEdition{};
+  shared_ptr<string> grafanaWorkspaceName{};
+  shared_ptr<string> password{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<CreateGrafanaWorkspaceRequestTags>> tags{};
+
+  CreateGrafanaWorkspaceRequest() {}
+
+  explicit CreateGrafanaWorkspaceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunLang) {
+      res["AliyunLang"] = boost::any(*aliyunLang);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (grafanaVersion) {
+      res["GrafanaVersion"] = boost::any(*grafanaVersion);
+    }
+    if (grafanaWorkspaceEdition) {
+      res["GrafanaWorkspaceEdition"] = boost::any(*grafanaWorkspaceEdition);
+    }
+    if (grafanaWorkspaceName) {
+      res["GrafanaWorkspaceName"] = boost::any(*grafanaWorkspaceName);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunLang") != m.end() && !m["AliyunLang"].empty()) {
+      aliyunLang = make_shared<string>(boost::any_cast<string>(m["AliyunLang"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GrafanaVersion") != m.end() && !m["GrafanaVersion"].empty()) {
+      grafanaVersion = make_shared<string>(boost::any_cast<string>(m["GrafanaVersion"]));
+    }
+    if (m.find("GrafanaWorkspaceEdition") != m.end() && !m["GrafanaWorkspaceEdition"].empty()) {
+      grafanaWorkspaceEdition = make_shared<string>(boost::any_cast<string>(m["GrafanaWorkspaceEdition"]));
+    }
+    if (m.find("GrafanaWorkspaceName") != m.end() && !m["GrafanaWorkspaceName"].empty()) {
+      grafanaWorkspaceName = make_shared<string>(boost::any_cast<string>(m["GrafanaWorkspaceName"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateGrafanaWorkspaceRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateGrafanaWorkspaceRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateGrafanaWorkspaceRequestTags>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateGrafanaWorkspaceRequest() = default;
+};
+class CreateGrafanaWorkspaceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunLang{};
+  shared_ptr<string> description{};
+  shared_ptr<string> grafanaVersion{};
+  shared_ptr<string> grafanaWorkspaceEdition{};
+  shared_ptr<string> grafanaWorkspaceName{};
+  shared_ptr<string> password{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> tagsShrink{};
+
+  CreateGrafanaWorkspaceShrinkRequest() {}
+
+  explicit CreateGrafanaWorkspaceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunLang) {
+      res["AliyunLang"] = boost::any(*aliyunLang);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (grafanaVersion) {
+      res["GrafanaVersion"] = boost::any(*grafanaVersion);
+    }
+    if (grafanaWorkspaceEdition) {
+      res["GrafanaWorkspaceEdition"] = boost::any(*grafanaWorkspaceEdition);
+    }
+    if (grafanaWorkspaceName) {
+      res["GrafanaWorkspaceName"] = boost::any(*grafanaWorkspaceName);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunLang") != m.end() && !m["AliyunLang"].empty()) {
+      aliyunLang = make_shared<string>(boost::any_cast<string>(m["AliyunLang"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GrafanaVersion") != m.end() && !m["GrafanaVersion"].empty()) {
+      grafanaVersion = make_shared<string>(boost::any_cast<string>(m["GrafanaVersion"]));
+    }
+    if (m.find("GrafanaWorkspaceEdition") != m.end() && !m["GrafanaWorkspaceEdition"].empty()) {
+      grafanaWorkspaceEdition = make_shared<string>(boost::any_cast<string>(m["GrafanaWorkspaceEdition"]));
+    }
+    if (m.find("GrafanaWorkspaceName") != m.end() && !m["GrafanaWorkspaceName"].empty()) {
+      grafanaWorkspaceName = make_shared<string>(boost::any_cast<string>(m["GrafanaWorkspaceName"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+  }
+
+
+  virtual ~CreateGrafanaWorkspaceShrinkRequest() = default;
+};
+class CreateGrafanaWorkspaceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<GrafanaWorkspace> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  CreateGrafanaWorkspaceResponseBody() {}
+
+  explicit CreateGrafanaWorkspaceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GrafanaWorkspace model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GrafanaWorkspace>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~CreateGrafanaWorkspaceResponseBody() = default;
+};
+class CreateGrafanaWorkspaceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateGrafanaWorkspaceResponseBody> body{};
+
+  CreateGrafanaWorkspaceResponse() {}
+
+  explicit CreateGrafanaWorkspaceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateGrafanaWorkspaceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateGrafanaWorkspaceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateGrafanaWorkspaceResponse() = default;
 };
 class CreateIntegrationRequest : public Darabonba::Model {
 public:
@@ -18169,6 +18526,168 @@ public:
 
   virtual ~DeleteGrafanaResourceResponse() = default;
 };
+class DeleteGrafanaWorkspaceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> grafanaWorkspaceId{};
+  shared_ptr<string> regionId{};
+
+  DeleteGrafanaWorkspaceRequest() {}
+
+  explicit DeleteGrafanaWorkspaceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (grafanaWorkspaceId) {
+      res["GrafanaWorkspaceId"] = boost::any(*grafanaWorkspaceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GrafanaWorkspaceId") != m.end() && !m["GrafanaWorkspaceId"].empty()) {
+      grafanaWorkspaceId = make_shared<string>(boost::any_cast<string>(m["GrafanaWorkspaceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteGrafanaWorkspaceRequest() = default;
+};
+class DeleteGrafanaWorkspaceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  DeleteGrafanaWorkspaceResponseBody() {}
+
+  explicit DeleteGrafanaWorkspaceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~DeleteGrafanaWorkspaceResponseBody() = default;
+};
+class DeleteGrafanaWorkspaceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteGrafanaWorkspaceResponseBody> body{};
+
+  DeleteGrafanaWorkspaceResponse() {}
+
+  explicit DeleteGrafanaWorkspaceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteGrafanaWorkspaceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteGrafanaWorkspaceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteGrafanaWorkspaceResponse() = default;
+};
 class DeleteIMRobotRequest : public Darabonba::Model {
 public:
   shared_ptr<long> robotId{};
@@ -27938,6 +28457,179 @@ public:
 
   virtual ~GetExploreUrlResponse() = default;
 };
+class GetGrafanaWorkspaceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunLang{};
+  shared_ptr<string> grafanaWorkspaceId{};
+  shared_ptr<string> regionId{};
+
+  GetGrafanaWorkspaceRequest() {}
+
+  explicit GetGrafanaWorkspaceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunLang) {
+      res["AliyunLang"] = boost::any(*aliyunLang);
+    }
+    if (grafanaWorkspaceId) {
+      res["GrafanaWorkspaceId"] = boost::any(*grafanaWorkspaceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunLang") != m.end() && !m["AliyunLang"].empty()) {
+      aliyunLang = make_shared<string>(boost::any_cast<string>(m["AliyunLang"]));
+    }
+    if (m.find("GrafanaWorkspaceId") != m.end() && !m["GrafanaWorkspaceId"].empty()) {
+      grafanaWorkspaceId = make_shared<string>(boost::any_cast<string>(m["GrafanaWorkspaceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetGrafanaWorkspaceRequest() = default;
+};
+class GetGrafanaWorkspaceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<GrafanaWorkspace> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  GetGrafanaWorkspaceResponseBody() {}
+
+  explicit GetGrafanaWorkspaceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GrafanaWorkspace model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GrafanaWorkspace>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~GetGrafanaWorkspaceResponseBody() = default;
+};
+class GetGrafanaWorkspaceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetGrafanaWorkspaceResponseBody> body{};
+
+  GetGrafanaWorkspaceResponse() {}
+
+  explicit GetGrafanaWorkspaceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetGrafanaWorkspaceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetGrafanaWorkspaceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetGrafanaWorkspaceResponse() = default;
+};
 class GetIntegrationStateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -37155,6 +37847,7 @@ class InitEnvironmentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aliyunLang{};
   shared_ptr<string> environmentId{};
+  shared_ptr<string> managedType{};
   shared_ptr<string> regionId{};
 
   InitEnvironmentRequest() {}
@@ -37173,6 +37866,9 @@ public:
     if (environmentId) {
       res["EnvironmentId"] = boost::any(*environmentId);
     }
+    if (managedType) {
+      res["ManagedType"] = boost::any(*managedType);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -37185,6 +37881,9 @@ public:
     }
     if (m.find("EnvironmentId") != m.end() && !m["EnvironmentId"].empty()) {
       environmentId = make_shared<string>(boost::any_cast<string>(m["EnvironmentId"]));
+    }
+    if (m.find("ManagedType") != m.end() && !m["ManagedType"].empty()) {
+      managedType = make_shared<string>(boost::any_cast<string>(m["ManagedType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -61222,6 +61921,365 @@ public:
 
   virtual ~UpdateEnvironmentResponse() = default;
 };
+class UpdateGrafanaWorkspaceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunLang{};
+  shared_ptr<string> description{};
+  shared_ptr<string> grafanaWorkspaceId{};
+  shared_ptr<string> grafanaWorkspaceName{};
+  shared_ptr<string> regionId{};
+
+  UpdateGrafanaWorkspaceRequest() {}
+
+  explicit UpdateGrafanaWorkspaceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunLang) {
+      res["AliyunLang"] = boost::any(*aliyunLang);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (grafanaWorkspaceId) {
+      res["GrafanaWorkspaceId"] = boost::any(*grafanaWorkspaceId);
+    }
+    if (grafanaWorkspaceName) {
+      res["GrafanaWorkspaceName"] = boost::any(*grafanaWorkspaceName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunLang") != m.end() && !m["AliyunLang"].empty()) {
+      aliyunLang = make_shared<string>(boost::any_cast<string>(m["AliyunLang"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GrafanaWorkspaceId") != m.end() && !m["GrafanaWorkspaceId"].empty()) {
+      grafanaWorkspaceId = make_shared<string>(boost::any_cast<string>(m["GrafanaWorkspaceId"]));
+    }
+    if (m.find("GrafanaWorkspaceName") != m.end() && !m["GrafanaWorkspaceName"].empty()) {
+      grafanaWorkspaceName = make_shared<string>(boost::any_cast<string>(m["GrafanaWorkspaceName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpdateGrafanaWorkspaceRequest() = default;
+};
+class UpdateGrafanaWorkspaceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  UpdateGrafanaWorkspaceResponseBody() {}
+
+  explicit UpdateGrafanaWorkspaceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~UpdateGrafanaWorkspaceResponseBody() = default;
+};
+class UpdateGrafanaWorkspaceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateGrafanaWorkspaceResponseBody> body{};
+
+  UpdateGrafanaWorkspaceResponse() {}
+
+  explicit UpdateGrafanaWorkspaceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateGrafanaWorkspaceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateGrafanaWorkspaceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateGrafanaWorkspaceResponse() = default;
+};
+class UpdateGrafanaWorkspaceVersionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunLang{};
+  shared_ptr<string> grafanaVersion{};
+  shared_ptr<string> grafanaWorkspaceId{};
+  shared_ptr<string> regionId{};
+
+  UpdateGrafanaWorkspaceVersionRequest() {}
+
+  explicit UpdateGrafanaWorkspaceVersionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunLang) {
+      res["AliyunLang"] = boost::any(*aliyunLang);
+    }
+    if (grafanaVersion) {
+      res["GrafanaVersion"] = boost::any(*grafanaVersion);
+    }
+    if (grafanaWorkspaceId) {
+      res["GrafanaWorkspaceId"] = boost::any(*grafanaWorkspaceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunLang") != m.end() && !m["AliyunLang"].empty()) {
+      aliyunLang = make_shared<string>(boost::any_cast<string>(m["AliyunLang"]));
+    }
+    if (m.find("GrafanaVersion") != m.end() && !m["GrafanaVersion"].empty()) {
+      grafanaVersion = make_shared<string>(boost::any_cast<string>(m["GrafanaVersion"]));
+    }
+    if (m.find("GrafanaWorkspaceId") != m.end() && !m["GrafanaWorkspaceId"].empty()) {
+      grafanaWorkspaceId = make_shared<string>(boost::any_cast<string>(m["GrafanaWorkspaceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpdateGrafanaWorkspaceVersionRequest() = default;
+};
+class UpdateGrafanaWorkspaceVersionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  UpdateGrafanaWorkspaceVersionResponseBody() {}
+
+  explicit UpdateGrafanaWorkspaceVersionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~UpdateGrafanaWorkspaceVersionResponseBody() = default;
+};
+class UpdateGrafanaWorkspaceVersionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateGrafanaWorkspaceVersionResponseBody> body{};
+
+  UpdateGrafanaWorkspaceVersionResponse() {}
+
+  explicit UpdateGrafanaWorkspaceVersionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateGrafanaWorkspaceVersionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateGrafanaWorkspaceVersionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateGrafanaWorkspaceVersionResponse() = default;
+};
 class UpdateIntegrationRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRecover{};
@@ -65649,6 +66707,8 @@ public:
   CreateEnvServiceMonitorResponse createEnvServiceMonitor(shared_ptr<CreateEnvServiceMonitorRequest> request);
   CreateEnvironmentResponse createEnvironmentWithOptions(shared_ptr<CreateEnvironmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateEnvironmentResponse createEnvironment(shared_ptr<CreateEnvironmentRequest> request);
+  CreateGrafanaWorkspaceResponse createGrafanaWorkspaceWithOptions(shared_ptr<CreateGrafanaWorkspaceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateGrafanaWorkspaceResponse createGrafanaWorkspace(shared_ptr<CreateGrafanaWorkspaceRequest> request);
   CreateIntegrationResponse createIntegrationWithOptions(shared_ptr<CreateIntegrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateIntegrationResponse createIntegration(shared_ptr<CreateIntegrationRequest> request);
   CreateOrUpdateAlertRuleResponse createOrUpdateAlertRuleWithOptions(shared_ptr<CreateOrUpdateAlertRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -65717,6 +66777,8 @@ public:
   DeleteEventBridgeIntegrationResponse deleteEventBridgeIntegration(shared_ptr<DeleteEventBridgeIntegrationRequest> request);
   DeleteGrafanaResourceResponse deleteGrafanaResourceWithOptions(shared_ptr<DeleteGrafanaResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteGrafanaResourceResponse deleteGrafanaResource(shared_ptr<DeleteGrafanaResourceRequest> request);
+  DeleteGrafanaWorkspaceResponse deleteGrafanaWorkspaceWithOptions(shared_ptr<DeleteGrafanaWorkspaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteGrafanaWorkspaceResponse deleteGrafanaWorkspace(shared_ptr<DeleteGrafanaWorkspaceRequest> request);
   DeleteIMRobotResponse deleteIMRobotWithOptions(shared_ptr<DeleteIMRobotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteIMRobotResponse deleteIMRobot(shared_ptr<DeleteIMRobotRequest> request);
   DeleteIntegrationResponse deleteIntegrationWithOptions(shared_ptr<DeleteIntegrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -65797,6 +66859,8 @@ public:
   GetCommercialStatusResponse getCommercialStatus(shared_ptr<GetCommercialStatusRequest> request);
   GetExploreUrlResponse getExploreUrlWithOptions(shared_ptr<GetExploreUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetExploreUrlResponse getExploreUrl(shared_ptr<GetExploreUrlRequest> request);
+  GetGrafanaWorkspaceResponse getGrafanaWorkspaceWithOptions(shared_ptr<GetGrafanaWorkspaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetGrafanaWorkspaceResponse getGrafanaWorkspace(shared_ptr<GetGrafanaWorkspaceRequest> request);
   GetIntegrationStateResponse getIntegrationStateWithOptions(shared_ptr<GetIntegrationStateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetIntegrationStateResponse getIntegrationState(shared_ptr<GetIntegrationStateRequest> request);
   GetManagedPrometheusStatusResponse getManagedPrometheusStatusWithOptions(shared_ptr<GetManagedPrometheusStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -66017,6 +67081,10 @@ public:
   UpdateEnvServiceMonitorResponse updateEnvServiceMonitor(shared_ptr<UpdateEnvServiceMonitorRequest> request);
   UpdateEnvironmentResponse updateEnvironmentWithOptions(shared_ptr<UpdateEnvironmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateEnvironmentResponse updateEnvironment(shared_ptr<UpdateEnvironmentRequest> request);
+  UpdateGrafanaWorkspaceResponse updateGrafanaWorkspaceWithOptions(shared_ptr<UpdateGrafanaWorkspaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGrafanaWorkspaceResponse updateGrafanaWorkspace(shared_ptr<UpdateGrafanaWorkspaceRequest> request);
+  UpdateGrafanaWorkspaceVersionResponse updateGrafanaWorkspaceVersionWithOptions(shared_ptr<UpdateGrafanaWorkspaceVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGrafanaWorkspaceVersionResponse updateGrafanaWorkspaceVersion(shared_ptr<UpdateGrafanaWorkspaceVersionRequest> request);
   UpdateIntegrationResponse updateIntegrationWithOptions(shared_ptr<UpdateIntegrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIntegrationResponse updateIntegration(shared_ptr<UpdateIntegrationRequest> request);
   UpdateMetricDropResponse updateMetricDropWithOptions(shared_ptr<UpdateMetricDropRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
