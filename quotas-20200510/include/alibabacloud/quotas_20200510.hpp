@@ -5735,7 +5735,6 @@ public:
 };
 class ListQuotaApplicationsRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> acceptLanguage{};
   shared_ptr<vector<ListQuotaApplicationsRequestDimensions>> dimensions{};
   shared_ptr<string> keyWord{};
   shared_ptr<long> maxResults{};
@@ -5755,9 +5754,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (acceptLanguage) {
-      res["AcceptLanguage"] = boost::any(*acceptLanguage);
-    }
     if (dimensions) {
       vector<boost::any> temp1;
       for(auto item1:*dimensions){
@@ -5790,9 +5786,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
-      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
     if (m.find("Dimensions") != m.end() && !m["Dimensions"].empty()) {
       if (typeid(vector<boost::any>) == m["Dimensions"].type()) {
         vector<ListQuotaApplicationsRequestDimensions> expect1;
