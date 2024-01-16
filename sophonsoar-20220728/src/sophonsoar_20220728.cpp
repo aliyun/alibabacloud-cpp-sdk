@@ -1071,6 +1071,9 @@ ModifyPlaybookResponse Alibabacloud_Sophonsoar20220728::Client::modifyPlaybook(s
 ModifyPlaybookInputOutputResponse Alibabacloud_Sophonsoar20220728::Client::modifyPlaybookInputOutputWithOptions(shared_ptr<ModifyPlaybookInputOutputRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->exeConfig)) {
+    body->insert(pair<string, string>("ExeConfig", *request->exeConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputParams)) {
     body->insert(pair<string, string>("InputParams", *request->inputParams));
   }

@@ -3537,6 +3537,7 @@ public:
 };
 class DescribePlaybookInputOutputResponseBodyConfig : public Darabonba::Model {
 public:
+  shared_ptr<string> exeConfig{};
   shared_ptr<string> inputParams{};
   shared_ptr<string> outputParams{};
   shared_ptr<string> paramType{};
@@ -3552,6 +3553,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (exeConfig) {
+      res["ExeConfig"] = boost::any(*exeConfig);
+    }
     if (inputParams) {
       res["InputParams"] = boost::any(*inputParams);
     }
@@ -3568,6 +3572,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExeConfig") != m.end() && !m["ExeConfig"].empty()) {
+      exeConfig = make_shared<string>(boost::any_cast<string>(m["ExeConfig"]));
+    }
     if (m.find("InputParams") != m.end() && !m["InputParams"].empty()) {
       inputParams = make_shared<string>(boost::any_cast<string>(m["InputParams"]));
     }
@@ -7647,6 +7654,7 @@ public:
 };
 class ModifyPlaybookInputOutputRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> exeConfig{};
   shared_ptr<string> inputParams{};
   shared_ptr<string> lang{};
   shared_ptr<string> outputParams{};
@@ -7663,6 +7671,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (exeConfig) {
+      res["ExeConfig"] = boost::any(*exeConfig);
+    }
     if (inputParams) {
       res["InputParams"] = boost::any(*inputParams);
     }
@@ -7682,6 +7693,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExeConfig") != m.end() && !m["ExeConfig"].empty()) {
+      exeConfig = make_shared<string>(boost::any_cast<string>(m["ExeConfig"]));
+    }
     if (m.find("InputParams") != m.end() && !m["InputParams"].empty()) {
       inputParams = make_shared<string>(boost::any_cast<string>(m["InputParams"]));
     }
