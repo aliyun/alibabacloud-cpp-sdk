@@ -2862,6 +2862,7 @@ public:
 class CreateGbDeviceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> deviceName{};
   shared_ptr<long> deviceType{};
   shared_ptr<string> gbId{};
   shared_ptr<string> iotInstanceId{};
@@ -2882,6 +2883,9 @@ public:
     map<string, boost::any> res;
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
     }
     if (deviceType) {
       res["DeviceType"] = boost::any(*deviceType);
@@ -2910,6 +2914,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
     }
     if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
       deviceType = make_shared<long>(boost::any_cast<long>(m["DeviceType"]));
@@ -5842,6 +5849,168 @@ public:
 
   virtual ~DeleteFaceUserPictureResponse() = default;
 };
+class DeleteGbDeviceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> iotId{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> productKey{};
+
+  DeleteGbDeviceRequest() {}
+
+  explicit DeleteGbDeviceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (iotId) {
+      res["IotId"] = boost::any(*iotId);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("IotId") != m.end() && !m["IotId"].empty()) {
+      iotId = make_shared<string>(boost::any_cast<string>(m["IotId"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+  }
+
+
+  virtual ~DeleteGbDeviceRequest() = default;
+};
+class DeleteGbDeviceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteGbDeviceResponseBody() {}
+
+  explicit DeleteGbDeviceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteGbDeviceResponseBody() = default;
+};
+class DeleteGbDeviceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteGbDeviceResponseBody> body{};
+
+  DeleteGbDeviceResponse() {}
+
+  explicit DeleteGbDeviceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteGbDeviceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteGbDeviceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteGbDeviceResponse() = default;
+};
 class DeleteLocalFileUploadJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> iotInstanceId{};
@@ -7582,6 +7751,222 @@ public:
 
 
   virtual ~DetectUserFaceByUrlResponse() = default;
+};
+class EnableGbSubDeviceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> iotId{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> productKey{};
+  shared_ptr<string> subDeviceId{};
+
+  EnableGbSubDeviceRequest() {}
+
+  explicit EnableGbSubDeviceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (iotId) {
+      res["IotId"] = boost::any(*iotId);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    if (subDeviceId) {
+      res["SubDeviceId"] = boost::any(*subDeviceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("IotId") != m.end() && !m["IotId"].empty()) {
+      iotId = make_shared<string>(boost::any_cast<string>(m["IotId"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+    if (m.find("SubDeviceId") != m.end() && !m["SubDeviceId"].empty()) {
+      subDeviceId = make_shared<string>(boost::any_cast<string>(m["SubDeviceId"]));
+    }
+  }
+
+
+  virtual ~EnableGbSubDeviceRequest() = default;
+};
+class EnableGbSubDeviceResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> productKey{};
+
+  EnableGbSubDeviceResponseBodyData() {}
+
+  explicit EnableGbSubDeviceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+  }
+
+
+  virtual ~EnableGbSubDeviceResponseBodyData() = default;
+};
+class EnableGbSubDeviceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<EnableGbSubDeviceResponseBodyData> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  EnableGbSubDeviceResponseBody() {}
+
+  explicit EnableGbSubDeviceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        EnableGbSubDeviceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<EnableGbSubDeviceResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~EnableGbSubDeviceResponseBody() = default;
+};
+class EnableGbSubDeviceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnableGbSubDeviceResponseBody> body{};
+
+  EnableGbSubDeviceResponse() {}
+
+  explicit EnableGbSubDeviceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnableGbSubDeviceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnableGbSubDeviceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EnableGbSubDeviceResponse() = default;
 };
 class GetPictureSearchJobStatusRequest : public Darabonba::Model {
 public:
@@ -15579,6 +15964,300 @@ public:
 
   virtual ~QueryFaceUserIdByCustomUserIdResponse() = default;
 };
+class QueryGbSubDeviceListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> iotId{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> pageStart{};
+  shared_ptr<string> productKey{};
+
+  QueryGbSubDeviceListRequest() {}
+
+  explicit QueryGbSubDeviceListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (iotId) {
+      res["IotId"] = boost::any(*iotId);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (pageStart) {
+      res["PageStart"] = boost::any(*pageStart);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("IotId") != m.end() && !m["IotId"].empty()) {
+      iotId = make_shared<string>(boost::any_cast<string>(m["IotId"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PageStart") != m.end() && !m["PageStart"].empty()) {
+      pageStart = make_shared<long>(boost::any_cast<long>(m["PageStart"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+  }
+
+
+  virtual ~QueryGbSubDeviceListRequest() = default;
+};
+class QueryGbSubDeviceListResponseBodyDataGbSubDeviceList : public Darabonba::Model {
+public:
+  shared_ptr<long> deviceEnable{};
+  shared_ptr<string> deviceId{};
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> iotId{};
+  shared_ptr<string> productKey{};
+
+  QueryGbSubDeviceListResponseBodyDataGbSubDeviceList() {}
+
+  explicit QueryGbSubDeviceListResponseBodyDataGbSubDeviceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceEnable) {
+      res["DeviceEnable"] = boost::any(*deviceEnable);
+    }
+    if (deviceId) {
+      res["DeviceId"] = boost::any(*deviceId);
+    }
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (iotId) {
+      res["IotId"] = boost::any(*iotId);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceEnable") != m.end() && !m["DeviceEnable"].empty()) {
+      deviceEnable = make_shared<long>(boost::any_cast<long>(m["DeviceEnable"]));
+    }
+    if (m.find("DeviceId") != m.end() && !m["DeviceId"].empty()) {
+      deviceId = make_shared<string>(boost::any_cast<string>(m["DeviceId"]));
+    }
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("IotId") != m.end() && !m["IotId"].empty()) {
+      iotId = make_shared<string>(boost::any_cast<string>(m["IotId"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+  }
+
+
+  virtual ~QueryGbSubDeviceListResponseBodyDataGbSubDeviceList() = default;
+};
+class QueryGbSubDeviceListResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<QueryGbSubDeviceListResponseBodyDataGbSubDeviceList>> gbSubDeviceList{};
+  shared_ptr<long> total{};
+
+  QueryGbSubDeviceListResponseBodyData() {}
+
+  explicit QueryGbSubDeviceListResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gbSubDeviceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*gbSubDeviceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GbSubDeviceList"] = boost::any(temp1);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GbSubDeviceList") != m.end() && !m["GbSubDeviceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["GbSubDeviceList"].type()) {
+        vector<QueryGbSubDeviceListResponseBodyDataGbSubDeviceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GbSubDeviceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryGbSubDeviceListResponseBodyDataGbSubDeviceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        gbSubDeviceList = make_shared<vector<QueryGbSubDeviceListResponseBodyDataGbSubDeviceList>>(expect1);
+      }
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~QueryGbSubDeviceListResponseBodyData() = default;
+};
+class QueryGbSubDeviceListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<QueryGbSubDeviceListResponseBodyData> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QueryGbSubDeviceListResponseBody() {}
+
+  explicit QueryGbSubDeviceListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QueryGbSubDeviceListResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QueryGbSubDeviceListResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryGbSubDeviceListResponseBody() = default;
+};
+class QueryGbSubDeviceListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryGbSubDeviceListResponseBody> body{};
+
+  QueryGbSubDeviceListResponse() {}
+
+  explicit QueryGbSubDeviceListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryGbSubDeviceListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryGbSubDeviceListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryGbSubDeviceListResponse() = default;
+};
 class QueryLiveStreamingRequest : public Darabonba::Model {
 public:
   shared_ptr<long> cacheDuration{};
@@ -22689,6 +23368,168 @@ public:
 
   virtual ~QueryVoiceIntercomResponse() = default;
 };
+class RefreshGbSubDeviceListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> iotId{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> productKey{};
+
+  RefreshGbSubDeviceListRequest() {}
+
+  explicit RefreshGbSubDeviceListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (iotId) {
+      res["IotId"] = boost::any(*iotId);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("IotId") != m.end() && !m["IotId"].empty()) {
+      iotId = make_shared<string>(boost::any_cast<string>(m["IotId"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+  }
+
+
+  virtual ~RefreshGbSubDeviceListRequest() = default;
+};
+class RefreshGbSubDeviceListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  RefreshGbSubDeviceListResponseBody() {}
+
+  explicit RefreshGbSubDeviceListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~RefreshGbSubDeviceListResponseBody() = default;
+};
+class RefreshGbSubDeviceListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RefreshGbSubDeviceListResponseBody> body{};
+
+  RefreshGbSubDeviceListResponse() {}
+
+  explicit RefreshGbSubDeviceListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RefreshGbSubDeviceListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RefreshGbSubDeviceListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RefreshGbSubDeviceListResponse() = default;
+};
 class RemoveFaceDeviceFromDeviceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> deviceGroupId{};
@@ -25080,6 +25921,189 @@ public:
 
   virtual ~UpdateFaceUserGroupAndDeviceGroupRelationResponse() = default;
 };
+class UpdateGbDeviceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> gbId{};
+  shared_ptr<string> iotId{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> password{};
+  shared_ptr<string> productKey{};
+
+  UpdateGbDeviceRequest() {}
+
+  explicit UpdateGbDeviceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (gbId) {
+      res["GbId"] = boost::any(*gbId);
+    }
+    if (iotId) {
+      res["IotId"] = boost::any(*iotId);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("GbId") != m.end() && !m["GbId"].empty()) {
+      gbId = make_shared<string>(boost::any_cast<string>(m["GbId"]));
+    }
+    if (m.find("IotId") != m.end() && !m["IotId"].empty()) {
+      iotId = make_shared<string>(boost::any_cast<string>(m["IotId"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+  }
+
+
+  virtual ~UpdateGbDeviceRequest() = default;
+};
+class UpdateGbDeviceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateGbDeviceResponseBody() {}
+
+  explicit UpdateGbDeviceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateGbDeviceResponseBody() = default;
+};
+class UpdateGbDeviceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateGbDeviceResponseBody> body{};
+
+  UpdateGbDeviceResponse() {}
+
+  explicit UpdateGbDeviceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateGbDeviceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateGbDeviceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateGbDeviceResponse() = default;
+};
 class UpdateInstanceInternetProtocolRequest : public Darabonba::Model {
 public:
   shared_ptr<string> iotInstanceId{};
@@ -26029,6 +27053,8 @@ public:
   DeleteFaceUserGroupAndDeviceGroupRelationResponse deleteFaceUserGroupAndDeviceGroupRelation(shared_ptr<DeleteFaceUserGroupAndDeviceGroupRelationRequest> request);
   DeleteFaceUserPictureResponse deleteFaceUserPictureWithOptions(shared_ptr<DeleteFaceUserPictureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteFaceUserPictureResponse deleteFaceUserPicture(shared_ptr<DeleteFaceUserPictureRequest> request);
+  DeleteGbDeviceResponse deleteGbDeviceWithOptions(shared_ptr<DeleteGbDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteGbDeviceResponse deleteGbDevice(shared_ptr<DeleteGbDeviceRequest> request);
   DeleteLocalFileUploadJobResponse deleteLocalFileUploadJobWithOptions(shared_ptr<DeleteLocalFileUploadJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteLocalFileUploadJobResponse deleteLocalFileUploadJob(shared_ptr<DeleteLocalFileUploadJobRequest> request);
   DeletePictureResponse deletePictureWithOptions(shared_ptr<DeletePictureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -26047,6 +27073,8 @@ public:
   DeleteTimeTemplateResponse deleteTimeTemplate(shared_ptr<DeleteTimeTemplateRequest> request);
   DetectUserFaceByUrlResponse detectUserFaceByUrlWithOptions(shared_ptr<DetectUserFaceByUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectUserFaceByUrlResponse detectUserFaceByUrl(shared_ptr<DetectUserFaceByUrlRequest> request);
+  EnableGbSubDeviceResponse enableGbSubDeviceWithOptions(shared_ptr<EnableGbSubDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnableGbSubDeviceResponse enableGbSubDevice(shared_ptr<EnableGbSubDeviceRequest> request);
   GetPictureSearchJobStatusResponse getPictureSearchJobStatusWithOptions(shared_ptr<GetPictureSearchJobStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPictureSearchJobStatusResponse getPictureSearchJobStatus(shared_ptr<GetPictureSearchJobStatusRequest> request);
   PictureSearchPictureResponse pictureSearchPictureWithOptions(shared_ptr<PictureSearchPictureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -26103,6 +27131,8 @@ public:
   QueryFaceUserGroupAndDeviceGroupRelationResponse queryFaceUserGroupAndDeviceGroupRelation(shared_ptr<QueryFaceUserGroupAndDeviceGroupRelationRequest> request);
   QueryFaceUserIdByCustomUserIdResponse queryFaceUserIdByCustomUserIdWithOptions(shared_ptr<QueryFaceUserIdByCustomUserIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryFaceUserIdByCustomUserIdResponse queryFaceUserIdByCustomUserId(shared_ptr<QueryFaceUserIdByCustomUserIdRequest> request);
+  QueryGbSubDeviceListResponse queryGbSubDeviceListWithOptions(shared_ptr<QueryGbSubDeviceListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryGbSubDeviceListResponse queryGbSubDeviceList(shared_ptr<QueryGbSubDeviceListRequest> request);
   QueryLiveStreamingResponse queryLiveStreamingWithOptions(shared_ptr<QueryLiveStreamingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryLiveStreamingResponse queryLiveStreaming(shared_ptr<QueryLiveStreamingRequest> request);
   QueryLocalFileUploadJobResponse queryLocalFileUploadJobWithOptions(shared_ptr<QueryLocalFileUploadJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -26153,6 +27183,8 @@ public:
   QueryVisionDeviceInfoResponse queryVisionDeviceInfo(shared_ptr<QueryVisionDeviceInfoRequest> request);
   QueryVoiceIntercomResponse queryVoiceIntercomWithOptions(shared_ptr<QueryVoiceIntercomRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryVoiceIntercomResponse queryVoiceIntercom(shared_ptr<QueryVoiceIntercomRequest> request);
+  RefreshGbSubDeviceListResponse refreshGbSubDeviceListWithOptions(shared_ptr<RefreshGbSubDeviceListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RefreshGbSubDeviceListResponse refreshGbSubDeviceList(shared_ptr<RefreshGbSubDeviceListRequest> request);
   RemoveFaceDeviceFromDeviceGroupResponse removeFaceDeviceFromDeviceGroupWithOptions(shared_ptr<RemoveFaceDeviceFromDeviceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveFaceDeviceFromDeviceGroupResponse removeFaceDeviceFromDeviceGroup(shared_ptr<RemoveFaceDeviceFromDeviceGroupRequest> request);
   RemoveFaceUserFromUserGroupResponse removeFaceUserFromUserGroupWithOptions(shared_ptr<RemoveFaceUserFromUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -26179,6 +27211,8 @@ public:
   UpdateFaceUserResponse updateFaceUser(shared_ptr<UpdateFaceUserRequest> request);
   UpdateFaceUserGroupAndDeviceGroupRelationResponse updateFaceUserGroupAndDeviceGroupRelationWithOptions(shared_ptr<UpdateFaceUserGroupAndDeviceGroupRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateFaceUserGroupAndDeviceGroupRelationResponse updateFaceUserGroupAndDeviceGroupRelation(shared_ptr<UpdateFaceUserGroupAndDeviceGroupRelationRequest> request);
+  UpdateGbDeviceResponse updateGbDeviceWithOptions(shared_ptr<UpdateGbDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGbDeviceResponse updateGbDevice(shared_ptr<UpdateGbDeviceRequest> request);
   UpdateInstanceInternetProtocolResponse updateInstanceInternetProtocolWithOptions(shared_ptr<UpdateInstanceInternetProtocolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateInstanceInternetProtocolResponse updateInstanceInternetProtocol(shared_ptr<UpdateInstanceInternetProtocolRequest> request);
   UpdatePictureSearchAppResponse updatePictureSearchAppWithOptions(shared_ptr<UpdatePictureSearchAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
