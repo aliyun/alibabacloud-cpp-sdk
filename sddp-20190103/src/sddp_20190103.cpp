@@ -1254,6 +1254,9 @@ DescribeEventsResponse Alibabacloud_Sddp20190103::Client::describeEventsWithOpti
   if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
     query->insert(pair<string, string>("UserName", *request->userName));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->warnLevel)) {
+    query->insert(pair<string, long>("WarnLevel", *request->warnLevel));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

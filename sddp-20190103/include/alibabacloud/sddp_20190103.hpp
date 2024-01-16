@@ -7766,6 +7766,7 @@ public:
   shared_ptr<string> typeCode{};
   shared_ptr<long> userId{};
   shared_ptr<string> userName{};
+  shared_ptr<long> warnLevel{};
 
   DescribeEventsRequest() {}
 
@@ -7822,6 +7823,9 @@ public:
     if (userName) {
       res["UserName"] = boost::any(*userName);
     }
+    if (warnLevel) {
+      res["WarnLevel"] = boost::any(*warnLevel);
+    }
     return res;
   }
 
@@ -7870,6 +7874,9 @@ public:
     }
     if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
       userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+    if (m.find("WarnLevel") != m.end() && !m["WarnLevel"].empty()) {
+      warnLevel = make_shared<long>(boost::any_cast<long>(m["WarnLevel"]));
     }
   }
 
