@@ -15769,6 +15769,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<DescribeDomainInfoResponseBodyDnsServers> dnsServers{};
   shared_ptr<string> domainId{};
+  shared_ptr<string> domainLoggingSwitchStatus{};
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
   shared_ptr<string> groupName{};
@@ -15813,6 +15814,9 @@ public:
     }
     if (domainId) {
       res["DomainId"] = boost::any(*domainId);
+    }
+    if (domainLoggingSwitchStatus) {
+      res["DomainLoggingSwitchStatus"] = boost::any(*domainLoggingSwitchStatus);
     }
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
@@ -15897,6 +15901,9 @@ public:
     }
     if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
       domainId = make_shared<string>(boost::any_cast<string>(m["DomainId"]));
+    }
+    if (m.find("DomainLoggingSwitchStatus") != m.end() && !m["DomainLoggingSwitchStatus"].empty()) {
+      domainLoggingSwitchStatus = make_shared<string>(boost::any_cast<string>(m["DomainLoggingSwitchStatus"]));
     }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
@@ -18235,6 +18242,7 @@ public:
   shared_ptr<long> createTimestamp{};
   shared_ptr<DescribeDomainsResponseBodyDomainsDomainDnsServers> dnsServers{};
   shared_ptr<string> domainId{};
+  shared_ptr<string> domainLoggingSwitchStatus{};
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
   shared_ptr<string> groupName{};
@@ -18275,6 +18283,9 @@ public:
     }
     if (domainId) {
       res["DomainId"] = boost::any(*domainId);
+    }
+    if (domainLoggingSwitchStatus) {
+      res["DomainLoggingSwitchStatus"] = boost::any(*domainLoggingSwitchStatus);
     }
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
@@ -18343,6 +18354,9 @@ public:
     }
     if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
       domainId = make_shared<string>(boost::any_cast<string>(m["DomainId"]));
+    }
+    if (m.find("DomainLoggingSwitchStatus") != m.end() && !m["DomainLoggingSwitchStatus"].empty()) {
+      domainLoggingSwitchStatus = make_shared<string>(boost::any_cast<string>(m["DomainLoggingSwitchStatus"]));
     }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
