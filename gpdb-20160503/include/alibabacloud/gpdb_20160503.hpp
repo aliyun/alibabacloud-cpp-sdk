@@ -23602,6 +23602,8 @@ public:
   shared_ptr<string> collection{};
   shared_ptr<string> content{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> fileName{};
+  shared_ptr<string> fileUrl{};
   shared_ptr<string> filter{};
   shared_ptr<string> metrics{};
   shared_ptr<string> namespace_{};
@@ -23629,6 +23631,12 @@ public:
     }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
@@ -23667,6 +23675,12 @@ public:
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
     }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
@@ -23695,6 +23709,119 @@ public:
 
 
   virtual ~QueryContentRequest() = default;
+};
+class QueryContentAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> collection{};
+  shared_ptr<string> content{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> fileName{};
+  shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<string> filter{};
+  shared_ptr<string> metrics{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespacePassword{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> topK{};
+  shared_ptr<bool> useFullTextRetrieval{};
+
+  QueryContentAdvanceRequest() {}
+
+  explicit QueryContentAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (collection) {
+      res["Collection"] = boost::any(*collection);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileUrlObject) {
+      res["FileUrl"] = boost::any(*fileUrlObject);
+    }
+    if (filter) {
+      res["Filter"] = boost::any(*filter);
+    }
+    if (metrics) {
+      res["Metrics"] = boost::any(*metrics);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespacePassword) {
+      res["NamespacePassword"] = boost::any(*namespacePassword);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (topK) {
+      res["TopK"] = boost::any(*topK);
+    }
+    if (useFullTextRetrieval) {
+      res["UseFullTextRetrieval"] = boost::any(*useFullTextRetrieval);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
+      collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("Metrics") != m.end() && !m["Metrics"].empty()) {
+      metrics = make_shared<string>(boost::any_cast<string>(m["Metrics"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespacePassword") != m.end() && !m["NamespacePassword"].empty()) {
+      namespacePassword = make_shared<string>(boost::any_cast<string>(m["NamespacePassword"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("TopK") != m.end() && !m["TopK"].empty()) {
+      topK = make_shared<long>(boost::any_cast<long>(m["TopK"]));
+    }
+    if (m.find("UseFullTextRetrieval") != m.end() && !m["UseFullTextRetrieval"].empty()) {
+      useFullTextRetrieval = make_shared<bool>(boost::any_cast<bool>(m["UseFullTextRetrieval"]));
+    }
+  }
+
+
+  virtual ~QueryContentAdvanceRequest() = default;
 };
 class QueryContentResponseBodyMatchesMatchListVector : public Darabonba::Model {
 public:
@@ -23736,6 +23863,7 @@ class QueryContentResponseBodyMatchesMatchList : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
   shared_ptr<string> fileName{};
+  shared_ptr<string> fileURL{};
   shared_ptr<string> id{};
   shared_ptr<string> loaderMetadata{};
   shared_ptr<map<string, string>> metadata{};
@@ -23758,6 +23886,9 @@ public:
     }
     if (fileName) {
       res["FileName"] = boost::any(*fileName);
+    }
+    if (fileURL) {
+      res["FileURL"] = boost::any(*fileURL);
     }
     if (id) {
       res["Id"] = boost::any(*id);
@@ -23786,6 +23917,9 @@ public:
     }
     if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
       fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileURL") != m.end() && !m["FileURL"].empty()) {
+      fileURL = make_shared<string>(boost::any_cast<string>(m["FileURL"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
@@ -23862,6 +23996,42 @@ public:
 
   virtual ~QueryContentResponseBodyMatches() = default;
 };
+class QueryContentResponseBodyUsage : public Darabonba::Model {
+public:
+  shared_ptr<string> embeddingEntries{};
+  shared_ptr<string> embeddingTokens{};
+
+  QueryContentResponseBodyUsage() {}
+
+  explicit QueryContentResponseBodyUsage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (embeddingEntries) {
+      res["EmbeddingEntries"] = boost::any(*embeddingEntries);
+    }
+    if (embeddingTokens) {
+      res["EmbeddingTokens"] = boost::any(*embeddingTokens);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EmbeddingEntries") != m.end() && !m["EmbeddingEntries"].empty()) {
+      embeddingEntries = make_shared<string>(boost::any_cast<string>(m["EmbeddingEntries"]));
+    }
+    if (m.find("EmbeddingTokens") != m.end() && !m["EmbeddingTokens"].empty()) {
+      embeddingTokens = make_shared<string>(boost::any_cast<string>(m["EmbeddingTokens"]));
+    }
+  }
+
+
+  virtual ~QueryContentResponseBodyUsage() = default;
+};
 class QueryContentResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> embeddingTokens{};
@@ -23869,6 +24039,7 @@ public:
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
+  shared_ptr<QueryContentResponseBodyUsage> usage{};
 
   QueryContentResponseBody() {}
 
@@ -23895,6 +24066,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (usage) {
+      res["Usage"] = usage ? boost::any(usage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -23917,6 +24091,13 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Usage") != m.end() && !m["Usage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Usage"].type()) {
+        QueryContentResponseBodyUsage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Usage"]));
+        usage = make_shared<QueryContentResponseBodyUsage>(model1);
+      }
     }
   }
 
@@ -27857,6 +28038,7 @@ public:
   QueryCollectionDataResponse queryCollectionData(shared_ptr<QueryCollectionDataRequest> request);
   QueryContentResponse queryContentWithOptions(shared_ptr<QueryContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryContentResponse queryContent(shared_ptr<QueryContentRequest> request);
+  QueryContentResponse queryContentAdvance(shared_ptr<QueryContentAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RebalanceDBInstanceResponse rebalanceDBInstanceWithOptions(shared_ptr<RebalanceDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RebalanceDBInstanceResponse rebalanceDBInstance(shared_ptr<RebalanceDBInstanceRequest> request);
   ReleaseInstancePublicConnectionResponse releaseInstancePublicConnectionWithOptions(shared_ptr<ReleaseInstancePublicConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
