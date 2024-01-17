@@ -2757,6 +2757,60 @@ DeleteWorkspaceMembersResponse Alibabacloud_Aliding20230426::Client::deleteWorks
   return deleteWorkspaceMembersWithOptions(request, headers, runtime);
 }
 
+ExecuteBatchTaskResponse Alibabacloud_Aliding20230426::Client::executeBatchTaskWithOptions(shared_ptr<ExecuteBatchTaskRequest> request, shared_ptr<ExecuteBatchTaskHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<ExecuteBatchTaskShrinkHeaders> headers = make_shared<ExecuteBatchTaskShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<ExecuteBatchTaskHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appType)) {
+    body->insert(pair<string, string>("AppType", *request->appType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outResult)) {
+    body->insert(pair<string, string>("OutResult", *request->outResult));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    body->insert(pair<string, string>("Remark", *request->remark));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->systemToken)) {
+    body->insert(pair<string, string>("SystemToken", *request->systemToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskInformationList)) {
+    body->insert(pair<string, string>("TaskInformationList", *request->taskInformationList));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteBatchTask"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/yida/executeBatchTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExecuteBatchTaskResponse(callApi(params, req, runtime));
+}
+
+ExecuteBatchTaskResponse Alibabacloud_Aliding20230426::Client::executeBatchTask(shared_ptr<ExecuteBatchTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ExecuteBatchTaskHeaders> headers = make_shared<ExecuteBatchTaskHeaders>();
+  return executeBatchTaskWithOptions(request, headers, runtime);
+}
+
 ExecutePlatformTaskResponse Alibabacloud_Aliding20230426::Client::executePlatformTaskWithOptions(shared_ptr<ExecutePlatformTaskRequest> request, shared_ptr<ExecutePlatformTaskHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<ExecutePlatformTaskShrinkHeaders> headers = make_shared<ExecutePlatformTaskShrinkHeaders>();
@@ -2988,6 +3042,144 @@ GetAllSheetsResponse Alibabacloud_Aliding20230426::Client::getAllSheets(shared_p
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<GetAllSheetsHeaders> headers = make_shared<GetAllSheetsHeaders>();
   return getAllSheetsWithOptions(request, headers, runtime);
+}
+
+GetCorpAccomplishmentTasksResponse Alibabacloud_Aliding20230426::Client::getCorpAccomplishmentTasksWithOptions(shared_ptr<GetCorpAccomplishmentTasksRequest> request, shared_ptr<GetCorpAccomplishmentTasksHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<GetCorpAccomplishmentTasksShrinkHeaders> headers = make_shared<GetCorpAccomplishmentTasksShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<GetCorpAccomplishmentTasksHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appTypes)) {
+    body->insert(pair<string, string>("AppTypes", *request->appTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->corpId)) {
+    body->insert(pair<string, string>("CorpId", *request->corpId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createFromTimeGMT)) {
+    body->insert(pair<string, long>("CreateFromTimeGMT", *request->createFromTimeGMT));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createToTimeGMT)) {
+    body->insert(pair<string, long>("CreateToTimeGMT", *request->createToTimeGMT));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    body->insert(pair<string, string>("Keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    body->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processCodes)) {
+    body->insert(pair<string, string>("ProcessCodes", *request->processCodes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
+    body->insert(pair<string, string>("Token", *request->token));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCorpAccomplishmentTasks"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/yida/getCorpAccomplishmentTasks"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCorpAccomplishmentTasksResponse(callApi(params, req, runtime));
+}
+
+GetCorpAccomplishmentTasksResponse Alibabacloud_Aliding20230426::Client::getCorpAccomplishmentTasks(shared_ptr<GetCorpAccomplishmentTasksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<GetCorpAccomplishmentTasksHeaders> headers = make_shared<GetCorpAccomplishmentTasksHeaders>();
+  return getCorpAccomplishmentTasksWithOptions(request, headers, runtime);
+}
+
+GetCorpTasksResponse Alibabacloud_Aliding20230426::Client::getCorpTasksWithOptions(shared_ptr<GetCorpTasksRequest> request, shared_ptr<GetCorpTasksHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<GetCorpTasksShrinkHeaders> headers = make_shared<GetCorpTasksShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<GetCorpTasksHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appTypes)) {
+    body->insert(pair<string, string>("AppTypes", *request->appTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->corpId)) {
+    body->insert(pair<string, string>("CorpId", *request->corpId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createFromTimeGMT)) {
+    body->insert(pair<string, long>("CreateFromTimeGMT", *request->createFromTimeGMT));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createToTimeGMT)) {
+    body->insert(pair<string, long>("CreateToTimeGMT", *request->createToTimeGMT));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    body->insert(pair<string, string>("Keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    body->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processCodes)) {
+    body->insert(pair<string, string>("ProcessCodes", *request->processCodes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
+    body->insert(pair<string, string>("Token", *request->token));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCorpTasks"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/yida/getCorpTasks"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCorpTasksResponse(callApi(params, req, runtime));
+}
+
+GetCorpTasksResponse Alibabacloud_Aliding20230426::Client::getCorpTasks(shared_ptr<GetCorpTasksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<GetCorpTasksHeaders> headers = make_shared<GetCorpTasksHeaders>();
+  return getCorpTasksWithOptions(request, headers, runtime);
 }
 
 GetEventResponse Alibabacloud_Aliding20230426::Client::getEventWithOptions(shared_ptr<GetEventRequest> request, shared_ptr<GetEventHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3863,6 +4055,81 @@ GetNodesResponse Alibabacloud_Aliding20230426::Client::getNodes(shared_ptr<GetNo
   return getNodesWithOptions(request, headers, runtime);
 }
 
+GetNotifyMeResponse Alibabacloud_Aliding20230426::Client::getNotifyMeWithOptions(shared_ptr<GetNotifyMeRequest> request, shared_ptr<GetNotifyMeHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<GetNotifyMeShrinkHeaders> headers = make_shared<GetNotifyMeShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<GetNotifyMeHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appTypes)) {
+    body->insert(pair<string, string>("AppTypes", *request->appTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->corpId)) {
+    body->insert(pair<string, string>("CorpId", *request->corpId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createFromTimeGMT)) {
+    body->insert(pair<string, long>("CreateFromTimeGMT", *request->createFromTimeGMT));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createToTimeGMT)) {
+    body->insert(pair<string, long>("CreateToTimeGMT", *request->createToTimeGMT));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->instanceCreateFromTimeGMT)) {
+    body->insert(pair<string, long>("InstanceCreateFromTimeGMT", *request->instanceCreateFromTimeGMT));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->instanceCreateToTimeGMT)) {
+    body->insert(pair<string, long>("InstanceCreateToTimeGMT", *request->instanceCreateToTimeGMT));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    body->insert(pair<string, string>("Keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    body->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processCodes)) {
+    body->insert(pair<string, string>("ProcessCodes", *request->processCodes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
+    body->insert(pair<string, string>("Token", *request->token));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetNotifyMe"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/yida/getNotifyMe"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetNotifyMeResponse(callApi(params, req, runtime));
+}
+
+GetNotifyMeResponse Alibabacloud_Aliding20230426::Client::getNotifyMe(shared_ptr<GetNotifyMeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<GetNotifyMeHeaders> headers = make_shared<GetNotifyMeHeaders>();
+  return getNotifyMeWithOptions(request, headers, runtime);
+}
+
 GetOpenUrlResponse Alibabacloud_Aliding20230426::Client::getOpenUrlWithOptions(shared_ptr<GetOpenUrlRequest> request, shared_ptr<GetOpenUrlHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<GetOpenUrlShrinkHeaders> headers = make_shared<GetOpenUrlShrinkHeaders>();
@@ -4196,6 +4463,60 @@ GetReportUnReadCountResponse Alibabacloud_Aliding20230426::Client::getReportUnRe
   return getReportUnReadCountWithOptions(request, headers, runtime);
 }
 
+GetRunningTasksResponse Alibabacloud_Aliding20230426::Client::getRunningTasksWithOptions(shared_ptr<GetRunningTasksRequest> request, shared_ptr<GetRunningTasksHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<GetRunningTasksShrinkHeaders> headers = make_shared<GetRunningTasksShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<GetRunningTasksHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appType)) {
+    body->insert(pair<string, string>("AppType", *request->appType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    body->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processCodes)) {
+    body->insert(pair<string, string>("ProcessCodes", *request->processCodes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processInstanceId)) {
+    body->insert(pair<string, string>("ProcessInstanceId", *request->processInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->systemToken)) {
+    body->insert(pair<string, string>("SystemToken", *request->systemToken));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetRunningTasks"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/yida/getRunningTasks"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetRunningTasksResponse(callApi(params, req, runtime));
+}
+
+GetRunningTasksResponse Alibabacloud_Aliding20230426::Client::getRunningTasks(shared_ptr<GetRunningTasksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<GetRunningTasksHeaders> headers = make_shared<GetRunningTasksHeaders>();
+  return getRunningTasksWithOptions(request, headers, runtime);
+}
+
 GetSheetResponse Alibabacloud_Aliding20230426::Client::getSheetWithOptions(shared_ptr<GetSheetRequest> tmpReq, shared_ptr<GetSheetHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<GetSheetShrinkRequest> request = make_shared<GetSheetShrinkRequest>();
@@ -4348,6 +4669,72 @@ GetSubscribedCalendarResponse Alibabacloud_Aliding20230426::Client::getSubscribe
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<GetSubscribedCalendarHeaders> headers = make_shared<GetSubscribedCalendarHeaders>();
   return getSubscribedCalendarWithOptions(request, headers, runtime);
+}
+
+GetTaskCopiesResponse Alibabacloud_Aliding20230426::Client::getTaskCopiesWithOptions(shared_ptr<GetTaskCopiesRequest> request, shared_ptr<GetTaskCopiesHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<GetTaskCopiesShrinkHeaders> headers = make_shared<GetTaskCopiesShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<GetTaskCopiesHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appType)) {
+    body->insert(pair<string, string>("AppType", *request->appType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createFromTimeGMT)) {
+    body->insert(pair<string, long>("CreateFromTimeGMT", *request->createFromTimeGMT));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createToTimeGMT)) {
+    body->insert(pair<string, long>("CreateToTimeGMT", *request->createToTimeGMT));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    body->insert(pair<string, string>("Keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    body->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processCodes)) {
+    body->insert(pair<string, string>("ProcessCodes", *request->processCodes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->systemToken)) {
+    body->insert(pair<string, string>("SystemToken", *request->systemToken));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTaskCopies"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/yida/getTaskCopies"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTaskCopiesResponse(callApi(params, req, runtime));
+}
+
+GetTaskCopiesResponse Alibabacloud_Aliding20230426::Client::getTaskCopies(shared_ptr<GetTaskCopiesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<GetTaskCopiesHeaders> headers = make_shared<GetTaskCopiesHeaders>();
+  return getTaskCopiesWithOptions(request, headers, runtime);
 }
 
 GetTemplateListByUserIdResponse Alibabacloud_Aliding20230426::Client::getTemplateListByUserIdWithOptions(shared_ptr<GetTemplateListByUserIdRequest> tmpReq, shared_ptr<GetTemplateListByUserIdHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4822,6 +5209,63 @@ InviteUsersResponse Alibabacloud_Aliding20230426::Client::inviteUsers(shared_ptr
   return inviteUsersWithOptions(request, headers, runtime);
 }
 
+ListApplicationResponse Alibabacloud_Aliding20230426::Client::listApplicationWithOptions(shared_ptr<ListApplicationRequest> request, shared_ptr<ListApplicationHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<ListApplicationShrinkHeaders> headers = make_shared<ListApplicationShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<ListApplicationHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appFilter)) {
+    body->insert(pair<string, string>("AppFilter", *request->appFilter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appNameSearchKeyword)) {
+    body->insert(pair<string, string>("AppNameSearchKeyword", *request->appNameSearchKeyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->corpId)) {
+    body->insert(pair<string, string>("CorpId", *request->corpId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
+    body->insert(pair<string, string>("Token", *request->token));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListApplication"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/yida/listApplication"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListApplicationResponse(callApi(params, req, runtime));
+}
+
+ListApplicationResponse Alibabacloud_Aliding20230426::Client::listApplication(shared_ptr<ListApplicationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ListApplicationHeaders> headers = make_shared<ListApplicationHeaders>();
+  return listApplicationWithOptions(request, headers, runtime);
+}
+
 ListCalendarsResponse Alibabacloud_Aliding20230426::Client::listCalendarsWithOptions(shared_ptr<ListCalendarsRequest> tmpReq, shared_ptr<ListCalendarsHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ListCalendarsShrinkRequest> request = make_shared<ListCalendarsShrinkRequest>();
@@ -5284,6 +5728,59 @@ ListTableDataByFormInstanceIdTableIdResponse Alibabacloud_Aliding20230426::Clien
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<ListTableDataByFormInstanceIdTableIdHeaders> headers = make_shared<ListTableDataByFormInstanceIdTableIdHeaders>();
   return listTableDataByFormInstanceIdTableIdWithOptions(request, headers, runtime);
+}
+
+ListTeamsResponse Alibabacloud_Aliding20230426::Client::listTeamsWithOptions(shared_ptr<ListTeamsRequest> tmpReq, shared_ptr<ListTeamsHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListTeamsShrinkRequest> request = make_shared<ListTeamsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<ListTeamsShrinkHeaders> headers = make_shared<ListTeamsShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<ListTeamsHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<ListTeamsRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    body->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    body->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTeams"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v2/documents/listTeams"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTeamsResponse(callApi(params, req, runtime));
+}
+
+ListTeamsResponse Alibabacloud_Aliding20230426::Client::listTeams(shared_ptr<ListTeamsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ListTeamsHeaders> headers = make_shared<ListTeamsHeaders>();
+  return listTeamsWithOptions(request, headers, runtime);
 }
 
 ListWorkspacesResponse Alibabacloud_Aliding20230426::Client::listWorkspacesWithOptions(shared_ptr<ListWorkspacesRequest> tmpReq, shared_ptr<ListWorkspacesHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -6460,6 +6957,69 @@ ReceiverListReportResponse Alibabacloud_Aliding20230426::Client::receiverListRep
   return receiverListReportWithOptions(request, headers, runtime);
 }
 
+RedirectTaskResponse Alibabacloud_Aliding20230426::Client::redirectTaskWithOptions(shared_ptr<RedirectTaskRequest> request, shared_ptr<RedirectTaskHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<RedirectTaskShrinkHeaders> headers = make_shared<RedirectTaskShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<RedirectTaskHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appType)) {
+    body->insert(pair<string, string>("AppType", *request->appType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->byManager)) {
+    body->insert(pair<string, string>("ByManager", *request->byManager));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    body->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nowActionExecutorId)) {
+    body->insert(pair<string, string>("NowActionExecutorId", *request->nowActionExecutorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processInstanceId)) {
+    body->insert(pair<string, string>("ProcessInstanceId", *request->processInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    body->insert(pair<string, string>("Remark", *request->remark));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->systemToken)) {
+    body->insert(pair<string, string>("SystemToken", *request->systemToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->taskId)) {
+    body->insert(pair<string, long>("TaskId", *request->taskId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RedirectTask"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/yida/redirectTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RedirectTaskResponse(callApi(params, req, runtime));
+}
+
+RedirectTaskResponse Alibabacloud_Aliding20230426::Client::redirectTask(shared_ptr<RedirectTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<RedirectTaskHeaders> headers = make_shared<RedirectTaskHeaders>();
+  return redirectTaskWithOptions(request, headers, runtime);
+}
+
 RemoveAttendeeResponse Alibabacloud_Aliding20230426::Client::removeAttendeeWithOptions(shared_ptr<RemoveAttendeeRequest> tmpReq, shared_ptr<RemoveAttendeeHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<RemoveAttendeeShrinkRequest> request = make_shared<RemoveAttendeeShrinkRequest>();
@@ -6677,6 +7237,66 @@ SaveFormDataResponse Alibabacloud_Aliding20230426::Client::saveFormData(shared_p
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<SaveFormDataHeaders> headers = make_shared<SaveFormDataHeaders>();
   return saveFormDataWithOptions(request, headers, runtime);
+}
+
+SaveFormRemarkResponse Alibabacloud_Aliding20230426::Client::saveFormRemarkWithOptions(shared_ptr<SaveFormRemarkRequest> request, shared_ptr<SaveFormRemarkHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<SaveFormRemarkShrinkHeaders> headers = make_shared<SaveFormRemarkShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<SaveFormRemarkHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appType)) {
+    body->insert(pair<string, string>("AppType", *request->appType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->atUserId)) {
+    body->insert(pair<string, string>("AtUserId", *request->atUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    body->insert(pair<string, string>("Content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->formInstanceId)) {
+    body->insert(pair<string, string>("FormInstanceId", *request->formInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    body->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->replyId)) {
+    body->insert(pair<string, long>("ReplyId", *request->replyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->systemToken)) {
+    body->insert(pair<string, string>("SystemToken", *request->systemToken));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SaveFormRemark"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/yida/saveFormRemark"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SaveFormRemarkResponse(callApi(params, req, runtime));
+}
+
+SaveFormRemarkResponse Alibabacloud_Aliding20230426::Client::saveFormRemark(shared_ptr<SaveFormRemarkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<SaveFormRemarkHeaders> headers = make_shared<SaveFormRemarkHeaders>();
+  return saveFormRemarkWithOptions(request, headers, runtime);
 }
 
 SearchEmployeeFieldValuesResponse Alibabacloud_Aliding20230426::Client::searchEmployeeFieldValuesWithOptions(shared_ptr<SearchEmployeeFieldValuesRequest> request, shared_ptr<SearchEmployeeFieldValuesHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
