@@ -3158,6 +3158,43 @@ DescribePortAutoCcStatusResponse Alibabacloud_Ddoscoo20200101::Client::describeP
   return describePortAutoCcStatusWithOptions(request, runtime);
 }
 
+DescribePortCcAttackTopIPResponse Alibabacloud_Ddoscoo20200101::Client::describePortCcAttackTopIPWithOptions(shared_ptr<DescribePortCcAttackTopIPRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ip)) {
+    query->insert(pair<string, string>("Ip", *request->ip));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
+    query->insert(pair<string, long>("Limit", *request->limit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->port)) {
+    query->insert(pair<string, string>("Port", *request->port));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTimestamp)) {
+    query->insert(pair<string, long>("StartTimestamp", *request->startTimestamp));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribePortCcAttackTopIP"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribePortCcAttackTopIPResponse(callApi(params, req, runtime));
+}
+
+DescribePortCcAttackTopIPResponse Alibabacloud_Ddoscoo20200101::Client::describePortCcAttackTopIP(shared_ptr<DescribePortCcAttackTopIPRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describePortCcAttackTopIPWithOptions(request, runtime);
+}
+
 DescribePortConnsCountResponse Alibabacloud_Ddoscoo20200101::Client::describePortConnsCountWithOptions(shared_ptr<DescribePortConnsCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4278,6 +4315,49 @@ DescribeWebPreciseAccessRuleResponse Alibabacloud_Ddoscoo20200101::Client::descr
 DescribeWebPreciseAccessRuleResponse Alibabacloud_Ddoscoo20200101::Client::describeWebPreciseAccessRule(shared_ptr<DescribeWebPreciseAccessRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeWebPreciseAccessRuleWithOptions(request, runtime);
+}
+
+DescribeWebReportTopIpResponse Alibabacloud_Ddoscoo20200101::Client::describeWebReportTopIpWithOptions(shared_ptr<DescribeWebReportTopIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->interval)) {
+    query->insert(pair<string, long>("Interval", *request->interval));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->queryType)) {
+    query->insert(pair<string, string>("QueryType", *request->queryType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->top)) {
+    query->insert(pair<string, long>("Top", *request->top));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeWebReportTopIp"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeWebReportTopIpResponse(callApi(params, req, runtime));
+}
+
+DescribeWebReportTopIpResponse Alibabacloud_Ddoscoo20200101::Client::describeWebReportTopIp(shared_ptr<DescribeWebReportTopIpRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeWebReportTopIpWithOptions(request, runtime);
 }
 
 DescribeWebRulesResponse Alibabacloud_Ddoscoo20200101::Client::describeWebRulesWithOptions(shared_ptr<DescribeWebRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
