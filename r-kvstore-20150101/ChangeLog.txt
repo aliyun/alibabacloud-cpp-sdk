@@ -1,3 +1,6 @@
+2024-01-18 Version: 2.24.2
+- Generated cpp 2015-01-01 for R-kvstore.
+
 2024-01-18 Version: 2.24.1
 - Generated cpp 2015-01-01 for R-kvstore.
 
