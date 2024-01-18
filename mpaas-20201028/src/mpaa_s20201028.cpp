@@ -3573,6 +3573,12 @@ PushMultipleResponse Alibabacloud_MPaaS20201028::Client::pushMultipleWithOptions
     request->thirdChannelCategoryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->thirdChannelCategory, make_shared<string>("ThirdChannelCategory"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<boost::any>(request->activityContentState)) {
+    body->insert(pair<string, boost::any>("ActivityContentState", *request->activityContentState));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->activityEvent)) {
+    body->insert(pair<string, string>("ActivityEvent", *request->activityEvent));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     body->insert(pair<string, string>("AppId", *request->appId));
   }
@@ -3584,6 +3590,9 @@ PushMultipleResponse Alibabacloud_MPaaS20201028::Client::pushMultipleWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->deliveryType)) {
     body->insert(pair<string, long>("DeliveryType", *request->deliveryType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dismissalDate)) {
+    body->insert(pair<string, long>("DismissalDate", *request->dismissalDate));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->expiredSeconds)) {
     body->insert(pair<string, long>("ExpiredSeconds", *request->expiredSeconds));
@@ -3718,6 +3727,12 @@ PushSimpleResponse Alibabacloud_MPaaS20201028::Client::pushSimpleWithOptions(sha
     request->thirdChannelCategoryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->thirdChannelCategory, make_shared<string>("ThirdChannelCategory"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<boost::any>(request->activityContentState)) {
+    body->insert(pair<string, boost::any>("ActivityContentState", *request->activityContentState));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->activityEvent)) {
+    body->insert(pair<string, string>("ActivityEvent", *request->activityEvent));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     body->insert(pair<string, string>("AppId", *request->appId));
   }
@@ -3732,6 +3747,9 @@ PushSimpleResponse Alibabacloud_MPaaS20201028::Client::pushSimpleWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->deliveryType)) {
     body->insert(pair<string, long>("DeliveryType", *request->deliveryType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dismissalDate)) {
+    body->insert(pair<string, long>("DismissalDate", *request->dismissalDate));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->expiredSeconds)) {
     body->insert(pair<string, long>("ExpiredSeconds", *request->expiredSeconds));
@@ -3826,6 +3844,12 @@ PushTemplateResponse Alibabacloud_MPaaS20201028::Client::pushTemplateWithOptions
     request->thirdChannelCategoryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->thirdChannelCategory, make_shared<string>("ThirdChannelCategory"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<boost::any>(request->activityContentState)) {
+    body->insert(pair<string, boost::any>("ActivityContentState", *request->activityContentState));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->activityEvent)) {
+    body->insert(pair<string, string>("ActivityEvent", *request->activityEvent));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     body->insert(pair<string, string>("AppId", *request->appId));
   }
@@ -3837,6 +3861,9 @@ PushTemplateResponse Alibabacloud_MPaaS20201028::Client::pushTemplateWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->deliveryType)) {
     body->insert(pair<string, long>("DeliveryType", *request->deliveryType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dismissalDate)) {
+    body->insert(pair<string, long>("DismissalDate", *request->dismissalDate));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->expiredSeconds)) {
     body->insert(pair<string, long>("ExpiredSeconds", *request->expiredSeconds));

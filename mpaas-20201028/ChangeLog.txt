@@ -1,3 +1,6 @@
+2024-01-18 Version: 1.0.2
+- Generated cpp 2020-10-28 for mPaaS.
+
 2023-12-05 Version: 1.0.1
 - Generated cpp 2020-10-28 for mPaaS.
 

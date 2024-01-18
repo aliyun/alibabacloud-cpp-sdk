@@ -23998,10 +23998,13 @@ public:
 };
 class PushMultipleRequest : public Darabonba::Model {
 public:
+  shared_ptr<boost::any> activityContentState{};
+  shared_ptr<string> activityEvent{};
   shared_ptr<string> appId{};
   shared_ptr<string> channelId{};
   shared_ptr<string> classification{};
   shared_ptr<long> deliveryType{};
+  shared_ptr<long> dismissalDate{};
   shared_ptr<long> expiredSeconds{};
   shared_ptr<string> extendedParams{};
   shared_ptr<string> miChannelId{};
@@ -24026,6 +24029,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activityContentState) {
+      res["ActivityContentState"] = boost::any(*activityContentState);
+    }
+    if (activityEvent) {
+      res["ActivityEvent"] = boost::any(*activityEvent);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -24037,6 +24046,9 @@ public:
     }
     if (deliveryType) {
       res["DeliveryType"] = boost::any(*deliveryType);
+    }
+    if (dismissalDate) {
+      res["DismissalDate"] = boost::any(*dismissalDate);
     }
     if (expiredSeconds) {
       res["ExpiredSeconds"] = boost::any(*expiredSeconds);
@@ -24085,6 +24097,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityContentState") != m.end() && !m["ActivityContentState"].empty()) {
+      activityContentState = make_shared<boost::any>(boost::any_cast<boost::any>(m["ActivityContentState"]));
+    }
+    if (m.find("ActivityEvent") != m.end() && !m["ActivityEvent"].empty()) {
+      activityEvent = make_shared<string>(boost::any_cast<string>(m["ActivityEvent"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
@@ -24096,6 +24114,9 @@ public:
     }
     if (m.find("DeliveryType") != m.end() && !m["DeliveryType"].empty()) {
       deliveryType = make_shared<long>(boost::any_cast<long>(m["DeliveryType"]));
+    }
+    if (m.find("DismissalDate") != m.end() && !m["DismissalDate"].empty()) {
+      dismissalDate = make_shared<long>(boost::any_cast<long>(m["DismissalDate"]));
     }
     if (m.find("ExpiredSeconds") != m.end() && !m["ExpiredSeconds"].empty()) {
       expiredSeconds = make_shared<long>(boost::any_cast<long>(m["ExpiredSeconds"]));
@@ -24208,10 +24229,13 @@ public:
 };
 class PushMultipleShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<boost::any> activityContentState{};
+  shared_ptr<string> activityEvent{};
   shared_ptr<string> appId{};
   shared_ptr<string> channelId{};
   shared_ptr<string> classification{};
   shared_ptr<long> deliveryType{};
+  shared_ptr<long> dismissalDate{};
   shared_ptr<long> expiredSeconds{};
   shared_ptr<string> extendedParams{};
   shared_ptr<string> miChannelId{};
@@ -24236,6 +24260,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activityContentState) {
+      res["ActivityContentState"] = boost::any(*activityContentState);
+    }
+    if (activityEvent) {
+      res["ActivityEvent"] = boost::any(*activityEvent);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -24247,6 +24277,9 @@ public:
     }
     if (deliveryType) {
       res["DeliveryType"] = boost::any(*deliveryType);
+    }
+    if (dismissalDate) {
+      res["DismissalDate"] = boost::any(*dismissalDate);
     }
     if (expiredSeconds) {
       res["ExpiredSeconds"] = boost::any(*expiredSeconds);
@@ -24295,6 +24328,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityContentState") != m.end() && !m["ActivityContentState"].empty()) {
+      activityContentState = make_shared<boost::any>(boost::any_cast<boost::any>(m["ActivityContentState"]));
+    }
+    if (m.find("ActivityEvent") != m.end() && !m["ActivityEvent"].empty()) {
+      activityEvent = make_shared<string>(boost::any_cast<string>(m["ActivityEvent"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
@@ -24306,6 +24345,9 @@ public:
     }
     if (m.find("DeliveryType") != m.end() && !m["DeliveryType"].empty()) {
       deliveryType = make_shared<long>(boost::any_cast<long>(m["DeliveryType"]));
+    }
+    if (m.find("DismissalDate") != m.end() && !m["DismissalDate"].empty()) {
+      dismissalDate = make_shared<long>(boost::any_cast<long>(m["DismissalDate"]));
     }
     if (m.find("ExpiredSeconds") != m.end() && !m["ExpiredSeconds"].empty()) {
       expiredSeconds = make_shared<long>(boost::any_cast<long>(m["ExpiredSeconds"]));
@@ -24794,11 +24836,14 @@ public:
 };
 class PushSimpleRequest : public Darabonba::Model {
 public:
+  shared_ptr<boost::any> activityContentState{};
+  shared_ptr<string> activityEvent{};
   shared_ptr<string> appId{};
   shared_ptr<string> channelId{};
   shared_ptr<string> classification{};
   shared_ptr<string> content{};
   shared_ptr<long> deliveryType{};
+  shared_ptr<long> dismissalDate{};
   shared_ptr<long> expiredSeconds{};
   shared_ptr<string> extendedParams{};
   shared_ptr<string> iconUrls{};
@@ -24831,6 +24876,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activityContentState) {
+      res["ActivityContentState"] = boost::any(*activityContentState);
+    }
+    if (activityEvent) {
+      res["ActivityEvent"] = boost::any(*activityEvent);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -24845,6 +24896,9 @@ public:
     }
     if (deliveryType) {
       res["DeliveryType"] = boost::any(*deliveryType);
+    }
+    if (dismissalDate) {
+      res["DismissalDate"] = boost::any(*dismissalDate);
     }
     if (expiredSeconds) {
       res["ExpiredSeconds"] = boost::any(*expiredSeconds);
@@ -24913,6 +24967,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityContentState") != m.end() && !m["ActivityContentState"].empty()) {
+      activityContentState = make_shared<boost::any>(boost::any_cast<boost::any>(m["ActivityContentState"]));
+    }
+    if (m.find("ActivityEvent") != m.end() && !m["ActivityEvent"].empty()) {
+      activityEvent = make_shared<string>(boost::any_cast<string>(m["ActivityEvent"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
@@ -24927,6 +24987,9 @@ public:
     }
     if (m.find("DeliveryType") != m.end() && !m["DeliveryType"].empty()) {
       deliveryType = make_shared<long>(boost::any_cast<long>(m["DeliveryType"]));
+    }
+    if (m.find("DismissalDate") != m.end() && !m["DismissalDate"].empty()) {
+      dismissalDate = make_shared<long>(boost::any_cast<long>(m["DismissalDate"]));
     }
     if (m.find("ExpiredSeconds") != m.end() && !m["ExpiredSeconds"].empty()) {
       expiredSeconds = make_shared<long>(boost::any_cast<long>(m["ExpiredSeconds"]));
@@ -25003,11 +25066,14 @@ public:
 };
 class PushSimpleShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<boost::any> activityContentState{};
+  shared_ptr<string> activityEvent{};
   shared_ptr<string> appId{};
   shared_ptr<string> channelId{};
   shared_ptr<string> classification{};
   shared_ptr<string> content{};
   shared_ptr<long> deliveryType{};
+  shared_ptr<long> dismissalDate{};
   shared_ptr<long> expiredSeconds{};
   shared_ptr<string> extendedParams{};
   shared_ptr<string> iconUrls{};
@@ -25040,6 +25106,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activityContentState) {
+      res["ActivityContentState"] = boost::any(*activityContentState);
+    }
+    if (activityEvent) {
+      res["ActivityEvent"] = boost::any(*activityEvent);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -25054,6 +25126,9 @@ public:
     }
     if (deliveryType) {
       res["DeliveryType"] = boost::any(*deliveryType);
+    }
+    if (dismissalDate) {
+      res["DismissalDate"] = boost::any(*dismissalDate);
     }
     if (expiredSeconds) {
       res["ExpiredSeconds"] = boost::any(*expiredSeconds);
@@ -25122,6 +25197,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityContentState") != m.end() && !m["ActivityContentState"].empty()) {
+      activityContentState = make_shared<boost::any>(boost::any_cast<boost::any>(m["ActivityContentState"]));
+    }
+    if (m.find("ActivityEvent") != m.end() && !m["ActivityEvent"].empty()) {
+      activityEvent = make_shared<string>(boost::any_cast<string>(m["ActivityEvent"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
@@ -25136,6 +25217,9 @@ public:
     }
     if (m.find("DeliveryType") != m.end() && !m["DeliveryType"].empty()) {
       deliveryType = make_shared<long>(boost::any_cast<long>(m["DeliveryType"]));
+    }
+    if (m.find("DismissalDate") != m.end() && !m["DismissalDate"].empty()) {
+      dismissalDate = make_shared<long>(boost::any_cast<long>(m["DismissalDate"]));
     }
     if (m.find("ExpiredSeconds") != m.end() && !m["ExpiredSeconds"].empty()) {
       expiredSeconds = make_shared<long>(boost::any_cast<long>(m["ExpiredSeconds"]));
@@ -25366,10 +25450,13 @@ public:
 };
 class PushTemplateRequest : public Darabonba::Model {
 public:
+  shared_ptr<boost::any> activityContentState{};
+  shared_ptr<string> activityEvent{};
   shared_ptr<string> appId{};
   shared_ptr<string> channelId{};
   shared_ptr<string> classification{};
   shared_ptr<long> deliveryType{};
+  shared_ptr<long> dismissalDate{};
   shared_ptr<long> expiredSeconds{};
   shared_ptr<string> extendedParams{};
   shared_ptr<string> miChannelId{};
@@ -25399,6 +25486,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activityContentState) {
+      res["ActivityContentState"] = boost::any(*activityContentState);
+    }
+    if (activityEvent) {
+      res["ActivityEvent"] = boost::any(*activityEvent);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -25410,6 +25503,9 @@ public:
     }
     if (deliveryType) {
       res["DeliveryType"] = boost::any(*deliveryType);
+    }
+    if (dismissalDate) {
+      res["DismissalDate"] = boost::any(*dismissalDate);
     }
     if (expiredSeconds) {
       res["ExpiredSeconds"] = boost::any(*expiredSeconds);
@@ -25469,6 +25565,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityContentState") != m.end() && !m["ActivityContentState"].empty()) {
+      activityContentState = make_shared<boost::any>(boost::any_cast<boost::any>(m["ActivityContentState"]));
+    }
+    if (m.find("ActivityEvent") != m.end() && !m["ActivityEvent"].empty()) {
+      activityEvent = make_shared<string>(boost::any_cast<string>(m["ActivityEvent"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
@@ -25480,6 +25582,9 @@ public:
     }
     if (m.find("DeliveryType") != m.end() && !m["DeliveryType"].empty()) {
       deliveryType = make_shared<long>(boost::any_cast<long>(m["DeliveryType"]));
+    }
+    if (m.find("DismissalDate") != m.end() && !m["DismissalDate"].empty()) {
+      dismissalDate = make_shared<long>(boost::any_cast<long>(m["DismissalDate"]));
     }
     if (m.find("ExpiredSeconds") != m.end() && !m["ExpiredSeconds"].empty()) {
       expiredSeconds = make_shared<long>(boost::any_cast<long>(m["ExpiredSeconds"]));
@@ -25547,10 +25652,13 @@ public:
 };
 class PushTemplateShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<boost::any> activityContentState{};
+  shared_ptr<string> activityEvent{};
   shared_ptr<string> appId{};
   shared_ptr<string> channelId{};
   shared_ptr<string> classification{};
   shared_ptr<long> deliveryType{};
+  shared_ptr<long> dismissalDate{};
   shared_ptr<long> expiredSeconds{};
   shared_ptr<string> extendedParams{};
   shared_ptr<string> miChannelId{};
@@ -25580,6 +25688,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activityContentState) {
+      res["ActivityContentState"] = boost::any(*activityContentState);
+    }
+    if (activityEvent) {
+      res["ActivityEvent"] = boost::any(*activityEvent);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -25591,6 +25705,9 @@ public:
     }
     if (deliveryType) {
       res["DeliveryType"] = boost::any(*deliveryType);
+    }
+    if (dismissalDate) {
+      res["DismissalDate"] = boost::any(*dismissalDate);
     }
     if (expiredSeconds) {
       res["ExpiredSeconds"] = boost::any(*expiredSeconds);
@@ -25650,6 +25767,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityContentState") != m.end() && !m["ActivityContentState"].empty()) {
+      activityContentState = make_shared<boost::any>(boost::any_cast<boost::any>(m["ActivityContentState"]));
+    }
+    if (m.find("ActivityEvent") != m.end() && !m["ActivityEvent"].empty()) {
+      activityEvent = make_shared<string>(boost::any_cast<string>(m["ActivityEvent"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
@@ -25661,6 +25784,9 @@ public:
     }
     if (m.find("DeliveryType") != m.end() && !m["DeliveryType"].empty()) {
       deliveryType = make_shared<long>(boost::any_cast<long>(m["DeliveryType"]));
+    }
+    if (m.find("DismissalDate") != m.end() && !m["DismissalDate"].empty()) {
+      dismissalDate = make_shared<long>(boost::any_cast<long>(m["DismissalDate"]));
     }
     if (m.find("ExpiredSeconds") != m.end() && !m["ExpiredSeconds"].empty()) {
       expiredSeconds = make_shared<long>(boost::any_cast<long>(m["ExpiredSeconds"]));
