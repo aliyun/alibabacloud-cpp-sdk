@@ -17570,6 +17570,7 @@ public:
 class DescribeDomainStatisticsResponseBodyStatisticsStatistic : public Darabonba::Model {
 public:
   shared_ptr<long> count{};
+  shared_ptr<string> domainName{};
   shared_ptr<long> timestamp{};
 
   DescribeDomainStatisticsResponseBodyStatisticsStatistic() {}
@@ -17585,6 +17586,9 @@ public:
     if (count) {
       res["Count"] = boost::any(*count);
     }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
     if (timestamp) {
       res["Timestamp"] = boost::any(*timestamp);
     }
@@ -17594,6 +17598,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Count") != m.end() && !m["Count"].empty()) {
       count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
     }
     if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
       timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
@@ -17831,6 +17838,7 @@ public:
   shared_ptr<long> count{};
   shared_ptr<string> domainName{};
   shared_ptr<string> domainType{};
+  shared_ptr<string> resolveAnalysisStatus{};
 
   DescribeDomainStatisticsSummaryResponseBodyStatisticsStatistic() {}
 
@@ -17851,6 +17859,9 @@ public:
     if (domainType) {
       res["DomainType"] = boost::any(*domainType);
     }
+    if (resolveAnalysisStatus) {
+      res["resolveAnalysisStatus"] = boost::any(*resolveAnalysisStatus);
+    }
     return res;
   }
 
@@ -17863,6 +17874,9 @@ public:
     }
     if (m.find("DomainType") != m.end() && !m["DomainType"].empty()) {
       domainType = make_shared<string>(boost::any_cast<string>(m["DomainType"]));
+    }
+    if (m.find("resolveAnalysisStatus") != m.end() && !m["resolveAnalysisStatus"].empty()) {
+      resolveAnalysisStatus = make_shared<string>(boost::any_cast<string>(m["resolveAnalysisStatus"]));
     }
   }
 
