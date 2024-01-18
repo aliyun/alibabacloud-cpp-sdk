@@ -3806,6 +3806,7 @@ public:
 class AddGatewayRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> description{};
   shared_ptr<string> destinationType{};
   shared_ptr<AddGatewayRouteRequestDirectResponseJSON> directResponseJSON{};
   shared_ptr<long> domainId{};
@@ -3835,6 +3836,9 @@ public:
     map<string, boost::any> res;
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
@@ -3898,6 +3902,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
@@ -3987,6 +3994,7 @@ public:
 class AddGatewayRouteShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> description{};
   shared_ptr<string> destinationType{};
   shared_ptr<string> directResponseJSONShrink{};
   shared_ptr<long> domainId{};
@@ -4016,6 +4024,9 @@ public:
     map<string, boost::any> res;
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
@@ -4071,6 +4082,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
@@ -21162,6 +21176,7 @@ class GetGatewayRouteDetailResponseBodyDataRouteServices : public Darabonba::Mod
 public:
   shared_ptr<string> agreementType{};
   shared_ptr<string> groupName{};
+  shared_ptr<string> healthStatus{};
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
   shared_ptr<long> percent{};
@@ -21169,6 +21184,7 @@ public:
   shared_ptr<string> serviceName{};
   shared_ptr<long> servicePort{};
   shared_ptr<string> sourceType{};
+  shared_ptr<vector<string>> unhealthyEndpoints{};
   shared_ptr<string> version{};
 
   GetGatewayRouteDetailResponseBodyDataRouteServices() {}
@@ -21186,6 +21202,9 @@ public:
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
+    }
+    if (healthStatus) {
+      res["HealthStatus"] = boost::any(*healthStatus);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -21208,6 +21227,9 @@ public:
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
     }
+    if (unhealthyEndpoints) {
+      res["UnhealthyEndpoints"] = boost::any(*unhealthyEndpoints);
+    }
     if (version) {
       res["Version"] = boost::any(*version);
     }
@@ -21220,6 +21242,9 @@ public:
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("HealthStatus") != m.end() && !m["HealthStatus"].empty()) {
+      healthStatus = make_shared<string>(boost::any_cast<string>(m["HealthStatus"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -21241,6 +21266,16 @@ public:
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("UnhealthyEndpoints") != m.end() && !m["UnhealthyEndpoints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UnhealthyEndpoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UnhealthyEndpoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      unhealthyEndpoints = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["Version"]));
@@ -21299,6 +21334,7 @@ public:
   shared_ptr<GetGatewayRouteDetailResponseBodyDataCors> cors{};
   shared_ptr<long> defaultServiceId{};
   shared_ptr<string> defaultServiceName{};
+  shared_ptr<string> description{};
   shared_ptr<string> destinationType{};
   shared_ptr<GetGatewayRouteDetailResponseBodyDataDirectResponse> directResponse{};
   shared_ptr<long> domainId{};
@@ -21349,6 +21385,9 @@ public:
     }
     if (defaultServiceName) {
       res["DefaultServiceName"] = boost::any(*defaultServiceName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
@@ -21461,6 +21500,9 @@ public:
     }
     if (m.find("DefaultServiceName") != m.end() && !m["DefaultServiceName"].empty()) {
       defaultServiceName = make_shared<string>(boost::any_cast<string>(m["DefaultServiceName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
@@ -33326,6 +33368,7 @@ class ListClustersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterAliasName{};
+  shared_ptr<string> keyId{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
@@ -33348,6 +33391,9 @@ public:
     }
     if (clusterAliasName) {
       res["ClusterAliasName"] = boost::any(*clusterAliasName);
+    }
+    if (keyId) {
+      res["KeyId"] = boost::any(*keyId);
     }
     if (pageNum) {
       res["PageNum"] = boost::any(*pageNum);
@@ -33380,6 +33426,9 @@ public:
     }
     if (m.find("ClusterAliasName") != m.end() && !m["ClusterAliasName"].empty()) {
       clusterAliasName = make_shared<string>(boost::any_cast<string>(m["ClusterAliasName"]));
+    }
+    if (m.find("KeyId") != m.end() && !m["KeyId"].empty()) {
+      keyId = make_shared<string>(boost::any_cast<string>(m["KeyId"]));
     }
     if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
       pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
@@ -37581,6 +37630,7 @@ public:
 class ListGatewayDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> domainName{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> type{};
 
@@ -37597,6 +37647,9 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
@@ -37609,6 +37662,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
@@ -37929,6 +37985,7 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> name{};
+  shared_ptr<string> path{};
   shared_ptr<long> routeOrder{};
   shared_ptr<long> status{};
 
@@ -37960,6 +38017,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
     if (routeOrder) {
       res["RouteOrder"] = boost::any(*routeOrder);
     }
@@ -37987,6 +38047,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
     }
     if (m.find("RouteOrder") != m.end() && !m["RouteOrder"].empty()) {
       routeOrder = make_shared<long>(boost::any_cast<long>(m["RouteOrder"]));
@@ -38745,6 +38808,7 @@ class ListGatewayRouteResponseBodyDataResultRouteServices : public Darabonba::Mo
 public:
   shared_ptr<string> agreementType{};
   shared_ptr<string> groupName{};
+  shared_ptr<string> healthStatus{};
   shared_ptr<ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoder> httpDubboTranscoder{};
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
@@ -38753,6 +38817,7 @@ public:
   shared_ptr<string> serviceName{};
   shared_ptr<long> servicePort{};
   shared_ptr<string> sourceType{};
+  shared_ptr<vector<string>> unhealthyEndpoints{};
   shared_ptr<string> version{};
 
   ListGatewayRouteResponseBodyDataResultRouteServices() {}
@@ -38770,6 +38835,9 @@ public:
     }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
+    }
+    if (healthStatus) {
+      res["HealthStatus"] = boost::any(*healthStatus);
     }
     if (httpDubboTranscoder) {
       res["HttpDubboTranscoder"] = httpDubboTranscoder ? boost::any(httpDubboTranscoder->toMap()) : boost::any(map<string,boost::any>({}));
@@ -38795,6 +38863,9 @@ public:
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
     }
+    if (unhealthyEndpoints) {
+      res["UnhealthyEndpoints"] = boost::any(*unhealthyEndpoints);
+    }
     if (version) {
       res["Version"] = boost::any(*version);
     }
@@ -38807,6 +38878,9 @@ public:
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("HealthStatus") != m.end() && !m["HealthStatus"].empty()) {
+      healthStatus = make_shared<string>(boost::any_cast<string>(m["HealthStatus"]));
     }
     if (m.find("HttpDubboTranscoder") != m.end() && !m["HttpDubboTranscoder"].empty()) {
       if (typeid(map<string, boost::any>) == m["HttpDubboTranscoder"].type()) {
@@ -38835,6 +38909,16 @@ public:
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("UnhealthyEndpoints") != m.end() && !m["UnhealthyEndpoints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UnhealthyEndpoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UnhealthyEndpoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      unhealthyEndpoints = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["Version"]));
@@ -42520,6 +42604,7 @@ public:
   shared_ptr<long> id{};
   shared_ptr<long> lastModifiedTime{};
   shared_ptr<string> opType{};
+  shared_ptr<string> srcUser{};
 
   ListNacosHistoryConfigsResponseBodyHistoryItems() {}
 
@@ -42549,6 +42634,9 @@ public:
     if (opType) {
       res["OpType"] = boost::any(*opType);
     }
+    if (srcUser) {
+      res["SrcUser"] = boost::any(*srcUser);
+    }
     return res;
   }
 
@@ -42570,6 +42658,9 @@ public:
     }
     if (m.find("OpType") != m.end() && !m["OpType"].empty()) {
       opType = make_shared<string>(boost::any_cast<string>(m["OpType"]));
+    }
+    if (m.find("SrcUser") != m.end() && !m["SrcUser"].empty()) {
+      srcUser = make_shared<string>(boost::any_cast<string>(m["SrcUser"]));
     }
   }
 
@@ -43092,6 +43183,7 @@ public:
 class ListSSLCertRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> certName{};
   shared_ptr<string> gatewayUniqueId{};
 
   ListSSLCertRequest() {}
@@ -43107,6 +43199,9 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
+    if (certName) {
+      res["CertName"] = boost::any(*certName);
+    }
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
@@ -43116,6 +43211,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("CertName") != m.end() && !m["CertName"].empty()) {
+      certName = make_shared<string>(boost::any_cast<string>(m["CertName"]));
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
@@ -57821,6 +57919,7 @@ public:
 class UpdateGatewayRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> description{};
   shared_ptr<string> destinationType{};
   shared_ptr<UpdateGatewayRouteRequestDirectResponseJSON> directResponseJSON{};
   shared_ptr<string> domainIdListJSON{};
@@ -57848,6 +57947,9 @@ public:
     map<string, boost::any> res;
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
@@ -57905,6 +58007,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
@@ -57988,6 +58093,7 @@ public:
 class UpdateGatewayRouteShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> description{};
   shared_ptr<string> destinationType{};
   shared_ptr<string> directResponseJSONShrink{};
   shared_ptr<string> domainIdListJSON{};
@@ -58015,6 +58121,9 @@ public:
     map<string, boost::any> res;
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
@@ -58064,6 +58173,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));

@@ -441,6 +441,9 @@ AddGatewayRouteResponse Alibabacloud_Mse20190531::Client::addGatewayRouteWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationType)) {
     query->insert(pair<string, string>("DestinationType", *request->destinationType));
   }
@@ -4521,6 +4524,9 @@ ListClustersResponse Alibabacloud_Mse20190531::Client::listClustersWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterAliasName)) {
     query->insert(pair<string, string>("ClusterAliasName", *request->clusterAliasName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyId)) {
+    query->insert(pair<string, string>("KeyId", *request->keyId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNum)) {
     query->insert(pair<string, long>("PageNum", *request->pageNum));
   }
@@ -4934,6 +4940,9 @@ ListGatewayDomainResponse Alibabacloud_Mse20190531::Client::listGatewayDomainWit
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
+    query->insert(pair<string, string>("DomainName", *request->domainName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
@@ -5412,6 +5421,9 @@ ListSSLCertResponse Alibabacloud_Mse20190531::Client::listSSLCertWithOptions(sha
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certName)) {
+    query->insert(pair<string, string>("CertName", *request->certName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
@@ -7589,6 +7601,9 @@ UpdateGatewayRouteResponse Alibabacloud_Mse20190531::Client::updateGatewayRouteW
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationType)) {
     query->insert(pair<string, string>("DestinationType", *request->destinationType));
