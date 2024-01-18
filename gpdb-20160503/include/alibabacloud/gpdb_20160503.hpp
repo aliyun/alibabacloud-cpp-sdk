@@ -19250,6 +19250,7 @@ public:
 };
 class GetUploadDocumentJobResponseBodyUsage : public Darabonba::Model {
 public:
+  shared_ptr<long> embeddingEntries{};
   shared_ptr<long> embeddingTokens{};
 
   GetUploadDocumentJobResponseBodyUsage() {}
@@ -19262,6 +19263,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (embeddingEntries) {
+      res["EmbeddingEntries"] = boost::any(*embeddingEntries);
+    }
     if (embeddingTokens) {
       res["EmbeddingTokens"] = boost::any(*embeddingTokens);
     }
@@ -19269,6 +19273,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EmbeddingEntries") != m.end() && !m["EmbeddingEntries"].empty()) {
+      embeddingEntries = make_shared<long>(boost::any_cast<long>(m["EmbeddingEntries"]));
+    }
     if (m.find("EmbeddingTokens") != m.end() && !m["EmbeddingTokens"].empty()) {
       embeddingTokens = make_shared<long>(boost::any_cast<long>(m["EmbeddingTokens"]));
     }
