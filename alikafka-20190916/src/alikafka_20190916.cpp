@@ -1088,6 +1088,31 @@ ModifyTopicRemarkResponse Alibabacloud_Alikafka20190916::Client::modifyTopicRema
   return modifyTopicRemarkWithOptions(request, runtime);
 }
 
+QueryMessageResponse Alibabacloud_Alikafka20190916::Client::queryMessageWithOptions(shared_ptr<QueryMessageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryMessage"))},
+    {"version", boost::any(string("2019-09-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryMessageResponse(callApi(params, req, runtime));
+}
+
+QueryMessageResponse Alibabacloud_Alikafka20190916::Client::queryMessage(shared_ptr<QueryMessageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryMessageWithOptions(request, runtime);
+}
+
 ReleaseInstanceResponse Alibabacloud_Alikafka20190916::Client::releaseInstanceWithOptions(shared_ptr<ReleaseInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1416,6 +1441,46 @@ UpdateInstanceConfigResponse Alibabacloud_Alikafka20190916::Client::updateInstan
 UpdateInstanceConfigResponse Alibabacloud_Alikafka20190916::Client::updateInstanceConfig(shared_ptr<UpdateInstanceConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateInstanceConfigWithOptions(request, runtime);
+}
+
+UpdateTopicConfigResponse Alibabacloud_Alikafka20190916::Client::updateTopicConfigWithOptions(shared_ptr<UpdateTopicConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->config)) {
+    query->insert(pair<string, string>("Config", *request->config));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topic)) {
+    query->insert(pair<string, string>("Topic", *request->topic));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->value)) {
+    query->insert(pair<string, string>("Value", *request->value));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateTopicConfig"))},
+    {"version", boost::any(string("2019-09-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateTopicConfigResponse(callApi(params, req, runtime));
+}
+
+UpdateTopicConfigResponse Alibabacloud_Alikafka20190916::Client::updateTopicConfig(shared_ptr<UpdateTopicConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateTopicConfigWithOptions(request, runtime);
 }
 
 UpgradeInstanceVersionResponse Alibabacloud_Alikafka20190916::Client::upgradeInstanceVersionWithOptions(shared_ptr<UpgradeInstanceVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
