@@ -13121,6 +13121,9 @@ ExportWarningResponse Alibabacloud_Sas20181203::Client::exportWarningWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->exportType)) {
     query->insert(pair<string, string>("ExportType", *request->exportType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->groupId)) {
+    query->insert(pair<string, long>("GroupId", *request->groupId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->isCleartextPwd)) {
     query->insert(pair<string, long>("IsCleartextPwd", *request->isCleartextPwd));
   }
