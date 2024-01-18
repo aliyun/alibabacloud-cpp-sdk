@@ -11361,6 +11361,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> opCode{};
   shared_ptr<string> opLevel{};
+  shared_ptr<vector<boost::any>> paramConfig{};
   shared_ptr<string> taskConfig{};
   shared_ptr<bool> wafPlaybook{};
 
@@ -11389,6 +11390,9 @@ public:
     if (opLevel) {
       res["OpLevel"] = boost::any(*opLevel);
     }
+    if (paramConfig) {
+      res["ParamConfig"] = boost::any(*paramConfig);
+    }
     if (taskConfig) {
       res["TaskConfig"] = boost::any(*taskConfig);
     }
@@ -11413,6 +11417,16 @@ public:
     }
     if (m.find("OpLevel") != m.end() && !m["OpLevel"].empty()) {
       opLevel = make_shared<string>(boost::any_cast<string>(m["OpLevel"]));
+    }
+    if (m.find("ParamConfig") != m.end() && !m["ParamConfig"].empty()) {
+      vector<boost::any> toVec1;
+      if (typeid(vector<boost::any>) == m["ParamConfig"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParamConfig"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<boost::any>(item));
+        }
+      }
+      paramConfig = make_shared<vector<boost::any>>(toVec1);
     }
     if (m.find("TaskConfig") != m.end() && !m["TaskConfig"].empty()) {
       taskConfig = make_shared<string>(boost::any_cast<string>(m["TaskConfig"]));
