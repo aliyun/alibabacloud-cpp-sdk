@@ -7572,6 +7572,7 @@ public:
   shared_ptr<string> sccClusterId{};
   shared_ptr<long> schedulerPreInstall{};
   shared_ptr<string> schedulerType{};
+  shared_ptr<string> schedulerVersion{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> status{};
   shared_ptr<string> vSwitchId{};
@@ -7716,6 +7717,9 @@ public:
     }
     if (schedulerType) {
       res["SchedulerType"] = boost::any(*schedulerType);
+    }
+    if (schedulerVersion) {
+      res["SchedulerVersion"] = boost::any(*schedulerVersion);
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
@@ -7904,6 +7908,9 @@ public:
     }
     if (m.find("SchedulerType") != m.end() && !m["SchedulerType"].empty()) {
       schedulerType = make_shared<string>(boost::any_cast<string>(m["SchedulerType"]));
+    }
+    if (m.find("SchedulerVersion") != m.end() && !m["SchedulerVersion"].empty()) {
+      schedulerVersion = make_shared<string>(boost::any_cast<string>(m["SchedulerVersion"]));
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
@@ -17550,6 +17557,7 @@ public:
 class InitializeEHPCRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<string> serviceName{};
 
   InitializeEHPCRequest() {}
 
@@ -17564,12 +17572,18 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
     }
   }
 
@@ -19992,6 +20006,7 @@ public:
   shared_ptr<string> clientVersion{};
   shared_ptr<string> deployMode{};
   shared_ptr<string> description{};
+  shared_ptr<string> ehpcVersion{};
   shared_ptr<bool> hasPlugin{};
   shared_ptr<string> id{};
   shared_ptr<bool> isComputeEss{};
@@ -20023,6 +20038,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (ehpcVersion) {
+      res["EhpcVersion"] = boost::any(*ehpcVersion);
     }
     if (hasPlugin) {
       res["HasPlugin"] = boost::any(*hasPlugin);
@@ -20066,6 +20084,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EhpcVersion") != m.end() && !m["EhpcVersion"].empty()) {
+      ehpcVersion = make_shared<string>(boost::any_cast<string>(m["EhpcVersion"]));
     }
     if (m.find("HasPlugin") != m.end() && !m["HasPlugin"].empty()) {
       hasPlugin = make_shared<bool>(boost::any_cast<bool>(m["HasPlugin"]));
