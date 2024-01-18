@@ -177,6 +177,182 @@ public:
 
   virtual ~AllocateInstancePublicConnectionResponse() = default;
 };
+class CancelUploadDocumentJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> collection{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespacePassword{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+
+  CancelUploadDocumentJobRequest() {}
+
+  explicit CancelUploadDocumentJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (collection) {
+      res["Collection"] = boost::any(*collection);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespacePassword) {
+      res["NamespacePassword"] = boost::any(*namespacePassword);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
+      collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespacePassword") != m.end() && !m["NamespacePassword"].empty()) {
+      namespacePassword = make_shared<string>(boost::any_cast<string>(m["NamespacePassword"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~CancelUploadDocumentJobRequest() = default;
+};
+class CancelUploadDocumentJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  CancelUploadDocumentJobResponseBody() {}
+
+  explicit CancelUploadDocumentJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~CancelUploadDocumentJobResponseBody() = default;
+};
+class CancelUploadDocumentJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CancelUploadDocumentJobResponseBody> body{};
+
+  CancelUploadDocumentJobResponse() {}
+
+  explicit CancelUploadDocumentJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CancelUploadDocumentJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CancelUploadDocumentJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CancelUploadDocumentJobResponse() = default;
+};
 class CancelUpsertCollectionDataJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> collection{};
@@ -18894,6 +19070,351 @@ public:
 
   virtual ~DownloadSQLLogsRecordsResponse() = default;
 };
+class GetUploadDocumentJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> collection{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespacePassword{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+
+  GetUploadDocumentJobRequest() {}
+
+  explicit GetUploadDocumentJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (collection) {
+      res["Collection"] = boost::any(*collection);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespacePassword) {
+      res["NamespacePassword"] = boost::any(*namespacePassword);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
+      collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespacePassword") != m.end() && !m["NamespacePassword"].empty()) {
+      namespacePassword = make_shared<string>(boost::any_cast<string>(m["NamespacePassword"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetUploadDocumentJobRequest() = default;
+};
+class GetUploadDocumentJobResponseBodyChunkResult : public Darabonba::Model {
+public:
+  shared_ptr<string> chunkFileUrl{};
+  shared_ptr<string> plainChunkFileUrl{};
+
+  GetUploadDocumentJobResponseBodyChunkResult() {}
+
+  explicit GetUploadDocumentJobResponseBodyChunkResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (chunkFileUrl) {
+      res["ChunkFileUrl"] = boost::any(*chunkFileUrl);
+    }
+    if (plainChunkFileUrl) {
+      res["PlainChunkFileUrl"] = boost::any(*plainChunkFileUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChunkFileUrl") != m.end() && !m["ChunkFileUrl"].empty()) {
+      chunkFileUrl = make_shared<string>(boost::any_cast<string>(m["ChunkFileUrl"]));
+    }
+    if (m.find("PlainChunkFileUrl") != m.end() && !m["PlainChunkFileUrl"].empty()) {
+      plainChunkFileUrl = make_shared<string>(boost::any_cast<string>(m["PlainChunkFileUrl"]));
+    }
+  }
+
+
+  virtual ~GetUploadDocumentJobResponseBodyChunkResult() = default;
+};
+class GetUploadDocumentJobResponseBodyJob : public Darabonba::Model {
+public:
+  shared_ptr<bool> completed{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> error{};
+  shared_ptr<string> id{};
+  shared_ptr<long> progress{};
+  shared_ptr<string> status{};
+  shared_ptr<string> updateTime{};
+
+  GetUploadDocumentJobResponseBodyJob() {}
+
+  explicit GetUploadDocumentJobResponseBodyJob(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (completed) {
+      res["Completed"] = boost::any(*completed);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (error) {
+      res["Error"] = boost::any(*error);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Completed") != m.end() && !m["Completed"].empty()) {
+      completed = make_shared<bool>(boost::any_cast<bool>(m["Completed"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Error") != m.end() && !m["Error"].empty()) {
+      error = make_shared<string>(boost::any_cast<string>(m["Error"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+  }
+
+
+  virtual ~GetUploadDocumentJobResponseBodyJob() = default;
+};
+class GetUploadDocumentJobResponseBodyUsage : public Darabonba::Model {
+public:
+  shared_ptr<long> embeddingTokens{};
+
+  GetUploadDocumentJobResponseBodyUsage() {}
+
+  explicit GetUploadDocumentJobResponseBodyUsage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (embeddingTokens) {
+      res["EmbeddingTokens"] = boost::any(*embeddingTokens);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EmbeddingTokens") != m.end() && !m["EmbeddingTokens"].empty()) {
+      embeddingTokens = make_shared<long>(boost::any_cast<long>(m["EmbeddingTokens"]));
+    }
+  }
+
+
+  virtual ~GetUploadDocumentJobResponseBodyUsage() = default;
+};
+class GetUploadDocumentJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetUploadDocumentJobResponseBodyChunkResult> chunkResult{};
+  shared_ptr<GetUploadDocumentJobResponseBodyJob> job{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+  shared_ptr<GetUploadDocumentJobResponseBodyUsage> usage{};
+
+  GetUploadDocumentJobResponseBody() {}
+
+  explicit GetUploadDocumentJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (chunkResult) {
+      res["ChunkResult"] = chunkResult ? boost::any(chunkResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (job) {
+      res["Job"] = job ? boost::any(job->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (usage) {
+      res["Usage"] = usage ? boost::any(usage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChunkResult") != m.end() && !m["ChunkResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ChunkResult"].type()) {
+        GetUploadDocumentJobResponseBodyChunkResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ChunkResult"]));
+        chunkResult = make_shared<GetUploadDocumentJobResponseBodyChunkResult>(model1);
+      }
+    }
+    if (m.find("Job") != m.end() && !m["Job"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Job"].type()) {
+        GetUploadDocumentJobResponseBodyJob model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Job"]));
+        job = make_shared<GetUploadDocumentJobResponseBodyJob>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Usage") != m.end() && !m["Usage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Usage"].type()) {
+        GetUploadDocumentJobResponseBodyUsage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Usage"]));
+        usage = make_shared<GetUploadDocumentJobResponseBodyUsage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetUploadDocumentJobResponseBody() = default;
+};
+class GetUploadDocumentJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetUploadDocumentJobResponseBody> body{};
+
+  GetUploadDocumentJobResponse() {}
+
+  explicit GetUploadDocumentJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetUploadDocumentJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetUploadDocumentJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetUploadDocumentJobResponse() = default;
+};
 class GetUpsertCollectionDataJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> collection{};
@@ -26941,6 +27462,544 @@ public:
 
   virtual ~UpgradeDBVersionResponse() = default;
 };
+class UploadDocumentAsyncRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> chunkOverlap{};
+  shared_ptr<long> chunkSize{};
+  shared_ptr<string> collection{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> documentLoaderName{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> fileName{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<map<string, boost::any>> metadata{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespacePassword{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> separators{};
+  shared_ptr<string> textSplitterName{};
+  shared_ptr<bool> zhTitleEnhance{};
+
+  UploadDocumentAsyncRequest() {}
+
+  explicit UploadDocumentAsyncRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (chunkOverlap) {
+      res["ChunkOverlap"] = boost::any(*chunkOverlap);
+    }
+    if (chunkSize) {
+      res["ChunkSize"] = boost::any(*chunkSize);
+    }
+    if (collection) {
+      res["Collection"] = boost::any(*collection);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (documentLoaderName) {
+      res["DocumentLoaderName"] = boost::any(*documentLoaderName);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (metadata) {
+      res["Metadata"] = boost::any(*metadata);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespacePassword) {
+      res["NamespacePassword"] = boost::any(*namespacePassword);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (separators) {
+      res["Separators"] = boost::any(*separators);
+    }
+    if (textSplitterName) {
+      res["TextSplitterName"] = boost::any(*textSplitterName);
+    }
+    if (zhTitleEnhance) {
+      res["ZhTitleEnhance"] = boost::any(*zhTitleEnhance);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChunkOverlap") != m.end() && !m["ChunkOverlap"].empty()) {
+      chunkOverlap = make_shared<long>(boost::any_cast<long>(m["ChunkOverlap"]));
+    }
+    if (m.find("ChunkSize") != m.end() && !m["ChunkSize"].empty()) {
+      chunkSize = make_shared<long>(boost::any_cast<long>(m["ChunkSize"]));
+    }
+    if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
+      collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DocumentLoaderName") != m.end() && !m["DocumentLoaderName"].empty()) {
+      documentLoaderName = make_shared<string>(boost::any_cast<string>(m["DocumentLoaderName"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Metadata"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      metadata = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespacePassword") != m.end() && !m["NamespacePassword"].empty()) {
+      namespacePassword = make_shared<string>(boost::any_cast<string>(m["NamespacePassword"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Separators") != m.end() && !m["Separators"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Separators"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Separators"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      separators = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TextSplitterName") != m.end() && !m["TextSplitterName"].empty()) {
+      textSplitterName = make_shared<string>(boost::any_cast<string>(m["TextSplitterName"]));
+    }
+    if (m.find("ZhTitleEnhance") != m.end() && !m["ZhTitleEnhance"].empty()) {
+      zhTitleEnhance = make_shared<bool>(boost::any_cast<bool>(m["ZhTitleEnhance"]));
+    }
+  }
+
+
+  virtual ~UploadDocumentAsyncRequest() = default;
+};
+class UploadDocumentAsyncAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> chunkOverlap{};
+  shared_ptr<long> chunkSize{};
+  shared_ptr<string> collection{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> documentLoaderName{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> fileName{};
+  shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<map<string, boost::any>> metadata{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespacePassword{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> separators{};
+  shared_ptr<string> textSplitterName{};
+  shared_ptr<bool> zhTitleEnhance{};
+
+  UploadDocumentAsyncAdvanceRequest() {}
+
+  explicit UploadDocumentAsyncAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (chunkOverlap) {
+      res["ChunkOverlap"] = boost::any(*chunkOverlap);
+    }
+    if (chunkSize) {
+      res["ChunkSize"] = boost::any(*chunkSize);
+    }
+    if (collection) {
+      res["Collection"] = boost::any(*collection);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (documentLoaderName) {
+      res["DocumentLoaderName"] = boost::any(*documentLoaderName);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileUrlObject) {
+      res["FileUrl"] = boost::any(*fileUrlObject);
+    }
+    if (metadata) {
+      res["Metadata"] = boost::any(*metadata);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespacePassword) {
+      res["NamespacePassword"] = boost::any(*namespacePassword);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (separators) {
+      res["Separators"] = boost::any(*separators);
+    }
+    if (textSplitterName) {
+      res["TextSplitterName"] = boost::any(*textSplitterName);
+    }
+    if (zhTitleEnhance) {
+      res["ZhTitleEnhance"] = boost::any(*zhTitleEnhance);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChunkOverlap") != m.end() && !m["ChunkOverlap"].empty()) {
+      chunkOverlap = make_shared<long>(boost::any_cast<long>(m["ChunkOverlap"]));
+    }
+    if (m.find("ChunkSize") != m.end() && !m["ChunkSize"].empty()) {
+      chunkSize = make_shared<long>(boost::any_cast<long>(m["ChunkSize"]));
+    }
+    if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
+      collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DocumentLoaderName") != m.end() && !m["DocumentLoaderName"].empty()) {
+      documentLoaderName = make_shared<string>(boost::any_cast<string>(m["DocumentLoaderName"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Metadata"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      metadata = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespacePassword") != m.end() && !m["NamespacePassword"].empty()) {
+      namespacePassword = make_shared<string>(boost::any_cast<string>(m["NamespacePassword"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Separators") != m.end() && !m["Separators"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Separators"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Separators"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      separators = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TextSplitterName") != m.end() && !m["TextSplitterName"].empty()) {
+      textSplitterName = make_shared<string>(boost::any_cast<string>(m["TextSplitterName"]));
+    }
+    if (m.find("ZhTitleEnhance") != m.end() && !m["ZhTitleEnhance"].empty()) {
+      zhTitleEnhance = make_shared<bool>(boost::any_cast<bool>(m["ZhTitleEnhance"]));
+    }
+  }
+
+
+  virtual ~UploadDocumentAsyncAdvanceRequest() = default;
+};
+class UploadDocumentAsyncShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> chunkOverlap{};
+  shared_ptr<long> chunkSize{};
+  shared_ptr<string> collection{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> documentLoaderName{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> fileName{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<string> metadataShrink{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> namespacePassword{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> separatorsShrink{};
+  shared_ptr<string> textSplitterName{};
+  shared_ptr<bool> zhTitleEnhance{};
+
+  UploadDocumentAsyncShrinkRequest() {}
+
+  explicit UploadDocumentAsyncShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (chunkOverlap) {
+      res["ChunkOverlap"] = boost::any(*chunkOverlap);
+    }
+    if (chunkSize) {
+      res["ChunkSize"] = boost::any(*chunkSize);
+    }
+    if (collection) {
+      res["Collection"] = boost::any(*collection);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (documentLoaderName) {
+      res["DocumentLoaderName"] = boost::any(*documentLoaderName);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (metadataShrink) {
+      res["Metadata"] = boost::any(*metadataShrink);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespacePassword) {
+      res["NamespacePassword"] = boost::any(*namespacePassword);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (separatorsShrink) {
+      res["Separators"] = boost::any(*separatorsShrink);
+    }
+    if (textSplitterName) {
+      res["TextSplitterName"] = boost::any(*textSplitterName);
+    }
+    if (zhTitleEnhance) {
+      res["ZhTitleEnhance"] = boost::any(*zhTitleEnhance);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChunkOverlap") != m.end() && !m["ChunkOverlap"].empty()) {
+      chunkOverlap = make_shared<long>(boost::any_cast<long>(m["ChunkOverlap"]));
+    }
+    if (m.find("ChunkSize") != m.end() && !m["ChunkSize"].empty()) {
+      chunkSize = make_shared<long>(boost::any_cast<long>(m["ChunkSize"]));
+    }
+    if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
+      collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DocumentLoaderName") != m.end() && !m["DocumentLoaderName"].empty()) {
+      documentLoaderName = make_shared<string>(boost::any_cast<string>(m["DocumentLoaderName"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
+      metadataShrink = make_shared<string>(boost::any_cast<string>(m["Metadata"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespacePassword") != m.end() && !m["NamespacePassword"].empty()) {
+      namespacePassword = make_shared<string>(boost::any_cast<string>(m["NamespacePassword"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Separators") != m.end() && !m["Separators"].empty()) {
+      separatorsShrink = make_shared<string>(boost::any_cast<string>(m["Separators"]));
+    }
+    if (m.find("TextSplitterName") != m.end() && !m["TextSplitterName"].empty()) {
+      textSplitterName = make_shared<string>(boost::any_cast<string>(m["TextSplitterName"]));
+    }
+    if (m.find("ZhTitleEnhance") != m.end() && !m["ZhTitleEnhance"].empty()) {
+      zhTitleEnhance = make_shared<bool>(boost::any_cast<bool>(m["ZhTitleEnhance"]));
+    }
+  }
+
+
+  virtual ~UploadDocumentAsyncShrinkRequest() = default;
+};
+class UploadDocumentAsyncResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  UploadDocumentAsyncResponseBody() {}
+
+  explicit UploadDocumentAsyncResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~UploadDocumentAsyncResponseBody() = default;
+};
+class UploadDocumentAsyncResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UploadDocumentAsyncResponseBody> body{};
+
+  UploadDocumentAsyncResponse() {}
+
+  explicit UploadDocumentAsyncResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UploadDocumentAsyncResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UploadDocumentAsyncResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UploadDocumentAsyncResponse() = default;
+};
 class UpsertChunksRequestTextChunks : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -27846,6 +28905,8 @@ public:
                      shared_ptr<string> endpoint);
   AllocateInstancePublicConnectionResponse allocateInstancePublicConnectionWithOptions(shared_ptr<AllocateInstancePublicConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AllocateInstancePublicConnectionResponse allocateInstancePublicConnection(shared_ptr<AllocateInstancePublicConnectionRequest> request);
+  CancelUploadDocumentJobResponse cancelUploadDocumentJobWithOptions(shared_ptr<CancelUploadDocumentJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CancelUploadDocumentJobResponse cancelUploadDocumentJob(shared_ptr<CancelUploadDocumentJobRequest> request);
   CancelUpsertCollectionDataJobResponse cancelUpsertCollectionDataJobWithOptions(shared_ptr<CancelUpsertCollectionDataJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelUpsertCollectionDataJobResponse cancelUpsertCollectionDataJob(shared_ptr<CancelUpsertCollectionDataJobRequest> request);
   CheckServiceLinkedRoleResponse checkServiceLinkedRoleWithOptions(shared_ptr<CheckServiceLinkedRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -27988,6 +29049,8 @@ public:
   DownloadDiagnosisRecordsResponse downloadDiagnosisRecords(shared_ptr<DownloadDiagnosisRecordsRequest> request);
   DownloadSQLLogsRecordsResponse downloadSQLLogsRecordsWithOptions(shared_ptr<DownloadSQLLogsRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DownloadSQLLogsRecordsResponse downloadSQLLogsRecords(shared_ptr<DownloadSQLLogsRecordsRequest> request);
+  GetUploadDocumentJobResponse getUploadDocumentJobWithOptions(shared_ptr<GetUploadDocumentJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetUploadDocumentJobResponse getUploadDocumentJob(shared_ptr<GetUploadDocumentJobRequest> request);
   GetUpsertCollectionDataJobResponse getUpsertCollectionDataJobWithOptions(shared_ptr<GetUpsertCollectionDataJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetUpsertCollectionDataJobResponse getUpsertCollectionDataJob(shared_ptr<GetUpsertCollectionDataJobRequest> request);
   GrantCollectionResponse grantCollectionWithOptions(shared_ptr<GrantCollectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28071,6 +29134,9 @@ public:
   UpgradeDBInstanceResponse upgradeDBInstance(shared_ptr<UpgradeDBInstanceRequest> request);
   UpgradeDBVersionResponse upgradeDBVersionWithOptions(shared_ptr<UpgradeDBVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpgradeDBVersionResponse upgradeDBVersion(shared_ptr<UpgradeDBVersionRequest> request);
+  UploadDocumentAsyncResponse uploadDocumentAsyncWithOptions(shared_ptr<UploadDocumentAsyncRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UploadDocumentAsyncResponse uploadDocumentAsync(shared_ptr<UploadDocumentAsyncRequest> request);
+  UploadDocumentAsyncResponse uploadDocumentAsyncAdvance(shared_ptr<UploadDocumentAsyncAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpsertChunksResponse upsertChunksWithOptions(shared_ptr<UpsertChunksRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpsertChunksResponse upsertChunks(shared_ptr<UpsertChunksRequest> request);
   UpsertCollectionDataResponse upsertCollectionDataWithOptions(shared_ptr<UpsertCollectionDataRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
