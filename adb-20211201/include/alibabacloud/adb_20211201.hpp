@@ -19349,6 +19349,8 @@ class GetSparkAppAttemptLogRequest : public Darabonba::Model {
 public:
   shared_ptr<string> attemptId{};
   shared_ptr<long> logLength{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<string> pageSize{};
 
   GetSparkAppAttemptLogRequest() {}
 
@@ -19366,6 +19368,12 @@ public:
     if (logLength) {
       res["LogLength"] = boost::any(*logLength);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
     return res;
   }
 
@@ -19375,6 +19383,12 @@ public:
     }
     if (m.find("LogLength") != m.end() && !m["LogLength"].empty()) {
       logLength = make_shared<long>(boost::any_cast<long>(m["LogLength"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
     }
   }
 
@@ -19386,6 +19400,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> logContent{};
+  shared_ptr<long> logSize{};
   shared_ptr<string> message{};
 
   GetSparkAppAttemptLogResponseBodyData() {}
@@ -19407,6 +19422,9 @@ public:
     if (logContent) {
       res["LogContent"] = boost::any(*logContent);
     }
+    if (logSize) {
+      res["LogSize"] = boost::any(*logSize);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
@@ -19422,6 +19440,9 @@ public:
     }
     if (m.find("LogContent") != m.end() && !m["LogContent"].empty()) {
       logContent = make_shared<string>(boost::any_cast<string>(m["LogContent"]));
+    }
+    if (m.find("LogSize") != m.end() && !m["LogSize"].empty()) {
+      logSize = make_shared<long>(boost::any_cast<long>(m["LogSize"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -19676,6 +19697,8 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<long> logLength{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
 
   GetSparkAppLogRequest() {}
 
@@ -19696,6 +19719,12 @@ public:
     if (logLength) {
       res["LogLength"] = boost::any(*logLength);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
     return res;
   }
 
@@ -19709,6 +19738,12 @@ public:
     if (m.find("LogLength") != m.end() && !m["LogLength"].empty()) {
       logLength = make_shared<long>(boost::any_cast<long>(m["LogLength"]));
     }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
   }
 
 
@@ -19718,6 +19753,7 @@ class GetSparkAppLogResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> logContent{};
+  shared_ptr<long> logSize{};
   shared_ptr<string> message{};
 
   GetSparkAppLogResponseBodyData() {}
@@ -19736,6 +19772,9 @@ public:
     if (logContent) {
       res["LogContent"] = boost::any(*logContent);
     }
+    if (logSize) {
+      res["LogSize"] = boost::any(*logSize);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
@@ -19748,6 +19787,9 @@ public:
     }
     if (m.find("LogContent") != m.end() && !m["LogContent"].empty()) {
       logContent = make_shared<string>(boost::any_cast<string>(m["LogContent"]));
+    }
+    if (m.find("LogSize") != m.end() && !m["LogSize"].empty()) {
+      logSize = make_shared<long>(boost::any_cast<long>(m["LogSize"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
