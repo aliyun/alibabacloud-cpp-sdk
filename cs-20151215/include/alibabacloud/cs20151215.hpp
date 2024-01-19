@@ -5097,6 +5097,7 @@ public:
 class CreateClusterNodePoolResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> nodepoolId{};
+  shared_ptr<string> requestId{};
   shared_ptr<string> taskId{};
 
   CreateClusterNodePoolResponseBody() {}
@@ -5112,6 +5113,9 @@ public:
     if (nodepoolId) {
       res["nodepool_id"] = boost::any(*nodepoolId);
     }
+    if (requestId) {
+      res["request_id"] = boost::any(*requestId);
+    }
     if (taskId) {
       res["task_id"] = boost::any(*taskId);
     }
@@ -5121,6 +5125,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("nodepool_id") != m.end() && !m["nodepool_id"].empty()) {
       nodepoolId = make_shared<string>(boost::any_cast<string>(m["nodepool_id"]));
+    }
+    if (m.find("request_id") != m.end() && !m["request_id"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["request_id"]));
     }
     if (m.find("task_id") != m.end() && !m["task_id"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["task_id"]));
@@ -22008,6 +22015,7 @@ public:
   shared_ptr<string> runtime{};
   shared_ptr<string> runtimeVersion{};
   shared_ptr<vector<Taint>> taints{};
+  shared_ptr<bool> unschedulable{};
   shared_ptr<string> userData{};
 
   ModifyClusterNodePoolRequestKubernetesConfig() {}
@@ -22045,6 +22053,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["taints"] = boost::any(temp1);
+    }
+    if (unschedulable) {
+      res["unschedulable"] = boost::any(*unschedulable);
     }
     if (userData) {
       res["user_data"] = boost::any(*userData);
@@ -22090,6 +22101,9 @@ public:
         }
         taints = make_shared<vector<Taint>>(expect1);
       }
+    }
+    if (m.find("unschedulable") != m.end() && !m["unschedulable"].empty()) {
+      unschedulable = make_shared<bool>(boost::any_cast<bool>(m["unschedulable"]));
     }
     if (m.find("user_data") != m.end() && !m["user_data"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["user_data"]));
@@ -22934,6 +22948,7 @@ public:
 class ModifyClusterNodePoolResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> nodepoolId{};
+  shared_ptr<string> requestId{};
   shared_ptr<string> taskId{};
 
   ModifyClusterNodePoolResponseBody() {}
@@ -22949,6 +22964,9 @@ public:
     if (nodepoolId) {
       res["nodepool_id"] = boost::any(*nodepoolId);
     }
+    if (requestId) {
+      res["request_id"] = boost::any(*requestId);
+    }
     if (taskId) {
       res["task_id"] = boost::any(*taskId);
     }
@@ -22958,6 +22976,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("nodepool_id") != m.end() && !m["nodepool_id"].empty()) {
       nodepoolId = make_shared<string>(boost::any_cast<string>(m["nodepool_id"]));
+    }
+    if (m.find("request_id") != m.end() && !m["request_id"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["request_id"]));
     }
     if (m.find("task_id") != m.end() && !m["task_id"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["task_id"]));
