@@ -9935,6 +9935,7 @@ class GetLogsV2Request : public Darabonba::Model {
 public:
   shared_ptr<bool> forward{};
   shared_ptr<long> from{};
+  shared_ptr<bool> highlight{};
   shared_ptr<long> line{};
   shared_ptr<long> offset{};
   shared_ptr<bool> powerSql{};
@@ -9960,6 +9961,9 @@ public:
     }
     if (from) {
       res["from"] = boost::any(*from);
+    }
+    if (highlight) {
+      res["highlight"] = boost::any(*highlight);
     }
     if (line) {
       res["line"] = boost::any(*line);
@@ -9998,6 +10002,9 @@ public:
     if (m.find("from") != m.end() && !m["from"].empty()) {
       from = make_shared<long>(boost::any_cast<long>(m["from"]));
     }
+    if (m.find("highlight") != m.end() && !m["highlight"].empty()) {
+      highlight = make_shared<bool>(boost::any_cast<bool>(m["highlight"]));
+    }
     if (m.find("line") != m.end() && !m["line"].empty()) {
       line = make_shared<long>(boost::any_cast<long>(m["line"]));
     }
@@ -10030,17 +10037,75 @@ public:
 
   virtual ~GetLogsV2Request() = default;
 };
+class GetLogsV2ResponseBodyMetaPhraseQueryInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> beginOffset{};
+  shared_ptr<long> endOffset{};
+  shared_ptr<long> endTime{};
+  shared_ptr<bool> scanAll{};
+
+  GetLogsV2ResponseBodyMetaPhraseQueryInfo() {}
+
+  explicit GetLogsV2ResponseBodyMetaPhraseQueryInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beginOffset) {
+      res["beginOffset"] = boost::any(*beginOffset);
+    }
+    if (endOffset) {
+      res["endOffset"] = boost::any(*endOffset);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (scanAll) {
+      res["scanAll"] = boost::any(*scanAll);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("beginOffset") != m.end() && !m["beginOffset"].empty()) {
+      beginOffset = make_shared<long>(boost::any_cast<long>(m["beginOffset"]));
+    }
+    if (m.find("endOffset") != m.end() && !m["endOffset"].empty()) {
+      endOffset = make_shared<long>(boost::any_cast<long>(m["endOffset"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("scanAll") != m.end() && !m["scanAll"].empty()) {
+      scanAll = make_shared<bool>(boost::any_cast<bool>(m["scanAll"]));
+    }
+  }
+
+
+  virtual ~GetLogsV2ResponseBodyMetaPhraseQueryInfo() = default;
+};
 class GetLogsV2ResponseBodyMeta : public Darabonba::Model {
 public:
   shared_ptr<string> aggQuery{};
+  shared_ptr<vector<string>> columnTypes{};
   shared_ptr<long> count{};
+  shared_ptr<long> cpuCores{};
+  shared_ptr<double> cpuSec{};
   shared_ptr<long> elapsedMillisecond{};
   shared_ptr<bool> hasSQL{};
+  shared_ptr<vector<vector<LogContent>>> highlights{};
   shared_ptr<bool> isAccurate{};
   shared_ptr<vector<string>> keys{};
+  shared_ptr<long> limited{};
+  shared_ptr<long> mode{};
+  shared_ptr<GetLogsV2ResponseBodyMetaPhraseQueryInfo> phraseQueryInfo{};
   shared_ptr<long> processedBytes{};
   shared_ptr<long> processedRows{};
   shared_ptr<string> progress{};
+  shared_ptr<long> scanBytes{};
   shared_ptr<string> telementryType{};
   shared_ptr<vector<map<string, boost::any>>> terms{};
   shared_ptr<string> whereQuery{};
@@ -10058,8 +10123,17 @@ public:
     if (aggQuery) {
       res["aggQuery"] = boost::any(*aggQuery);
     }
+    if (columnTypes) {
+      res["columnTypes"] = boost::any(*columnTypes);
+    }
     if (count) {
       res["count"] = boost::any(*count);
+    }
+    if (cpuCores) {
+      res["cpuCores"] = boost::any(*cpuCores);
+    }
+    if (cpuSec) {
+      res["cpuSec"] = boost::any(*cpuSec);
     }
     if (elapsedMillisecond) {
       res["elapsedMillisecond"] = boost::any(*elapsedMillisecond);
@@ -10067,11 +10141,31 @@ public:
     if (hasSQL) {
       res["hasSQL"] = boost::any(*hasSQL);
     }
+    if (highlights) {
+      vector<boost::any> temp1;
+      for(auto item1:*highlights){
+        vector<boost::any> temp2;
+        for(auto item2:item1){
+          temp2.push_back(boost::any(item2.toMap()));
+        }
+        temp1 = boost::any(temp2);
+      }
+      res["highlights"] = boost::any(temp1);
+    }
     if (isAccurate) {
       res["isAccurate"] = boost::any(*isAccurate);
     }
     if (keys) {
       res["keys"] = boost::any(*keys);
+    }
+    if (limited) {
+      res["limited"] = boost::any(*limited);
+    }
+    if (mode) {
+      res["mode"] = boost::any(*mode);
+    }
+    if (phraseQueryInfo) {
+      res["phraseQueryInfo"] = phraseQueryInfo ? boost::any(phraseQueryInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (processedBytes) {
       res["processedBytes"] = boost::any(*processedBytes);
@@ -10081,6 +10175,9 @@ public:
     }
     if (progress) {
       res["progress"] = boost::any(*progress);
+    }
+    if (scanBytes) {
+      res["scanBytes"] = boost::any(*scanBytes);
     }
     if (telementryType) {
       res["telementryType"] = boost::any(*telementryType);
@@ -10098,14 +10195,49 @@ public:
     if (m.find("aggQuery") != m.end() && !m["aggQuery"].empty()) {
       aggQuery = make_shared<string>(boost::any_cast<string>(m["aggQuery"]));
     }
+    if (m.find("columnTypes") != m.end() && !m["columnTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["columnTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["columnTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      columnTypes = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("count") != m.end() && !m["count"].empty()) {
       count = make_shared<long>(boost::any_cast<long>(m["count"]));
+    }
+    if (m.find("cpuCores") != m.end() && !m["cpuCores"].empty()) {
+      cpuCores = make_shared<long>(boost::any_cast<long>(m["cpuCores"]));
+    }
+    if (m.find("cpuSec") != m.end() && !m["cpuSec"].empty()) {
+      cpuSec = make_shared<double>(boost::any_cast<double>(m["cpuSec"]));
     }
     if (m.find("elapsedMillisecond") != m.end() && !m["elapsedMillisecond"].empty()) {
       elapsedMillisecond = make_shared<long>(boost::any_cast<long>(m["elapsedMillisecond"]));
     }
     if (m.find("hasSQL") != m.end() && !m["hasSQL"].empty()) {
       hasSQL = make_shared<bool>(boost::any_cast<bool>(m["hasSQL"]));
+    }
+    if (m.find("highlights") != m.end() && !m["highlights"].empty()) {
+      if (typeid(vector<boost::any>) == m["highlights"].type()) {
+        vector<vector<LogContent>> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["highlights"])){
+          if (typeid(vector<boost::any>) == item1.type()) {
+            vector<LogContent> expect2;
+            for(auto item2:boost::any_cast<vector<boost::any>>(item1)){
+              if (typeid(map<string, boost::any>) == item2.type()) {
+                LogContent model3;
+                model3.fromMap(boost::any_cast<map<string, boost::any>>(item2));
+                expect2.push_back(model3);
+              }
+            }
+            expect1.push_back(expect2);
+          }
+        }
+        highlights = make_shared<vector<vector<LogContent>>>(expect1);
+      }
     }
     if (m.find("isAccurate") != m.end() && !m["isAccurate"].empty()) {
       isAccurate = make_shared<bool>(boost::any_cast<bool>(m["isAccurate"]));
@@ -10120,6 +10252,19 @@ public:
       }
       keys = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("limited") != m.end() && !m["limited"].empty()) {
+      limited = make_shared<long>(boost::any_cast<long>(m["limited"]));
+    }
+    if (m.find("mode") != m.end() && !m["mode"].empty()) {
+      mode = make_shared<long>(boost::any_cast<long>(m["mode"]));
+    }
+    if (m.find("phraseQueryInfo") != m.end() && !m["phraseQueryInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["phraseQueryInfo"].type()) {
+        GetLogsV2ResponseBodyMetaPhraseQueryInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["phraseQueryInfo"]));
+        phraseQueryInfo = make_shared<GetLogsV2ResponseBodyMetaPhraseQueryInfo>(model1);
+      }
+    }
     if (m.find("processedBytes") != m.end() && !m["processedBytes"].empty()) {
       processedBytes = make_shared<long>(boost::any_cast<long>(m["processedBytes"]));
     }
@@ -10128,6 +10273,9 @@ public:
     }
     if (m.find("progress") != m.end() && !m["progress"].empty()) {
       progress = make_shared<string>(boost::any_cast<string>(m["progress"]));
+    }
+    if (m.find("scanBytes") != m.end() && !m["scanBytes"].empty()) {
+      scanBytes = make_shared<long>(boost::any_cast<long>(m["scanBytes"]));
     }
     if (m.find("telementryType") != m.end() && !m["telementryType"].empty()) {
       telementryType = make_shared<string>(boost::any_cast<string>(m["telementryType"]));

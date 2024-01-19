@@ -2143,6 +2143,9 @@ GetLogsV2Response Alibabacloud_Sls20201230::Client::getLogsV2WithOptions(shared_
   if (!Darabonba_Util::Client::isUnset<long>(request->from)) {
     body->insert(pair<string, long>("from", *request->from));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->highlight)) {
+    body->insert(pair<string, bool>("highlight", *request->highlight));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->line)) {
     body->insert(pair<string, long>("line", *request->line));
   }
