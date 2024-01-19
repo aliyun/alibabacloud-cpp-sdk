@@ -4216,15 +4216,20 @@ public:
   shared_ptr<string> jobId{};
   shared_ptr<string> launchTemplateId{};
   shared_ptr<string> launchTemplateVersion{};
+  shared_ptr<string> licenseType{};
   shared_ptr<long> maxNumberOfImageToKeep{};
   shared_ptr<string> name{};
+  shared_ptr<long> netMode{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> replicationParameters{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<string> scheduledStartTime{};
   shared_ptr<vector<ModifyReplicationJobAttributeRequestSystemDiskPart>> systemDiskPart{};
   shared_ptr<long> systemDiskSize{};
   shared_ptr<string> targetType{};
+  shared_ptr<string> vSwitchId{};
   shared_ptr<string> validTime{};
+  shared_ptr<string> vpcId{};
 
   ModifyReplicationJobAttributeRequest() {}
 
@@ -4279,14 +4284,23 @@ public:
     if (launchTemplateVersion) {
       res["LaunchTemplateVersion"] = boost::any(*launchTemplateVersion);
     }
+    if (licenseType) {
+      res["LicenseType"] = boost::any(*licenseType);
+    }
     if (maxNumberOfImageToKeep) {
       res["MaxNumberOfImageToKeep"] = boost::any(*maxNumberOfImageToKeep);
     }
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (netMode) {
+      res["NetMode"] = boost::any(*netMode);
+    }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (replicationParameters) {
+      res["ReplicationParameters"] = boost::any(*replicationParameters);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -4307,8 +4321,14 @@ public:
     if (targetType) {
       res["TargetType"] = boost::any(*targetType);
     }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
     if (validTime) {
       res["ValidTime"] = boost::any(*validTime);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
     }
     return res;
   }
@@ -4363,14 +4383,23 @@ public:
     if (m.find("LaunchTemplateVersion") != m.end() && !m["LaunchTemplateVersion"].empty()) {
       launchTemplateVersion = make_shared<string>(boost::any_cast<string>(m["LaunchTemplateVersion"]));
     }
+    if (m.find("LicenseType") != m.end() && !m["LicenseType"].empty()) {
+      licenseType = make_shared<string>(boost::any_cast<string>(m["LicenseType"]));
+    }
     if (m.find("MaxNumberOfImageToKeep") != m.end() && !m["MaxNumberOfImageToKeep"].empty()) {
       maxNumberOfImageToKeep = make_shared<long>(boost::any_cast<long>(m["MaxNumberOfImageToKeep"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("NetMode") != m.end() && !m["NetMode"].empty()) {
+      netMode = make_shared<long>(boost::any_cast<long>(m["NetMode"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ReplicationParameters") != m.end() && !m["ReplicationParameters"].empty()) {
+      replicationParameters = make_shared<string>(boost::any_cast<string>(m["ReplicationParameters"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
@@ -4397,8 +4426,14 @@ public:
     if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
       targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
     }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
     if (m.find("ValidTime") != m.end() && !m["ValidTime"].empty()) {
       validTime = make_shared<string>(boost::any_cast<string>(m["ValidTime"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 

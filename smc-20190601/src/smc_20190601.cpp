@@ -628,14 +628,23 @@ ModifyReplicationJobAttributeResponse Alibabacloud_Smc20190601::Client::modifyRe
   if (!Darabonba_Util::Client::isUnset<string>(request->launchTemplateVersion)) {
     query->insert(pair<string, string>("LaunchTemplateVersion", *request->launchTemplateVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->licenseType)) {
+    query->insert(pair<string, string>("LicenseType", *request->licenseType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxNumberOfImageToKeep)) {
     query->insert(pair<string, long>("MaxNumberOfImageToKeep", *request->maxNumberOfImageToKeep));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->netMode)) {
+    query->insert(pair<string, long>("NetMode", *request->netMode));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->replicationParameters)) {
+    query->insert(pair<string, string>("ReplicationParameters", *request->replicationParameters));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
@@ -652,8 +661,14 @@ ModifyReplicationJobAttributeResponse Alibabacloud_Smc20190601::Client::modifyRe
   if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
     query->insert(pair<string, string>("TargetType", *request->targetType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
+    query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->validTime)) {
     query->insert(pair<string, string>("ValidTime", *request->validTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
