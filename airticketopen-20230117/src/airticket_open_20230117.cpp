@@ -694,9 +694,9 @@ LuggageDirectResponse Alibabacloud_AirticketOpen20230117::Client::luggageDirectW
   if (!Darabonba_Util::Client::isUnset<vector<LuggageDirectRequestFlightSegmentParamList>>(tmpReq->flightSegmentParamList)) {
     request->flightSegmentParamListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->flightSegmentParamList, make_shared<string>("flight_segment_param_list"), make_shared<string>("json")));
   }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->flightSegmentParamListShrink)) {
-    body->insert(pair<string, string>("flight_segment_param_list", *request->flightSegmentParamListShrink));
+    query->insert(pair<string, string>("flight_segment_param_list", *request->flightSegmentParamListShrink));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -710,7 +710,7 @@ LuggageDirectResponse Alibabacloud_AirticketOpen20230117::Client::luggageDirectW
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("LuggageDirect"))},
@@ -720,7 +720,7 @@ LuggageDirectResponse Alibabacloud_AirticketOpen20230117::Client::luggageDirectW
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("formData"))},
+    {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return LuggageDirectResponse(callApi(params, req, runtime));
@@ -1163,9 +1163,9 @@ TransitVisaResponse Alibabacloud_AirticketOpen20230117::Client::transitVisaWithO
   if (!Darabonba_Util::Client::isUnset<vector<TransitVisaRequestFlightSegmentParamList>>(tmpReq->flightSegmentParamList)) {
     request->flightSegmentParamListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->flightSegmentParamList, make_shared<string>("flight_segment_param_list"), make_shared<string>("json")));
   }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->flightSegmentParamListShrink)) {
-    body->insert(pair<string, string>("flight_segment_param_list", *request->flightSegmentParamListShrink));
+    query->insert(pair<string, string>("flight_segment_param_list", *request->flightSegmentParamListShrink));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -1179,7 +1179,7 @@ TransitVisaResponse Alibabacloud_AirticketOpen20230117::Client::transitVisaWithO
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("TransitVisa"))},
@@ -1189,7 +1189,7 @@ TransitVisaResponse Alibabacloud_AirticketOpen20230117::Client::transitVisaWithO
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("formData"))},
+    {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return TransitVisaResponse(callApi(params, req, runtime));
