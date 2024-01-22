@@ -1320,10 +1320,47 @@ public:
 
   virtual ~Binding() = default;
 };
+class PointInt64 : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  PointInt64() {}
+
+  explicit PointInt64(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~PointInt64() = default;
+};
 class Boundary : public Darabonba::Model {
 public:
   shared_ptr<long> height{};
   shared_ptr<long> left{};
+  shared_ptr<vector<PointInt64>> polygon{};
   shared_ptr<long> top{};
   shared_ptr<long> width{};
 
@@ -1343,6 +1380,13 @@ public:
     if (left) {
       res["Left"] = boost::any(*left);
     }
+    if (polygon) {
+      vector<boost::any> temp1;
+      for(auto item1:*polygon){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Polygon"] = boost::any(temp1);
+    }
     if (top) {
       res["Top"] = boost::any(*top);
     }
@@ -1358,6 +1402,19 @@ public:
     }
     if (m.find("Left") != m.end() && !m["Left"].empty()) {
       left = make_shared<long>(boost::any_cast<long>(m["Left"]));
+    }
+    if (m.find("Polygon") != m.end() && !m["Polygon"].empty()) {
+      if (typeid(vector<boost::any>) == m["Polygon"].type()) {
+        vector<PointInt64> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Polygon"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PointInt64 model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        polygon = make_shared<vector<PointInt64>>(expect1);
+      }
     }
     if (m.find("Top") != m.end() && !m["Top"].empty()) {
       top = make_shared<long>(boost::any_cast<long>(m["Top"]));
@@ -2380,6 +2437,92 @@ public:
 
   virtual ~Dataset() = default;
 };
+class ElementContent : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> type{};
+  shared_ptr<string> URL{};
+
+  ElementContent() {}
+
+  explicit ElementContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (URL) {
+      res["URL"] = boost::any(*URL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URL = make_shared<string>(boost::any_cast<string>(m["URL"]));
+    }
+  }
+
+
+  virtual ~ElementContent() = default;
+};
+class Element : public Darabonba::Model {
+public:
+  shared_ptr<vector<ElementContent>> elementContents{};
+
+  Element() {}
+
+  explicit Element(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (elementContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*elementContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ElementContents"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ElementContents") != m.end() && !m["ElementContents"].empty()) {
+      if (typeid(vector<boost::any>) == m["ElementContents"].type()) {
+        vector<ElementContent> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ElementContents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ElementContent model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        elementContents = make_shared<vector<ElementContent>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~Element() = default;
+};
 class HeadPose : public Darabonba::Model {
 public:
   shared_ptr<double> pitch{};
@@ -3228,6 +3371,7 @@ public:
   shared_ptr<double> duration{};
   shared_ptr<string> ETag{};
   shared_ptr<string> EXIF{};
+  shared_ptr<vector<Element>> elements{};
   shared_ptr<long> figureCount{};
   shared_ptr<vector<Figure>> figures{};
   shared_ptr<string> fileAccessTime{};
@@ -3245,6 +3389,7 @@ public:
   shared_ptr<string> latLong{};
   shared_ptr<string> mediaType{};
   shared_ptr<vector<OCRContents>> OCRContents{};
+  shared_ptr<string> OCRTexts{};
   shared_ptr<string> OSSCRC64{};
   shared_ptr<string> OSSDeleteMarker{};
   shared_ptr<string> OSSExpiration{};
@@ -3265,6 +3410,7 @@ public:
   shared_ptr<string> produceTime{};
   shared_ptr<long> programCount{};
   shared_ptr<string> projectName{};
+  shared_ptr<vector<string>> semanticTypes{};
   shared_ptr<string> serverSideDataEncryption{};
   shared_ptr<string> serverSideEncryption{};
   shared_ptr<string> serverSideEncryptionCustomerAlgorithm{};
@@ -3380,6 +3526,13 @@ public:
     if (EXIF) {
       res["EXIF"] = boost::any(*EXIF);
     }
+    if (elements) {
+      vector<boost::any> temp1;
+      for(auto item1:*elements){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Elements"] = boost::any(temp1);
+    }
     if (figureCount) {
       res["FigureCount"] = boost::any(*figureCount);
     }
@@ -3443,6 +3596,9 @@ public:
       }
       res["OCRContents"] = boost::any(temp1);
     }
+    if (OCRTexts) {
+      res["OCRTexts"] = boost::any(*OCRTexts);
+    }
     if (OSSCRC64) {
       res["OSSCRC64"] = boost::any(*OSSCRC64);
     }
@@ -3502,6 +3658,9 @@ public:
     }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
+    }
+    if (semanticTypes) {
+      res["SemanticTypes"] = boost::any(*semanticTypes);
     }
     if (serverSideDataEncryption) {
       res["ServerSideDataEncryption"] = boost::any(*serverSideDataEncryption);
@@ -3680,6 +3839,19 @@ public:
     if (m.find("EXIF") != m.end() && !m["EXIF"].empty()) {
       EXIF = make_shared<string>(boost::any_cast<string>(m["EXIF"]));
     }
+    if (m.find("Elements") != m.end() && !m["Elements"].empty()) {
+      if (typeid(vector<boost::any>) == m["Elements"].type()) {
+        vector<Element> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Elements"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Element model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        elements = make_shared<vector<Element>>(expect1);
+      }
+    }
     if (m.find("FigureCount") != m.end() && !m["FigureCount"].empty()) {
       figureCount = make_shared<long>(boost::any_cast<long>(m["FigureCount"]));
     }
@@ -3765,6 +3937,9 @@ public:
         OCRContents = make_shared<vector<OCRContents>>(expect1);
       }
     }
+    if (m.find("OCRTexts") != m.end() && !m["OCRTexts"].empty()) {
+      OCRTexts = make_shared<string>(boost::any_cast<string>(m["OCRTexts"]));
+    }
     if (m.find("OSSCRC64") != m.end() && !m["OSSCRC64"].empty()) {
       OSSCRC64 = make_shared<string>(boost::any_cast<string>(m["OSSCRC64"]));
     }
@@ -3834,6 +4009,16 @@ public:
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SemanticTypes") != m.end() && !m["SemanticTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SemanticTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SemanticTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      semanticTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ServerSideDataEncryption") != m.end() && !m["ServerSideDataEncryption"].empty()) {
       serverSideDataEncryption = make_shared<string>(boost::any_cast<string>(m["ServerSideDataEncryption"]));
@@ -19294,6 +19479,7 @@ class ExtractDocumentTextRequest : public Darabonba::Model {
 public:
   shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<string> projectName{};
+  shared_ptr<string> sourceType{};
   shared_ptr<string> sourceURI{};
 
   ExtractDocumentTextRequest() {}
@@ -19312,6 +19498,9 @@ public:
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
     if (sourceURI) {
       res["SourceURI"] = boost::any(*sourceURI);
     }
@@ -19329,6 +19518,9 @@ public:
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
     }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
     if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
       sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
     }
@@ -19341,6 +19533,7 @@ class ExtractDocumentTextShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> credentialConfigShrink{};
   shared_ptr<string> projectName{};
+  shared_ptr<string> sourceType{};
   shared_ptr<string> sourceURI{};
 
   ExtractDocumentTextShrinkRequest() {}
@@ -19359,6 +19552,9 @@ public:
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
     if (sourceURI) {
       res["SourceURI"] = boost::any(*sourceURI);
     }
@@ -19371,6 +19567,9 @@ public:
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
     }
     if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
       sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));

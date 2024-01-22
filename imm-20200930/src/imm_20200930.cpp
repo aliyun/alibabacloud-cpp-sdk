@@ -2522,6 +2522,9 @@ ExtractDocumentTextResponse Alibabacloud_Imm20200930::Client::extractDocumentTex
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     query->insert(pair<string, string>("ProjectName", *request->projectName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
+    query->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceURI)) {
     query->insert(pair<string, string>("SourceURI", *request->sourceURI));
   }
