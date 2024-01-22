@@ -1382,6 +1382,9 @@ DescribeApiDocResponse Alibabacloud_CloudAPI20160201::Client::describeApiDocWith
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->stageName)) {
     query->insert(pair<string, string>("StageName", *request->stageName));
   }
@@ -1424,6 +1427,9 @@ DescribeApiDocsResponse Alibabacloud_CloudAPI20160201::Client::describeApiDocsWi
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->stageName)) {
     query->insert(pair<string, string>("StageName", *request->stageName));
@@ -1575,6 +1581,9 @@ DescribeApiGroupsResponse Alibabacloud_CloudAPI20160201::Client::describeApiGrou
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
