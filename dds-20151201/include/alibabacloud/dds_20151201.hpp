@@ -4702,6 +4702,7 @@ public:
   shared_ptr<string> database{};
   shared_ptr<string> endTime{};
   shared_ptr<string> form{};
+  shared_ptr<string> logicalOperator{};
   shared_ptr<string> nodeId{};
   shared_ptr<string> orderType{};
   shared_ptr<string> ownerAccount{};
@@ -4735,6 +4736,9 @@ public:
     }
     if (form) {
       res["Form"] = boost::any(*form);
+    }
+    if (logicalOperator) {
+      res["LogicalOperator"] = boost::any(*logicalOperator);
     }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
@@ -4784,6 +4788,9 @@ public:
     }
     if (m.find("Form") != m.end() && !m["Form"].empty()) {
       form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("LogicalOperator") != m.end() && !m["LogicalOperator"].empty()) {
+      logicalOperator = make_shared<string>(boost::any_cast<string>(m["LogicalOperator"]));
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
@@ -12024,11 +12031,13 @@ public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> DBName{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> logicalOperator{};
   shared_ptr<string> nodeId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> queryKeywords{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -12054,6 +12063,9 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (logicalOperator) {
+      res["LogicalOperator"] = boost::any(*logicalOperator);
+    }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
     }
@@ -12068,6 +12080,9 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (queryKeywords) {
+      res["QueryKeywords"] = boost::any(*queryKeywords);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -12097,6 +12112,9 @@ public:
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
+    if (m.find("LogicalOperator") != m.end() && !m["LogicalOperator"].empty()) {
+      logicalOperator = make_shared<string>(boost::any_cast<string>(m["LogicalOperator"]));
+    }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
     }
@@ -12111,6 +12129,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("QueryKeywords") != m.end() && !m["QueryKeywords"].empty()) {
+      queryKeywords = make_shared<string>(boost::any_cast<string>(m["QueryKeywords"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -17741,12 +17762,14 @@ public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> DBName{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> logicalOperator{};
   shared_ptr<string> nodeId{};
   shared_ptr<string> orderType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> queryKeywords{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -17773,6 +17796,9 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (logicalOperator) {
+      res["LogicalOperator"] = boost::any(*logicalOperator);
+    }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
     }
@@ -17790,6 +17816,9 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (queryKeywords) {
+      res["QueryKeywords"] = boost::any(*queryKeywords);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -17822,6 +17851,9 @@ public:
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
+    if (m.find("LogicalOperator") != m.end() && !m["LogicalOperator"].empty()) {
+      logicalOperator = make_shared<string>(boost::any_cast<string>(m["LogicalOperator"]));
+    }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
     }
@@ -17839,6 +17871,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("QueryKeywords") != m.end() && !m["QueryKeywords"].empty()) {
+      queryKeywords = make_shared<string>(boost::any_cast<string>(m["QueryKeywords"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -19021,12 +19056,14 @@ public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> DBName{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> logicalOperator{};
   shared_ptr<string> nodeId{};
   shared_ptr<string> orderType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> queryKeywords{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -19051,6 +19088,9 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (logicalOperator) {
+      res["LogicalOperator"] = boost::any(*logicalOperator);
+    }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
     }
@@ -19068,6 +19108,9 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (queryKeywords) {
+      res["QueryKeywords"] = boost::any(*queryKeywords);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -19094,6 +19137,9 @@ public:
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
+    if (m.find("LogicalOperator") != m.end() && !m["LogicalOperator"].empty()) {
+      logicalOperator = make_shared<string>(boost::any_cast<string>(m["LogicalOperator"]));
+    }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
     }
@@ -19111,6 +19157,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("QueryKeywords") != m.end() && !m["QueryKeywords"].empty()) {
+      queryKeywords = make_shared<string>(boost::any_cast<string>(m["QueryKeywords"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));

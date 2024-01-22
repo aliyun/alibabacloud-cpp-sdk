@@ -1272,6 +1272,9 @@ DescribeAuditRecordsResponse Alibabacloud_Dds20151201::Client::describeAuditReco
   if (!Darabonba_Util::Client::isUnset<string>(request->form)) {
     query->insert(pair<string, string>("Form", *request->form));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logicalOperator)) {
+    query->insert(pair<string, string>("LogicalOperator", *request->logicalOperator));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeId)) {
     query->insert(pair<string, string>("NodeId", *request->nodeId));
   }
@@ -2256,6 +2259,9 @@ DescribeErrorLogRecordsResponse Alibabacloud_Dds20151201::Client::describeErrorL
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logicalOperator)) {
+    query->insert(pair<string, string>("LogicalOperator", *request->logicalOperator));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeId)) {
     query->insert(pair<string, string>("NodeId", *request->nodeId));
   }
@@ -2270,6 +2276,9 @@ DescribeErrorLogRecordsResponse Alibabacloud_Dds20151201::Client::describeErrorL
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->queryKeywords)) {
+    query->insert(pair<string, string>("QueryKeywords", *request->queryKeywords));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
@@ -3047,6 +3056,9 @@ DescribeRunningLogRecordsResponse Alibabacloud_Dds20151201::Client::describeRunn
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logicalOperator)) {
+    query->insert(pair<string, string>("LogicalOperator", *request->logicalOperator));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeId)) {
     query->insert(pair<string, string>("NodeId", *request->nodeId));
   }
@@ -3064,6 +3076,9 @@ DescribeRunningLogRecordsResponse Alibabacloud_Dds20151201::Client::describeRunn
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->queryKeywords)) {
+    query->insert(pair<string, string>("QueryKeywords", *request->queryKeywords));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
@@ -3243,6 +3258,9 @@ DescribeSlowLogRecordsResponse Alibabacloud_Dds20151201::Client::describeSlowLog
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logicalOperator)) {
+    query->insert(pair<string, string>("LogicalOperator", *request->logicalOperator));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeId)) {
     query->insert(pair<string, string>("NodeId", *request->nodeId));
   }
@@ -3260,6 +3278,9 @@ DescribeSlowLogRecordsResponse Alibabacloud_Dds20151201::Client::describeSlowLog
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->queryKeywords)) {
+    query->insert(pair<string, string>("QueryKeywords", *request->queryKeywords));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
