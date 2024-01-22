@@ -7026,6 +7026,9 @@ class DescribeBackupsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<DescribeBackupsResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<DescribeBackupsResponseBodyBackups> backups{};
+  shared_ptr<long> freeSize{};
+  shared_ptr<long> fullStorageSize{};
+  shared_ptr<long> logStorageSize{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
@@ -7046,6 +7049,15 @@ public:
     }
     if (backups) {
       res["Backups"] = backups ? boost::any(backups->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (freeSize) {
+      res["FreeSize"] = boost::any(*freeSize);
+    }
+    if (fullStorageSize) {
+      res["FullStorageSize"] = boost::any(*fullStorageSize);
+    }
+    if (logStorageSize) {
+      res["LogStorageSize"] = boost::any(*logStorageSize);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -7076,6 +7088,15 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Backups"]));
         backups = make_shared<DescribeBackupsResponseBodyBackups>(model1);
       }
+    }
+    if (m.find("FreeSize") != m.end() && !m["FreeSize"].empty()) {
+      freeSize = make_shared<long>(boost::any_cast<long>(m["FreeSize"]));
+    }
+    if (m.find("FullStorageSize") != m.end() && !m["FullStorageSize"].empty()) {
+      fullStorageSize = make_shared<long>(boost::any_cast<long>(m["FullStorageSize"]));
+    }
+    if (m.find("LogStorageSize") != m.end() && !m["LogStorageSize"].empty()) {
+      logStorageSize = make_shared<long>(boost::any_cast<long>(m["LogStorageSize"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -8143,6 +8164,9 @@ public:
 class DescribeClusterBackupListResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeClusterBackupListResponseBodyClusterBackups>> clusterBackups{};
+  shared_ptr<long> freeSize{};
+  shared_ptr<long> fullStorageSize{};
+  shared_ptr<long> logStorageSize{};
   shared_ptr<long> maxResults{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -8164,6 +8188,15 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ClusterBackups"] = boost::any(temp1);
+    }
+    if (freeSize) {
+      res["FreeSize"] = boost::any(*freeSize);
+    }
+    if (fullStorageSize) {
+      res["FullStorageSize"] = boost::any(*fullStorageSize);
+    }
+    if (logStorageSize) {
+      res["LogStorageSize"] = boost::any(*logStorageSize);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -8193,6 +8226,15 @@ public:
         }
         clusterBackups = make_shared<vector<DescribeClusterBackupListResponseBodyClusterBackups>>(expect1);
       }
+    }
+    if (m.find("FreeSize") != m.end() && !m["FreeSize"].empty()) {
+      freeSize = make_shared<long>(boost::any_cast<long>(m["FreeSize"]));
+    }
+    if (m.find("FullStorageSize") != m.end() && !m["FullStorageSize"].empty()) {
+      fullStorageSize = make_shared<long>(boost::any_cast<long>(m["FullStorageSize"]));
+    }
+    if (m.find("LogStorageSize") != m.end() && !m["LogStorageSize"].empty()) {
+      logStorageSize = make_shared<long>(boost::any_cast<long>(m["LogStorageSize"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
