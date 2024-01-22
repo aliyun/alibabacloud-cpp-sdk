@@ -14914,6 +14914,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<string>> securityProtectionTypes{};
   shared_ptr<vector<CreatePublicIpAddressPoolRequestTag>> tag{};
   shared_ptr<vector<string>> zones{};
 
@@ -14962,6 +14963,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityProtectionTypes) {
+      res["SecurityProtectionTypes"] = boost::any(*securityProtectionTypes);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -15012,6 +15016,16 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityProtectionTypes") != m.end() && !m["SecurityProtectionTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityProtectionTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityProtectionTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityProtectionTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -75971,6 +75985,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<bool> securityProtectionEnabled{};
   shared_ptr<string> status{};
   shared_ptr<vector<ListPublicIpAddressPoolsRequestTags>> tags{};
 
@@ -76019,6 +76034,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityProtectionEnabled) {
+      res["SecurityProtectionEnabled"] = boost::any(*securityProtectionEnabled);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -76076,6 +76094,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityProtectionEnabled") != m.end() && !m["SecurityProtectionEnabled"].empty()) {
+      securityProtectionEnabled = make_shared<bool>(boost::any_cast<bool>(m["SecurityProtectionEnabled"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -76146,6 +76167,7 @@ public:
   shared_ptr<string> publicIpAddressPoolId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<string>> securityProtectionTypes{};
   shared_ptr<string> shareType{};
   shared_ptr<string> status{};
   shared_ptr<vector<ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListTags>> tags{};
@@ -76193,6 +76215,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (securityProtectionTypes) {
+      res["SecurityProtectionTypes"] = boost::any(*securityProtectionTypes);
     }
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
@@ -76252,6 +76277,16 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SecurityProtectionTypes") != m.end() && !m["SecurityProtectionTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityProtectionTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityProtectionTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityProtectionTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));

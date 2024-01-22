@@ -4061,6 +4061,9 @@ CreatePublicIpAddressPoolResponse Alibabacloud_Vpc20160428::Client::createPublic
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->securityProtectionTypes)) {
+    query->insert(pair<string, vector<string>>("SecurityProtectionTypes", *request->securityProtectionTypes));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreatePublicIpAddressPoolRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<CreatePublicIpAddressPoolRequestTag>>("Tag", *request->tag));
   }
@@ -14316,6 +14319,9 @@ ListPublicIpAddressPoolsResponse Alibabacloud_Vpc20160428::Client::listPublicIpA
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->securityProtectionEnabled)) {
+    query->insert(pair<string, bool>("SecurityProtectionEnabled", *request->securityProtectionEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
