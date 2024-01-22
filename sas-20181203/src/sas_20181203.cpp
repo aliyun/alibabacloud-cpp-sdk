@@ -13823,6 +13823,9 @@ GetCheckSaleResponse Alibabacloud_Sas20181203::Client::getCheckSale(shared_ptr<G
 GetCheckSummaryResponse Alibabacloud_Sas20181203::Client::getCheckSummaryWithOptions(shared_ptr<GetCheckSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isItemStatistic)) {
+    query->insert(pair<string, bool>("IsItemStatistic", *request->isItemStatistic));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
