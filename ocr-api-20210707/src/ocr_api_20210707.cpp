@@ -1234,6 +1234,9 @@ RecognizeHandwritingResponse Alibabacloud_Ocr-api20210707::Client::recognizeHand
   if (!Darabonba_Util::Client::isUnset<bool>(request->outputTable)) {
     query->insert(pair<string, bool>("OutputTable", *request->outputTable));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->paragraph)) {
+    query->insert(pair<string, bool>("Paragraph", *request->paragraph));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
     query->insert(pair<string, string>("Url", *request->url));
   }

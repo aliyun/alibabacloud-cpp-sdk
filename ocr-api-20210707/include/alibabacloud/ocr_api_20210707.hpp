@@ -8561,6 +8561,7 @@ public:
   shared_ptr<bool> needSortPage{};
   shared_ptr<bool> outputCharInfo{};
   shared_ptr<bool> outputTable{};
+  shared_ptr<bool> paragraph{};
   shared_ptr<string> url{};
   shared_ptr<Darabonba::Stream> body{};
 
@@ -8586,6 +8587,9 @@ public:
     if (outputTable) {
       res["OutputTable"] = boost::any(*outputTable);
     }
+    if (paragraph) {
+      res["Paragraph"] = boost::any(*paragraph);
+    }
     if (url) {
       res["Url"] = boost::any(*url);
     }
@@ -8607,6 +8611,9 @@ public:
     }
     if (m.find("OutputTable") != m.end() && !m["OutputTable"].empty()) {
       outputTable = make_shared<bool>(boost::any_cast<bool>(m["OutputTable"]));
+    }
+    if (m.find("Paragraph") != m.end() && !m["Paragraph"].empty()) {
+      paragraph = make_shared<bool>(boost::any_cast<bool>(m["Paragraph"]));
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
