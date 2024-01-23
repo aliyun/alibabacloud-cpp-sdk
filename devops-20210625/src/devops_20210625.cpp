@@ -4822,6 +4822,9 @@ ListMergeRequestsResponse Alibabacloud_Devops20210625::Client::listMergeRequests
   if (!Darabonba_Util::Client::isUnset<string>(request->groupIds)) {
     query->insert(pair<string, string>("groupIds", *request->groupIds));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labelIds)) {
+    query->insert(pair<string, string>("labelIds", *request->labelIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
     query->insert(pair<string, string>("orderBy", *request->orderBy));
   }

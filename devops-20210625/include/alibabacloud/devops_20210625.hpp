@@ -34636,6 +34636,7 @@ public:
   shared_ptr<string> authorIds{};
   shared_ptr<string> filter{};
   shared_ptr<string> groupIds{};
+  shared_ptr<string> labelIds{};
   shared_ptr<string> orderBy{};
   shared_ptr<string> organizationId{};
   shared_ptr<long> page{};
@@ -34667,6 +34668,9 @@ public:
     }
     if (groupIds) {
       res["groupIds"] = boost::any(*groupIds);
+    }
+    if (labelIds) {
+      res["labelIds"] = boost::any(*labelIds);
     }
     if (orderBy) {
       res["orderBy"] = boost::any(*orderBy);
@@ -34710,6 +34714,9 @@ public:
     }
     if (m.find("groupIds") != m.end() && !m["groupIds"].empty()) {
       groupIds = make_shared<string>(boost::any_cast<string>(m["groupIds"]));
+    }
+    if (m.find("labelIds") != m.end() && !m["labelIds"].empty()) {
+      labelIds = make_shared<string>(boost::any_cast<string>(m["labelIds"]));
     }
     if (m.find("orderBy") != m.end() && !m["orderBy"].empty()) {
       orderBy = make_shared<string>(boost::any_cast<string>(m["orderBy"]));
@@ -34806,6 +34813,56 @@ public:
 
 
   virtual ~ListMergeRequestsResponseBodyResultAuthor() = default;
+};
+class ListMergeRequestsResponseBodyResultLabels : public Darabonba::Model {
+public:
+  shared_ptr<string> color{};
+  shared_ptr<string> description{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+
+  ListMergeRequestsResponseBodyResultLabels() {}
+
+  explicit ListMergeRequestsResponseBodyResultLabels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (color) {
+      res["color"] = boost::any(*color);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("color") != m.end() && !m["color"].empty()) {
+      color = make_shared<string>(boost::any_cast<string>(m["color"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestsResponseBodyResultLabels() = default;
 };
 class ListMergeRequestsResponseBodyResultReviewers : public Darabonba::Model {
 public:
@@ -34958,6 +35015,7 @@ public:
   shared_ptr<string> detailUrl{};
   shared_ptr<long> id{};
   shared_ptr<long> iid{};
+  shared_ptr<vector<ListMergeRequestsResponseBodyResultLabels>> labels{};
   shared_ptr<long> localId{};
   shared_ptr<string> mrBizId{};
   shared_ptr<string> nameWithNamespace{};
@@ -35010,6 +35068,13 @@ public:
     }
     if (iid) {
       res["iid"] = boost::any(*iid);
+    }
+    if (labels) {
+      vector<boost::any> temp1;
+      for(auto item1:*labels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["labels"] = boost::any(temp1);
     }
     if (localId) {
       res["localId"] = boost::any(*localId);
@@ -35110,6 +35175,19 @@ public:
     }
     if (m.find("iid") != m.end() && !m["iid"].empty()) {
       iid = make_shared<long>(boost::any_cast<long>(m["iid"]));
+    }
+    if (m.find("labels") != m.end() && !m["labels"].empty()) {
+      if (typeid(vector<boost::any>) == m["labels"].type()) {
+        vector<ListMergeRequestsResponseBodyResultLabels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["labels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListMergeRequestsResponseBodyResultLabels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        labels = make_shared<vector<ListMergeRequestsResponseBodyResultLabels>>(expect1);
+      }
     }
     if (m.find("localId") != m.end() && !m["localId"].empty()) {
       localId = make_shared<long>(boost::any_cast<long>(m["localId"]));
@@ -50705,6 +50783,10 @@ public:
 };
 class MergeMergeRequestResponseBodyResult : public Darabonba::Model {
 public:
+  shared_ptr<string> bizId{};
+  shared_ptr<long> localId{};
+  shared_ptr<string> mergedRevision{};
+  shared_ptr<long> projectId{};
   shared_ptr<bool> result{};
 
   MergeMergeRequestResponseBodyResult() {}
@@ -50717,6 +50799,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bizId) {
+      res["bizId"] = boost::any(*bizId);
+    }
+    if (localId) {
+      res["localId"] = boost::any(*localId);
+    }
+    if (mergedRevision) {
+      res["mergedRevision"] = boost::any(*mergedRevision);
+    }
+    if (projectId) {
+      res["projectId"] = boost::any(*projectId);
+    }
     if (result) {
       res["result"] = boost::any(*result);
     }
@@ -50724,6 +50818,18 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("bizId") != m.end() && !m["bizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["bizId"]));
+    }
+    if (m.find("localId") != m.end() && !m["localId"].empty()) {
+      localId = make_shared<long>(boost::any_cast<long>(m["localId"]));
+    }
+    if (m.find("mergedRevision") != m.end() && !m["mergedRevision"].empty()) {
+      mergedRevision = make_shared<string>(boost::any_cast<string>(m["mergedRevision"]));
+    }
+    if (m.find("projectId") != m.end() && !m["projectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["projectId"]));
+    }
     if (m.find("result") != m.end() && !m["result"].empty()) {
       result = make_shared<bool>(boost::any_cast<bool>(m["result"]));
     }
