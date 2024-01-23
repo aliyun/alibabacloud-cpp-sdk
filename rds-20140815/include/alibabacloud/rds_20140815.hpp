@@ -43957,6 +43957,7 @@ public:
 };
 class DescribeParameterGroupsRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> enableDetail{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -43973,6 +43974,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enableDetail) {
+      res["EnableDetail"] = boost::any(*enableDetail);
+    }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
@@ -43992,6 +43996,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableDetail") != m.end() && !m["EnableDetail"].empty()) {
+      enableDetail = make_shared<bool>(boost::any_cast<bool>(m["EnableDetail"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }

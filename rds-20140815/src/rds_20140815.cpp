@@ -7721,6 +7721,9 @@ DescribeParameterGroupResponse Alibabacloud_Rds20140815::Client::describeParamet
 DescribeParameterGroupsResponse Alibabacloud_Rds20140815::Client::describeParameterGroupsWithOptions(shared_ptr<DescribeParameterGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableDetail)) {
+    query->insert(pair<string, bool>("EnableDetail", *request->enableDetail));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
