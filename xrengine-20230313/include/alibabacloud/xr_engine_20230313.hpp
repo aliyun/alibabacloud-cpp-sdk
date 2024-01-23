@@ -298,6 +298,7 @@ public:
 };
 class BatchQueryMotionShopTaskStatusResponseBodyDataTasks : public Darabonba::Model {
 public:
+  shared_ptr<string> errorMessage{};
   shared_ptr<BatchQueryMotionShopTaskStatusResponseBodyDataTasksResult> result{};
   shared_ptr<string> status{};
   shared_ptr<string> taskId{};
@@ -312,6 +313,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -325,6 +329,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(map<string, boost::any>) == m["Result"].type()) {
         BatchQueryMotionShopTaskStatusResponseBodyDataTasksResult model1;
@@ -3088,6 +3095,7 @@ public:
 };
 class ListMotionShopTasksResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> errorMessage{};
   shared_ptr<ListMotionShopTasksResponseBodyDataMaterial> material{};
   shared_ptr<ListMotionShopTasksResponseBodyDataResult> result{};
   shared_ptr<string> status{};
@@ -3103,6 +3111,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
     if (material) {
       res["Material"] = material ? boost::any(material->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -3119,6 +3130,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
     if (m.find("Material") != m.end() && !m["Material"].empty()) {
       if (typeid(map<string, boost::any>) == m["Material"].type()) {
         ListMotionShopTasksResponseBodyDataMaterial model1;
