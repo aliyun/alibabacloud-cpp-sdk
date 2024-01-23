@@ -16281,6 +16281,7 @@ public:
   shared_ptr<bool> isAutoCreate{};
   shared_ptr<string> protocol{};
   shared_ptr<vector<string>> realServers{};
+  shared_ptr<string> remark{};
 
   DescribeNetworkRulesResponseBodyNetworkRules() {}
 
@@ -16310,6 +16311,9 @@ public:
     if (realServers) {
       res["RealServers"] = boost::any(*realServers);
     }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
     return res;
   }
 
@@ -16338,6 +16342,9 @@ public:
         }
       }
       realServers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
     }
   }
 
