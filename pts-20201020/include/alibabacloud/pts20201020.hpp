@@ -1583,6 +1583,452 @@ public:
 
   virtual ~GetJMeterLogsResponse() = default;
 };
+class GetJMeterReportDetailsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> reportId{};
+
+  GetJMeterReportDetailsRequest() {}
+
+  explicit GetJMeterReportDetailsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
+    }
+  }
+
+
+  virtual ~GetJMeterReportDetailsRequest() = default;
+};
+class GetJMeterReportDetailsResponseBodyReportOverView : public Darabonba::Model {
+public:
+  shared_ptr<long> agentCount{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> reportId{};
+  shared_ptr<string> reportName{};
+  shared_ptr<string> startTime{};
+  shared_ptr<long> vum{};
+
+  GetJMeterReportDetailsResponseBodyReportOverView() {}
+
+  explicit GetJMeterReportDetailsResponseBodyReportOverView(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentCount) {
+      res["AgentCount"] = boost::any(*agentCount);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
+    if (reportName) {
+      res["ReportName"] = boost::any(*reportName);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (vum) {
+      res["Vum"] = boost::any(*vum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentCount") != m.end() && !m["AgentCount"].empty()) {
+      agentCount = make_shared<long>(boost::any_cast<long>(m["AgentCount"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
+    }
+    if (m.find("ReportName") != m.end() && !m["ReportName"].empty()) {
+      reportName = make_shared<string>(boost::any_cast<string>(m["ReportName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Vum") != m.end() && !m["Vum"].empty()) {
+      vum = make_shared<long>(boost::any_cast<long>(m["Vum"]));
+    }
+  }
+
+
+  virtual ~GetJMeterReportDetailsResponseBodyReportOverView() = default;
+};
+class GetJMeterReportDetailsResponseBodySamplerMetricsList : public Darabonba::Model {
+public:
+  shared_ptr<long> allCount{};
+  shared_ptr<string> apiName{};
+  shared_ptr<double> avgRt{};
+  shared_ptr<double> avgTps{};
+  shared_ptr<long> failCountReq{};
+  shared_ptr<double> maxRt{};
+  shared_ptr<double> minRt{};
+  shared_ptr<double> seg75Rt{};
+  shared_ptr<double> seg90Rt{};
+  shared_ptr<double> seg99Rt{};
+  shared_ptr<double> successRateReq{};
+
+  GetJMeterReportDetailsResponseBodySamplerMetricsList() {}
+
+  explicit GetJMeterReportDetailsResponseBodySamplerMetricsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allCount) {
+      res["AllCount"] = boost::any(*allCount);
+    }
+    if (apiName) {
+      res["ApiName"] = boost::any(*apiName);
+    }
+    if (avgRt) {
+      res["AvgRt"] = boost::any(*avgRt);
+    }
+    if (avgTps) {
+      res["AvgTps"] = boost::any(*avgTps);
+    }
+    if (failCountReq) {
+      res["FailCountReq"] = boost::any(*failCountReq);
+    }
+    if (maxRt) {
+      res["MaxRt"] = boost::any(*maxRt);
+    }
+    if (minRt) {
+      res["MinRt"] = boost::any(*minRt);
+    }
+    if (seg75Rt) {
+      res["Seg75Rt"] = boost::any(*seg75Rt);
+    }
+    if (seg90Rt) {
+      res["Seg90Rt"] = boost::any(*seg90Rt);
+    }
+    if (seg99Rt) {
+      res["Seg99Rt"] = boost::any(*seg99Rt);
+    }
+    if (successRateReq) {
+      res["SuccessRateReq"] = boost::any(*successRateReq);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllCount") != m.end() && !m["AllCount"].empty()) {
+      allCount = make_shared<long>(boost::any_cast<long>(m["AllCount"]));
+    }
+    if (m.find("ApiName") != m.end() && !m["ApiName"].empty()) {
+      apiName = make_shared<string>(boost::any_cast<string>(m["ApiName"]));
+    }
+    if (m.find("AvgRt") != m.end() && !m["AvgRt"].empty()) {
+      avgRt = make_shared<double>(boost::any_cast<double>(m["AvgRt"]));
+    }
+    if (m.find("AvgTps") != m.end() && !m["AvgTps"].empty()) {
+      avgTps = make_shared<double>(boost::any_cast<double>(m["AvgTps"]));
+    }
+    if (m.find("FailCountReq") != m.end() && !m["FailCountReq"].empty()) {
+      failCountReq = make_shared<long>(boost::any_cast<long>(m["FailCountReq"]));
+    }
+    if (m.find("MaxRt") != m.end() && !m["MaxRt"].empty()) {
+      maxRt = make_shared<double>(boost::any_cast<double>(m["MaxRt"]));
+    }
+    if (m.find("MinRt") != m.end() && !m["MinRt"].empty()) {
+      minRt = make_shared<double>(boost::any_cast<double>(m["MinRt"]));
+    }
+    if (m.find("Seg75Rt") != m.end() && !m["Seg75Rt"].empty()) {
+      seg75Rt = make_shared<double>(boost::any_cast<double>(m["Seg75Rt"]));
+    }
+    if (m.find("Seg90Rt") != m.end() && !m["Seg90Rt"].empty()) {
+      seg90Rt = make_shared<double>(boost::any_cast<double>(m["Seg90Rt"]));
+    }
+    if (m.find("Seg99Rt") != m.end() && !m["Seg99Rt"].empty()) {
+      seg99Rt = make_shared<double>(boost::any_cast<double>(m["Seg99Rt"]));
+    }
+    if (m.find("SuccessRateReq") != m.end() && !m["SuccessRateReq"].empty()) {
+      successRateReq = make_shared<double>(boost::any_cast<double>(m["SuccessRateReq"]));
+    }
+  }
+
+
+  virtual ~GetJMeterReportDetailsResponseBodySamplerMetricsList() = default;
+};
+class GetJMeterReportDetailsResponseBodySceneMetrics : public Darabonba::Model {
+public:
+  shared_ptr<long> allCount{};
+  shared_ptr<double> avgRt{};
+  shared_ptr<double> avgTps{};
+  shared_ptr<long> failCountReq{};
+  shared_ptr<double> seg90Rt{};
+  shared_ptr<double> seg99Rt{};
+  shared_ptr<double> successRateReq{};
+
+  GetJMeterReportDetailsResponseBodySceneMetrics() {}
+
+  explicit GetJMeterReportDetailsResponseBodySceneMetrics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allCount) {
+      res["AllCount"] = boost::any(*allCount);
+    }
+    if (avgRt) {
+      res["AvgRt"] = boost::any(*avgRt);
+    }
+    if (avgTps) {
+      res["AvgTps"] = boost::any(*avgTps);
+    }
+    if (failCountReq) {
+      res["FailCountReq"] = boost::any(*failCountReq);
+    }
+    if (seg90Rt) {
+      res["Seg90Rt"] = boost::any(*seg90Rt);
+    }
+    if (seg99Rt) {
+      res["Seg99Rt"] = boost::any(*seg99Rt);
+    }
+    if (successRateReq) {
+      res["SuccessRateReq"] = boost::any(*successRateReq);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllCount") != m.end() && !m["AllCount"].empty()) {
+      allCount = make_shared<long>(boost::any_cast<long>(m["AllCount"]));
+    }
+    if (m.find("AvgRt") != m.end() && !m["AvgRt"].empty()) {
+      avgRt = make_shared<double>(boost::any_cast<double>(m["AvgRt"]));
+    }
+    if (m.find("AvgTps") != m.end() && !m["AvgTps"].empty()) {
+      avgTps = make_shared<double>(boost::any_cast<double>(m["AvgTps"]));
+    }
+    if (m.find("FailCountReq") != m.end() && !m["FailCountReq"].empty()) {
+      failCountReq = make_shared<long>(boost::any_cast<long>(m["FailCountReq"]));
+    }
+    if (m.find("Seg90Rt") != m.end() && !m["Seg90Rt"].empty()) {
+      seg90Rt = make_shared<double>(boost::any_cast<double>(m["Seg90Rt"]));
+    }
+    if (m.find("Seg99Rt") != m.end() && !m["Seg99Rt"].empty()) {
+      seg99Rt = make_shared<double>(boost::any_cast<double>(m["Seg99Rt"]));
+    }
+    if (m.find("SuccessRateReq") != m.end() && !m["SuccessRateReq"].empty()) {
+      successRateReq = make_shared<double>(boost::any_cast<double>(m["SuccessRateReq"]));
+    }
+  }
+
+
+  virtual ~GetJMeterReportDetailsResponseBodySceneMetrics() = default;
+};
+class GetJMeterReportDetailsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> codeKey{};
+  shared_ptr<string> documentUrl{};
+  shared_ptr<string> dynamicCtx{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<GetJMeterReportDetailsResponseBodyReportOverView> reportOverView{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<GetJMeterReportDetailsResponseBodySamplerMetricsList>> samplerMetricsList{};
+  shared_ptr<GetJMeterReportDetailsResponseBodySceneMetrics> sceneMetrics{};
+  shared_ptr<bool> success{};
+
+  GetJMeterReportDetailsResponseBody() {}
+
+  explicit GetJMeterReportDetailsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (codeKey) {
+      res["CodeKey"] = boost::any(*codeKey);
+    }
+    if (documentUrl) {
+      res["DocumentUrl"] = boost::any(*documentUrl);
+    }
+    if (dynamicCtx) {
+      res["DynamicCtx"] = boost::any(*dynamicCtx);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (reportOverView) {
+      res["ReportOverView"] = reportOverView ? boost::any(reportOverView->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (samplerMetricsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*samplerMetricsList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SamplerMetricsList"] = boost::any(temp1);
+    }
+    if (sceneMetrics) {
+      res["SceneMetrics"] = sceneMetrics ? boost::any(sceneMetrics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("CodeKey") != m.end() && !m["CodeKey"].empty()) {
+      codeKey = make_shared<string>(boost::any_cast<string>(m["CodeKey"]));
+    }
+    if (m.find("DocumentUrl") != m.end() && !m["DocumentUrl"].empty()) {
+      documentUrl = make_shared<string>(boost::any_cast<string>(m["DocumentUrl"]));
+    }
+    if (m.find("DynamicCtx") != m.end() && !m["DynamicCtx"].empty()) {
+      dynamicCtx = make_shared<string>(boost::any_cast<string>(m["DynamicCtx"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("ReportOverView") != m.end() && !m["ReportOverView"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ReportOverView"].type()) {
+        GetJMeterReportDetailsResponseBodyReportOverView model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ReportOverView"]));
+        reportOverView = make_shared<GetJMeterReportDetailsResponseBodyReportOverView>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SamplerMetricsList") != m.end() && !m["SamplerMetricsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SamplerMetricsList"].type()) {
+        vector<GetJMeterReportDetailsResponseBodySamplerMetricsList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SamplerMetricsList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetJMeterReportDetailsResponseBodySamplerMetricsList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        samplerMetricsList = make_shared<vector<GetJMeterReportDetailsResponseBodySamplerMetricsList>>(expect1);
+      }
+    }
+    if (m.find("SceneMetrics") != m.end() && !m["SceneMetrics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SceneMetrics"].type()) {
+        GetJMeterReportDetailsResponseBodySceneMetrics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SceneMetrics"]));
+        sceneMetrics = make_shared<GetJMeterReportDetailsResponseBodySceneMetrics>(model1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetJMeterReportDetailsResponseBody() = default;
+};
+class GetJMeterReportDetailsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetJMeterReportDetailsResponseBody> body{};
+
+  GetJMeterReportDetailsResponse() {}
+
+  explicit GetJMeterReportDetailsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetJMeterReportDetailsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetJMeterReportDetailsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetJMeterReportDetailsResponse() = default;
+};
 class GetJMeterSampleMetricsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> beginTime{};
@@ -2073,9 +2519,12 @@ public:
   shared_ptr<vector<string>> agentIdList{};
   shared_ptr<map<string, boost::any>> allSampleStat{};
   shared_ptr<long> concurrency{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<bool> hasError{};
   shared_ptr<bool> hasReport{};
   shared_ptr<long> holdFor{};
   shared_ptr<bool> isDebugging{};
+  shared_ptr<string> reportId{};
   shared_ptr<vector<map<string, boost::any>>> sampleStatList{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> sceneName{};
@@ -2106,6 +2555,12 @@ public:
     if (concurrency) {
       res["Concurrency"] = boost::any(*concurrency);
     }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (hasError) {
+      res["HasError"] = boost::any(*hasError);
+    }
     if (hasReport) {
       res["HasReport"] = boost::any(*hasReport);
     }
@@ -2114,6 +2569,9 @@ public:
     }
     if (isDebugging) {
       res["IsDebugging"] = boost::any(*isDebugging);
+    }
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
     }
     if (sampleStatList) {
       res["SampleStatList"] = boost::any(*sampleStatList);
@@ -2164,6 +2622,12 @@ public:
     if (m.find("Concurrency") != m.end() && !m["Concurrency"].empty()) {
       concurrency = make_shared<long>(boost::any_cast<long>(m["Concurrency"]));
     }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("HasError") != m.end() && !m["HasError"].empty()) {
+      hasError = make_shared<bool>(boost::any_cast<bool>(m["HasError"]));
+    }
     if (m.find("HasReport") != m.end() && !m["HasReport"].empty()) {
       hasReport = make_shared<bool>(boost::any_cast<bool>(m["HasReport"]));
     }
@@ -2172,6 +2636,9 @@ public:
     }
     if (m.find("IsDebugging") != m.end() && !m["IsDebugging"].empty()) {
       isDebugging = make_shared<bool>(boost::any_cast<bool>(m["IsDebugging"]));
+    }
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
     }
     if (m.find("SampleStatList") != m.end() && !m["SampleStatList"].empty()) {
       vector<map<string, boost::any>> toVec1;
@@ -2567,6 +3034,42 @@ public:
 
   virtual ~GetOpenJMeterSceneResponseBodySceneFileList() = default;
 };
+class GetOpenJMeterSceneResponseBodySceneRegionalCondition : public Darabonba::Model {
+public:
+  shared_ptr<long> amount{};
+  shared_ptr<string> region{};
+
+  GetOpenJMeterSceneResponseBodySceneRegionalCondition() {}
+
+  explicit GetOpenJMeterSceneResponseBodySceneRegionalCondition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (amount) {
+      res["Amount"] = boost::any(*amount);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
+      amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+  }
+
+
+  virtual ~GetOpenJMeterSceneResponseBodySceneRegionalCondition() = default;
+};
 class GetOpenJMeterSceneResponseBodyScene : public Darabonba::Model {
 public:
   shared_ptr<long> agentCount{};
@@ -2583,6 +3086,7 @@ public:
   shared_ptr<string> pool{};
   shared_ptr<long> rampUp{};
   shared_ptr<string> regionId{};
+  shared_ptr<vector<GetOpenJMeterSceneResponseBodySceneRegionalCondition>> regionalCondition{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> sceneName{};
   shared_ptr<string> securityGroupId{};
@@ -2649,6 +3153,13 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (regionalCondition) {
+      vector<boost::any> temp1;
+      for(auto item1:*regionalCondition){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RegionalCondition"] = boost::any(temp1);
     }
     if (sceneId) {
       res["SceneId"] = boost::any(*sceneId);
@@ -2743,6 +3254,19 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RegionalCondition") != m.end() && !m["RegionalCondition"].empty()) {
+      if (typeid(vector<boost::any>) == m["RegionalCondition"].type()) {
+        vector<GetOpenJMeterSceneResponseBodySceneRegionalCondition> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RegionalCondition"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetOpenJMeterSceneResponseBodySceneRegionalCondition model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        regionalCondition = make_shared<vector<GetOpenJMeterSceneResponseBodySceneRegionalCondition>>(expect1);
+      }
     }
     if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
       sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
@@ -9007,6 +9531,7 @@ public:
   shared_ptr<string> durationStr{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> sceneName{};
+  shared_ptr<string> status{};
 
   ListOpenJMeterScenesResponseBodyJMeterScene() {}
 
@@ -9027,6 +9552,9 @@ public:
     if (sceneName) {
       res["SceneName"] = boost::any(*sceneName);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     return res;
   }
 
@@ -9039,6 +9567,9 @@ public:
     }
     if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
       sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
   }
 
@@ -10679,6 +11210,42 @@ public:
 
   virtual ~SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties() = default;
 };
+class SaveOpenJMeterSceneRequestOpenJMeterSceneRegionalCondition : public Darabonba::Model {
+public:
+  shared_ptr<long> amount{};
+  shared_ptr<string> region{};
+
+  SaveOpenJMeterSceneRequestOpenJMeterSceneRegionalCondition() {}
+
+  explicit SaveOpenJMeterSceneRequestOpenJMeterSceneRegionalCondition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (amount) {
+      res["Amount"] = boost::any(*amount);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
+      amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+  }
+
+
+  virtual ~SaveOpenJMeterSceneRequestOpenJMeterSceneRegionalCondition() = default;
+};
 class SaveOpenJMeterSceneRequestOpenJMeterScene : public Darabonba::Model {
 public:
   shared_ptr<long> agentCount{};
@@ -10695,6 +11262,7 @@ public:
   shared_ptr<string> mode{};
   shared_ptr<long> rampUp{};
   shared_ptr<string> regionId{};
+  shared_ptr<vector<SaveOpenJMeterSceneRequestOpenJMeterSceneRegionalCondition>> regionalCondition{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> sceneName{};
   shared_ptr<string> securityGroupId{};
@@ -10765,6 +11333,13 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (regionalCondition) {
+      vector<boost::any> temp1;
+      for(auto item1:*regionalCondition){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RegionalCondition"] = boost::any(temp1);
     }
     if (sceneId) {
       res["SceneId"] = boost::any(*sceneId);
@@ -10865,6 +11440,19 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RegionalCondition") != m.end() && !m["RegionalCondition"].empty()) {
+      if (typeid(vector<boost::any>) == m["RegionalCondition"].type()) {
+        vector<SaveOpenJMeterSceneRequestOpenJMeterSceneRegionalCondition> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RegionalCondition"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SaveOpenJMeterSceneRequestOpenJMeterSceneRegionalCondition model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        regionalCondition = make_shared<vector<SaveOpenJMeterSceneRequestOpenJMeterSceneRegionalCondition>>(expect1);
+      }
     }
     if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
       sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
@@ -13791,6 +14379,8 @@ public:
   GetAllRegionsResponse getAllRegions();
   GetJMeterLogsResponse getJMeterLogsWithOptions(shared_ptr<GetJMeterLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetJMeterLogsResponse getJMeterLogs(shared_ptr<GetJMeterLogsRequest> request);
+  GetJMeterReportDetailsResponse getJMeterReportDetailsWithOptions(shared_ptr<GetJMeterReportDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetJMeterReportDetailsResponse getJMeterReportDetails(shared_ptr<GetJMeterReportDetailsRequest> request);
   GetJMeterSampleMetricsResponse getJMeterSampleMetricsWithOptions(shared_ptr<GetJMeterSampleMetricsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetJMeterSampleMetricsResponse getJMeterSampleMetrics(shared_ptr<GetJMeterSampleMetricsRequest> request);
   GetJMeterSamplingLogsResponse getJMeterSamplingLogsWithOptions(shared_ptr<GetJMeterSamplingLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
