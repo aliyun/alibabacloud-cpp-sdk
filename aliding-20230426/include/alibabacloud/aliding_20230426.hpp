@@ -10004,6 +10004,462 @@ public:
 
   virtual ~CreateOrgHonorTemplateResponse() = default;
 };
+class CreatePersonalTodoTaskHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> userToken{};
+
+  CreatePersonalTodoTaskHeadersAccountContext() {}
+
+  explicit CreatePersonalTodoTaskHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userToken) {
+      res["userToken"] = boost::any(*userToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("userToken") != m.end() && !m["userToken"].empty()) {
+      userToken = make_shared<string>(boost::any_cast<string>(m["userToken"]));
+    }
+  }
+
+
+  virtual ~CreatePersonalTodoTaskHeadersAccountContext() = default;
+};
+class CreatePersonalTodoTaskHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<CreatePersonalTodoTaskHeadersAccountContext> accountContext{};
+
+  CreatePersonalTodoTaskHeaders() {}
+
+  explicit CreatePersonalTodoTaskHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        CreatePersonalTodoTaskHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<CreatePersonalTodoTaskHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePersonalTodoTaskHeaders() = default;
+};
+class CreatePersonalTodoTaskShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  CreatePersonalTodoTaskShrinkHeaders() {}
+
+  explicit CreatePersonalTodoTaskShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~CreatePersonalTodoTaskShrinkHeaders() = default;
+};
+class CreatePersonalTodoTaskRequestNotifyConfigs : public Darabonba::Model {
+public:
+  shared_ptr<string> dingNotify{};
+
+  CreatePersonalTodoTaskRequestNotifyConfigs() {}
+
+  explicit CreatePersonalTodoTaskRequestNotifyConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dingNotify) {
+      res["DingNotify"] = boost::any(*dingNotify);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DingNotify") != m.end() && !m["DingNotify"].empty()) {
+      dingNotify = make_shared<string>(boost::any_cast<string>(m["DingNotify"]));
+    }
+  }
+
+
+  virtual ~CreatePersonalTodoTaskRequestNotifyConfigs() = default;
+};
+class CreatePersonalTodoTaskRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  CreatePersonalTodoTaskRequestTenantContext() {}
+
+  explicit CreatePersonalTodoTaskRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~CreatePersonalTodoTaskRequestTenantContext() = default;
+};
+class CreatePersonalTodoTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<long> dueTime{};
+  shared_ptr<vector<string>> executorIds{};
+  shared_ptr<CreatePersonalTodoTaskRequestNotifyConfigs> notifyConfigs{};
+  shared_ptr<vector<string>> participantIds{};
+  shared_ptr<string> subject{};
+  shared_ptr<CreatePersonalTodoTaskRequestTenantContext> tenantContext{};
+
+  CreatePersonalTodoTaskRequest() {}
+
+  explicit CreatePersonalTodoTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dueTime) {
+      res["DueTime"] = boost::any(*dueTime);
+    }
+    if (executorIds) {
+      res["ExecutorIds"] = boost::any(*executorIds);
+    }
+    if (notifyConfigs) {
+      res["NotifyConfigs"] = notifyConfigs ? boost::any(notifyConfigs->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (participantIds) {
+      res["ParticipantIds"] = boost::any(*participantIds);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DueTime") != m.end() && !m["DueTime"].empty()) {
+      dueTime = make_shared<long>(boost::any_cast<long>(m["DueTime"]));
+    }
+    if (m.find("ExecutorIds") != m.end() && !m["ExecutorIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExecutorIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExecutorIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      executorIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("NotifyConfigs") != m.end() && !m["NotifyConfigs"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NotifyConfigs"].type()) {
+        CreatePersonalTodoTaskRequestNotifyConfigs model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NotifyConfigs"]));
+        notifyConfigs = make_shared<CreatePersonalTodoTaskRequestNotifyConfigs>(model1);
+      }
+    }
+    if (m.find("ParticipantIds") != m.end() && !m["ParticipantIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParticipantIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParticipantIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      participantIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        CreatePersonalTodoTaskRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<CreatePersonalTodoTaskRequestTenantContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePersonalTodoTaskRequest() = default;
+};
+class CreatePersonalTodoTaskShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<long> dueTime{};
+  shared_ptr<string> executorIdsShrink{};
+  shared_ptr<string> notifyConfigsShrink{};
+  shared_ptr<string> participantIdsShrink{};
+  shared_ptr<string> subject{};
+  shared_ptr<string> tenantContextShrink{};
+
+  CreatePersonalTodoTaskShrinkRequest() {}
+
+  explicit CreatePersonalTodoTaskShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dueTime) {
+      res["DueTime"] = boost::any(*dueTime);
+    }
+    if (executorIdsShrink) {
+      res["ExecutorIds"] = boost::any(*executorIdsShrink);
+    }
+    if (notifyConfigsShrink) {
+      res["NotifyConfigs"] = boost::any(*notifyConfigsShrink);
+    }
+    if (participantIdsShrink) {
+      res["ParticipantIds"] = boost::any(*participantIdsShrink);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DueTime") != m.end() && !m["DueTime"].empty()) {
+      dueTime = make_shared<long>(boost::any_cast<long>(m["DueTime"]));
+    }
+    if (m.find("ExecutorIds") != m.end() && !m["ExecutorIds"].empty()) {
+      executorIdsShrink = make_shared<string>(boost::any_cast<string>(m["ExecutorIds"]));
+    }
+    if (m.find("NotifyConfigs") != m.end() && !m["NotifyConfigs"].empty()) {
+      notifyConfigsShrink = make_shared<string>(boost::any_cast<string>(m["NotifyConfigs"]));
+    }
+    if (m.find("ParticipantIds") != m.end() && !m["ParticipantIds"].empty()) {
+      participantIdsShrink = make_shared<string>(boost::any_cast<string>(m["ParticipantIds"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+  }
+
+
+  virtual ~CreatePersonalTodoTaskShrinkRequest() = default;
+};
+class CreatePersonalTodoTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> createdTime{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  CreatePersonalTodoTaskResponseBody() {}
+
+  explicit CreatePersonalTodoTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createdTime) {
+      res["createdTime"] = boost::any(*createdTime);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["taskId"] = boost::any(*taskId);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("createdTime") != m.end() && !m["createdTime"].empty()) {
+      createdTime = make_shared<long>(boost::any_cast<long>(m["createdTime"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("taskId") != m.end() && !m["taskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["taskId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~CreatePersonalTodoTaskResponseBody() = default;
+};
+class CreatePersonalTodoTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreatePersonalTodoTaskResponseBody> body{};
+
+  CreatePersonalTodoTaskResponse() {}
+
+  explicit CreatePersonalTodoTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreatePersonalTodoTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreatePersonalTodoTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePersonalTodoTaskResponse() = default;
+};
 class CreateReportHeadersAccountContext : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -72509,6 +72965,8 @@ public:
   CreateOrUpdateFormDataResponse createOrUpdateFormData(shared_ptr<CreateOrUpdateFormDataRequest> request);
   CreateOrgHonorTemplateResponse createOrgHonorTemplateWithOptions(shared_ptr<CreateOrgHonorTemplateRequest> tmpReq, shared_ptr<CreateOrgHonorTemplateHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateOrgHonorTemplateResponse createOrgHonorTemplate(shared_ptr<CreateOrgHonorTemplateRequest> request);
+  CreatePersonalTodoTaskResponse createPersonalTodoTaskWithOptions(shared_ptr<CreatePersonalTodoTaskRequest> tmpReq, shared_ptr<CreatePersonalTodoTaskHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePersonalTodoTaskResponse createPersonalTodoTask(shared_ptr<CreatePersonalTodoTaskRequest> request);
   CreateReportResponse createReportWithOptions(shared_ptr<CreateReportRequest> tmpReq, shared_ptr<CreateReportHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateReportResponse createReport(shared_ptr<CreateReportRequest> request);
   CreateScenegroupResponse createScenegroupWithOptions(shared_ptr<CreateScenegroupRequest> request, shared_ptr<CreateScenegroupHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

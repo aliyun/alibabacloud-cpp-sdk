@@ -1416,6 +1416,80 @@ CreateOrgHonorTemplateResponse Alibabacloud_Aliding20230426::Client::createOrgHo
   return createOrgHonorTemplateWithOptions(request, headers, runtime);
 }
 
+CreatePersonalTodoTaskResponse Alibabacloud_Aliding20230426::Client::createPersonalTodoTaskWithOptions(shared_ptr<CreatePersonalTodoTaskRequest> tmpReq, shared_ptr<CreatePersonalTodoTaskHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreatePersonalTodoTaskShrinkRequest> request = make_shared<CreatePersonalTodoTaskShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  shared_ptr<CreatePersonalTodoTaskShrinkHeaders> headers = make_shared<CreatePersonalTodoTaskShrinkHeaders>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpHeader, headers);
+  if (!Darabonba_Util::Client::isUnset<CreatePersonalTodoTaskHeadersAccountContext>(tmpHeader->accountContext)) {
+    headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->executorIds)) {
+    request->executorIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->executorIds, make_shared<string>("ExecutorIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreatePersonalTodoTaskRequestNotifyConfigs>(tmpReq->notifyConfigs)) {
+    request->notifyConfigsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->notifyConfigs, make_shared<string>("NotifyConfigs"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->participantIds)) {
+    request->participantIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->participantIds, make_shared<string>("ParticipantIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreatePersonalTodoTaskRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dueTime)) {
+    body->insert(pair<string, long>("DueTime", *request->dueTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->executorIdsShrink)) {
+    body->insert(pair<string, string>("ExecutorIds", *request->executorIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->notifyConfigsShrink)) {
+    body->insert(pair<string, string>("NotifyConfigs", *request->notifyConfigsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->participantIdsShrink)) {
+    body->insert(pair<string, string>("ParticipantIds", *request->participantIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subject)) {
+    body->insert(pair<string, string>("Subject", *request->subject));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->accountContextShrink)) {
+    realHeaders->insert(pair<string, string>("AccountContext", Darabonba_Util::Client::toJSONString(headers->accountContextShrink)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreatePersonalTodoTask"))},
+    {"version", boost::any(string("2023-04-26"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dingtalk/v1/task/createPersonalTodoTask"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreatePersonalTodoTaskResponse(callApi(params, req, runtime));
+}
+
+CreatePersonalTodoTaskResponse Alibabacloud_Aliding20230426::Client::createPersonalTodoTask(shared_ptr<CreatePersonalTodoTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<CreatePersonalTodoTaskHeaders> headers = make_shared<CreatePersonalTodoTaskHeaders>();
+  return createPersonalTodoTaskWithOptions(request, headers, runtime);
+}
+
 CreateReportResponse Alibabacloud_Aliding20230426::Client::createReportWithOptions(shared_ptr<CreateReportRequest> tmpReq, shared_ptr<CreateReportHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateReportShrinkRequest> request = make_shared<CreateReportShrinkRequest>();
