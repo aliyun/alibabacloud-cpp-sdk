@@ -330,11 +330,48 @@ public:
 
   virtual ~AssociateResourceShareRequestResources() = default;
 };
+class AssociateResourceShareRequestTargetProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> property{};
+  shared_ptr<string> targetId{};
+
+  AssociateResourceShareRequestTargetProperties() {}
+
+  explicit AssociateResourceShareRequestTargetProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (property) {
+      res["Property"] = boost::any(*property);
+    }
+    if (targetId) {
+      res["TargetId"] = boost::any(*targetId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Property") != m.end() && !m["Property"].empty()) {
+      property = make_shared<string>(boost::any_cast<string>(m["Property"]));
+    }
+    if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
+      targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
+    }
+  }
+
+
+  virtual ~AssociateResourceShareRequestTargetProperties() = default;
+};
 class AssociateResourceShareRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> permissionNames{};
   shared_ptr<string> resourceShareId{};
   shared_ptr<vector<AssociateResourceShareRequestResources>> resources{};
+  shared_ptr<vector<AssociateResourceShareRequestTargetProperties>> targetProperties{};
   shared_ptr<vector<string>> targets{};
 
   AssociateResourceShareRequest() {}
@@ -359,6 +396,13 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Resources"] = boost::any(temp1);
+    }
+    if (targetProperties) {
+      vector<boost::any> temp1;
+      for(auto item1:*targetProperties){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TargetProperties"] = boost::any(temp1);
     }
     if (targets) {
       res["Targets"] = boost::any(*targets);
@@ -391,6 +435,19 @@ public:
           }
         }
         resources = make_shared<vector<AssociateResourceShareRequestResources>>(expect1);
+      }
+    }
+    if (m.find("TargetProperties") != m.end() && !m["TargetProperties"].empty()) {
+      if (typeid(vector<boost::any>) == m["TargetProperties"].type()) {
+        vector<AssociateResourceShareRequestTargetProperties> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TargetProperties"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AssociateResourceShareRequestTargetProperties model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        targetProperties = make_shared<vector<AssociateResourceShareRequestTargetProperties>>(expect1);
       }
     }
     if (m.find("Targets") != m.end() && !m["Targets"].empty()) {
@@ -1014,12 +1071,49 @@ public:
 
   virtual ~CreateResourceShareRequestResources() = default;
 };
+class CreateResourceShareRequestTargetProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> property{};
+  shared_ptr<string> targetId{};
+
+  CreateResourceShareRequestTargetProperties() {}
+
+  explicit CreateResourceShareRequestTargetProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (property) {
+      res["Property"] = boost::any(*property);
+    }
+    if (targetId) {
+      res["TargetId"] = boost::any(*targetId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Property") != m.end() && !m["Property"].empty()) {
+      property = make_shared<string>(boost::any_cast<string>(m["Property"]));
+    }
+    if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
+      targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
+    }
+  }
+
+
+  virtual ~CreateResourceShareRequestTargetProperties() = default;
+};
 class CreateResourceShareRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> allowExternalTargets{};
   shared_ptr<vector<string>> permissionNames{};
   shared_ptr<string> resourceShareName{};
   shared_ptr<vector<CreateResourceShareRequestResources>> resources{};
+  shared_ptr<vector<CreateResourceShareRequestTargetProperties>> targetProperties{};
   shared_ptr<vector<string>> targets{};
 
   CreateResourceShareRequest() {}
@@ -1047,6 +1141,13 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Resources"] = boost::any(temp1);
+    }
+    if (targetProperties) {
+      vector<boost::any> temp1;
+      for(auto item1:*targetProperties){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TargetProperties"] = boost::any(temp1);
     }
     if (targets) {
       res["Targets"] = boost::any(*targets);
@@ -1082,6 +1183,19 @@ public:
           }
         }
         resources = make_shared<vector<CreateResourceShareRequestResources>>(expect1);
+      }
+    }
+    if (m.find("TargetProperties") != m.end() && !m["TargetProperties"].empty()) {
+      if (typeid(vector<boost::any>) == m["TargetProperties"].type()) {
+        vector<CreateResourceShareRequestTargetProperties> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TargetProperties"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateResourceShareRequestTargetProperties model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        targetProperties = make_shared<vector<CreateResourceShareRequestTargetProperties>>(expect1);
       }
     }
     if (m.find("Targets") != m.end() && !m["Targets"].empty()) {

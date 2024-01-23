@@ -78,6 +78,9 @@ AssociateResourceShareResponse Alibabacloud_ResourceSharing20200110::Client::ass
   if (!Darabonba_Util::Client::isUnset<vector<AssociateResourceShareRequestResources>>(request->resources)) {
     query->insert(pair<string, vector<AssociateResourceShareRequestResources>>("Resources", *request->resources));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<AssociateResourceShareRequestTargetProperties>>(request->targetProperties)) {
+    query->insert(pair<string, vector<AssociateResourceShareRequestTargetProperties>>("TargetProperties", *request->targetProperties));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->targets)) {
     query->insert(pair<string, vector<string>>("Targets", *request->targets));
   }
@@ -206,6 +209,9 @@ CreateResourceShareResponse Alibabacloud_ResourceSharing20200110::Client::create
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateResourceShareRequestResources>>(request->resources)) {
     query->insert(pair<string, vector<CreateResourceShareRequestResources>>("Resources", *request->resources));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateResourceShareRequestTargetProperties>>(request->targetProperties)) {
+    query->insert(pair<string, vector<CreateResourceShareRequestTargetProperties>>("TargetProperties", *request->targetProperties));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->targets)) {
     query->insert(pair<string, vector<string>>("Targets", *request->targets));
