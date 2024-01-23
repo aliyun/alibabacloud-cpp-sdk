@@ -15,6 +15,147 @@
 using namespace std;
 
 namespace Alibabacloud_Ess20220222 {
+class ApplyScalingGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> format{};
+  shared_ptr<string> regionId{};
+
+  ApplyScalingGroupRequest() {}
+
+  explicit ApplyScalingGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (format) {
+      res["Format"] = boost::any(*format);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Format") != m.end() && !m["Format"].empty()) {
+      format = make_shared<string>(boost::any_cast<string>(m["Format"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ApplyScalingGroupRequest() = default;
+};
+class ApplyScalingGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> scalingGroupId{};
+
+  ApplyScalingGroupResponseBody() {}
+
+  explicit ApplyScalingGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~ApplyScalingGroupResponseBody() = default;
+};
+class ApplyScalingGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ApplyScalingGroupResponseBody> body{};
+
+  ApplyScalingGroupResponse() {}
+
+  explicit ApplyScalingGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ApplyScalingGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ApplyScalingGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ApplyScalingGroupResponse() = default;
+};
 class AttachAlbServerGroupsRequestAlbServerGroups : public Darabonba::Model {
 public:
   shared_ptr<string> albServerGroupId{};
@@ -2745,6 +2886,20 @@ public:
   shared_ptr<long> gpu{};
   shared_ptr<string> image{};
   shared_ptr<string> imagePullPolicy{};
+  shared_ptr<vector<string>> lifecyclePostStartHandlerExecs{};
+  shared_ptr<string> lifecyclePostStartHandlerHttpGetHost{};
+  shared_ptr<string> lifecyclePostStartHandlerHttpGetPath{};
+  shared_ptr<long> lifecyclePostStartHandlerHttpGetPort{};
+  shared_ptr<string> lifecyclePostStartHandlerHttpGetScheme{};
+  shared_ptr<string> lifecyclePostStartHandlerTcpSocketHost{};
+  shared_ptr<long> lifecyclePostStartHandlerTcpSocketPort{};
+  shared_ptr<vector<string>> lifecyclePreStopHandlerExecs{};
+  shared_ptr<string> lifecyclePreStopHandlerHttpGetHost{};
+  shared_ptr<string> lifecyclePreStopHandlerHttpGetPath{};
+  shared_ptr<long> lifecyclePreStopHandlerHttpGetPort{};
+  shared_ptr<string> lifecyclePreStopHandlerHttpGetScheme{};
+  shared_ptr<string> lifecyclePreStopHandlerTcpSocketHost{};
+  shared_ptr<long> lifecyclePreStopHandlerTcpSocketPort{};
   shared_ptr<double> memory{};
   shared_ptr<string> name{};
   shared_ptr<vector<CreateEciScalingConfigurationRequestContainersPorts>> ports{};
@@ -2797,6 +2952,48 @@ public:
     }
     if (imagePullPolicy) {
       res["ImagePullPolicy"] = boost::any(*imagePullPolicy);
+    }
+    if (lifecyclePostStartHandlerExecs) {
+      res["LifecyclePostStartHandlerExecs"] = boost::any(*lifecyclePostStartHandlerExecs);
+    }
+    if (lifecyclePostStartHandlerHttpGetHost) {
+      res["LifecyclePostStartHandlerHttpGetHost"] = boost::any(*lifecyclePostStartHandlerHttpGetHost);
+    }
+    if (lifecyclePostStartHandlerHttpGetPath) {
+      res["LifecyclePostStartHandlerHttpGetPath"] = boost::any(*lifecyclePostStartHandlerHttpGetPath);
+    }
+    if (lifecyclePostStartHandlerHttpGetPort) {
+      res["LifecyclePostStartHandlerHttpGetPort"] = boost::any(*lifecyclePostStartHandlerHttpGetPort);
+    }
+    if (lifecyclePostStartHandlerHttpGetScheme) {
+      res["LifecyclePostStartHandlerHttpGetScheme"] = boost::any(*lifecyclePostStartHandlerHttpGetScheme);
+    }
+    if (lifecyclePostStartHandlerTcpSocketHost) {
+      res["LifecyclePostStartHandlerTcpSocketHost"] = boost::any(*lifecyclePostStartHandlerTcpSocketHost);
+    }
+    if (lifecyclePostStartHandlerTcpSocketPort) {
+      res["LifecyclePostStartHandlerTcpSocketPort"] = boost::any(*lifecyclePostStartHandlerTcpSocketPort);
+    }
+    if (lifecyclePreStopHandlerExecs) {
+      res["LifecyclePreStopHandlerExecs"] = boost::any(*lifecyclePreStopHandlerExecs);
+    }
+    if (lifecyclePreStopHandlerHttpGetHost) {
+      res["LifecyclePreStopHandlerHttpGetHost"] = boost::any(*lifecyclePreStopHandlerHttpGetHost);
+    }
+    if (lifecyclePreStopHandlerHttpGetPath) {
+      res["LifecyclePreStopHandlerHttpGetPath"] = boost::any(*lifecyclePreStopHandlerHttpGetPath);
+    }
+    if (lifecyclePreStopHandlerHttpGetPort) {
+      res["LifecyclePreStopHandlerHttpGetPort"] = boost::any(*lifecyclePreStopHandlerHttpGetPort);
+    }
+    if (lifecyclePreStopHandlerHttpGetScheme) {
+      res["LifecyclePreStopHandlerHttpGetScheme"] = boost::any(*lifecyclePreStopHandlerHttpGetScheme);
+    }
+    if (lifecyclePreStopHandlerTcpSocketHost) {
+      res["LifecyclePreStopHandlerTcpSocketHost"] = boost::any(*lifecyclePreStopHandlerTcpSocketHost);
+    }
+    if (lifecyclePreStopHandlerTcpSocketPort) {
+      res["LifecyclePreStopHandlerTcpSocketPort"] = boost::any(*lifecyclePreStopHandlerTcpSocketPort);
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
@@ -2899,6 +3096,62 @@ public:
     }
     if (m.find("ImagePullPolicy") != m.end() && !m["ImagePullPolicy"].empty()) {
       imagePullPolicy = make_shared<string>(boost::any_cast<string>(m["ImagePullPolicy"]));
+    }
+    if (m.find("LifecyclePostStartHandlerExecs") != m.end() && !m["LifecyclePostStartHandlerExecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LifecyclePostStartHandlerExecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LifecyclePostStartHandlerExecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      lifecyclePostStartHandlerExecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetHost") != m.end() && !m["LifecyclePostStartHandlerHttpGetHost"].empty()) {
+      lifecyclePostStartHandlerHttpGetHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerHttpGetHost"]));
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetPath") != m.end() && !m["LifecyclePostStartHandlerHttpGetPath"].empty()) {
+      lifecyclePostStartHandlerHttpGetPath = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerHttpGetPath"]));
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetPort") != m.end() && !m["LifecyclePostStartHandlerHttpGetPort"].empty()) {
+      lifecyclePostStartHandlerHttpGetPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePostStartHandlerHttpGetPort"]));
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetScheme") != m.end() && !m["LifecyclePostStartHandlerHttpGetScheme"].empty()) {
+      lifecyclePostStartHandlerHttpGetScheme = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerHttpGetScheme"]));
+    }
+    if (m.find("LifecyclePostStartHandlerTcpSocketHost") != m.end() && !m["LifecyclePostStartHandlerTcpSocketHost"].empty()) {
+      lifecyclePostStartHandlerTcpSocketHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerTcpSocketHost"]));
+    }
+    if (m.find("LifecyclePostStartHandlerTcpSocketPort") != m.end() && !m["LifecyclePostStartHandlerTcpSocketPort"].empty()) {
+      lifecyclePostStartHandlerTcpSocketPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePostStartHandlerTcpSocketPort"]));
+    }
+    if (m.find("LifecyclePreStopHandlerExecs") != m.end() && !m["LifecyclePreStopHandlerExecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LifecyclePreStopHandlerExecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LifecyclePreStopHandlerExecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      lifecyclePreStopHandlerExecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetHost") != m.end() && !m["LifecyclePreStopHandlerHttpGetHost"].empty()) {
+      lifecyclePreStopHandlerHttpGetHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerHttpGetHost"]));
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetPath") != m.end() && !m["LifecyclePreStopHandlerHttpGetPath"].empty()) {
+      lifecyclePreStopHandlerHttpGetPath = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerHttpGetPath"]));
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetPort") != m.end() && !m["LifecyclePreStopHandlerHttpGetPort"].empty()) {
+      lifecyclePreStopHandlerHttpGetPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePreStopHandlerHttpGetPort"]));
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetScheme") != m.end() && !m["LifecyclePreStopHandlerHttpGetScheme"].empty()) {
+      lifecyclePreStopHandlerHttpGetScheme = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerHttpGetScheme"]));
+    }
+    if (m.find("LifecyclePreStopHandlerTcpSocketHost") != m.end() && !m["LifecyclePreStopHandlerTcpSocketHost"].empty()) {
+      lifecyclePreStopHandlerTcpSocketHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerTcpSocketHost"]));
+    }
+    if (m.find("LifecyclePreStopHandlerTcpSocketPort") != m.end() && !m["LifecyclePreStopHandlerTcpSocketPort"].empty()) {
+      lifecyclePreStopHandlerTcpSocketPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePreStopHandlerTcpSocketPort"]));
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
@@ -10545,6 +10798,20 @@ public:
   shared_ptr<long> gpu{};
   shared_ptr<string> image{};
   shared_ptr<string> imagePullPolicy{};
+  shared_ptr<vector<string>> lifecyclePostStartHandlerExecs{};
+  shared_ptr<string> lifecyclePostStartHandlerHttpGetHost{};
+  shared_ptr<string> lifecyclePostStartHandlerHttpGetPath{};
+  shared_ptr<long> lifecyclePostStartHandlerHttpGetPort{};
+  shared_ptr<string> lifecyclePostStartHandlerHttpGetScheme{};
+  shared_ptr<string> lifecyclePostStartHandlerTcpSocketHost{};
+  shared_ptr<long> lifecyclePostStartHandlerTcpSocketPort{};
+  shared_ptr<vector<string>> lifecyclePreStopHandlerExecs{};
+  shared_ptr<string> lifecyclePreStopHandlerHttpGetHost{};
+  shared_ptr<string> lifecyclePreStopHandlerHttpGetPath{};
+  shared_ptr<long> lifecyclePreStopHandlerHttpGetPort{};
+  shared_ptr<string> lifecyclePreStopHandlerHttpGetScheme{};
+  shared_ptr<string> lifecyclePreStopHandlerTcpSocketHost{};
+  shared_ptr<long> lifecyclePreStopHandlerTcpSocketPort{};
   shared_ptr<vector<string>> livenessProbeExecCommands{};
   shared_ptr<long> livenessProbeFailureThreshold{};
   shared_ptr<string> livenessProbeHttpGetPath{};
@@ -10611,6 +10878,48 @@ public:
     }
     if (imagePullPolicy) {
       res["ImagePullPolicy"] = boost::any(*imagePullPolicy);
+    }
+    if (lifecyclePostStartHandlerExecs) {
+      res["LifecyclePostStartHandlerExecs"] = boost::any(*lifecyclePostStartHandlerExecs);
+    }
+    if (lifecyclePostStartHandlerHttpGetHost) {
+      res["LifecyclePostStartHandlerHttpGetHost"] = boost::any(*lifecyclePostStartHandlerHttpGetHost);
+    }
+    if (lifecyclePostStartHandlerHttpGetPath) {
+      res["LifecyclePostStartHandlerHttpGetPath"] = boost::any(*lifecyclePostStartHandlerHttpGetPath);
+    }
+    if (lifecyclePostStartHandlerHttpGetPort) {
+      res["LifecyclePostStartHandlerHttpGetPort"] = boost::any(*lifecyclePostStartHandlerHttpGetPort);
+    }
+    if (lifecyclePostStartHandlerHttpGetScheme) {
+      res["LifecyclePostStartHandlerHttpGetScheme"] = boost::any(*lifecyclePostStartHandlerHttpGetScheme);
+    }
+    if (lifecyclePostStartHandlerTcpSocketHost) {
+      res["LifecyclePostStartHandlerTcpSocketHost"] = boost::any(*lifecyclePostStartHandlerTcpSocketHost);
+    }
+    if (lifecyclePostStartHandlerTcpSocketPort) {
+      res["LifecyclePostStartHandlerTcpSocketPort"] = boost::any(*lifecyclePostStartHandlerTcpSocketPort);
+    }
+    if (lifecyclePreStopHandlerExecs) {
+      res["LifecyclePreStopHandlerExecs"] = boost::any(*lifecyclePreStopHandlerExecs);
+    }
+    if (lifecyclePreStopHandlerHttpGetHost) {
+      res["LifecyclePreStopHandlerHttpGetHost"] = boost::any(*lifecyclePreStopHandlerHttpGetHost);
+    }
+    if (lifecyclePreStopHandlerHttpGetPath) {
+      res["LifecyclePreStopHandlerHttpGetPath"] = boost::any(*lifecyclePreStopHandlerHttpGetPath);
+    }
+    if (lifecyclePreStopHandlerHttpGetPort) {
+      res["LifecyclePreStopHandlerHttpGetPort"] = boost::any(*lifecyclePreStopHandlerHttpGetPort);
+    }
+    if (lifecyclePreStopHandlerHttpGetScheme) {
+      res["LifecyclePreStopHandlerHttpGetScheme"] = boost::any(*lifecyclePreStopHandlerHttpGetScheme);
+    }
+    if (lifecyclePreStopHandlerTcpSocketHost) {
+      res["LifecyclePreStopHandlerTcpSocketHost"] = boost::any(*lifecyclePreStopHandlerTcpSocketHost);
+    }
+    if (lifecyclePreStopHandlerTcpSocketPort) {
+      res["LifecyclePreStopHandlerTcpSocketPort"] = boost::any(*lifecyclePreStopHandlerTcpSocketPort);
     }
     if (livenessProbeExecCommands) {
       res["LivenessProbeExecCommands"] = boost::any(*livenessProbeExecCommands);
@@ -10761,6 +11070,62 @@ public:
     }
     if (m.find("ImagePullPolicy") != m.end() && !m["ImagePullPolicy"].empty()) {
       imagePullPolicy = make_shared<string>(boost::any_cast<string>(m["ImagePullPolicy"]));
+    }
+    if (m.find("LifecyclePostStartHandlerExecs") != m.end() && !m["LifecyclePostStartHandlerExecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LifecyclePostStartHandlerExecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LifecyclePostStartHandlerExecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      lifecyclePostStartHandlerExecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetHost") != m.end() && !m["LifecyclePostStartHandlerHttpGetHost"].empty()) {
+      lifecyclePostStartHandlerHttpGetHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerHttpGetHost"]));
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetPath") != m.end() && !m["LifecyclePostStartHandlerHttpGetPath"].empty()) {
+      lifecyclePostStartHandlerHttpGetPath = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerHttpGetPath"]));
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetPort") != m.end() && !m["LifecyclePostStartHandlerHttpGetPort"].empty()) {
+      lifecyclePostStartHandlerHttpGetPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePostStartHandlerHttpGetPort"]));
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetScheme") != m.end() && !m["LifecyclePostStartHandlerHttpGetScheme"].empty()) {
+      lifecyclePostStartHandlerHttpGetScheme = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerHttpGetScheme"]));
+    }
+    if (m.find("LifecyclePostStartHandlerTcpSocketHost") != m.end() && !m["LifecyclePostStartHandlerTcpSocketHost"].empty()) {
+      lifecyclePostStartHandlerTcpSocketHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerTcpSocketHost"]));
+    }
+    if (m.find("LifecyclePostStartHandlerTcpSocketPort") != m.end() && !m["LifecyclePostStartHandlerTcpSocketPort"].empty()) {
+      lifecyclePostStartHandlerTcpSocketPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePostStartHandlerTcpSocketPort"]));
+    }
+    if (m.find("LifecyclePreStopHandlerExecs") != m.end() && !m["LifecyclePreStopHandlerExecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LifecyclePreStopHandlerExecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LifecyclePreStopHandlerExecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      lifecyclePreStopHandlerExecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetHost") != m.end() && !m["LifecyclePreStopHandlerHttpGetHost"].empty()) {
+      lifecyclePreStopHandlerHttpGetHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerHttpGetHost"]));
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetPath") != m.end() && !m["LifecyclePreStopHandlerHttpGetPath"].empty()) {
+      lifecyclePreStopHandlerHttpGetPath = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerHttpGetPath"]));
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetPort") != m.end() && !m["LifecyclePreStopHandlerHttpGetPort"].empty()) {
+      lifecyclePreStopHandlerHttpGetPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePreStopHandlerHttpGetPort"]));
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetScheme") != m.end() && !m["LifecyclePreStopHandlerHttpGetScheme"].empty()) {
+      lifecyclePreStopHandlerHttpGetScheme = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerHttpGetScheme"]));
+    }
+    if (m.find("LifecyclePreStopHandlerTcpSocketHost") != m.end() && !m["LifecyclePreStopHandlerTcpSocketHost"].empty()) {
+      lifecyclePreStopHandlerTcpSocketHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerTcpSocketHost"]));
+    }
+    if (m.find("LifecyclePreStopHandlerTcpSocketPort") != m.end() && !m["LifecyclePreStopHandlerTcpSocketPort"].empty()) {
+      lifecyclePreStopHandlerTcpSocketPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePreStopHandlerTcpSocketPort"]));
     }
     if (m.find("LivenessProbeExecCommands") != m.end() && !m["LivenessProbeExecCommands"].empty()) {
       vector<string> toVec1;
@@ -22340,6 +22705,20 @@ public:
   shared_ptr<long> gpu{};
   shared_ptr<string> image{};
   shared_ptr<string> imagePullPolicy{};
+  shared_ptr<vector<string>> lifecyclePostStartHandlerExecs{};
+  shared_ptr<string> lifecyclePostStartHandlerHttpGetHost{};
+  shared_ptr<string> lifecyclePostStartHandlerHttpGetPath{};
+  shared_ptr<long> lifecyclePostStartHandlerHttpGetPort{};
+  shared_ptr<string> lifecyclePostStartHandlerHttpGetScheme{};
+  shared_ptr<string> lifecyclePostStartHandlerTcpSocketHost{};
+  shared_ptr<long> lifecyclePostStartHandlerTcpSocketPort{};
+  shared_ptr<vector<string>> lifecyclePreStopHandlerExecs{};
+  shared_ptr<string> lifecyclePreStopHandlerHttpGetHost{};
+  shared_ptr<string> lifecyclePreStopHandlerHttpGetPath{};
+  shared_ptr<long> lifecyclePreStopHandlerHttpGetPort{};
+  shared_ptr<string> lifecyclePreStopHandlerHttpGetScheme{};
+  shared_ptr<string> lifecyclePreStopHandlerTcpSocketHost{};
+  shared_ptr<long> lifecyclePreStopHandlerTcpSocketPort{};
   shared_ptr<double> memory{};
   shared_ptr<string> name{};
   shared_ptr<vector<ModifyEciScalingConfigurationRequestContainersPorts>> ports{};
@@ -22392,6 +22771,48 @@ public:
     }
     if (imagePullPolicy) {
       res["ImagePullPolicy"] = boost::any(*imagePullPolicy);
+    }
+    if (lifecyclePostStartHandlerExecs) {
+      res["LifecyclePostStartHandlerExecs"] = boost::any(*lifecyclePostStartHandlerExecs);
+    }
+    if (lifecyclePostStartHandlerHttpGetHost) {
+      res["LifecyclePostStartHandlerHttpGetHost"] = boost::any(*lifecyclePostStartHandlerHttpGetHost);
+    }
+    if (lifecyclePostStartHandlerHttpGetPath) {
+      res["LifecyclePostStartHandlerHttpGetPath"] = boost::any(*lifecyclePostStartHandlerHttpGetPath);
+    }
+    if (lifecyclePostStartHandlerHttpGetPort) {
+      res["LifecyclePostStartHandlerHttpGetPort"] = boost::any(*lifecyclePostStartHandlerHttpGetPort);
+    }
+    if (lifecyclePostStartHandlerHttpGetScheme) {
+      res["LifecyclePostStartHandlerHttpGetScheme"] = boost::any(*lifecyclePostStartHandlerHttpGetScheme);
+    }
+    if (lifecyclePostStartHandlerTcpSocketHost) {
+      res["LifecyclePostStartHandlerTcpSocketHost"] = boost::any(*lifecyclePostStartHandlerTcpSocketHost);
+    }
+    if (lifecyclePostStartHandlerTcpSocketPort) {
+      res["LifecyclePostStartHandlerTcpSocketPort"] = boost::any(*lifecyclePostStartHandlerTcpSocketPort);
+    }
+    if (lifecyclePreStopHandlerExecs) {
+      res["LifecyclePreStopHandlerExecs"] = boost::any(*lifecyclePreStopHandlerExecs);
+    }
+    if (lifecyclePreStopHandlerHttpGetHost) {
+      res["LifecyclePreStopHandlerHttpGetHost"] = boost::any(*lifecyclePreStopHandlerHttpGetHost);
+    }
+    if (lifecyclePreStopHandlerHttpGetPath) {
+      res["LifecyclePreStopHandlerHttpGetPath"] = boost::any(*lifecyclePreStopHandlerHttpGetPath);
+    }
+    if (lifecyclePreStopHandlerHttpGetPort) {
+      res["LifecyclePreStopHandlerHttpGetPort"] = boost::any(*lifecyclePreStopHandlerHttpGetPort);
+    }
+    if (lifecyclePreStopHandlerHttpGetScheme) {
+      res["LifecyclePreStopHandlerHttpGetScheme"] = boost::any(*lifecyclePreStopHandlerHttpGetScheme);
+    }
+    if (lifecyclePreStopHandlerTcpSocketHost) {
+      res["LifecyclePreStopHandlerTcpSocketHost"] = boost::any(*lifecyclePreStopHandlerTcpSocketHost);
+    }
+    if (lifecyclePreStopHandlerTcpSocketPort) {
+      res["LifecyclePreStopHandlerTcpSocketPort"] = boost::any(*lifecyclePreStopHandlerTcpSocketPort);
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
@@ -22494,6 +22915,62 @@ public:
     }
     if (m.find("ImagePullPolicy") != m.end() && !m["ImagePullPolicy"].empty()) {
       imagePullPolicy = make_shared<string>(boost::any_cast<string>(m["ImagePullPolicy"]));
+    }
+    if (m.find("LifecyclePostStartHandlerExecs") != m.end() && !m["LifecyclePostStartHandlerExecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LifecyclePostStartHandlerExecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LifecyclePostStartHandlerExecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      lifecyclePostStartHandlerExecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetHost") != m.end() && !m["LifecyclePostStartHandlerHttpGetHost"].empty()) {
+      lifecyclePostStartHandlerHttpGetHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerHttpGetHost"]));
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetPath") != m.end() && !m["LifecyclePostStartHandlerHttpGetPath"].empty()) {
+      lifecyclePostStartHandlerHttpGetPath = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerHttpGetPath"]));
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetPort") != m.end() && !m["LifecyclePostStartHandlerHttpGetPort"].empty()) {
+      lifecyclePostStartHandlerHttpGetPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePostStartHandlerHttpGetPort"]));
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetScheme") != m.end() && !m["LifecyclePostStartHandlerHttpGetScheme"].empty()) {
+      lifecyclePostStartHandlerHttpGetScheme = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerHttpGetScheme"]));
+    }
+    if (m.find("LifecyclePostStartHandlerTcpSocketHost") != m.end() && !m["LifecyclePostStartHandlerTcpSocketHost"].empty()) {
+      lifecyclePostStartHandlerTcpSocketHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerTcpSocketHost"]));
+    }
+    if (m.find("LifecyclePostStartHandlerTcpSocketPort") != m.end() && !m["LifecyclePostStartHandlerTcpSocketPort"].empty()) {
+      lifecyclePostStartHandlerTcpSocketPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePostStartHandlerTcpSocketPort"]));
+    }
+    if (m.find("LifecyclePreStopHandlerExecs") != m.end() && !m["LifecyclePreStopHandlerExecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LifecyclePreStopHandlerExecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LifecyclePreStopHandlerExecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      lifecyclePreStopHandlerExecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetHost") != m.end() && !m["LifecyclePreStopHandlerHttpGetHost"].empty()) {
+      lifecyclePreStopHandlerHttpGetHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerHttpGetHost"]));
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetPath") != m.end() && !m["LifecyclePreStopHandlerHttpGetPath"].empty()) {
+      lifecyclePreStopHandlerHttpGetPath = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerHttpGetPath"]));
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetPort") != m.end() && !m["LifecyclePreStopHandlerHttpGetPort"].empty()) {
+      lifecyclePreStopHandlerHttpGetPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePreStopHandlerHttpGetPort"]));
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetScheme") != m.end() && !m["LifecyclePreStopHandlerHttpGetScheme"].empty()) {
+      lifecyclePreStopHandlerHttpGetScheme = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerHttpGetScheme"]));
+    }
+    if (m.find("LifecyclePreStopHandlerTcpSocketHost") != m.end() && !m["LifecyclePreStopHandlerTcpSocketHost"].empty()) {
+      lifecyclePreStopHandlerTcpSocketHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerTcpSocketHost"]));
+    }
+    if (m.find("LifecyclePreStopHandlerTcpSocketPort") != m.end() && !m["LifecyclePreStopHandlerTcpSocketPort"].empty()) {
+      lifecyclePreStopHandlerTcpSocketPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePreStopHandlerTcpSocketPort"]));
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
@@ -29884,6 +30361,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  ApplyScalingGroupResponse applyScalingGroupWithOptions(shared_ptr<ApplyScalingGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ApplyScalingGroupResponse applyScalingGroup(shared_ptr<ApplyScalingGroupRequest> request);
   AttachAlbServerGroupsResponse attachAlbServerGroupsWithOptions(shared_ptr<AttachAlbServerGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachAlbServerGroupsResponse attachAlbServerGroups(shared_ptr<AttachAlbServerGroupsRequest> request);
   AttachDBInstancesResponse attachDBInstancesWithOptions(shared_ptr<AttachDBInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
