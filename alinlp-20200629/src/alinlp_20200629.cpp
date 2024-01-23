@@ -2062,6 +2062,45 @@ PostMSConvSearchTokenGeneratedResponse Alibabacloud_Alinlp20200629::Client::post
   return postMSConvSearchTokenGeneratedWithOptions(runtime);
 }
 
+PostMSDataProcessingCountResponse Alibabacloud_Alinlp20200629::Client::postMSDataProcessingCountWithOptions(shared_ptr<PostMSDataProcessingCountRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<PostMSDataProcessingCountShrinkRequest> request = make_shared<PostMSDataProcessingCountShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->dataIds)) {
+    request->dataIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dataIds, make_shared<string>("DataIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataIdsShrink)) {
+    body->insert(pair<string, string>("DataIds", *request->dataIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dataImportId)) {
+    body->insert(pair<string, long>("DataImportId", *request->dataImportId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->serviceId)) {
+    body->insert(pair<string, long>("ServiceId", *request->serviceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PostMSDataProcessingCount"))},
+    {"version", boost::any(string("2020-06-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PostMSDataProcessingCountResponse(callApi(params, req, runtime));
+}
+
+PostMSDataProcessingCountResponse Alibabacloud_Alinlp20200629::Client::postMSDataProcessingCount(shared_ptr<PostMSDataProcessingCountRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return postMSDataProcessingCountWithOptions(request, runtime);
+}
+
 PostMSSearchEnhanceResponse Alibabacloud_Alinlp20200629::Client::postMSSearchEnhanceWithOptions(shared_ptr<PostMSSearchEnhanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<PostMSSearchEnhanceShrinkRequest> request = make_shared<PostMSSearchEnhanceShrinkRequest>();
