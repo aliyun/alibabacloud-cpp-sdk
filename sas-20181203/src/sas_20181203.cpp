@@ -12914,6 +12914,9 @@ ExecStrategyResponse Alibabacloud_Sas20181203::Client::execStrategy(shared_ptr<E
 ExportRecordResponse Alibabacloud_Sas20181203::Client::exportRecordWithOptions(shared_ptr<ExportRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->exportFileType)) {
+    query->insert(pair<string, string>("ExportFileType", *request->exportFileType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->exportType)) {
     query->insert(pair<string, string>("ExportType", *request->exportType));
   }
