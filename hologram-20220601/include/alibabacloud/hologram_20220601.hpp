@@ -628,6 +628,7 @@ public:
   shared_ptr<string> leaderInstanceId{};
   shared_ptr<long> memory{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> replicaRole{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> suspendReason{};
   shared_ptr<vector<GetInstanceResponseBodyInstanceTags>> tags{};
@@ -713,6 +714,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (replicaRole) {
+      res["ReplicaRole"] = boost::any(*replicaRole);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -812,6 +816,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ReplicaRole") != m.end() && !m["ReplicaRole"].empty()) {
+      replicaRole = make_shared<string>(boost::any_cast<string>(m["ReplicaRole"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
