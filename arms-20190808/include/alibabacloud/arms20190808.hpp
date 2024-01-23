@@ -21492,6 +21492,7 @@ public:
   shared_ptr<bool> haveConfig{};
   shared_ptr<string> installUserId{};
   shared_ptr<string> language{};
+  shared_ptr<bool> managed{};
   shared_ptr<string> regionId{};
   shared_ptr<string> releaseId{};
   shared_ptr<string> releaseName{};
@@ -21544,6 +21545,9 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
+    }
+    if (managed) {
+      res["Managed"] = boost::any(*managed);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -21612,6 +21616,9 @@ public:
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("Managed") != m.end() && !m["Managed"].empty()) {
+      managed = make_shared<bool>(boost::any_cast<bool>(m["Managed"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -24132,6 +24139,7 @@ public:
   shared_ptr<string> icon{};
   shared_ptr<string> language{};
   shared_ptr<string> latestVersion{};
+  shared_ptr<bool> managed{};
   shared_ptr<string> name{};
   shared_ptr<string> status{};
   shared_ptr<string> version{};
@@ -24166,6 +24174,9 @@ public:
     }
     if (latestVersion) {
       res["LatestVersion"] = boost::any(*latestVersion);
+    }
+    if (managed) {
+      res["Managed"] = boost::any(*managed);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -24205,6 +24216,9 @@ public:
     }
     if (m.find("LatestVersion") != m.end() && !m["LatestVersion"].empty()) {
       latestVersion = make_shared<string>(boost::any_cast<string>(m["LatestVersion"]));
+    }
+    if (m.find("Managed") != m.end() && !m["Managed"].empty()) {
+      managed = make_shared<bool>(boost::any_cast<bool>(m["Managed"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -38159,6 +38173,7 @@ public:
   shared_ptr<bool> haveConfig{};
   shared_ptr<string> installUserId{};
   shared_ptr<string> language{};
+  shared_ptr<bool> managed{};
   shared_ptr<string> regionId{};
   shared_ptr<string> releaseId{};
   shared_ptr<string> releaseName{};
@@ -38211,6 +38226,9 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
+    }
+    if (managed) {
+      res["Managed"] = boost::any(*managed);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -38279,6 +38297,9 @@ public:
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("Managed") != m.end() && !m["Managed"].empty()) {
+      managed = make_shared<bool>(boost::any_cast<bool>(m["Managed"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -39512,6 +39533,7 @@ public:
   shared_ptr<bool> haveConfig{};
   shared_ptr<string> installUserId{};
   shared_ptr<string> language{};
+  shared_ptr<bool> managed{};
   shared_ptr<string> regionId{};
   shared_ptr<string> releaseId{};
   shared_ptr<string> releaseName{};
@@ -39564,6 +39586,9 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
+    }
+    if (managed) {
+      res["Managed"] = boost::any(*managed);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -39632,6 +39657,9 @@ public:
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("Managed") != m.end() && !m["Managed"].empty()) {
+      managed = make_shared<bool>(boost::any_cast<bool>(m["Managed"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -43383,6 +43411,7 @@ public:
   shared_ptr<string> icon{};
   shared_ptr<string> language{};
   shared_ptr<string> latestVersion{};
+  shared_ptr<bool> managed{};
   shared_ptr<string> name{};
   shared_ptr<string> status{};
   shared_ptr<string> version{};
@@ -43417,6 +43446,9 @@ public:
     }
     if (latestVersion) {
       res["LatestVersion"] = boost::any(*latestVersion);
+    }
+    if (managed) {
+      res["Managed"] = boost::any(*managed);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -43456,6 +43488,9 @@ public:
     }
     if (m.find("LatestVersion") != m.end() && !m["LatestVersion"].empty()) {
       latestVersion = make_shared<string>(boost::any_cast<string>(m["LatestVersion"]));
+    }
+    if (m.find("Managed") != m.end() && !m["Managed"].empty()) {
+      managed = make_shared<bool>(boost::any_cast<bool>(m["Managed"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -43921,6 +43956,7 @@ public:
   shared_ptr<string> grafanaFolderTitle{};
   shared_ptr<string> grafanaFolderUid{};
   shared_ptr<string> latestReleaseCreateTime{};
+  shared_ptr<string> managedType{};
   shared_ptr<long> prometheusId{};
   shared_ptr<string> prometheusInstanceId{};
   shared_ptr<string> regionId{};
@@ -43991,6 +44027,9 @@ public:
     }
     if (latestReleaseCreateTime) {
       res["LatestReleaseCreateTime"] = boost::any(*latestReleaseCreateTime);
+    }
+    if (managedType) {
+      res["ManagedType"] = boost::any(*managedType);
     }
     if (prometheusId) {
       res["PrometheusId"] = boost::any(*prometheusId);
@@ -44085,6 +44124,9 @@ public:
     }
     if (m.find("LatestReleaseCreateTime") != m.end() && !m["LatestReleaseCreateTime"].empty()) {
       latestReleaseCreateTime = make_shared<string>(boost::any_cast<string>(m["LatestReleaseCreateTime"]));
+    }
+    if (m.find("ManagedType") != m.end() && !m["ManagedType"].empty()) {
+      managedType = make_shared<string>(boost::any_cast<string>(m["ManagedType"]));
     }
     if (m.find("PrometheusId") != m.end() && !m["PrometheusId"].empty()) {
       prometheusId = make_shared<long>(boost::any_cast<long>(m["PrometheusId"]));
