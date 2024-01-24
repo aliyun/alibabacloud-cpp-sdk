@@ -17632,6 +17632,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> replicaLag{};
   shared_ptr<string> role{};
+  shared_ptr<string> serverlessType{};
   shared_ptr<string> storageUsed{};
 
   DescribeGlobalDatabaseNetworkResponseBodyDBClusters() {}
@@ -17686,6 +17687,9 @@ public:
     }
     if (role) {
       res["Role"] = boost::any(*role);
+    }
+    if (serverlessType) {
+      res["ServerlessType"] = boost::any(*serverlessType);
     }
     if (storageUsed) {
       res["StorageUsed"] = boost::any(*storageUsed);
@@ -17742,6 +17746,9 @@ public:
     }
     if (m.find("Role") != m.end() && !m["Role"].empty()) {
       role = make_shared<string>(boost::any_cast<string>(m["Role"]));
+    }
+    if (m.find("ServerlessType") != m.end() && !m["ServerlessType"].empty()) {
+      serverlessType = make_shared<string>(boost::any_cast<string>(m["ServerlessType"]));
     }
     if (m.find("StorageUsed") != m.end() && !m["StorageUsed"].empty()) {
       storageUsed = make_shared<string>(boost::any_cast<string>(m["StorageUsed"]));
