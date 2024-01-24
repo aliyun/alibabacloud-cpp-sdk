@@ -60,6 +60,9 @@ CreateAppResponse Alibabacloud_Es-serverless20230627::Client::createAppWithOptio
   if (!Darabonba_Util::Client::isUnset<vector<CreateAppRequestNetwork>>(request->network)) {
     body->insert(pair<string, vector<CreateAppRequestNetwork>>("network", *request->network));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAppRequestPrivateNetwork>>(request->privateNetwork)) {
+    body->insert(pair<string, vector<CreateAppRequestPrivateNetwork>>("privateNetwork", *request->privateNetwork));
+  }
   if (!Darabonba_Util::Client::isUnset<CreateAppRequestQuotaInfo>(request->quotaInfo)) {
     body->insert(pair<string, CreateAppRequestQuotaInfo>("quotaInfo", *request->quotaInfo));
   }
@@ -255,14 +258,26 @@ UpdateAppResponse Alibabacloud_Es-serverless20230627::Client::updateAppWithOptio
                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->applyReason)) {
+    body->insert(pair<string, string>("applyReason", *request->applyReason));
+  }
   if (!Darabonba_Util::Client::isUnset<UpdateAppRequestAuthentication>(request->authentication)) {
     body->insert(pair<string, UpdateAppRequestAuthentication>("authentication", *request->authentication));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->contactInfo)) {
+    body->insert(pair<string, string>("contactInfo", *request->contactInfo));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<UpdateAppRequestLimiterInfo>(request->limiterInfo)) {
+    body->insert(pair<string, UpdateAppRequestLimiterInfo>("limiterInfo", *request->limiterInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<UpdateAppRequestNetwork>>(request->network)) {
     body->insert(pair<string, vector<UpdateAppRequestNetwork>>("network", *request->network));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateAppRequestPrivateNetwork>>(request->privateNetwork)) {
+    body->insert(pair<string, vector<UpdateAppRequestPrivateNetwork>>("privateNetwork", *request->privateNetwork));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},

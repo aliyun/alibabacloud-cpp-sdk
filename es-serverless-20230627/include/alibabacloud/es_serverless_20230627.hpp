@@ -208,6 +208,120 @@ public:
 
   virtual ~CreateAppRequestNetwork() = default;
 };
+class CreateAppRequestPrivateNetworkWhiteIpGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> groupName{};
+  shared_ptr<vector<string>> ips{};
+
+  CreateAppRequestPrivateNetworkWhiteIpGroup() {}
+
+  explicit CreateAppRequestPrivateNetworkWhiteIpGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupName) {
+      res["groupName"] = boost::any(*groupName);
+    }
+    if (ips) {
+      res["ips"] = boost::any(*ips);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("groupName") != m.end() && !m["groupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["groupName"]));
+    }
+    if (m.find("ips") != m.end() && !m["ips"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ips"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ips"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ips = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateAppRequestPrivateNetworkWhiteIpGroup() = default;
+};
+class CreateAppRequestPrivateNetwork : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> pvlEndpointId{};
+  shared_ptr<string> type{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<vector<CreateAppRequestPrivateNetworkWhiteIpGroup>> whiteIpGroup{};
+
+  CreateAppRequestPrivateNetwork() {}
+
+  explicit CreateAppRequestPrivateNetwork(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    if (pvlEndpointId) {
+      res["pvlEndpointId"] = boost::any(*pvlEndpointId);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (vpcId) {
+      res["vpcId"] = boost::any(*vpcId);
+    }
+    if (whiteIpGroup) {
+      vector<boost::any> temp1;
+      for(auto item1:*whiteIpGroup){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["whiteIpGroup"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+    if (m.find("pvlEndpointId") != m.end() && !m["pvlEndpointId"].empty()) {
+      pvlEndpointId = make_shared<string>(boost::any_cast<string>(m["pvlEndpointId"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("vpcId") != m.end() && !m["vpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["vpcId"]));
+    }
+    if (m.find("whiteIpGroup") != m.end() && !m["whiteIpGroup"].empty()) {
+      if (typeid(vector<boost::any>) == m["whiteIpGroup"].type()) {
+        vector<CreateAppRequestPrivateNetworkWhiteIpGroup> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["whiteIpGroup"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAppRequestPrivateNetworkWhiteIpGroup model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        whiteIpGroup = make_shared<vector<CreateAppRequestPrivateNetworkWhiteIpGroup>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAppRequestPrivateNetwork() = default;
+};
 class CreateAppRequestQuotaInfo : public Darabonba::Model {
 public:
   shared_ptr<string> appType{};
@@ -258,6 +372,7 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<string> description{};
   shared_ptr<vector<CreateAppRequestNetwork>> network{};
+  shared_ptr<vector<CreateAppRequestPrivateNetwork>> privateNetwork{};
   shared_ptr<CreateAppRequestQuotaInfo> quotaInfo{};
   shared_ptr<string> regionId{};
   shared_ptr<string> version{};
@@ -291,6 +406,13 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["network"] = boost::any(temp1);
+    }
+    if (privateNetwork) {
+      vector<boost::any> temp1;
+      for(auto item1:*privateNetwork){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["privateNetwork"] = boost::any(temp1);
     }
     if (quotaInfo) {
       res["quotaInfo"] = quotaInfo ? boost::any(quotaInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -335,6 +457,19 @@ public:
           }
         }
         network = make_shared<vector<CreateAppRequestNetwork>>(expect1);
+      }
+    }
+    if (m.find("privateNetwork") != m.end() && !m["privateNetwork"].empty()) {
+      if (typeid(vector<boost::any>) == m["privateNetwork"].type()) {
+        vector<CreateAppRequestPrivateNetwork> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["privateNetwork"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAppRequestPrivateNetwork model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        privateNetwork = make_shared<vector<CreateAppRequestPrivateNetwork>>(expect1);
       }
     }
     if (m.find("quotaInfo") != m.end() && !m["quotaInfo"].empty()) {
@@ -1680,6 +1815,106 @@ public:
 
   virtual ~UpdateAppRequestAuthentication() = default;
 };
+class UpdateAppRequestLimiterInfoLimiters : public Darabonba::Model {
+public:
+  shared_ptr<long> maxValue{};
+  shared_ptr<long> minValue{};
+  shared_ptr<string> type{};
+  shared_ptr<vector<string>> values{};
+
+  UpdateAppRequestLimiterInfoLimiters() {}
+
+  explicit UpdateAppRequestLimiterInfoLimiters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxValue) {
+      res["maxValue"] = boost::any(*maxValue);
+    }
+    if (minValue) {
+      res["minValue"] = boost::any(*minValue);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (values) {
+      res["values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("maxValue") != m.end() && !m["maxValue"].empty()) {
+      maxValue = make_shared<long>(boost::any_cast<long>(m["maxValue"]));
+    }
+    if (m.find("minValue") != m.end() && !m["minValue"].empty()) {
+      minValue = make_shared<long>(boost::any_cast<long>(m["minValue"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("values") != m.end() && !m["values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateAppRequestLimiterInfoLimiters() = default;
+};
+class UpdateAppRequestLimiterInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<UpdateAppRequestLimiterInfoLimiters>> limiters{};
+
+  UpdateAppRequestLimiterInfo() {}
+
+  explicit UpdateAppRequestLimiterInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (limiters) {
+      vector<boost::any> temp1;
+      for(auto item1:*limiters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["limiters"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("limiters") != m.end() && !m["limiters"].empty()) {
+      if (typeid(vector<boost::any>) == m["limiters"].type()) {
+        vector<UpdateAppRequestLimiterInfoLimiters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["limiters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAppRequestLimiterInfoLimiters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        limiters = make_shared<vector<UpdateAppRequestLimiterInfoLimiters>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAppRequestLimiterInfo() = default;
+};
 class UpdateAppRequestNetworkWhiteIpGroup : public Darabonba::Model {
 public:
   shared_ptr<string> groupName{};
@@ -1794,11 +2029,129 @@ public:
 
   virtual ~UpdateAppRequestNetwork() = default;
 };
+class UpdateAppRequestPrivateNetworkWhiteIpGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> groupName{};
+  shared_ptr<vector<string>> ips{};
+
+  UpdateAppRequestPrivateNetworkWhiteIpGroup() {}
+
+  explicit UpdateAppRequestPrivateNetworkWhiteIpGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupName) {
+      res["groupName"] = boost::any(*groupName);
+    }
+    if (ips) {
+      res["ips"] = boost::any(*ips);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("groupName") != m.end() && !m["groupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["groupName"]));
+    }
+    if (m.find("ips") != m.end() && !m["ips"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ips"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ips"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ips = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateAppRequestPrivateNetworkWhiteIpGroup() = default;
+};
+class UpdateAppRequestPrivateNetwork : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> pvlEndpointId{};
+  shared_ptr<string> type{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<vector<UpdateAppRequestPrivateNetworkWhiteIpGroup>> whiteIpGroup{};
+
+  UpdateAppRequestPrivateNetwork() {}
+
+  explicit UpdateAppRequestPrivateNetwork(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    if (pvlEndpointId) {
+      res["pvlEndpointId"] = boost::any(*pvlEndpointId);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (vpcId) {
+      res["vpcId"] = boost::any(*vpcId);
+    }
+    if (whiteIpGroup) {
+      vector<boost::any> temp1;
+      for(auto item1:*whiteIpGroup){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["whiteIpGroup"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+    if (m.find("pvlEndpointId") != m.end() && !m["pvlEndpointId"].empty()) {
+      pvlEndpointId = make_shared<string>(boost::any_cast<string>(m["pvlEndpointId"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("vpcId") != m.end() && !m["vpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["vpcId"]));
+    }
+    if (m.find("whiteIpGroup") != m.end() && !m["whiteIpGroup"].empty()) {
+      if (typeid(vector<boost::any>) == m["whiteIpGroup"].type()) {
+        vector<UpdateAppRequestPrivateNetworkWhiteIpGroup> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["whiteIpGroup"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAppRequestPrivateNetworkWhiteIpGroup model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        whiteIpGroup = make_shared<vector<UpdateAppRequestPrivateNetworkWhiteIpGroup>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAppRequestPrivateNetwork() = default;
+};
 class UpdateAppRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> applyReason{};
   shared_ptr<UpdateAppRequestAuthentication> authentication{};
+  shared_ptr<string> contactInfo{};
   shared_ptr<string> description{};
+  shared_ptr<UpdateAppRequestLimiterInfo> limiterInfo{};
   shared_ptr<vector<UpdateAppRequestNetwork>> network{};
+  shared_ptr<vector<UpdateAppRequestPrivateNetwork>> privateNetwork{};
 
   UpdateAppRequest() {}
 
@@ -1810,11 +2163,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (applyReason) {
+      res["applyReason"] = boost::any(*applyReason);
+    }
     if (authentication) {
       res["authentication"] = authentication ? boost::any(authentication->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (contactInfo) {
+      res["contactInfo"] = boost::any(*contactInfo);
+    }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (limiterInfo) {
+      res["limiterInfo"] = limiterInfo ? boost::any(limiterInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (network) {
       vector<boost::any> temp1;
@@ -1823,10 +2185,20 @@ public:
       }
       res["network"] = boost::any(temp1);
     }
+    if (privateNetwork) {
+      vector<boost::any> temp1;
+      for(auto item1:*privateNetwork){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["privateNetwork"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("applyReason") != m.end() && !m["applyReason"].empty()) {
+      applyReason = make_shared<string>(boost::any_cast<string>(m["applyReason"]));
+    }
     if (m.find("authentication") != m.end() && !m["authentication"].empty()) {
       if (typeid(map<string, boost::any>) == m["authentication"].type()) {
         UpdateAppRequestAuthentication model1;
@@ -1834,8 +2206,18 @@ public:
         authentication = make_shared<UpdateAppRequestAuthentication>(model1);
       }
     }
+    if (m.find("contactInfo") != m.end() && !m["contactInfo"].empty()) {
+      contactInfo = make_shared<string>(boost::any_cast<string>(m["contactInfo"]));
+    }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("limiterInfo") != m.end() && !m["limiterInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["limiterInfo"].type()) {
+        UpdateAppRequestLimiterInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["limiterInfo"]));
+        limiterInfo = make_shared<UpdateAppRequestLimiterInfo>(model1);
+      }
     }
     if (m.find("network") != m.end() && !m["network"].empty()) {
       if (typeid(vector<boost::any>) == m["network"].type()) {
@@ -1848,6 +2230,19 @@ public:
           }
         }
         network = make_shared<vector<UpdateAppRequestNetwork>>(expect1);
+      }
+    }
+    if (m.find("privateNetwork") != m.end() && !m["privateNetwork"].empty()) {
+      if (typeid(vector<boost::any>) == m["privateNetwork"].type()) {
+        vector<UpdateAppRequestPrivateNetwork> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["privateNetwork"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAppRequestPrivateNetwork model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        privateNetwork = make_shared<vector<UpdateAppRequestPrivateNetwork>>(expect1);
       }
     }
   }
