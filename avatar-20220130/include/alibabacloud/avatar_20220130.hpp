@@ -6205,6 +6205,8 @@ public:
 class StartInstanceRequestCommandRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> alphaSwitch{};
+  shared_ptr<string> backGroundImageUrl{};
+  shared_ptr<long> locate{};
 
   StartInstanceRequestCommandRequest() {}
 
@@ -6219,6 +6221,12 @@ public:
     if (alphaSwitch) {
       res["AlphaSwitch"] = boost::any(*alphaSwitch);
     }
+    if (backGroundImageUrl) {
+      res["BackGroundImageUrl"] = boost::any(*backGroundImageUrl);
+    }
+    if (locate) {
+      res["Locate"] = boost::any(*locate);
+    }
     return res;
   }
 
@@ -6226,10 +6234,66 @@ public:
     if (m.find("AlphaSwitch") != m.end() && !m["AlphaSwitch"].empty()) {
       alphaSwitch = make_shared<bool>(boost::any_cast<bool>(m["AlphaSwitch"]));
     }
+    if (m.find("BackGroundImageUrl") != m.end() && !m["BackGroundImageUrl"].empty()) {
+      backGroundImageUrl = make_shared<string>(boost::any_cast<string>(m["BackGroundImageUrl"]));
+    }
+    if (m.find("Locate") != m.end() && !m["Locate"].empty()) {
+      locate = make_shared<long>(boost::any_cast<long>(m["Locate"]));
+    }
   }
 
 
   virtual ~StartInstanceRequestCommandRequest() = default;
+};
+class StartInstanceRequestTextRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pitchRate{};
+  shared_ptr<long> speechRate{};
+  shared_ptr<string> voice{};
+  shared_ptr<long> volume{};
+
+  StartInstanceRequestTextRequest() {}
+
+  explicit StartInstanceRequestTextRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pitchRate) {
+      res["PitchRate"] = boost::any(*pitchRate);
+    }
+    if (speechRate) {
+      res["SpeechRate"] = boost::any(*speechRate);
+    }
+    if (voice) {
+      res["Voice"] = boost::any(*voice);
+    }
+    if (volume) {
+      res["Volume"] = boost::any(*volume);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PitchRate") != m.end() && !m["PitchRate"].empty()) {
+      pitchRate = make_shared<long>(boost::any_cast<long>(m["PitchRate"]));
+    }
+    if (m.find("SpeechRate") != m.end() && !m["SpeechRate"].empty()) {
+      speechRate = make_shared<long>(boost::any_cast<long>(m["SpeechRate"]));
+    }
+    if (m.find("Voice") != m.end() && !m["Voice"].empty()) {
+      voice = make_shared<string>(boost::any_cast<string>(m["Voice"]));
+    }
+    if (m.find("Volume") != m.end() && !m["Volume"].empty()) {
+      volume = make_shared<long>(boost::any_cast<long>(m["Volume"]));
+    }
+  }
+
+
+  virtual ~StartInstanceRequestTextRequest() = default;
 };
 class StartInstanceRequestUser : public Darabonba::Model {
 public:
@@ -6274,6 +6338,7 @@ public:
   shared_ptr<StartInstanceRequestChannel> channel{};
   shared_ptr<StartInstanceRequestCommandRequest> commandRequest{};
   shared_ptr<long> tenantId{};
+  shared_ptr<StartInstanceRequestTextRequest> textRequest{};
   shared_ptr<StartInstanceRequestUser> user{};
 
   StartInstanceRequest() {}
@@ -6300,6 +6365,9 @@ public:
     }
     if (tenantId) {
       res["TenantId"] = boost::any(*tenantId);
+    }
+    if (textRequest) {
+      res["TextRequest"] = textRequest ? boost::any(textRequest->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (user) {
       res["User"] = user ? boost::any(user->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6335,6 +6403,13 @@ public:
     if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
       tenantId = make_shared<long>(boost::any_cast<long>(m["TenantId"]));
     }
+    if (m.find("TextRequest") != m.end() && !m["TextRequest"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TextRequest"].type()) {
+        StartInstanceRequestTextRequest model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TextRequest"]));
+        textRequest = make_shared<StartInstanceRequestTextRequest>(model1);
+      }
+    }
     if (m.find("User") != m.end() && !m["User"].empty()) {
       if (typeid(map<string, boost::any>) == m["User"].type()) {
         StartInstanceRequestUser model1;
@@ -6354,6 +6429,7 @@ public:
   shared_ptr<string> channelShrink{};
   shared_ptr<string> commandRequestShrink{};
   shared_ptr<long> tenantId{};
+  shared_ptr<string> textRequestShrink{};
   shared_ptr<string> userShrink{};
 
   StartInstanceShrinkRequest() {}
@@ -6381,6 +6457,9 @@ public:
     if (tenantId) {
       res["TenantId"] = boost::any(*tenantId);
     }
+    if (textRequestShrink) {
+      res["TextRequest"] = boost::any(*textRequestShrink);
+    }
     if (userShrink) {
       res["User"] = boost::any(*userShrink);
     }
@@ -6402,6 +6481,9 @@ public:
     }
     if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
       tenantId = make_shared<long>(boost::any_cast<long>(m["TenantId"]));
+    }
+    if (m.find("TextRequest") != m.end() && !m["TextRequest"].empty()) {
+      textRequestShrink = make_shared<string>(boost::any_cast<string>(m["TextRequest"]));
     }
     if (m.find("User") != m.end() && !m["User"].empty()) {
       userShrink = make_shared<string>(boost::any_cast<string>(m["User"]));

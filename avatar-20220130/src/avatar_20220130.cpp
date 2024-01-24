@@ -886,6 +886,9 @@ StartInstanceResponse Alibabacloud_Avatar20220130::Client::startInstanceWithOpti
   if (!Darabonba_Util::Client::isUnset<StartInstanceRequestCommandRequest>(tmpReq->commandRequest)) {
     request->commandRequestShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->commandRequest, make_shared<string>("CommandRequest"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<StartInstanceRequestTextRequest>(tmpReq->textRequest)) {
+    request->textRequestShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->textRequest, make_shared<string>("TextRequest"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<StartInstanceRequestUser>(tmpReq->user)) {
     request->userShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->user, make_shared<string>("User"), make_shared<string>("json")));
   }
@@ -904,6 +907,9 @@ StartInstanceResponse Alibabacloud_Avatar20220130::Client::startInstanceWithOpti
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tenantId)) {
     query->insert(pair<string, long>("TenantId", *request->tenantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->textRequestShrink)) {
+    query->insert(pair<string, string>("TextRequest", *request->textRequestShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userShrink)) {
     query->insert(pair<string, string>("User", *request->userShrink));
