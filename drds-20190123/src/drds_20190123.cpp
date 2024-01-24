@@ -119,11 +119,17 @@ ChangeAccountPasswordResponse Alibabacloud_Drds20190123::Client::changeAccountPa
 ChangeInstanceAzoneResponse Alibabacloud_Drds20190123::Client::changeInstanceAzoneWithOptions(shared_ptr<ChangeInstanceAzoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->changeVSwitch)) {
+    query->insert(pair<string, bool>("ChangeVSwitch", *request->changeVSwitch));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->drdsInstanceId)) {
     query->insert(pair<string, string>("DrdsInstanceId", *request->drdsInstanceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->drdsRegionId)) {
     query->insert(pair<string, string>("DrdsRegionId", *request->drdsRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->newVSwitch)) {
+    query->insert(pair<string, string>("NewVSwitch", *request->newVSwitch));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->originAzoneId)) {
     query->insert(pair<string, string>("OriginAzoneId", *request->originAzoneId));
@@ -803,6 +809,9 @@ DescribeDbInstancesResponse Alibabacloud_Drds20190123::Client::describeDbInstanc
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->search)) {
     query->insert(pair<string, string>("Search", *request->search));
   }
@@ -904,6 +913,9 @@ DescribeDrdsDBIpWhiteListResponse Alibabacloud_Drds20190123::Client::describeDrd
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1064,40 +1076,6 @@ DescribeDrdsDbRdsNameListResponse Alibabacloud_Drds20190123::Client::describeDrd
 DescribeDrdsDbRdsNameListResponse Alibabacloud_Drds20190123::Client::describeDrdsDbRdsNameList(shared_ptr<DescribeDrdsDbRdsNameListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeDrdsDbRdsNameListWithOptions(request, runtime);
-}
-
-DescribeDrdsDbTasksResponse Alibabacloud_Drds20190123::Client::describeDrdsDbTasksWithOptions(shared_ptr<DescribeDrdsDbTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->dbName)) {
-    query->insert(pair<string, string>("DbName", *request->dbName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->drdsInstanceId)) {
-    query->insert(pair<string, string>("DrdsInstanceId", *request->drdsInstanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->taskType)) {
-    query->insert(pair<string, string>("TaskType", *request->taskType));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeDrdsDbTasks"))},
-    {"version", boost::any(string("2019-01-23"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeDrdsDbTasksResponse(callApi(params, req, runtime));
-}
-
-DescribeDrdsDbTasksResponse Alibabacloud_Drds20190123::Client::describeDrdsDbTasks(shared_ptr<DescribeDrdsDbTasksRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeDrdsDbTasksWithOptions(request, runtime);
 }
 
 DescribeDrdsInstanceResponse Alibabacloud_Drds20190123::Client::describeDrdsInstanceWithOptions(shared_ptr<DescribeDrdsInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2080,52 +2058,6 @@ DescribeShardTaskInfoResponse Alibabacloud_Drds20190123::Client::describeShardTa
 DescribeShardTaskInfoResponse Alibabacloud_Drds20190123::Client::describeShardTaskInfo(shared_ptr<DescribeShardTaskInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeShardTaskInfoWithOptions(request, runtime);
-}
-
-DescribeShardTaskListResponse Alibabacloud_Drds20190123::Client::describeShardTaskListWithOptions(shared_ptr<DescribeShardTaskListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
-    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->dbName)) {
-    query->insert(pair<string, string>("DbName", *request->dbName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->drdsInstanceId)) {
-    query->insert(pair<string, string>("DrdsInstanceId", *request->drdsInstanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    query->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
-    query->insert(pair<string, string>("Query", *request->query));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->taskType)) {
-    query->insert(pair<string, string>("TaskType", *request->taskType));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeShardTaskList"))},
-    {"version", boost::any(string("2019-01-23"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeShardTaskListResponse(callApi(params, req, runtime));
-}
-
-DescribeShardTaskListResponse Alibabacloud_Drds20190123::Client::describeShardTaskList(shared_ptr<DescribeShardTaskListRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeShardTaskListWithOptions(request, runtime);
 }
 
 DescribeSqlFlashbakTaskResponse Alibabacloud_Drds20190123::Client::describeSqlFlashbakTaskWithOptions(shared_ptr<DescribeSqlFlashbakTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
