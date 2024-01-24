@@ -854,6 +854,7 @@ public:
   shared_ptr<string> instanceType{};
   shared_ptr<bool> isAvailable{};
   shared_ptr<long> memory{};
+  shared_ptr<string> resourceType{};
 
   EcsSpec() {}
 
@@ -886,6 +887,9 @@ public:
     if (memory) {
       res["Memory"] = boost::any(*memory);
     }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     return res;
   }
 
@@ -910,6 +914,9 @@ public:
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
   }
 
@@ -2009,6 +2016,7 @@ public:
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceLevel{};
   shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceType{};
   shared_ptr<JobSettings> settings{};
   shared_ptr<string> status{};
   shared_ptr<string> subStatus{};
@@ -2104,6 +2112,9 @@ public:
     }
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
     }
     if (settings) {
       res["Settings"] = settings ? boost::any(settings->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2236,6 +2247,9 @@ public:
     }
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
     if (m.find("Settings") != m.end() && !m["Settings"].empty()) {
       if (typeid(map<string, boost::any>) == m["Settings"].type()) {
@@ -4715,6 +4729,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceLevel{};
+  shared_ptr<string> resourceType{};
   shared_ptr<string> restartTimes{};
   shared_ptr<JobSettings> settings{};
   shared_ptr<string> status{};
@@ -4824,6 +4839,9 @@ public:
     }
     if (resourceLevel) {
       res["ResourceLevel"] = boost::any(*resourceLevel);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
     }
     if (restartTimes) {
       res["RestartTimes"] = boost::any(*restartTimes);
@@ -4986,6 +5004,9 @@ public:
     }
     if (m.find("ResourceLevel") != m.end() && !m["ResourceLevel"].empty()) {
       resourceLevel = make_shared<string>(boost::any_cast<string>(m["ResourceLevel"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
     if (m.find("RestartTimes") != m.end() && !m["RestartTimes"].empty()) {
       restartTimes = make_shared<string>(boost::any_cast<string>(m["RestartTimes"]));
@@ -6473,9 +6494,11 @@ public:
 class ListEcsSpecsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorType{};
+  shared_ptr<string> instanceTypes{};
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceType{};
   shared_ptr<string> sortBy{};
 
   ListEcsSpecsRequest() {}
@@ -6491,6 +6514,9 @@ public:
     if (acceleratorType) {
       res["AcceleratorType"] = boost::any(*acceleratorType);
     }
+    if (instanceTypes) {
+      res["InstanceTypes"] = boost::any(*instanceTypes);
+    }
     if (order) {
       res["Order"] = boost::any(*order);
     }
@@ -6499,6 +6525,9 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
     }
     if (sortBy) {
       res["SortBy"] = boost::any(*sortBy);
@@ -6510,6 +6539,9 @@ public:
     if (m.find("AcceleratorType") != m.end() && !m["AcceleratorType"].empty()) {
       acceleratorType = make_shared<string>(boost::any_cast<string>(m["AcceleratorType"]));
     }
+    if (m.find("InstanceTypes") != m.end() && !m["InstanceTypes"].empty()) {
+      instanceTypes = make_shared<string>(boost::any_cast<string>(m["InstanceTypes"]));
+    }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));
     }
@@ -6518,6 +6550,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
     if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
       sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));

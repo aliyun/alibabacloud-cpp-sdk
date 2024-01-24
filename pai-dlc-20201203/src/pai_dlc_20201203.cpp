@@ -700,6 +700,9 @@ ListEcsSpecsResponse Alibabacloud_Pai-dlc20201203::Client::listEcsSpecsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorType)) {
     query->insert(pair<string, string>("AcceleratorType", *request->acceleratorType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceTypes)) {
+    query->insert(pair<string, string>("InstanceTypes", *request->instanceTypes));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
     query->insert(pair<string, string>("Order", *request->order));
   }
@@ -708,6 +711,9 @@ ListEcsSpecsResponse Alibabacloud_Pai-dlc20201203::Client::listEcsSpecsWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
     query->insert(pair<string, string>("SortBy", *request->sortBy));
