@@ -9716,6 +9716,7 @@ public:
 class ListQuotasRequest : public Darabonba::Model {
 public:
   shared_ptr<string> labels{};
+  shared_ptr<string> layoutMode{};
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -9739,6 +9740,9 @@ public:
     map<string, boost::any> res;
     if (labels) {
       res["Labels"] = boost::any(*labels);
+    }
+    if (layoutMode) {
+      res["LayoutMode"] = boost::any(*layoutMode);
     }
     if (order) {
       res["Order"] = boost::any(*order);
@@ -9776,6 +9780,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+    if (m.find("LayoutMode") != m.end() && !m["LayoutMode"].empty()) {
+      layoutMode = make_shared<string>(boost::any_cast<string>(m["LayoutMode"]));
     }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));

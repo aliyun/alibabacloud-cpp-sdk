@@ -864,6 +864,9 @@ ListQuotasResponse Alibabacloud_PaiStudio20220112::Client::listQuotasWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->labels)) {
     query->insert(pair<string, string>("Labels", *request->labels));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->layoutMode)) {
+    query->insert(pair<string, string>("LayoutMode", *request->layoutMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
     query->insert(pair<string, string>("Order", *request->order));
   }
