@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_mind_live_20210301Targets.cmake")
+check_required_components("alibabacloud_mind_live_20210301")
