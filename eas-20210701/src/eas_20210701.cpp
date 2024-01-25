@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1888,6 +1887,9 @@ ListServicesResponse Alibabacloud_Eas20210701::Client::listServicesWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->parentServiceUid)) {
     query->insert(pair<string, string>("ParentServiceUid", *request->parentServiceUid));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->quotaId)) {
+    query->insert(pair<string, string>("QuotaId", *request->quotaId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceName)) {
     query->insert(pair<string, string>("ResourceName", *request->resourceName));
   }
@@ -2128,8 +2130,8 @@ UpdateAppServiceResponse Alibabacloud_Eas20210701::Client::updateAppServiceWithO
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->config)) {
     body->insert(pair<string, map<string, boost::any>>("Config", *request->config));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->replicas)) {
-    body->insert(pair<string, string>("Replicas", *request->replicas));
+  if (!Darabonba_Util::Client::isUnset<long>(request->replicas)) {
+    body->insert(pair<string, long>("Replicas", *request->replicas));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceSpec)) {
     body->insert(pair<string, string>("ServiceSpec", *request->serviceSpec));
@@ -2356,8 +2358,13 @@ UpdateServiceResponse Alibabacloud_Eas20210701::Client::updateServiceWithOptions
                                                                                  shared_ptr<map<string, string>> headers,
                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->updateType)) {
+    query->insert(pair<string, string>("UpdateType", *request->updateType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", !request->body ? boost::any() : boost::any(*request->body)}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
