@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -649,9 +648,6 @@ FaceLivenessResponse Alibabacloud_Cloudauth-intl20220809::Client::faceLivenessWi
   if (!Darabonba_Util::Client::isUnset<string>(request->crop)) {
     query->insert(pair<string, string>("Crop", *request->crop));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->facePictureBase64)) {
-    query->insert(pair<string, string>("FacePictureBase64", *request->facePictureBase64));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->facePictureUrl)) {
     query->insert(pair<string, string>("FacePictureUrl", *request->facePictureUrl));
   }
@@ -670,8 +666,13 @@ FaceLivenessResponse Alibabacloud_Cloudauth-intl20220809::Client::faceLivenessWi
   if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
     query->insert(pair<string, string>("ProductCode", *request->productCode));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->facePictureBase64)) {
+    body->insert(pair<string, string>("FacePictureBase64", *request->facePictureBase64));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("FaceLiveness"))},
