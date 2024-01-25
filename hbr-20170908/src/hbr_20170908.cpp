@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -284,8 +283,13 @@ CheckRoleResponse Alibabacloud_Hbr20170908::Client::checkRole(shared_ptr<CheckRo
   return checkRoleWithOptions(request, runtime);
 }
 
-CreateBackupJobResponse Alibabacloud_Hbr20170908::Client::createBackupJobWithOptions(shared_ptr<CreateBackupJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateBackupJobResponse Alibabacloud_Hbr20170908::Client::createBackupJobWithOptions(shared_ptr<CreateBackupJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateBackupJobShrinkRequest> request = make_shared<CreateBackupJobShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->detail)) {
+    request->detailShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->detail, make_shared<string>("Detail"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->backupType)) {
     query->insert(pair<string, string>("BackupType", *request->backupType));
@@ -307,6 +311,9 @@ CreateBackupJobResponse Alibabacloud_Hbr20170908::Client::createBackupJobWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->crossAccountUserId)) {
     query->insert(pair<string, long>("CrossAccountUserId", *request->crossAccountUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->detailShrink)) {
+    query->insert(pair<string, string>("Detail", *request->detailShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->exclude)) {
     query->insert(pair<string, string>("Exclude", *request->exclude));
