@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_nbf__vpc__cloud_20211115__131123360Targets.cmake")
+check_required_components("alibabacloud_nbf__vpc__cloud_20211115__131123360")
