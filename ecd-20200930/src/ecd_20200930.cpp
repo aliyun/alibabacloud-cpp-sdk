@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -2008,6 +2007,12 @@ CreatePolicyGroupResponse Alibabacloud_Ecd20200930::Client::createPolicyGroupWit
   if (!Darabonba_Util::Client::isUnset<string>(request->recordingStartTime)) {
     query->insert(pair<string, string>("RecordingStartTime", *request->recordingStartTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingUserNotify)) {
+    query->insert(pair<string, string>("RecordingUserNotify", *request->recordingUserNotify));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingUserNotifyMessage)) {
+    query->insert(pair<string, string>("RecordingUserNotifyMessage", *request->recordingUserNotifyMessage));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -2035,6 +2040,9 @@ CreatePolicyGroupResponse Alibabacloud_Ecd20200930::Client::createPolicyGroupWit
   if (!Darabonba_Util::Client::isUnset<string>(request->watermark)) {
     query->insert(pair<string, string>("Watermark", *request->watermark));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkAntiCam)) {
+    query->insert(pair<string, string>("WatermarkAntiCam", *request->watermarkAntiCam));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->watermarkColor)) {
     query->insert(pair<string, long>("WatermarkColor", *request->watermarkColor));
   }
@@ -2046,6 +2054,9 @@ CreatePolicyGroupResponse Alibabacloud_Ecd20200930::Client::createPolicyGroupWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->watermarkFontStyle)) {
     query->insert(pair<string, string>("WatermarkFontStyle", *request->watermarkFontStyle));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkPower)) {
+    query->insert(pair<string, string>("WatermarkPower", *request->watermarkPower));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->watermarkRowAmount)) {
     query->insert(pair<string, long>("WatermarkRowAmount", *request->watermarkRowAmount));
@@ -7547,6 +7558,12 @@ ModifyPolicyGroupResponse Alibabacloud_Ecd20200930::Client::modifyPolicyGroupWit
   if (!Darabonba_Util::Client::isUnset<string>(request->recordingStartTime)) {
     query->insert(pair<string, string>("RecordingStartTime", *request->recordingStartTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingUserNotify)) {
+    query->insert(pair<string, string>("RecordingUserNotify", *request->recordingUserNotify));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recordingUserNotifyMessage)) {
+    query->insert(pair<string, string>("RecordingUserNotifyMessage", *request->recordingUserNotifyMessage));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -7580,6 +7597,9 @@ ModifyPolicyGroupResponse Alibabacloud_Ecd20200930::Client::modifyPolicyGroupWit
   if (!Darabonba_Util::Client::isUnset<string>(request->watermark)) {
     query->insert(pair<string, string>("Watermark", *request->watermark));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkAntiCam)) {
+    query->insert(pair<string, string>("WatermarkAntiCam", *request->watermarkAntiCam));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->watermarkColor)) {
     query->insert(pair<string, long>("WatermarkColor", *request->watermarkColor));
   }
@@ -7591,6 +7611,9 @@ ModifyPolicyGroupResponse Alibabacloud_Ecd20200930::Client::modifyPolicyGroupWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->watermarkFontStyle)) {
     query->insert(pair<string, string>("WatermarkFontStyle", *request->watermarkFontStyle));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkPower)) {
+    query->insert(pair<string, string>("WatermarkPower", *request->watermarkPower));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->watermarkRowAmount)) {
     query->insert(pair<string, long>("WatermarkRowAmount", *request->watermarkRowAmount));
