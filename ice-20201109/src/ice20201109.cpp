@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -3990,6 +3989,9 @@ ListPipelinesResponse Alibabacloud_ICE20201109::Client::listPipelines(shared_ptr
 ListPublicMediaBasicInfosResponse Alibabacloud_ICE20201109::Client::listPublicMediaBasicInfosWithOptions(shared_ptr<ListPublicMediaBasicInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->businessType)) {
+    query->insert(pair<string, string>("BusinessType", *request->businessType));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->includeFileBasicInfo)) {
     query->insert(pair<string, bool>("IncludeFileBasicInfo", *request->includeFileBasicInfo));
   }
