@@ -643,6 +643,7 @@ public:
 class CheckAoneAppAuditRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aoneAppName{};
+  shared_ptr<string> securityToken{};
 
   CheckAoneAppAuditRequest() {}
 
@@ -657,12 +658,18 @@ public:
     if (aoneAppName) {
       res["AoneAppName"] = boost::any(*aoneAppName);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AoneAppName") != m.end() && !m["AoneAppName"].empty()) {
       aoneAppName = make_shared<string>(boost::any_cast<string>(m["AoneAppName"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
