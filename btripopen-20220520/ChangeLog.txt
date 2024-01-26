@@ -1,3 +1,6 @@
+2024-01-26 Version: 1.1.52
+- Generated cpp 2022-05-20 for btripOpen.
+
 2023-12-22 Version: 1.1.51
 - Generated cpp 2022-05-20 for btripOpen.
 
