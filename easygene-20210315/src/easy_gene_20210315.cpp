@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1579,6 +1578,43 @@ ResumeSubmissionResponse Alibabacloud_EasyGene20210315::Client::resumeSubmission
 ResumeSubmissionResponse Alibabacloud_EasyGene20210315::Client::resumeSubmission(shared_ptr<ResumeSubmissionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return resumeSubmissionWithOptions(request, runtime);
+}
+
+TagAppResponse Alibabacloud_EasyGene20210315::Client::tagAppWithOptions(shared_ptr<TagAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appRevision)) {
+    query->insert(pair<string, string>("AppRevision", *request->appRevision));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->revisionTag)) {
+    query->insert(pair<string, string>("RevisionTag", *request->revisionTag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspace)) {
+    query->insert(pair<string, string>("Workspace", *request->workspace));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TagApp"))},
+    {"version", boost::any(string("2021-03-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return TagAppResponse(callApi(params, req, runtime));
+}
+
+TagAppResponse Alibabacloud_EasyGene20210315::Client::tagApp(shared_ptr<TagAppRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return tagAppWithOptions(request, runtime);
 }
 
 UpdateEntityResponse Alibabacloud_EasyGene20210315::Client::updateEntityWithOptions(shared_ptr<UpdateEntityRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
