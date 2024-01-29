@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -4815,6 +4814,12 @@ ListMergeRequestsResponse Alibabacloud_Devops20210625::Client::listMergeRequests
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->authorIds)) {
     query->insert(pair<string, string>("authorIds", *request->authorIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->createdAfter)) {
+    query->insert(pair<string, string>("createdAfter", *request->createdAfter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->createdBefore)) {
+    query->insert(pair<string, string>("createdBefore", *request->createdBefore));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     query->insert(pair<string, string>("filter", *request->filter));
