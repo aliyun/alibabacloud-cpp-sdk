@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -873,6 +872,9 @@ CreateScalingConfigurationResponse Alibabacloud_Ess20220222::Client::createScali
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->creditSpecification)) {
     query->insert(pair<string, string>("CreditSpecification", *request->creditSpecification));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateScalingConfigurationShrinkRequestCustomPriorities>>(request->customPriorities)) {
+    query->insert(pair<string, vector<CreateScalingConfigurationShrinkRequestCustomPriorities>>("CustomPriorities", *request->customPriorities));
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateScalingConfigurationShrinkRequestDataDisks>>(request->dataDisks)) {
     query->insert(pair<string, vector<CreateScalingConfigurationShrinkRequestDataDisks>>("DataDisks", *request->dataDisks));
@@ -3605,6 +3607,9 @@ ModifyScalingConfigurationResponse Alibabacloud_Ess20220222::Client::modifyScali
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->creditSpecification)) {
     query->insert(pair<string, string>("CreditSpecification", *request->creditSpecification));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyScalingConfigurationShrinkRequestCustomPriorities>>(request->customPriorities)) {
+    query->insert(pair<string, vector<ModifyScalingConfigurationShrinkRequestCustomPriorities>>("CustomPriorities", *request->customPriorities));
   }
   if (!Darabonba_Util::Client::isUnset<vector<ModifyScalingConfigurationShrinkRequestDataDisks>>(request->dataDisks)) {
     query->insert(pair<string, vector<ModifyScalingConfigurationShrinkRequestDataDisks>>("DataDisks", *request->dataDisks));
