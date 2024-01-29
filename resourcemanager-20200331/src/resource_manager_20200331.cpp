@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -566,6 +565,9 @@ CreateResourceGroupResponse Alibabacloud_ResourceManager20200331::Client::create
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateResourceGroupRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateResourceGroupRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1735,6 +1737,27 @@ ListAncestorsResponse Alibabacloud_ResourceManager20200331::Client::listAncestor
   return listAncestorsWithOptions(request, runtime);
 }
 
+ListAssociatedTransferSettingResponse Alibabacloud_ResourceManager20200331::Client::listAssociatedTransferSettingWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListAssociatedTransferSetting"))},
+    {"version", boost::any(string("2020-03-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListAssociatedTransferSettingResponse(callApi(params, req, runtime));
+}
+
+ListAssociatedTransferSettingResponse Alibabacloud_ResourceManager20200331::Client::listAssociatedTransferSetting() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listAssociatedTransferSettingWithOptions(runtime);
+}
+
 ListControlPoliciesResponse Alibabacloud_ResourceManager20200331::Client::listControlPoliciesWithOptions(shared_ptr<ListControlPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2858,6 +2881,37 @@ UpdateAccountResponse Alibabacloud_ResourceManager20200331::Client::updateAccoun
 UpdateAccountResponse Alibabacloud_ResourceManager20200331::Client::updateAccount(shared_ptr<UpdateAccountRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateAccountWithOptions(request, runtime);
+}
+
+UpdateAssociatedTransferSettingResponse Alibabacloud_ResourceManager20200331::Client::updateAssociatedTransferSettingWithOptions(shared_ptr<UpdateAssociatedTransferSettingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableExistingResourcesTransfer)) {
+    query->insert(pair<string, string>("EnableExistingResourcesTransfer", *request->enableExistingResourcesTransfer));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateAssociatedTransferSettingRequestRuleSettings>>(request->ruleSettings)) {
+    query->insert(pair<string, vector<UpdateAssociatedTransferSettingRequestRuleSettings>>("RuleSettings", *request->ruleSettings));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateAssociatedTransferSetting"))},
+    {"version", boost::any(string("2020-03-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateAssociatedTransferSettingResponse(callApi(params, req, runtime));
+}
+
+UpdateAssociatedTransferSettingResponse Alibabacloud_ResourceManager20200331::Client::updateAssociatedTransferSetting(shared_ptr<UpdateAssociatedTransferSettingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateAssociatedTransferSettingWithOptions(request, runtime);
 }
 
 UpdateControlPolicyResponse Alibabacloud_ResourceManager20200331::Client::updateControlPolicyWithOptions(shared_ptr<UpdateControlPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
