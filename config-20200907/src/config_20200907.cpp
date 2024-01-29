@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -341,6 +340,9 @@ CreateAggregateCompliancePackResponse Alibabacloud_Config20200907::Client::creat
   if (!Darabonba_Util::Client::isUnset<string>(request->tagValueScope)) {
     body->insert(pair<string, string>("TagValueScope", *request->tagValueScope));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateContent)) {
+    body->insert(pair<string, string>("TemplateContent", *request->templateContent));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -589,6 +591,9 @@ CreateAggregatorResponse Alibabacloud_Config20200907::Client::createAggregatorWi
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->folderId)) {
+    body->insert(pair<string, string>("FolderId", *request->folderId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -654,6 +659,9 @@ CreateCompliancePackResponse Alibabacloud_Config20200907::Client::createComplian
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tagValueScope)) {
     body->insert(pair<string, string>("TagValueScope", *request->tagValueScope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateContent)) {
+    body->insert(pair<string, string>("TemplateContent", *request->templateContent));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -2189,7 +2197,10 @@ GetAggregateResourceInventoryResponse Alibabacloud_Config20200907::Client::getAg
 
 GetAggregatorResponse Alibabacloud_Config20200907::Client::getAggregatorWithOptions(shared_ptr<GetAggregatorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
+    query->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2198,7 +2209,7 @@ GetAggregatorResponse Alibabacloud_Config20200907::Client::getAggregatorWithOpti
     {"version", boost::any(string("2020-09-07"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
