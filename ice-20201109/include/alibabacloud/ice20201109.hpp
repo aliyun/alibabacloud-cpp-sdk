@@ -10370,6 +10370,283 @@ public:
 
   virtual ~GetAvatarTrainingJobResponse() = default;
 };
+class GetBatchMediaProducingJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+
+  GetBatchMediaProducingJobRequest() {}
+
+  explicit GetBatchMediaProducingJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+  }
+
+
+  virtual ~GetBatchMediaProducingJobRequest() = default;
+};
+class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> mediaId{};
+  shared_ptr<string> mediaURL{};
+  shared_ptr<string> status{};
+
+  GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList() {}
+
+  explicit GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    if (mediaURL) {
+      res["MediaURL"] = boost::any(*mediaURL);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+    if (m.find("MediaURL") != m.end() && !m["MediaURL"].empty()) {
+      mediaURL = make_shared<string>(boost::any_cast<string>(m["MediaURL"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList() = default;
+};
+class GetBatchMediaProducingJobResponseBodyEditingBatchJob : public Darabonba::Model {
+public:
+  shared_ptr<string> editingConfig{};
+  shared_ptr<string> extend{};
+  shared_ptr<string> inputConfig{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> outputConfig{};
+  shared_ptr<string> status{};
+  shared_ptr<vector<GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList>> subJobList{};
+  shared_ptr<string> userData{};
+
+  GetBatchMediaProducingJobResponseBodyEditingBatchJob() {}
+
+  explicit GetBatchMediaProducingJobResponseBodyEditingBatchJob(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (editingConfig) {
+      res["EditingConfig"] = boost::any(*editingConfig);
+    }
+    if (extend) {
+      res["Extend"] = boost::any(*extend);
+    }
+    if (inputConfig) {
+      res["InputConfig"] = boost::any(*inputConfig);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (outputConfig) {
+      res["OutputConfig"] = boost::any(*outputConfig);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (subJobList) {
+      vector<boost::any> temp1;
+      for(auto item1:*subJobList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubJobList"] = boost::any(temp1);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EditingConfig") != m.end() && !m["EditingConfig"].empty()) {
+      editingConfig = make_shared<string>(boost::any_cast<string>(m["EditingConfig"]));
+    }
+    if (m.find("Extend") != m.end() && !m["Extend"].empty()) {
+      extend = make_shared<string>(boost::any_cast<string>(m["Extend"]));
+    }
+    if (m.find("InputConfig") != m.end() && !m["InputConfig"].empty()) {
+      inputConfig = make_shared<string>(boost::any_cast<string>(m["InputConfig"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("OutputConfig") != m.end() && !m["OutputConfig"].empty()) {
+      outputConfig = make_shared<string>(boost::any_cast<string>(m["OutputConfig"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubJobList") != m.end() && !m["SubJobList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubJobList"].type()) {
+        vector<GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubJobList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subJobList = make_shared<vector<GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList>>(expect1);
+      }
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~GetBatchMediaProducingJobResponseBodyEditingBatchJob() = default;
+};
+class GetBatchMediaProducingJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetBatchMediaProducingJobResponseBodyEditingBatchJob> editingBatchJob{};
+  shared_ptr<string> requestId{};
+
+  GetBatchMediaProducingJobResponseBody() {}
+
+  explicit GetBatchMediaProducingJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (editingBatchJob) {
+      res["EditingBatchJob"] = editingBatchJob ? boost::any(editingBatchJob->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EditingBatchJob") != m.end() && !m["EditingBatchJob"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EditingBatchJob"].type()) {
+        GetBatchMediaProducingJobResponseBodyEditingBatchJob model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EditingBatchJob"]));
+        editingBatchJob = make_shared<GetBatchMediaProducingJobResponseBodyEditingBatchJob>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetBatchMediaProducingJobResponseBody() = default;
+};
+class GetBatchMediaProducingJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetBatchMediaProducingJobResponseBody> body{};
+
+  GetBatchMediaProducingJobResponse() {}
+
+  explicit GetBatchMediaProducingJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetBatchMediaProducingJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetBatchMediaProducingJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetBatchMediaProducingJobResponse() = default;
+};
 class GetCategoriesRequest : public Darabonba::Model {
 public:
   shared_ptr<long> cateId{};
@@ -46981,6 +47258,151 @@ public:
 
   virtual ~SubmitAvatarVideoJobResponse() = default;
 };
+class SubmitBatchMediaProducingJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> editingConfig{};
+  shared_ptr<string> inputConfig{};
+  shared_ptr<string> outputConfig{};
+  shared_ptr<string> userData{};
+
+  SubmitBatchMediaProducingJobRequest() {}
+
+  explicit SubmitBatchMediaProducingJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (editingConfig) {
+      res["EditingConfig"] = boost::any(*editingConfig);
+    }
+    if (inputConfig) {
+      res["InputConfig"] = boost::any(*inputConfig);
+    }
+    if (outputConfig) {
+      res["OutputConfig"] = boost::any(*outputConfig);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("EditingConfig") != m.end() && !m["EditingConfig"].empty()) {
+      editingConfig = make_shared<string>(boost::any_cast<string>(m["EditingConfig"]));
+    }
+    if (m.find("InputConfig") != m.end() && !m["InputConfig"].empty()) {
+      inputConfig = make_shared<string>(boost::any_cast<string>(m["InputConfig"]));
+    }
+    if (m.find("OutputConfig") != m.end() && !m["OutputConfig"].empty()) {
+      outputConfig = make_shared<string>(boost::any_cast<string>(m["OutputConfig"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~SubmitBatchMediaProducingJobRequest() = default;
+};
+class SubmitBatchMediaProducingJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> requestId{};
+
+  SubmitBatchMediaProducingJobResponseBody() {}
+
+  explicit SubmitBatchMediaProducingJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SubmitBatchMediaProducingJobResponseBody() = default;
+};
+class SubmitBatchMediaProducingJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitBatchMediaProducingJobResponseBody> body{};
+
+  SubmitBatchMediaProducingJobResponse() {}
+
+  explicit SubmitBatchMediaProducingJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitBatchMediaProducingJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitBatchMediaProducingJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitBatchMediaProducingJobResponse() = default;
+};
 class SubmitCustomizedVoiceJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> demoAudioMediaURL{};
@@ -62043,6 +62465,8 @@ public:
   GetAvatarResponse getAvatar(shared_ptr<GetAvatarRequest> request);
   GetAvatarTrainingJobResponse getAvatarTrainingJobWithOptions(shared_ptr<GetAvatarTrainingJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAvatarTrainingJobResponse getAvatarTrainingJob(shared_ptr<GetAvatarTrainingJobRequest> request);
+  GetBatchMediaProducingJobResponse getBatchMediaProducingJobWithOptions(shared_ptr<GetBatchMediaProducingJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetBatchMediaProducingJobResponse getBatchMediaProducingJob(shared_ptr<GetBatchMediaProducingJobRequest> request);
   GetCategoriesResponse getCategoriesWithOptions(shared_ptr<GetCategoriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCategoriesResponse getCategories(shared_ptr<GetCategoriesRequest> request);
   GetContentAnalyzeConfigResponse getContentAnalyzeConfigWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -62239,6 +62663,8 @@ public:
   SubmitAvatarTrainingJobResponse submitAvatarTrainingJob(shared_ptr<SubmitAvatarTrainingJobRequest> request);
   SubmitAvatarVideoJobResponse submitAvatarVideoJobWithOptions(shared_ptr<SubmitAvatarVideoJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitAvatarVideoJobResponse submitAvatarVideoJob(shared_ptr<SubmitAvatarVideoJobRequest> request);
+  SubmitBatchMediaProducingJobResponse submitBatchMediaProducingJobWithOptions(shared_ptr<SubmitBatchMediaProducingJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitBatchMediaProducingJobResponse submitBatchMediaProducingJob(shared_ptr<SubmitBatchMediaProducingJobRequest> request);
   SubmitCustomizedVoiceJobResponse submitCustomizedVoiceJobWithOptions(shared_ptr<SubmitCustomizedVoiceJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitCustomizedVoiceJobResponse submitCustomizedVoiceJob(shared_ptr<SubmitCustomizedVoiceJobRequest> request);
   SubmitDNAJobResponse submitDNAJobWithOptions(shared_ptr<SubmitDNAJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
