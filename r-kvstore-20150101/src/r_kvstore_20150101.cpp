@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -861,6 +860,9 @@ CreateTairInstanceResponse Alibabacloud_R-kvstore20150101::Client::createTairIns
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->shardType)) {
     query->insert(pair<string, string>("ShardType", *request->shardType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->slaveReadOnlyCount)) {
+    query->insert(pair<string, long>("SlaveReadOnlyCount", *request->slaveReadOnlyCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->srcDBInstanceId)) {
     query->insert(pair<string, string>("SrcDBInstanceId", *request->srcDBInstanceId));
@@ -4880,6 +4882,9 @@ ModifyInstanceSpecResponse Alibabacloud_R-kvstore20150101::Client::modifyInstanc
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->shardCount)) {
     query->insert(pair<string, long>("ShardCount", *request->shardCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->slaveReadOnlyCount)) {
+    query->insert(pair<string, long>("SlaveReadOnlyCount", *request->slaveReadOnlyCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceBiz)) {
     query->insert(pair<string, string>("SourceBiz", *request->sourceBiz));
