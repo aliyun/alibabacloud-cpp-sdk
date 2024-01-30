@@ -1655,6 +1655,7 @@ public:
   shared_ptr<string> destDataSourceId{};
   shared_ptr<string> destSourceType{};
   shared_ptr<map<string, boost::any>> detail{};
+  shared_ptr<bool> disabled{};
   shared_ptr<string> exclude{};
   shared_ptr<string> fileSystemId{};
   shared_ptr<string> include{};
@@ -1716,6 +1717,9 @@ public:
     }
     if (detail) {
       res["Detail"] = boost::any(*detail);
+    }
+    if (disabled) {
+      res["Disabled"] = boost::any(*disabled);
     }
     if (exclude) {
       res["Exclude"] = boost::any(*exclude);
@@ -1821,6 +1825,9 @@ public:
          toMap1[item.first] = item.second;
       }
       detail = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Disabled") != m.end() && !m["Disabled"].empty()) {
+      disabled = make_shared<bool>(boost::any_cast<bool>(m["Disabled"]));
     }
     if (m.find("Exclude") != m.end() && !m["Exclude"].empty()) {
       exclude = make_shared<string>(boost::any_cast<string>(m["Exclude"]));
@@ -1993,6 +2000,7 @@ public:
   shared_ptr<string> destDataSourceId{};
   shared_ptr<string> destSourceType{};
   shared_ptr<string> detailShrink{};
+  shared_ptr<bool> disabled{};
   shared_ptr<string> exclude{};
   shared_ptr<string> fileSystemId{};
   shared_ptr<string> include{};
@@ -2054,6 +2062,9 @@ public:
     }
     if (detailShrink) {
       res["Detail"] = boost::any(*detailShrink);
+    }
+    if (disabled) {
+      res["Disabled"] = boost::any(*disabled);
     }
     if (exclude) {
       res["Exclude"] = boost::any(*exclude);
@@ -2149,6 +2160,9 @@ public:
     }
     if (m.find("Detail") != m.end() && !m["Detail"].empty()) {
       detailShrink = make_shared<string>(boost::any_cast<string>(m["Detail"]));
+    }
+    if (m.find("Disabled") != m.end() && !m["Disabled"].empty()) {
+      disabled = make_shared<bool>(boost::any_cast<bool>(m["Disabled"]));
     }
     if (m.find("Exclude") != m.end() && !m["Exclude"].empty()) {
       exclude = make_shared<string>(boost::any_cast<string>(m["Exclude"]));
@@ -5589,6 +5603,7 @@ public:
 class DeleteBackupPlanRequest : public Darabonba::Model {
 public:
   shared_ptr<string> planId{};
+  shared_ptr<bool> requireNoRunningJobs{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> vaultId{};
 
@@ -5605,6 +5620,9 @@ public:
     if (planId) {
       res["PlanId"] = boost::any(*planId);
     }
+    if (requireNoRunningJobs) {
+      res["RequireNoRunningJobs"] = boost::any(*requireNoRunningJobs);
+    }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
     }
@@ -5617,6 +5635,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("PlanId") != m.end() && !m["PlanId"].empty()) {
       planId = make_shared<string>(boost::any_cast<string>(m["PlanId"]));
+    }
+    if (m.find("RequireNoRunningJobs") != m.end() && !m["RequireNoRunningJobs"].empty()) {
+      requireNoRunningJobs = make_shared<bool>(boost::any_cast<bool>(m["RequireNoRunningJobs"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
@@ -8960,6 +8981,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<long> keepLatestSnapshots{};
+  shared_ptr<string> latestExecuteJobId{};
   shared_ptr<string> options{};
   shared_ptr<DescribeBackupPlansResponseBodyBackupPlansBackupPlanOtsDetail> otsDetail{};
   shared_ptr<DescribeBackupPlansResponseBodyBackupPlansBackupPlanPaths> paths{};
@@ -9057,6 +9079,9 @@ public:
     }
     if (keepLatestSnapshots) {
       res["KeepLatestSnapshots"] = boost::any(*keepLatestSnapshots);
+    }
+    if (latestExecuteJobId) {
+      res["LatestExecuteJobId"] = boost::any(*latestExecuteJobId);
     }
     if (options) {
       res["Options"] = boost::any(*options);
@@ -9178,6 +9203,9 @@ public:
     }
     if (m.find("KeepLatestSnapshots") != m.end() && !m["KeepLatestSnapshots"].empty()) {
       keepLatestSnapshots = make_shared<long>(boost::any_cast<long>(m["KeepLatestSnapshots"]));
+    }
+    if (m.find("LatestExecuteJobId") != m.end() && !m["LatestExecuteJobId"].empty()) {
+      latestExecuteJobId = make_shared<string>(boost::any_cast<string>(m["LatestExecuteJobId"]));
     }
     if (m.find("Options") != m.end() && !m["Options"].empty()) {
       options = make_shared<string>(boost::any_cast<string>(m["Options"]));

@@ -414,6 +414,9 @@ CreateBackupPlanResponse Alibabacloud_Hbr20170908::Client::createBackupPlanWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->detailShrink)) {
     query->insert(pair<string, string>("Detail", *request->detailShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->disabled)) {
+    query->insert(pair<string, bool>("Disabled", *request->disabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
     query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
   }
@@ -1103,6 +1106,9 @@ DeleteBackupPlanResponse Alibabacloud_Hbr20170908::Client::deleteBackupPlanWithO
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->planId)) {
     query->insert(pair<string, string>("PlanId", *request->planId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->requireNoRunningJobs)) {
+    query->insert(pair<string, bool>("RequireNoRunningJobs", *request->requireNoRunningJobs));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
     query->insert(pair<string, string>("SourceType", *request->sourceType));
