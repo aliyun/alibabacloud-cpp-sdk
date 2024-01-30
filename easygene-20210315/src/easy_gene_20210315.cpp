@@ -546,6 +546,37 @@ DeleteAppResponse Alibabacloud_EasyGene20210315::Client::deleteApp(shared_ptr<De
   return deleteAppWithOptions(request, runtime);
 }
 
+DeleteEntityResponse Alibabacloud_EasyGene20210315::Client::deleteEntityWithOptions(shared_ptr<DeleteEntityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->entityType)) {
+    query->insert(pair<string, string>("EntityType", *request->entityType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspace)) {
+    query->insert(pair<string, string>("Workspace", *request->workspace));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteEntity"))},
+    {"version", boost::any(string("2021-03-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteEntityResponse(callApi(params, req, runtime));
+}
+
+DeleteEntityResponse Alibabacloud_EasyGene20210315::Client::deleteEntity(shared_ptr<DeleteEntityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteEntityWithOptions(request, runtime);
+}
+
 DeleteEntityItemsResponse Alibabacloud_EasyGene20210315::Client::deleteEntityItemsWithOptions(shared_ptr<DeleteEntityItemsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<DeleteEntityItemsShrinkRequest> request = make_shared<DeleteEntityItemsShrinkRequest>();
