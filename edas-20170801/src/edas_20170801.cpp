@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1505,6 +1504,9 @@ DeployK8sApplicationResponse Alibabacloud_Edas20170801::Client::deployK8sApplica
   if (!Darabonba_Util::Client::isUnset<string>(request->customAffinity)) {
     query->insert(pair<string, string>("CustomAffinity", *request->customAffinity));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customAgentVersion)) {
+    query->insert(pair<string, string>("CustomAgentVersion", *request->customAgentVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->customTolerations)) {
     query->insert(pair<string, string>("CustomTolerations", *request->customTolerations));
   }
@@ -2927,6 +2929,9 @@ InsertK8sApplicationResponse Alibabacloud_Edas20170801::Client::insertK8sApplica
   if (!Darabonba_Util::Client::isUnset<string>(request->customAffinity)) {
     query->insert(pair<string, string>("CustomAffinity", *request->customAffinity));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customAgentVersion)) {
+    query->insert(pair<string, string>("CustomAgentVersion", *request->customAgentVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->customTolerations)) {
     query->insert(pair<string, string>("CustomTolerations", *request->customTolerations));
   }
@@ -2959,6 +2964,9 @@ InsertK8sApplicationResponse Alibabacloud_Edas20170801::Client::insertK8sApplica
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->envs)) {
     query->insert(pair<string, string>("Envs", *request->envs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->featureConfig)) {
+    query->insert(pair<string, string>("FeatureConfig", *request->featureConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imagePlatforms)) {
     query->insert(pair<string, string>("ImagePlatforms", *request->imagePlatforms));
