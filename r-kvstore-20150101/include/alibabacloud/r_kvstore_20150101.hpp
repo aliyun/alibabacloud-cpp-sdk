@@ -21905,6 +21905,7 @@ public:
 };
 class ModifyBackupPolicyRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> backupRetentionPeriod{};
   shared_ptr<long> enableBackupLog{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> ownerAccount{};
@@ -21925,6 +21926,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (backupRetentionPeriod) {
+      res["BackupRetentionPeriod"] = boost::any(*backupRetentionPeriod);
+    }
     if (enableBackupLog) {
       res["EnableBackupLog"] = boost::any(*enableBackupLog);
     }
@@ -21956,6 +21960,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackupRetentionPeriod") != m.end() && !m["BackupRetentionPeriod"].empty()) {
+      backupRetentionPeriod = make_shared<long>(boost::any_cast<long>(m["BackupRetentionPeriod"]));
+    }
     if (m.find("EnableBackupLog") != m.end() && !m["EnableBackupLog"].empty()) {
       enableBackupLog = make_shared<long>(boost::any_cast<long>(m["EnableBackupLog"]));
     }
@@ -26167,6 +26174,7 @@ public:
 class RenewInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
+  shared_ptr<bool> autoRenew{};
   shared_ptr<string> businessInfo{};
   shared_ptr<string> capacity{};
   shared_ptr<string> clientToken{};
@@ -26193,6 +26201,9 @@ public:
     map<string, boost::any> res;
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
     }
     if (businessInfo) {
       res["BusinessInfo"] = boost::any(*businessInfo);
@@ -26239,6 +26250,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
     }
     if (m.find("BusinessInfo") != m.end() && !m["BusinessInfo"].empty()) {
       businessInfo = make_shared<string>(boost::any_cast<string>(m["BusinessInfo"]));

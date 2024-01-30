@@ -4122,6 +4122,9 @@ ModifyAuditLogConfigResponse Alibabacloud_R-kvstore20150101::Client::modifyAudit
 ModifyBackupPolicyResponse Alibabacloud_R-kvstore20150101::Client::modifyBackupPolicyWithOptions(shared_ptr<ModifyBackupPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->backupRetentionPeriod)) {
+    query->insert(pair<string, long>("BackupRetentionPeriod", *request->backupRetentionPeriod));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->enableBackupLog)) {
     query->insert(pair<string, long>("EnableBackupLog", *request->enableBackupLog));
   }
@@ -5403,6 +5406,9 @@ RenewInstanceResponse Alibabacloud_R-kvstore20150101::Client::renewInstanceWithO
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
     query->insert(pair<string, bool>("AutoPay", *request->autoPay));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
+    query->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->businessInfo)) {
     query->insert(pair<string, string>("BusinessInfo", *request->businessInfo));
