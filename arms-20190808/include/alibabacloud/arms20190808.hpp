@@ -7521,6 +7521,7 @@ public:
   shared_ptr<string> integrationName{};
   shared_ptr<string> integrationProductType{};
   shared_ptr<long> recoverTime{};
+  shared_ptr<string> regionId{};
 
   CreateIntegrationRequest() {}
 
@@ -7547,6 +7548,9 @@ public:
     if (recoverTime) {
       res["RecoverTime"] = boost::any(*recoverTime);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -7565,6 +7569,9 @@ public:
     }
     if (m.find("RecoverTime") != m.end() && !m["RecoverTime"].empty()) {
       recoverTime = make_shared<long>(boost::any_cast<long>(m["RecoverTime"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -22917,6 +22924,7 @@ public:
   shared_ptr<string> grafanaFolderTitle{};
   shared_ptr<string> grafanaFolderUid{};
   shared_ptr<string> grafanaFolderUrl{};
+  shared_ptr<string> managedType{};
   shared_ptr<string> prometheusInstanceId{};
   shared_ptr<string> prometheusInstanceName{};
   shared_ptr<string> regionId{};
@@ -22979,6 +22987,9 @@ public:
     }
     if (grafanaFolderUrl) {
       res["GrafanaFolderUrl"] = boost::any(*grafanaFolderUrl);
+    }
+    if (managedType) {
+      res["ManagedType"] = boost::any(*managedType);
     }
     if (prometheusInstanceId) {
       res["PrometheusInstanceId"] = boost::any(*prometheusInstanceId);
@@ -23053,6 +23064,9 @@ public:
     }
     if (m.find("GrafanaFolderUrl") != m.end() && !m["GrafanaFolderUrl"].empty()) {
       grafanaFolderUrl = make_shared<string>(boost::any_cast<string>(m["GrafanaFolderUrl"]));
+    }
+    if (m.find("ManagedType") != m.end() && !m["ManagedType"].empty()) {
+      managedType = make_shared<string>(boost::any_cast<string>(m["ManagedType"]));
     }
     if (m.find("PrometheusInstanceId") != m.end() && !m["PrometheusInstanceId"].empty()) {
       prometheusInstanceId = make_shared<string>(boost::any_cast<string>(m["PrometheusInstanceId"]));
@@ -42481,6 +42495,7 @@ public:
 class ListEnvironmentsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> addonName{};
+  shared_ptr<string> bindResourceId{};
   shared_ptr<string> environmentType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -42498,6 +42513,9 @@ public:
     map<string, boost::any> res;
     if (addonName) {
       res["AddonName"] = boost::any(*addonName);
+    }
+    if (bindResourceId) {
+      res["BindResourceId"] = boost::any(*bindResourceId);
     }
     if (environmentType) {
       res["EnvironmentType"] = boost::any(*environmentType);
@@ -42521,6 +42539,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AddonName") != m.end() && !m["AddonName"].empty()) {
       addonName = make_shared<string>(boost::any_cast<string>(m["AddonName"]));
+    }
+    if (m.find("BindResourceId") != m.end() && !m["BindResourceId"].empty()) {
+      bindResourceId = make_shared<string>(boost::any_cast<string>(m["BindResourceId"]));
     }
     if (m.find("EnvironmentType") != m.end() && !m["EnvironmentType"].empty()) {
       environmentType = make_shared<string>(boost::any_cast<string>(m["EnvironmentType"]));
@@ -42552,6 +42573,7 @@ public:
 class ListEnvironmentsShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> addonName{};
+  shared_ptr<string> bindResourceId{};
   shared_ptr<string> environmentType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -42569,6 +42591,9 @@ public:
     map<string, boost::any> res;
     if (addonName) {
       res["AddonName"] = boost::any(*addonName);
+    }
+    if (bindResourceId) {
+      res["BindResourceId"] = boost::any(*bindResourceId);
     }
     if (environmentType) {
       res["EnvironmentType"] = boost::any(*environmentType);
@@ -42588,6 +42613,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AddonName") != m.end() && !m["AddonName"].empty()) {
       addonName = make_shared<string>(boost::any_cast<string>(m["AddonName"]));
+    }
+    if (m.find("BindResourceId") != m.end() && !m["BindResourceId"].empty()) {
+      bindResourceId = make_shared<string>(boost::any_cast<string>(m["BindResourceId"]));
     }
     if (m.find("EnvironmentType") != m.end() && !m["EnvironmentType"].empty()) {
       environmentType = make_shared<string>(boost::any_cast<string>(m["EnvironmentType"]));

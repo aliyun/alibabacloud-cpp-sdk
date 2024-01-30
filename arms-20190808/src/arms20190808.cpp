@@ -1200,6 +1200,10 @@ CreateGrafanaWorkspaceResponse Alibabacloud_ARMS20190808::Client::createGrafanaW
 
 CreateIntegrationResponse Alibabacloud_ARMS20190808::Client::createIntegrationWithOptions(shared_ptr<CreateIntegrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoRecover)) {
     body->insert(pair<string, bool>("AutoRecover", *request->autoRecover));
@@ -1217,6 +1221,7 @@ CreateIntegrationResponse Alibabacloud_ARMS20190808::Client::createIntegrationWi
     body->insert(pair<string, long>("RecoverTime", *request->recoverTime));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -5748,6 +5753,9 @@ ListEnvironmentsResponse Alibabacloud_ARMS20190808::Client::listEnvironmentsWith
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->addonName)) {
     query->insert(pair<string, string>("AddonName", *request->addonName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bindResourceId)) {
+    query->insert(pair<string, string>("BindResourceId", *request->bindResourceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->environmentType)) {
     query->insert(pair<string, string>("EnvironmentType", *request->environmentType));
