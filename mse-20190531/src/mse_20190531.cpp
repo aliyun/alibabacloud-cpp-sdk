@@ -7030,6 +7030,9 @@ UpdateClusterSpecResponse Alibabacloud_Mse20190531::Client::updateClusterSpecWit
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
+    query->insert(pair<string, bool>("AutoPay", *request->autoPay));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
@@ -7044,6 +7047,9 @@ UpdateClusterSpecResponse Alibabacloud_Mse20190531::Client::updateClusterSpecWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mseVersion)) {
     query->insert(pair<string, string>("MseVersion", *request->mseVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pubNetworkFlow)) {
+    query->insert(pair<string, long>("PubNetworkFlow", *request->pubNetworkFlow));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

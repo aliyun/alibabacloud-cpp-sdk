@@ -53175,11 +53175,13 @@ public:
 class UpdateClusterSpecRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<bool> autoPay{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterSpecification{};
   shared_ptr<long> instanceCount{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> mseVersion{};
+  shared_ptr<long> pubNetworkFlow{};
 
   UpdateClusterSpecRequest() {}
 
@@ -53193,6 +53195,9 @@ public:
     map<string, boost::any> res;
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
     }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
@@ -53209,12 +53214,18 @@ public:
     if (mseVersion) {
       res["MseVersion"] = boost::any(*mseVersion);
     }
+    if (pubNetworkFlow) {
+      res["PubNetworkFlow"] = boost::any(*pubNetworkFlow);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
@@ -53230,6 +53241,9 @@ public:
     }
     if (m.find("MseVersion") != m.end() && !m["MseVersion"].empty()) {
       mseVersion = make_shared<string>(boost::any_cast<string>(m["MseVersion"]));
+    }
+    if (m.find("PubNetworkFlow") != m.end() && !m["PubNetworkFlow"].empty()) {
+      pubNetworkFlow = make_shared<long>(boost::any_cast<long>(m["PubNetworkFlow"]));
     }
   }
 
