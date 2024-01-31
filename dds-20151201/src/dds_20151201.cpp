@@ -5047,6 +5047,9 @@ RenewDBInstanceResponse Alibabacloud_Dds20151201::Client::renewDBInstanceWithOpt
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
     query->insert(pair<string, bool>("AutoPay", *request->autoPay));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
+    query->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->businessInfo)) {
     query->insert(pair<string, string>("BusinessInfo", *request->businessInfo));
   }

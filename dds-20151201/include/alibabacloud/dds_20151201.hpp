@@ -15315,7 +15315,9 @@ public:
   shared_ptr<DescribePriceResponseBodyOrderCoupons> coupons{};
   shared_ptr<string> currency{};
   shared_ptr<string> discountAmount{};
+  shared_ptr<string> optionalPromotions{};
   shared_ptr<string> originalAmount{};
+  shared_ptr<string> promDetailList{};
   shared_ptr<DescribePriceResponseBodyOrderRuleIds> ruleIds{};
   shared_ptr<bool> showDiscountInfo{};
   shared_ptr<string> tradeAmount{};
@@ -15339,8 +15341,14 @@ public:
     if (discountAmount) {
       res["DiscountAmount"] = boost::any(*discountAmount);
     }
+    if (optionalPromotions) {
+      res["OptionalPromotions"] = boost::any(*optionalPromotions);
+    }
     if (originalAmount) {
       res["OriginalAmount"] = boost::any(*originalAmount);
+    }
+    if (promDetailList) {
+      res["PromDetailList"] = boost::any(*promDetailList);
     }
     if (ruleIds) {
       res["RuleIds"] = ruleIds ? boost::any(ruleIds->toMap()) : boost::any(map<string,boost::any>({}));
@@ -15368,8 +15376,14 @@ public:
     if (m.find("DiscountAmount") != m.end() && !m["DiscountAmount"].empty()) {
       discountAmount = make_shared<string>(boost::any_cast<string>(m["DiscountAmount"]));
     }
+    if (m.find("OptionalPromotions") != m.end() && !m["OptionalPromotions"].empty()) {
+      optionalPromotions = make_shared<string>(boost::any_cast<string>(m["OptionalPromotions"]));
+    }
     if (m.find("OriginalAmount") != m.end() && !m["OriginalAmount"].empty()) {
       originalAmount = make_shared<string>(boost::any_cast<string>(m["OriginalAmount"]));
+    }
+    if (m.find("PromDetailList") != m.end() && !m["PromDetailList"].empty()) {
+      promDetailList = make_shared<string>(boost::any_cast<string>(m["PromDetailList"]));
     }
     if (m.find("RuleIds") != m.end() && !m["RuleIds"].empty()) {
       if (typeid(map<string, boost::any>) == m["RuleIds"].type()) {
@@ -24811,6 +24825,7 @@ public:
 class RenewDBInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
+  shared_ptr<bool> autoRenew{};
   shared_ptr<string> businessInfo{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> couponNo{};
@@ -24833,6 +24848,9 @@ public:
     map<string, boost::any> res;
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
     }
     if (businessInfo) {
       res["BusinessInfo"] = boost::any(*businessInfo);
@@ -24867,6 +24885,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
     }
     if (m.find("BusinessInfo") != m.end() && !m["BusinessInfo"].empty()) {
       businessInfo = make_shared<string>(boost::any_cast<string>(m["BusinessInfo"]));
