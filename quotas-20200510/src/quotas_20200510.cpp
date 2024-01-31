@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -466,6 +465,9 @@ GetQuotaTemplateServiceStatusResponse Alibabacloud_Quotas20200510::Client::getQu
 ListAlarmHistoriesResponse Alibabacloud_Quotas20200510::Client::listAlarmHistoriesWithOptions(shared_ptr<ListAlarmHistoriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alarmId)) {
+    body->insert(pair<string, string>("AlarmId", *request->alarmId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
     body->insert(pair<string, long>("EndTime", *request->endTime));
   }
