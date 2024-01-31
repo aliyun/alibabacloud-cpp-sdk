@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -170,6 +169,34 @@ DescribeUploadTokenResponse Alibabacloud_Green20220302::Client::describeUploadTo
   return describeUploadTokenWithOptions(runtime);
 }
 
+DescribeUrlModerationResultResponse Alibabacloud_Green20220302::Client::describeUrlModerationResultWithOptions(shared_ptr<DescribeUrlModerationResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->reqId)) {
+    body->insert(pair<string, string>("ReqId", *request->reqId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeUrlModerationResult"))},
+    {"version", boost::any(string("2022-03-02"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeUrlModerationResultResponse(callApi(params, req, runtime));
+}
+
+DescribeUrlModerationResultResponse Alibabacloud_Green20220302::Client::describeUrlModerationResult(shared_ptr<DescribeUrlModerationResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeUrlModerationResultWithOptions(request, runtime);
+}
+
 FileModerationResponse Alibabacloud_Green20220302::Client::fileModerationWithOptions(shared_ptr<FileModerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -323,6 +350,37 @@ TextModerationPlusResponse Alibabacloud_Green20220302::Client::textModerationPlu
 TextModerationPlusResponse Alibabacloud_Green20220302::Client::textModerationPlus(shared_ptr<TextModerationPlusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return textModerationPlusWithOptions(request, runtime);
+}
+
+UrlAsyncModerationResponse Alibabacloud_Green20220302::Client::urlAsyncModerationWithOptions(shared_ptr<UrlAsyncModerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->service)) {
+    query->insert(pair<string, string>("Service", *request->service));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceParameters)) {
+    query->insert(pair<string, string>("ServiceParameters", *request->serviceParameters));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UrlAsyncModeration"))},
+    {"version", boost::any(string("2022-03-02"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UrlAsyncModerationResponse(callApi(params, req, runtime));
+}
+
+UrlAsyncModerationResponse Alibabacloud_Green20220302::Client::urlAsyncModeration(shared_ptr<UrlAsyncModerationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return urlAsyncModerationWithOptions(request, runtime);
 }
 
 VideoModerationResponse Alibabacloud_Green20220302::Client::videoModerationWithOptions(shared_ptr<VideoModerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
