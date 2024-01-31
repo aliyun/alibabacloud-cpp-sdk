@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1222,7 +1221,7 @@ DeleteTriggerResponse Alibabacloud_CS20151215::Client::deleteTriggerWithOptions(
     {"action", boost::any(string("DeleteTrigger"))},
     {"version", boost::any(string("2015-12-15"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/clusters/%5Bcluster_id%5D/triggers/%5BId%5D"))},
+    {"pathname", boost::any(string("/clusters/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(clusterId)) + string("/triggers/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
