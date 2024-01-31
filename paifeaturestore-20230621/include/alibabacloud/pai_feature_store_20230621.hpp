@@ -1452,6 +1452,94 @@ public:
 
   virtual ~CreateModelFeatureResponse() = default;
 };
+class CreateModelFeatureTrainingSetFGTableResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> trainingSetFGTableName{};
+  shared_ptr<string> requestId{};
+
+  CreateModelFeatureTrainingSetFGTableResponseBody() {}
+
+  explicit CreateModelFeatureTrainingSetFGTableResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (trainingSetFGTableName) {
+      res["TrainingSetFGTableName"] = boost::any(*trainingSetFGTableName);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TrainingSetFGTableName") != m.end() && !m["TrainingSetFGTableName"].empty()) {
+      trainingSetFGTableName = make_shared<string>(boost::any_cast<string>(m["TrainingSetFGTableName"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~CreateModelFeatureTrainingSetFGTableResponseBody() = default;
+};
+class CreateModelFeatureTrainingSetFGTableResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateModelFeatureTrainingSetFGTableResponseBody> body{};
+
+  CreateModelFeatureTrainingSetFGTableResponse() {}
+
+  explicit CreateModelFeatureTrainingSetFGTableResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateModelFeatureTrainingSetFGTableResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateModelFeatureTrainingSetFGTableResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateModelFeatureTrainingSetFGTableResponse() = default;
+};
 class CreateProjectRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -2213,6 +2301,180 @@ public:
 
 
   virtual ~DeleteProjectResponse() = default;
+};
+class ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> fgJsonName{};
+  shared_ptr<string> jarName{};
+  shared_ptr<map<string, map<string, boost::any>>> partitions{};
+
+  ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig() {}
+
+  explicit ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fgJsonName) {
+      res["FgJsonName"] = boost::any(*fgJsonName);
+    }
+    if (jarName) {
+      res["JarName"] = boost::any(*jarName);
+    }
+    if (partitions) {
+      res["Partitions"] = boost::any(*partitions);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FgJsonName") != m.end() && !m["FgJsonName"].empty()) {
+      fgJsonName = make_shared<string>(boost::any_cast<string>(m["FgJsonName"]));
+    }
+    if (m.find("JarName") != m.end() && !m["JarName"].empty()) {
+      jarName = make_shared<string>(boost::any_cast<string>(m["JarName"]));
+    }
+    if (m.find("Partitions") != m.end() && !m["Partitions"].empty()) {
+      map<string, map<string, boost::any>> map1 = boost::any_cast<map<string, map<string, boost::any>>>(m["Partitions"]);
+      map<string, map<string, boost::any>> toMap1;
+      for (auto item:map1) {
+        map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item.second);
+        map<string, boost::any> toMap2;
+        for (auto item:map2) {
+           toMap2[item.first] = item.second;
+        }
+         toMap1[item.first] = toMap2;
+      }
+      partitions = make_shared<map<string, map<string, boost::any>>>(toMap1);
+    }
+  }
+
+
+  virtual ~ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig() = default;
+};
+class ExportModelFeatureTrainingSetFGTableRequest : public Darabonba::Model {
+public:
+  shared_ptr<ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig> trainingSetFgConfig{};
+
+  ExportModelFeatureTrainingSetFGTableRequest() {}
+
+  explicit ExportModelFeatureTrainingSetFGTableRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (trainingSetFgConfig) {
+      res["TrainingSetFgConfig"] = trainingSetFgConfig ? boost::any(trainingSetFgConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TrainingSetFgConfig") != m.end() && !m["TrainingSetFgConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TrainingSetFgConfig"].type()) {
+        ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TrainingSetFgConfig"]));
+        trainingSetFgConfig = make_shared<ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExportModelFeatureTrainingSetFGTableRequest() = default;
+};
+class ExportModelFeatureTrainingSetFGTableResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+  shared_ptr<string> requestId{};
+
+  ExportModelFeatureTrainingSetFGTableResponseBody() {}
+
+  explicit ExportModelFeatureTrainingSetFGTableResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~ExportModelFeatureTrainingSetFGTableResponseBody() = default;
+};
+class ExportModelFeatureTrainingSetFGTableResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExportModelFeatureTrainingSetFGTableResponseBody> body{};
+
+  ExportModelFeatureTrainingSetFGTableResponse() {}
+
+  explicit ExportModelFeatureTrainingSetFGTableResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExportModelFeatureTrainingSetFGTableResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExportModelFeatureTrainingSetFGTableResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExportModelFeatureTrainingSetFGTableResponse() = default;
 };
 class ExportModelFeatureTrainingSetTableRequestLabelInputConfig : public Darabonba::Model {
 public:
@@ -3925,6 +4187,522 @@ public:
 
 
   virtual ~GetModelFeatureResponse() = default;
+};
+class GetModelFeatureFGFeatureResponseBodyLookupFeatures : public Darabonba::Model {
+public:
+  shared_ptr<string> defaultValue{};
+  shared_ptr<string> featureName{};
+  shared_ptr<string> keyFeatureDomain{};
+  shared_ptr<string> keyFeatureName{};
+  shared_ptr<string> mapFeatureDomain{};
+  shared_ptr<string> mapFeatureName{};
+  shared_ptr<string> valueType{};
+
+  GetModelFeatureFGFeatureResponseBodyLookupFeatures() {}
+
+  explicit GetModelFeatureFGFeatureResponseBodyLookupFeatures(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultValue) {
+      res["DefaultValue"] = boost::any(*defaultValue);
+    }
+    if (featureName) {
+      res["FeatureName"] = boost::any(*featureName);
+    }
+    if (keyFeatureDomain) {
+      res["KeyFeatureDomain"] = boost::any(*keyFeatureDomain);
+    }
+    if (keyFeatureName) {
+      res["KeyFeatureName"] = boost::any(*keyFeatureName);
+    }
+    if (mapFeatureDomain) {
+      res["MapFeatureDomain"] = boost::any(*mapFeatureDomain);
+    }
+    if (mapFeatureName) {
+      res["MapFeatureName"] = boost::any(*mapFeatureName);
+    }
+    if (valueType) {
+      res["ValueType"] = boost::any(*valueType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
+      defaultValue = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
+    }
+    if (m.find("FeatureName") != m.end() && !m["FeatureName"].empty()) {
+      featureName = make_shared<string>(boost::any_cast<string>(m["FeatureName"]));
+    }
+    if (m.find("KeyFeatureDomain") != m.end() && !m["KeyFeatureDomain"].empty()) {
+      keyFeatureDomain = make_shared<string>(boost::any_cast<string>(m["KeyFeatureDomain"]));
+    }
+    if (m.find("KeyFeatureName") != m.end() && !m["KeyFeatureName"].empty()) {
+      keyFeatureName = make_shared<string>(boost::any_cast<string>(m["KeyFeatureName"]));
+    }
+    if (m.find("MapFeatureDomain") != m.end() && !m["MapFeatureDomain"].empty()) {
+      mapFeatureDomain = make_shared<string>(boost::any_cast<string>(m["MapFeatureDomain"]));
+    }
+    if (m.find("MapFeatureName") != m.end() && !m["MapFeatureName"].empty()) {
+      mapFeatureName = make_shared<string>(boost::any_cast<string>(m["MapFeatureName"]));
+    }
+    if (m.find("ValueType") != m.end() && !m["ValueType"].empty()) {
+      valueType = make_shared<string>(boost::any_cast<string>(m["ValueType"]));
+    }
+  }
+
+
+  virtual ~GetModelFeatureFGFeatureResponseBodyLookupFeatures() = default;
+};
+class GetModelFeatureFGFeatureResponseBodyRawFeatures : public Darabonba::Model {
+public:
+  shared_ptr<string> defaultValue{};
+  shared_ptr<string> featureDomain{};
+  shared_ptr<string> featureName{};
+  shared_ptr<string> featureType{};
+  shared_ptr<string> inputFeatureName{};
+  shared_ptr<string> valueType{};
+
+  GetModelFeatureFGFeatureResponseBodyRawFeatures() {}
+
+  explicit GetModelFeatureFGFeatureResponseBodyRawFeatures(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultValue) {
+      res["DefaultValue"] = boost::any(*defaultValue);
+    }
+    if (featureDomain) {
+      res["FeatureDomain"] = boost::any(*featureDomain);
+    }
+    if (featureName) {
+      res["FeatureName"] = boost::any(*featureName);
+    }
+    if (featureType) {
+      res["FeatureType"] = boost::any(*featureType);
+    }
+    if (inputFeatureName) {
+      res["InputFeatureName"] = boost::any(*inputFeatureName);
+    }
+    if (valueType) {
+      res["ValueType"] = boost::any(*valueType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
+      defaultValue = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
+    }
+    if (m.find("FeatureDomain") != m.end() && !m["FeatureDomain"].empty()) {
+      featureDomain = make_shared<string>(boost::any_cast<string>(m["FeatureDomain"]));
+    }
+    if (m.find("FeatureName") != m.end() && !m["FeatureName"].empty()) {
+      featureName = make_shared<string>(boost::any_cast<string>(m["FeatureName"]));
+    }
+    if (m.find("FeatureType") != m.end() && !m["FeatureType"].empty()) {
+      featureType = make_shared<string>(boost::any_cast<string>(m["FeatureType"]));
+    }
+    if (m.find("InputFeatureName") != m.end() && !m["InputFeatureName"].empty()) {
+      inputFeatureName = make_shared<string>(boost::any_cast<string>(m["InputFeatureName"]));
+    }
+    if (m.find("ValueType") != m.end() && !m["ValueType"].empty()) {
+      valueType = make_shared<string>(boost::any_cast<string>(m["ValueType"]));
+    }
+  }
+
+
+  virtual ~GetModelFeatureFGFeatureResponseBodyRawFeatures() = default;
+};
+class GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures : public Darabonba::Model {
+public:
+  shared_ptr<string> defaultValue{};
+  shared_ptr<string> featureDomain{};
+  shared_ptr<string> featureName{};
+  shared_ptr<string> featureType{};
+  shared_ptr<string> inputFeatureName{};
+  shared_ptr<string> valueType{};
+
+  GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures() {}
+
+  explicit GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultValue) {
+      res["DefaultValue"] = boost::any(*defaultValue);
+    }
+    if (featureDomain) {
+      res["FeatureDomain"] = boost::any(*featureDomain);
+    }
+    if (featureName) {
+      res["FeatureName"] = boost::any(*featureName);
+    }
+    if (featureType) {
+      res["FeatureType"] = boost::any(*featureType);
+    }
+    if (inputFeatureName) {
+      res["InputFeatureName"] = boost::any(*inputFeatureName);
+    }
+    if (valueType) {
+      res["ValueType"] = boost::any(*valueType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
+      defaultValue = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
+    }
+    if (m.find("FeatureDomain") != m.end() && !m["FeatureDomain"].empty()) {
+      featureDomain = make_shared<string>(boost::any_cast<string>(m["FeatureDomain"]));
+    }
+    if (m.find("FeatureName") != m.end() && !m["FeatureName"].empty()) {
+      featureName = make_shared<string>(boost::any_cast<string>(m["FeatureName"]));
+    }
+    if (m.find("FeatureType") != m.end() && !m["FeatureType"].empty()) {
+      featureType = make_shared<string>(boost::any_cast<string>(m["FeatureType"]));
+    }
+    if (m.find("InputFeatureName") != m.end() && !m["InputFeatureName"].empty()) {
+      inputFeatureName = make_shared<string>(boost::any_cast<string>(m["InputFeatureName"]));
+    }
+    if (m.find("ValueType") != m.end() && !m["ValueType"].empty()) {
+      valueType = make_shared<string>(boost::any_cast<string>(m["ValueType"]));
+    }
+  }
+
+
+  virtual ~GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures() = default;
+};
+class GetModelFeatureFGFeatureResponseBodySequenceFeatures : public Darabonba::Model {
+public:
+  shared_ptr<string> attributeDelim{};
+  shared_ptr<string> featureName{};
+  shared_ptr<string> sequenceDelim{};
+  shared_ptr<long> sequenceLength{};
+  shared_ptr<vector<GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures>> subFeatures{};
+
+  GetModelFeatureFGFeatureResponseBodySequenceFeatures() {}
+
+  explicit GetModelFeatureFGFeatureResponseBodySequenceFeatures(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attributeDelim) {
+      res["AttributeDelim"] = boost::any(*attributeDelim);
+    }
+    if (featureName) {
+      res["FeatureName"] = boost::any(*featureName);
+    }
+    if (sequenceDelim) {
+      res["SequenceDelim"] = boost::any(*sequenceDelim);
+    }
+    if (sequenceLength) {
+      res["SequenceLength"] = boost::any(*sequenceLength);
+    }
+    if (subFeatures) {
+      vector<boost::any> temp1;
+      for(auto item1:*subFeatures){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubFeatures"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttributeDelim") != m.end() && !m["AttributeDelim"].empty()) {
+      attributeDelim = make_shared<string>(boost::any_cast<string>(m["AttributeDelim"]));
+    }
+    if (m.find("FeatureName") != m.end() && !m["FeatureName"].empty()) {
+      featureName = make_shared<string>(boost::any_cast<string>(m["FeatureName"]));
+    }
+    if (m.find("SequenceDelim") != m.end() && !m["SequenceDelim"].empty()) {
+      sequenceDelim = make_shared<string>(boost::any_cast<string>(m["SequenceDelim"]));
+    }
+    if (m.find("SequenceLength") != m.end() && !m["SequenceLength"].empty()) {
+      sequenceLength = make_shared<long>(boost::any_cast<long>(m["SequenceLength"]));
+    }
+    if (m.find("SubFeatures") != m.end() && !m["SubFeatures"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubFeatures"].type()) {
+        vector<GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubFeatures"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subFeatures = make_shared<vector<GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetModelFeatureFGFeatureResponseBodySequenceFeatures() = default;
+};
+class GetModelFeatureFGFeatureResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetModelFeatureFGFeatureResponseBodyLookupFeatures>> lookupFeatures{};
+  shared_ptr<vector<GetModelFeatureFGFeatureResponseBodyRawFeatures>> rawFeatures{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> reserves{};
+  shared_ptr<vector<GetModelFeatureFGFeatureResponseBodySequenceFeatures>> sequenceFeatures{};
+
+  GetModelFeatureFGFeatureResponseBody() {}
+
+  explicit GetModelFeatureFGFeatureResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lookupFeatures) {
+      vector<boost::any> temp1;
+      for(auto item1:*lookupFeatures){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["LookupFeatures"] = boost::any(temp1);
+    }
+    if (rawFeatures) {
+      vector<boost::any> temp1;
+      for(auto item1:*rawFeatures){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RawFeatures"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (reserves) {
+      res["Reserves"] = boost::any(*reserves);
+    }
+    if (sequenceFeatures) {
+      vector<boost::any> temp1;
+      for(auto item1:*sequenceFeatures){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SequenceFeatures"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LookupFeatures") != m.end() && !m["LookupFeatures"].empty()) {
+      if (typeid(vector<boost::any>) == m["LookupFeatures"].type()) {
+        vector<GetModelFeatureFGFeatureResponseBodyLookupFeatures> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["LookupFeatures"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetModelFeatureFGFeatureResponseBodyLookupFeatures model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        lookupFeatures = make_shared<vector<GetModelFeatureFGFeatureResponseBodyLookupFeatures>>(expect1);
+      }
+    }
+    if (m.find("RawFeatures") != m.end() && !m["RawFeatures"].empty()) {
+      if (typeid(vector<boost::any>) == m["RawFeatures"].type()) {
+        vector<GetModelFeatureFGFeatureResponseBodyRawFeatures> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RawFeatures"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetModelFeatureFGFeatureResponseBodyRawFeatures model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rawFeatures = make_shared<vector<GetModelFeatureFGFeatureResponseBodyRawFeatures>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Reserves") != m.end() && !m["Reserves"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Reserves"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Reserves"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      reserves = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SequenceFeatures") != m.end() && !m["SequenceFeatures"].empty()) {
+      if (typeid(vector<boost::any>) == m["SequenceFeatures"].type()) {
+        vector<GetModelFeatureFGFeatureResponseBodySequenceFeatures> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SequenceFeatures"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetModelFeatureFGFeatureResponseBodySequenceFeatures model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sequenceFeatures = make_shared<vector<GetModelFeatureFGFeatureResponseBodySequenceFeatures>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetModelFeatureFGFeatureResponseBody() = default;
+};
+class GetModelFeatureFGFeatureResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetModelFeatureFGFeatureResponseBody> body{};
+
+  GetModelFeatureFGFeatureResponse() {}
+
+  explicit GetModelFeatureFGFeatureResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetModelFeatureFGFeatureResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetModelFeatureFGFeatureResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetModelFeatureFGFeatureResponse() = default;
+};
+class GetModelFeatureFGInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> requestId{};
+
+  GetModelFeatureFGInfoResponseBody() {}
+
+  explicit GetModelFeatureFGInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetModelFeatureFGInfoResponseBody() = default;
+};
+class GetModelFeatureFGInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetModelFeatureFGInfoResponseBody> body{};
+
+  GetModelFeatureFGInfoResponse() {}
+
+  explicit GetModelFeatureFGInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetModelFeatureFGInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetModelFeatureFGInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetModelFeatureFGInfoResponse() = default;
 };
 class GetProjectResponseBody : public Darabonba::Model {
 public:
@@ -7268,6 +8046,194 @@ public:
 
   virtual ~ListLabelTablesResponse() = default;
 };
+class ListModelFeatureAvailableFeaturesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> featureName{};
+
+  ListModelFeatureAvailableFeaturesRequest() {}
+
+  explicit ListModelFeatureAvailableFeaturesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (featureName) {
+      res["FeatureName"] = boost::any(*featureName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FeatureName") != m.end() && !m["FeatureName"].empty()) {
+      featureName = make_shared<string>(boost::any_cast<string>(m["FeatureName"]));
+    }
+  }
+
+
+  virtual ~ListModelFeatureAvailableFeaturesRequest() = default;
+};
+class ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> sourceName{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> type{};
+
+  ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures() {}
+
+  explicit ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (sourceName) {
+      res["SourceName"] = boost::any(*sourceName);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SourceName") != m.end() && !m["SourceName"].empty()) {
+      sourceName = make_shared<string>(boost::any_cast<string>(m["SourceName"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures() = default;
+};
+class ListModelFeatureAvailableFeaturesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures>> avaliableFeatures{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<string> requestId{};
+
+  ListModelFeatureAvailableFeaturesResponseBody() {}
+
+  explicit ListModelFeatureAvailableFeaturesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (avaliableFeatures) {
+      vector<boost::any> temp1;
+      for(auto item1:*avaliableFeatures){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AvaliableFeatures"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AvaliableFeatures") != m.end() && !m["AvaliableFeatures"].empty()) {
+      if (typeid(vector<boost::any>) == m["AvaliableFeatures"].type()) {
+        vector<ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AvaliableFeatures"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        avaliableFeatures = make_shared<vector<ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~ListModelFeatureAvailableFeaturesResponseBody() = default;
+};
+class ListModelFeatureAvailableFeaturesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListModelFeatureAvailableFeaturesResponseBody> body{};
+
+  ListModelFeatureAvailableFeaturesResponse() {}
+
+  explicit ListModelFeatureAvailableFeaturesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListModelFeatureAvailableFeaturesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListModelFeatureAvailableFeaturesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListModelFeatureAvailableFeaturesResponse() = default;
+};
 class ListModelFeaturesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> modelFeatureIds{};
@@ -9594,6 +10560,566 @@ public:
 
   virtual ~UpdateModelFeatureResponse() = default;
 };
+class UpdateModelFeatureFGFeatureRequestLookupFeatures : public Darabonba::Model {
+public:
+  shared_ptr<string> defaultValue{};
+  shared_ptr<string> featureName{};
+  shared_ptr<string> keyFeatureDomain{};
+  shared_ptr<string> keyFeatureName{};
+  shared_ptr<string> mapFeatureDomain{};
+  shared_ptr<string> mapFeatureName{};
+  shared_ptr<string> valueType{};
+
+  UpdateModelFeatureFGFeatureRequestLookupFeatures() {}
+
+  explicit UpdateModelFeatureFGFeatureRequestLookupFeatures(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultValue) {
+      res["DefaultValue"] = boost::any(*defaultValue);
+    }
+    if (featureName) {
+      res["FeatureName"] = boost::any(*featureName);
+    }
+    if (keyFeatureDomain) {
+      res["KeyFeatureDomain"] = boost::any(*keyFeatureDomain);
+    }
+    if (keyFeatureName) {
+      res["KeyFeatureName"] = boost::any(*keyFeatureName);
+    }
+    if (mapFeatureDomain) {
+      res["MapFeatureDomain"] = boost::any(*mapFeatureDomain);
+    }
+    if (mapFeatureName) {
+      res["MapFeatureName"] = boost::any(*mapFeatureName);
+    }
+    if (valueType) {
+      res["ValueType"] = boost::any(*valueType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
+      defaultValue = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
+    }
+    if (m.find("FeatureName") != m.end() && !m["FeatureName"].empty()) {
+      featureName = make_shared<string>(boost::any_cast<string>(m["FeatureName"]));
+    }
+    if (m.find("KeyFeatureDomain") != m.end() && !m["KeyFeatureDomain"].empty()) {
+      keyFeatureDomain = make_shared<string>(boost::any_cast<string>(m["KeyFeatureDomain"]));
+    }
+    if (m.find("KeyFeatureName") != m.end() && !m["KeyFeatureName"].empty()) {
+      keyFeatureName = make_shared<string>(boost::any_cast<string>(m["KeyFeatureName"]));
+    }
+    if (m.find("MapFeatureDomain") != m.end() && !m["MapFeatureDomain"].empty()) {
+      mapFeatureDomain = make_shared<string>(boost::any_cast<string>(m["MapFeatureDomain"]));
+    }
+    if (m.find("MapFeatureName") != m.end() && !m["MapFeatureName"].empty()) {
+      mapFeatureName = make_shared<string>(boost::any_cast<string>(m["MapFeatureName"]));
+    }
+    if (m.find("ValueType") != m.end() && !m["ValueType"].empty()) {
+      valueType = make_shared<string>(boost::any_cast<string>(m["ValueType"]));
+    }
+  }
+
+
+  virtual ~UpdateModelFeatureFGFeatureRequestLookupFeatures() = default;
+};
+class UpdateModelFeatureFGFeatureRequestRawFeatures : public Darabonba::Model {
+public:
+  shared_ptr<string> defaultValue{};
+  shared_ptr<string> featureDomain{};
+  shared_ptr<string> featureName{};
+  shared_ptr<string> featureType{};
+  shared_ptr<string> inputFeatureName{};
+  shared_ptr<string> valueType{};
+
+  UpdateModelFeatureFGFeatureRequestRawFeatures() {}
+
+  explicit UpdateModelFeatureFGFeatureRequestRawFeatures(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultValue) {
+      res["DefaultValue"] = boost::any(*defaultValue);
+    }
+    if (featureDomain) {
+      res["FeatureDomain"] = boost::any(*featureDomain);
+    }
+    if (featureName) {
+      res["FeatureName"] = boost::any(*featureName);
+    }
+    if (featureType) {
+      res["FeatureType"] = boost::any(*featureType);
+    }
+    if (inputFeatureName) {
+      res["InputFeatureName"] = boost::any(*inputFeatureName);
+    }
+    if (valueType) {
+      res["ValueType"] = boost::any(*valueType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
+      defaultValue = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
+    }
+    if (m.find("FeatureDomain") != m.end() && !m["FeatureDomain"].empty()) {
+      featureDomain = make_shared<string>(boost::any_cast<string>(m["FeatureDomain"]));
+    }
+    if (m.find("FeatureName") != m.end() && !m["FeatureName"].empty()) {
+      featureName = make_shared<string>(boost::any_cast<string>(m["FeatureName"]));
+    }
+    if (m.find("FeatureType") != m.end() && !m["FeatureType"].empty()) {
+      featureType = make_shared<string>(boost::any_cast<string>(m["FeatureType"]));
+    }
+    if (m.find("InputFeatureName") != m.end() && !m["InputFeatureName"].empty()) {
+      inputFeatureName = make_shared<string>(boost::any_cast<string>(m["InputFeatureName"]));
+    }
+    if (m.find("ValueType") != m.end() && !m["ValueType"].empty()) {
+      valueType = make_shared<string>(boost::any_cast<string>(m["ValueType"]));
+    }
+  }
+
+
+  virtual ~UpdateModelFeatureFGFeatureRequestRawFeatures() = default;
+};
+class UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures : public Darabonba::Model {
+public:
+  shared_ptr<string> defaultValue{};
+  shared_ptr<string> featureDomain{};
+  shared_ptr<string> featureName{};
+  shared_ptr<string> featureType{};
+  shared_ptr<string> inputFeatureName{};
+  shared_ptr<string> valueType{};
+
+  UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures() {}
+
+  explicit UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultValue) {
+      res["DefaultValue"] = boost::any(*defaultValue);
+    }
+    if (featureDomain) {
+      res["FeatureDomain"] = boost::any(*featureDomain);
+    }
+    if (featureName) {
+      res["FeatureName"] = boost::any(*featureName);
+    }
+    if (featureType) {
+      res["FeatureType"] = boost::any(*featureType);
+    }
+    if (inputFeatureName) {
+      res["InputFeatureName"] = boost::any(*inputFeatureName);
+    }
+    if (valueType) {
+      res["ValueType"] = boost::any(*valueType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
+      defaultValue = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
+    }
+    if (m.find("FeatureDomain") != m.end() && !m["FeatureDomain"].empty()) {
+      featureDomain = make_shared<string>(boost::any_cast<string>(m["FeatureDomain"]));
+    }
+    if (m.find("FeatureName") != m.end() && !m["FeatureName"].empty()) {
+      featureName = make_shared<string>(boost::any_cast<string>(m["FeatureName"]));
+    }
+    if (m.find("FeatureType") != m.end() && !m["FeatureType"].empty()) {
+      featureType = make_shared<string>(boost::any_cast<string>(m["FeatureType"]));
+    }
+    if (m.find("InputFeatureName") != m.end() && !m["InputFeatureName"].empty()) {
+      inputFeatureName = make_shared<string>(boost::any_cast<string>(m["InputFeatureName"]));
+    }
+    if (m.find("ValueType") != m.end() && !m["ValueType"].empty()) {
+      valueType = make_shared<string>(boost::any_cast<string>(m["ValueType"]));
+    }
+  }
+
+
+  virtual ~UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures() = default;
+};
+class UpdateModelFeatureFGFeatureRequestSequenceFeatures : public Darabonba::Model {
+public:
+  shared_ptr<string> attributeDelim{};
+  shared_ptr<string> featureName{};
+  shared_ptr<string> sequenceDelim{};
+  shared_ptr<long> sequenceLength{};
+  shared_ptr<vector<UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures>> subFeatures{};
+
+  UpdateModelFeatureFGFeatureRequestSequenceFeatures() {}
+
+  explicit UpdateModelFeatureFGFeatureRequestSequenceFeatures(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attributeDelim) {
+      res["AttributeDelim"] = boost::any(*attributeDelim);
+    }
+    if (featureName) {
+      res["FeatureName"] = boost::any(*featureName);
+    }
+    if (sequenceDelim) {
+      res["SequenceDelim"] = boost::any(*sequenceDelim);
+    }
+    if (sequenceLength) {
+      res["SequenceLength"] = boost::any(*sequenceLength);
+    }
+    if (subFeatures) {
+      vector<boost::any> temp1;
+      for(auto item1:*subFeatures){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubFeatures"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttributeDelim") != m.end() && !m["AttributeDelim"].empty()) {
+      attributeDelim = make_shared<string>(boost::any_cast<string>(m["AttributeDelim"]));
+    }
+    if (m.find("FeatureName") != m.end() && !m["FeatureName"].empty()) {
+      featureName = make_shared<string>(boost::any_cast<string>(m["FeatureName"]));
+    }
+    if (m.find("SequenceDelim") != m.end() && !m["SequenceDelim"].empty()) {
+      sequenceDelim = make_shared<string>(boost::any_cast<string>(m["SequenceDelim"]));
+    }
+    if (m.find("SequenceLength") != m.end() && !m["SequenceLength"].empty()) {
+      sequenceLength = make_shared<long>(boost::any_cast<long>(m["SequenceLength"]));
+    }
+    if (m.find("SubFeatures") != m.end() && !m["SubFeatures"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubFeatures"].type()) {
+        vector<UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubFeatures"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subFeatures = make_shared<vector<UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateModelFeatureFGFeatureRequestSequenceFeatures() = default;
+};
+class UpdateModelFeatureFGFeatureRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<UpdateModelFeatureFGFeatureRequestLookupFeatures>> lookupFeatures{};
+  shared_ptr<vector<UpdateModelFeatureFGFeatureRequestRawFeatures>> rawFeatures{};
+  shared_ptr<vector<string>> reserves{};
+  shared_ptr<vector<UpdateModelFeatureFGFeatureRequestSequenceFeatures>> sequenceFeatures{};
+
+  UpdateModelFeatureFGFeatureRequest() {}
+
+  explicit UpdateModelFeatureFGFeatureRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lookupFeatures) {
+      vector<boost::any> temp1;
+      for(auto item1:*lookupFeatures){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["LookupFeatures"] = boost::any(temp1);
+    }
+    if (rawFeatures) {
+      vector<boost::any> temp1;
+      for(auto item1:*rawFeatures){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RawFeatures"] = boost::any(temp1);
+    }
+    if (reserves) {
+      res["Reserves"] = boost::any(*reserves);
+    }
+    if (sequenceFeatures) {
+      vector<boost::any> temp1;
+      for(auto item1:*sequenceFeatures){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SequenceFeatures"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LookupFeatures") != m.end() && !m["LookupFeatures"].empty()) {
+      if (typeid(vector<boost::any>) == m["LookupFeatures"].type()) {
+        vector<UpdateModelFeatureFGFeatureRequestLookupFeatures> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["LookupFeatures"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateModelFeatureFGFeatureRequestLookupFeatures model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        lookupFeatures = make_shared<vector<UpdateModelFeatureFGFeatureRequestLookupFeatures>>(expect1);
+      }
+    }
+    if (m.find("RawFeatures") != m.end() && !m["RawFeatures"].empty()) {
+      if (typeid(vector<boost::any>) == m["RawFeatures"].type()) {
+        vector<UpdateModelFeatureFGFeatureRequestRawFeatures> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RawFeatures"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateModelFeatureFGFeatureRequestRawFeatures model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rawFeatures = make_shared<vector<UpdateModelFeatureFGFeatureRequestRawFeatures>>(expect1);
+      }
+    }
+    if (m.find("Reserves") != m.end() && !m["Reserves"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Reserves"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Reserves"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      reserves = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SequenceFeatures") != m.end() && !m["SequenceFeatures"].empty()) {
+      if (typeid(vector<boost::any>) == m["SequenceFeatures"].type()) {
+        vector<UpdateModelFeatureFGFeatureRequestSequenceFeatures> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SequenceFeatures"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateModelFeatureFGFeatureRequestSequenceFeatures model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sequenceFeatures = make_shared<vector<UpdateModelFeatureFGFeatureRequestSequenceFeatures>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateModelFeatureFGFeatureRequest() = default;
+};
+class UpdateModelFeatureFGFeatureResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateModelFeatureFGFeatureResponseBody() {}
+
+  explicit UpdateModelFeatureFGFeatureResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~UpdateModelFeatureFGFeatureResponseBody() = default;
+};
+class UpdateModelFeatureFGFeatureResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateModelFeatureFGFeatureResponseBody> body{};
+
+  UpdateModelFeatureFGFeatureResponse() {}
+
+  explicit UpdateModelFeatureFGFeatureResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateModelFeatureFGFeatureResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateModelFeatureFGFeatureResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateModelFeatureFGFeatureResponse() = default;
+};
+class UpdateModelFeatureFGInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+
+  UpdateModelFeatureFGInfoRequest() {}
+
+  explicit UpdateModelFeatureFGInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+  }
+
+
+  virtual ~UpdateModelFeatureFGInfoRequest() = default;
+};
+class UpdateModelFeatureFGInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateModelFeatureFGInfoResponseBody() {}
+
+  explicit UpdateModelFeatureFGInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~UpdateModelFeatureFGInfoResponseBody() = default;
+};
+class UpdateModelFeatureFGInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateModelFeatureFGInfoResponseBody> body{};
+
+  UpdateModelFeatureFGInfoResponse() {}
+
+  explicit UpdateModelFeatureFGInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateModelFeatureFGInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateModelFeatureFGInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateModelFeatureFGInfoResponse() = default;
+};
 class UpdateProjectRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -10068,6 +11594,11 @@ public:
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateModelFeatureResponse createModelFeature(shared_ptr<string> InstanceId, shared_ptr<CreateModelFeatureRequest> request);
+  CreateModelFeatureTrainingSetFGTableResponse createModelFeatureTrainingSetFGTableWithOptions(shared_ptr<string> InstanceId,
+                                                                                               shared_ptr<string> ModelFeatureId,
+                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateModelFeatureTrainingSetFGTableResponse createModelFeatureTrainingSetFGTable(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId);
   CreateProjectResponse createProjectWithOptions(shared_ptr<string> InstanceId,
                                                  shared_ptr<CreateProjectRequest> request,
                                                  shared_ptr<map<string, string>> headers,
@@ -10105,6 +11636,12 @@ public:
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteProjectResponse deleteProject(shared_ptr<string> InstanceId, shared_ptr<string> ProjectId);
+  ExportModelFeatureTrainingSetFGTableResponse exportModelFeatureTrainingSetFGTableWithOptions(shared_ptr<string> InstanceId,
+                                                                                               shared_ptr<string> ModelFeatureId,
+                                                                                               shared_ptr<ExportModelFeatureTrainingSetFGTableRequest> request,
+                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExportModelFeatureTrainingSetFGTableResponse exportModelFeatureTrainingSetFGTable(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId, shared_ptr<ExportModelFeatureTrainingSetFGTableRequest> request);
   ExportModelFeatureTrainingSetTableResponse exportModelFeatureTrainingSetTableWithOptions(shared_ptr<string> InstanceId,
                                                                                            shared_ptr<string> ModelFeatureId,
                                                                                            shared_ptr<ExportModelFeatureTrainingSetTableRequest> request,
@@ -10144,6 +11681,16 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetModelFeatureResponse getModelFeature(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId);
+  GetModelFeatureFGFeatureResponse getModelFeatureFGFeatureWithOptions(shared_ptr<string> InstanceId,
+                                                                       shared_ptr<string> ModelFeatureId,
+                                                                       shared_ptr<map<string, string>> headers,
+                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetModelFeatureFGFeatureResponse getModelFeatureFGFeature(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId);
+  GetModelFeatureFGInfoResponse getModelFeatureFGInfoWithOptions(shared_ptr<string> InstanceId,
+                                                                 shared_ptr<string> ModelFeatureId,
+                                                                 shared_ptr<map<string, string>> headers,
+                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetModelFeatureFGInfoResponse getModelFeatureFGInfo(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId);
   GetProjectResponse getProjectWithOptions(shared_ptr<string> InstanceId,
                                            shared_ptr<string> ProjectId,
                                            shared_ptr<map<string, string>> headers,
@@ -10223,6 +11770,12 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListLabelTablesResponse listLabelTables(shared_ptr<string> InstanceId, shared_ptr<ListLabelTablesRequest> request);
+  ListModelFeatureAvailableFeaturesResponse listModelFeatureAvailableFeaturesWithOptions(shared_ptr<string> InstanceId,
+                                                                                         shared_ptr<string> ModelFeatureId,
+                                                                                         shared_ptr<ListModelFeatureAvailableFeaturesRequest> request,
+                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListModelFeatureAvailableFeaturesResponse listModelFeatureAvailableFeatures(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId, shared_ptr<ListModelFeatureAvailableFeaturesRequest> request);
   ListModelFeaturesResponse listModelFeaturesWithOptions(shared_ptr<string> InstanceId,
                                                          shared_ptr<ListModelFeaturesRequest> tmpReq,
                                                          shared_ptr<map<string, string>> headers,
@@ -10283,6 +11836,18 @@ public:
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateModelFeatureResponse updateModelFeature(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId, shared_ptr<UpdateModelFeatureRequest> request);
+  UpdateModelFeatureFGFeatureResponse updateModelFeatureFGFeatureWithOptions(shared_ptr<string> InstanceId,
+                                                                             shared_ptr<string> ModelFeatureId,
+                                                                             shared_ptr<UpdateModelFeatureFGFeatureRequest> request,
+                                                                             shared_ptr<map<string, string>> headers,
+                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateModelFeatureFGFeatureResponse updateModelFeatureFGFeature(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId, shared_ptr<UpdateModelFeatureFGFeatureRequest> request);
+  UpdateModelFeatureFGInfoResponse updateModelFeatureFGInfoWithOptions(shared_ptr<string> InstanceId,
+                                                                       shared_ptr<string> ModelFeatureId,
+                                                                       shared_ptr<UpdateModelFeatureFGInfoRequest> request,
+                                                                       shared_ptr<map<string, string>> headers,
+                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateModelFeatureFGInfoResponse updateModelFeatureFGInfo(shared_ptr<string> InstanceId, shared_ptr<string> ModelFeatureId, shared_ptr<UpdateModelFeatureFGInfoRequest> request);
   UpdateProjectResponse updateProjectWithOptions(shared_ptr<string> InstanceId,
                                                  shared_ptr<string> ProjectId,
                                                  shared_ptr<UpdateProjectRequest> request,
