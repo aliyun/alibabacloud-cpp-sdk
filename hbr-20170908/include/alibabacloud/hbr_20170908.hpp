@@ -17106,6 +17106,7 @@ public:
   shared_ptr<string> replicationSourceRegionId{};
   shared_ptr<bool> replicationSourceVault{};
   shared_ptr<string> replicationSourceVaultId{};
+  shared_ptr<string> replicationTargetRegionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<long> retention{};
   shared_ptr<bool> searchEnabled{};
@@ -17202,6 +17203,9 @@ public:
     }
     if (replicationSourceVaultId) {
       res["ReplicationSourceVaultId"] = boost::any(*replicationSourceVaultId);
+    }
+    if (replicationTargetRegionId) {
+      res["ReplicationTargetRegionId"] = boost::any(*replicationTargetRegionId);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -17334,6 +17338,9 @@ public:
     }
     if (m.find("ReplicationSourceVaultId") != m.end() && !m["ReplicationSourceVaultId"].empty()) {
       replicationSourceVaultId = make_shared<string>(boost::any_cast<string>(m["ReplicationSourceVaultId"]));
+    }
+    if (m.find("ReplicationTargetRegionId") != m.end() && !m["ReplicationTargetRegionId"].empty()) {
+      replicationTargetRegionId = make_shared<string>(boost::any_cast<string>(m["ReplicationTargetRegionId"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
