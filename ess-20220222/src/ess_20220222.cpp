@@ -1090,6 +1090,9 @@ CreateScalingGroupResponse Alibabacloud_Ess20220222::Client::createScalingGroupW
   if (!Darabonba_Util::Client::isUnset<string>(request->healthCheckType)) {
     query->insert(pair<string, string>("HealthCheckType", *request->healthCheckType));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->healthCheckTypes)) {
+    query->insert(pair<string, vector<string>>("HealthCheckTypes", *request->healthCheckTypes));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -3806,6 +3809,9 @@ ModifyScalingGroupResponse Alibabacloud_Ess20220222::Client::modifyScalingGroupW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->healthCheckType)) {
     query->insert(pair<string, string>("HealthCheckType", *request->healthCheckType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->healthCheckTypes)) {
+    query->insert(pair<string, vector<string>>("HealthCheckTypes", *request->healthCheckTypes));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->launchTemplateId)) {
     query->insert(pair<string, string>("LaunchTemplateId", *request->launchTemplateId));

@@ -7457,6 +7457,7 @@ public:
   shared_ptr<bool> groupDeletionProtection{};
   shared_ptr<string> groupType{};
   shared_ptr<string> healthCheckType{};
+  shared_ptr<vector<string>> healthCheckTypes{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> launchTemplateId{};
   shared_ptr<vector<CreateScalingGroupRequestLaunchTemplateOverrides>> launchTemplateOverrides{};
@@ -7540,6 +7541,9 @@ public:
     }
     if (healthCheckType) {
       res["HealthCheckType"] = boost::any(*healthCheckType);
+    }
+    if (healthCheckTypes) {
+      res["HealthCheckTypes"] = boost::any(*healthCheckTypes);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -7707,6 +7711,16 @@ public:
     }
     if (m.find("HealthCheckType") != m.end() && !m["HealthCheckType"].empty()) {
       healthCheckType = make_shared<string>(boost::any_cast<string>(m["HealthCheckType"]));
+    }
+    if (m.find("HealthCheckTypes") != m.end() && !m["HealthCheckTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HealthCheckTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HealthCheckTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      healthCheckTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -16050,6 +16064,7 @@ public:
   shared_ptr<bool> groupDeletionProtection{};
   shared_ptr<string> groupType{};
   shared_ptr<string> healthCheckType{};
+  shared_ptr<vector<string>> healthCheckTypes{};
   shared_ptr<long> initCapacity{};
   shared_ptr<bool> isElasticStrengthInAlarm{};
   shared_ptr<string> launchTemplateId{};
@@ -16154,6 +16169,9 @@ public:
     }
     if (healthCheckType) {
       res["HealthCheckType"] = boost::any(*healthCheckType);
+    }
+    if (healthCheckTypes) {
+      res["HealthCheckTypes"] = boost::any(*healthCheckTypes);
     }
     if (initCapacity) {
       res["InitCapacity"] = boost::any(*initCapacity);
@@ -16369,6 +16387,16 @@ public:
     }
     if (m.find("HealthCheckType") != m.end() && !m["HealthCheckType"].empty()) {
       healthCheckType = make_shared<string>(boost::any_cast<string>(m["HealthCheckType"]));
+    }
+    if (m.find("HealthCheckTypes") != m.end() && !m["HealthCheckTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HealthCheckTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HealthCheckTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      healthCheckTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("InitCapacity") != m.end() && !m["InitCapacity"].empty()) {
       initCapacity = make_shared<long>(boost::any_cast<long>(m["InitCapacity"]));
@@ -26619,6 +26647,7 @@ public:
   shared_ptr<bool> disableDesiredCapacity{};
   shared_ptr<bool> groupDeletionProtection{};
   shared_ptr<string> healthCheckType{};
+  shared_ptr<vector<string>> healthCheckTypes{};
   shared_ptr<string> launchTemplateId{};
   shared_ptr<vector<ModifyScalingGroupRequestLaunchTemplateOverrides>> launchTemplateOverrides{};
   shared_ptr<string> launchTemplateVersion{};
@@ -26679,6 +26708,9 @@ public:
     }
     if (healthCheckType) {
       res["HealthCheckType"] = boost::any(*healthCheckType);
+    }
+    if (healthCheckTypes) {
+      res["HealthCheckTypes"] = boost::any(*healthCheckTypes);
     }
     if (launchTemplateId) {
       res["LaunchTemplateId"] = boost::any(*launchTemplateId);
@@ -26777,6 +26809,16 @@ public:
     }
     if (m.find("HealthCheckType") != m.end() && !m["HealthCheckType"].empty()) {
       healthCheckType = make_shared<string>(boost::any_cast<string>(m["HealthCheckType"]));
+    }
+    if (m.find("HealthCheckTypes") != m.end() && !m["HealthCheckTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HealthCheckTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HealthCheckTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      healthCheckTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("LaunchTemplateId") != m.end() && !m["LaunchTemplateId"].empty()) {
       launchTemplateId = make_shared<string>(boost::any_cast<string>(m["LaunchTemplateId"]));
