@@ -2666,6 +2666,240 @@ public:
 
   virtual ~GetQuotaApplicationResponse() = default;
 };
+class GetQuotaApplicationApprovalRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationId{};
+
+  GetQuotaApplicationApprovalRequest() {}
+
+  explicit GetQuotaApplicationApprovalRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationId) {
+      res["ApplicationId"] = boost::any(*applicationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
+      applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+  }
+
+
+  virtual ~GetQuotaApplicationApprovalRequest() = default;
+};
+class GetQuotaApplicationApprovalResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<long> approvalHours{};
+  shared_ptr<long> reminderIntervalHours{};
+  shared_ptr<bool> supportReminder{};
+  shared_ptr<string> unsupportReminderReason{};
+
+  GetQuotaApplicationApprovalResponseBodyModule() {}
+
+  explicit GetQuotaApplicationApprovalResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (approvalHours) {
+      res["ApprovalHours"] = boost::any(*approvalHours);
+    }
+    if (reminderIntervalHours) {
+      res["ReminderIntervalHours"] = boost::any(*reminderIntervalHours);
+    }
+    if (supportReminder) {
+      res["SupportReminder"] = boost::any(*supportReminder);
+    }
+    if (unsupportReminderReason) {
+      res["UnsupportReminderReason"] = boost::any(*unsupportReminderReason);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApprovalHours") != m.end() && !m["ApprovalHours"].empty()) {
+      approvalHours = make_shared<long>(boost::any_cast<long>(m["ApprovalHours"]));
+    }
+    if (m.find("ReminderIntervalHours") != m.end() && !m["ReminderIntervalHours"].empty()) {
+      reminderIntervalHours = make_shared<long>(boost::any_cast<long>(m["ReminderIntervalHours"]));
+    }
+    if (m.find("SupportReminder") != m.end() && !m["SupportReminder"].empty()) {
+      supportReminder = make_shared<bool>(boost::any_cast<bool>(m["SupportReminder"]));
+    }
+    if (m.find("UnsupportReminderReason") != m.end() && !m["UnsupportReminderReason"].empty()) {
+      unsupportReminderReason = make_shared<string>(boost::any_cast<string>(m["UnsupportReminderReason"]));
+    }
+  }
+
+
+  virtual ~GetQuotaApplicationApprovalResponseBodyModule() = default;
+};
+class GetQuotaApplicationApprovalResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> allowRetry{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<vector<boost::any>> errorArgs{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<GetQuotaApplicationApprovalResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetQuotaApplicationApprovalResponseBody() {}
+
+  explicit GetQuotaApplicationApprovalResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowRetry) {
+      res["AllowRetry"] = boost::any(*allowRetry);
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (errorArgs) {
+      res["ErrorArgs"] = boost::any(*errorArgs);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (module) {
+      res["Module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowRetry") != m.end() && !m["AllowRetry"].empty()) {
+      allowRetry = make_shared<bool>(boost::any_cast<bool>(m["AllowRetry"]));
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("ErrorArgs") != m.end() && !m["ErrorArgs"].empty()) {
+      vector<boost::any> toVec1;
+      if (typeid(vector<boost::any>) == m["ErrorArgs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ErrorArgs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<boost::any>(item));
+        }
+      }
+      errorArgs = make_shared<vector<boost::any>>(toVec1);
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Module") != m.end() && !m["Module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Module"].type()) {
+        GetQuotaApplicationApprovalResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Module"]));
+        module = make_shared<GetQuotaApplicationApprovalResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetQuotaApplicationApprovalResponseBody() = default;
+};
+class GetQuotaApplicationApprovalResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetQuotaApplicationApprovalResponseBody> body{};
+
+  GetQuotaApplicationApprovalResponse() {}
+
+  explicit GetQuotaApplicationApprovalResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetQuotaApplicationApprovalResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetQuotaApplicationApprovalResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetQuotaApplicationApprovalResponse() = default;
+};
 class GetQuotaTemplateServiceStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> resourceDirectoryId{};
@@ -3641,8 +3875,45 @@ public:
 
   virtual ~ListProductQuotaDimensionsRequest() = default;
 };
+class ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetailDependentDimensions : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetailDependentDimensions() {}
+
+  explicit ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetailDependentDimensions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetailDependentDimensions() = default;
+};
 class ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetail : public Darabonba::Model {
 public:
+  shared_ptr<vector<ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetailDependentDimensions>> dependentDimensions{};
   shared_ptr<string> name{};
   shared_ptr<string> value{};
 
@@ -3656,6 +3927,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dependentDimensions) {
+      vector<boost::any> temp1;
+      for(auto item1:*dependentDimensions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DependentDimensions"] = boost::any(temp1);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -3666,6 +3944,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DependentDimensions") != m.end() && !m["DependentDimensions"].empty()) {
+      if (typeid(vector<boost::any>) == m["DependentDimensions"].type()) {
+        vector<ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetailDependentDimensions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DependentDimensions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetailDependentDimensions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dependentDimensions = make_shared<vector<ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetailDependentDimensions>>(expect1);
+      }
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -7142,6 +7433,186 @@ public:
 
   virtual ~ModifyTemplateQuotaItemResponse() = default;
 };
+class RemindQuotaApplicationApprovalRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationId{};
+
+  RemindQuotaApplicationApprovalRequest() {}
+
+  explicit RemindQuotaApplicationApprovalRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationId) {
+      res["ApplicationId"] = boost::any(*applicationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
+      applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+  }
+
+
+  virtual ~RemindQuotaApplicationApprovalRequest() = default;
+};
+class RemindQuotaApplicationApprovalResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> allowRetry{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<vector<boost::any>> errorArgs{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  RemindQuotaApplicationApprovalResponseBody() {}
+
+  explicit RemindQuotaApplicationApprovalResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowRetry) {
+      res["AllowRetry"] = boost::any(*allowRetry);
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (errorArgs) {
+      res["ErrorArgs"] = boost::any(*errorArgs);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (module) {
+      res["Module"] = boost::any(*module);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowRetry") != m.end() && !m["AllowRetry"].empty()) {
+      allowRetry = make_shared<bool>(boost::any_cast<bool>(m["AllowRetry"]));
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("ErrorArgs") != m.end() && !m["ErrorArgs"].empty()) {
+      vector<boost::any> toVec1;
+      if (typeid(vector<boost::any>) == m["ErrorArgs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ErrorArgs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<boost::any>(item));
+        }
+      }
+      errorArgs = make_shared<vector<boost::any>>(toVec1);
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Module") != m.end() && !m["Module"].empty()) {
+      module = make_shared<string>(boost::any_cast<string>(m["Module"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~RemindQuotaApplicationApprovalResponseBody() = default;
+};
+class RemindQuotaApplicationApprovalResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RemindQuotaApplicationApprovalResponseBody> body{};
+
+  RemindQuotaApplicationApprovalResponse() {}
+
+  explicit RemindQuotaApplicationApprovalResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RemindQuotaApplicationApprovalResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RemindQuotaApplicationApprovalResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RemindQuotaApplicationApprovalResponse() = default;
+};
 class UpdateQuotaAlarmRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alarmId{};
@@ -7317,6 +7788,8 @@ public:
   GetQuotaAlarmResponse getQuotaAlarm(shared_ptr<GetQuotaAlarmRequest> request);
   GetQuotaApplicationResponse getQuotaApplicationWithOptions(shared_ptr<GetQuotaApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetQuotaApplicationResponse getQuotaApplication(shared_ptr<GetQuotaApplicationRequest> request);
+  GetQuotaApplicationApprovalResponse getQuotaApplicationApprovalWithOptions(shared_ptr<GetQuotaApplicationApprovalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetQuotaApplicationApprovalResponse getQuotaApplicationApproval(shared_ptr<GetQuotaApplicationApprovalRequest> request);
   GetQuotaTemplateServiceStatusResponse getQuotaTemplateServiceStatusWithOptions(shared_ptr<GetQuotaTemplateServiceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetQuotaTemplateServiceStatusResponse getQuotaTemplateServiceStatus(shared_ptr<GetQuotaTemplateServiceStatusRequest> request);
   ListAlarmHistoriesResponse listAlarmHistoriesWithOptions(shared_ptr<ListAlarmHistoriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7345,6 +7818,8 @@ public:
   ModifyQuotaTemplateServiceStatusResponse modifyQuotaTemplateServiceStatus(shared_ptr<ModifyQuotaTemplateServiceStatusRequest> request);
   ModifyTemplateQuotaItemResponse modifyTemplateQuotaItemWithOptions(shared_ptr<ModifyTemplateQuotaItemRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyTemplateQuotaItemResponse modifyTemplateQuotaItem(shared_ptr<ModifyTemplateQuotaItemRequest> request);
+  RemindQuotaApplicationApprovalResponse remindQuotaApplicationApprovalWithOptions(shared_ptr<RemindQuotaApplicationApprovalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RemindQuotaApplicationApprovalResponse remindQuotaApplicationApproval(shared_ptr<RemindQuotaApplicationApprovalRequest> request);
   UpdateQuotaAlarmResponse updateQuotaAlarmWithOptions(shared_ptr<UpdateQuotaAlarmRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateQuotaAlarmResponse updateQuotaAlarm(shared_ptr<UpdateQuotaAlarmRequest> request);
 
