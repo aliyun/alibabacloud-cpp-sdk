@@ -47479,7 +47479,7 @@ public:
   shared_ptr<string> keyScope{};
   shared_ptr<string> lastUsedTime{};
   shared_ptr<string> publicKey{};
-  shared_ptr<string> tittle{};
+  shared_ptr<string> title{};
 
   ListUserKeysResponseBodyResult() {}
 
@@ -47512,8 +47512,8 @@ public:
     if (publicKey) {
       res["publicKey"] = boost::any(*publicKey);
     }
-    if (tittle) {
-      res["tittle"] = boost::any(*tittle);
+    if (title) {
+      res["title"] = boost::any(*title);
     }
     return res;
   }
@@ -47540,8 +47540,8 @@ public:
     if (m.find("publicKey") != m.end() && !m["publicKey"].empty()) {
       publicKey = make_shared<string>(boost::any_cast<string>(m["publicKey"]));
     }
-    if (m.find("tittle") != m.end() && !m["tittle"].empty()) {
-      tittle = make_shared<string>(boost::any_cast<string>(m["tittle"]));
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
     }
   }
 
