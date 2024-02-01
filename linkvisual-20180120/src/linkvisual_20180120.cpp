@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -958,6 +957,95 @@ CreateRtmpDeviceResponse Alibabacloud_Linkvisual20180120::Client::createRtmpDevi
   return createRtmpDeviceWithOptions(request, runtime);
 }
 
+CreateStreamPushJobResponse Alibabacloud_Linkvisual20180120::Client::createStreamPushJobWithOptions(shared_ptr<CreateStreamPushJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    query->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotId)) {
+    query->insert(pair<string, string>("IotId", *request->iotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->jobType)) {
+    query->insert(pair<string, long>("JobType", *request->jobType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    query->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pushUrl)) {
+    query->insert(pair<string, string>("PushUrl", *request->pushUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->streamType)) {
+    query->insert(pair<string, long>("StreamType", *request->streamType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateStreamPushJob"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateStreamPushJobResponse(callApi(params, req, runtime));
+}
+
+CreateStreamPushJobResponse Alibabacloud_Linkvisual20180120::Client::createStreamPushJob(shared_ptr<CreateStreamPushJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createStreamPushJobWithOptions(request, runtime);
+}
+
+CreateStreamSnapshotJobResponse Alibabacloud_Linkvisual20180120::Client::createStreamSnapshotJobWithOptions(shared_ptr<CreateStreamSnapshotJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    query->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotId)) {
+    query->insert(pair<string, string>("IotId", *request->iotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    query->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->snapshotInterval)) {
+    query->insert(pair<string, long>("SnapshotInterval", *request->snapshotInterval));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->streamType)) {
+    query->insert(pair<string, long>("StreamType", *request->streamType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateStreamSnapshotJob"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateStreamSnapshotJobResponse(callApi(params, req, runtime));
+}
+
+CreateStreamSnapshotJobResponse Alibabacloud_Linkvisual20180120::Client::createStreamSnapshotJob(shared_ptr<CreateStreamSnapshotJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createStreamSnapshotJobWithOptions(request, runtime);
+}
+
 CreateTimeTemplateResponse Alibabacloud_Linkvisual20180120::Client::createTimeTemplateWithOptions(shared_ptr<CreateTimeTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1509,6 +1597,86 @@ DeleteRtmpKeyResponse Alibabacloud_Linkvisual20180120::Client::deleteRtmpKeyWith
 DeleteRtmpKeyResponse Alibabacloud_Linkvisual20180120::Client::deleteRtmpKey(shared_ptr<DeleteRtmpKeyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteRtmpKeyWithOptions(request, runtime);
+}
+
+DeleteStreamPushJobResponse Alibabacloud_Linkvisual20180120::Client::deleteStreamPushJobWithOptions(shared_ptr<DeleteStreamPushJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    query->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotId)) {
+    query->insert(pair<string, string>("IotId", *request->iotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    query->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    query->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteStreamPushJob"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteStreamPushJobResponse(callApi(params, req, runtime));
+}
+
+DeleteStreamPushJobResponse Alibabacloud_Linkvisual20180120::Client::deleteStreamPushJob(shared_ptr<DeleteStreamPushJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteStreamPushJobWithOptions(request, runtime);
+}
+
+DeleteStreamSnapshotJobResponse Alibabacloud_Linkvisual20180120::Client::deleteStreamSnapshotJobWithOptions(shared_ptr<DeleteStreamSnapshotJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    query->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotId)) {
+    query->insert(pair<string, string>("IotId", *request->iotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    query->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->streamType)) {
+    query->insert(pair<string, long>("StreamType", *request->streamType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteStreamSnapshotJob"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteStreamSnapshotJobResponse(callApi(params, req, runtime));
+}
+
+DeleteStreamSnapshotJobResponse Alibabacloud_Linkvisual20180120::Client::deleteStreamSnapshotJob(shared_ptr<DeleteStreamSnapshotJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteStreamSnapshotJobWithOptions(request, runtime);
 }
 
 DeleteTimeTemplateResponse Alibabacloud_Linkvisual20180120::Client::deleteTimeTemplateWithOptions(shared_ptr<DeleteTimeTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3596,6 +3764,129 @@ QueryRtmpKeyResponse Alibabacloud_Linkvisual20180120::Client::queryRtmpKeyWithOp
 QueryRtmpKeyResponse Alibabacloud_Linkvisual20180120::Client::queryRtmpKey(shared_ptr<QueryRtmpKeyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryRtmpKeyWithOptions(request, runtime);
+}
+
+QueryStreamPushJobResponse Alibabacloud_Linkvisual20180120::Client::queryStreamPushJobWithOptions(shared_ptr<QueryStreamPushJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    query->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotId)) {
+    query->insert(pair<string, string>("IotId", *request->iotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    query->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    query->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryStreamPushJob"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryStreamPushJobResponse(callApi(params, req, runtime));
+}
+
+QueryStreamPushJobResponse Alibabacloud_Linkvisual20180120::Client::queryStreamPushJob(shared_ptr<QueryStreamPushJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryStreamPushJobWithOptions(request, runtime);
+}
+
+QueryStreamPushJobListResponse Alibabacloud_Linkvisual20180120::Client::queryStreamPushJobListWithOptions(shared_ptr<QueryStreamPushJobListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    query->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotId)) {
+    query->insert(pair<string, string>("IotId", *request->iotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->jobType)) {
+    query->insert(pair<string, long>("JobType", *request->jobType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    query->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryStreamPushJobList"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryStreamPushJobListResponse(callApi(params, req, runtime));
+}
+
+QueryStreamPushJobListResponse Alibabacloud_Linkvisual20180120::Client::queryStreamPushJobList(shared_ptr<QueryStreamPushJobListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryStreamPushJobListWithOptions(request, runtime);
+}
+
+QueryStreamSnapshotJobResponse Alibabacloud_Linkvisual20180120::Client::queryStreamSnapshotJobWithOptions(shared_ptr<QueryStreamSnapshotJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    query->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotId)) {
+    query->insert(pair<string, string>("IotId", *request->iotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    query->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryStreamSnapshotJob"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryStreamSnapshotJobResponse(callApi(params, req, runtime));
+}
+
+QueryStreamSnapshotJobResponse Alibabacloud_Linkvisual20180120::Client::queryStreamSnapshotJob(shared_ptr<QueryStreamSnapshotJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryStreamSnapshotJobWithOptions(request, runtime);
 }
 
 QueryTimeTemplateResponse Alibabacloud_Linkvisual20180120::Client::queryTimeTemplateWithOptions(shared_ptr<QueryTimeTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
