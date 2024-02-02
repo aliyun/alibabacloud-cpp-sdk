@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1098,6 +1097,49 @@ QueryAvailableAuthCodeResponse Alibabacloud_Dytnsapi20200217::Client::queryAvail
 QueryAvailableAuthCodeResponse Alibabacloud_Dytnsapi20200217::Client::queryAvailableAuthCode(shared_ptr<QueryAvailableAuthCodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryAvailableAuthCodeWithOptions(request, runtime);
+}
+
+QueryPhoneNumberOnlineTimeResponse Alibabacloud_Dytnsapi20200217::Client::queryPhoneNumberOnlineTimeWithOptions(shared_ptr<QueryPhoneNumberOnlineTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
+    query->insert(pair<string, string>("AuthCode", *request->authCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
+    query->insert(pair<string, string>("InputNumber", *request->inputNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mask)) {
+    query->insert(pair<string, string>("Mask", *request->mask));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryPhoneNumberOnlineTime"))},
+    {"version", boost::any(string("2020-02-17"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryPhoneNumberOnlineTimeResponse(callApi(params, req, runtime));
+}
+
+QueryPhoneNumberOnlineTimeResponse Alibabacloud_Dytnsapi20200217::Client::queryPhoneNumberOnlineTime(shared_ptr<QueryPhoneNumberOnlineTimeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryPhoneNumberOnlineTimeWithOptions(request, runtime);
 }
 
 QueryTagApplyRuleResponse Alibabacloud_Dytnsapi20200217::Client::queryTagApplyRuleWithOptions(shared_ptr<QueryTagApplyRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
