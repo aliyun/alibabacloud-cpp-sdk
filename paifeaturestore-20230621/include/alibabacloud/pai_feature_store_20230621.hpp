@@ -8829,6 +8829,7 @@ public:
   shared_ptr<string> featureViewId{};
   shared_ptr<vector<ListProjectFeatureViewsResponseBodyFeatureViewsFeatures>> features{};
   shared_ptr<string> name{};
+  shared_ptr<string> type{};
 
   ListProjectFeatureViewsResponseBodyFeatureViews() {}
 
@@ -8853,6 +8854,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -8875,6 +8879,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
