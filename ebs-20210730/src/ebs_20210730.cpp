@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1495,6 +1494,51 @@ ModifyDiskReplicaPairResponse Alibabacloud_Ebs20210730::Client::modifyDiskReplic
   return modifyDiskReplicaPairWithOptions(request, runtime);
 }
 
+QueryDedicatedBlockStorageClusterInventoryDataResponse Alibabacloud_Ebs20210730::Client::queryDedicatedBlockStorageClusterInventoryDataWithOptions(shared_ptr<QueryDedicatedBlockStorageClusterInventoryDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbscId)) {
+    body->insert(pair<string, string>("DbscId", *request->dbscId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    body->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
+    body->insert(pair<string, long>("Period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    body->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryDedicatedBlockStorageClusterInventoryData"))},
+    {"version", boost::any(string("2021-07-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryDedicatedBlockStorageClusterInventoryDataResponse(callApi(params, req, runtime));
+}
+
+QueryDedicatedBlockStorageClusterInventoryDataResponse Alibabacloud_Ebs20210730::Client::queryDedicatedBlockStorageClusterInventoryData(shared_ptr<QueryDedicatedBlockStorageClusterInventoryDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryDedicatedBlockStorageClusterInventoryDataWithOptions(request, runtime);
+}
+
 RemoveDiskReplicaPairResponse Alibabacloud_Ebs20210730::Client::removeDiskReplicaPairWithOptions(shared_ptr<RemoveDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1604,42 +1648,6 @@ ReprotectDiskReplicaPairResponse Alibabacloud_Ebs20210730::Client::reprotectDisk
 ReprotectDiskReplicaPairResponse Alibabacloud_Ebs20210730::Client::reprotectDiskReplicaPair(shared_ptr<ReprotectDiskReplicaPairRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return reprotectDiskReplicaPairWithOptions(request, runtime);
-}
-
-StartDiskMonitorResponse Alibabacloud_Ebs20210730::Client::startDiskMonitorWithOptions(shared_ptr<StartDiskMonitorRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<StartDiskMonitorShrinkRequest> request = make_shared<StartDiskMonitorShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->diskIds)) {
-    request->diskIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->diskIds, make_shared<string>("DiskIds"), make_shared<string>("json")));
-  }
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->diskIdsShrink)) {
-    query->insert(pair<string, string>("DiskIds", *request->diskIdsShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("StartDiskMonitor"))},
-    {"version", boost::any(string("2021-07-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return StartDiskMonitorResponse(callApi(params, req, runtime));
-}
-
-StartDiskMonitorResponse Alibabacloud_Ebs20210730::Client::startDiskMonitor(shared_ptr<StartDiskMonitorRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return startDiskMonitorWithOptions(request, runtime);
 }
 
 StartDiskReplicaGroupResponse Alibabacloud_Ebs20210730::Client::startDiskReplicaGroupWithOptions(shared_ptr<StartDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1782,42 +1790,6 @@ StartReplicaGroupDrillResponse Alibabacloud_Ebs20210730::Client::startReplicaGro
 StartReplicaGroupDrillResponse Alibabacloud_Ebs20210730::Client::startReplicaGroupDrill(shared_ptr<StartReplicaGroupDrillRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return startReplicaGroupDrillWithOptions(request, runtime);
-}
-
-StopDiskMonitorResponse Alibabacloud_Ebs20210730::Client::stopDiskMonitorWithOptions(shared_ptr<StopDiskMonitorRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<StopDiskMonitorShrinkRequest> request = make_shared<StopDiskMonitorShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->diskIds)) {
-    request->diskIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->diskIds, make_shared<string>("DiskIds"), make_shared<string>("json")));
-  }
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->diskIdsShrink)) {
-    query->insert(pair<string, string>("DiskIds", *request->diskIdsShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("StopDiskMonitor"))},
-    {"version", boost::any(string("2021-07-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return StopDiskMonitorResponse(callApi(params, req, runtime));
-}
-
-StopDiskMonitorResponse Alibabacloud_Ebs20210730::Client::stopDiskMonitor(shared_ptr<StopDiskMonitorRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return stopDiskMonitorWithOptions(request, runtime);
 }
 
 StopDiskReplicaGroupResponse Alibabacloud_Ebs20210730::Client::stopDiskReplicaGroupWithOptions(shared_ptr<StopDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
