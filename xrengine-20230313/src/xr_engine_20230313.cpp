@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -678,6 +677,37 @@ LocateResponse Alibabacloud_XrEngine20230313::Client::locateWithOptions(shared_p
 LocateResponse Alibabacloud_XrEngine20230313::Client::locate(shared_ptr<LocateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return locateWithOptions(request, runtime);
+}
+
+LoginHuggingFaceResponse Alibabacloud_XrEngine20230313::Client::loginHuggingFaceWithOptions(shared_ptr<LoginHuggingFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
+    body->insert(pair<string, string>("Token", *request->token));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    body->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("LoginHuggingFace"))},
+    {"version", boost::any(string("2023-03-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return LoginHuggingFaceResponse(callApi(params, req, runtime));
+}
+
+LoginHuggingFaceResponse Alibabacloud_XrEngine20230313::Client::loginHuggingFace(shared_ptr<LoginHuggingFaceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return loginHuggingFaceWithOptions(request, runtime);
 }
 
 LoginModelScopeResponse Alibabacloud_XrEngine20230313::Client::loginModelScopeWithOptions(shared_ptr<LoginModelScopeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
