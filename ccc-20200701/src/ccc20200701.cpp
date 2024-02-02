@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -655,6 +654,40 @@ CancelAttendedTransferResponse Alibabacloud_CCC20200701::Client::cancelAttendedT
 CancelAttendedTransferResponse Alibabacloud_CCC20200701::Client::cancelAttendedTransfer(shared_ptr<CancelAttendedTransferRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return cancelAttendedTransferWithOptions(request, runtime);
+}
+
+ChangeVisibilityResponse Alibabacloud_CCC20200701::Client::changeVisibilityWithOptions(shared_ptr<ChangeVisibilityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->invisible)) {
+    query->insert(pair<string, bool>("Invisible", *request->invisible));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("UserId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ChangeVisibility"))},
+    {"version", boost::any(string("2020-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ChangeVisibilityResponse(callApi(params, req, runtime));
+}
+
+ChangeVisibilityResponse Alibabacloud_CCC20200701::Client::changeVisibility(shared_ptr<ChangeVisibilityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return changeVisibilityWithOptions(request, runtime);
 }
 
 ChangeWorkModeResponse Alibabacloud_CCC20200701::Client::changeWorkModeWithOptions(shared_ptr<ChangeWorkModeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4724,6 +4757,9 @@ MakeCallResponse Alibabacloud_CCC20200701::Client::makeCallWithOptions(shared_pt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->maskedCallee)) {
     query->insert(pair<string, string>("MaskedCallee", *request->maskedCallee));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tags)) {
     query->insert(pair<string, string>("Tags", *request->tags));
