@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -3172,6 +3171,9 @@ DescribeDBProxyPerformanceResponse Alibabacloud_Polardb20170801::Client::describ
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBEndpointId)) {
+    query->insert(pair<string, string>("DBEndpointId", *request->DBEndpointId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
@@ -7204,55 +7206,6 @@ UntagResourcesResponse Alibabacloud_Polardb20170801::Client::untagResourcesWithO
 UntagResourcesResponse Alibabacloud_Polardb20170801::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return untagResourcesWithOptions(request, runtime);
-}
-
-UpgradeDBClusterMinorVersionResponse Alibabacloud_Polardb20170801::Client::upgradeDBClusterMinorVersionWithOptions(shared_ptr<UpgradeDBClusterMinorVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
-    query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->fromTimeService)) {
-    query->insert(pair<string, bool>("FromTimeService", *request->fromTimeService));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
-    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
-    query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->plannedEndTime)) {
-    query->insert(pair<string, string>("PlannedEndTime", *request->plannedEndTime));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->plannedStartTime)) {
-    query->insert(pair<string, string>("PlannedStartTime", *request->plannedStartTime));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
-    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
-    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("UpgradeDBClusterMinorVersion"))},
-    {"version", boost::any(string("2017-08-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return UpgradeDBClusterMinorVersionResponse(callApi(params, req, runtime));
-}
-
-UpgradeDBClusterMinorVersionResponse Alibabacloud_Polardb20170801::Client::upgradeDBClusterMinorVersion(shared_ptr<UpgradeDBClusterMinorVersionRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return upgradeDBClusterMinorVersionWithOptions(request, runtime);
 }
 
 UpgradeDBClusterVersionResponse Alibabacloud_Polardb20170801::Client::upgradeDBClusterVersionWithOptions(shared_ptr<UpgradeDBClusterVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
