@@ -498,9 +498,6 @@ DocOcrResponse Alibabacloud_Cloudauth-intl20220809::Client::docOcrWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->idFaceQuality)) {
     query->insert(pair<string, string>("IdFaceQuality", *request->idFaceQuality));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->idOcrPictureBase64)) {
-    query->insert(pair<string, string>("IdOcrPictureBase64", *request->idOcrPictureBase64));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->idOcrPictureUrl)) {
     query->insert(pair<string, string>("IdOcrPictureUrl", *request->idOcrPictureUrl));
   }
@@ -519,8 +516,13 @@ DocOcrResponse Alibabacloud_Cloudauth-intl20220809::Client::docOcrWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->spoof)) {
     query->insert(pair<string, string>("Spoof", *request->spoof));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->idOcrPictureBase64)) {
+    body->insert(pair<string, string>("IdOcrPictureBase64", *request->idOcrPictureBase64));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DocOcr"))},
@@ -559,14 +561,8 @@ EkycVerifyResponse Alibabacloud_Cloudauth-intl20220809::Client::ekycVerifyWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->docType)) {
     query->insert(pair<string, string>("DocType", *request->docType));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->facePictureBase64)) {
-    query->insert(pair<string, string>("FacePictureBase64", *request->facePictureBase64));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->facePictureUrl)) {
     query->insert(pair<string, string>("FacePictureUrl", *request->facePictureUrl));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->idOcrPictureBase64)) {
-    query->insert(pair<string, string>("IdOcrPictureBase64", *request->idOcrPictureBase64));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->idOcrPictureUrl)) {
     query->insert(pair<string, string>("IdOcrPictureUrl", *request->idOcrPictureUrl));
@@ -580,8 +576,16 @@ EkycVerifyResponse Alibabacloud_Cloudauth-intl20220809::Client::ekycVerifyWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
     query->insert(pair<string, string>("ProductCode", *request->productCode));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->facePictureBase64)) {
+    body->insert(pair<string, string>("FacePictureBase64", *request->facePictureBase64));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->idOcrPictureBase64)) {
+    body->insert(pair<string, string>("IdOcrPictureBase64", *request->idOcrPictureBase64));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("EkycVerify"))},
@@ -608,20 +612,22 @@ FaceCompareResponse Alibabacloud_Cloudauth-intl20220809::Client::faceCompareWith
   if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
     query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sourceFacePicture)) {
-    query->insert(pair<string, string>("SourceFacePicture", *request->sourceFacePicture));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceFacePictureUrl)) {
     query->insert(pair<string, string>("SourceFacePictureUrl", *request->sourceFacePictureUrl));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->targetFacePicture)) {
-    query->insert(pair<string, string>("TargetFacePicture", *request->targetFacePicture));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->targetFacePictureUrl)) {
     query->insert(pair<string, string>("TargetFacePictureUrl", *request->targetFacePictureUrl));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceFacePicture)) {
+    body->insert(pair<string, string>("SourceFacePicture", *request->sourceFacePicture));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetFacePicture)) {
+    body->insert(pair<string, string>("TargetFacePicture", *request->targetFacePicture));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("FaceCompare"))},
@@ -788,9 +794,6 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->docType)) {
     query->insert(pair<string, string>("DocType", *request->docType));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->facePictureBase64)) {
-    query->insert(pair<string, string>("FacePictureBase64", *request->facePictureBase64));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->facePictureUrl)) {
     query->insert(pair<string, string>("FacePictureUrl", *request->facePictureUrl));
   }
@@ -839,11 +842,19 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->sceneCode)) {
     query->insert(pair<string, string>("SceneCode", *request->sceneCode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityLevel)) {
+    query->insert(pair<string, string>("SecurityLevel", *request->securityLevel));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceLevel)) {
     query->insert(pair<string, string>("ServiceLevel", *request->serviceLevel));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->facePictureBase64)) {
+    body->insert(pair<string, string>("FacePictureBase64", *request->facePictureBase64));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("Initialize"))},

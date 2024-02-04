@@ -4680,6 +4680,7 @@ public:
   shared_ptr<string> productFlow{};
   shared_ptr<string> returnUrl{};
   shared_ptr<string> sceneCode{};
+  shared_ptr<string> securityLevel{};
   shared_ptr<string> serviceLevel{};
 
   InitializeRequest() {}
@@ -4761,6 +4762,9 @@ public:
     if (sceneCode) {
       res["SceneCode"] = boost::any(*sceneCode);
     }
+    if (securityLevel) {
+      res["SecurityLevel"] = boost::any(*securityLevel);
+    }
     if (serviceLevel) {
       res["ServiceLevel"] = boost::any(*serviceLevel);
     }
@@ -4836,6 +4840,9 @@ public:
     }
     if (m.find("SceneCode") != m.end() && !m["SceneCode"].empty()) {
       sceneCode = make_shared<string>(boost::any_cast<string>(m["SceneCode"]));
+    }
+    if (m.find("SecurityLevel") != m.end() && !m["SecurityLevel"].empty()) {
+      securityLevel = make_shared<string>(boost::any_cast<string>(m["SecurityLevel"]));
     }
     if (m.find("ServiceLevel") != m.end() && !m["ServiceLevel"].empty()) {
       serviceLevel = make_shared<string>(boost::any_cast<string>(m["ServiceLevel"]));
