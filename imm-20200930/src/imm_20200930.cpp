@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -2436,6 +2435,45 @@ DetectImageScoreResponse Alibabacloud_Imm20200930::Client::detectImageScoreWithO
 DetectImageScoreResponse Alibabacloud_Imm20200930::Client::detectImageScore(shared_ptr<DetectImageScoreRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return detectImageScoreWithOptions(request, runtime);
+}
+
+DetectImageTextsResponse Alibabacloud_Imm20200930::Client::detectImageTextsWithOptions(shared_ptr<DetectImageTextsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DetectImageTextsShrinkRequest> request = make_shared<DetectImageTextsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    query->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceURI)) {
+    query->insert(pair<string, string>("SourceURI", *request->sourceURI));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DetectImageTexts"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DetectImageTextsResponse(callApi(params, req, runtime));
+}
+
+DetectImageTextsResponse Alibabacloud_Imm20200930::Client::detectImageTexts(shared_ptr<DetectImageTextsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return detectImageTextsWithOptions(request, runtime);
 }
 
 DetectMediaMetaResponse Alibabacloud_Imm20200930::Client::detectMediaMetaWithOptions(shared_ptr<DetectMediaMetaRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
