@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_FOASCONSOLE20190601_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -256,17 +255,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -430,17 +419,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -479,6 +458,42 @@ public:
 
 
   virtual ~ConvertPrepayInstanceResponse() = default;
+};
+class CreateInstanceRequestCreateInstanceRequestHaResourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> memoryGB{};
+
+  CreateInstanceRequestCreateInstanceRequestHaResourceSpec() {}
+
+  explicit CreateInstanceRequestCreateInstanceRequestHaResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memoryGB) {
+      res["MemoryGB"] = boost::any(*memoryGB);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
+      memoryGB = make_shared<long>(boost::any_cast<long>(m["MemoryGB"]));
+    }
+  }
+
+
+  virtual ~CreateInstanceRequestCreateInstanceRequestHaResourceSpec() = default;
 };
 class CreateInstanceRequestCreateInstanceRequestResourceSpec : public Darabonba::Model {
 public:
@@ -585,7 +600,12 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<long> duration{};
   shared_ptr<string> extra{};
+  shared_ptr<bool> ha{};
+  shared_ptr<CreateInstanceRequestCreateInstanceRequestHaResourceSpec> haResourceSpec{};
+  shared_ptr<vector<string>> haVSwitchIds{};
+  shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceName{};
+  shared_ptr<string> monitorType{};
   shared_ptr<string> pricingCycle{};
   shared_ptr<string> promotionCode{};
   shared_ptr<string> region{};
@@ -622,8 +642,23 @@ public:
     if (extra) {
       res["Extra"] = boost::any(*extra);
     }
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpec) {
+      res["HaResourceSpec"] = haResourceSpec ? boost::any(haResourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (haVSwitchIds) {
+      res["HaVSwitchIds"] = boost::any(*haVSwitchIds);
+    }
+    if (haZoneId) {
+      res["HaZoneId"] = boost::any(*haZoneId);
+    }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (monitorType) {
+      res["MonitorType"] = boost::any(*monitorType);
     }
     if (pricingCycle) {
       res["PricingCycle"] = boost::any(*pricingCycle);
@@ -674,8 +709,34 @@ public:
     if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
       extra = make_shared<string>(boost::any_cast<string>(m["Extra"]));
     }
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HaResourceSpec"].type()) {
+        CreateInstanceRequestCreateInstanceRequestHaResourceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HaResourceSpec"]));
+        haResourceSpec = make_shared<CreateInstanceRequestCreateInstanceRequestHaResourceSpec>(model1);
+      }
+    }
+    if (m.find("HaVSwitchIds") != m.end() && !m["HaVSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HaVSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HaVSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      haVSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
+      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
+    }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("MonitorType") != m.end() && !m["MonitorType"].empty()) {
+      monitorType = make_shared<string>(boost::any_cast<string>(m["MonitorType"]));
     }
     if (m.find("PricingCycle") != m.end() && !m["PricingCycle"].empty()) {
       pricingCycle = make_shared<string>(boost::any_cast<string>(m["PricingCycle"]));
@@ -855,17 +916,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -943,6 +994,7 @@ public:
 };
 class CreateNamespaceRequestCreateNamespaceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> ha{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> region{};
@@ -958,6 +1010,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -974,6 +1029,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -1076,17 +1134,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1243,17 +1291,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1417,17 +1455,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1628,6 +1656,42 @@ public:
 
   virtual ~DescribeInstancesRequest() = default;
 };
+class DescribeInstancesResponseBodyInstancesHaResourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> memoryGB{};
+
+  DescribeInstancesResponseBodyInstancesHaResourceSpec() {}
+
+  explicit DescribeInstancesResponseBodyInstancesHaResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memoryGB) {
+      res["MemoryGB"] = boost::any(*memoryGB);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
+      memoryGB = make_shared<long>(boost::any_cast<long>(m["MemoryGB"]));
+    }
+  }
+
+
+  virtual ~DescribeInstancesResponseBodyInstancesHaResourceSpec() = default;
+};
 class DescribeInstancesResponseBodyInstancesHostAliases : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> hostNames{};
@@ -1811,9 +1875,14 @@ public:
   shared_ptr<string> askClusterId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> clusterStatus{};
+  shared_ptr<bool> ha{};
+  shared_ptr<DescribeInstancesResponseBodyInstancesHaResourceSpec> haResourceSpec{};
+  shared_ptr<vector<string>> haVSwitchIds{};
+  shared_ptr<string> haZoneId{};
   shared_ptr<vector<DescribeInstancesResponseBodyInstancesHostAliases>> hostAliases{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
+  shared_ptr<string> monitorType{};
   shared_ptr<string> orderState{};
   shared_ptr<string> region{};
   shared_ptr<long> resourceCreateTime{};
@@ -1850,6 +1919,18 @@ public:
     if (clusterStatus) {
       res["ClusterStatus"] = boost::any(*clusterStatus);
     }
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpec) {
+      res["HaResourceSpec"] = haResourceSpec ? boost::any(haResourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (haVSwitchIds) {
+      res["HaVSwitchIds"] = boost::any(*haVSwitchIds);
+    }
+    if (haZoneId) {
+      res["HaZoneId"] = boost::any(*haZoneId);
+    }
     if (hostAliases) {
       vector<boost::any> temp1;
       for(auto item1:*hostAliases){
@@ -1862,6 +1943,9 @@ public:
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (monitorType) {
+      res["MonitorType"] = boost::any(*monitorType);
     }
     if (orderState) {
       res["OrderState"] = boost::any(*orderState);
@@ -1922,6 +2006,29 @@ public:
     if (m.find("ClusterStatus") != m.end() && !m["ClusterStatus"].empty()) {
       clusterStatus = make_shared<string>(boost::any_cast<string>(m["ClusterStatus"]));
     }
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HaResourceSpec"].type()) {
+        DescribeInstancesResponseBodyInstancesHaResourceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HaResourceSpec"]));
+        haResourceSpec = make_shared<DescribeInstancesResponseBodyInstancesHaResourceSpec>(model1);
+      }
+    }
+    if (m.find("HaVSwitchIds") != m.end() && !m["HaVSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HaVSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HaVSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      haVSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
+      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
+    }
     if (m.find("HostAliases") != m.end() && !m["HostAliases"].empty()) {
       if (typeid(vector<boost::any>) == m["HostAliases"].type()) {
         vector<DescribeInstancesResponseBodyInstancesHostAliases> expect1;
@@ -1940,6 +2047,9 @@ public:
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("MonitorType") != m.end() && !m["MonitorType"].empty()) {
+      monitorType = make_shared<string>(boost::any_cast<string>(m["MonitorType"]));
     }
     if (m.find("OrderState") != m.end() && !m["OrderState"].empty()) {
       orderState = make_shared<string>(boost::any_cast<string>(m["OrderState"]));
@@ -2107,17 +2217,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2195,6 +2295,7 @@ public:
 };
 class DescribeNamespacesRequestDescribeNamespacesRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> ha{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> namespace_{};
   shared_ptr<long> pageIndex{};
@@ -2212,6 +2313,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -2238,6 +2342,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -2423,6 +2530,7 @@ class DescribeNamespacesResponseBodyNamespaces : public Darabonba::Model {
 public:
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
+  shared_ptr<bool> ha{};
   shared_ptr<string> namespace_{};
   shared_ptr<DescribeNamespacesResponseBodyNamespacesResourceSpec> resourceSpec{};
   shared_ptr<DescribeNamespacesResponseBodyNamespacesResourceUsed> resourceUsed{};
@@ -2444,6 +2552,9 @@ public:
     }
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
@@ -2473,6 +2584,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
+    }
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
@@ -2609,17 +2723,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2764,17 +2868,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2912,17 +3006,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3209,17 +3293,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3259,6 +3333,42 @@ public:
 
   virtual ~ListTagResourcesResponse() = default;
 };
+class ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestHaResourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> memoryGB{};
+
+  ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestHaResourceSpec() {}
+
+  explicit ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestHaResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memoryGB) {
+      res["MemoryGB"] = boost::any(*memoryGB);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
+      memoryGB = make_shared<long>(boost::any_cast<long>(m["MemoryGB"]));
+    }
+  }
+
+
+  virtual ~ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestHaResourceSpec() = default;
+};
 class ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestResourceSpec : public Darabonba::Model {
 public:
   shared_ptr<long> cpu{};
@@ -3297,6 +3407,10 @@ public:
 };
 class ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> ha{};
+  shared_ptr<ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestHaResourceSpec> haResourceSpec{};
+  shared_ptr<vector<string>> haVSwitchIds{};
+  shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> region{};
   shared_ptr<ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestResourceSpec> resourceSpec{};
@@ -3311,6 +3425,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpec) {
+      res["HaResourceSpec"] = haResourceSpec ? boost::any(haResourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (haVSwitchIds) {
+      res["HaVSwitchIds"] = boost::any(*haVSwitchIds);
+    }
+    if (haZoneId) {
+      res["HaZoneId"] = boost::any(*haZoneId);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -3324,6 +3450,29 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HaResourceSpec"].type()) {
+        ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestHaResourceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HaResourceSpec"]));
+        haResourceSpec = make_shared<ModifyPrepayInstanceSpecRequestModifyPrepayInstanceSpecRequestHaResourceSpec>(model1);
+      }
+    }
+    if (m.find("HaVSwitchIds") != m.end() && !m["HaVSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HaVSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HaVSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      haVSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
+      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -3430,17 +3579,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3651,17 +3790,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4139,17 +4268,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4509,17 +4628,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4558,6 +4667,42 @@ public:
 
 
   virtual ~QueryConvertPrepayInstancePriceResponse() = default;
+};
+class QueryCreateInstancePriceRequestCreateInstanceRequestHaResourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> memoryGB{};
+
+  QueryCreateInstancePriceRequestCreateInstanceRequestHaResourceSpec() {}
+
+  explicit QueryCreateInstancePriceRequestCreateInstanceRequestHaResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memoryGB) {
+      res["MemoryGB"] = boost::any(*memoryGB);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
+      memoryGB = make_shared<long>(boost::any_cast<long>(m["MemoryGB"]));
+    }
+  }
+
+
+  virtual ~QueryCreateInstancePriceRequestCreateInstanceRequestHaResourceSpec() = default;
 };
 class QueryCreateInstancePriceRequestCreateInstanceRequestResourceSpec : public Darabonba::Model {
 public:
@@ -4664,6 +4809,8 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<long> duration{};
   shared_ptr<string> extra{};
+  shared_ptr<bool> ha{};
+  shared_ptr<QueryCreateInstancePriceRequestCreateInstanceRequestHaResourceSpec> haResourceSpec{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> pricingCycle{};
   shared_ptr<string> promotionCode{};
@@ -4699,6 +4846,12 @@ public:
     }
     if (extra) {
       res["Extra"] = boost::any(*extra);
+    }
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpec) {
+      res["HaResourceSpec"] = haResourceSpec ? boost::any(haResourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
@@ -4748,6 +4901,16 @@ public:
     }
     if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
       extra = make_shared<string>(boost::any_cast<string>(m["Extra"]));
+    }
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HaResourceSpec"].type()) {
+        QueryCreateInstancePriceRequestCreateInstanceRequestHaResourceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HaResourceSpec"]));
+        haResourceSpec = make_shared<QueryCreateInstancePriceRequestCreateInstanceRequestHaResourceSpec>(model1);
+      }
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
@@ -5083,17 +5246,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5133,6 +5286,42 @@ public:
 
   virtual ~QueryCreateInstancePriceResponse() = default;
 };
+class QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestHaResourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> memoryGB{};
+
+  QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestHaResourceSpec() {}
+
+  explicit QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestHaResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memoryGB) {
+      res["MemoryGB"] = boost::any(*memoryGB);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
+      memoryGB = make_shared<long>(boost::any_cast<long>(m["MemoryGB"]));
+    }
+  }
+
+
+  virtual ~QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestHaResourceSpec() = default;
+};
 class QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestResourceSpec : public Darabonba::Model {
 public:
   shared_ptr<long> cpu{};
@@ -5171,6 +5360,10 @@ public:
 };
 class QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> ha{};
+  shared_ptr<QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestHaResourceSpec> haResourceSpec{};
+  shared_ptr<vector<string>> haVSwitchIds{};
+  shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> region{};
   shared_ptr<QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestResourceSpec> resourceSpec{};
@@ -5185,6 +5378,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpec) {
+      res["HaResourceSpec"] = haResourceSpec ? boost::any(haResourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (haVSwitchIds) {
+      res["HaVSwitchIds"] = boost::any(*haVSwitchIds);
+    }
+    if (haZoneId) {
+      res["HaZoneId"] = boost::any(*haZoneId);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -5198,6 +5403,29 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HaResourceSpec"].type()) {
+        QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestHaResourceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HaResourceSpec"]));
+        haResourceSpec = make_shared<QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequestHaResourceSpec>(model1);
+      }
+    }
+    if (m.find("HaVSwitchIds") != m.end() && !m["HaVSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HaVSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HaVSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      haVSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
+      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -5500,17 +5728,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5884,17 +6102,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6072,17 +6280,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6298,17 +6496,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6488,17 +6676,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
