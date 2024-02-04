@@ -111,6 +111,9 @@ AbolishApiResponse Alibabacloud_CloudAPI20160201::Client::abolishApiWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->stageName)) {
     query->insert(pair<string, string>("StageName", *request->stageName));
   }
@@ -147,6 +150,9 @@ AbolishApiForInnerResponse Alibabacloud_CloudAPI20160201::Client::abolishApiForI
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->stageName)) {
     query->insert(pair<string, string>("StageName", *request->stageName));

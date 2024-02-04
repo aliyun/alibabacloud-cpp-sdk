@@ -17,6 +17,7 @@ class AbolishApiRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   AbolishApiRequest() {}
@@ -35,6 +36,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -47,6 +51,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -142,6 +149,7 @@ public:
   shared_ptr<long> aliUid{};
   shared_ptr<string> apiId{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   AbolishApiForInnerRequest() {}
@@ -163,6 +171,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -178,6 +189,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
