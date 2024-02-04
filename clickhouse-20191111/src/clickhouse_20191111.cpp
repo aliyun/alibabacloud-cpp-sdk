@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -2419,6 +2418,9 @@ ModifyDBClusterResponse Alibabacloud_Clickhouse20191111::Client::modifyDBCluster
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBNodeStorage)) {
     query->insert(pair<string, string>("DBNodeStorage", *request->DBNodeStorage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbNodeStorageType)) {
+    query->insert(pair<string, string>("DbNodeStorageType", *request->dbNodeStorageType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
