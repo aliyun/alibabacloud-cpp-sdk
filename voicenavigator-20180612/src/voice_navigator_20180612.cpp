@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -53,6 +52,9 @@ AssociateChatbotInstanceResponse Alibabacloud_VoiceNavigator20180612::Client::as
   if (!Darabonba_Util::Client::isUnset<string>(request->nluServiceParamsJson)) {
     query->insert(pair<string, string>("NluServiceParamsJson", *request->nluServiceParamsJson));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nluServiceType)) {
+    query->insert(pair<string, string>("NluServiceType", *request->nluServiceType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->unionSource)) {
     query->insert(pair<string, string>("UnionSource", *request->unionSource));
   }
@@ -81,8 +83,23 @@ AssociateChatbotInstanceResponse Alibabacloud_VoiceNavigator20180612::Client::as
 AuditTTSVoiceResponse Alibabacloud_VoiceNavigator20180612::Client::auditTTSVoiceWithOptions(shared_ptr<AuditTTSVoiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessKey)) {
+    query->insert(pair<string, string>("AccessKey", *request->accessKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appKey)) {
+    query->insert(pair<string, string>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
+    query->insert(pair<string, string>("Engine", *request->engine));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pitchRate)) {
+    query->insert(pair<string, string>("PitchRate", *request->pitchRate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->secretKey)) {
+    query->insert(pair<string, string>("SecretKey", *request->secretKey));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->speechRate)) {
     query->insert(pair<string, string>("SpeechRate", *request->speechRate));
@@ -1291,6 +1308,12 @@ ModifyTTSConfigResponse Alibabacloud_VoiceNavigator20180612::Client::modifyTTSCo
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appKey)) {
     query->insert(pair<string, string>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
+    query->insert(pair<string, string>("Engine", *request->engine));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engineXunfei)) {
+    query->insert(pair<string, string>("EngineXunfei", *request->engineXunfei));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
