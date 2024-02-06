@@ -476,6 +476,54 @@ ApplyApproveResponse Alibabacloud_BtripOpen20220520::Client::applyApprove(shared
   return applyApproveWithOptions(request, headers, runtime);
 }
 
+ApplyExternalNodeStatusUpdateResponse Alibabacloud_BtripOpen20220520::Client::applyExternalNodeStatusUpdateWithOptions(shared_ptr<ApplyExternalNodeStatusUpdateRequest> tmpReq, shared_ptr<ApplyExternalNodeStatusUpdateHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ApplyExternalNodeStatusUpdateShrinkRequest> request = make_shared<ApplyExternalNodeStatusUpdateShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ApplyExternalNodeStatusUpdateRequestOperationRecords>>(tmpReq->operationRecords)) {
+    request->operationRecordsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->operationRecords, make_shared<string>("operation_records"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeId)) {
+    body->insert(pair<string, string>("node_id", *request->nodeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operationRecordsShrink)) {
+    body->insert(pair<string, string>("operation_records", *request->operationRecordsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processActionResult)) {
+    body->insert(pair<string, string>("process_action_result", *request->processActionResult));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ApplyExternalNodeStatusUpdate"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/apply/v1/external-nodes/action/status-update"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ApplyExternalNodeStatusUpdateResponse(callApi(params, req, runtime));
+}
+
+ApplyExternalNodeStatusUpdateResponse Alibabacloud_BtripOpen20220520::Client::applyExternalNodeStatusUpdate(shared_ptr<ApplyExternalNodeStatusUpdateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ApplyExternalNodeStatusUpdateHeaders> headers = make_shared<ApplyExternalNodeStatusUpdateHeaders>();
+  return applyExternalNodeStatusUpdateWithOptions(request, headers, runtime);
+}
+
 ApplyInvoiceTaskResponse Alibabacloud_BtripOpen20220520::Client::applyInvoiceTaskWithOptions(shared_ptr<ApplyInvoiceTaskRequest> tmpReq, shared_ptr<ApplyInvoiceTaskHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ApplyInvoiceTaskShrinkRequest> request = make_shared<ApplyInvoiceTaskShrinkRequest>();

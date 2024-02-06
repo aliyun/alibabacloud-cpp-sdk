@@ -9105,6 +9105,320 @@ public:
 
   virtual ~ApplyApproveResponse() = default;
 };
+class ApplyExternalNodeStatusUpdateHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripCorpToken{};
+
+  ApplyExternalNodeStatusUpdateHeaders() {}
+
+  explicit ApplyExternalNodeStatusUpdateHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripCorpToken) {
+      res["x-acs-btrip-corp-token"] = boost::any(*xAcsBtripCorpToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-corp-token") != m.end() && !m["x-acs-btrip-corp-token"].empty()) {
+      xAcsBtripCorpToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-corp-token"]));
+    }
+  }
+
+
+  virtual ~ApplyExternalNodeStatusUpdateHeaders() = default;
+};
+class ApplyExternalNodeStatusUpdateRequestOperationRecords : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> operateTime{};
+  shared_ptr<string> operatorName{};
+  shared_ptr<string> result{};
+  shared_ptr<string> type{};
+
+  ApplyExternalNodeStatusUpdateRequestOperationRecords() {}
+
+  explicit ApplyExternalNodeStatusUpdateRequestOperationRecords(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["comment"] = boost::any(*comment);
+    }
+    if (operateTime) {
+      res["operate_time"] = boost::any(*operateTime);
+    }
+    if (operatorName) {
+      res["operator_name"] = boost::any(*operatorName);
+    }
+    if (result) {
+      res["result"] = boost::any(*result);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("comment") != m.end() && !m["comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["comment"]));
+    }
+    if (m.find("operate_time") != m.end() && !m["operate_time"].empty()) {
+      operateTime = make_shared<string>(boost::any_cast<string>(m["operate_time"]));
+    }
+    if (m.find("operator_name") != m.end() && !m["operator_name"].empty()) {
+      operatorName = make_shared<string>(boost::any_cast<string>(m["operator_name"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["result"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~ApplyExternalNodeStatusUpdateRequestOperationRecords() = default;
+};
+class ApplyExternalNodeStatusUpdateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> nodeId{};
+  shared_ptr<vector<ApplyExternalNodeStatusUpdateRequestOperationRecords>> operationRecords{};
+  shared_ptr<string> processActionResult{};
+
+  ApplyExternalNodeStatusUpdateRequest() {}
+
+  explicit ApplyExternalNodeStatusUpdateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nodeId) {
+      res["node_id"] = boost::any(*nodeId);
+    }
+    if (operationRecords) {
+      vector<boost::any> temp1;
+      for(auto item1:*operationRecords){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["operation_records"] = boost::any(temp1);
+    }
+    if (processActionResult) {
+      res["process_action_result"] = boost::any(*processActionResult);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("node_id") != m.end() && !m["node_id"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["node_id"]));
+    }
+    if (m.find("operation_records") != m.end() && !m["operation_records"].empty()) {
+      if (typeid(vector<boost::any>) == m["operation_records"].type()) {
+        vector<ApplyExternalNodeStatusUpdateRequestOperationRecords> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["operation_records"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ApplyExternalNodeStatusUpdateRequestOperationRecords model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        operationRecords = make_shared<vector<ApplyExternalNodeStatusUpdateRequestOperationRecords>>(expect1);
+      }
+    }
+    if (m.find("process_action_result") != m.end() && !m["process_action_result"].empty()) {
+      processActionResult = make_shared<string>(boost::any_cast<string>(m["process_action_result"]));
+    }
+  }
+
+
+  virtual ~ApplyExternalNodeStatusUpdateRequest() = default;
+};
+class ApplyExternalNodeStatusUpdateShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> nodeId{};
+  shared_ptr<string> operationRecordsShrink{};
+  shared_ptr<string> processActionResult{};
+
+  ApplyExternalNodeStatusUpdateShrinkRequest() {}
+
+  explicit ApplyExternalNodeStatusUpdateShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nodeId) {
+      res["node_id"] = boost::any(*nodeId);
+    }
+    if (operationRecordsShrink) {
+      res["operation_records"] = boost::any(*operationRecordsShrink);
+    }
+    if (processActionResult) {
+      res["process_action_result"] = boost::any(*processActionResult);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("node_id") != m.end() && !m["node_id"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["node_id"]));
+    }
+    if (m.find("operation_records") != m.end() && !m["operation_records"].empty()) {
+      operationRecordsShrink = make_shared<string>(boost::any_cast<string>(m["operation_records"]));
+    }
+    if (m.find("process_action_result") != m.end() && !m["process_action_result"].empty()) {
+      processActionResult = make_shared<string>(boost::any_cast<string>(m["process_action_result"]));
+    }
+  }
+
+
+  virtual ~ApplyExternalNodeStatusUpdateShrinkRequest() = default;
+};
+class ApplyExternalNodeStatusUpdateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<bool> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  ApplyExternalNodeStatusUpdateResponseBody() {}
+
+  explicit ApplyExternalNodeStatusUpdateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = boost::any(*module);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      module = make_shared<bool>(boost::any_cast<bool>(m["module"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~ApplyExternalNodeStatusUpdateResponseBody() = default;
+};
+class ApplyExternalNodeStatusUpdateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ApplyExternalNodeStatusUpdateResponseBody> body{};
+
+  ApplyExternalNodeStatusUpdateResponse() {}
+
+  explicit ApplyExternalNodeStatusUpdateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ApplyExternalNodeStatusUpdateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ApplyExternalNodeStatusUpdateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ApplyExternalNodeStatusUpdateResponse() = default;
+};
 class ApplyInvoiceTaskHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -99325,6 +99639,8 @@ public:
   ApplyAddResponse applyAdd(shared_ptr<ApplyAddRequest> request);
   ApplyApproveResponse applyApproveWithOptions(shared_ptr<ApplyApproveRequest> request, shared_ptr<ApplyApproveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApplyApproveResponse applyApprove(shared_ptr<ApplyApproveRequest> request);
+  ApplyExternalNodeStatusUpdateResponse applyExternalNodeStatusUpdateWithOptions(shared_ptr<ApplyExternalNodeStatusUpdateRequest> tmpReq, shared_ptr<ApplyExternalNodeStatusUpdateHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ApplyExternalNodeStatusUpdateResponse applyExternalNodeStatusUpdate(shared_ptr<ApplyExternalNodeStatusUpdateRequest> request);
   ApplyInvoiceTaskResponse applyInvoiceTaskWithOptions(shared_ptr<ApplyInvoiceTaskRequest> tmpReq, shared_ptr<ApplyInvoiceTaskHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApplyInvoiceTaskResponse applyInvoiceTask(shared_ptr<ApplyInvoiceTaskRequest> request);
   ApplyListQueryResponse applyListQueryWithOptions(shared_ptr<ApplyListQueryRequest> request, shared_ptr<ApplyListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
