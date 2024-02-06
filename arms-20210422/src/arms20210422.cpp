@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1413,6 +1412,9 @@ GetRetcodeShareUrlResponse Alibabacloud_ARMS20210422::Client::getRetcodeShareUrl
 GetStackResponse Alibabacloud_ARMS20210422::Client::getStackWithOptions(shared_ptr<GetStackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
     query->insert(pair<string, string>("Pid", *request->pid));
   }
@@ -1421,6 +1423,9 @@ GetStackResponse Alibabacloud_ARMS20210422::Client::getStackWithOptions(shared_p
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->rpcID)) {
     query->insert(pair<string, string>("RpcID", *request->rpcID));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->traceID)) {
     query->insert(pair<string, string>("TraceID", *request->traceID));
