@@ -26221,6 +26221,7 @@ public:
   shared_ptr<string> kubernetesVersion{};
   shared_ptr<string> runtimeType{};
   shared_ptr<string> runtimeVersion{};
+  shared_ptr<bool> useReplace{};
 
   UpgradeClusterNodepoolRequest() {}
 
@@ -26244,6 +26245,9 @@ public:
     if (runtimeVersion) {
       res["runtime_version"] = boost::any(*runtimeVersion);
     }
+    if (useReplace) {
+      res["use_replace"] = boost::any(*useReplace);
+    }
     return res;
   }
 
@@ -26259,6 +26263,9 @@ public:
     }
     if (m.find("runtime_version") != m.end() && !m["runtime_version"].empty()) {
       runtimeVersion = make_shared<string>(boost::any_cast<string>(m["runtime_version"]));
+    }
+    if (m.find("use_replace") != m.end() && !m["use_replace"].empty()) {
+      useReplace = make_shared<bool>(boost::any_cast<bool>(m["use_replace"]));
     }
   }
 

@@ -4578,6 +4578,9 @@ UpgradeClusterNodepoolResponse Alibabacloud_CS20151215::Client::upgradeClusterNo
   if (!Darabonba_Util::Client::isUnset<string>(request->runtimeVersion)) {
     body->insert(pair<string, string>("runtime_version", *request->runtimeVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->useReplace)) {
+    body->insert(pair<string, bool>("use_replace", *request->useReplace));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
