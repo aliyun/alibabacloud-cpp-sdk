@@ -12142,6 +12142,212 @@ public:
 
   virtual ~DescribeAvailableZoneResponse() = default;
 };
+class DescribeBackupSetDownloadLinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> downloadTaskId{};
+  shared_ptr<string> instanceId{};
+
+  DescribeBackupSetDownloadLinkRequest() {}
+
+  explicit DescribeBackupSetDownloadLinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (downloadTaskId) {
+      res["DownloadTaskId"] = boost::any(*downloadTaskId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DownloadTaskId") != m.end() && !m["DownloadTaskId"].empty()) {
+      downloadTaskId = make_shared<string>(boost::any_cast<string>(m["DownloadTaskId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~DescribeBackupSetDownloadLinkRequest() = default;
+};
+class DescribeBackupSetDownloadLinkResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> backupRestorableTime{};
+  shared_ptr<string> backupSetId{};
+  shared_ptr<string> downloadTaskCreateTime{};
+  shared_ptr<long> downloadTaskId{};
+  shared_ptr<string> downloadTaskStatus{};
+  shared_ptr<string> internalUrl{};
+  shared_ptr<long> urlAliveTime{};
+  shared_ptr<string> urlExpiredTime{};
+
+  DescribeBackupSetDownloadLinkResponseBodyData() {}
+
+  explicit DescribeBackupSetDownloadLinkResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (backupRestorableTime) {
+      res["BackupRestorableTime"] = boost::any(*backupRestorableTime);
+    }
+    if (backupSetId) {
+      res["BackupSetId"] = boost::any(*backupSetId);
+    }
+    if (downloadTaskCreateTime) {
+      res["DownloadTaskCreateTime"] = boost::any(*downloadTaskCreateTime);
+    }
+    if (downloadTaskId) {
+      res["DownloadTaskId"] = boost::any(*downloadTaskId);
+    }
+    if (downloadTaskStatus) {
+      res["DownloadTaskStatus"] = boost::any(*downloadTaskStatus);
+    }
+    if (internalUrl) {
+      res["InternalUrl"] = boost::any(*internalUrl);
+    }
+    if (urlAliveTime) {
+      res["UrlAliveTime"] = boost::any(*urlAliveTime);
+    }
+    if (urlExpiredTime) {
+      res["UrlExpiredTime"] = boost::any(*urlExpiredTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackupRestorableTime") != m.end() && !m["BackupRestorableTime"].empty()) {
+      backupRestorableTime = make_shared<string>(boost::any_cast<string>(m["BackupRestorableTime"]));
+    }
+    if (m.find("BackupSetId") != m.end() && !m["BackupSetId"].empty()) {
+      backupSetId = make_shared<string>(boost::any_cast<string>(m["BackupSetId"]));
+    }
+    if (m.find("DownloadTaskCreateTime") != m.end() && !m["DownloadTaskCreateTime"].empty()) {
+      downloadTaskCreateTime = make_shared<string>(boost::any_cast<string>(m["DownloadTaskCreateTime"]));
+    }
+    if (m.find("DownloadTaskId") != m.end() && !m["DownloadTaskId"].empty()) {
+      downloadTaskId = make_shared<long>(boost::any_cast<long>(m["DownloadTaskId"]));
+    }
+    if (m.find("DownloadTaskStatus") != m.end() && !m["DownloadTaskStatus"].empty()) {
+      downloadTaskStatus = make_shared<string>(boost::any_cast<string>(m["DownloadTaskStatus"]));
+    }
+    if (m.find("InternalUrl") != m.end() && !m["InternalUrl"].empty()) {
+      internalUrl = make_shared<string>(boost::any_cast<string>(m["InternalUrl"]));
+    }
+    if (m.find("UrlAliveTime") != m.end() && !m["UrlAliveTime"].empty()) {
+      urlAliveTime = make_shared<long>(boost::any_cast<long>(m["UrlAliveTime"]));
+    }
+    if (m.find("UrlExpiredTime") != m.end() && !m["UrlExpiredTime"].empty()) {
+      urlExpiredTime = make_shared<string>(boost::any_cast<string>(m["UrlExpiredTime"]));
+    }
+  }
+
+
+  virtual ~DescribeBackupSetDownloadLinkResponseBodyData() = default;
+};
+class DescribeBackupSetDownloadLinkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeBackupSetDownloadLinkResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  DescribeBackupSetDownloadLinkResponseBody() {}
+
+  explicit DescribeBackupSetDownloadLinkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeBackupSetDownloadLinkResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeBackupSetDownloadLinkResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeBackupSetDownloadLinkResponseBody() = default;
+};
+class DescribeBackupSetDownloadLinkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeBackupSetDownloadLinkResponseBody> body{};
+
+  DescribeBackupSetDownloadLinkResponse() {}
+
+  explicit DescribeBackupSetDownloadLinkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeBackupSetDownloadLinkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeBackupSetDownloadLinkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeBackupSetDownloadLinkResponse() = default;
+};
 class DescribeCharsetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -57364,6 +57570,8 @@ public:
   DescribeAvailableSpecResponse describeAvailableSpec(shared_ptr<DescribeAvailableSpecRequest> request);
   DescribeAvailableZoneResponse describeAvailableZoneWithOptions(shared_ptr<DescribeAvailableZoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAvailableZoneResponse describeAvailableZone(shared_ptr<DescribeAvailableZoneRequest> request);
+  DescribeBackupSetDownloadLinkResponse describeBackupSetDownloadLinkWithOptions(shared_ptr<DescribeBackupSetDownloadLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeBackupSetDownloadLinkResponse describeBackupSetDownloadLink(shared_ptr<DescribeBackupSetDownloadLinkRequest> request);
   DescribeCharsetResponse describeCharsetWithOptions(shared_ptr<DescribeCharsetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCharsetResponse describeCharset(shared_ptr<DescribeCharsetRequest> request);
   DescribeDataBackupSetResponse describeDataBackupSetWithOptions(shared_ptr<DescribeDataBackupSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
