@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -998,6 +997,34 @@ GetGroupResponse Alibabacloud_Cloudsso20210515::Client::getGroup(shared_ptr<GetG
   return getGroupWithOptions(request, runtime);
 }
 
+GetLoginPreferenceResponse Alibabacloud_Cloudsso20210515::Client::getLoginPreferenceWithOptions(shared_ptr<GetLoginPreferenceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->directoryId)) {
+    query->insert(pair<string, string>("DirectoryId", *request->directoryId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetLoginPreference"))},
+    {"version", boost::any(string("2021-05-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetLoginPreferenceResponse(callApi(params, req, runtime));
+}
+
+GetLoginPreferenceResponse Alibabacloud_Cloudsso20210515::Client::getLoginPreference(shared_ptr<GetLoginPreferenceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getLoginPreferenceWithOptions(request, runtime);
+}
+
 GetMFAAuthenticationSettingInfoResponse Alibabacloud_Cloudsso20210515::Client::getMFAAuthenticationSettingInfoWithOptions(shared_ptr<GetMFAAuthenticationSettingInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1080,6 +1107,34 @@ GetMFAAuthenticationStatusResponse Alibabacloud_Cloudsso20210515::Client::getMFA
 GetMFAAuthenticationStatusResponse Alibabacloud_Cloudsso20210515::Client::getMFAAuthenticationStatus(shared_ptr<GetMFAAuthenticationStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getMFAAuthenticationStatusWithOptions(request, runtime);
+}
+
+GetPasswordPolicyResponse Alibabacloud_Cloudsso20210515::Client::getPasswordPolicyWithOptions(shared_ptr<GetPasswordPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->directoryId)) {
+    query->insert(pair<string, string>("DirectoryId", *request->directoryId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPasswordPolicy"))},
+    {"version", boost::any(string("2021-05-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPasswordPolicyResponse(callApi(params, req, runtime));
+}
+
+GetPasswordPolicyResponse Alibabacloud_Cloudsso20210515::Client::getPasswordPolicy(shared_ptr<GetPasswordPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getPasswordPolicyWithOptions(request, runtime);
 }
 
 GetSCIMSynchronizationStatusResponse Alibabacloud_Cloudsso20210515::Client::getSCIMSynchronizationStatusWithOptions(shared_ptr<GetSCIMSynchronizationStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2241,6 +2296,37 @@ SetExternalSAMLIdentityProviderResponse Alibabacloud_Cloudsso20210515::Client::s
   return setExternalSAMLIdentityProviderWithOptions(request, runtime);
 }
 
+SetLoginPreferenceResponse Alibabacloud_Cloudsso20210515::Client::setLoginPreferenceWithOptions(shared_ptr<SetLoginPreferenceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->directoryId)) {
+    query->insert(pair<string, string>("DirectoryId", *request->directoryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loginNetworkMasks)) {
+    query->insert(pair<string, string>("LoginNetworkMasks", *request->loginNetworkMasks));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetLoginPreference"))},
+    {"version", boost::any(string("2021-05-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetLoginPreferenceResponse(callApi(params, req, runtime));
+}
+
+SetLoginPreferenceResponse Alibabacloud_Cloudsso20210515::Client::setLoginPreference(shared_ptr<SetLoginPreferenceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setLoginPreferenceWithOptions(request, runtime);
+}
+
 SetMFAAuthenticationStatusResponse Alibabacloud_Cloudsso20210515::Client::setMFAAuthenticationStatusWithOptions(shared_ptr<SetMFAAuthenticationStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2270,6 +2356,52 @@ SetMFAAuthenticationStatusResponse Alibabacloud_Cloudsso20210515::Client::setMFA
 SetMFAAuthenticationStatusResponse Alibabacloud_Cloudsso20210515::Client::setMFAAuthenticationStatus(shared_ptr<SetMFAAuthenticationStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return setMFAAuthenticationStatusWithOptions(request, runtime);
+}
+
+SetPasswordPolicyResponse Alibabacloud_Cloudsso20210515::Client::setPasswordPolicyWithOptions(shared_ptr<SetPasswordPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->directoryId)) {
+    query->insert(pair<string, string>("DirectoryId", *request->directoryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxLoginAttempts)) {
+    query->insert(pair<string, long>("MaxLoginAttempts", *request->maxLoginAttempts));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxPasswordAge)) {
+    query->insert(pair<string, long>("MaxPasswordAge", *request->maxPasswordAge));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minPasswordDifferentChars)) {
+    query->insert(pair<string, long>("MinPasswordDifferentChars", *request->minPasswordDifferentChars));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minPasswordLength)) {
+    query->insert(pair<string, long>("MinPasswordLength", *request->minPasswordLength));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->passwordNotContainUsername)) {
+    query->insert(pair<string, bool>("PasswordNotContainUsername", *request->passwordNotContainUsername));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->passwordReusePrevention)) {
+    query->insert(pair<string, long>("PasswordReusePrevention", *request->passwordReusePrevention));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetPasswordPolicy"))},
+    {"version", boost::any(string("2021-05-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetPasswordPolicyResponse(callApi(params, req, runtime));
+}
+
+SetPasswordPolicyResponse Alibabacloud_Cloudsso20210515::Client::setPasswordPolicy(shared_ptr<SetPasswordPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setPasswordPolicyWithOptions(request, runtime);
 }
 
 SetSCIMSynchronizationStatusResponse Alibabacloud_Cloudsso20210515::Client::setSCIMSynchronizationStatusWithOptions(shared_ptr<SetSCIMSynchronizationStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
