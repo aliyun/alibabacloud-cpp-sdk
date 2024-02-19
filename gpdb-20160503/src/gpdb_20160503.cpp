@@ -8,7 +8,6 @@
 #include <alibabacloud/oss.hpp>
 #include <alibabacloud/ossutil.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/file_form.hpp>
 #include <darabonba/util.hpp>
@@ -4299,8 +4298,13 @@ QueryCollectionDataResponse Alibabacloud_Gpdb20160503::Client::queryCollectionDa
   return queryCollectionDataWithOptions(request, runtime);
 }
 
-QueryContentResponse Alibabacloud_Gpdb20160503::Client::queryContentWithOptions(shared_ptr<QueryContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+QueryContentResponse Alibabacloud_Gpdb20160503::Client::queryContentWithOptions(shared_ptr<QueryContentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<QueryContentShrinkRequest> request = make_shared<QueryContentShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->recallWindow)) {
+    request->recallWindowShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->recallWindow, make_shared<string>("RecallWindow"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->collection)) {
     query->insert(pair<string, string>("Collection", *request->collection));
@@ -4320,6 +4324,9 @@ QueryContentResponse Alibabacloud_Gpdb20160503::Client::queryContentWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     query->insert(pair<string, string>("Filter", *request->filter));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->includeVector)) {
+    query->insert(pair<string, bool>("IncludeVector", *request->includeVector));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->metrics)) {
     query->insert(pair<string, string>("Metrics", *request->metrics));
   }
@@ -4332,8 +4339,14 @@ QueryContentResponse Alibabacloud_Gpdb20160503::Client::queryContentWithOptions(
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recallWindowShrink)) {
+    query->insert(pair<string, string>("RecallWindow", *request->recallWindowShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->rerankFactor)) {
+    query->insert(pair<string, double>("RerankFactor", *request->rerankFactor));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->topK)) {
     query->insert(pair<string, long>("TopK", *request->topK));
