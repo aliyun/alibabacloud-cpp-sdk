@@ -832,7 +832,6 @@ public:
   shared_ptr<AddImageRequestContainerImageSpec> containerImageSpec{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
-  shared_ptr<string> regionId{};
   shared_ptr<AddImageRequestVMImageSpec> VMImageSpec{};
   shared_ptr<string> version{};
 
@@ -854,9 +853,6 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
     }
     if (VMImageSpec) {
       res["VMImageSpec"] = VMImageSpec ? boost::any(VMImageSpec->toMap()) : boost::any(map<string,boost::any>({}));
@@ -881,9 +877,6 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
     if (m.find("VMImageSpec") != m.end() && !m["VMImageSpec"].empty()) {
       if (typeid(map<string, boost::any>) == m["VMImageSpec"].type()) {
         AddImageRequestVMImageSpec model1;
@@ -904,7 +897,6 @@ public:
   shared_ptr<string> containerImageSpecShrink{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
-  shared_ptr<string> regionId{};
   shared_ptr<string> VMImageSpecShrink{};
   shared_ptr<string> version{};
 
@@ -927,9 +919,6 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
     if (VMImageSpecShrink) {
       res["VMImageSpec"] = boost::any(*VMImageSpecShrink);
     }
@@ -948,9 +937,6 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("VMImageSpec") != m.end() && !m["VMImageSpec"].empty()) {
       VMImageSpecShrink = make_shared<string>(boost::any_cast<string>(m["VMImageSpec"]));
@@ -1946,7 +1932,6 @@ public:
 class GetImageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageId{};
-  shared_ptr<string> regionId{};
 
   GetImageRequest() {}
 
@@ -1961,18 +1946,12 @@ public:
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
     }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -3045,7 +3024,6 @@ public:
   shared_ptr<vector<string>> imageNames{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
-  shared_ptr<string> regionId{};
 
   ListImagesRequest() {}
 
@@ -3068,9 +3046,6 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
     }
     return res;
   }
@@ -3102,9 +3077,6 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
   }
 
 
@@ -3116,7 +3088,6 @@ public:
   shared_ptr<string> imageNamesShrink{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
-  shared_ptr<string> regionId{};
 
   ListImagesShrinkRequest() {}
 
@@ -3140,9 +3111,6 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
     return res;
   }
 
@@ -3158,9 +3126,6 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -3759,7 +3724,6 @@ public:
 class RemoveImageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageId{};
-  shared_ptr<string> regionId{};
 
   RemoveImageRequest() {}
 
@@ -3774,18 +3738,12 @@ public:
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
     }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
