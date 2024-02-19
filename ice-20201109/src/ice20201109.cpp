@@ -2050,6 +2050,21 @@ GetBatchMediaProducingJobResponse Alibabacloud_ICE20201109::Client::getBatchMedi
   if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
     query->insert(pair<string, string>("JobId", *request->jobId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signature)) {
+    query->insert(pair<string, string>("Signature", *request->signature));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signatureMehtod)) {
+    query->insert(pair<string, string>("SignatureMehtod", *request->signatureMehtod));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signatureNonce)) {
+    query->insert(pair<string, string>("SignatureNonce", *request->signatureNonce));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signatureType)) {
+    query->insert(pair<string, string>("SignatureType", *request->signatureType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signatureVersion)) {
+    query->insert(pair<string, string>("SignatureVersion", *request->signatureVersion));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

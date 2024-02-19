@@ -10373,6 +10373,11 @@ public:
 class GetBatchMediaProducingJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> jobId{};
+  shared_ptr<string> signature{};
+  shared_ptr<string> signatureMehtod{};
+  shared_ptr<string> signatureNonce{};
+  shared_ptr<string> signatureType{};
+  shared_ptr<string> signatureVersion{};
 
   GetBatchMediaProducingJobRequest() {}
 
@@ -10387,12 +10392,42 @@ public:
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
     }
+    if (signature) {
+      res["Signature"] = boost::any(*signature);
+    }
+    if (signatureMehtod) {
+      res["SignatureMehtod"] = boost::any(*signatureMehtod);
+    }
+    if (signatureNonce) {
+      res["SignatureNonce"] = boost::any(*signatureNonce);
+    }
+    if (signatureType) {
+      res["SignatureType"] = boost::any(*signatureType);
+    }
+    if (signatureVersion) {
+      res["SignatureVersion"] = boost::any(*signatureVersion);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Signature") != m.end() && !m["Signature"].empty()) {
+      signature = make_shared<string>(boost::any_cast<string>(m["Signature"]));
+    }
+    if (m.find("SignatureMehtod") != m.end() && !m["SignatureMehtod"].empty()) {
+      signatureMehtod = make_shared<string>(boost::any_cast<string>(m["SignatureMehtod"]));
+    }
+    if (m.find("SignatureNonce") != m.end() && !m["SignatureNonce"].empty()) {
+      signatureNonce = make_shared<string>(boost::any_cast<string>(m["SignatureNonce"]));
+    }
+    if (m.find("SignatureType") != m.end() && !m["SignatureType"].empty()) {
+      signatureType = make_shared<string>(boost::any_cast<string>(m["SignatureType"]));
+    }
+    if (m.find("SignatureVersion") != m.end() && !m["SignatureVersion"].empty()) {
+      signatureVersion = make_shared<string>(boost::any_cast<string>(m["SignatureVersion"]));
     }
   }
 
