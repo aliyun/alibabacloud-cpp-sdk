@@ -1,3 +1,7 @@
+2024-02-19 Version: 1.0.1
+- Update API AddZone: add param DnsGroup.
+
+
 2023-10-23 Version: 1.0.0
 - Generated cpp 2018-01-01 for pvtz.
 
