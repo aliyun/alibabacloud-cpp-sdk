@@ -19271,6 +19271,940 @@ public:
 
   virtual ~CommonApplySyncResponse() = default;
 };
+class CooperatorHotelBillSettlementQueryHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripCorpToken{};
+
+  CooperatorHotelBillSettlementQueryHeaders() {}
+
+  explicit CooperatorHotelBillSettlementQueryHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripCorpToken) {
+      res["x-acs-btrip-corp-token"] = boost::any(*xAcsBtripCorpToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-corp-token") != m.end() && !m["x-acs-btrip-corp-token"].empty()) {
+      xAcsBtripCorpToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-corp-token"]));
+    }
+  }
+
+
+  virtual ~CooperatorHotelBillSettlementQueryHeaders() = default;
+};
+class CooperatorHotelBillSettlementQueryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cooperatorId{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> periodEnd{};
+  shared_ptr<string> periodStart{};
+
+  CooperatorHotelBillSettlementQueryRequest() {}
+
+  explicit CooperatorHotelBillSettlementQueryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cooperatorId) {
+      res["cooperator_id"] = boost::any(*cooperatorId);
+    }
+    if (pageNo) {
+      res["page_no"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["page_size"] = boost::any(*pageSize);
+    }
+    if (periodEnd) {
+      res["period_end"] = boost::any(*periodEnd);
+    }
+    if (periodStart) {
+      res["period_start"] = boost::any(*periodStart);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cooperator_id") != m.end() && !m["cooperator_id"].empty()) {
+      cooperatorId = make_shared<string>(boost::any_cast<string>(m["cooperator_id"]));
+    }
+    if (m.find("page_no") != m.end() && !m["page_no"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["page_no"]));
+    }
+    if (m.find("page_size") != m.end() && !m["page_size"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["page_size"]));
+    }
+    if (m.find("period_end") != m.end() && !m["period_end"].empty()) {
+      periodEnd = make_shared<string>(boost::any_cast<string>(m["period_end"]));
+    }
+    if (m.find("period_start") != m.end() && !m["period_start"].empty()) {
+      periodStart = make_shared<string>(boost::any_cast<string>(m["period_start"]));
+    }
+  }
+
+
+  virtual ~CooperatorHotelBillSettlementQueryRequest() = default;
+};
+class CooperatorHotelBillSettlementQueryResponseBodyModuleItems : public Darabonba::Model {
+public:
+  shared_ptr<string> alipayTradeNo{};
+  shared_ptr<string> applyArrCityCode{};
+  shared_ptr<string> applyArrCityName{};
+  shared_ptr<string> applyDepCityCode{};
+  shared_ptr<string> applyDepCityName{};
+  shared_ptr<string> applyExtendField{};
+  shared_ptr<string> applyId{};
+  shared_ptr<double> averageNights{};
+  shared_ptr<string> billRecordTime{};
+  shared_ptr<string> bookMode{};
+  shared_ptr<string> bookReason{};
+  shared_ptr<string> bookTime{};
+  shared_ptr<string> bookerId{};
+  shared_ptr<string> bookerJobNo{};
+  shared_ptr<string> bookerName{};
+  shared_ptr<string> brandGroup{};
+  shared_ptr<string> brandName{};
+  shared_ptr<string> businessTripResult{};
+  shared_ptr<string> capitalDirection{};
+  shared_ptr<string> cascadeDepartment{};
+  shared_ptr<string> checkInDate{};
+  shared_ptr<string> checkoutDate{};
+  shared_ptr<string> city{};
+  shared_ptr<string> cityCode{};
+  shared_ptr<string> cityCounty{};
+  shared_ptr<long> cityCountyCode{};
+  shared_ptr<string> cooperatorBillCode{};
+  shared_ptr<string> cooperatorName{};
+  shared_ptr<string> cooperatorOrderId{};
+  shared_ptr<double> corpRefundFee{};
+  shared_ptr<double> corpTotalFee{};
+  shared_ptr<string> costCenter{};
+  shared_ptr<string> costCenterNumber{};
+  shared_ptr<string> department{};
+  shared_ptr<string> departmentId{};
+  shared_ptr<string> exceedReason{};
+  shared_ptr<string> feeType{};
+  shared_ptr<double> fees{};
+  shared_ptr<double> fines{};
+  shared_ptr<double> fuPointFee{};
+  shared_ptr<string> hotelName{};
+  shared_ptr<string> index{};
+  shared_ptr<string> invoiceTitle{};
+  shared_ptr<string> isEarlyDeparture{};
+  shared_ptr<string> isNegotiation{};
+  shared_ptr<string> isShareStr{};
+  shared_ptr<string> mainApplyId{};
+  shared_ptr<long> nights{};
+  shared_ptr<string> orderId{};
+  shared_ptr<double> orderPrice{};
+  shared_ptr<string> orderStatusDesc{};
+  shared_ptr<string> orderType{};
+  shared_ptr<string> overApplyId{};
+  shared_ptr<string> paymentDepartmentId{};
+  shared_ptr<string> paymentDepartmentName{};
+  shared_ptr<double> personRefundFee{};
+  shared_ptr<double> personSettlePrice{};
+  shared_ptr<long> primaryId{};
+  shared_ptr<string> projectCode{};
+  shared_ptr<string> projectName{};
+  shared_ptr<double> promotionFee{};
+  shared_ptr<string> remark{};
+  shared_ptr<long> reserveRule{};
+  shared_ptr<string> roomNo{};
+  shared_ptr<long> roomNumber{};
+  shared_ptr<double> roomPrice{};
+  shared_ptr<string> roomType{};
+  shared_ptr<double> serviceFee{};
+  shared_ptr<double> settlementFee{};
+  shared_ptr<double> settlementGrantFee{};
+  shared_ptr<string> settlementTime{};
+  shared_ptr<string> settlementType{};
+  shared_ptr<string> showSubOrderId{};
+  shared_ptr<string> star{};
+  shared_ptr<long> status{};
+  shared_ptr<string> subOrderId{};
+  shared_ptr<string> taxRate{};
+  shared_ptr<string> thirdInvoiceId{};
+  shared_ptr<string> thirdItineraryId{};
+  shared_ptr<string> thirdPartBusinessId{};
+  shared_ptr<string> thirdpartApplyId{};
+  shared_ptr<long> totalNights{};
+  shared_ptr<string> travelerId{};
+  shared_ptr<string> travelerJobNo{};
+  shared_ptr<string> travelerMemberType{};
+  shared_ptr<string> travelerMemberTypeName{};
+  shared_ptr<string> travelerName{};
+  shared_ptr<long> voucherType{};
+
+  CooperatorHotelBillSettlementQueryResponseBodyModuleItems() {}
+
+  explicit CooperatorHotelBillSettlementQueryResponseBodyModuleItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alipayTradeNo) {
+      res["alipay_trade_no"] = boost::any(*alipayTradeNo);
+    }
+    if (applyArrCityCode) {
+      res["apply_arr_city_code"] = boost::any(*applyArrCityCode);
+    }
+    if (applyArrCityName) {
+      res["apply_arr_city_name"] = boost::any(*applyArrCityName);
+    }
+    if (applyDepCityCode) {
+      res["apply_dep_city_code"] = boost::any(*applyDepCityCode);
+    }
+    if (applyDepCityName) {
+      res["apply_dep_city_name"] = boost::any(*applyDepCityName);
+    }
+    if (applyExtendField) {
+      res["apply_extend_field"] = boost::any(*applyExtendField);
+    }
+    if (applyId) {
+      res["apply_id"] = boost::any(*applyId);
+    }
+    if (averageNights) {
+      res["average_nights"] = boost::any(*averageNights);
+    }
+    if (billRecordTime) {
+      res["bill_record_time"] = boost::any(*billRecordTime);
+    }
+    if (bookMode) {
+      res["book_mode"] = boost::any(*bookMode);
+    }
+    if (bookReason) {
+      res["book_reason"] = boost::any(*bookReason);
+    }
+    if (bookTime) {
+      res["book_time"] = boost::any(*bookTime);
+    }
+    if (bookerId) {
+      res["booker_id"] = boost::any(*bookerId);
+    }
+    if (bookerJobNo) {
+      res["booker_job_no"] = boost::any(*bookerJobNo);
+    }
+    if (bookerName) {
+      res["booker_name"] = boost::any(*bookerName);
+    }
+    if (brandGroup) {
+      res["brand_group"] = boost::any(*brandGroup);
+    }
+    if (brandName) {
+      res["brand_name"] = boost::any(*brandName);
+    }
+    if (businessTripResult) {
+      res["business_trip_result"] = boost::any(*businessTripResult);
+    }
+    if (capitalDirection) {
+      res["capital_direction"] = boost::any(*capitalDirection);
+    }
+    if (cascadeDepartment) {
+      res["cascade_department"] = boost::any(*cascadeDepartment);
+    }
+    if (checkInDate) {
+      res["check_in_date"] = boost::any(*checkInDate);
+    }
+    if (checkoutDate) {
+      res["checkout_date"] = boost::any(*checkoutDate);
+    }
+    if (city) {
+      res["city"] = boost::any(*city);
+    }
+    if (cityCode) {
+      res["city_code"] = boost::any(*cityCode);
+    }
+    if (cityCounty) {
+      res["city_county"] = boost::any(*cityCounty);
+    }
+    if (cityCountyCode) {
+      res["city_county_code"] = boost::any(*cityCountyCode);
+    }
+    if (cooperatorBillCode) {
+      res["cooperator_bill_code"] = boost::any(*cooperatorBillCode);
+    }
+    if (cooperatorName) {
+      res["cooperator_name"] = boost::any(*cooperatorName);
+    }
+    if (cooperatorOrderId) {
+      res["cooperator_order_id"] = boost::any(*cooperatorOrderId);
+    }
+    if (corpRefundFee) {
+      res["corp_refund_fee"] = boost::any(*corpRefundFee);
+    }
+    if (corpTotalFee) {
+      res["corp_total_fee"] = boost::any(*corpTotalFee);
+    }
+    if (costCenter) {
+      res["cost_center"] = boost::any(*costCenter);
+    }
+    if (costCenterNumber) {
+      res["cost_center_number"] = boost::any(*costCenterNumber);
+    }
+    if (department) {
+      res["department"] = boost::any(*department);
+    }
+    if (departmentId) {
+      res["department_id"] = boost::any(*departmentId);
+    }
+    if (exceedReason) {
+      res["exceed_reason"] = boost::any(*exceedReason);
+    }
+    if (feeType) {
+      res["fee_type"] = boost::any(*feeType);
+    }
+    if (fees) {
+      res["fees"] = boost::any(*fees);
+    }
+    if (fines) {
+      res["fines"] = boost::any(*fines);
+    }
+    if (fuPointFee) {
+      res["fu_point_fee"] = boost::any(*fuPointFee);
+    }
+    if (hotelName) {
+      res["hotel_name"] = boost::any(*hotelName);
+    }
+    if (index) {
+      res["index"] = boost::any(*index);
+    }
+    if (invoiceTitle) {
+      res["invoice_title"] = boost::any(*invoiceTitle);
+    }
+    if (isEarlyDeparture) {
+      res["is_early_departure"] = boost::any(*isEarlyDeparture);
+    }
+    if (isNegotiation) {
+      res["is_negotiation"] = boost::any(*isNegotiation);
+    }
+    if (isShareStr) {
+      res["is_share_str"] = boost::any(*isShareStr);
+    }
+    if (mainApplyId) {
+      res["main_apply_id"] = boost::any(*mainApplyId);
+    }
+    if (nights) {
+      res["nights"] = boost::any(*nights);
+    }
+    if (orderId) {
+      res["order_id"] = boost::any(*orderId);
+    }
+    if (orderPrice) {
+      res["order_price"] = boost::any(*orderPrice);
+    }
+    if (orderStatusDesc) {
+      res["order_status_desc"] = boost::any(*orderStatusDesc);
+    }
+    if (orderType) {
+      res["order_type"] = boost::any(*orderType);
+    }
+    if (overApplyId) {
+      res["over_apply_id"] = boost::any(*overApplyId);
+    }
+    if (paymentDepartmentId) {
+      res["payment_department_id"] = boost::any(*paymentDepartmentId);
+    }
+    if (paymentDepartmentName) {
+      res["payment_department_name"] = boost::any(*paymentDepartmentName);
+    }
+    if (personRefundFee) {
+      res["person_refund_fee"] = boost::any(*personRefundFee);
+    }
+    if (personSettlePrice) {
+      res["person_settle_price"] = boost::any(*personSettlePrice);
+    }
+    if (primaryId) {
+      res["primary_id"] = boost::any(*primaryId);
+    }
+    if (projectCode) {
+      res["project_code"] = boost::any(*projectCode);
+    }
+    if (projectName) {
+      res["project_name"] = boost::any(*projectName);
+    }
+    if (promotionFee) {
+      res["promotion_fee"] = boost::any(*promotionFee);
+    }
+    if (remark) {
+      res["remark"] = boost::any(*remark);
+    }
+    if (reserveRule) {
+      res["reserve_rule"] = boost::any(*reserveRule);
+    }
+    if (roomNo) {
+      res["room_no"] = boost::any(*roomNo);
+    }
+    if (roomNumber) {
+      res["room_number"] = boost::any(*roomNumber);
+    }
+    if (roomPrice) {
+      res["room_price"] = boost::any(*roomPrice);
+    }
+    if (roomType) {
+      res["room_type"] = boost::any(*roomType);
+    }
+    if (serviceFee) {
+      res["service_fee"] = boost::any(*serviceFee);
+    }
+    if (settlementFee) {
+      res["settlement_fee"] = boost::any(*settlementFee);
+    }
+    if (settlementGrantFee) {
+      res["settlement_grant_fee"] = boost::any(*settlementGrantFee);
+    }
+    if (settlementTime) {
+      res["settlement_time"] = boost::any(*settlementTime);
+    }
+    if (settlementType) {
+      res["settlement_type"] = boost::any(*settlementType);
+    }
+    if (showSubOrderId) {
+      res["show_sub_order_id"] = boost::any(*showSubOrderId);
+    }
+    if (star) {
+      res["star"] = boost::any(*star);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (subOrderId) {
+      res["sub_order_id"] = boost::any(*subOrderId);
+    }
+    if (taxRate) {
+      res["tax_rate"] = boost::any(*taxRate);
+    }
+    if (thirdInvoiceId) {
+      res["third_invoice_id"] = boost::any(*thirdInvoiceId);
+    }
+    if (thirdItineraryId) {
+      res["third_itinerary_id"] = boost::any(*thirdItineraryId);
+    }
+    if (thirdPartBusinessId) {
+      res["third_part_business_id"] = boost::any(*thirdPartBusinessId);
+    }
+    if (thirdpartApplyId) {
+      res["thirdpart_apply_id"] = boost::any(*thirdpartApplyId);
+    }
+    if (totalNights) {
+      res["total_nights"] = boost::any(*totalNights);
+    }
+    if (travelerId) {
+      res["traveler_id"] = boost::any(*travelerId);
+    }
+    if (travelerJobNo) {
+      res["traveler_job_no"] = boost::any(*travelerJobNo);
+    }
+    if (travelerMemberType) {
+      res["traveler_member_type"] = boost::any(*travelerMemberType);
+    }
+    if (travelerMemberTypeName) {
+      res["traveler_member_type_name"] = boost::any(*travelerMemberTypeName);
+    }
+    if (travelerName) {
+      res["traveler_name"] = boost::any(*travelerName);
+    }
+    if (voucherType) {
+      res["voucher_type"] = boost::any(*voucherType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("alipay_trade_no") != m.end() && !m["alipay_trade_no"].empty()) {
+      alipayTradeNo = make_shared<string>(boost::any_cast<string>(m["alipay_trade_no"]));
+    }
+    if (m.find("apply_arr_city_code") != m.end() && !m["apply_arr_city_code"].empty()) {
+      applyArrCityCode = make_shared<string>(boost::any_cast<string>(m["apply_arr_city_code"]));
+    }
+    if (m.find("apply_arr_city_name") != m.end() && !m["apply_arr_city_name"].empty()) {
+      applyArrCityName = make_shared<string>(boost::any_cast<string>(m["apply_arr_city_name"]));
+    }
+    if (m.find("apply_dep_city_code") != m.end() && !m["apply_dep_city_code"].empty()) {
+      applyDepCityCode = make_shared<string>(boost::any_cast<string>(m["apply_dep_city_code"]));
+    }
+    if (m.find("apply_dep_city_name") != m.end() && !m["apply_dep_city_name"].empty()) {
+      applyDepCityName = make_shared<string>(boost::any_cast<string>(m["apply_dep_city_name"]));
+    }
+    if (m.find("apply_extend_field") != m.end() && !m["apply_extend_field"].empty()) {
+      applyExtendField = make_shared<string>(boost::any_cast<string>(m["apply_extend_field"]));
+    }
+    if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
+      applyId = make_shared<string>(boost::any_cast<string>(m["apply_id"]));
+    }
+    if (m.find("average_nights") != m.end() && !m["average_nights"].empty()) {
+      averageNights = make_shared<double>(boost::any_cast<double>(m["average_nights"]));
+    }
+    if (m.find("bill_record_time") != m.end() && !m["bill_record_time"].empty()) {
+      billRecordTime = make_shared<string>(boost::any_cast<string>(m["bill_record_time"]));
+    }
+    if (m.find("book_mode") != m.end() && !m["book_mode"].empty()) {
+      bookMode = make_shared<string>(boost::any_cast<string>(m["book_mode"]));
+    }
+    if (m.find("book_reason") != m.end() && !m["book_reason"].empty()) {
+      bookReason = make_shared<string>(boost::any_cast<string>(m["book_reason"]));
+    }
+    if (m.find("book_time") != m.end() && !m["book_time"].empty()) {
+      bookTime = make_shared<string>(boost::any_cast<string>(m["book_time"]));
+    }
+    if (m.find("booker_id") != m.end() && !m["booker_id"].empty()) {
+      bookerId = make_shared<string>(boost::any_cast<string>(m["booker_id"]));
+    }
+    if (m.find("booker_job_no") != m.end() && !m["booker_job_no"].empty()) {
+      bookerJobNo = make_shared<string>(boost::any_cast<string>(m["booker_job_no"]));
+    }
+    if (m.find("booker_name") != m.end() && !m["booker_name"].empty()) {
+      bookerName = make_shared<string>(boost::any_cast<string>(m["booker_name"]));
+    }
+    if (m.find("brand_group") != m.end() && !m["brand_group"].empty()) {
+      brandGroup = make_shared<string>(boost::any_cast<string>(m["brand_group"]));
+    }
+    if (m.find("brand_name") != m.end() && !m["brand_name"].empty()) {
+      brandName = make_shared<string>(boost::any_cast<string>(m["brand_name"]));
+    }
+    if (m.find("business_trip_result") != m.end() && !m["business_trip_result"].empty()) {
+      businessTripResult = make_shared<string>(boost::any_cast<string>(m["business_trip_result"]));
+    }
+    if (m.find("capital_direction") != m.end() && !m["capital_direction"].empty()) {
+      capitalDirection = make_shared<string>(boost::any_cast<string>(m["capital_direction"]));
+    }
+    if (m.find("cascade_department") != m.end() && !m["cascade_department"].empty()) {
+      cascadeDepartment = make_shared<string>(boost::any_cast<string>(m["cascade_department"]));
+    }
+    if (m.find("check_in_date") != m.end() && !m["check_in_date"].empty()) {
+      checkInDate = make_shared<string>(boost::any_cast<string>(m["check_in_date"]));
+    }
+    if (m.find("checkout_date") != m.end() && !m["checkout_date"].empty()) {
+      checkoutDate = make_shared<string>(boost::any_cast<string>(m["checkout_date"]));
+    }
+    if (m.find("city") != m.end() && !m["city"].empty()) {
+      city = make_shared<string>(boost::any_cast<string>(m["city"]));
+    }
+    if (m.find("city_code") != m.end() && !m["city_code"].empty()) {
+      cityCode = make_shared<string>(boost::any_cast<string>(m["city_code"]));
+    }
+    if (m.find("city_county") != m.end() && !m["city_county"].empty()) {
+      cityCounty = make_shared<string>(boost::any_cast<string>(m["city_county"]));
+    }
+    if (m.find("city_county_code") != m.end() && !m["city_county_code"].empty()) {
+      cityCountyCode = make_shared<long>(boost::any_cast<long>(m["city_county_code"]));
+    }
+    if (m.find("cooperator_bill_code") != m.end() && !m["cooperator_bill_code"].empty()) {
+      cooperatorBillCode = make_shared<string>(boost::any_cast<string>(m["cooperator_bill_code"]));
+    }
+    if (m.find("cooperator_name") != m.end() && !m["cooperator_name"].empty()) {
+      cooperatorName = make_shared<string>(boost::any_cast<string>(m["cooperator_name"]));
+    }
+    if (m.find("cooperator_order_id") != m.end() && !m["cooperator_order_id"].empty()) {
+      cooperatorOrderId = make_shared<string>(boost::any_cast<string>(m["cooperator_order_id"]));
+    }
+    if (m.find("corp_refund_fee") != m.end() && !m["corp_refund_fee"].empty()) {
+      corpRefundFee = make_shared<double>(boost::any_cast<double>(m["corp_refund_fee"]));
+    }
+    if (m.find("corp_total_fee") != m.end() && !m["corp_total_fee"].empty()) {
+      corpTotalFee = make_shared<double>(boost::any_cast<double>(m["corp_total_fee"]));
+    }
+    if (m.find("cost_center") != m.end() && !m["cost_center"].empty()) {
+      costCenter = make_shared<string>(boost::any_cast<string>(m["cost_center"]));
+    }
+    if (m.find("cost_center_number") != m.end() && !m["cost_center_number"].empty()) {
+      costCenterNumber = make_shared<string>(boost::any_cast<string>(m["cost_center_number"]));
+    }
+    if (m.find("department") != m.end() && !m["department"].empty()) {
+      department = make_shared<string>(boost::any_cast<string>(m["department"]));
+    }
+    if (m.find("department_id") != m.end() && !m["department_id"].empty()) {
+      departmentId = make_shared<string>(boost::any_cast<string>(m["department_id"]));
+    }
+    if (m.find("exceed_reason") != m.end() && !m["exceed_reason"].empty()) {
+      exceedReason = make_shared<string>(boost::any_cast<string>(m["exceed_reason"]));
+    }
+    if (m.find("fee_type") != m.end() && !m["fee_type"].empty()) {
+      feeType = make_shared<string>(boost::any_cast<string>(m["fee_type"]));
+    }
+    if (m.find("fees") != m.end() && !m["fees"].empty()) {
+      fees = make_shared<double>(boost::any_cast<double>(m["fees"]));
+    }
+    if (m.find("fines") != m.end() && !m["fines"].empty()) {
+      fines = make_shared<double>(boost::any_cast<double>(m["fines"]));
+    }
+    if (m.find("fu_point_fee") != m.end() && !m["fu_point_fee"].empty()) {
+      fuPointFee = make_shared<double>(boost::any_cast<double>(m["fu_point_fee"]));
+    }
+    if (m.find("hotel_name") != m.end() && !m["hotel_name"].empty()) {
+      hotelName = make_shared<string>(boost::any_cast<string>(m["hotel_name"]));
+    }
+    if (m.find("index") != m.end() && !m["index"].empty()) {
+      index = make_shared<string>(boost::any_cast<string>(m["index"]));
+    }
+    if (m.find("invoice_title") != m.end() && !m["invoice_title"].empty()) {
+      invoiceTitle = make_shared<string>(boost::any_cast<string>(m["invoice_title"]));
+    }
+    if (m.find("is_early_departure") != m.end() && !m["is_early_departure"].empty()) {
+      isEarlyDeparture = make_shared<string>(boost::any_cast<string>(m["is_early_departure"]));
+    }
+    if (m.find("is_negotiation") != m.end() && !m["is_negotiation"].empty()) {
+      isNegotiation = make_shared<string>(boost::any_cast<string>(m["is_negotiation"]));
+    }
+    if (m.find("is_share_str") != m.end() && !m["is_share_str"].empty()) {
+      isShareStr = make_shared<string>(boost::any_cast<string>(m["is_share_str"]));
+    }
+    if (m.find("main_apply_id") != m.end() && !m["main_apply_id"].empty()) {
+      mainApplyId = make_shared<string>(boost::any_cast<string>(m["main_apply_id"]));
+    }
+    if (m.find("nights") != m.end() && !m["nights"].empty()) {
+      nights = make_shared<long>(boost::any_cast<long>(m["nights"]));
+    }
+    if (m.find("order_id") != m.end() && !m["order_id"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["order_id"]));
+    }
+    if (m.find("order_price") != m.end() && !m["order_price"].empty()) {
+      orderPrice = make_shared<double>(boost::any_cast<double>(m["order_price"]));
+    }
+    if (m.find("order_status_desc") != m.end() && !m["order_status_desc"].empty()) {
+      orderStatusDesc = make_shared<string>(boost::any_cast<string>(m["order_status_desc"]));
+    }
+    if (m.find("order_type") != m.end() && !m["order_type"].empty()) {
+      orderType = make_shared<string>(boost::any_cast<string>(m["order_type"]));
+    }
+    if (m.find("over_apply_id") != m.end() && !m["over_apply_id"].empty()) {
+      overApplyId = make_shared<string>(boost::any_cast<string>(m["over_apply_id"]));
+    }
+    if (m.find("payment_department_id") != m.end() && !m["payment_department_id"].empty()) {
+      paymentDepartmentId = make_shared<string>(boost::any_cast<string>(m["payment_department_id"]));
+    }
+    if (m.find("payment_department_name") != m.end() && !m["payment_department_name"].empty()) {
+      paymentDepartmentName = make_shared<string>(boost::any_cast<string>(m["payment_department_name"]));
+    }
+    if (m.find("person_refund_fee") != m.end() && !m["person_refund_fee"].empty()) {
+      personRefundFee = make_shared<double>(boost::any_cast<double>(m["person_refund_fee"]));
+    }
+    if (m.find("person_settle_price") != m.end() && !m["person_settle_price"].empty()) {
+      personSettlePrice = make_shared<double>(boost::any_cast<double>(m["person_settle_price"]));
+    }
+    if (m.find("primary_id") != m.end() && !m["primary_id"].empty()) {
+      primaryId = make_shared<long>(boost::any_cast<long>(m["primary_id"]));
+    }
+    if (m.find("project_code") != m.end() && !m["project_code"].empty()) {
+      projectCode = make_shared<string>(boost::any_cast<string>(m["project_code"]));
+    }
+    if (m.find("project_name") != m.end() && !m["project_name"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["project_name"]));
+    }
+    if (m.find("promotion_fee") != m.end() && !m["promotion_fee"].empty()) {
+      promotionFee = make_shared<double>(boost::any_cast<double>(m["promotion_fee"]));
+    }
+    if (m.find("remark") != m.end() && !m["remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
+    }
+    if (m.find("reserve_rule") != m.end() && !m["reserve_rule"].empty()) {
+      reserveRule = make_shared<long>(boost::any_cast<long>(m["reserve_rule"]));
+    }
+    if (m.find("room_no") != m.end() && !m["room_no"].empty()) {
+      roomNo = make_shared<string>(boost::any_cast<string>(m["room_no"]));
+    }
+    if (m.find("room_number") != m.end() && !m["room_number"].empty()) {
+      roomNumber = make_shared<long>(boost::any_cast<long>(m["room_number"]));
+    }
+    if (m.find("room_price") != m.end() && !m["room_price"].empty()) {
+      roomPrice = make_shared<double>(boost::any_cast<double>(m["room_price"]));
+    }
+    if (m.find("room_type") != m.end() && !m["room_type"].empty()) {
+      roomType = make_shared<string>(boost::any_cast<string>(m["room_type"]));
+    }
+    if (m.find("service_fee") != m.end() && !m["service_fee"].empty()) {
+      serviceFee = make_shared<double>(boost::any_cast<double>(m["service_fee"]));
+    }
+    if (m.find("settlement_fee") != m.end() && !m["settlement_fee"].empty()) {
+      settlementFee = make_shared<double>(boost::any_cast<double>(m["settlement_fee"]));
+    }
+    if (m.find("settlement_grant_fee") != m.end() && !m["settlement_grant_fee"].empty()) {
+      settlementGrantFee = make_shared<double>(boost::any_cast<double>(m["settlement_grant_fee"]));
+    }
+    if (m.find("settlement_time") != m.end() && !m["settlement_time"].empty()) {
+      settlementTime = make_shared<string>(boost::any_cast<string>(m["settlement_time"]));
+    }
+    if (m.find("settlement_type") != m.end() && !m["settlement_type"].empty()) {
+      settlementType = make_shared<string>(boost::any_cast<string>(m["settlement_type"]));
+    }
+    if (m.find("show_sub_order_id") != m.end() && !m["show_sub_order_id"].empty()) {
+      showSubOrderId = make_shared<string>(boost::any_cast<string>(m["show_sub_order_id"]));
+    }
+    if (m.find("star") != m.end() && !m["star"].empty()) {
+      star = make_shared<string>(boost::any_cast<string>(m["star"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["status"]));
+    }
+    if (m.find("sub_order_id") != m.end() && !m["sub_order_id"].empty()) {
+      subOrderId = make_shared<string>(boost::any_cast<string>(m["sub_order_id"]));
+    }
+    if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
+      taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
+    }
+    if (m.find("third_invoice_id") != m.end() && !m["third_invoice_id"].empty()) {
+      thirdInvoiceId = make_shared<string>(boost::any_cast<string>(m["third_invoice_id"]));
+    }
+    if (m.find("third_itinerary_id") != m.end() && !m["third_itinerary_id"].empty()) {
+      thirdItineraryId = make_shared<string>(boost::any_cast<string>(m["third_itinerary_id"]));
+    }
+    if (m.find("third_part_business_id") != m.end() && !m["third_part_business_id"].empty()) {
+      thirdPartBusinessId = make_shared<string>(boost::any_cast<string>(m["third_part_business_id"]));
+    }
+    if (m.find("thirdpart_apply_id") != m.end() && !m["thirdpart_apply_id"].empty()) {
+      thirdpartApplyId = make_shared<string>(boost::any_cast<string>(m["thirdpart_apply_id"]));
+    }
+    if (m.find("total_nights") != m.end() && !m["total_nights"].empty()) {
+      totalNights = make_shared<long>(boost::any_cast<long>(m["total_nights"]));
+    }
+    if (m.find("traveler_id") != m.end() && !m["traveler_id"].empty()) {
+      travelerId = make_shared<string>(boost::any_cast<string>(m["traveler_id"]));
+    }
+    if (m.find("traveler_job_no") != m.end() && !m["traveler_job_no"].empty()) {
+      travelerJobNo = make_shared<string>(boost::any_cast<string>(m["traveler_job_no"]));
+    }
+    if (m.find("traveler_member_type") != m.end() && !m["traveler_member_type"].empty()) {
+      travelerMemberType = make_shared<string>(boost::any_cast<string>(m["traveler_member_type"]));
+    }
+    if (m.find("traveler_member_type_name") != m.end() && !m["traveler_member_type_name"].empty()) {
+      travelerMemberTypeName = make_shared<string>(boost::any_cast<string>(m["traveler_member_type_name"]));
+    }
+    if (m.find("traveler_name") != m.end() && !m["traveler_name"].empty()) {
+      travelerName = make_shared<string>(boost::any_cast<string>(m["traveler_name"]));
+    }
+    if (m.find("voucher_type") != m.end() && !m["voucher_type"].empty()) {
+      voucherType = make_shared<long>(boost::any_cast<long>(m["voucher_type"]));
+    }
+  }
+
+
+  virtual ~CooperatorHotelBillSettlementQueryResponseBodyModuleItems() = default;
+};
+class CooperatorHotelBillSettlementQueryResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<long> category{};
+  shared_ptr<string> corpId{};
+  shared_ptr<vector<CooperatorHotelBillSettlementQueryResponseBodyModuleItems>> items{};
+  shared_ptr<string> periodEnd{};
+  shared_ptr<string> periodStart{};
+  shared_ptr<long> totalSize{};
+
+  CooperatorHotelBillSettlementQueryResponseBodyModule() {}
+
+  explicit CooperatorHotelBillSettlementQueryResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["category"] = boost::any(*category);
+    }
+    if (corpId) {
+      res["corp_id"] = boost::any(*corpId);
+    }
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["items"] = boost::any(temp1);
+    }
+    if (periodEnd) {
+      res["period_end"] = boost::any(*periodEnd);
+    }
+    if (periodStart) {
+      res["period_start"] = boost::any(*periodStart);
+    }
+    if (totalSize) {
+      res["total_size"] = boost::any(*totalSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("category") != m.end() && !m["category"].empty()) {
+      category = make_shared<long>(boost::any_cast<long>(m["category"]));
+    }
+    if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
+      corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
+    }
+    if (m.find("items") != m.end() && !m["items"].empty()) {
+      if (typeid(vector<boost::any>) == m["items"].type()) {
+        vector<CooperatorHotelBillSettlementQueryResponseBodyModuleItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CooperatorHotelBillSettlementQueryResponseBodyModuleItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<CooperatorHotelBillSettlementQueryResponseBodyModuleItems>>(expect1);
+      }
+    }
+    if (m.find("period_end") != m.end() && !m["period_end"].empty()) {
+      periodEnd = make_shared<string>(boost::any_cast<string>(m["period_end"]));
+    }
+    if (m.find("period_start") != m.end() && !m["period_start"].empty()) {
+      periodStart = make_shared<string>(boost::any_cast<string>(m["period_start"]));
+    }
+    if (m.find("total_size") != m.end() && !m["total_size"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["total_size"]));
+    }
+  }
+
+
+  virtual ~CooperatorHotelBillSettlementQueryResponseBodyModule() = default;
+};
+class CooperatorHotelBillSettlementQueryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<CooperatorHotelBillSettlementQueryResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  CooperatorHotelBillSettlementQueryResponseBody() {}
+
+  explicit CooperatorHotelBillSettlementQueryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["module"].type()) {
+        CooperatorHotelBillSettlementQueryResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["module"]));
+        module = make_shared<CooperatorHotelBillSettlementQueryResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~CooperatorHotelBillSettlementQueryResponseBody() = default;
+};
+class CooperatorHotelBillSettlementQueryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CooperatorHotelBillSettlementQueryResponseBody> body{};
+
+  CooperatorHotelBillSettlementQueryResponse() {}
+
+  explicit CooperatorHotelBillSettlementQueryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CooperatorHotelBillSettlementQueryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CooperatorHotelBillSettlementQueryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CooperatorHotelBillSettlementQueryResponse() = default;
+};
 class CorpAuthLinkInfoQueryResponseBodyModuleLinkCorps : public Darabonba::Model {
 public:
   shared_ptr<string> corpName{};
@@ -99673,6 +100607,8 @@ public:
   CommonApplyQueryResponse commonApplyQuery(shared_ptr<CommonApplyQueryRequest> request);
   CommonApplySyncResponse commonApplySyncWithOptions(shared_ptr<CommonApplySyncRequest> request, shared_ptr<CommonApplySyncHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CommonApplySyncResponse commonApplySync(shared_ptr<CommonApplySyncRequest> request);
+  CooperatorHotelBillSettlementQueryResponse cooperatorHotelBillSettlementQueryWithOptions(shared_ptr<CooperatorHotelBillSettlementQueryRequest> request, shared_ptr<CooperatorHotelBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CooperatorHotelBillSettlementQueryResponse cooperatorHotelBillSettlementQuery(shared_ptr<CooperatorHotelBillSettlementQueryRequest> request);
   CorpAuthLinkInfoQueryResponse corpAuthLinkInfoQueryWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CorpAuthLinkInfoQueryResponse corpAuthLinkInfoQuery();
   CorpTokenResponse corpTokenWithOptions(shared_ptr<CorpTokenRequest> request, shared_ptr<CorpTokenHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
