@@ -408,6 +408,7 @@ public:
 };
 class AddTrafficSpecialControlRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> securityToken{};
   shared_ptr<string> specialKey{};
   shared_ptr<string> specialType{};
   shared_ptr<string> trafficControlId{};
@@ -423,6 +424,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (specialKey) {
       res["SpecialKey"] = boost::any(*specialKey);
     }
@@ -439,6 +443,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
     if (m.find("SpecialKey") != m.end() && !m["SpecialKey"].empty()) {
       specialKey = make_shared<string>(boost::any_cast<string>(m["SpecialKey"]));
     }
@@ -540,6 +547,7 @@ public:
 class CheckAccountForInnerRequest : public Darabonba::Model {
 public:
   shared_ptr<long> aliUid{};
+  shared_ptr<string> securityToken{};
 
   CheckAccountForInnerRequest() {}
 
@@ -554,12 +562,18 @@ public:
     if (aliUid) {
       res["AliUid"] = boost::any(*aliUid);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliUid") != m.end() && !m["AliUid"].empty()) {
       aliUid = make_shared<long>(boost::any_cast<long>(m["AliUid"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -781,6 +795,7 @@ public:
 class CopyConsumerOpenForInnerRequest : public Darabonba::Model {
 public:
   shared_ptr<string> copyList{};
+  shared_ptr<string> securityToken{};
 
   CopyConsumerOpenForInnerRequest() {}
 
@@ -795,12 +810,18 @@ public:
     if (copyList) {
       res["CopyList"] = boost::any(*copyList);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CopyList") != m.end() && !m["CopyList"].empty()) {
       copyList = make_shared<string>(boost::any_cast<string>(m["CopyList"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -907,6 +928,7 @@ public:
   shared_ptr<string> requestQueries{};
   shared_ptr<string> resultSample{};
   shared_ptr<string> resultType{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> serviceAddress{};
   shared_ptr<string> serviceProtocol{};
   shared_ptr<long> serviceTimeout{};
@@ -973,6 +995,9 @@ public:
     }
     if (resultType) {
       res["ResultType"] = boost::any(*resultType);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
     }
     if (serviceAddress) {
       res["ServiceAddress"] = boost::any(*serviceAddress);
@@ -1043,6 +1068,9 @@ public:
     }
     if (m.find("ResultType") != m.end() && !m["ResultType"].empty()) {
       resultType = make_shared<string>(boost::any_cast<string>(m["ResultType"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("ServiceAddress") != m.end() && !m["ServiceAddress"].empty()) {
       serviceAddress = make_shared<string>(boost::any_cast<string>(m["ServiceAddress"]));
@@ -1163,6 +1191,7 @@ public:
   shared_ptr<string> requestParamters{};
   shared_ptr<string> resultSample{};
   shared_ptr<string> resultType{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> serviceConfig{};
   shared_ptr<string> serviceParameters{};
   shared_ptr<string> serviceParametersMap{};
@@ -1204,6 +1233,9 @@ public:
     }
     if (resultType) {
       res["ResultType"] = boost::any(*resultType);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
     }
     if (serviceConfig) {
       res["ServiceConfig"] = boost::any(*serviceConfig);
@@ -1247,6 +1279,9 @@ public:
     }
     if (m.find("ResultType") != m.end() && !m["ResultType"].empty()) {
       resultType = make_shared<string>(boost::any_cast<string>(m["ResultType"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("ServiceConfig") != m.end() && !m["ServiceConfig"].empty()) {
       serviceConfig = make_shared<string>(boost::any_cast<string>(m["ServiceConfig"]));
@@ -1510,6 +1545,7 @@ public:
   shared_ptr<long> aliUid{};
   shared_ptr<string> description{};
   shared_ptr<string> groupName{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> source{};
 
   CreateApiGroupForInnerRequest() {}
@@ -1531,6 +1567,9 @@ public:
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -1546,6 +1585,9 @@ public:
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -1668,6 +1710,7 @@ class CreateAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appName{};
   shared_ptr<string> description{};
+  shared_ptr<string> securityToken{};
 
   CreateAppRequest() {}
 
@@ -1685,6 +1728,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -1694,6 +1740,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -1935,6 +1984,7 @@ public:
   shared_ptr<string> appSecret{};
   shared_ptr<string> description{};
   shared_ptr<string> extend{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> source{};
 
   CreateAppForInnerRequest() {}
@@ -1968,6 +2018,9 @@ public:
     if (extend) {
       res["Extend"] = boost::any(*extend);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -1995,6 +2048,9 @@ public:
     }
     if (m.find("Extend") != m.end() && !m["Extend"].empty()) {
       extend = make_shared<string>(boost::any_cast<string>(m["Extend"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -2278,6 +2334,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<string> keywords{};
   shared_ptr<string> logoUrl{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> shortDescription{};
   shared_ptr<string> workName{};
 
@@ -2303,6 +2360,9 @@ public:
     if (logoUrl) {
       res["LogoUrl"] = boost::any(*logoUrl);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (shortDescription) {
       res["ShortDescription"] = boost::any(*shortDescription);
     }
@@ -2324,6 +2384,9 @@ public:
     }
     if (m.find("LogoUrl") != m.end() && !m["LogoUrl"].empty()) {
       logoUrl = make_shared<string>(boost::any_cast<string>(m["LogoUrl"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("ShortDescription") != m.end() && !m["ShortDescription"].empty()) {
       shortDescription = make_shared<string>(boost::any_cast<string>(m["ShortDescription"]));
@@ -2422,6 +2485,7 @@ public:
   shared_ptr<string> secretKey{};
   shared_ptr<string> secretKeyName{};
   shared_ptr<string> secretValue{};
+  shared_ptr<string> securityToken{};
 
   CreateSecretKeyRequest() {}
 
@@ -2442,6 +2506,9 @@ public:
     if (secretValue) {
       res["SecretValue"] = boost::any(*secretValue);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -2454,6 +2521,9 @@ public:
     }
     if (m.find("SecretValue") != m.end() && !m["SecretValue"].empty()) {
       secretValue = make_shared<string>(boost::any_cast<string>(m["SecretValue"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -2560,6 +2630,7 @@ public:
   shared_ptr<long> apiDefault{};
   shared_ptr<long> appDefault{};
   shared_ptr<string> description{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> trafficControlName{};
   shared_ptr<string> trafficControlUnit{};
   shared_ptr<long> userDefault{};
@@ -2583,6 +2654,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (trafficControlName) {
       res["TrafficControlName"] = boost::any(*trafficControlName);
     }
@@ -2604,6 +2678,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("TrafficControlName") != m.end() && !m["TrafficControlName"].empty()) {
       trafficControlName = make_shared<string>(boost::any_cast<string>(m["TrafficControlName"]));
@@ -2713,6 +2790,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> entityId{};
   shared_ptr<long> limitCount{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> type{};
   shared_ptr<long> uid{};
   shared_ptr<string> value{};
@@ -2739,6 +2817,9 @@ public:
     if (limitCount) {
       res["LimitCount"] = boost::any(*limitCount);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -2763,6 +2844,9 @@ public:
     }
     if (m.find("LimitCount") != m.end() && !m["LimitCount"].empty()) {
       limitCount = make_shared<long>(boost::any_cast<long>(m["LimitCount"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -2861,6 +2945,7 @@ public:
 };
 class DeleteAllTrafficSpecialControlRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> securityToken{};
   shared_ptr<string> trafficControlId{};
 
   DeleteAllTrafficSpecialControlRequest() {}
@@ -2873,6 +2958,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (trafficControlId) {
       res["TrafficControlId"] = boost::any(*trafficControlId);
     }
@@ -2880,6 +2968,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
     if (m.find("TrafficControlId") != m.end() && !m["TrafficControlId"].empty()) {
       trafficControlId = make_shared<string>(boost::any_cast<string>(m["TrafficControlId"]));
     }
@@ -2973,6 +3064,7 @@ class DeleteApiRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   DeleteApiRequest() {}
 
@@ -2990,6 +3082,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -2999,6 +3094,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -3091,6 +3189,7 @@ public:
   shared_ptr<long> aliUid{};
   shared_ptr<string> apiId{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   DeleteApiForInnerRequest() {}
 
@@ -3111,6 +3210,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -3123,6 +3225,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -3213,6 +3318,7 @@ public:
 class DeleteApiGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   DeleteApiGroupRequest() {}
 
@@ -3227,12 +3333,18 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -3323,6 +3435,7 @@ public:
 class DeleteAppRequest : public Darabonba::Model {
 public:
   shared_ptr<long> appId{};
+  shared_ptr<string> securityToken{};
 
   DeleteAppRequest() {}
 
@@ -3337,12 +3450,18 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<long>(boost::any_cast<long>(m["AppId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -3434,6 +3553,7 @@ class DeleteAppForInnerRequest : public Darabonba::Model {
 public:
   shared_ptr<long> aliUid{};
   shared_ptr<long> appId{};
+  shared_ptr<string> securityToken{};
 
   DeleteAppForInnerRequest() {}
 
@@ -3451,6 +3571,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -3460,6 +3583,9 @@ public:
     }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<long>(boost::any_cast<long>(m["AppId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -3551,6 +3677,7 @@ class DeleteDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   DeleteDomainRequest() {}
 
@@ -3568,6 +3695,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -3577,6 +3707,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -3669,6 +3802,7 @@ public:
   shared_ptr<string> certificateId{};
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   DeleteDomainCertificateRequest() {}
 
@@ -3689,6 +3823,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -3701,6 +3838,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -3791,6 +3931,7 @@ public:
 class DeleteSecretKeyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> secretKeyId{};
+  shared_ptr<string> securityToken{};
 
   DeleteSecretKeyRequest() {}
 
@@ -3805,12 +3946,18 @@ public:
     if (secretKeyId) {
       res["SecretKeyId"] = boost::any(*secretKeyId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("SecretKeyId") != m.end() && !m["SecretKeyId"].empty()) {
       secretKeyId = make_shared<string>(boost::any_cast<string>(m["SecretKeyId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -3900,6 +4047,7 @@ public:
 };
 class DeleteTrafficControlRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> securityToken{};
   shared_ptr<string> trafficControlId{};
 
   DeleteTrafficControlRequest() {}
@@ -3912,6 +4060,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (trafficControlId) {
       res["TrafficControlId"] = boost::any(*trafficControlId);
     }
@@ -3919,6 +4070,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
     if (m.find("TrafficControlId") != m.end() && !m["TrafficControlId"].empty()) {
       trafficControlId = make_shared<string>(boost::any_cast<string>(m["TrafficControlId"]));
     }
@@ -4010,6 +4164,7 @@ public:
 };
 class DeleteTrafficSpecialControlRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> securityToken{};
   shared_ptr<string> specialKey{};
   shared_ptr<string> specialType{};
   shared_ptr<string> trafficControlId{};
@@ -4024,6 +4179,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (specialKey) {
       res["SpecialKey"] = boost::any(*specialKey);
     }
@@ -4037,6 +4195,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
     if (m.find("SpecialKey") != m.end() && !m["SpecialKey"].empty()) {
       specialKey = make_shared<string>(boost::any_cast<string>(m["SpecialKey"]));
     }
@@ -4135,6 +4296,7 @@ public:
 class DeleteUserWhiteListByTypeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> entityId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> type{};
   shared_ptr<long> uid{};
 
@@ -4151,6 +4313,9 @@ public:
     if (entityId) {
       res["EntityId"] = boost::any(*entityId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -4163,6 +4328,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
       entityId = make_shared<string>(boost::any_cast<string>(m["EntityId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -4261,6 +4429,7 @@ public:
   shared_ptr<string> apiId{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   DeployApiRequest() {}
@@ -4282,6 +4451,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -4297,6 +4469,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -4393,6 +4568,7 @@ public:
   shared_ptr<string> apiId{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   DeployApiForInnerRequest() {}
@@ -4417,6 +4593,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -4435,6 +4614,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -4529,6 +4711,7 @@ class DescribeApiRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   DescribeApiRequest() {}
 
@@ -4546,6 +4729,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -4555,6 +4741,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -7511,6 +7700,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   DescribeApiDocsForBackendRequest() {}
@@ -7541,6 +7731,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -7565,6 +7758,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -7820,6 +8016,7 @@ public:
   shared_ptr<string> apiId{};
   shared_ptr<string> endTime{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> startTime{};
 
   DescribeApiErrorRequest() {}
@@ -7841,6 +8038,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -7856,6 +8056,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -8129,6 +8332,7 @@ public:
 class DescribeApiGroupDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   DescribeApiGroupDetailRequest() {}
 
@@ -8143,12 +8347,18 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -8734,6 +8944,7 @@ public:
   shared_ptr<string> apiId{};
   shared_ptr<string> endTime{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> startTime{};
 
   DescribeApiLatencyRequest() {}
@@ -8755,6 +8966,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -8770,6 +8984,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -8954,6 +9171,7 @@ class DescribeApiMarketInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aliUid{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   DescribeApiMarketInstanceRequest() {}
 
@@ -8971,6 +9189,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -8980,6 +9201,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -9079,6 +9303,7 @@ public:
   shared_ptr<string> apiId{};
   shared_ptr<string> endTime{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> startTime{};
 
   DescribeApiQpsRequest() {}
@@ -9100,6 +9325,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -9115,6 +9343,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -9392,6 +9623,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> ruleType{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   DescribeApiRulesRequest() {}
@@ -9419,6 +9651,9 @@ public:
     if (ruleType) {
       res["RuleType"] = boost::any(*ruleType);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -9440,6 +9675,9 @@ public:
     }
     if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
       ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -9674,6 +9912,7 @@ public:
   shared_ptr<string> apiId{};
   shared_ptr<string> endTime{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> startTime{};
 
   DescribeApiTrafficRequest() {}
@@ -9695,6 +9934,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -9710,6 +9952,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -9987,6 +10232,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> visibility{};
 
   DescribeApisRequest() {}
@@ -10014,6 +10260,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (visibility) {
       res["Visibility"] = boost::any(*visibility);
     }
@@ -10035,6 +10284,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("Visibility") != m.end() && !m["Visibility"].empty()) {
       visibility = make_shared<string>(boost::any_cast<string>(m["Visibility"]));
@@ -10290,6 +10542,7 @@ public:
   shared_ptr<long> appId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
 
   DescribeApisByAppRequest() {}
 
@@ -10310,6 +10563,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -10322,6 +10578,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -10582,6 +10841,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> ruleId{};
   shared_ptr<string> ruleType{};
+  shared_ptr<string> securityToken{};
 
   DescribeApisByRuleRequest() {}
 
@@ -10605,6 +10865,9 @@ public:
     if (ruleType) {
       res["RuleType"] = boost::any(*ruleType);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -10620,6 +10883,9 @@ public:
     }
     if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
       ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -10881,6 +11147,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
   shared_ptr<string> visibility{};
 
@@ -10909,6 +11176,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -10933,6 +11203,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -11286,6 +11559,7 @@ public:
 class DescribeAppRequest : public Darabonba::Model {
 public:
   shared_ptr<long> appId{};
+  shared_ptr<string> securityToken{};
 
   DescribeAppRequest() {}
 
@@ -11300,12 +11574,18 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<long>(boost::any_cast<long>(m["AppId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -11958,6 +12238,7 @@ public:
   shared_ptr<long> appId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
 
   DescribeAppsRequest() {}
 
@@ -11978,6 +12259,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -11990,6 +12274,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -12215,6 +12502,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   DescribeAppsByApiRequest() {}
@@ -12239,6 +12527,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -12257,6 +12548,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -12499,6 +12793,7 @@ public:
   shared_ptr<string> appOwner{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
 
   DescribeAppsForProviderRequest() {}
 
@@ -12522,6 +12817,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -12537,6 +12835,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -12758,6 +13059,7 @@ public:
 };
 class DescribeAvailableVipsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> securityToken{};
   shared_ptr<string> vip{};
 
   DescribeAvailableVipsRequest() {}
@@ -12770,6 +13072,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (vip) {
       res["Vip"] = boost::any(*vip);
     }
@@ -12777,6 +13082,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
     if (m.find("Vip") != m.end() && !m["Vip"].empty()) {
       vip = make_shared<string>(boost::any_cast<string>(m["Vip"]));
     }
@@ -13035,6 +13343,7 @@ public:
   shared_ptr<string> blackType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
 
   DescribeBlackListsRequest() {}
 
@@ -13055,6 +13364,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -13067,6 +13379,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -13290,6 +13605,7 @@ class DescribeDeployedApiRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   DescribeDeployedApiRequest() {}
@@ -13308,6 +13624,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -13320,6 +13639,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -14619,6 +14941,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   DescribeDeployedApisRequest() {}
@@ -14646,6 +14969,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -14667,6 +14993,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -14921,6 +15250,7 @@ class DescribeDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   DescribeDomainRequest() {}
 
@@ -14938,6 +15268,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -14947,6 +15280,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -15101,6 +15437,7 @@ class DescribeDomainResolutionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainNames{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   DescribeDomainResolutionRequest() {}
 
@@ -15118,6 +15455,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -15127,6 +15467,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -15316,6 +15659,7 @@ public:
   shared_ptr<string> apiId{};
   shared_ptr<string> groupId{};
   shared_ptr<string> historyVersion{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   DescribeHistoryApiRequest() {}
@@ -15337,6 +15681,9 @@ public:
     if (historyVersion) {
       res["HistoryVersion"] = boost::any(*historyVersion);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -15352,6 +15699,9 @@ public:
     }
     if (m.find("HistoryVersion") != m.end() && !m["HistoryVersion"].empty()) {
       historyVersion = make_shared<string>(boost::any_cast<string>(m["HistoryVersion"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -16686,6 +17036,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   DescribeHistoryApisRequest() {}
@@ -16713,6 +17064,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -16734,6 +17088,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -16999,6 +17356,7 @@ public:
   shared_ptr<string> modelName{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
 
   DescribeModelsForInnerRequest() {}
 
@@ -17028,6 +17386,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -17049,6 +17410,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -17286,6 +17650,7 @@ class DescribePurchasedApiRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   DescribePurchasedApiRequest() {}
 
@@ -17303,6 +17668,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -17312,6 +17680,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -18175,6 +18546,7 @@ public:
 class DescribePurchasedApiGroupDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   DescribePurchasedApiGroupDetailRequest() {}
 
@@ -18189,12 +18561,18 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -18726,6 +19104,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
   shared_ptr<string> visibility{};
 
@@ -18754,6 +19133,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -18778,6 +19160,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -19041,6 +19426,7 @@ public:
 class DescribeRaceWorkForInnerRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   DescribeRaceWorkForInnerRequest() {}
 
@@ -19055,12 +19441,18 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -19208,6 +19600,7 @@ class DescribeRaceWorksForInnerRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
 
   DescribeRaceWorksForInnerRequest() {}
 
@@ -19225,6 +19618,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -19234,6 +19630,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -19692,6 +20091,7 @@ class DescribeRulesByApiRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   DescribeRulesByApiRequest() {}
@@ -19710,6 +20110,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -19722,6 +20125,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -19922,6 +20328,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> secretKeyId{};
   shared_ptr<string> secretKeyName{};
+  shared_ptr<string> securityToken{};
 
   DescribeSecretKeysRequest() {}
 
@@ -19945,6 +20352,9 @@ public:
     if (secretKeyName) {
       res["SecretKeyName"] = boost::any(*secretKeyName);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -19960,6 +20370,9 @@ public:
     }
     if (m.find("SecretKeyName") != m.end() && !m["SecretKeyName"].empty()) {
       secretKeyName = make_shared<string>(boost::any_cast<string>(m["SecretKeyName"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -20627,6 +21040,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
   shared_ptr<string> trafficControlId{};
   shared_ptr<string> trafficControlName{};
@@ -20653,6 +21067,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -20677,6 +21094,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -21110,6 +21530,7 @@ class DescribeUserWhiteListsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> type{};
   shared_ptr<long> uid{};
 
@@ -21129,6 +21550,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -21144,6 +21568,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -21392,6 +21819,7 @@ public:
 };
 class IsIncludedByUserWhitelistRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> securityToken{};
   shared_ptr<string> type{};
 
   IsIncludedByUserWhitelistRequest() {}
@@ -21404,6 +21832,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -21411,6 +21842,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
@@ -21527,6 +21961,7 @@ public:
   shared_ptr<string> requestQueries{};
   shared_ptr<string> resultSample{};
   shared_ptr<string> resultType{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> serviceAddress{};
   shared_ptr<string> serviceProtocol{};
   shared_ptr<long> serviceTimeout{};
@@ -21596,6 +22031,9 @@ public:
     }
     if (resultType) {
       res["ResultType"] = boost::any(*resultType);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
     }
     if (serviceAddress) {
       res["ServiceAddress"] = boost::any(*serviceAddress);
@@ -21669,6 +22107,9 @@ public:
     }
     if (m.find("ResultType") != m.end() && !m["ResultType"].empty()) {
       resultType = make_shared<string>(boost::any_cast<string>(m["ResultType"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("ServiceAddress") != m.end() && !m["ServiceAddress"].empty()) {
       serviceAddress = make_shared<string>(boost::any_cast<string>(m["ServiceAddress"]));
@@ -21783,6 +22224,7 @@ public:
   shared_ptr<string> requestParamters{};
   shared_ptr<string> resultSample{};
   shared_ptr<string> resultType{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> serviceConfig{};
   shared_ptr<string> serviceParameters{};
   shared_ptr<string> serviceParametersMap{};
@@ -21827,6 +22269,9 @@ public:
     }
     if (resultType) {
       res["ResultType"] = boost::any(*resultType);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
     }
     if (serviceConfig) {
       res["ServiceConfig"] = boost::any(*serviceConfig);
@@ -21873,6 +22318,9 @@ public:
     }
     if (m.find("ResultType") != m.end() && !m["ResultType"].empty()) {
       resultType = make_shared<string>(boost::any_cast<string>(m["ResultType"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("ServiceConfig") != m.end() && !m["ServiceConfig"].empty()) {
       serviceConfig = make_shared<string>(boost::any_cast<string>(m["ServiceConfig"]));
@@ -21977,6 +22425,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
   shared_ptr<string> groupName{};
+  shared_ptr<string> securityToken{};
 
   ModifyApiGroupRequest() {}
 
@@ -21997,6 +22446,9 @@ public:
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -22009,6 +22461,9 @@ public:
     }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -22253,6 +22708,7 @@ public:
   shared_ptr<long> appId{};
   shared_ptr<string> appName{};
   shared_ptr<string> description{};
+  shared_ptr<string> securityToken{};
 
   ModifyAppRequest() {}
 
@@ -22273,6 +22729,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -22285,6 +22744,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -22379,6 +22841,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<string> description{};
   shared_ptr<string> extend{};
+  shared_ptr<string> securityToken{};
 
   ModifyAppForInnerRequest() {}
 
@@ -22405,6 +22868,9 @@ public:
     if (extend) {
       res["Extend"] = boost::any(*extend);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -22423,6 +22889,9 @@ public:
     }
     if (m.find("Extend") != m.end() && !m["Extend"].empty()) {
       extend = make_shared<string>(boost::any_cast<string>(m["Extend"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -22515,6 +22984,7 @@ public:
   shared_ptr<long> aliUid{};
   shared_ptr<string> authAppCode{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   ModifyGroupAuthAppCodeForBackendRequest() {}
 
@@ -22535,6 +23005,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -22547,6 +23020,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -22640,6 +23116,7 @@ public:
   shared_ptr<string> secretKeyId{};
   shared_ptr<string> secretKeyName{};
   shared_ptr<string> secretValue{};
+  shared_ptr<string> securityToken{};
 
   ModifySecretKeyRequest() {}
 
@@ -22663,6 +23140,9 @@ public:
     if (secretValue) {
       res["SecretValue"] = boost::any(*secretValue);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -22678,6 +23158,9 @@ public:
     }
     if (m.find("SecretValue") != m.end() && !m["SecretValue"].empty()) {
       secretValue = make_shared<string>(boost::any_cast<string>(m["SecretValue"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -22784,6 +23267,7 @@ public:
   shared_ptr<long> apiDefault{};
   shared_ptr<long> appDefault{};
   shared_ptr<string> description{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> trafficControlId{};
   shared_ptr<string> trafficControlName{};
   shared_ptr<string> trafficControlUnit{};
@@ -22807,6 +23291,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
     }
     if (trafficControlId) {
       res["TrafficControlId"] = boost::any(*trafficControlId);
@@ -22832,6 +23319,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("TrafficControlId") != m.end() && !m["TrafficControlId"].empty()) {
       trafficControlId = make_shared<string>(boost::any_cast<string>(m["TrafficControlId"]));
@@ -22934,6 +23424,7 @@ public:
 class ModifyUserWhiteListValueByTypeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> type{};
   shared_ptr<long> uid{};
   shared_ptr<string> value{};
@@ -22951,6 +23442,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -22966,6 +23460,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -23067,6 +23564,7 @@ public:
   shared_ptr<long> aliuid{};
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   ReactivateDomainForBackendRequest() {}
 
@@ -23087,6 +23585,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -23099,6 +23600,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -23191,6 +23695,7 @@ public:
   shared_ptr<string> apiId{};
   shared_ptr<string> groupId{};
   shared_ptr<string> historyVersion{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   RecoverApiFromHistoricalRequest() {}
@@ -23212,6 +23717,9 @@ public:
     if (historyVersion) {
       res["HistoryVersion"] = boost::any(*historyVersion);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -23227,6 +23735,9 @@ public:
     }
     if (m.find("HistoryVersion") != m.end() && !m["HistoryVersion"].empty()) {
       historyVersion = make_shared<string>(boost::any_cast<string>(m["HistoryVersion"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -23322,6 +23833,7 @@ public:
   shared_ptr<string> apiId{};
   shared_ptr<string> groupId{};
   shared_ptr<string> historyVersion{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   RecoveryApiDefineFromHistoricalRequest() {}
@@ -23343,6 +23855,9 @@ public:
     if (historyVersion) {
       res["HistoryVersion"] = boost::any(*historyVersion);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -23358,6 +23873,9 @@ public:
     }
     if (m.find("HistoryVersion") != m.end() && !m["HistoryVersion"].empty()) {
       historyVersion = make_shared<string>(boost::any_cast<string>(m["HistoryVersion"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -23453,6 +23971,7 @@ public:
   shared_ptr<string> apiId{};
   shared_ptr<string> groupId{};
   shared_ptr<string> historyVersion{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   RecoveryApiFromHistoricalRequest() {}
@@ -23474,6 +23993,9 @@ public:
     if (historyVersion) {
       res["HistoryVersion"] = boost::any(*historyVersion);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -23489,6 +24011,9 @@ public:
     }
     if (m.find("HistoryVersion") != m.end() && !m["HistoryVersion"].empty()) {
       historyVersion = make_shared<string>(boost::any_cast<string>(m["HistoryVersion"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -23583,6 +24108,7 @@ class RefreshDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   RefreshDomainRequest() {}
 
@@ -23600,6 +24126,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -23609,6 +24138,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -23751,6 +24283,7 @@ public:
   shared_ptr<long> appId{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   RemoveAccessPermissionByApisRequest() {}
@@ -23775,6 +24308,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -23793,6 +24329,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -23888,6 +24427,7 @@ public:
   shared_ptr<string> apiId{};
   shared_ptr<string> appIds{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   RemoveAccessPermissionByAppsRequest() {}
@@ -23909,6 +24449,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -23924,6 +24467,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -24020,6 +24566,7 @@ public:
   shared_ptr<string> apiId{};
   shared_ptr<string> appIds{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> source{};
   shared_ptr<string> stageName{};
 
@@ -24045,6 +24592,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -24066,6 +24616,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -24162,6 +24715,7 @@ public:
 class RemoveAllBlackListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> blackType{};
+  shared_ptr<string> securityToken{};
 
   RemoveAllBlackListRequest() {}
 
@@ -24176,12 +24730,18 @@ public:
     if (blackType) {
       res["BlackType"] = boost::any(*blackType);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BlackType") != m.end() && !m["BlackType"].empty()) {
       blackType = make_shared<string>(boost::any_cast<string>(m["BlackType"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -24275,6 +24835,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<string> ruleId{};
   shared_ptr<string> ruleType{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   RemoveApiRuleRequest() {}
@@ -24299,6 +24860,9 @@ public:
     if (ruleType) {
       res["RuleType"] = boost::any(*ruleType);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -24317,6 +24881,9 @@ public:
     }
     if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
       ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -24412,6 +24979,7 @@ public:
   shared_ptr<string> apiId{};
   shared_ptr<string> appIds{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   RemoveAppsFromApiRequest() {}
@@ -24433,6 +25001,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -24448,6 +25019,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -24542,6 +25116,7 @@ class RemoveBlackListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> blackContent{};
   shared_ptr<string> blackType{};
+  shared_ptr<string> securityToken{};
 
   RemoveBlackListRequest() {}
 
@@ -24559,6 +25134,9 @@ public:
     if (blackType) {
       res["BlackType"] = boost::any(*blackType);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -24568,6 +25146,9 @@ public:
     }
     if (m.find("BlackType") != m.end() && !m["BlackType"].empty()) {
       blackType = make_shared<string>(boost::any_cast<string>(m["BlackType"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -24658,6 +25239,7 @@ public:
 class ResetAppCodeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appCode{};
+  shared_ptr<string> securityToken{};
 
   ResetAppCodeRequest() {}
 
@@ -24672,12 +25254,18 @@ public:
     if (appCode) {
       res["AppCode"] = boost::any(*appCode);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppCode") != m.end() && !m["AppCode"].empty()) {
       appCode = make_shared<string>(boost::any_cast<string>(m["AppCode"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -24770,6 +25358,7 @@ public:
   shared_ptr<long> aliUid{};
   shared_ptr<string> appCode{};
   shared_ptr<string> newAppCode{};
+  shared_ptr<string> securityToken{};
 
   ResetAppCodeForInnerRequest() {}
 
@@ -24790,6 +25379,9 @@ public:
     if (newAppCode) {
       res["NewAppCode"] = boost::any(*newAppCode);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -24802,6 +25394,9 @@ public:
     }
     if (m.find("NewAppCode") != m.end() && !m["NewAppCode"].empty()) {
       newAppCode = make_shared<string>(boost::any_cast<string>(m["NewAppCode"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -24892,6 +25487,7 @@ public:
 class ResetAppKeySecretRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appKey{};
+  shared_ptr<string> securityToken{};
 
   ResetAppKeySecretRequest() {}
 
@@ -24906,12 +25502,18 @@ public:
     if (appKey) {
       res["AppKey"] = boost::any(*appKey);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
       appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -25005,6 +25607,7 @@ public:
   shared_ptr<string> appKey{};
   shared_ptr<string> newAppKey{};
   shared_ptr<string> newAppSecret{};
+  shared_ptr<string> securityToken{};
 
   ResetSecretByAppKeyForInnerRequest() {}
 
@@ -25028,6 +25631,9 @@ public:
     if (newAppSecret) {
       res["NewAppSecret"] = boost::any(*newAppSecret);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -25043,6 +25649,9 @@ public:
     }
     if (m.find("NewAppSecret") != m.end() && !m["NewAppSecret"].empty()) {
       newAppSecret = make_shared<string>(boost::any_cast<string>(m["NewAppSecret"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -25136,6 +25745,7 @@ public:
   shared_ptr<long> appId{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   SetAccessPermissionByApisRequest() {}
@@ -25160,6 +25770,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -25178,6 +25791,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -25398,6 +26014,7 @@ public:
   shared_ptr<string> appIds{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   SetAccessPermissionsRequest() {}
@@ -25422,6 +26039,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -25440,6 +26060,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -25537,6 +26160,7 @@ public:
   shared_ptr<string> appIds{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> source{};
   shared_ptr<string> stageName{};
 
@@ -25565,6 +26189,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -25589,6 +26216,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -25688,6 +26318,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<string> ruleId{};
   shared_ptr<string> ruleType{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   SetApiRuleRequest() {}
@@ -25712,6 +26343,9 @@ public:
     if (ruleType) {
       res["RuleType"] = boost::any(*ruleType);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -25730,6 +26364,9 @@ public:
     }
     if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
       ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -25827,6 +26464,7 @@ public:
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
   shared_ptr<string> privateKey{};
+  shared_ptr<string> securityToken{};
 
   SetDomainRequest() {}
 
@@ -25853,6 +26491,9 @@ public:
     if (privateKey) {
       res["PrivateKey"] = boost::any(*privateKey);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -25871,6 +26512,9 @@ public:
     }
     if (m.find("PrivateKey") != m.end() && !m["PrivateKey"].empty()) {
       privateKey = make_shared<string>(boost::any_cast<string>(m["PrivateKey"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -25993,6 +26637,7 @@ public:
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
   shared_ptr<string> privateKey{};
+  shared_ptr<string> securityToken{};
 
   SetDomainCertificateRequest() {}
 
@@ -26019,6 +26664,9 @@ public:
     if (privateKey) {
       res["PrivateKey"] = boost::any(*privateKey);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -26037,6 +26685,9 @@ public:
     }
     if (m.find("PrivateKey") != m.end() && !m["PrivateKey"].empty()) {
       privateKey = make_shared<string>(boost::any_cast<string>(m["PrivateKey"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -26131,6 +26782,7 @@ public:
   shared_ptr<string> certificatePrivateKey{};
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   SetDomainForBackendRequest() {}
 
@@ -26157,6 +26809,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -26175,6 +26830,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -26296,6 +26954,7 @@ public:
   shared_ptr<string> groupId{};
   shared_ptr<string> mock{};
   shared_ptr<string> mockResult{};
+  shared_ptr<string> securityToken{};
 
   SetMockIntegrationRequest() {}
 
@@ -26319,6 +26978,9 @@ public:
     if (mockResult) {
       res["MockResult"] = boost::any(*mockResult);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -26334,6 +26996,9 @@ public:
     }
     if (m.find("MockResult") != m.end() && !m["MockResult"].empty()) {
       mockResult = make_shared<string>(boost::any_cast<string>(m["MockResult"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -26558,6 +27223,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
   shared_ptr<string> historyVersion{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   SwitchApiRequest() {}
@@ -26582,6 +27248,9 @@ public:
     if (historyVersion) {
       res["HistoryVersion"] = boost::any(*historyVersion);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -26600,6 +27269,9 @@ public:
     }
     if (m.find("HistoryVersion") != m.end() && !m["HistoryVersion"].empty()) {
       historyVersion = make_shared<string>(boost::any_cast<string>(m["HistoryVersion"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -26696,6 +27368,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
   shared_ptr<string> historyVersion{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   SwitchApiForInnerRequest() {}
@@ -26720,6 +27393,9 @@ public:
     if (historyVersion) {
       res["HistoryVersion"] = boost::any(*historyVersion);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -26738,6 +27414,9 @@ public:
     }
     if (m.find("HistoryVersion") != m.end() && !m["HistoryVersion"].empty()) {
       historyVersion = make_shared<string>(boost::any_cast<string>(m["HistoryVersion"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -26835,6 +27514,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<string> appSecret{};
   shared_ptr<string> description{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> source{};
 
   SynCreateAppForInnerRequest() {}
@@ -26862,6 +27542,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -26883,6 +27566,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -27359,6 +28045,7 @@ class VipMigrationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> newVip{};
   shared_ptr<string> originalVip{};
+  shared_ptr<string> securityToken{};
 
   VipMigrationRequest() {}
 
@@ -27376,6 +28063,9 @@ public:
     if (originalVip) {
       res["OriginalVip"] = boost::any(*originalVip);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -27385,6 +28075,9 @@ public:
     }
     if (m.find("OriginalVip") != m.end() && !m["OriginalVip"].empty()) {
       originalVip = make_shared<string>(boost::any_cast<string>(m["OriginalVip"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -27436,6 +28129,7 @@ class VipMigrationByUidRequest : public Darabonba::Model {
 public:
   shared_ptr<string> newVip{};
   shared_ptr<string> originalVip{};
+  shared_ptr<string> securityToken{};
 
   VipMigrationByUidRequest() {}
 
@@ -27453,6 +28147,9 @@ public:
     if (originalVip) {
       res["OriginalVip"] = boost::any(*originalVip);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -27462,6 +28159,9 @@ public:
     }
     if (m.find("OriginalVip") != m.end() && !m["OriginalVip"].empty()) {
       originalVip = make_shared<string>(boost::any_cast<string>(m["OriginalVip"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -27553,6 +28253,7 @@ class VpcAddAppServerRequest : public Darabonba::Model {
 public:
   shared_ptr<string> addressPoolId{};
   shared_ptr<string> appId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> serverIp{};
   shared_ptr<string> token{};
 
@@ -27572,6 +28273,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (serverIp) {
       res["ServerIp"] = boost::any(*serverIp);
     }
@@ -27587,6 +28291,9 @@ public:
     }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("ServerIp") != m.end() && !m["ServerIp"].empty()) {
       serverIp = make_shared<string>(boost::any_cast<string>(m["ServerIp"]));
@@ -27685,6 +28392,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> token{};
 
   VpcCreateAddressPoolRequest() {}
@@ -27706,6 +28414,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (token) {
       res["Token"] = boost::any(*token);
     }
@@ -27721,6 +28432,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("Token") != m.end() && !m["Token"].empty()) {
       token = make_shared<string>(boost::any_cast<string>(m["Token"]));
@@ -28072,6 +28786,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> token{};
 
   VpcRegisterAppRequest() {}
@@ -28093,6 +28808,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (token) {
       res["Token"] = boost::any(*token);
     }
@@ -28108,6 +28826,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("Token") != m.end() && !m["Token"].empty()) {
       token = make_shared<string>(boost::any_cast<string>(m["Token"]));
@@ -28208,6 +28929,7 @@ public:
 class VpcRemoveAppServerRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> serverIp{};
   shared_ptr<string> token{};
 
@@ -28224,6 +28946,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (serverIp) {
       res["ServerIp"] = boost::any(*serverIp);
     }
@@ -28236,6 +28961,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("ServerIp") != m.end() && !m["ServerIp"].empty()) {
       serverIp = make_shared<string>(boost::any_cast<string>(m["ServerIp"]));

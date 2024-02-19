@@ -1,3 +1,6 @@
+2024-02-19 Version: 1.0.7
+- Generated cpp 2016-02-01 for CloudAPI.
+
 2024-02-04 Version: 1.0.6
 - Generated cpp 2016-02-01 for CloudAPI.
 
