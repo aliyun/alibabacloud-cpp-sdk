@@ -18865,6 +18865,7 @@ public:
 class DescribeTableStatisticsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
+  shared_ptr<string> keyword{};
   shared_ptr<string> order{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -18886,6 +18887,9 @@ public:
     map<string, boost::any> res;
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (keyword) {
+      res["Keyword"] = boost::any(*keyword);
     }
     if (order) {
       res["Order"] = boost::any(*order);
@@ -18917,6 +18921,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
     }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));
@@ -18951,12 +18958,16 @@ class DescribeTableStatisticsResponseBodyItemsTableStatisticRecords : public Dar
 public:
   shared_ptr<long> coldDataSize{};
   shared_ptr<long> dataSize{};
+  shared_ptr<long> hotDataSize{};
   shared_ptr<long> indexSize{};
+  shared_ptr<long> otherSize{};
   shared_ptr<long> partitionCount{};
   shared_ptr<long> primaryKeyIndexSize{};
   shared_ptr<long> rowCount{};
   shared_ptr<string> schemaName{};
+  shared_ptr<double> spaceRatio{};
   shared_ptr<string> tableName{};
+  shared_ptr<long> totalSize{};
 
   DescribeTableStatisticsResponseBodyItemsTableStatisticRecords() {}
 
@@ -18974,8 +18985,14 @@ public:
     if (dataSize) {
       res["DataSize"] = boost::any(*dataSize);
     }
+    if (hotDataSize) {
+      res["HotDataSize"] = boost::any(*hotDataSize);
+    }
     if (indexSize) {
       res["IndexSize"] = boost::any(*indexSize);
+    }
+    if (otherSize) {
+      res["OtherSize"] = boost::any(*otherSize);
     }
     if (partitionCount) {
       res["PartitionCount"] = boost::any(*partitionCount);
@@ -18989,8 +19006,14 @@ public:
     if (schemaName) {
       res["SchemaName"] = boost::any(*schemaName);
     }
+    if (spaceRatio) {
+      res["SpaceRatio"] = boost::any(*spaceRatio);
+    }
     if (tableName) {
       res["TableName"] = boost::any(*tableName);
+    }
+    if (totalSize) {
+      res["TotalSize"] = boost::any(*totalSize);
     }
     return res;
   }
@@ -19002,8 +19025,14 @@ public:
     if (m.find("DataSize") != m.end() && !m["DataSize"].empty()) {
       dataSize = make_shared<long>(boost::any_cast<long>(m["DataSize"]));
     }
+    if (m.find("HotDataSize") != m.end() && !m["HotDataSize"].empty()) {
+      hotDataSize = make_shared<long>(boost::any_cast<long>(m["HotDataSize"]));
+    }
     if (m.find("IndexSize") != m.end() && !m["IndexSize"].empty()) {
       indexSize = make_shared<long>(boost::any_cast<long>(m["IndexSize"]));
+    }
+    if (m.find("OtherSize") != m.end() && !m["OtherSize"].empty()) {
+      otherSize = make_shared<long>(boost::any_cast<long>(m["OtherSize"]));
     }
     if (m.find("PartitionCount") != m.end() && !m["PartitionCount"].empty()) {
       partitionCount = make_shared<long>(boost::any_cast<long>(m["PartitionCount"]));
@@ -19017,8 +19046,14 @@ public:
     if (m.find("SchemaName") != m.end() && !m["SchemaName"].empty()) {
       schemaName = make_shared<string>(boost::any_cast<string>(m["SchemaName"]));
     }
+    if (m.find("SpaceRatio") != m.end() && !m["SpaceRatio"].empty()) {
+      spaceRatio = make_shared<double>(boost::any_cast<double>(m["SpaceRatio"]));
+    }
     if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
       tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
     }
   }
 
