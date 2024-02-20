@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -147,6 +146,12 @@ BatchSendMailResponse Alibabacloud_Dm20151123::Client::batchSendMailWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
     query->insert(pair<string, string>("TemplateName", *request->templateName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->unSubscribeFilterLevel)) {
+    query->insert(pair<string, string>("UnSubscribeFilterLevel", *request->unSubscribeFilterLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->unSubscribeLinkType)) {
+    query->insert(pair<string, string>("UnSubscribeLinkType", *request->unSubscribeLinkType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1639,6 +1644,12 @@ SingleSendMailResponse Alibabacloud_Dm20151123::Client::singleSendMailWithOption
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->toAddress)) {
     query->insert(pair<string, string>("ToAddress", *request->toAddress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->unSubscribeFilterLevel)) {
+    query->insert(pair<string, string>("UnSubscribeFilterLevel", *request->unSubscribeFilterLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->unSubscribeLinkType)) {
+    query->insert(pair<string, string>("UnSubscribeLinkType", *request->unSubscribeLinkType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
