@@ -2621,6 +2621,698 @@ public:
 
   virtual ~AddGatewayResponse() = default;
 };
+class AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList : public Darabonba::Model {
+public:
+  shared_ptr<string> headerKey{};
+  shared_ptr<string> headerMethod{};
+  shared_ptr<string> headerValue{};
+
+  AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList() {}
+
+  explicit AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headerKey) {
+      res["HeaderKey"] = boost::any(*headerKey);
+    }
+    if (headerMethod) {
+      res["HeaderMethod"] = boost::any(*headerMethod);
+    }
+    if (headerValue) {
+      res["HeaderValue"] = boost::any(*headerValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HeaderKey") != m.end() && !m["HeaderKey"].empty()) {
+      headerKey = make_shared<string>(boost::any_cast<string>(m["HeaderKey"]));
+    }
+    if (m.find("HeaderMethod") != m.end() && !m["HeaderMethod"].empty()) {
+      headerMethod = make_shared<string>(boost::any_cast<string>(m["HeaderMethod"]));
+    }
+    if (m.find("HeaderValue") != m.end() && !m["HeaderValue"].empty()) {
+      headerValue = make_shared<string>(boost::any_cast<string>(m["HeaderValue"]));
+    }
+  }
+
+
+  virtual ~AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList() = default;
+};
+class AddGatewayAuthRequestAuthResourceList : public Darabonba::Model {
+public:
+  shared_ptr<vector<AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList>> authResourceHeaderList{};
+  shared_ptr<long> domainId{};
+  shared_ptr<bool> ignoreCase{};
+  shared_ptr<string> matchType{};
+  shared_ptr<string> path{};
+
+  AddGatewayAuthRequestAuthResourceList() {}
+
+  explicit AddGatewayAuthRequestAuthResourceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authResourceHeaderList) {
+      vector<boost::any> temp1;
+      for(auto item1:*authResourceHeaderList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthResourceHeaderList"] = boost::any(temp1);
+    }
+    if (domainId) {
+      res["DomainId"] = boost::any(*domainId);
+    }
+    if (ignoreCase) {
+      res["IgnoreCase"] = boost::any(*ignoreCase);
+    }
+    if (matchType) {
+      res["MatchType"] = boost::any(*matchType);
+    }
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthResourceHeaderList") != m.end() && !m["AuthResourceHeaderList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthResourceHeaderList"].type()) {
+        vector<AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthResourceHeaderList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authResourceHeaderList = make_shared<vector<AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList>>(expect1);
+      }
+    }
+    if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
+      domainId = make_shared<long>(boost::any_cast<long>(m["DomainId"]));
+    }
+    if (m.find("IgnoreCase") != m.end() && !m["IgnoreCase"].empty()) {
+      ignoreCase = make_shared<bool>(boost::any_cast<bool>(m["IgnoreCase"]));
+    }
+    if (m.find("MatchType") != m.end() && !m["MatchType"].empty()) {
+      matchType = make_shared<string>(boost::any_cast<string>(m["MatchType"]));
+    }
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+  }
+
+
+  virtual ~AddGatewayAuthRequestAuthResourceList() = default;
+};
+class AddGatewayAuthRequestExternalAuthZJSON : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> allowRequestHeaders{};
+  shared_ptr<vector<string>> allowUpstreamHeaders{};
+  shared_ptr<long> bodyMaxBytes{};
+  shared_ptr<bool> isRestrict{};
+  shared_ptr<string> prefixPath{};
+  shared_ptr<long> serviceId{};
+  shared_ptr<long> timeout{};
+  shared_ptr<string> tokenKey{};
+  shared_ptr<bool> withRequestBody{};
+
+  AddGatewayAuthRequestExternalAuthZJSON() {}
+
+  explicit AddGatewayAuthRequestExternalAuthZJSON(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowRequestHeaders) {
+      res["AllowRequestHeaders"] = boost::any(*allowRequestHeaders);
+    }
+    if (allowUpstreamHeaders) {
+      res["AllowUpstreamHeaders"] = boost::any(*allowUpstreamHeaders);
+    }
+    if (bodyMaxBytes) {
+      res["BodyMaxBytes"] = boost::any(*bodyMaxBytes);
+    }
+    if (isRestrict) {
+      res["IsRestrict"] = boost::any(*isRestrict);
+    }
+    if (prefixPath) {
+      res["PrefixPath"] = boost::any(*prefixPath);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
+    if (tokenKey) {
+      res["TokenKey"] = boost::any(*tokenKey);
+    }
+    if (withRequestBody) {
+      res["WithRequestBody"] = boost::any(*withRequestBody);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowRequestHeaders") != m.end() && !m["AllowRequestHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowRequestHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowRequestHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowRequestHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AllowUpstreamHeaders") != m.end() && !m["AllowUpstreamHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowUpstreamHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowUpstreamHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowUpstreamHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BodyMaxBytes") != m.end() && !m["BodyMaxBytes"].empty()) {
+      bodyMaxBytes = make_shared<long>(boost::any_cast<long>(m["BodyMaxBytes"]));
+    }
+    if (m.find("IsRestrict") != m.end() && !m["IsRestrict"].empty()) {
+      isRestrict = make_shared<bool>(boost::any_cast<bool>(m["IsRestrict"]));
+    }
+    if (m.find("PrefixPath") != m.end() && !m["PrefixPath"].empty()) {
+      prefixPath = make_shared<string>(boost::any_cast<string>(m["PrefixPath"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["Timeout"]));
+    }
+    if (m.find("TokenKey") != m.end() && !m["TokenKey"].empty()) {
+      tokenKey = make_shared<string>(boost::any_cast<string>(m["TokenKey"]));
+    }
+    if (m.find("WithRequestBody") != m.end() && !m["WithRequestBody"].empty()) {
+      withRequestBody = make_shared<bool>(boost::any_cast<bool>(m["WithRequestBody"]));
+    }
+  }
+
+
+  virtual ~AddGatewayAuthRequestExternalAuthZJSON() = default;
+};
+class AddGatewayAuthRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<vector<AddGatewayAuthRequestAuthResourceList>> authResourceList{};
+  shared_ptr<string> clientId{};
+  shared_ptr<string> clientSecret{};
+  shared_ptr<string> cookieDomain{};
+  shared_ptr<AddGatewayAuthRequestExternalAuthZJSON> externalAuthZJSON{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<bool> isWhite{};
+  shared_ptr<string> issuer{};
+  shared_ptr<string> jwks{};
+  shared_ptr<string> loginUrl{};
+  shared_ptr<string> name{};
+  shared_ptr<string> redirectUrl{};
+  shared_ptr<vector<string>> scopesList{};
+  shared_ptr<bool> status{};
+  shared_ptr<string> sub{};
+  shared_ptr<string> tokenName{};
+  shared_ptr<string> tokenNamePrefix{};
+  shared_ptr<bool> tokenPass{};
+  shared_ptr<string> tokenPosition{};
+  shared_ptr<string> type{};
+
+  AddGatewayAuthRequest() {}
+
+  explicit AddGatewayAuthRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (authResourceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*authResourceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthResourceList"] = boost::any(temp1);
+    }
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (clientSecret) {
+      res["ClientSecret"] = boost::any(*clientSecret);
+    }
+    if (cookieDomain) {
+      res["CookieDomain"] = boost::any(*cookieDomain);
+    }
+    if (externalAuthZJSON) {
+      res["ExternalAuthZJSON"] = externalAuthZJSON ? boost::any(externalAuthZJSON->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (isWhite) {
+      res["IsWhite"] = boost::any(*isWhite);
+    }
+    if (issuer) {
+      res["Issuer"] = boost::any(*issuer);
+    }
+    if (jwks) {
+      res["Jwks"] = boost::any(*jwks);
+    }
+    if (loginUrl) {
+      res["LoginUrl"] = boost::any(*loginUrl);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (redirectUrl) {
+      res["RedirectUrl"] = boost::any(*redirectUrl);
+    }
+    if (scopesList) {
+      res["ScopesList"] = boost::any(*scopesList);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (sub) {
+      res["Sub"] = boost::any(*sub);
+    }
+    if (tokenName) {
+      res["TokenName"] = boost::any(*tokenName);
+    }
+    if (tokenNamePrefix) {
+      res["TokenNamePrefix"] = boost::any(*tokenNamePrefix);
+    }
+    if (tokenPass) {
+      res["TokenPass"] = boost::any(*tokenPass);
+    }
+    if (tokenPosition) {
+      res["TokenPosition"] = boost::any(*tokenPosition);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AuthResourceList") != m.end() && !m["AuthResourceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthResourceList"].type()) {
+        vector<AddGatewayAuthRequestAuthResourceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthResourceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddGatewayAuthRequestAuthResourceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authResourceList = make_shared<vector<AddGatewayAuthRequestAuthResourceList>>(expect1);
+      }
+    }
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("ClientSecret") != m.end() && !m["ClientSecret"].empty()) {
+      clientSecret = make_shared<string>(boost::any_cast<string>(m["ClientSecret"]));
+    }
+    if (m.find("CookieDomain") != m.end() && !m["CookieDomain"].empty()) {
+      cookieDomain = make_shared<string>(boost::any_cast<string>(m["CookieDomain"]));
+    }
+    if (m.find("ExternalAuthZJSON") != m.end() && !m["ExternalAuthZJSON"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ExternalAuthZJSON"].type()) {
+        AddGatewayAuthRequestExternalAuthZJSON model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ExternalAuthZJSON"]));
+        externalAuthZJSON = make_shared<AddGatewayAuthRequestExternalAuthZJSON>(model1);
+      }
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("IsWhite") != m.end() && !m["IsWhite"].empty()) {
+      isWhite = make_shared<bool>(boost::any_cast<bool>(m["IsWhite"]));
+    }
+    if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
+      issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
+    }
+    if (m.find("Jwks") != m.end() && !m["Jwks"].empty()) {
+      jwks = make_shared<string>(boost::any_cast<string>(m["Jwks"]));
+    }
+    if (m.find("LoginUrl") != m.end() && !m["LoginUrl"].empty()) {
+      loginUrl = make_shared<string>(boost::any_cast<string>(m["LoginUrl"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RedirectUrl") != m.end() && !m["RedirectUrl"].empty()) {
+      redirectUrl = make_shared<string>(boost::any_cast<string>(m["RedirectUrl"]));
+    }
+    if (m.find("ScopesList") != m.end() && !m["ScopesList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ScopesList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ScopesList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      scopesList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<bool>(boost::any_cast<bool>(m["Status"]));
+    }
+    if (m.find("Sub") != m.end() && !m["Sub"].empty()) {
+      sub = make_shared<string>(boost::any_cast<string>(m["Sub"]));
+    }
+    if (m.find("TokenName") != m.end() && !m["TokenName"].empty()) {
+      tokenName = make_shared<string>(boost::any_cast<string>(m["TokenName"]));
+    }
+    if (m.find("TokenNamePrefix") != m.end() && !m["TokenNamePrefix"].empty()) {
+      tokenNamePrefix = make_shared<string>(boost::any_cast<string>(m["TokenNamePrefix"]));
+    }
+    if (m.find("TokenPass") != m.end() && !m["TokenPass"].empty()) {
+      tokenPass = make_shared<bool>(boost::any_cast<bool>(m["TokenPass"]));
+    }
+    if (m.find("TokenPosition") != m.end() && !m["TokenPosition"].empty()) {
+      tokenPosition = make_shared<string>(boost::any_cast<string>(m["TokenPosition"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~AddGatewayAuthRequest() = default;
+};
+class AddGatewayAuthShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> authResourceListShrink{};
+  shared_ptr<string> clientId{};
+  shared_ptr<string> clientSecret{};
+  shared_ptr<string> cookieDomain{};
+  shared_ptr<string> externalAuthZJSONShrink{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<bool> isWhite{};
+  shared_ptr<string> issuer{};
+  shared_ptr<string> jwks{};
+  shared_ptr<string> loginUrl{};
+  shared_ptr<string> name{};
+  shared_ptr<string> redirectUrl{};
+  shared_ptr<string> scopesListShrink{};
+  shared_ptr<bool> status{};
+  shared_ptr<string> sub{};
+  shared_ptr<string> tokenName{};
+  shared_ptr<string> tokenNamePrefix{};
+  shared_ptr<bool> tokenPass{};
+  shared_ptr<string> tokenPosition{};
+  shared_ptr<string> type{};
+
+  AddGatewayAuthShrinkRequest() {}
+
+  explicit AddGatewayAuthShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (authResourceListShrink) {
+      res["AuthResourceList"] = boost::any(*authResourceListShrink);
+    }
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (clientSecret) {
+      res["ClientSecret"] = boost::any(*clientSecret);
+    }
+    if (cookieDomain) {
+      res["CookieDomain"] = boost::any(*cookieDomain);
+    }
+    if (externalAuthZJSONShrink) {
+      res["ExternalAuthZJSON"] = boost::any(*externalAuthZJSONShrink);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (isWhite) {
+      res["IsWhite"] = boost::any(*isWhite);
+    }
+    if (issuer) {
+      res["Issuer"] = boost::any(*issuer);
+    }
+    if (jwks) {
+      res["Jwks"] = boost::any(*jwks);
+    }
+    if (loginUrl) {
+      res["LoginUrl"] = boost::any(*loginUrl);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (redirectUrl) {
+      res["RedirectUrl"] = boost::any(*redirectUrl);
+    }
+    if (scopesListShrink) {
+      res["ScopesList"] = boost::any(*scopesListShrink);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (sub) {
+      res["Sub"] = boost::any(*sub);
+    }
+    if (tokenName) {
+      res["TokenName"] = boost::any(*tokenName);
+    }
+    if (tokenNamePrefix) {
+      res["TokenNamePrefix"] = boost::any(*tokenNamePrefix);
+    }
+    if (tokenPass) {
+      res["TokenPass"] = boost::any(*tokenPass);
+    }
+    if (tokenPosition) {
+      res["TokenPosition"] = boost::any(*tokenPosition);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AuthResourceList") != m.end() && !m["AuthResourceList"].empty()) {
+      authResourceListShrink = make_shared<string>(boost::any_cast<string>(m["AuthResourceList"]));
+    }
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("ClientSecret") != m.end() && !m["ClientSecret"].empty()) {
+      clientSecret = make_shared<string>(boost::any_cast<string>(m["ClientSecret"]));
+    }
+    if (m.find("CookieDomain") != m.end() && !m["CookieDomain"].empty()) {
+      cookieDomain = make_shared<string>(boost::any_cast<string>(m["CookieDomain"]));
+    }
+    if (m.find("ExternalAuthZJSON") != m.end() && !m["ExternalAuthZJSON"].empty()) {
+      externalAuthZJSONShrink = make_shared<string>(boost::any_cast<string>(m["ExternalAuthZJSON"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("IsWhite") != m.end() && !m["IsWhite"].empty()) {
+      isWhite = make_shared<bool>(boost::any_cast<bool>(m["IsWhite"]));
+    }
+    if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
+      issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
+    }
+    if (m.find("Jwks") != m.end() && !m["Jwks"].empty()) {
+      jwks = make_shared<string>(boost::any_cast<string>(m["Jwks"]));
+    }
+    if (m.find("LoginUrl") != m.end() && !m["LoginUrl"].empty()) {
+      loginUrl = make_shared<string>(boost::any_cast<string>(m["LoginUrl"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RedirectUrl") != m.end() && !m["RedirectUrl"].empty()) {
+      redirectUrl = make_shared<string>(boost::any_cast<string>(m["RedirectUrl"]));
+    }
+    if (m.find("ScopesList") != m.end() && !m["ScopesList"].empty()) {
+      scopesListShrink = make_shared<string>(boost::any_cast<string>(m["ScopesList"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<bool>(boost::any_cast<bool>(m["Status"]));
+    }
+    if (m.find("Sub") != m.end() && !m["Sub"].empty()) {
+      sub = make_shared<string>(boost::any_cast<string>(m["Sub"]));
+    }
+    if (m.find("TokenName") != m.end() && !m["TokenName"].empty()) {
+      tokenName = make_shared<string>(boost::any_cast<string>(m["TokenName"]));
+    }
+    if (m.find("TokenNamePrefix") != m.end() && !m["TokenNamePrefix"].empty()) {
+      tokenNamePrefix = make_shared<string>(boost::any_cast<string>(m["TokenNamePrefix"]));
+    }
+    if (m.find("TokenPass") != m.end() && !m["TokenPass"].empty()) {
+      tokenPass = make_shared<bool>(boost::any_cast<bool>(m["TokenPass"]));
+    }
+    if (m.find("TokenPosition") != m.end() && !m["TokenPosition"].empty()) {
+      tokenPosition = make_shared<string>(boost::any_cast<string>(m["TokenPosition"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~AddGatewayAuthShrinkRequest() = default;
+};
+class AddGatewayAuthResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<long> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AddGatewayAuthResponseBody() {}
+
+  explicit AddGatewayAuthResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AddGatewayAuthResponseBody() = default;
+};
+class AddGatewayAuthResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddGatewayAuthResponseBody> body{};
+
+  AddGatewayAuthResponse() {}
+
+  explicit AddGatewayAuthResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddGatewayAuthResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddGatewayAuthResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddGatewayAuthResponse() = default;
+};
 class AddGatewayAuthConsumerRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -19230,6 +19922,721 @@ public:
 
 
   virtual ~GetGatewayAuthConsumerDetailResponse() = default;
+};
+class GetGatewayAuthDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<long> gatewayId{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<long> id{};
+
+  GetGatewayAuthDetailRequest() {}
+
+  explicit GetGatewayAuthDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<long>(boost::any_cast<long>(m["GatewayId"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+  }
+
+
+  virtual ~GetGatewayAuthDetailRequest() = default;
+};
+class GetGatewayAuthDetailResponseBodyDataExternalAuthZService : public Darabonba::Model {
+public:
+  shared_ptr<string> groupName{};
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> sourceType{};
+
+  GetGatewayAuthDetailResponseBodyDataExternalAuthZService() {}
+
+  explicit GetGatewayAuthDetailResponseBodyDataExternalAuthZService(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+  }
+
+
+  virtual ~GetGatewayAuthDetailResponseBodyDataExternalAuthZService() = default;
+};
+class GetGatewayAuthDetailResponseBodyDataExternalAuthZ : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> allowRequestHeaders{};
+  shared_ptr<vector<string>> allowUpstreamHeaders{};
+  shared_ptr<long> bodyMaxBytes{};
+  shared_ptr<bool> isRestrict{};
+  shared_ptr<string> prefixPath{};
+  shared_ptr<GetGatewayAuthDetailResponseBodyDataExternalAuthZService> service{};
+  shared_ptr<long> serviceId{};
+  shared_ptr<long> timeout{};
+  shared_ptr<string> tokenKey{};
+  shared_ptr<bool> withRequestBody{};
+
+  GetGatewayAuthDetailResponseBodyDataExternalAuthZ() {}
+
+  explicit GetGatewayAuthDetailResponseBodyDataExternalAuthZ(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowRequestHeaders) {
+      res["AllowRequestHeaders"] = boost::any(*allowRequestHeaders);
+    }
+    if (allowUpstreamHeaders) {
+      res["AllowUpstreamHeaders"] = boost::any(*allowUpstreamHeaders);
+    }
+    if (bodyMaxBytes) {
+      res["BodyMaxBytes"] = boost::any(*bodyMaxBytes);
+    }
+    if (isRestrict) {
+      res["IsRestrict"] = boost::any(*isRestrict);
+    }
+    if (prefixPath) {
+      res["PrefixPath"] = boost::any(*prefixPath);
+    }
+    if (service) {
+      res["Service"] = service ? boost::any(service->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
+    if (tokenKey) {
+      res["TokenKey"] = boost::any(*tokenKey);
+    }
+    if (withRequestBody) {
+      res["WithRequestBody"] = boost::any(*withRequestBody);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowRequestHeaders") != m.end() && !m["AllowRequestHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowRequestHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowRequestHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowRequestHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AllowUpstreamHeaders") != m.end() && !m["AllowUpstreamHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowUpstreamHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowUpstreamHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowUpstreamHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BodyMaxBytes") != m.end() && !m["BodyMaxBytes"].empty()) {
+      bodyMaxBytes = make_shared<long>(boost::any_cast<long>(m["BodyMaxBytes"]));
+    }
+    if (m.find("IsRestrict") != m.end() && !m["IsRestrict"].empty()) {
+      isRestrict = make_shared<bool>(boost::any_cast<bool>(m["IsRestrict"]));
+    }
+    if (m.find("PrefixPath") != m.end() && !m["PrefixPath"].empty()) {
+      prefixPath = make_shared<string>(boost::any_cast<string>(m["PrefixPath"]));
+    }
+    if (m.find("Service") != m.end() && !m["Service"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Service"].type()) {
+        GetGatewayAuthDetailResponseBodyDataExternalAuthZService model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Service"]));
+        service = make_shared<GetGatewayAuthDetailResponseBodyDataExternalAuthZService>(model1);
+      }
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["Timeout"]));
+    }
+    if (m.find("TokenKey") != m.end() && !m["TokenKey"].empty()) {
+      tokenKey = make_shared<string>(boost::any_cast<string>(m["TokenKey"]));
+    }
+    if (m.find("WithRequestBody") != m.end() && !m["WithRequestBody"].empty()) {
+      withRequestBody = make_shared<bool>(boost::any_cast<bool>(m["WithRequestBody"]));
+    }
+  }
+
+
+  virtual ~GetGatewayAuthDetailResponseBodyDataExternalAuthZ() = default;
+};
+class GetGatewayAuthDetailResponseBodyDataResourceListAuthResourceHeaderList : public Darabonba::Model {
+public:
+  shared_ptr<string> headerKey{};
+  shared_ptr<string> headerMethod{};
+  shared_ptr<string> headerValue{};
+
+  GetGatewayAuthDetailResponseBodyDataResourceListAuthResourceHeaderList() {}
+
+  explicit GetGatewayAuthDetailResponseBodyDataResourceListAuthResourceHeaderList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headerKey) {
+      res["HeaderKey"] = boost::any(*headerKey);
+    }
+    if (headerMethod) {
+      res["HeaderMethod"] = boost::any(*headerMethod);
+    }
+    if (headerValue) {
+      res["HeaderValue"] = boost::any(*headerValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HeaderKey") != m.end() && !m["HeaderKey"].empty()) {
+      headerKey = make_shared<string>(boost::any_cast<string>(m["HeaderKey"]));
+    }
+    if (m.find("HeaderMethod") != m.end() && !m["HeaderMethod"].empty()) {
+      headerMethod = make_shared<string>(boost::any_cast<string>(m["HeaderMethod"]));
+    }
+    if (m.find("HeaderValue") != m.end() && !m["HeaderValue"].empty()) {
+      headerValue = make_shared<string>(boost::any_cast<string>(m["HeaderValue"]));
+    }
+  }
+
+
+  virtual ~GetGatewayAuthDetailResponseBodyDataResourceListAuthResourceHeaderList() = default;
+};
+class GetGatewayAuthDetailResponseBodyDataResourceList : public Darabonba::Model {
+public:
+  shared_ptr<long> authId{};
+  shared_ptr<vector<GetGatewayAuthDetailResponseBodyDataResourceListAuthResourceHeaderList>> authResourceHeaderList{};
+  shared_ptr<long> domainId{};
+  shared_ptr<string> domainName{};
+  shared_ptr<long> gatewayId{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<long> id{};
+  shared_ptr<bool> ignoreCase{};
+  shared_ptr<bool> isWhite{};
+  shared_ptr<string> matchType{};
+  shared_ptr<string> path{};
+
+  GetGatewayAuthDetailResponseBodyDataResourceList() {}
+
+  explicit GetGatewayAuthDetailResponseBodyDataResourceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authId) {
+      res["AuthId"] = boost::any(*authId);
+    }
+    if (authResourceHeaderList) {
+      vector<boost::any> temp1;
+      for(auto item1:*authResourceHeaderList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthResourceHeaderList"] = boost::any(temp1);
+    }
+    if (domainId) {
+      res["DomainId"] = boost::any(*domainId);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (ignoreCase) {
+      res["IgnoreCase"] = boost::any(*ignoreCase);
+    }
+    if (isWhite) {
+      res["IsWhite"] = boost::any(*isWhite);
+    }
+    if (matchType) {
+      res["MatchType"] = boost::any(*matchType);
+    }
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthId") != m.end() && !m["AuthId"].empty()) {
+      authId = make_shared<long>(boost::any_cast<long>(m["AuthId"]));
+    }
+    if (m.find("AuthResourceHeaderList") != m.end() && !m["AuthResourceHeaderList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthResourceHeaderList"].type()) {
+        vector<GetGatewayAuthDetailResponseBodyDataResourceListAuthResourceHeaderList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthResourceHeaderList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetGatewayAuthDetailResponseBodyDataResourceListAuthResourceHeaderList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authResourceHeaderList = make_shared<vector<GetGatewayAuthDetailResponseBodyDataResourceListAuthResourceHeaderList>>(expect1);
+      }
+    }
+    if (m.find("DomainId") != m.end() && !m["DomainId"].empty()) {
+      domainId = make_shared<long>(boost::any_cast<long>(m["DomainId"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<long>(boost::any_cast<long>(m["GatewayId"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IgnoreCase") != m.end() && !m["IgnoreCase"].empty()) {
+      ignoreCase = make_shared<bool>(boost::any_cast<bool>(m["IgnoreCase"]));
+    }
+    if (m.find("IsWhite") != m.end() && !m["IsWhite"].empty()) {
+      isWhite = make_shared<bool>(boost::any_cast<bool>(m["IsWhite"]));
+    }
+    if (m.find("MatchType") != m.end() && !m["MatchType"].empty()) {
+      matchType = make_shared<string>(boost::any_cast<string>(m["MatchType"]));
+    }
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+  }
+
+
+  virtual ~GetGatewayAuthDetailResponseBodyDataResourceList() = default;
+};
+class GetGatewayAuthDetailResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> clientId{};
+  shared_ptr<string> clientSecret{};
+  shared_ptr<string> cookieDomain{};
+  shared_ptr<GetGatewayAuthDetailResponseBodyDataExternalAuthZ> externalAuthZ{};
+  shared_ptr<long> gatewayId{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<long> id{};
+  shared_ptr<bool> isWhite{};
+  shared_ptr<string> issuer{};
+  shared_ptr<string> jwks{};
+  shared_ptr<string> loginUrl{};
+  shared_ptr<string> name{};
+  shared_ptr<string> redirectUrl{};
+  shared_ptr<vector<GetGatewayAuthDetailResponseBodyDataResourceList>> resourceList{};
+  shared_ptr<vector<string>> scopesList{};
+  shared_ptr<bool> status{};
+  shared_ptr<string> sub{};
+  shared_ptr<string> tokenName{};
+  shared_ptr<string> tokenNamePrefix{};
+  shared_ptr<bool> tokenPass{};
+  shared_ptr<string> tokenPosition{};
+  shared_ptr<string> type{};
+
+  GetGatewayAuthDetailResponseBodyData() {}
+
+  explicit GetGatewayAuthDetailResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (clientSecret) {
+      res["ClientSecret"] = boost::any(*clientSecret);
+    }
+    if (cookieDomain) {
+      res["CookieDomain"] = boost::any(*cookieDomain);
+    }
+    if (externalAuthZ) {
+      res["ExternalAuthZ"] = externalAuthZ ? boost::any(externalAuthZ->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (isWhite) {
+      res["IsWhite"] = boost::any(*isWhite);
+    }
+    if (issuer) {
+      res["Issuer"] = boost::any(*issuer);
+    }
+    if (jwks) {
+      res["Jwks"] = boost::any(*jwks);
+    }
+    if (loginUrl) {
+      res["LoginUrl"] = boost::any(*loginUrl);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (redirectUrl) {
+      res["RedirectUrl"] = boost::any(*redirectUrl);
+    }
+    if (resourceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceList"] = boost::any(temp1);
+    }
+    if (scopesList) {
+      res["ScopesList"] = boost::any(*scopesList);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (sub) {
+      res["Sub"] = boost::any(*sub);
+    }
+    if (tokenName) {
+      res["TokenName"] = boost::any(*tokenName);
+    }
+    if (tokenNamePrefix) {
+      res["TokenNamePrefix"] = boost::any(*tokenNamePrefix);
+    }
+    if (tokenPass) {
+      res["TokenPass"] = boost::any(*tokenPass);
+    }
+    if (tokenPosition) {
+      res["TokenPosition"] = boost::any(*tokenPosition);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("ClientSecret") != m.end() && !m["ClientSecret"].empty()) {
+      clientSecret = make_shared<string>(boost::any_cast<string>(m["ClientSecret"]));
+    }
+    if (m.find("CookieDomain") != m.end() && !m["CookieDomain"].empty()) {
+      cookieDomain = make_shared<string>(boost::any_cast<string>(m["CookieDomain"]));
+    }
+    if (m.find("ExternalAuthZ") != m.end() && !m["ExternalAuthZ"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ExternalAuthZ"].type()) {
+        GetGatewayAuthDetailResponseBodyDataExternalAuthZ model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ExternalAuthZ"]));
+        externalAuthZ = make_shared<GetGatewayAuthDetailResponseBodyDataExternalAuthZ>(model1);
+      }
+    }
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<long>(boost::any_cast<long>(m["GatewayId"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IsWhite") != m.end() && !m["IsWhite"].empty()) {
+      isWhite = make_shared<bool>(boost::any_cast<bool>(m["IsWhite"]));
+    }
+    if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
+      issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
+    }
+    if (m.find("Jwks") != m.end() && !m["Jwks"].empty()) {
+      jwks = make_shared<string>(boost::any_cast<string>(m["Jwks"]));
+    }
+    if (m.find("LoginUrl") != m.end() && !m["LoginUrl"].empty()) {
+      loginUrl = make_shared<string>(boost::any_cast<string>(m["LoginUrl"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RedirectUrl") != m.end() && !m["RedirectUrl"].empty()) {
+      redirectUrl = make_shared<string>(boost::any_cast<string>(m["RedirectUrl"]));
+    }
+    if (m.find("ResourceList") != m.end() && !m["ResourceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceList"].type()) {
+        vector<GetGatewayAuthDetailResponseBodyDataResourceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetGatewayAuthDetailResponseBodyDataResourceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceList = make_shared<vector<GetGatewayAuthDetailResponseBodyDataResourceList>>(expect1);
+      }
+    }
+    if (m.find("ScopesList") != m.end() && !m["ScopesList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ScopesList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ScopesList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      scopesList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<bool>(boost::any_cast<bool>(m["Status"]));
+    }
+    if (m.find("Sub") != m.end() && !m["Sub"].empty()) {
+      sub = make_shared<string>(boost::any_cast<string>(m["Sub"]));
+    }
+    if (m.find("TokenName") != m.end() && !m["TokenName"].empty()) {
+      tokenName = make_shared<string>(boost::any_cast<string>(m["TokenName"]));
+    }
+    if (m.find("TokenNamePrefix") != m.end() && !m["TokenNamePrefix"].empty()) {
+      tokenNamePrefix = make_shared<string>(boost::any_cast<string>(m["TokenNamePrefix"]));
+    }
+    if (m.find("TokenPass") != m.end() && !m["TokenPass"].empty()) {
+      tokenPass = make_shared<bool>(boost::any_cast<bool>(m["TokenPass"]));
+    }
+    if (m.find("TokenPosition") != m.end() && !m["TokenPosition"].empty()) {
+      tokenPosition = make_shared<string>(boost::any_cast<string>(m["TokenPosition"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GetGatewayAuthDetailResponseBodyData() = default;
+};
+class GetGatewayAuthDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<GetGatewayAuthDetailResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetGatewayAuthDetailResponseBody() {}
+
+  explicit GetGatewayAuthDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetGatewayAuthDetailResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetGatewayAuthDetailResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetGatewayAuthDetailResponseBody() = default;
+};
+class GetGatewayAuthDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetGatewayAuthDetailResponseBody> body{};
+
+  GetGatewayAuthDetailResponse() {}
+
+  explicit GetGatewayAuthDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetGatewayAuthDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetGatewayAuthDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetGatewayAuthDetailResponse() = default;
 };
 class GetGatewayDomainDetailRequest : public Darabonba::Model {
 public:
@@ -63066,6 +64473,8 @@ public:
   AddBlackWhiteListResponse addBlackWhiteList(shared_ptr<AddBlackWhiteListRequest> request);
   AddGatewayResponse addGatewayWithOptions(shared_ptr<AddGatewayRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddGatewayResponse addGateway(shared_ptr<AddGatewayRequest> request);
+  AddGatewayAuthResponse addGatewayAuthWithOptions(shared_ptr<AddGatewayAuthRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddGatewayAuthResponse addGatewayAuth(shared_ptr<AddGatewayAuthRequest> request);
   AddGatewayAuthConsumerResponse addGatewayAuthConsumerWithOptions(shared_ptr<AddGatewayAuthConsumerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddGatewayAuthConsumerResponse addGatewayAuthConsumer(shared_ptr<AddGatewayAuthConsumerRequest> request);
   AddGatewayDomainResponse addGatewayDomainWithOptions(shared_ptr<AddGatewayDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -63184,6 +64593,8 @@ public:
   GetGatewayResponse getGateway(shared_ptr<GetGatewayRequest> request);
   GetGatewayAuthConsumerDetailResponse getGatewayAuthConsumerDetailWithOptions(shared_ptr<GetGatewayAuthConsumerDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetGatewayAuthConsumerDetailResponse getGatewayAuthConsumerDetail(shared_ptr<GetGatewayAuthConsumerDetailRequest> request);
+  GetGatewayAuthDetailResponse getGatewayAuthDetailWithOptions(shared_ptr<GetGatewayAuthDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetGatewayAuthDetailResponse getGatewayAuthDetail(shared_ptr<GetGatewayAuthDetailRequest> request);
   GetGatewayDomainDetailResponse getGatewayDomainDetailWithOptions(shared_ptr<GetGatewayDomainDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetGatewayDomainDetailResponse getGatewayDomainDetail(shared_ptr<GetGatewayDomainDetailRequest> request);
   GetGatewayOptionResponse getGatewayOptionWithOptions(shared_ptr<GetGatewayOptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
