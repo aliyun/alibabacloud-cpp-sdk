@@ -13204,6 +13204,7 @@ public:
 };
 class DescribePoliciesV2ResponseBodyPoliciesRules : public Darabonba::Model {
 public:
+  shared_ptr<long> archiveDays{};
   shared_ptr<string> backupType{};
   shared_ptr<long> keepLatestSnapshots{};
   shared_ptr<string> replicationRegionId{};
@@ -13212,6 +13213,7 @@ public:
   shared_ptr<string> ruleId{};
   shared_ptr<string> ruleType{};
   shared_ptr<string> schedule{};
+  shared_ptr<string> vaultId{};
 
   DescribePoliciesV2ResponseBodyPoliciesRules() {}
 
@@ -13223,6 +13225,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (archiveDays) {
+      res["ArchiveDays"] = boost::any(*archiveDays);
+    }
     if (backupType) {
       res["BackupType"] = boost::any(*backupType);
     }
@@ -13251,10 +13256,16 @@ public:
     if (schedule) {
       res["Schedule"] = boost::any(*schedule);
     }
+    if (vaultId) {
+      res["VaultId"] = boost::any(*vaultId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArchiveDays") != m.end() && !m["ArchiveDays"].empty()) {
+      archiveDays = make_shared<long>(boost::any_cast<long>(m["ArchiveDays"]));
+    }
     if (m.find("BackupType") != m.end() && !m["BackupType"].empty()) {
       backupType = make_shared<string>(boost::any_cast<string>(m["BackupType"]));
     }
@@ -13288,6 +13299,9 @@ public:
     }
     if (m.find("Schedule") != m.end() && !m["Schedule"].empty()) {
       schedule = make_shared<string>(boost::any_cast<string>(m["Schedule"]));
+    }
+    if (m.find("VaultId") != m.end() && !m["VaultId"].empty()) {
+      vaultId = make_shared<string>(boost::any_cast<string>(m["VaultId"]));
     }
   }
 
