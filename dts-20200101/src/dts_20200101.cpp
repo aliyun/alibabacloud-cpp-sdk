@@ -8,7 +8,6 @@
 #include <alibabacloud/oss.hpp>
 #include <alibabacloud/ossutil.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/file_form.hpp>
 #include <darabonba/util.hpp>
@@ -195,6 +194,12 @@ ConfigureDtsJobResponse Alibabacloud_Dts20200101::Client::configureDtsJobWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobType)) {
     query->insert(pair<string, string>("JobType", *request->jobType));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->maxDu)) {
+    query->insert(pair<string, double>("MaxDu", *request->maxDu));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->minDu)) {
+    query->insert(pair<string, double>("MinDu", *request->minDu));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerId)) {
     query->insert(pair<string, string>("OwnerId", *request->ownerId));
@@ -504,6 +509,12 @@ ConfigureSubscriptionResponse Alibabacloud_Dts20200101::Client::configureSubscri
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->errorPhone)) {
     query->insert(pair<string, string>("ErrorPhone", *request->errorPhone));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->maxDu)) {
+    query->insert(pair<string, double>("MaxDu", *request->maxDu));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->minDu)) {
+    query->insert(pair<string, double>("MinDu", *request->minDu));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -1091,6 +1102,12 @@ CreateDtsInstanceResponse Alibabacloud_Dts20200101::Client::createDtsInstanceWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
     query->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->maxDu)) {
+    query->insert(pair<string, double>("MaxDu", *request->maxDu));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->minDu)) {
+    query->insert(pair<string, double>("MinDu", *request->minDu));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->payType)) {
     query->insert(pair<string, string>("PayType", *request->payType));
