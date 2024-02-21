@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -3879,6 +3878,37 @@ DescribeDomainUvDataResponse Alibabacloud_Cdn20180510::Client::describeDomainUvD
 DescribeDomainUvDataResponse Alibabacloud_Cdn20180510::Client::describeDomainUvData(shared_ptr<DescribeDomainUvDataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeDomainUvDataWithOptions(request, runtime);
+}
+
+DescribeDomainVerifyDataResponse Alibabacloud_Cdn20180510::Client::describeDomainVerifyDataWithOptions(shared_ptr<DescribeDomainVerifyDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
+    query->insert(pair<string, string>("DomainName", *request->domainName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->globalResourcePlan)) {
+    query->insert(pair<string, string>("GlobalResourcePlan", *request->globalResourcePlan));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDomainVerifyData"))},
+    {"version", boost::any(string("2018-05-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDomainVerifyDataResponse(callApi(params, req, runtime));
+}
+
+DescribeDomainVerifyDataResponse Alibabacloud_Cdn20180510::Client::describeDomainVerifyData(shared_ptr<DescribeDomainVerifyDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDomainVerifyDataWithOptions(request, runtime);
 }
 
 DescribeDomainsBySourceResponse Alibabacloud_Cdn20180510::Client::describeDomainsBySourceWithOptions(shared_ptr<DescribeDomainsBySourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
