@@ -1628,6 +1628,7 @@ public:
 };
 class CreateDBInstanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoRenew{};
   shared_ptr<string> backupSetID{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> DBClusterCategory{};
@@ -1668,6 +1669,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
     if (backupSetID) {
       res["BackupSetID"] = boost::any(*backupSetID);
     }
@@ -1759,6 +1763,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
     if (m.find("BackupSetID") != m.end() && !m["BackupSetID"].empty()) {
       backupSetID = make_shared<string>(boost::any_cast<string>(m["BackupSetID"]));
     }

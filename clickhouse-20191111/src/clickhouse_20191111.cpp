@@ -528,6 +528,9 @@ CreateBackupPolicyResponse Alibabacloud_Clickhouse20191111::Client::createBackup
 CreateDBInstanceResponse Alibabacloud_Clickhouse20191111::Client::createDBInstanceWithOptions(shared_ptr<CreateDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
+    query->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->backupSetID)) {
     query->insert(pair<string, string>("BackupSetID", *request->backupSetID));
   }
