@@ -1562,6 +1562,9 @@ GetStackGroupOperationResponse Alibabacloud_ROS20190910::Client::getStackGroupOp
 GetStackInstanceResponse Alibabacloud_ROS20190910::Client::getStackInstanceWithOptions(shared_ptr<GetStackInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputOption)) {
+    query->insert(pair<string, string>("OutputOption", *request->outputOption));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }

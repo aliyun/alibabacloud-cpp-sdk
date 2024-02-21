@@ -10449,6 +10449,7 @@ public:
 };
 class GetStackInstanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> outputOption{};
   shared_ptr<string> regionId{};
   shared_ptr<string> stackGroupName{};
   shared_ptr<string> stackInstanceAccountId{};
@@ -10464,6 +10465,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (outputOption) {
+      res["OutputOption"] = boost::any(*outputOption);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -10480,6 +10484,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("OutputOption") != m.end() && !m["OutputOption"].empty()) {
+      outputOption = make_shared<string>(boost::any_cast<string>(m["OutputOption"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -10537,6 +10544,7 @@ class GetStackInstanceResponseBodyStackInstance : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
   shared_ptr<string> driftDetectionTime{};
+  shared_ptr<vector<map<string, boost::any>>> outputs{};
   shared_ptr<vector<GetStackInstanceResponseBodyStackInstanceParameterOverrides>> parameterOverrides{};
   shared_ptr<string> rdFolderId{};
   shared_ptr<string> regionId{};
@@ -10562,6 +10570,9 @@ public:
     }
     if (driftDetectionTime) {
       res["DriftDetectionTime"] = boost::any(*driftDetectionTime);
+    }
+    if (outputs) {
+      res["Outputs"] = boost::any(*outputs);
     }
     if (parameterOverrides) {
       vector<boost::any> temp1;
@@ -10603,6 +10614,21 @@ public:
     }
     if (m.find("DriftDetectionTime") != m.end() && !m["DriftDetectionTime"].empty()) {
       driftDetectionTime = make_shared<string>(boost::any_cast<string>(m["DriftDetectionTime"]));
+    }
+    if (m.find("Outputs") != m.end() && !m["Outputs"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["Outputs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Outputs"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      outputs = make_shared<vector<map<string, boost::any>>>(toVec1);
     }
     if (m.find("ParameterOverrides") != m.end() && !m["ParameterOverrides"].empty()) {
       if (typeid(vector<boost::any>) == m["ParameterOverrides"].type()) {
