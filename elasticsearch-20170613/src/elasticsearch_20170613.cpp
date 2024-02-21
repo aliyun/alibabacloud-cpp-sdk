@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -2118,6 +2117,30 @@ GetRegionConfigurationResponse Alibabacloud_Elasticsearch20170613::Client::getRe
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getRegionConfigurationWithOptions(request, headers, runtime);
+}
+
+GetRegionalInstanceConfigResponse Alibabacloud_Elasticsearch20170613::Client::getRegionalInstanceConfigWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetRegionalInstanceConfig"))},
+    {"version", boost::any(string("2017-06-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/regions/instance-config"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetRegionalInstanceConfigResponse(callApi(params, req, runtime));
+}
+
+GetRegionalInstanceConfigResponse Alibabacloud_Elasticsearch20170613::Client::getRegionalInstanceConfig() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getRegionalInstanceConfigWithOptions(headers, runtime);
 }
 
 GetSuggestShrinkableNodesResponse Alibabacloud_Elasticsearch20170613::Client::getSuggestShrinkableNodesWithOptions(shared_ptr<string> InstanceId,
