@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_HOLOGRAM20220601_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -14,6 +13,130 @@
 using namespace std;
 
 namespace Alibabacloud_Hologram20220601 {
+class ChangeResourceGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> newResourceGroupId{};
+
+  ChangeResourceGroupRequest() {}
+
+  explicit ChangeResourceGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (newResourceGroupId) {
+      res["newResourceGroupId"] = boost::any(*newResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("newResourceGroupId") != m.end() && !m["newResourceGroupId"].empty()) {
+      newResourceGroupId = make_shared<string>(boost::any_cast<string>(m["newResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~ChangeResourceGroupRequest() = default;
+};
+class ChangeResourceGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  ChangeResourceGroupResponseBody() {}
+
+  explicit ChangeResourceGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ChangeResourceGroupResponseBody() = default;
+};
+class ChangeResourceGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ChangeResourceGroupResponseBody> body{};
+
+  ChangeResourceGroupResponse() {}
+
+  explicit ChangeResourceGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ChangeResourceGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ChangeResourceGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ChangeResourceGroupResponse() = default;
+};
 class CreateInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
@@ -292,17 +415,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -447,17 +560,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -496,6 +599,296 @@ public:
 
 
   virtual ~DeleteInstanceResponse() = default;
+};
+class DisableHiveAccessRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  DisableHiveAccessRequest() {}
+
+  explicit DisableHiveAccessRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DisableHiveAccessRequest() = default;
+};
+class DisableHiveAccessResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DisableHiveAccessResponseBody() {}
+
+  explicit DisableHiveAccessResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<string>(boost::any_cast<string>(m["HttpStatusCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DisableHiveAccessResponseBody() = default;
+};
+class DisableHiveAccessResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DisableHiveAccessResponseBody> body{};
+
+  DisableHiveAccessResponse() {}
+
+  explicit DisableHiveAccessResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DisableHiveAccessResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DisableHiveAccessResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DisableHiveAccessResponse() = default;
+};
+class EnableHiveAccessRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  EnableHiveAccessRequest() {}
+
+  explicit EnableHiveAccessRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~EnableHiveAccessRequest() = default;
+};
+class EnableHiveAccessResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  EnableHiveAccessResponseBody() {}
+
+  explicit EnableHiveAccessResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<string>(boost::any_cast<string>(m["HttpStatusCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~EnableHiveAccessResponseBody() = default;
+};
+class EnableHiveAccessResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnableHiveAccessResponseBody> body{};
+
+  EnableHiveAccessResponse() {}
+
+  explicit EnableHiveAccessResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnableHiveAccessResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnableHiveAccessResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EnableHiveAccessResponse() = default;
 };
 class GetInstanceResponseBodyInstanceEndpoints : public Darabonba::Model {
 public:
@@ -930,17 +1323,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -979,6 +1362,219 @@ public:
 
 
   virtual ~GetInstanceResponse() = default;
+};
+class GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> id{};
+  shared_ptr<long> mem{};
+  shared_ptr<string> name{};
+  shared_ptr<long> nodeCount{};
+  shared_ptr<string> status{};
+
+  GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList() {}
+
+  explicit GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mem) {
+      res["Mem"] = boost::any(*mem);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (nodeCount) {
+      res["NodeCount"] = boost::any(*nodeCount);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Mem") != m.end() && !m["Mem"].empty()) {
+      mem = make_shared<long>(boost::any_cast<long>(m["Mem"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NodeCount") != m.end() && !m["NodeCount"].empty()) {
+      nodeCount = make_shared<long>(boost::any_cast<long>(m["NodeCount"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList() = default;
+};
+class GetWarehouseDetailResponseBodyWarehouseDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> remainingCpu{};
+  shared_ptr<string> reservedCpu{};
+  shared_ptr<vector<GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList>> warehouseList{};
+
+  GetWarehouseDetailResponseBodyWarehouseDetail() {}
+
+  explicit GetWarehouseDetailResponseBodyWarehouseDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (remainingCpu) {
+      res["RemainingCpu"] = boost::any(*remainingCpu);
+    }
+    if (reservedCpu) {
+      res["ReservedCpu"] = boost::any(*reservedCpu);
+    }
+    if (warehouseList) {
+      vector<boost::any> temp1;
+      for(auto item1:*warehouseList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["WarehouseList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RemainingCpu") != m.end() && !m["RemainingCpu"].empty()) {
+      remainingCpu = make_shared<string>(boost::any_cast<string>(m["RemainingCpu"]));
+    }
+    if (m.find("ReservedCpu") != m.end() && !m["ReservedCpu"].empty()) {
+      reservedCpu = make_shared<string>(boost::any_cast<string>(m["ReservedCpu"]));
+    }
+    if (m.find("WarehouseList") != m.end() && !m["WarehouseList"].empty()) {
+      if (typeid(vector<boost::any>) == m["WarehouseList"].type()) {
+        vector<GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["WarehouseList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        warehouseList = make_shared<vector<GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetWarehouseDetailResponseBodyWarehouseDetail() = default;
+};
+class GetWarehouseDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<GetWarehouseDetailResponseBodyWarehouseDetail> warehouseDetail{};
+
+  GetWarehouseDetailResponseBody() {}
+
+  explicit GetWarehouseDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (warehouseDetail) {
+      res["WarehouseDetail"] = warehouseDetail ? boost::any(warehouseDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("WarehouseDetail") != m.end() && !m["WarehouseDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["WarehouseDetail"].type()) {
+        GetWarehouseDetailResponseBodyWarehouseDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["WarehouseDetail"]));
+        warehouseDetail = make_shared<GetWarehouseDetailResponseBodyWarehouseDetail>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetWarehouseDetailResponseBody() = default;
+};
+class GetWarehouseDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetWarehouseDetailResponseBody> body{};
+
+  GetWarehouseDetailResponse() {}
+
+  explicit GetWarehouseDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetWarehouseDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetWarehouseDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetWarehouseDetailResponse() = default;
 };
 class ListInstancesRequestTag : public Darabonba::Model {
 public:
@@ -1432,17 +2028,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1481,6 +2067,172 @@ public:
 
 
   virtual ~ListInstancesResponse() = default;
+};
+class ListWarehousesResponseBodyWarehouseList : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> id{};
+  shared_ptr<long> mem{};
+  shared_ptr<string> name{};
+  shared_ptr<long> nodeCount{};
+  shared_ptr<string> status{};
+
+  ListWarehousesResponseBodyWarehouseList() {}
+
+  explicit ListWarehousesResponseBodyWarehouseList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mem) {
+      res["Mem"] = boost::any(*mem);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (nodeCount) {
+      res["NodeCount"] = boost::any(*nodeCount);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Mem") != m.end() && !m["Mem"].empty()) {
+      mem = make_shared<long>(boost::any_cast<long>(m["Mem"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NodeCount") != m.end() && !m["NodeCount"].empty()) {
+      nodeCount = make_shared<long>(boost::any_cast<long>(m["NodeCount"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListWarehousesResponseBodyWarehouseList() = default;
+};
+class ListWarehousesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListWarehousesResponseBodyWarehouseList>> warehouseList{};
+  shared_ptr<string> requestId{};
+
+  ListWarehousesResponseBody() {}
+
+  explicit ListWarehousesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (warehouseList) {
+      vector<boost::any> temp1;
+      for(auto item1:*warehouseList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["WarehouseList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WarehouseList") != m.end() && !m["WarehouseList"].empty()) {
+      if (typeid(vector<boost::any>) == m["WarehouseList"].type()) {
+        vector<ListWarehousesResponseBodyWarehouseList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["WarehouseList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListWarehousesResponseBodyWarehouseList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        warehouseList = make_shared<vector<ListWarehousesResponseBodyWarehouseList>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~ListWarehousesResponseBody() = default;
+};
+class ListWarehousesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListWarehousesResponseBody> body{};
+
+  ListWarehousesResponse() {}
+
+  explicit ListWarehousesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListWarehousesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListWarehousesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListWarehousesResponse() = default;
 };
 class RenewInstanceRequest : public Darabonba::Model {
 public:
@@ -1648,17 +2400,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1774,17 +2516,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1900,17 +2632,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2130,17 +2852,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2256,17 +2968,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2411,17 +3113,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2601,17 +3293,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2661,6 +3343,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
   CreateInstanceResponse createInstanceWithOptions(shared_ptr<CreateInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateInstanceResponse createInstance(shared_ptr<CreateInstanceRequest> request);
   DeleteInstanceResponse deleteInstanceWithOptions(shared_ptr<string> instanceId,
@@ -2668,10 +3352,24 @@ public:
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteInstanceResponse deleteInstance(shared_ptr<string> instanceId, shared_ptr<DeleteInstanceRequest> request);
+  DisableHiveAccessResponse disableHiveAccessWithOptions(shared_ptr<string> instanceId,
+                                                         shared_ptr<DisableHiveAccessRequest> request,
+                                                         shared_ptr<map<string, string>> headers,
+                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DisableHiveAccessResponse disableHiveAccess(shared_ptr<string> instanceId, shared_ptr<DisableHiveAccessRequest> request);
+  EnableHiveAccessResponse enableHiveAccessWithOptions(shared_ptr<string> instanceId,
+                                                       shared_ptr<EnableHiveAccessRequest> request,
+                                                       shared_ptr<map<string, string>> headers,
+                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnableHiveAccessResponse enableHiveAccess(shared_ptr<string> instanceId, shared_ptr<EnableHiveAccessRequest> request);
   GetInstanceResponse getInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetInstanceResponse getInstance(shared_ptr<string> instanceId);
+  GetWarehouseDetailResponse getWarehouseDetailWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetWarehouseDetailResponse getWarehouseDetail(shared_ptr<string> instanceId);
   ListInstancesResponse listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInstancesResponse listInstances(shared_ptr<ListInstancesRequest> request);
+  ListWarehousesResponse listWarehousesWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListWarehousesResponse listWarehouses(shared_ptr<string> instanceId);
   RenewInstanceResponse renewInstanceWithOptions(shared_ptr<string> instanceId,
                                                  shared_ptr<RenewInstanceRequest> request,
                                                  shared_ptr<map<string, string>> headers,
