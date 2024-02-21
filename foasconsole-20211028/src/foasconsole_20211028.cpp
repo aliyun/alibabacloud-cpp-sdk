@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -91,10 +90,10 @@ CreateInstanceResponse Alibabacloud_Foasconsole20211028::Client::createInstanceW
   shared_ptr<CreateInstanceShrinkRequest> request = make_shared<CreateInstanceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CreateInstanceRequestResourceSpec>(tmpReq->resourceSpec)) {
-    request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->resourceSpec->toMap()), make_shared<string>("ResourceSpec"), make_shared<string>("json")));
+    request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceSpec, make_shared<string>("ResourceSpec"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<CreateInstanceRequestStorage>(tmpReq->storage)) {
-    request->storageShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->storage->toMap()), make_shared<string>("Storage"), make_shared<string>("json")));
+    request->storageShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->storage, make_shared<string>("Storage"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->vSwitchIds)) {
     request->vSwitchIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vSwitchIds, make_shared<string>("VSwitchIds"), make_shared<string>("json")));
@@ -163,7 +162,7 @@ CreateNamespaceResponse Alibabacloud_Foasconsole20211028::Client::createNamespac
   shared_ptr<CreateNamespaceShrinkRequest> request = make_shared<CreateNamespaceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CreateNamespaceRequestResourceSpec>(tmpReq->resourceSpec)) {
-    request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->resourceSpec->toMap()), make_shared<string>("ResourceSpec"), make_shared<string>("json")));
+    request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceSpec, make_shared<string>("ResourceSpec"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
@@ -416,7 +415,7 @@ ModifyPrepayInstanceSpecResponse Alibabacloud_Foasconsole20211028::Client::modif
   shared_ptr<ModifyPrepayInstanceSpecShrinkRequest> request = make_shared<ModifyPrepayInstanceSpecShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<ModifyPrepayInstanceSpecRequestResourceSpec>(tmpReq->resourceSpec)) {
-    request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->resourceSpec->toMap()), make_shared<string>("ResourceSpec"), make_shared<string>("json")));
+    request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceSpec, make_shared<string>("ResourceSpec"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
@@ -455,7 +454,7 @@ ModifyPrepayNamespaceSpecResponse Alibabacloud_Foasconsole20211028::Client::modi
   shared_ptr<ModifyPrepayNamespaceSpecShrinkRequest> request = make_shared<ModifyPrepayNamespaceSpecShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<ModifyPrepayNamespaceSpecRequestResourceSpec>(tmpReq->resourceSpec)) {
-    request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->resourceSpec->toMap()), make_shared<string>("ResourceSpec"), make_shared<string>("json")));
+    request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceSpec, make_shared<string>("ResourceSpec"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
@@ -545,10 +544,10 @@ QueryCreateInstancePriceResponse Alibabacloud_Foasconsole20211028::Client::query
   shared_ptr<QueryCreateInstancePriceShrinkRequest> request = make_shared<QueryCreateInstancePriceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<QueryCreateInstancePriceRequestResourceSpec>(tmpReq->resourceSpec)) {
-    request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->resourceSpec->toMap()), make_shared<string>("ResourceSpec"), make_shared<string>("json")));
+    request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceSpec, make_shared<string>("ResourceSpec"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<QueryCreateInstancePriceRequestStorage>(tmpReq->storage)) {
-    request->storageShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->storage->toMap()), make_shared<string>("Storage"), make_shared<string>("json")));
+    request->storageShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->storage, make_shared<string>("Storage"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->vSwitchIds)) {
     request->vSwitchIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vSwitchIds, make_shared<string>("VSwitchIds"), make_shared<string>("json")));
@@ -617,7 +616,7 @@ QueryModifyInstancePriceResponse Alibabacloud_Foasconsole20211028::Client::query
   shared_ptr<QueryModifyInstancePriceShrinkRequest> request = make_shared<QueryModifyInstancePriceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<QueryModifyInstancePriceRequestResourceSpec>(tmpReq->resourceSpec)) {
-    request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->resourceSpec->toMap()), make_shared<string>("ResourceSpec"), make_shared<string>("json")));
+    request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceSpec, make_shared<string>("ResourceSpec"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
