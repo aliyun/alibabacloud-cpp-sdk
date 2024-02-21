@@ -5,7 +5,6 @@
 
 #include <alibabacloud/open_api.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -99,17 +98,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -153,6 +142,8 @@ class CreateTrailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> eventRW{};
   shared_ptr<bool> isOrganizationTrail{};
+  shared_ptr<string> maxComputeProjectArn{};
+  shared_ptr<string> maxComputeWriteRoleArn{};
   shared_ptr<string> name{};
   shared_ptr<string> ossBucketName{};
   shared_ptr<string> ossKeyPrefix{};
@@ -176,6 +167,12 @@ public:
     }
     if (isOrganizationTrail) {
       res["IsOrganizationTrail"] = boost::any(*isOrganizationTrail);
+    }
+    if (maxComputeProjectArn) {
+      res["MaxComputeProjectArn"] = boost::any(*maxComputeProjectArn);
+    }
+    if (maxComputeWriteRoleArn) {
+      res["MaxComputeWriteRoleArn"] = boost::any(*maxComputeWriteRoleArn);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -208,6 +205,12 @@ public:
     if (m.find("IsOrganizationTrail") != m.end() && !m["IsOrganizationTrail"].empty()) {
       isOrganizationTrail = make_shared<bool>(boost::any_cast<bool>(m["IsOrganizationTrail"]));
     }
+    if (m.find("MaxComputeProjectArn") != m.end() && !m["MaxComputeProjectArn"].empty()) {
+      maxComputeProjectArn = make_shared<string>(boost::any_cast<string>(m["MaxComputeProjectArn"]));
+    }
+    if (m.find("MaxComputeWriteRoleArn") != m.end() && !m["MaxComputeWriteRoleArn"].empty()) {
+      maxComputeWriteRoleArn = make_shared<string>(boost::any_cast<string>(m["MaxComputeWriteRoleArn"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -238,6 +241,8 @@ class CreateTrailResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> eventRW{};
   shared_ptr<string> homeRegion{};
+  shared_ptr<string> maxComputeProjectArn{};
+  shared_ptr<string> maxComputeWriteRoleArn{};
   shared_ptr<string> name{};
   shared_ptr<string> ossBucketName{};
   shared_ptr<string> ossKeyPrefix{};
@@ -262,6 +267,12 @@ public:
     }
     if (homeRegion) {
       res["HomeRegion"] = boost::any(*homeRegion);
+    }
+    if (maxComputeProjectArn) {
+      res["MaxComputeProjectArn"] = boost::any(*maxComputeProjectArn);
+    }
+    if (maxComputeWriteRoleArn) {
+      res["MaxComputeWriteRoleArn"] = boost::any(*maxComputeWriteRoleArn);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -296,6 +307,12 @@ public:
     }
     if (m.find("HomeRegion") != m.end() && !m["HomeRegion"].empty()) {
       homeRegion = make_shared<string>(boost::any_cast<string>(m["HomeRegion"]));
+    }
+    if (m.find("MaxComputeProjectArn") != m.end() && !m["MaxComputeProjectArn"].empty()) {
+      maxComputeProjectArn = make_shared<string>(boost::any_cast<string>(m["MaxComputeProjectArn"]));
+    }
+    if (m.find("MaxComputeWriteRoleArn") != m.end() && !m["MaxComputeWriteRoleArn"].empty()) {
+      maxComputeWriteRoleArn = make_shared<string>(boost::any_cast<string>(m["MaxComputeWriteRoleArn"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -338,17 +355,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -458,17 +465,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -578,17 +575,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -795,17 +782,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -894,6 +871,8 @@ public:
   shared_ptr<string> eventRW{};
   shared_ptr<string> homeRegion{};
   shared_ptr<bool> isOrganizationTrail{};
+  shared_ptr<string> maxComputeProjectArn{};
+  shared_ptr<string> maxComputeWriteRoleArn{};
   shared_ptr<string> name{};
   shared_ptr<string> organizationId{};
   shared_ptr<string> ossBucketLocation{};
@@ -931,6 +910,12 @@ public:
     }
     if (isOrganizationTrail) {
       res["IsOrganizationTrail"] = boost::any(*isOrganizationTrail);
+    }
+    if (maxComputeProjectArn) {
+      res["MaxComputeProjectArn"] = boost::any(*maxComputeProjectArn);
+    }
+    if (maxComputeWriteRoleArn) {
+      res["MaxComputeWriteRoleArn"] = boost::any(*maxComputeWriteRoleArn);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -992,6 +977,12 @@ public:
     }
     if (m.find("IsOrganizationTrail") != m.end() && !m["IsOrganizationTrail"].empty()) {
       isOrganizationTrail = make_shared<bool>(boost::any_cast<bool>(m["IsOrganizationTrail"]));
+    }
+    if (m.find("MaxComputeProjectArn") != m.end() && !m["MaxComputeProjectArn"].empty()) {
+      maxComputeProjectArn = make_shared<string>(boost::any_cast<string>(m["MaxComputeProjectArn"]));
+    }
+    if (m.find("MaxComputeWriteRoleArn") != m.end() && !m["MaxComputeWriteRoleArn"].empty()) {
+      maxComputeWriteRoleArn = make_shared<string>(boost::any_cast<string>(m["MaxComputeWriteRoleArn"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -1105,17 +1096,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1154,6 +1135,116 @@ public:
 
 
   virtual ~DescribeTrailsResponse() = default;
+};
+class EnableInsightRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> insightType{};
+
+  EnableInsightRequest() {}
+
+  explicit EnableInsightRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (insightType) {
+      res["InsightType"] = boost::any(*insightType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InsightType") != m.end() && !m["InsightType"].empty()) {
+      insightType = make_shared<string>(boost::any_cast<string>(m["InsightType"]));
+    }
+  }
+
+
+  virtual ~EnableInsightRequest() = default;
+};
+class EnableInsightResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  EnableInsightResponseBody() {}
+
+  explicit EnableInsightResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~EnableInsightResponseBody() = default;
+};
+class EnableInsightResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnableInsightResponseBody> body{};
+
+  EnableInsightResponse() {}
+
+  explicit EnableInsightResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnableInsightResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnableInsightResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EnableInsightResponse() = default;
 };
 class GetAccessKeyLastUsedEventsRequest : public Darabonba::Model {
 public:
@@ -1324,17 +1415,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1521,17 +1602,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1740,17 +1811,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1945,17 +2006,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2171,17 +2222,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2404,17 +2445,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2502,17 +2533,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2692,17 +2713,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2939,17 +2950,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3184,17 +3185,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3304,17 +3295,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3424,17 +3405,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3544,17 +3515,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3597,6 +3558,8 @@ public:
 class UpdateTrailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> eventRW{};
+  shared_ptr<string> maxComputeProjectArn{};
+  shared_ptr<string> maxComputeWriteRoleArn{};
   shared_ptr<string> name{};
   shared_ptr<string> ossBucketName{};
   shared_ptr<string> ossKeyPrefix{};
@@ -3617,6 +3580,12 @@ public:
     map<string, boost::any> res;
     if (eventRW) {
       res["EventRW"] = boost::any(*eventRW);
+    }
+    if (maxComputeProjectArn) {
+      res["MaxComputeProjectArn"] = boost::any(*maxComputeProjectArn);
+    }
+    if (maxComputeWriteRoleArn) {
+      res["MaxComputeWriteRoleArn"] = boost::any(*maxComputeWriteRoleArn);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -3645,6 +3614,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EventRW") != m.end() && !m["EventRW"].empty()) {
       eventRW = make_shared<string>(boost::any_cast<string>(m["EventRW"]));
+    }
+    if (m.find("MaxComputeProjectArn") != m.end() && !m["MaxComputeProjectArn"].empty()) {
+      maxComputeProjectArn = make_shared<string>(boost::any_cast<string>(m["MaxComputeProjectArn"]));
+    }
+    if (m.find("MaxComputeWriteRoleArn") != m.end() && !m["MaxComputeWriteRoleArn"].empty()) {
+      maxComputeWriteRoleArn = make_shared<string>(boost::any_cast<string>(m["MaxComputeWriteRoleArn"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -3676,6 +3651,8 @@ class UpdateTrailResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> eventRW{};
   shared_ptr<string> homeRegion{};
+  shared_ptr<string> maxComputeProjectArn{};
+  shared_ptr<string> maxComputeWriteRoleArn{};
   shared_ptr<string> name{};
   shared_ptr<string> ossBucketName{};
   shared_ptr<string> ossKeyPrefix{};
@@ -3700,6 +3677,12 @@ public:
     }
     if (homeRegion) {
       res["HomeRegion"] = boost::any(*homeRegion);
+    }
+    if (maxComputeProjectArn) {
+      res["MaxComputeProjectArn"] = boost::any(*maxComputeProjectArn);
+    }
+    if (maxComputeWriteRoleArn) {
+      res["MaxComputeWriteRoleArn"] = boost::any(*maxComputeWriteRoleArn);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -3734,6 +3717,12 @@ public:
     }
     if (m.find("HomeRegion") != m.end() && !m["HomeRegion"].empty()) {
       homeRegion = make_shared<string>(boost::any_cast<string>(m["HomeRegion"]));
+    }
+    if (m.find("MaxComputeProjectArn") != m.end() && !m["MaxComputeProjectArn"].empty()) {
+      maxComputeProjectArn = make_shared<string>(boost::any_cast<string>(m["MaxComputeProjectArn"]));
+    }
+    if (m.find("MaxComputeWriteRoleArn") != m.end() && !m["MaxComputeWriteRoleArn"].empty()) {
+      maxComputeWriteRoleArn = make_shared<string>(boost::any_cast<string>(m["MaxComputeWriteRoleArn"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -3776,17 +3765,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3848,6 +3827,8 @@ public:
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DescribeTrailsResponse describeTrailsWithOptions(shared_ptr<DescribeTrailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeTrailsResponse describeTrails(shared_ptr<DescribeTrailsRequest> request);
+  EnableInsightResponse enableInsightWithOptions(shared_ptr<EnableInsightRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnableInsightResponse enableInsight(shared_ptr<EnableInsightRequest> request);
   GetAccessKeyLastUsedEventsResponse getAccessKeyLastUsedEventsWithOptions(shared_ptr<GetAccessKeyLastUsedEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAccessKeyLastUsedEventsResponse getAccessKeyLastUsedEvents(shared_ptr<GetAccessKeyLastUsedEventsRequest> request);
   GetAccessKeyLastUsedInfoResponse getAccessKeyLastUsedInfoWithOptions(shared_ptr<GetAccessKeyLastUsedInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

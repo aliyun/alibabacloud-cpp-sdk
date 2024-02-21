@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -112,6 +111,12 @@ CreateTrailResponse Alibabacloud_Actiontrail20200706::Client::createTrailWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isOrganizationTrail)) {
     query->insert(pair<string, bool>("IsOrganizationTrail", *request->isOrganizationTrail));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxComputeProjectArn)) {
+    query->insert(pair<string, string>("MaxComputeProjectArn", *request->maxComputeProjectArn));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxComputeWriteRoleArn)) {
+    query->insert(pair<string, string>("MaxComputeWriteRoleArn", *request->maxComputeWriteRoleArn));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
@@ -272,6 +277,34 @@ DescribeTrailsResponse Alibabacloud_Actiontrail20200706::Client::describeTrailsW
 DescribeTrailsResponse Alibabacloud_Actiontrail20200706::Client::describeTrails(shared_ptr<DescribeTrailsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeTrailsWithOptions(request, runtime);
+}
+
+EnableInsightResponse Alibabacloud_Actiontrail20200706::Client::enableInsightWithOptions(shared_ptr<EnableInsightRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->insightType)) {
+    query->insert(pair<string, string>("InsightType", *request->insightType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EnableInsight"))},
+    {"version", boost::any(string("2020-07-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EnableInsightResponse(callApi(params, req, runtime));
+}
+
+EnableInsightResponse Alibabacloud_Actiontrail20200706::Client::enableInsight(shared_ptr<EnableInsightRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return enableInsightWithOptions(request, runtime);
 }
 
 GetAccessKeyLastUsedEventsResponse Alibabacloud_Actiontrail20200706::Client::getAccessKeyLastUsedEventsWithOptions(shared_ptr<GetAccessKeyLastUsedEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -681,6 +714,12 @@ UpdateTrailResponse Alibabacloud_Actiontrail20200706::Client::updateTrailWithOpt
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->eventRW)) {
     query->insert(pair<string, string>("EventRW", *request->eventRW));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxComputeProjectArn)) {
+    query->insert(pair<string, string>("MaxComputeProjectArn", *request->maxComputeProjectArn));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxComputeWriteRoleArn)) {
+    query->insert(pair<string, string>("MaxComputeWriteRoleArn", *request->maxComputeWriteRoleArn));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
