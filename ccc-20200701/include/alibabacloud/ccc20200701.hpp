@@ -152,6 +152,151 @@ public:
 
   virtual ~AbortCampaignResponse() = default;
 };
+class AddBlacklistCallTaggingRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> number{};
+
+  AddBlacklistCallTaggingRequest() {}
+
+  explicit AddBlacklistCallTaggingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (number) {
+      res["Number"] = boost::any(*number);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Number") != m.end() && !m["Number"].empty()) {
+      number = make_shared<string>(boost::any_cast<string>(m["Number"]));
+    }
+  }
+
+
+  virtual ~AddBlacklistCallTaggingRequest() = default;
+};
+class AddBlacklistCallTaggingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  AddBlacklistCallTaggingResponseBody() {}
+
+  explicit AddBlacklistCallTaggingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AddBlacklistCallTaggingResponseBody() = default;
+};
+class AddBlacklistCallTaggingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddBlacklistCallTaggingResponseBody> body{};
+
+  AddBlacklistCallTaggingResponse() {}
+
+  explicit AddBlacklistCallTaggingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddBlacklistCallTaggingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddBlacklistCallTaggingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddBlacklistCallTaggingResponse() = default;
+};
 class AddCasesRequestCaseList : public Darabonba::Model {
 public:
   shared_ptr<string> caller{};
@@ -1387,6 +1532,7 @@ public:
   shared_ptr<string> channelState{};
   shared_ptr<string> channelVariables{};
   shared_ptr<string> destination{};
+  shared_ptr<long> index{};
   shared_ptr<string> jobId{};
   shared_ptr<string> originator{};
   shared_ptr<string> releaseInitiator{};
@@ -1420,6 +1566,9 @@ public:
     }
     if (destination) {
       res["Destination"] = boost::any(*destination);
+    }
+    if (index) {
+      res["Index"] = boost::any(*index);
     }
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
@@ -1463,6 +1612,9 @@ public:
     }
     if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
       destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["Index"]));
     }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
@@ -52167,6 +52319,151 @@ public:
 
   virtual ~ReleaseCallResponse() = default;
 };
+class RemoveBlacklistCallTaggingRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> number{};
+
+  RemoveBlacklistCallTaggingRequest() {}
+
+  explicit RemoveBlacklistCallTaggingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (number) {
+      res["Number"] = boost::any(*number);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Number") != m.end() && !m["Number"].empty()) {
+      number = make_shared<string>(boost::any_cast<string>(m["Number"]));
+    }
+  }
+
+
+  virtual ~RemoveBlacklistCallTaggingRequest() = default;
+};
+class RemoveBlacklistCallTaggingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  RemoveBlacklistCallTaggingResponseBody() {}
+
+  explicit RemoveBlacklistCallTaggingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RemoveBlacklistCallTaggingResponseBody() = default;
+};
+class RemoveBlacklistCallTaggingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RemoveBlacklistCallTaggingResponseBody> body{};
+
+  RemoveBlacklistCallTaggingResponse() {}
+
+  explicit RemoveBlacklistCallTaggingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RemoveBlacklistCallTaggingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RemoveBlacklistCallTaggingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RemoveBlacklistCallTaggingResponse() = default;
+};
 class RemoveDoNotCallNumbersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -60480,6 +60777,8 @@ public:
                      shared_ptr<string> endpoint);
   AbortCampaignResponse abortCampaignWithOptions(shared_ptr<AbortCampaignRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AbortCampaignResponse abortCampaign(shared_ptr<AbortCampaignRequest> request);
+  AddBlacklistCallTaggingResponse addBlacklistCallTaggingWithOptions(shared_ptr<AddBlacklistCallTaggingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddBlacklistCallTaggingResponse addBlacklistCallTagging(shared_ptr<AddBlacklistCallTaggingRequest> request);
   AddCasesResponse addCasesWithOptions(shared_ptr<AddCasesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddCasesResponse addCases(shared_ptr<AddCasesRequest> request);
   AddNumbersToSkillGroupResponse addNumbersToSkillGroupWithOptions(shared_ptr<AddNumbersToSkillGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -60770,6 +61069,8 @@ public:
   RegisterDevicesResponse registerDevices(shared_ptr<RegisterDevicesRequest> request);
   ReleaseCallResponse releaseCallWithOptions(shared_ptr<ReleaseCallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReleaseCallResponse releaseCall(shared_ptr<ReleaseCallRequest> request);
+  RemoveBlacklistCallTaggingResponse removeBlacklistCallTaggingWithOptions(shared_ptr<RemoveBlacklistCallTaggingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RemoveBlacklistCallTaggingResponse removeBlacklistCallTagging(shared_ptr<RemoveBlacklistCallTaggingRequest> request);
   RemoveDoNotCallNumbersResponse removeDoNotCallNumbersWithOptions(shared_ptr<RemoveDoNotCallNumbersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveDoNotCallNumbersResponse removeDoNotCallNumbers(shared_ptr<RemoveDoNotCallNumbersRequest> request);
   RemovePersonalNumbersFromUserResponse removePersonalNumbersFromUserWithOptions(shared_ptr<RemovePersonalNumbersFromUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
