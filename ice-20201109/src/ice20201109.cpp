@@ -6382,55 +6382,6 @@ SubmitStandardCustomizedVoiceJobResponse Alibabacloud_ICE20201109::Client::submi
   return submitStandardCustomizedVoiceJobWithOptions(request, runtime);
 }
 
-SubmitSubtitleProduceJobResponse Alibabacloud_ICE20201109::Client::submitSubtitleProduceJobWithOptions(shared_ptr<SubmitSubtitleProduceJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
-    query->insert(pair<string, string>("Description", *request->description));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->editingConfig)) {
-    query->insert(pair<string, string>("EditingConfig", *request->editingConfig));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->inputConfig)) {
-    query->insert(pair<string, string>("InputConfig", *request->inputConfig));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->isAsync)) {
-    query->insert(pair<string, long>("IsAsync", *request->isAsync));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->outputConfig)) {
-    query->insert(pair<string, string>("OutputConfig", *request->outputConfig));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
-    query->insert(pair<string, string>("Title", *request->title));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    query->insert(pair<string, string>("Type", *request->type));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
-    query->insert(pair<string, string>("UserData", *request->userData));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("SubmitSubtitleProduceJob"))},
-    {"version", boost::any(string("2020-11-09"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return SubmitSubtitleProduceJobResponse(callApi(params, req, runtime));
-}
-
-SubmitSubtitleProduceJobResponse Alibabacloud_ICE20201109::Client::submitSubtitleProduceJob(shared_ptr<SubmitSubtitleProduceJobRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return submitSubtitleProduceJobWithOptions(request, runtime);
-}
-
 SubmitSyncMediaInfoJobResponse Alibabacloud_ICE20201109::Client::submitSyncMediaInfoJobWithOptions(shared_ptr<SubmitSyncMediaInfoJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<SubmitSyncMediaInfoJobShrinkRequest> request = make_shared<SubmitSyncMediaInfoJobShrinkRequest>();
