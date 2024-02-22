@@ -8,7 +8,6 @@
 #include <alibabacloud/oss.hpp>
 #include <alibabacloud/ossutil.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/file_form.hpp>
 #include <darabonba/util.hpp>
@@ -40,6 +39,54 @@ string Alibabacloud_Cloudauth20190307::Client::getEndpoint(shared_ptr<string> pr
     return (*endpointMap)[regionId];
   }
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
+}
+
+AIGCFaceVerifyResponse Alibabacloud_Cloudauth20190307::Client::aIGCFaceVerifyWithOptions(shared_ptr<AIGCFaceVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->faceContrastPictureUrl)) {
+    query->insert(pair<string, string>("FaceContrastPictureUrl", *request->faceContrastPictureUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossBucketName)) {
+    query->insert(pair<string, string>("OssBucketName", *request->ossBucketName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossObjectName)) {
+    query->insert(pair<string, string>("OssObjectName", *request->ossObjectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outerOrderNo)) {
+    query->insert(pair<string, string>("OuterOrderNo", *request->outerOrderNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    query->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sceneId)) {
+    query->insert(pair<string, long>("SceneId", *request->sceneId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->faceContrastPicture)) {
+    body->insert(pair<string, string>("FaceContrastPicture", *request->faceContrastPicture));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AIGCFaceVerify"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AIGCFaceVerifyResponse(callApi(params, req, runtime));
+}
+
+AIGCFaceVerifyResponse Alibabacloud_Cloudauth20190307::Client::aIGCFaceVerify(shared_ptr<AIGCFaceVerifyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return aIGCFaceVerifyWithOptions(request, runtime);
 }
 
 CompareFaceVerifyResponse Alibabacloud_Cloudauth20190307::Client::compareFaceVerifyWithOptions(shared_ptr<CompareFaceVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
