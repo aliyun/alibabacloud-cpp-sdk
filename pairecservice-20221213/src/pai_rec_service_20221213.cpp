@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -653,6 +652,24 @@ CreateFeatureConsistencyCheckJobConfigResponse Alibabacloud_PaiRecService2022121
   if (!Darabonba_Util::Client::isUnset<string>(request->featurePriority)) {
     body->insert(pair<string, string>("FeaturePriority", *request->featurePriority));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->featureStoreItemId)) {
+    body->insert(pair<string, string>("FeatureStoreItemId", *request->featureStoreItemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->featureStoreModelId)) {
+    body->insert(pair<string, string>("FeatureStoreModelId", *request->featureStoreModelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->featureStoreProjectId)) {
+    body->insert(pair<string, string>("FeatureStoreProjectId", *request->featureStoreProjectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->featureStoreProjectName)) {
+    body->insert(pair<string, string>("FeatureStoreProjectName", *request->featureStoreProjectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->featureStoreSeqFeatureView)) {
+    body->insert(pair<string, string>("FeatureStoreSeqFeatureView", *request->featureStoreSeqFeatureView));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->featureStoreUserId)) {
+    body->insert(pair<string, string>("FeatureStoreUserId", *request->featureStoreUserId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fgJarVersion)) {
     body->insert(pair<string, string>("FgJarVersion", *request->fgJarVersion));
   }
@@ -691,6 +708,9 @@ CreateFeatureConsistencyCheckJobConfigResponse Alibabacloud_PaiRecService2022121
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
     body->insert(pair<string, string>("ServiceId", *request->serviceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->useFeatureStore)) {
+    body->insert(pair<string, bool>("UseFeatureStore", *request->useFeatureStore));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userIdField)) {
     body->insert(pair<string, string>("UserIdField", *request->userIdField));
@@ -1916,6 +1936,9 @@ ListABMetricGroupsResponse Alibabacloud_PaiRecService20221213::Client::listABMet
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    query->insert(pair<string, string>("Order", *request->order));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
@@ -1927,6 +1950,9 @@ ListABMetricGroupsResponse Alibabacloud_PaiRecService20221213::Client::listABMet
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sceneId)) {
     query->insert(pair<string, string>("SceneId", *request->sceneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
+    query->insert(pair<string, string>("SortBy", *request->sortBy));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -3352,6 +3378,24 @@ UpdateFeatureConsistencyCheckJobConfigResponse Alibabacloud_PaiRecService2022121
   if (!Darabonba_Util::Client::isUnset<string>(request->featurePriority)) {
     body->insert(pair<string, string>("FeaturePriority", *request->featurePriority));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->featureStoreItemId)) {
+    body->insert(pair<string, string>("FeatureStoreItemId", *request->featureStoreItemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->featureStoreModelId)) {
+    body->insert(pair<string, string>("FeatureStoreModelId", *request->featureStoreModelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->featureStoreProjectId)) {
+    body->insert(pair<string, string>("FeatureStoreProjectId", *request->featureStoreProjectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->featureStoreProjectName)) {
+    body->insert(pair<string, string>("FeatureStoreProjectName", *request->featureStoreProjectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->featureStoreSeqFeatureView)) {
+    body->insert(pair<string, string>("FeatureStoreSeqFeatureView", *request->featureStoreSeqFeatureView));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->featureStoreUserId)) {
+    body->insert(pair<string, string>("FeatureStoreUserId", *request->featureStoreUserId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fgJarVersion)) {
     body->insert(pair<string, string>("FgJarVersion", *request->fgJarVersion));
   }
@@ -3363,6 +3407,9 @@ UpdateFeatureConsistencyCheckJobConfigResponse Alibabacloud_PaiRecService2022121
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isUseFeatureStore)) {
+    body->insert(pair<string, bool>("IsUseFeatureStore", *request->isUseFeatureStore));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->itemIdField)) {
     body->insert(pair<string, string>("ItemIdField", *request->itemIdField));
