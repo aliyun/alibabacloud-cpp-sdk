@@ -8986,6 +8986,7 @@ public:
   shared_ptr<long> maxConnections{};
   shared_ptr<long> maxIOPS{};
   shared_ptr<string> memorySize{};
+  shared_ptr<string> remoteMemorySize{};
   shared_ptr<string> sccMode{};
   shared_ptr<string> serverWeight{};
   shared_ptr<string> serverlessType{};
@@ -9043,6 +9044,9 @@ public:
     }
     if (memorySize) {
       res["MemorySize"] = boost::any(*memorySize);
+    }
+    if (remoteMemorySize) {
+      res["RemoteMemorySize"] = boost::any(*remoteMemorySize);
     }
     if (sccMode) {
       res["SccMode"] = boost::any(*sccMode);
@@ -9105,6 +9109,9 @@ public:
     if (m.find("MemorySize") != m.end() && !m["MemorySize"].empty()) {
       memorySize = make_shared<string>(boost::any_cast<string>(m["MemorySize"]));
     }
+    if (m.find("RemoteMemorySize") != m.end() && !m["RemoteMemorySize"].empty()) {
+      remoteMemorySize = make_shared<string>(boost::any_cast<string>(m["RemoteMemorySize"]));
+    }
     if (m.find("SccMode") != m.end() && !m["SccMode"].empty()) {
       sccMode = make_shared<string>(boost::any_cast<string>(m["SccMode"]));
     }
@@ -9163,6 +9170,7 @@ public:
 };
 class DescribeDBClusterAttributeResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> aiCreatingTime{};
   shared_ptr<string> aiType{};
   shared_ptr<string> architecture{};
   shared_ptr<long> blktagTotal{};
@@ -9228,6 +9236,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aiCreatingTime) {
+      res["AiCreatingTime"] = boost::any(*aiCreatingTime);
+    }
     if (aiType) {
       res["AiType"] = boost::any(*aiType);
     }
@@ -9402,6 +9413,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AiCreatingTime") != m.end() && !m["AiCreatingTime"].empty()) {
+      aiCreatingTime = make_shared<string>(boost::any_cast<string>(m["AiCreatingTime"]));
+    }
     if (m.find("AiType") != m.end() && !m["AiType"].empty()) {
       aiType = make_shared<string>(boost::any_cast<string>(m["AiType"]));
     }
