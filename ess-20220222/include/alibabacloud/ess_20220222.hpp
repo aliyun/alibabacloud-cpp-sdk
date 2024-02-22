@@ -24228,6 +24228,151 @@ public:
 
   virtual ~ModifyEciScalingConfigurationResponse() = default;
 };
+class ModifyInstanceAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> entrusted{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<string> scalingGroupId{};
+
+  ModifyInstanceAttributeRequest() {}
+
+  explicit ModifyInstanceAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entrusted) {
+      res["Entrusted"] = boost::any(*entrusted);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Entrusted") != m.end() && !m["Entrusted"].empty()) {
+      entrusted = make_shared<bool>(boost::any_cast<bool>(m["Entrusted"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~ModifyInstanceAttributeRequest() = default;
+};
+class ModifyInstanceAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyInstanceAttributeResponseBody() {}
+
+  explicit ModifyInstanceAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyInstanceAttributeResponseBody() = default;
+};
+class ModifyInstanceAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyInstanceAttributeResponseBody> body{};
+
+  ModifyInstanceAttributeResponse() {}
+
+  explicit ModifyInstanceAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyInstanceAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyInstanceAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyInstanceAttributeResponse() = default;
+};
 class ModifyLifecycleHookRequest : public Darabonba::Model {
 public:
   shared_ptr<string> defaultResult{};
@@ -26664,6 +26809,7 @@ public:
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> scalingGroupId{};
   shared_ptr<string> scalingGroupName{};
+  shared_ptr<string> scalingPolicy{};
   shared_ptr<string> spotAllocationStrategy{};
   shared_ptr<long> spotInstancePools{};
   shared_ptr<bool> spotInstanceRemedy{};
@@ -26763,6 +26909,9 @@ public:
     }
     if (scalingGroupName) {
       res["ScalingGroupName"] = boost::any(*scalingGroupName);
+    }
+    if (scalingPolicy) {
+      res["ScalingPolicy"] = boost::any(*scalingPolicy);
     }
     if (spotAllocationStrategy) {
       res["SpotAllocationStrategy"] = boost::any(*spotAllocationStrategy);
@@ -26884,6 +27033,9 @@ public:
     }
     if (m.find("ScalingGroupName") != m.end() && !m["ScalingGroupName"].empty()) {
       scalingGroupName = make_shared<string>(boost::any_cast<string>(m["ScalingGroupName"]));
+    }
+    if (m.find("ScalingPolicy") != m.end() && !m["ScalingPolicy"].empty()) {
+      scalingPolicy = make_shared<string>(boost::any_cast<string>(m["ScalingPolicy"]));
     }
     if (m.find("SpotAllocationStrategy") != m.end() && !m["SpotAllocationStrategy"].empty()) {
       spotAllocationStrategy = make_shared<string>(boost::any_cast<string>(m["SpotAllocationStrategy"]));
@@ -30025,6 +30177,8 @@ public:
   ModifyAlarmResponse modifyAlarm(shared_ptr<ModifyAlarmRequest> request);
   ModifyEciScalingConfigurationResponse modifyEciScalingConfigurationWithOptions(shared_ptr<ModifyEciScalingConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyEciScalingConfigurationResponse modifyEciScalingConfiguration(shared_ptr<ModifyEciScalingConfigurationRequest> request);
+  ModifyInstanceAttributeResponse modifyInstanceAttributeWithOptions(shared_ptr<ModifyInstanceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyInstanceAttributeResponse modifyInstanceAttribute(shared_ptr<ModifyInstanceAttributeRequest> request);
   ModifyLifecycleHookResponse modifyLifecycleHookWithOptions(shared_ptr<ModifyLifecycleHookRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyLifecycleHookResponse modifyLifecycleHook(shared_ptr<ModifyLifecycleHookRequest> request);
   ModifyNotificationConfigurationResponse modifyNotificationConfigurationWithOptions(shared_ptr<ModifyNotificationConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

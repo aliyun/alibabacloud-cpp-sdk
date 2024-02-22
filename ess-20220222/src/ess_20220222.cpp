@@ -3487,6 +3487,49 @@ ModifyEciScalingConfigurationResponse Alibabacloud_Ess20220222::Client::modifyEc
   return modifyEciScalingConfigurationWithOptions(request, runtime);
 }
 
+ModifyInstanceAttributeResponse Alibabacloud_Ess20220222::Client::modifyInstanceAttributeWithOptions(shared_ptr<ModifyInstanceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->entrusted)) {
+    query->insert(pair<string, bool>("Entrusted", *request->entrusted));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scalingGroupId)) {
+    query->insert(pair<string, string>("ScalingGroupId", *request->scalingGroupId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyInstanceAttribute"))},
+    {"version", boost::any(string("2022-02-22"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyInstanceAttributeResponse(callApi(params, req, runtime));
+}
+
+ModifyInstanceAttributeResponse Alibabacloud_Ess20220222::Client::modifyInstanceAttribute(shared_ptr<ModifyInstanceAttributeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyInstanceAttributeWithOptions(request, runtime);
+}
+
 ModifyLifecycleHookResponse Alibabacloud_Ess20220222::Client::modifyLifecycleHookWithOptions(shared_ptr<ModifyLifecycleHookRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3860,6 +3903,9 @@ ModifyScalingGroupResponse Alibabacloud_Ess20220222::Client::modifyScalingGroupW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scalingGroupName)) {
     query->insert(pair<string, string>("ScalingGroupName", *request->scalingGroupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scalingPolicy)) {
+    query->insert(pair<string, string>("ScalingPolicy", *request->scalingPolicy));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spotAllocationStrategy)) {
     query->insert(pair<string, string>("SpotAllocationStrategy", *request->spotAllocationStrategy));
