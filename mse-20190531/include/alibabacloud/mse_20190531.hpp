@@ -20321,7 +20321,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> redirectUrl{};
   shared_ptr<vector<GetGatewayAuthDetailResponseBodyDataResourceList>> resourceList{};
-  shared_ptr<vector<string>> scopesList{};
+  shared_ptr<string> scopesList{};
   shared_ptr<bool> status{};
   shared_ptr<string> sub{};
   shared_ptr<string> tokenName{};
@@ -20483,14 +20483,7 @@ public:
       }
     }
     if (m.find("ScopesList") != m.end() && !m["ScopesList"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["ScopesList"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ScopesList"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      scopesList = make_shared<vector<string>>(toVec1);
+      scopesList = make_shared<string>(boost::any_cast<string>(m["ScopesList"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<bool>(boost::any_cast<bool>(m["Status"]));
