@@ -5768,7 +5768,6 @@ public:
   shared_ptr<vector<long>> httpPorts{};
   shared_ptr<vector<long>> httpsPorts{};
   shared_ptr<bool> IPv6Enabled{};
-  shared_ptr<bool> ipv6Enabled{};
   shared_ptr<string> protectionResource{};
   shared_ptr<string> TLSVersion{};
   shared_ptr<long> xffHeaderMode{};
@@ -5813,9 +5812,6 @@ public:
     }
     if (IPv6Enabled) {
       res["IPv6Enabled"] = boost::any(*IPv6Enabled);
-    }
-    if (ipv6Enabled) {
-      res["Ipv6Enabled"] = boost::any(*ipv6Enabled);
     }
     if (protectionResource) {
       res["ProtectionResource"] = boost::any(*protectionResource);
@@ -5883,9 +5879,6 @@ public:
     }
     if (m.find("IPv6Enabled") != m.end() && !m["IPv6Enabled"].empty()) {
       IPv6Enabled = make_shared<bool>(boost::any_cast<bool>(m["IPv6Enabled"]));
-    }
-    if (m.find("Ipv6Enabled") != m.end() && !m["Ipv6Enabled"].empty()) {
-      ipv6Enabled = make_shared<bool>(boost::any_cast<bool>(m["Ipv6Enabled"]));
     }
     if (m.find("ProtectionResource") != m.end() && !m["ProtectionResource"].empty()) {
       protectionResource = make_shared<string>(boost::any_cast<string>(m["ProtectionResource"]));
