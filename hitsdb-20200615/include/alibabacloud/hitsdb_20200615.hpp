@@ -4759,6 +4759,165 @@ public:
 
   virtual ~OpenComputeEngineResponse() = default;
 };
+class OpenComputePreCheckRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cpuLimit{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> memoryLimit{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+
+  OpenComputePreCheckRequest() {}
+
+  explicit OpenComputePreCheckRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpuLimit) {
+      res["CpuLimit"] = boost::any(*cpuLimit);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (memoryLimit) {
+      res["MemoryLimit"] = boost::any(*memoryLimit);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CpuLimit") != m.end() && !m["CpuLimit"].empty()) {
+      cpuLimit = make_shared<string>(boost::any_cast<string>(m["CpuLimit"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MemoryLimit") != m.end() && !m["MemoryLimit"].empty()) {
+      memoryLimit = make_shared<string>(boost::any_cast<string>(m["MemoryLimit"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~OpenComputePreCheckRequest() = default;
+};
+class OpenComputePreCheckResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  OpenComputePreCheckResponseBody() {}
+
+  explicit OpenComputePreCheckResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~OpenComputePreCheckResponseBody() = default;
+};
+class OpenComputePreCheckResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<OpenComputePreCheckResponseBody> body{};
+
+  OpenComputePreCheckResponse() {}
+
+  explicit OpenComputePreCheckResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        OpenComputePreCheckResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<OpenComputePreCheckResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~OpenComputePreCheckResponse() = default;
+};
 class ReleaseLindormInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> immediately{};
@@ -6636,6 +6795,8 @@ public:
   ModifyInstancePayTypeResponse modifyInstancePayType(shared_ptr<ModifyInstancePayTypeRequest> request);
   OpenComputeEngineResponse openComputeEngineWithOptions(shared_ptr<OpenComputeEngineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OpenComputeEngineResponse openComputeEngine(shared_ptr<OpenComputeEngineRequest> request);
+  OpenComputePreCheckResponse openComputePreCheckWithOptions(shared_ptr<OpenComputePreCheckRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  OpenComputePreCheckResponse openComputePreCheck(shared_ptr<OpenComputePreCheckRequest> request);
   ReleaseLindormInstanceResponse releaseLindormInstanceWithOptions(shared_ptr<ReleaseLindormInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReleaseLindormInstanceResponse releaseLindormInstance(shared_ptr<ReleaseLindormInstanceRequest> request);
   RenewLindormInstanceResponse renewLindormInstanceWithOptions(shared_ptr<RenewLindormInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
