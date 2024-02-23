@@ -1110,6 +1110,9 @@ CreateEnvironmentResponse Alibabacloud_ARMS20190808::Client::createEnvironmentWi
   if (!Darabonba_Util::Client::isUnset<string>(request->managedType)) {
     query->insert(pair<string, string>("ManagedType", *request->managedType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prometheusInstanceId)) {
+    query->insert(pair<string, string>("PrometheusInstanceId", *request->prometheusInstanceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }

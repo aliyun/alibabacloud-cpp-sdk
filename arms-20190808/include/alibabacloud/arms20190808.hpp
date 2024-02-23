@@ -6981,6 +6981,7 @@ public:
   shared_ptr<string> environmentSubType{};
   shared_ptr<string> environmentType{};
   shared_ptr<string> managedType{};
+  shared_ptr<string> prometheusInstanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<CreateEnvironmentRequestTags>> tags{};
@@ -7012,6 +7013,9 @@ public:
     }
     if (managedType) {
       res["ManagedType"] = boost::any(*managedType);
+    }
+    if (prometheusInstanceId) {
+      res["PrometheusInstanceId"] = boost::any(*prometheusInstanceId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -7047,6 +7051,9 @@ public:
     }
     if (m.find("ManagedType") != m.end() && !m["ManagedType"].empty()) {
       managedType = make_shared<string>(boost::any_cast<string>(m["ManagedType"]));
+    }
+    if (m.find("PrometheusInstanceId") != m.end() && !m["PrometheusInstanceId"].empty()) {
+      prometheusInstanceId = make_shared<string>(boost::any_cast<string>(m["PrometheusInstanceId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -13914,9 +13921,60 @@ public:
 
   virtual ~CreateTimingSyntheticTaskRequestCommonSettingCustomHost() = default;
 };
+class CreateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<string> secureGroupId{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+
+  CreateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting() {}
+
+  explicit CreateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (secureGroupId) {
+      res["SecureGroupId"] = boost::any(*secureGroupId);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecureGroupId") != m.end() && !m["SecureGroupId"].empty()) {
+      secureGroupId = make_shared<string>(boost::any_cast<string>(m["SecureGroupId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~CreateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting() = default;
+};
 class CreateTimingSyntheticTaskRequestCommonSetting : public Darabonba::Model {
 public:
   shared_ptr<CreateTimingSyntheticTaskRequestCommonSettingCustomHost> customHost{};
+  shared_ptr<CreateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting> customVPCSetting{};
   shared_ptr<long> ipType{};
   shared_ptr<bool> isOpenTrace{};
   shared_ptr<long> monitorSamples{};
@@ -13935,6 +13993,9 @@ public:
     map<string, boost::any> res;
     if (customHost) {
       res["CustomHost"] = customHost ? boost::any(customHost->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customVPCSetting) {
+      res["CustomVPCSetting"] = customVPCSetting ? boost::any(customVPCSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ipType) {
       res["IpType"] = boost::any(*ipType);
@@ -13960,6 +14021,13 @@ public:
         CreateTimingSyntheticTaskRequestCommonSettingCustomHost model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomHost"]));
         customHost = make_shared<CreateTimingSyntheticTaskRequestCommonSettingCustomHost>(model1);
+      }
+    }
+    if (m.find("CustomVPCSetting") != m.end() && !m["CustomVPCSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomVPCSetting"].type()) {
+        CreateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomVPCSetting"]));
+        customVPCSetting = make_shared<CreateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting>(model1);
       }
     }
     if (m.find("IpType") != m.end() && !m["IpType"].empty()) {
@@ -34292,9 +34360,60 @@ public:
 
   virtual ~GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost() = default;
 };
+class GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomVPCSetting : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<string> secureGroupId{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+
+  GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomVPCSetting() {}
+
+  explicit GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomVPCSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (secureGroupId) {
+      res["SecureGroupId"] = boost::any(*secureGroupId);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecureGroupId") != m.end() && !m["SecureGroupId"].empty()) {
+      secureGroupId = make_shared<string>(boost::any_cast<string>(m["SecureGroupId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomVPCSetting() = default;
+};
 class GetTimingSyntheticTaskResponseBodyDataCommonSetting : public Darabonba::Model {
 public:
   shared_ptr<GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost> customHost{};
+  shared_ptr<GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomVPCSetting> customVPCSetting{};
   shared_ptr<long> ipType{};
   shared_ptr<bool> isOpenTrace{};
   shared_ptr<long> monitorSamples{};
@@ -34313,6 +34432,9 @@ public:
     map<string, boost::any> res;
     if (customHost) {
       res["CustomHost"] = customHost ? boost::any(customHost->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customVPCSetting) {
+      res["CustomVPCSetting"] = customVPCSetting ? boost::any(customVPCSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ipType) {
       res["IpType"] = boost::any(*ipType);
@@ -34338,6 +34460,13 @@ public:
         GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomHost"]));
         customHost = make_shared<GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost>(model1);
+      }
+    }
+    if (m.find("CustomVPCSetting") != m.end() && !m["CustomVPCSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomVPCSetting"].type()) {
+        GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomVPCSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomVPCSetting"]));
+        customVPCSetting = make_shared<GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomVPCSetting>(model1);
       }
     }
     if (m.find("IpType") != m.end() && !m["IpType"].empty()) {
@@ -63257,9 +63386,60 @@ public:
 
   virtual ~UpdateTimingSyntheticTaskRequestCommonSettingCustomHost() = default;
 };
+class UpdateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<string> secureGroupId{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+
+  UpdateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting() {}
+
+  explicit UpdateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (secureGroupId) {
+      res["SecureGroupId"] = boost::any(*secureGroupId);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecureGroupId") != m.end() && !m["SecureGroupId"].empty()) {
+      secureGroupId = make_shared<string>(boost::any_cast<string>(m["SecureGroupId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~UpdateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting() = default;
+};
 class UpdateTimingSyntheticTaskRequestCommonSetting : public Darabonba::Model {
 public:
   shared_ptr<UpdateTimingSyntheticTaskRequestCommonSettingCustomHost> customHost{};
+  shared_ptr<UpdateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting> customVPCSetting{};
   shared_ptr<long> ipType{};
   shared_ptr<bool> isOpenTrace{};
   shared_ptr<long> monitorSamples{};
@@ -63278,6 +63458,9 @@ public:
     map<string, boost::any> res;
     if (customHost) {
       res["CustomHost"] = customHost ? boost::any(customHost->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customVPCSetting) {
+      res["CustomVPCSetting"] = customVPCSetting ? boost::any(customVPCSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ipType) {
       res["IpType"] = boost::any(*ipType);
@@ -63303,6 +63486,13 @@ public:
         UpdateTimingSyntheticTaskRequestCommonSettingCustomHost model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomHost"]));
         customHost = make_shared<UpdateTimingSyntheticTaskRequestCommonSettingCustomHost>(model1);
+      }
+    }
+    if (m.find("CustomVPCSetting") != m.end() && !m["CustomVPCSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomVPCSetting"].type()) {
+        UpdateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomVPCSetting"]));
+        customVPCSetting = make_shared<UpdateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting>(model1);
       }
     }
     if (m.find("IpType") != m.end() && !m["IpType"].empty()) {
