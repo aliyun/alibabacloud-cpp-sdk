@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -737,6 +736,9 @@ CreateServerGroupResponse Alibabacloud_Alb20200616::Client::createServerGroupWit
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateServerGroupRequestConnectionDrainConfig>(request->connectionDrainConfig)) {
+    query->insert(pair<string, CreateServerGroupRequestConnectionDrainConfig>("ConnectionDrainConfig", *request->connectionDrainConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
@@ -760,6 +762,9 @@ CreateServerGroupResponse Alibabacloud_Alb20200616::Client::createServerGroupWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
     query->insert(pair<string, string>("ServiceName", *request->serviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateServerGroupRequestSlowStartConfig>(request->slowStartConfig)) {
+    query->insert(pair<string, CreateServerGroupRequestSlowStartConfig>("SlowStartConfig", *request->slowStartConfig));
   }
   if (!Darabonba_Util::Client::isUnset<CreateServerGroupRequestStickySessionConfig>(request->stickySessionConfig)) {
     query->insert(pair<string, CreateServerGroupRequestStickySessionConfig>("StickySessionConfig", *request->stickySessionConfig));
@@ -3197,6 +3202,9 @@ UpdateServerGroupAttributeResponse Alibabacloud_Alb20200616::Client::updateServe
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<UpdateServerGroupAttributeRequestConnectionDrainConfig>(request->connectionDrainConfig)) {
+    query->insert(pair<string, UpdateServerGroupAttributeRequestConnectionDrainConfig>("ConnectionDrainConfig", *request->connectionDrainConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
@@ -3214,6 +3222,9 @@ UpdateServerGroupAttributeResponse Alibabacloud_Alb20200616::Client::updateServe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
     query->insert(pair<string, string>("ServiceName", *request->serviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateServerGroupAttributeRequestSlowStartConfig>(request->slowStartConfig)) {
+    query->insert(pair<string, UpdateServerGroupAttributeRequestSlowStartConfig>("SlowStartConfig", *request->slowStartConfig));
   }
   if (!Darabonba_Util::Client::isUnset<UpdateServerGroupAttributeRequestStickySessionConfig>(request->stickySessionConfig)) {
     query->insert(pair<string, UpdateServerGroupAttributeRequestStickySessionConfig>("StickySessionConfig", *request->stickySessionConfig));
