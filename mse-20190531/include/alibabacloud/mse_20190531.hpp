@@ -33529,6 +33529,7 @@ public:
 };
 class ListClusterTypesResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> code{};
   shared_ptr<string> showName{};
 
   ListClusterTypesResponseBodyData() {}
@@ -33541,6 +33542,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (showName) {
       res["ShowName"] = boost::any(*showName);
     }
@@ -33548,6 +33552,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("ShowName") != m.end() && !m["ShowName"].empty()) {
       showName = make_shared<string>(boost::any_cast<string>(m["ShowName"]));
     }
