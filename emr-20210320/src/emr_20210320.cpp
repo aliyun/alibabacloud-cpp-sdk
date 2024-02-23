@@ -156,6 +156,40 @@ CreateNodeGroupResponse Alibabacloud_Emr20210320::Client::createNodeGroup(shared
   return createNodeGroupWithOptions(request, runtime);
 }
 
+CreateReportResponse Alibabacloud_Emr20210320::Client::createReportWithOptions(shared_ptr<CreateReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->selectTimestamp)) {
+    query->insert(pair<string, long>("SelectTimestamp", *request->selectTimestamp));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateReport"))},
+    {"version", boost::any(string("2021-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateReportResponse(callApi(params, req, runtime));
+}
+
+CreateReportResponse Alibabacloud_Emr20210320::Client::createReport(shared_ptr<CreateReportRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createReportWithOptions(request, runtime);
+}
+
 DecreaseNodesResponse Alibabacloud_Emr20210320::Client::decreaseNodesWithOptions(shared_ptr<DecreaseNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -401,6 +435,37 @@ GetClusterResponse Alibabacloud_Emr20210320::Client::getClusterWithOptions(share
 GetClusterResponse Alibabacloud_Emr20210320::Client::getCluster(shared_ptr<GetClusterRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getClusterWithOptions(request, runtime);
+}
+
+GetClusterCloneMetaResponse Alibabacloud_Emr20210320::Client::getClusterCloneMetaWithOptions(shared_ptr<GetClusterCloneMetaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetClusterCloneMeta"))},
+    {"version", boost::any(string("2021-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetClusterCloneMetaResponse(callApi(params, req, runtime));
+}
+
+GetClusterCloneMetaResponse Alibabacloud_Emr20210320::Client::getClusterCloneMeta(shared_ptr<GetClusterCloneMetaRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getClusterCloneMetaWithOptions(request, runtime);
 }
 
 GetDoctorApplicationResponse Alibabacloud_Emr20210320::Client::getDoctorApplicationWithOptions(shared_ptr<GetDoctorApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -994,6 +1059,9 @@ IncreaseNodesResponse Alibabacloud_Emr20210320::Client::increaseNodesWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->increaseNodeCount)) {
     query->insert(pair<string, long>("IncreaseNodeCount", *request->increaseNodeCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minIncreaseNodeCount)) {
+    query->insert(pair<string, long>("MinIncreaseNodeCount", *request->minIncreaseNodeCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeGroupId)) {
     query->insert(pair<string, string>("NodeGroupId", *request->nodeGroupId));

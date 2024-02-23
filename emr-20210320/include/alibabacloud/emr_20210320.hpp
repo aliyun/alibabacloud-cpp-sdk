@@ -1223,6 +1223,7 @@ public:
   shared_ptr<string> activityType{};
   shared_ptr<long> adjustmentValue{};
   shared_ptr<MetricsTrigger> metricsTrigger{};
+  shared_ptr<long> minAdjustmentValue{};
   shared_ptr<string> ruleName{};
   shared_ptr<TimeTrigger> timeTrigger{};
   shared_ptr<string> triggerType{};
@@ -1245,6 +1246,9 @@ public:
     }
     if (metricsTrigger) {
       res["MetricsTrigger"] = metricsTrigger ? boost::any(metricsTrigger->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (minAdjustmentValue) {
+      res["MinAdjustmentValue"] = boost::any(*minAdjustmentValue);
     }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
@@ -1271,6 +1275,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MetricsTrigger"]));
         metricsTrigger = make_shared<MetricsTrigger>(model1);
       }
+    }
+    if (m.find("MinAdjustmentValue") != m.end() && !m["MinAdjustmentValue"].empty()) {
+      minAdjustmentValue = make_shared<long>(boost::any_cast<long>(m["MinAdjustmentValue"]));
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
@@ -5257,6 +5264,42 @@ public:
 
   virtual ~Operation() = default;
 };
+class OperationData : public Darabonba::Model {
+public:
+  shared_ptr<long> actualDeliveredAmounts{};
+  shared_ptr<long> toBeDeliveredAmounts{};
+
+  OperationData() {}
+
+  explicit OperationData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (actualDeliveredAmounts) {
+      res["actualDeliveredAmounts"] = boost::any(*actualDeliveredAmounts);
+    }
+    if (toBeDeliveredAmounts) {
+      res["toBeDeliveredAmounts"] = boost::any(*toBeDeliveredAmounts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("actualDeliveredAmounts") != m.end() && !m["actualDeliveredAmounts"].empty()) {
+      actualDeliveredAmounts = make_shared<long>(boost::any_cast<long>(m["actualDeliveredAmounts"]));
+    }
+    if (m.find("toBeDeliveredAmounts") != m.end() && !m["toBeDeliveredAmounts"].empty()) {
+      toBeDeliveredAmounts = make_shared<long>(boost::any_cast<long>(m["toBeDeliveredAmounts"]));
+    }
+  }
+
+
+  virtual ~OperationData() = default;
+};
 class Order : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
@@ -7864,6 +7907,170 @@ public:
 
   virtual ~CreateNodeGroupResponse() = default;
 };
+class CreateReportRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> selectTimestamp{};
+
+  CreateReportRequest() {}
+
+  explicit CreateReportRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (selectTimestamp) {
+      res["SelectTimestamp"] = boost::any(*selectTimestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SelectTimestamp") != m.end() && !m["SelectTimestamp"].empty()) {
+      selectTimestamp = make_shared<long>(boost::any_cast<long>(m["SelectTimestamp"]));
+    }
+  }
+
+
+  virtual ~CreateReportRequest() = default;
+};
+class CreateReportResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> reportId{};
+
+  CreateReportResponseBodyData() {}
+
+  explicit CreateReportResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
+    }
+  }
+
+
+  virtual ~CreateReportResponseBodyData() = default;
+};
+class CreateReportResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CreateReportResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  CreateReportResponseBody() {}
+
+  explicit CreateReportResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateReportResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateReportResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateReportResponseBody() = default;
+};
+class CreateReportResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateReportResponseBody> body{};
+
+  CreateReportResponse() {}
+
+  explicit CreateReportResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateReportResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateReportResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateReportResponse() = default;
+};
 class DecreaseNodesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -9452,6 +9659,585 @@ public:
 
 
   virtual ~GetClusterResponse() = default;
+};
+class GetClusterCloneMetaRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> regionId{};
+
+  GetClusterCloneMetaRequest() {}
+
+  explicit GetClusterCloneMetaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetClusterCloneMetaRequest() = default;
+};
+class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSConstraints : public Darabonba::Model {
+public:
+  shared_ptr<long> maxCapacity{};
+  shared_ptr<long> minCapacity{};
+
+  GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSConstraints() {}
+
+  explicit GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSConstraints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxCapacity) {
+      res["MaxCapacity"] = boost::any(*maxCapacity);
+    }
+    if (minCapacity) {
+      res["MinCapacity"] = boost::any(*minCapacity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxCapacity") != m.end() && !m["MaxCapacity"].empty()) {
+      maxCapacity = make_shared<long>(boost::any_cast<long>(m["MaxCapacity"]));
+    }
+    if (m.find("MinCapacity") != m.end() && !m["MinCapacity"].empty()) {
+      minCapacity = make_shared<long>(boost::any_cast<long>(m["MinCapacity"]));
+    }
+  }
+
+
+  virtual ~GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSConstraints() = default;
+};
+class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSScalingRules : public Darabonba::Model {
+public:
+  shared_ptr<string> activityType{};
+  shared_ptr<long> adjustmentValue{};
+  shared_ptr<MetricsTrigger> metricsTrigger{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<TimeTrigger> timeTrigger{};
+  shared_ptr<string> triggerType{};
+
+  GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSScalingRules() {}
+
+  explicit GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSScalingRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (activityType) {
+      res["ActivityType"] = boost::any(*activityType);
+    }
+    if (adjustmentValue) {
+      res["AdjustmentValue"] = boost::any(*adjustmentValue);
+    }
+    if (metricsTrigger) {
+      res["MetricsTrigger"] = metricsTrigger ? boost::any(metricsTrigger->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (timeTrigger) {
+      res["TimeTrigger"] = timeTrigger ? boost::any(timeTrigger->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (triggerType) {
+      res["TriggerType"] = boost::any(*triggerType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityType") != m.end() && !m["ActivityType"].empty()) {
+      activityType = make_shared<string>(boost::any_cast<string>(m["ActivityType"]));
+    }
+    if (m.find("AdjustmentValue") != m.end() && !m["AdjustmentValue"].empty()) {
+      adjustmentValue = make_shared<long>(boost::any_cast<long>(m["AdjustmentValue"]));
+    }
+    if (m.find("MetricsTrigger") != m.end() && !m["MetricsTrigger"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MetricsTrigger"].type()) {
+        MetricsTrigger model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MetricsTrigger"]));
+        metricsTrigger = make_shared<MetricsTrigger>(model1);
+      }
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("TimeTrigger") != m.end() && !m["TimeTrigger"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TimeTrigger"].type()) {
+        TimeTrigger model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TimeTrigger"]));
+        timeTrigger = make_shared<TimeTrigger>(model1);
+      }
+    }
+    if (m.find("TriggerType") != m.end() && !m["TriggerType"].empty()) {
+      triggerType = make_shared<string>(boost::any_cast<string>(m["TriggerType"]));
+    }
+  }
+
+
+  virtual ~GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSScalingRules() = default;
+};
+class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOS : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSConstraints> constraints{};
+  shared_ptr<string> nodeGroupId{};
+  shared_ptr<string> scalingPolicyId{};
+  shared_ptr<vector<GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSScalingRules>> scalingRules{};
+
+  GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOS() {}
+
+  explicit GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOS(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (constraints) {
+      res["Constraints"] = constraints ? boost::any(constraints->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (nodeGroupId) {
+      res["NodeGroupId"] = boost::any(*nodeGroupId);
+    }
+    if (scalingPolicyId) {
+      res["ScalingPolicyId"] = boost::any(*scalingPolicyId);
+    }
+    if (scalingRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*scalingRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ScalingRules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("Constraints") != m.end() && !m["Constraints"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Constraints"].type()) {
+        GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSConstraints model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Constraints"]));
+        constraints = make_shared<GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSConstraints>(model1);
+      }
+    }
+    if (m.find("NodeGroupId") != m.end() && !m["NodeGroupId"].empty()) {
+      nodeGroupId = make_shared<string>(boost::any_cast<string>(m["NodeGroupId"]));
+    }
+    if (m.find("ScalingPolicyId") != m.end() && !m["ScalingPolicyId"].empty()) {
+      scalingPolicyId = make_shared<string>(boost::any_cast<string>(m["ScalingPolicyId"]));
+    }
+    if (m.find("ScalingRules") != m.end() && !m["ScalingRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["ScalingRules"].type()) {
+        vector<GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSScalingRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ScalingRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSScalingRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        scalingRules = make_shared<vector<GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOSScalingRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOS() = default;
+};
+class GetClusterCloneMetaResponseBodyClusterCloneMeta : public Darabonba::Model {
+public:
+  shared_ptr<vector<ApplicationConfig>> applicationConfigs{};
+  shared_ptr<vector<Application>> applications{};
+  shared_ptr<vector<Script>> bootstrapScripts{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> clusterName{};
+  shared_ptr<string> clusterState{};
+  shared_ptr<string> clusterType{};
+  shared_ptr<string> deployMode{};
+  shared_ptr<string> emrDefaultRole{};
+  shared_ptr<bool> existCloneConfig{};
+  shared_ptr<string> metaStoreType{};
+  shared_ptr<string> networkType{};
+  shared_ptr<NodeAttributes> nodeAttributes{};
+  shared_ptr<vector<NodeGroup>> nodeGroups{};
+  shared_ptr<string> paymentType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> releaseVersion{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOS>> scalingPolicyDTOS{};
+  shared_ptr<string> securityMode{};
+  shared_ptr<SubscriptionConfig> subscriptionConfig{};
+  shared_ptr<vector<Tag>> tags{};
+
+  GetClusterCloneMetaResponseBodyClusterCloneMeta() {}
+
+  explicit GetClusterCloneMetaResponseBodyClusterCloneMeta(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationConfigs) {
+      vector<boost::any> temp1;
+      for(auto item1:*applicationConfigs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ApplicationConfigs"] = boost::any(temp1);
+    }
+    if (applications) {
+      vector<boost::any> temp1;
+      for(auto item1:*applications){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Applications"] = boost::any(temp1);
+    }
+    if (bootstrapScripts) {
+      vector<boost::any> temp1;
+      for(auto item1:*bootstrapScripts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BootstrapScripts"] = boost::any(temp1);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
+    if (clusterState) {
+      res["ClusterState"] = boost::any(*clusterState);
+    }
+    if (clusterType) {
+      res["ClusterType"] = boost::any(*clusterType);
+    }
+    if (deployMode) {
+      res["DeployMode"] = boost::any(*deployMode);
+    }
+    if (emrDefaultRole) {
+      res["EmrDefaultRole"] = boost::any(*emrDefaultRole);
+    }
+    if (existCloneConfig) {
+      res["ExistCloneConfig"] = boost::any(*existCloneConfig);
+    }
+    if (metaStoreType) {
+      res["MetaStoreType"] = boost::any(*metaStoreType);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (nodeAttributes) {
+      res["NodeAttributes"] = nodeAttributes ? boost::any(nodeAttributes->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (nodeGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*nodeGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NodeGroups"] = boost::any(temp1);
+    }
+    if (paymentType) {
+      res["PaymentType"] = boost::any(*paymentType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (releaseVersion) {
+      res["ReleaseVersion"] = boost::any(*releaseVersion);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (scalingPolicyDTOS) {
+      vector<boost::any> temp1;
+      for(auto item1:*scalingPolicyDTOS){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ScalingPolicyDTOS"] = boost::any(temp1);
+    }
+    if (securityMode) {
+      res["SecurityMode"] = boost::any(*securityMode);
+    }
+    if (subscriptionConfig) {
+      res["SubscriptionConfig"] = subscriptionConfig ? boost::any(subscriptionConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationConfigs") != m.end() && !m["ApplicationConfigs"].empty()) {
+      if (typeid(vector<boost::any>) == m["ApplicationConfigs"].type()) {
+        vector<ApplicationConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ApplicationConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ApplicationConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        applicationConfigs = make_shared<vector<ApplicationConfig>>(expect1);
+      }
+    }
+    if (m.find("Applications") != m.end() && !m["Applications"].empty()) {
+      if (typeid(vector<boost::any>) == m["Applications"].type()) {
+        vector<Application> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Applications"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Application model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        applications = make_shared<vector<Application>>(expect1);
+      }
+    }
+    if (m.find("BootstrapScripts") != m.end() && !m["BootstrapScripts"].empty()) {
+      if (typeid(vector<boost::any>) == m["BootstrapScripts"].type()) {
+        vector<Script> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BootstrapScripts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Script model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        bootstrapScripts = make_shared<vector<Script>>(expect1);
+      }
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
+    if (m.find("ClusterState") != m.end() && !m["ClusterState"].empty()) {
+      clusterState = make_shared<string>(boost::any_cast<string>(m["ClusterState"]));
+    }
+    if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
+      clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
+    }
+    if (m.find("DeployMode") != m.end() && !m["DeployMode"].empty()) {
+      deployMode = make_shared<string>(boost::any_cast<string>(m["DeployMode"]));
+    }
+    if (m.find("EmrDefaultRole") != m.end() && !m["EmrDefaultRole"].empty()) {
+      emrDefaultRole = make_shared<string>(boost::any_cast<string>(m["EmrDefaultRole"]));
+    }
+    if (m.find("ExistCloneConfig") != m.end() && !m["ExistCloneConfig"].empty()) {
+      existCloneConfig = make_shared<bool>(boost::any_cast<bool>(m["ExistCloneConfig"]));
+    }
+    if (m.find("MetaStoreType") != m.end() && !m["MetaStoreType"].empty()) {
+      metaStoreType = make_shared<string>(boost::any_cast<string>(m["MetaStoreType"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("NodeAttributes") != m.end() && !m["NodeAttributes"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NodeAttributes"].type()) {
+        NodeAttributes model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NodeAttributes"]));
+        nodeAttributes = make_shared<NodeAttributes>(model1);
+      }
+    }
+    if (m.find("NodeGroups") != m.end() && !m["NodeGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["NodeGroups"].type()) {
+        vector<NodeGroup> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NodeGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            NodeGroup model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        nodeGroups = make_shared<vector<NodeGroup>>(expect1);
+      }
+    }
+    if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ReleaseVersion") != m.end() && !m["ReleaseVersion"].empty()) {
+      releaseVersion = make_shared<string>(boost::any_cast<string>(m["ReleaseVersion"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ScalingPolicyDTOS") != m.end() && !m["ScalingPolicyDTOS"].empty()) {
+      if (typeid(vector<boost::any>) == m["ScalingPolicyDTOS"].type()) {
+        vector<GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOS> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ScalingPolicyDTOS"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOS model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        scalingPolicyDTOS = make_shared<vector<GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicyDTOS>>(expect1);
+      }
+    }
+    if (m.find("SecurityMode") != m.end() && !m["SecurityMode"].empty()) {
+      securityMode = make_shared<string>(boost::any_cast<string>(m["SecurityMode"]));
+    }
+    if (m.find("SubscriptionConfig") != m.end() && !m["SubscriptionConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SubscriptionConfig"].type()) {
+        SubscriptionConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SubscriptionConfig"]));
+        subscriptionConfig = make_shared<SubscriptionConfig>(model1);
+      }
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<Tag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Tag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<Tag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetClusterCloneMetaResponseBodyClusterCloneMeta() = default;
+};
+class GetClusterCloneMetaResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetClusterCloneMetaResponseBodyClusterCloneMeta> clusterCloneMeta{};
+  shared_ptr<string> requestId{};
+
+  GetClusterCloneMetaResponseBody() {}
+
+  explicit GetClusterCloneMetaResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterCloneMeta) {
+      res["ClusterCloneMeta"] = clusterCloneMeta ? boost::any(clusterCloneMeta->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterCloneMeta") != m.end() && !m["ClusterCloneMeta"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ClusterCloneMeta"].type()) {
+        GetClusterCloneMetaResponseBodyClusterCloneMeta model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ClusterCloneMeta"]));
+        clusterCloneMeta = make_shared<GetClusterCloneMetaResponseBodyClusterCloneMeta>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetClusterCloneMetaResponseBody() = default;
+};
+class GetClusterCloneMetaResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetClusterCloneMetaResponseBody> body{};
+
+  GetClusterCloneMetaResponse() {}
+
+  explicit GetClusterCloneMetaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetClusterCloneMetaResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetClusterCloneMetaResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetClusterCloneMetaResponse() = default;
 };
 class GetDoctorApplicationRequest : public Darabonba::Model {
 public:
@@ -30302,6 +31088,7 @@ public:
   shared_ptr<bool> autoPayOrder{};
   shared_ptr<string> clusterId{};
   shared_ptr<long> increaseNodeCount{};
+  shared_ptr<long> minIncreaseNodeCount{};
   shared_ptr<string> nodeGroupId{};
   shared_ptr<long> paymentDuration{};
   shared_ptr<string> paymentDurationUnit{};
@@ -30332,6 +31119,9 @@ public:
     }
     if (increaseNodeCount) {
       res["IncreaseNodeCount"] = boost::any(*increaseNodeCount);
+    }
+    if (minIncreaseNodeCount) {
+      res["MinIncreaseNodeCount"] = boost::any(*minIncreaseNodeCount);
     }
     if (nodeGroupId) {
       res["NodeGroupId"] = boost::any(*nodeGroupId);
@@ -30370,6 +31160,9 @@ public:
     }
     if (m.find("IncreaseNodeCount") != m.end() && !m["IncreaseNodeCount"].empty()) {
       increaseNodeCount = make_shared<long>(boost::any_cast<long>(m["IncreaseNodeCount"]));
+    }
+    if (m.find("MinIncreaseNodeCount") != m.end() && !m["MinIncreaseNodeCount"].empty()) {
+      minIncreaseNodeCount = make_shared<long>(boost::any_cast<long>(m["MinIncreaseNodeCount"]));
     }
     if (m.find("NodeGroupId") != m.end() && !m["NodeGroupId"].empty()) {
       nodeGroupId = make_shared<string>(boost::any_cast<string>(m["NodeGroupId"]));
@@ -49899,6 +50692,8 @@ public:
   CreateClusterResponse createCluster(shared_ptr<CreateClusterRequest> request);
   CreateNodeGroupResponse createNodeGroupWithOptions(shared_ptr<CreateNodeGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateNodeGroupResponse createNodeGroup(shared_ptr<CreateNodeGroupRequest> request);
+  CreateReportResponse createReportWithOptions(shared_ptr<CreateReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateReportResponse createReport(shared_ptr<CreateReportRequest> request);
   DecreaseNodesResponse decreaseNodesWithOptions(shared_ptr<DecreaseNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DecreaseNodesResponse decreaseNodes(shared_ptr<DecreaseNodesRequest> request);
   DeleteClusterResponse deleteClusterWithOptions(shared_ptr<DeleteClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -49913,6 +50708,8 @@ public:
   GetAutoScalingPolicyResponse getAutoScalingPolicy(shared_ptr<GetAutoScalingPolicyRequest> request);
   GetClusterResponse getClusterWithOptions(shared_ptr<GetClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetClusterResponse getCluster(shared_ptr<GetClusterRequest> request);
+  GetClusterCloneMetaResponse getClusterCloneMetaWithOptions(shared_ptr<GetClusterCloneMetaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetClusterCloneMetaResponse getClusterCloneMeta(shared_ptr<GetClusterCloneMetaRequest> request);
   GetDoctorApplicationResponse getDoctorApplicationWithOptions(shared_ptr<GetDoctorApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDoctorApplicationResponse getDoctorApplication(shared_ptr<GetDoctorApplicationRequest> request);
   GetDoctorComputeSummaryResponse getDoctorComputeSummaryWithOptions(shared_ptr<GetDoctorComputeSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
