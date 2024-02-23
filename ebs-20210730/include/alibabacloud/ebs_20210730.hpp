@@ -2298,6 +2298,123 @@ public:
 
   virtual ~CreateEnterpriseSnapshotPolicyResponse() = default;
 };
+class DeleteDiskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> diskId{};
+  shared_ptr<string> regionId{};
+
+  DeleteDiskRequest() {}
+
+  explicit DeleteDiskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskId) {
+      res["DiskId"] = boost::any(*diskId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiskId") != m.end() && !m["DiskId"].empty()) {
+      diskId = make_shared<string>(boost::any_cast<string>(m["DiskId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteDiskRequest() = default;
+};
+class DeleteDiskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteDiskResponseBody() {}
+
+  explicit DeleteDiskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteDiskResponseBody() = default;
+};
+class DeleteDiskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteDiskResponseBody> body{};
+
+  DeleteDiskResponse() {}
+
+  explicit DeleteDiskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDiskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDiskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDiskResponse() = default;
+};
 class DeleteDiskReplicaGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -12592,6 +12709,8 @@ public:
   CreateDiskReplicaPairResponse createDiskReplicaPair(shared_ptr<CreateDiskReplicaPairRequest> request);
   CreateEnterpriseSnapshotPolicyResponse createEnterpriseSnapshotPolicyWithOptions(shared_ptr<CreateEnterpriseSnapshotPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateEnterpriseSnapshotPolicyResponse createEnterpriseSnapshotPolicy(shared_ptr<CreateEnterpriseSnapshotPolicyRequest> request);
+  DeleteDiskResponse deleteDiskWithOptions(shared_ptr<DeleteDiskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDiskResponse deleteDisk(shared_ptr<DeleteDiskRequest> request);
   DeleteDiskReplicaGroupResponse deleteDiskReplicaGroupWithOptions(shared_ptr<DeleteDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDiskReplicaGroupResponse deleteDiskReplicaGroup(shared_ptr<DeleteDiskReplicaGroupRequest> request);
   DeleteDiskReplicaPairResponse deleteDiskReplicaPairWithOptions(shared_ptr<DeleteDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
