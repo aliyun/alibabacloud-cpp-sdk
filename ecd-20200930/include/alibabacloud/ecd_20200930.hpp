@@ -44102,6 +44102,172 @@ public:
 
   virtual ~TagResourcesResponse() = default;
 };
+class UnbindUserDesktopRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> desktopAgentIds{};
+  shared_ptr<string> desktopGroupId{};
+  shared_ptr<vector<string>> desktopIds{};
+  shared_ptr<bool> force{};
+  shared_ptr<string> reason{};
+  shared_ptr<vector<string>> userDesktopIds{};
+
+  UnbindUserDesktopRequest() {}
+
+  explicit UnbindUserDesktopRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desktopAgentIds) {
+      res["DesktopAgentIds"] = boost::any(*desktopAgentIds);
+    }
+    if (desktopGroupId) {
+      res["DesktopGroupId"] = boost::any(*desktopGroupId);
+    }
+    if (desktopIds) {
+      res["DesktopIds"] = boost::any(*desktopIds);
+    }
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    if (userDesktopIds) {
+      res["UserDesktopIds"] = boost::any(*userDesktopIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DesktopAgentIds") != m.end() && !m["DesktopAgentIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DesktopAgentIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DesktopAgentIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      desktopAgentIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DesktopGroupId") != m.end() && !m["DesktopGroupId"].empty()) {
+      desktopGroupId = make_shared<string>(boost::any_cast<string>(m["DesktopGroupId"]));
+    }
+    if (m.find("DesktopIds") != m.end() && !m["DesktopIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DesktopIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DesktopIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      desktopIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+    if (m.find("UserDesktopIds") != m.end() && !m["UserDesktopIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UserDesktopIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UserDesktopIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      userDesktopIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UnbindUserDesktopRequest() = default;
+};
+class UnbindUserDesktopResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UnbindUserDesktopResponseBody() {}
+
+  explicit UnbindUserDesktopResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UnbindUserDesktopResponseBody() = default;
+};
+class UnbindUserDesktopResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UnbindUserDesktopResponseBody> body{};
+
+  UnbindUserDesktopResponse() {}
+
+  explicit UnbindUserDesktopResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UnbindUserDesktopResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UnbindUserDesktopResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UnbindUserDesktopResponse() = default;
+};
 class UnlockVirtualMFADeviceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -45434,6 +45600,8 @@ public:
   StopInvocationResponse stopInvocation(shared_ptr<StopInvocationRequest> request);
   TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
+  UnbindUserDesktopResponse unbindUserDesktopWithOptions(shared_ptr<UnbindUserDesktopRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UnbindUserDesktopResponse unbindUserDesktop(shared_ptr<UnbindUserDesktopRequest> request);
   UnlockVirtualMFADeviceResponse unlockVirtualMFADeviceWithOptions(shared_ptr<UnlockVirtualMFADeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UnlockVirtualMFADeviceResponse unlockVirtualMFADevice(shared_ptr<UnlockVirtualMFADeviceRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
