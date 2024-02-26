@@ -604,7 +604,7 @@ class ChangeResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceId{};
-  shared_ptr<string> resourceRegionId{};
+  shared_ptr<string> resourceType{};
 
   ChangeResourceGroupRequest() {}
 
@@ -622,8 +622,8 @@ public:
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
     }
-    if (resourceRegionId) {
-      res["ResourceRegionId"] = boost::any(*resourceRegionId);
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
     }
     return res;
   }
@@ -635,8 +635,8 @@ public:
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
-    if (m.find("ResourceRegionId") != m.end() && !m["ResourceRegionId"].empty()) {
-      resourceRegionId = make_shared<string>(boost::any_cast<string>(m["ResourceRegionId"]));
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
   }
 

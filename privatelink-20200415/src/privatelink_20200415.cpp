@@ -233,8 +233,8 @@ ChangeResourceGroupResponse Alibabacloud_Privatelink20200415::Client::changeReso
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
     query->insert(pair<string, string>("ResourceId", *request->resourceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceRegionId)) {
-    query->insert(pair<string, string>("ResourceRegionId", *request->resourceRegionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
