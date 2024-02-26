@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1517,8 +1516,13 @@ UpgradeInstanceVersionResponse Alibabacloud_Alikafka20190916::Client::upgradeIns
   return upgradeInstanceVersionWithOptions(request, runtime);
 }
 
-UpgradePostPayOrderResponse Alibabacloud_Alikafka20190916::Client::upgradePostPayOrderWithOptions(shared_ptr<UpgradePostPayOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpgradePostPayOrderResponse Alibabacloud_Alikafka20190916::Client::upgradePostPayOrderWithOptions(shared_ptr<UpgradePostPayOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpgradePostPayOrderShrinkRequest> request = make_shared<UpgradePostPayOrderShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpgradePostPayOrderRequestServerlessConfig>(tmpReq->serverlessConfig)) {
+    request->serverlessConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->serverlessConfig, make_shared<string>("ServerlessConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->diskSize)) {
     query->insert(pair<string, long>("DiskSize", *request->diskSize));
@@ -1543,6 +1547,9 @@ UpgradePostPayOrderResponse Alibabacloud_Alikafka20190916::Client::upgradePostPa
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverlessConfigShrink)) {
+    query->insert(pair<string, string>("ServerlessConfig", *request->serverlessConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->specType)) {
     query->insert(pair<string, string>("SpecType", *request->specType));
