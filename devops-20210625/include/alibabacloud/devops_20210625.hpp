@@ -47406,6 +47406,243 @@ public:
 
   virtual ~ListTestCaseFieldsResponse() = default;
 };
+class ListUserDrawRecordByPkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunPk{};
+  shared_ptr<string> drawGroup{};
+  shared_ptr<string> drawPoolName{};
+
+  ListUserDrawRecordByPkRequest() {}
+
+  explicit ListUserDrawRecordByPkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunPk) {
+      res["aliyunPk"] = boost::any(*aliyunPk);
+    }
+    if (drawGroup) {
+      res["drawGroup"] = boost::any(*drawGroup);
+    }
+    if (drawPoolName) {
+      res["drawPoolName"] = boost::any(*drawPoolName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aliyunPk") != m.end() && !m["aliyunPk"].empty()) {
+      aliyunPk = make_shared<string>(boost::any_cast<string>(m["aliyunPk"]));
+    }
+    if (m.find("drawGroup") != m.end() && !m["drawGroup"].empty()) {
+      drawGroup = make_shared<string>(boost::any_cast<string>(m["drawGroup"]));
+    }
+    if (m.find("drawPoolName") != m.end() && !m["drawPoolName"].empty()) {
+      drawPoolName = make_shared<string>(boost::any_cast<string>(m["drawPoolName"]));
+    }
+  }
+
+
+  virtual ~ListUserDrawRecordByPkRequest() = default;
+};
+class ListUserDrawRecordByPkResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunPk{};
+  shared_ptr<string> drawGroup{};
+  shared_ptr<string> drawPoolName{};
+  shared_ptr<string> drawResult{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> taskGroupId{};
+  shared_ptr<string> uccId{};
+
+  ListUserDrawRecordByPkResponseBodyData() {}
+
+  explicit ListUserDrawRecordByPkResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunPk) {
+      res["aliyunPk"] = boost::any(*aliyunPk);
+    }
+    if (drawGroup) {
+      res["drawGroup"] = boost::any(*drawGroup);
+    }
+    if (drawPoolName) {
+      res["drawPoolName"] = boost::any(*drawPoolName);
+    }
+    if (drawResult) {
+      res["drawResult"] = boost::any(*drawResult);
+    }
+    if (gmtCreate) {
+      res["gmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (taskGroupId) {
+      res["taskGroupId"] = boost::any(*taskGroupId);
+    }
+    if (uccId) {
+      res["uccId"] = boost::any(*uccId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aliyunPk") != m.end() && !m["aliyunPk"].empty()) {
+      aliyunPk = make_shared<string>(boost::any_cast<string>(m["aliyunPk"]));
+    }
+    if (m.find("drawGroup") != m.end() && !m["drawGroup"].empty()) {
+      drawGroup = make_shared<string>(boost::any_cast<string>(m["drawGroup"]));
+    }
+    if (m.find("drawPoolName") != m.end() && !m["drawPoolName"].empty()) {
+      drawPoolName = make_shared<string>(boost::any_cast<string>(m["drawPoolName"]));
+    }
+    if (m.find("drawResult") != m.end() && !m["drawResult"].empty()) {
+      drawResult = make_shared<string>(boost::any_cast<string>(m["drawResult"]));
+    }
+    if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmtCreate"]));
+    }
+    if (m.find("taskGroupId") != m.end() && !m["taskGroupId"].empty()) {
+      taskGroupId = make_shared<string>(boost::any_cast<string>(m["taskGroupId"]));
+    }
+    if (m.find("uccId") != m.end() && !m["uccId"].empty()) {
+      uccId = make_shared<string>(boost::any_cast<string>(m["uccId"]));
+    }
+  }
+
+
+  virtual ~ListUserDrawRecordByPkResponseBodyData() = default;
+};
+class ListUserDrawRecordByPkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<ListUserDrawRecordByPkResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListUserDrawRecordByPkResponseBody() {}
+
+  explicit ListUserDrawRecordByPkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<ListUserDrawRecordByPkResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListUserDrawRecordByPkResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListUserDrawRecordByPkResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~ListUserDrawRecordByPkResponseBody() = default;
+};
+class ListUserDrawRecordByPkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListUserDrawRecordByPkResponseBody> body{};
+
+  ListUserDrawRecordByPkResponse() {}
+
+  explicit ListUserDrawRecordByPkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListUserDrawRecordByPkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListUserDrawRecordByPkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListUserDrawRecordByPkResponse() = default;
+};
 class ListUserKeysRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessToken{};
@@ -63560,6 +63797,8 @@ public:
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTestCaseFieldsResponse listTestCaseFields(shared_ptr<string> organizationId, shared_ptr<ListTestCaseFieldsRequest> request);
+  ListUserDrawRecordByPkResponse listUserDrawRecordByPkWithOptions(shared_ptr<ListUserDrawRecordByPkRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListUserDrawRecordByPkResponse listUserDrawRecordByPk(shared_ptr<ListUserDrawRecordByPkRequest> request);
   ListUserKeysResponse listUserKeysWithOptions(shared_ptr<ListUserKeysRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListUserKeysResponse listUserKeys(shared_ptr<ListUserKeysRequest> request);
   ListUserResourcesResponse listUserResourcesWithOptions(shared_ptr<ListUserResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
