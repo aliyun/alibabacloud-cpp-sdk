@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -323,6 +322,9 @@ CreateProductResponse Alibabacloud_Servicecatalog20210901::Client::createProduct
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->providerName)) {
     body->insert(pair<string, string>("ProviderName", *request->providerName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateType)) {
+    body->insert(pair<string, string>("TemplateType", *request->templateType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
