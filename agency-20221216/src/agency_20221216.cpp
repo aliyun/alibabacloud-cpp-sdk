@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -165,6 +164,31 @@ CreateCustomerResponse Alibabacloud_Agency20221216::Client::createCustomer(share
   return createCustomerWithOptions(request, runtime);
 }
 
+CustomerQuotaRecordListResponse Alibabacloud_Agency20221216::Client::customerQuotaRecordListWithOptions(shared_ptr<CustomerQuotaRecordListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CustomerQuotaRecordList"))},
+    {"version", boost::any(string("2022-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CustomerQuotaRecordListResponse(callApi(params, req, runtime));
+}
+
+CustomerQuotaRecordListResponse Alibabacloud_Agency20221216::Client::customerQuotaRecordList(shared_ptr<CustomerQuotaRecordListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return customerQuotaRecordListWithOptions(request, runtime);
+}
+
 DeductOutstandingBalanceResponse Alibabacloud_Agency20221216::Client::deductOutstandingBalanceWithOptions(shared_ptr<DeductOutstandingBalanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -281,6 +305,46 @@ EditZeroCreditShutdownResponse Alibabacloud_Agency20221216::Client::editZeroCred
 EditZeroCreditShutdownResponse Alibabacloud_Agency20221216::Client::editZeroCreditShutdown(shared_ptr<EditZeroCreditShutdownRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return editZeroCreditShutdownWithOptions(request, runtime);
+}
+
+ExportCustomerQuotaRecordResponse Alibabacloud_Agency20221216::Client::exportCustomerQuotaRecordWithOptions(shared_ptr<ExportCustomerQuotaRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endDate)) {
+    query->insert(pair<string, string>("EndDate", *request->endDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endUserPk)) {
+    query->insert(pair<string, long>("EndUserPk", *request->endUserPk));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operationType)) {
+    query->insert(pair<string, string>("OperationType", *request->operationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    query->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExportCustomerQuotaRecord"))},
+    {"version", boost::any(string("2022-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExportCustomerQuotaRecordResponse(callApi(params, req, runtime));
+}
+
+ExportCustomerQuotaRecordResponse Alibabacloud_Agency20221216::Client::exportCustomerQuotaRecord(shared_ptr<ExportCustomerQuotaRecordRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return exportCustomerQuotaRecordWithOptions(request, runtime);
 }
 
 GetAccountInfoResponse Alibabacloud_Agency20221216::Client::getAccountInfoWithOptions(shared_ptr<GetAccountInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -501,6 +565,31 @@ ListCountriesResponse Alibabacloud_Agency20221216::Client::listCountriesWithOpti
 ListCountriesResponse Alibabacloud_Agency20221216::Client::listCountries() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listCountriesWithOptions(runtime);
+}
+
+QuotaListExportPagedResponse Alibabacloud_Agency20221216::Client::quotaListExportPagedWithOptions(shared_ptr<QuotaListExportPagedRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QuotaListExportPaged"))},
+    {"version", boost::any(string("2022-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QuotaListExportPagedResponse(callApi(params, req, runtime));
+}
+
+QuotaListExportPagedResponse Alibabacloud_Agency20221216::Client::quotaListExportPaged(shared_ptr<QuotaListExportPagedRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return quotaListExportPagedWithOptions(request, runtime);
 }
 
 ResendEmailResponse Alibabacloud_Agency20221216::Client::resendEmailWithOptions(shared_ptr<ResendEmailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
