@@ -4011,6 +4011,351 @@ public:
 
   virtual ~DescribeCallListResponse() = default;
 };
+class DescribeChannelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> channelId{};
+
+  DescribeChannelRequest() {}
+
+  explicit DescribeChannelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+  }
+
+
+  virtual ~DescribeChannelRequest() = default;
+};
+class DescribeChannelResponseBodyChannel : public Darabonba::Model {
+public:
+  shared_ptr<string> channelId{};
+  shared_ptr<long> startTime{};
+
+  DescribeChannelResponseBodyChannel() {}
+
+  explicit DescribeChannelResponseBodyChannel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeChannelResponseBodyChannel() = default;
+};
+class DescribeChannelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeChannelResponseBodyChannel> channel{};
+  shared_ptr<bool> channelExist{};
+  shared_ptr<string> requestId{};
+
+  DescribeChannelResponseBody() {}
+
+  explicit DescribeChannelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channel) {
+      res["Channel"] = channel ? boost::any(channel->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (channelExist) {
+      res["ChannelExist"] = boost::any(*channelExist);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Channel") != m.end() && !m["Channel"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Channel"].type()) {
+        DescribeChannelResponseBodyChannel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Channel"]));
+        channel = make_shared<DescribeChannelResponseBodyChannel>(model1);
+      }
+    }
+    if (m.find("ChannelExist") != m.end() && !m["ChannelExist"].empty()) {
+      channelExist = make_shared<bool>(boost::any_cast<bool>(m["ChannelExist"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeChannelResponseBody() = default;
+};
+class DescribeChannelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeChannelResponseBody> body{};
+
+  DescribeChannelResponse() {}
+
+  explicit DescribeChannelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeChannelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeChannelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeChannelResponse() = default;
+};
+class DescribeChannelAllUsersRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> channelId{};
+
+  DescribeChannelAllUsersRequest() {}
+
+  explicit DescribeChannelAllUsersRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+  }
+
+
+  virtual ~DescribeChannelAllUsersRequest() = default;
+};
+class DescribeChannelAllUsersResponseBodyUsers : public Darabonba::Model {
+public:
+  shared_ptr<string> userId{};
+
+  DescribeChannelAllUsersResponseBodyUsers() {}
+
+  explicit DescribeChannelAllUsersResponseBodyUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~DescribeChannelAllUsersResponseBodyUsers() = default;
+};
+class DescribeChannelAllUsersResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> channelExist{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeChannelAllUsersResponseBodyUsers>> users{};
+
+  DescribeChannelAllUsersResponseBody() {}
+
+  explicit DescribeChannelAllUsersResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channelExist) {
+      res["ChannelExist"] = boost::any(*channelExist);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (users) {
+      vector<boost::any> temp1;
+      for(auto item1:*users){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Users"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChannelExist") != m.end() && !m["ChannelExist"].empty()) {
+      channelExist = make_shared<bool>(boost::any_cast<bool>(m["ChannelExist"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Users") != m.end() && !m["Users"].empty()) {
+      if (typeid(vector<boost::any>) == m["Users"].type()) {
+        vector<DescribeChannelAllUsersResponseBodyUsers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Users"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeChannelAllUsersResponseBodyUsers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        users = make_shared<vector<DescribeChannelAllUsersResponseBodyUsers>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeChannelAllUsersResponseBody() = default;
+};
+class DescribeChannelAllUsersResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeChannelAllUsersResponseBody> body{};
+
+  DescribeChannelAllUsersResponse() {}
+
+  explicit DescribeChannelAllUsersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeChannelAllUsersResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeChannelAllUsersResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeChannelAllUsersResponse() = default;
+};
 class DescribeChannelAreaDistributionStatDataRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -5308,6 +5653,208 @@ public:
 
   virtual ~DescribeChannelTopPubUserListResponse() = default;
 };
+class DescribeChannelUserRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> channelId{};
+  shared_ptr<string> userId{};
+
+  DescribeChannelUserRequest() {}
+
+  explicit DescribeChannelUserRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~DescribeChannelUserRequest() = default;
+};
+class DescribeChannelUserResponseBodySessions : public Darabonba::Model {
+public:
+  shared_ptr<long> joined{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> userId{};
+
+  DescribeChannelUserResponseBodySessions() {}
+
+  explicit DescribeChannelUserResponseBodySessions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (joined) {
+      res["Joined"] = boost::any(*joined);
+    }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Joined") != m.end() && !m["Joined"].empty()) {
+      joined = make_shared<long>(boost::any_cast<long>(m["Joined"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~DescribeChannelUserResponseBodySessions() = default;
+};
+class DescribeChannelUserResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> channelExist{};
+  shared_ptr<bool> inChannel{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeChannelUserResponseBodySessions>> sessions{};
+
+  DescribeChannelUserResponseBody() {}
+
+  explicit DescribeChannelUserResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channelExist) {
+      res["ChannelExist"] = boost::any(*channelExist);
+    }
+    if (inChannel) {
+      res["InChannel"] = boost::any(*inChannel);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sessions) {
+      vector<boost::any> temp1;
+      for(auto item1:*sessions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Sessions"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChannelExist") != m.end() && !m["ChannelExist"].empty()) {
+      channelExist = make_shared<bool>(boost::any_cast<bool>(m["ChannelExist"]));
+    }
+    if (m.find("InChannel") != m.end() && !m["InChannel"].empty()) {
+      inChannel = make_shared<bool>(boost::any_cast<bool>(m["InChannel"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Sessions") != m.end() && !m["Sessions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Sessions"].type()) {
+        vector<DescribeChannelUserResponseBodySessions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Sessions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeChannelUserResponseBodySessions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sessions = make_shared<vector<DescribeChannelUserResponseBodySessions>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeChannelUserResponseBody() = default;
+};
+class DescribeChannelUserResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeChannelUserResponseBody> body{};
+
+  DescribeChannelUserResponse() {}
+
+  explicit DescribeChannelUserResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeChannelUserResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeChannelUserResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeChannelUserResponse() = default;
+};
 class DescribeChannelUserMetricsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -5833,6 +6380,130 @@ public:
 
 
   virtual ~DescribeChannelUsersResponse() = default;
+};
+class DescribeChannelsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+
+  DescribeChannelsRequest() {}
+
+  explicit DescribeChannelsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+  }
+
+
+  virtual ~DescribeChannelsRequest() = default;
+};
+class DescribeChannelsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> channelIds{};
+  shared_ptr<string> requestId{};
+
+  DescribeChannelsResponseBody() {}
+
+  explicit DescribeChannelsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channelIds) {
+      res["ChannelIds"] = boost::any(*channelIds);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChannelIds") != m.end() && !m["ChannelIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ChannelIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ChannelIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      channelIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeChannelsResponseBody() = default;
+};
+class DescribeChannelsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeChannelsResponseBody> body{};
+
+  DescribeChannelsResponse() {}
+
+  explicit DescribeChannelsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeChannelsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeChannelsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeChannelsResponse() = default;
 };
 class DescribeEndPointEventListRequest : public Darabonba::Model {
 public:
@@ -15174,6 +15845,507 @@ public:
 
   virtual ~RemoveTerminalsResponse() = default;
 };
+class RemoveUsersRequestUsers : public Darabonba::Model {
+public:
+  shared_ptr<string> userId{};
+
+  RemoveUsersRequestUsers() {}
+
+  explicit RemoveUsersRequestUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~RemoveUsersRequestUsers() = default;
+};
+class RemoveUsersRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> channelId{};
+  shared_ptr<vector<RemoveUsersRequestUsers>> users{};
+
+  RemoveUsersRequest() {}
+
+  explicit RemoveUsersRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (users) {
+      vector<boost::any> temp1;
+      for(auto item1:*users){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Users"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("Users") != m.end() && !m["Users"].empty()) {
+      if (typeid(vector<boost::any>) == m["Users"].type()) {
+        vector<RemoveUsersRequestUsers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Users"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RemoveUsersRequestUsers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        users = make_shared<vector<RemoveUsersRequestUsers>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RemoveUsersRequest() = default;
+};
+class RemoveUsersResponseBodyUsers : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> userId{};
+
+  RemoveUsersResponseBodyUsers() {}
+
+  explicit RemoveUsersResponseBodyUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~RemoveUsersResponseBodyUsers() = default;
+};
+class RemoveUsersResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<RemoveUsersResponseBodyUsers>> users{};
+
+  RemoveUsersResponseBody() {}
+
+  explicit RemoveUsersResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (users) {
+      vector<boost::any> temp1;
+      for(auto item1:*users){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Users"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Users") != m.end() && !m["Users"].empty()) {
+      if (typeid(vector<boost::any>) == m["Users"].type()) {
+        vector<RemoveUsersResponseBodyUsers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Users"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RemoveUsersResponseBodyUsers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        users = make_shared<vector<RemoveUsersResponseBodyUsers>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RemoveUsersResponseBody() = default;
+};
+class RemoveUsersResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RemoveUsersResponseBody> body{};
+
+  RemoveUsersResponse() {}
+
+  explicit RemoveUsersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RemoveUsersResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RemoveUsersResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RemoveUsersResponse() = default;
+};
+class StartCloudRecordRequestPanes : public Darabonba::Model {
+public:
+  shared_ptr<string> paneId{};
+  shared_ptr<string> source{};
+  shared_ptr<string> sourceType{};
+
+  StartCloudRecordRequestPanes() {}
+
+  explicit StartCloudRecordRequestPanes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (paneId) {
+      res["PaneId"] = boost::any(*paneId);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
+      paneId = make_shared<string>(boost::any_cast<string>(m["PaneId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordRequestPanes() = default;
+};
+class StartCloudRecordRequestStorageConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKey{};
+  shared_ptr<string> bucket{};
+  shared_ptr<long> region{};
+  shared_ptr<string> secretKey{};
+  shared_ptr<long> vendor{};
+
+  StartCloudRecordRequestStorageConfig() {}
+
+  explicit StartCloudRecordRequestStorageConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKey) {
+      res["AccessKey"] = boost::any(*accessKey);
+    }
+    if (bucket) {
+      res["Bucket"] = boost::any(*bucket);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (secretKey) {
+      res["SecretKey"] = boost::any(*secretKey);
+    }
+    if (vendor) {
+      res["Vendor"] = boost::any(*vendor);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKey") != m.end() && !m["AccessKey"].empty()) {
+      accessKey = make_shared<string>(boost::any_cast<string>(m["AccessKey"]));
+    }
+    if (m.find("Bucket") != m.end() && !m["Bucket"].empty()) {
+      bucket = make_shared<string>(boost::any_cast<string>(m["Bucket"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<long>(boost::any_cast<long>(m["Region"]));
+    }
+    if (m.find("SecretKey") != m.end() && !m["SecretKey"].empty()) {
+      secretKey = make_shared<string>(boost::any_cast<string>(m["SecretKey"]));
+    }
+    if (m.find("Vendor") != m.end() && !m["Vendor"].empty()) {
+      vendor = make_shared<long>(boost::any_cast<long>(m["Vendor"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordRequestStorageConfig() = default;
+};
+class StartCloudRecordRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> channelId{};
+  shared_ptr<vector<StartCloudRecordRequestPanes>> panes{};
+  shared_ptr<StartCloudRecordRequestStorageConfig> storageConfig{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> templateId{};
+
+  StartCloudRecordRequest() {}
+
+  explicit StartCloudRecordRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (panes) {
+      vector<boost::any> temp1;
+      for(auto item1:*panes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Panes"] = boost::any(temp1);
+    }
+    if (storageConfig) {
+      res["StorageConfig"] = storageConfig ? boost::any(storageConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("Panes") != m.end() && !m["Panes"].empty()) {
+      if (typeid(vector<boost::any>) == m["Panes"].type()) {
+        vector<StartCloudRecordRequestPanes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Panes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartCloudRecordRequestPanes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        panes = make_shared<vector<StartCloudRecordRequestPanes>>(expect1);
+      }
+    }
+    if (m.find("StorageConfig") != m.end() && !m["StorageConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StorageConfig"].type()) {
+        StartCloudRecordRequestStorageConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StorageConfig"]));
+        storageConfig = make_shared<StartCloudRecordRequestStorageConfig>(model1);
+      }
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordRequest() = default;
+};
+class StartCloudRecordResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  StartCloudRecordResponseBody() {}
+
+  explicit StartCloudRecordResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~StartCloudRecordResponseBody() = default;
+};
+class StartCloudRecordResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartCloudRecordResponseBody> body{};
+
+  StartCloudRecordResponse() {}
+
+  explicit StartCloudRecordResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartCloudRecordResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartCloudRecordResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartCloudRecordResponse() = default;
+};
 class StartMPUTaskRequestBackgrounds : public Darabonba::Model {
 public:
   shared_ptr<long> display{};
@@ -16703,6 +17875,463 @@ public:
 
   virtual ~StartRecordTaskResponse() = default;
 };
+class StartStreamingOutRequestPanes : public Darabonba::Model {
+public:
+  shared_ptr<string> paneId{};
+  shared_ptr<string> source{};
+  shared_ptr<string> sourceType{};
+
+  StartStreamingOutRequestPanes() {}
+
+  explicit StartStreamingOutRequestPanes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (paneId) {
+      res["PaneId"] = boost::any(*paneId);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
+      paneId = make_shared<string>(boost::any_cast<string>(m["PaneId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutRequestPanes() = default;
+};
+class StartStreamingOutRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> channelId{};
+  shared_ptr<vector<StartStreamingOutRequestPanes>> panes{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> url{};
+
+  StartStreamingOutRequest() {}
+
+  explicit StartStreamingOutRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (panes) {
+      vector<boost::any> temp1;
+      for(auto item1:*panes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Panes"] = boost::any(temp1);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("Panes") != m.end() && !m["Panes"].empty()) {
+      if (typeid(vector<boost::any>) == m["Panes"].type()) {
+        vector<StartStreamingOutRequestPanes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Panes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StartStreamingOutRequestPanes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        panes = make_shared<vector<StartStreamingOutRequestPanes>>(expect1);
+      }
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutRequest() = default;
+};
+class StartStreamingOutResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  StartStreamingOutResponseBody() {}
+
+  explicit StartStreamingOutResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~StartStreamingOutResponseBody() = default;
+};
+class StartStreamingOutResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartStreamingOutResponseBody> body{};
+
+  StartStreamingOutResponse() {}
+
+  explicit StartStreamingOutResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartStreamingOutResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartStreamingOutResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartStreamingOutResponse() = default;
+};
+class StopChannelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> channelId{};
+
+  StopChannelRequest() {}
+
+  explicit StopChannelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+  }
+
+
+  virtual ~StopChannelRequest() = default;
+};
+class StopChannelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  StopChannelResponseBody() {}
+
+  explicit StopChannelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StopChannelResponseBody() = default;
+};
+class StopChannelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StopChannelResponseBody> body{};
+
+  StopChannelResponse() {}
+
+  explicit StopChannelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopChannelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopChannelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopChannelResponse() = default;
+};
+class StopCloudRecordRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> channelId{};
+  shared_ptr<string> taskId{};
+
+  StopCloudRecordRequest() {}
+
+  explicit StopCloudRecordRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~StopCloudRecordRequest() = default;
+};
+class StopCloudRecordResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  StopCloudRecordResponseBody() {}
+
+  explicit StopCloudRecordResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~StopCloudRecordResponseBody() = default;
+};
+class StopCloudRecordResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StopCloudRecordResponseBody> body{};
+
+  StopCloudRecordResponse() {}
+
+  explicit StopCloudRecordResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopCloudRecordResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopCloudRecordResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopCloudRecordResponse() = default;
+};
 class StopMPUTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -16950,6 +18579,137 @@ public:
 
 
   virtual ~StopRecordTaskResponse() = default;
+};
+class StopStreamingOutRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> channelId{};
+  shared_ptr<string> taskId{};
+
+  StopStreamingOutRequest() {}
+
+  explicit StopStreamingOutRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~StopStreamingOutRequest() = default;
+};
+class StopStreamingOutResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  StopStreamingOutResponseBody() {}
+
+  explicit StopStreamingOutResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~StopStreamingOutResponseBody() = default;
+};
+class StopStreamingOutResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StopStreamingOutResponseBody> body{};
+
+  StopStreamingOutResponse() {}
+
+  explicit StopStreamingOutResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopStreamingOutResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopStreamingOutResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopStreamingOutResponse() = default;
 };
 class UpdateAutoLiveStreamRuleRequest : public Darabonba::Model {
 public:
@@ -19106,6 +20866,10 @@ public:
   DescribeCallResponse describeCall(shared_ptr<DescribeCallRequest> request);
   DescribeCallListResponse describeCallListWithOptions(shared_ptr<DescribeCallListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCallListResponse describeCallList(shared_ptr<DescribeCallListRequest> request);
+  DescribeChannelResponse describeChannelWithOptions(shared_ptr<DescribeChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeChannelResponse describeChannel(shared_ptr<DescribeChannelRequest> request);
+  DescribeChannelAllUsersResponse describeChannelAllUsersWithOptions(shared_ptr<DescribeChannelAllUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeChannelAllUsersResponse describeChannelAllUsers(shared_ptr<DescribeChannelAllUsersRequest> request);
   DescribeChannelAreaDistributionStatDataResponse describeChannelAreaDistributionStatDataWithOptions(shared_ptr<DescribeChannelAreaDistributionStatDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeChannelAreaDistributionStatDataResponse describeChannelAreaDistributionStatData(shared_ptr<DescribeChannelAreaDistributionStatDataRequest> request);
   DescribeChannelDistributionStatDataResponse describeChannelDistributionStatDataWithOptions(shared_ptr<DescribeChannelDistributionStatDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19116,10 +20880,14 @@ public:
   DescribeChannelParticipantsResponse describeChannelParticipants(shared_ptr<DescribeChannelParticipantsRequest> request);
   DescribeChannelTopPubUserListResponse describeChannelTopPubUserListWithOptions(shared_ptr<DescribeChannelTopPubUserListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeChannelTopPubUserListResponse describeChannelTopPubUserList(shared_ptr<DescribeChannelTopPubUserListRequest> request);
+  DescribeChannelUserResponse describeChannelUserWithOptions(shared_ptr<DescribeChannelUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeChannelUserResponse describeChannelUser(shared_ptr<DescribeChannelUserRequest> request);
   DescribeChannelUserMetricsResponse describeChannelUserMetricsWithOptions(shared_ptr<DescribeChannelUserMetricsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeChannelUserMetricsResponse describeChannelUserMetrics(shared_ptr<DescribeChannelUserMetricsRequest> request);
   DescribeChannelUsersResponse describeChannelUsersWithOptions(shared_ptr<DescribeChannelUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeChannelUsersResponse describeChannelUsers(shared_ptr<DescribeChannelUsersRequest> request);
+  DescribeChannelsResponse describeChannelsWithOptions(shared_ptr<DescribeChannelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeChannelsResponse describeChannels(shared_ptr<DescribeChannelsRequest> request);
   DescribeEndPointEventListResponse describeEndPointEventListWithOptions(shared_ptr<DescribeEndPointEventListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeEndPointEventListResponse describeEndPointEventList(shared_ptr<DescribeEndPointEventListRequest> request);
   DescribeEndPointMetricDataResponse describeEndPointMetricDataWithOptions(shared_ptr<DescribeEndPointMetricDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19184,14 +20952,26 @@ public:
   ModifyMPULayoutResponse modifyMPULayout(shared_ptr<ModifyMPULayoutRequest> request);
   RemoveTerminalsResponse removeTerminalsWithOptions(shared_ptr<RemoveTerminalsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveTerminalsResponse removeTerminals(shared_ptr<RemoveTerminalsRequest> request);
+  RemoveUsersResponse removeUsersWithOptions(shared_ptr<RemoveUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RemoveUsersResponse removeUsers(shared_ptr<RemoveUsersRequest> request);
+  StartCloudRecordResponse startCloudRecordWithOptions(shared_ptr<StartCloudRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartCloudRecordResponse startCloudRecord(shared_ptr<StartCloudRecordRequest> request);
   StartMPUTaskResponse startMPUTaskWithOptions(shared_ptr<StartMPUTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartMPUTaskResponse startMPUTask(shared_ptr<StartMPUTaskRequest> request);
   StartRecordTaskResponse startRecordTaskWithOptions(shared_ptr<StartRecordTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartRecordTaskResponse startRecordTask(shared_ptr<StartRecordTaskRequest> request);
+  StartStreamingOutResponse startStreamingOutWithOptions(shared_ptr<StartStreamingOutRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartStreamingOutResponse startStreamingOut(shared_ptr<StartStreamingOutRequest> request);
+  StopChannelResponse stopChannelWithOptions(shared_ptr<StopChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopChannelResponse stopChannel(shared_ptr<StopChannelRequest> request);
+  StopCloudRecordResponse stopCloudRecordWithOptions(shared_ptr<StopCloudRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopCloudRecordResponse stopCloudRecord(shared_ptr<StopCloudRecordRequest> request);
   StopMPUTaskResponse stopMPUTaskWithOptions(shared_ptr<StopMPUTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopMPUTaskResponse stopMPUTask(shared_ptr<StopMPUTaskRequest> request);
   StopRecordTaskResponse stopRecordTaskWithOptions(shared_ptr<StopRecordTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopRecordTaskResponse stopRecordTask(shared_ptr<StopRecordTaskRequest> request);
+  StopStreamingOutResponse stopStreamingOutWithOptions(shared_ptr<StopStreamingOutRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopStreamingOutResponse stopStreamingOut(shared_ptr<StopStreamingOutRequest> request);
   UpdateAutoLiveStreamRuleResponse updateAutoLiveStreamRuleWithOptions(shared_ptr<UpdateAutoLiveStreamRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAutoLiveStreamRuleResponse updateAutoLiveStreamRule(shared_ptr<UpdateAutoLiveStreamRuleRequest> request);
   UpdateMPUTaskResponse updateMPUTaskWithOptions(shared_ptr<UpdateMPUTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
