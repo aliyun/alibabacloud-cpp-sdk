@@ -20131,6 +20131,7 @@ class GetSmartHandleJobResponseBodyJobResult : public Darabonba::Model {
 public:
   shared_ptr<string> aiResult{};
   shared_ptr<string> mediaId{};
+  shared_ptr<string> usage{};
 
   GetSmartHandleJobResponseBodyJobResult() {}
 
@@ -20148,6 +20149,9 @@ public:
     if (mediaId) {
       res["MediaId"] = boost::any(*mediaId);
     }
+    if (usage) {
+      res["Usage"] = boost::any(*usage);
+    }
     return res;
   }
 
@@ -20157,6 +20161,9 @@ public:
     }
     if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
       mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+    if (m.find("Usage") != m.end() && !m["Usage"].empty()) {
+      usage = make_shared<string>(boost::any_cast<string>(m["Usage"]));
     }
   }
 
