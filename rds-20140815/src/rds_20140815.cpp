@@ -11340,6 +11340,9 @@ ModifyDBInstanceSSLResponse Alibabacloud_Rds20140815::Client::modifyDBInstanceSS
   if (!Darabonba_Util::Client::isUnset<string>(request->CAType)) {
     query->insert(pair<string, string>("CAType", *request->CAType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certificate)) {
+    query->insert(pair<string, string>("Certificate", *request->certificate));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientCACert)) {
     query->insert(pair<string, string>("ClientCACert", *request->clientCACert));
   }
@@ -11366,6 +11369,9 @@ ModifyDBInstanceSSLResponse Alibabacloud_Rds20140815::Client::modifyDBInstanceSS
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->passWord)) {
+    query->insert(pair<string, string>("PassWord", *request->passWord));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->replicationACL)) {
     query->insert(pair<string, string>("ReplicationACL", *request->replicationACL));

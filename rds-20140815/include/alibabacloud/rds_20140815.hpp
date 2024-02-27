@@ -60793,6 +60793,7 @@ class ModifyDBInstanceSSLRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ACL{};
   shared_ptr<string> CAType{};
+  shared_ptr<string> certificate{};
   shared_ptr<string> clientCACert{};
   shared_ptr<long> clientCAEnabled{};
   shared_ptr<string> clientCertRevocationList{};
@@ -60802,6 +60803,7 @@ public:
   shared_ptr<string> forceEncryption{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> passWord{};
   shared_ptr<string> replicationACL{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -60825,6 +60827,9 @@ public:
     }
     if (CAType) {
       res["CAType"] = boost::any(*CAType);
+    }
+    if (certificate) {
+      res["Certificate"] = boost::any(*certificate);
     }
     if (clientCACert) {
       res["ClientCACert"] = boost::any(*clientCACert);
@@ -60852,6 +60857,9 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (passWord) {
+      res["PassWord"] = boost::any(*passWord);
     }
     if (replicationACL) {
       res["ReplicationACL"] = boost::any(*replicationACL);
@@ -60884,6 +60892,9 @@ public:
     if (m.find("CAType") != m.end() && !m["CAType"].empty()) {
       CAType = make_shared<string>(boost::any_cast<string>(m["CAType"]));
     }
+    if (m.find("Certificate") != m.end() && !m["Certificate"].empty()) {
+      certificate = make_shared<string>(boost::any_cast<string>(m["Certificate"]));
+    }
     if (m.find("ClientCACert") != m.end() && !m["ClientCACert"].empty()) {
       clientCACert = make_shared<string>(boost::any_cast<string>(m["ClientCACert"]));
     }
@@ -60910,6 +60921,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PassWord") != m.end() && !m["PassWord"].empty()) {
+      passWord = make_shared<string>(boost::any_cast<string>(m["PassWord"]));
     }
     if (m.find("ReplicationACL") != m.end() && !m["ReplicationACL"].empty()) {
       replicationACL = make_shared<string>(boost::any_cast<string>(m["ReplicationACL"]));
