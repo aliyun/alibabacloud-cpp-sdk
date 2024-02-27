@@ -6461,6 +6461,7 @@ public:
   shared_ptr<long> backupInterval{};
   shared_ptr<string> backupRetentionPeriod{};
   shared_ptr<long> enableBackupLog{};
+  shared_ptr<string> highFrequencyBackupRetention{};
   shared_ptr<long> logBackupRetentionPeriod{};
   shared_ptr<string> preferredBackupPeriod{};
   shared_ptr<string> preferredBackupTime{};
@@ -6485,6 +6486,9 @@ public:
     }
     if (enableBackupLog) {
       res["EnableBackupLog"] = boost::any(*enableBackupLog);
+    }
+    if (highFrequencyBackupRetention) {
+      res["HighFrequencyBackupRetention"] = boost::any(*highFrequencyBackupRetention);
     }
     if (logBackupRetentionPeriod) {
       res["LogBackupRetentionPeriod"] = boost::any(*logBackupRetentionPeriod);
@@ -6513,6 +6517,9 @@ public:
     }
     if (m.find("EnableBackupLog") != m.end() && !m["EnableBackupLog"].empty()) {
       enableBackupLog = make_shared<long>(boost::any_cast<long>(m["EnableBackupLog"]));
+    }
+    if (m.find("HighFrequencyBackupRetention") != m.end() && !m["HighFrequencyBackupRetention"].empty()) {
+      highFrequencyBackupRetention = make_shared<string>(boost::any_cast<string>(m["HighFrequencyBackupRetention"]));
     }
     if (m.find("LogBackupRetentionPeriod") != m.end() && !m["LogBackupRetentionPeriod"].empty()) {
       logBackupRetentionPeriod = make_shared<long>(boost::any_cast<long>(m["LogBackupRetentionPeriod"]));
@@ -6692,6 +6699,7 @@ public:
   shared_ptr<string> backupEndTime{};
   shared_ptr<long> backupId{};
   shared_ptr<string> backupIntranetDownloadURL{};
+  shared_ptr<long> backupJobId{};
   shared_ptr<string> backupMethod{};
   shared_ptr<string> backupMode{};
   shared_ptr<long> backupSize{};
@@ -6723,6 +6731,9 @@ public:
     }
     if (backupIntranetDownloadURL) {
       res["BackupIntranetDownloadURL"] = boost::any(*backupIntranetDownloadURL);
+    }
+    if (backupJobId) {
+      res["BackupJobId"] = boost::any(*backupJobId);
     }
     if (backupMethod) {
       res["BackupMethod"] = boost::any(*backupMethod);
@@ -6760,6 +6771,9 @@ public:
     }
     if (m.find("BackupIntranetDownloadURL") != m.end() && !m["BackupIntranetDownloadURL"].empty()) {
       backupIntranetDownloadURL = make_shared<string>(boost::any_cast<string>(m["BackupIntranetDownloadURL"]));
+    }
+    if (m.find("BackupJobId") != m.end() && !m["BackupJobId"].empty()) {
+      backupJobId = make_shared<long>(boost::any_cast<long>(m["BackupJobId"]));
     }
     if (m.find("BackupMethod") != m.end() && !m["BackupMethod"].empty()) {
       backupMethod = make_shared<string>(boost::any_cast<string>(m["BackupMethod"]));
@@ -20787,6 +20801,7 @@ public:
   shared_ptr<long> backupRetentionPeriod{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<long> enableBackupLog{};
+  shared_ptr<long> highFrequencyBackupRetention{};
   shared_ptr<long> logBackupRetentionPeriod{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -20794,7 +20809,6 @@ public:
   shared_ptr<string> preferredBackupTime{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
-  shared_ptr<string> securityToken{};
   shared_ptr<string> snapshotBackupType{};
 
   ModifyBackupPolicyRequest() {}
@@ -20819,6 +20833,9 @@ public:
     if (enableBackupLog) {
       res["EnableBackupLog"] = boost::any(*enableBackupLog);
     }
+    if (highFrequencyBackupRetention) {
+      res["HighFrequencyBackupRetention"] = boost::any(*highFrequencyBackupRetention);
+    }
     if (logBackupRetentionPeriod) {
       res["LogBackupRetentionPeriod"] = boost::any(*logBackupRetentionPeriod);
     }
@@ -20840,9 +20857,6 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
-    if (securityToken) {
-      res["SecurityToken"] = boost::any(*securityToken);
-    }
     if (snapshotBackupType) {
       res["SnapshotBackupType"] = boost::any(*snapshotBackupType);
     }
@@ -20861,6 +20875,9 @@ public:
     }
     if (m.find("EnableBackupLog") != m.end() && !m["EnableBackupLog"].empty()) {
       enableBackupLog = make_shared<long>(boost::any_cast<long>(m["EnableBackupLog"]));
+    }
+    if (m.find("HighFrequencyBackupRetention") != m.end() && !m["HighFrequencyBackupRetention"].empty()) {
+      highFrequencyBackupRetention = make_shared<long>(boost::any_cast<long>(m["HighFrequencyBackupRetention"]));
     }
     if (m.find("LogBackupRetentionPeriod") != m.end() && !m["LogBackupRetentionPeriod"].empty()) {
       logBackupRetentionPeriod = make_shared<long>(boost::any_cast<long>(m["LogBackupRetentionPeriod"]));
@@ -20882,9 +20899,6 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
-    }
-    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
-      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("SnapshotBackupType") != m.end() && !m["SnapshotBackupType"].empty()) {
       snapshotBackupType = make_shared<string>(boost::any_cast<string>(m["SnapshotBackupType"]));

@@ -3832,6 +3832,9 @@ ModifyBackupPolicyResponse Alibabacloud_Dds20151201::Client::modifyBackupPolicyW
   if (!Darabonba_Util::Client::isUnset<long>(request->enableBackupLog)) {
     query->insert(pair<string, long>("EnableBackupLog", *request->enableBackupLog));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->highFrequencyBackupRetention)) {
+    query->insert(pair<string, long>("HighFrequencyBackupRetention", *request->highFrequencyBackupRetention));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->logBackupRetentionPeriod)) {
     query->insert(pair<string, long>("LogBackupRetentionPeriod", *request->logBackupRetentionPeriod));
   }
@@ -3852,9 +3855,6 @@ ModifyBackupPolicyResponse Alibabacloud_Dds20151201::Client::modifyBackupPolicyW
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->snapshotBackupType)) {
     query->insert(pair<string, string>("SnapshotBackupType", *request->snapshotBackupType));
