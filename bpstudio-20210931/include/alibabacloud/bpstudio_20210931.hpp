@@ -887,6 +887,7 @@ public:
 class DeployApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationId{};
+  shared_ptr<string> clientToken{};
   shared_ptr<string> resourceGroupId{};
 
   DeployApplicationRequest() {}
@@ -902,6 +903,9 @@ public:
     if (applicationId) {
       res["ApplicationId"] = boost::any(*applicationId);
     }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -911,6 +915,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
       applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -1026,6 +1033,7 @@ class ExecuteOperationASyncRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationId{};
   shared_ptr<map<string, boost::any>> attributes{};
+  shared_ptr<string> clientToken{};
   shared_ptr<string> operation{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceType{};
@@ -1045,6 +1053,9 @@ public:
     }
     if (attributes) {
       res["Attributes"] = boost::any(*attributes);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
     }
     if (operation) {
       res["Operation"] = boost::any(*operation);
@@ -1070,6 +1081,9 @@ public:
       }
       attributes = make_shared<map<string, boost::any>>(toMap1);
     }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("Operation") != m.end() && !m["Operation"].empty()) {
       operation = make_shared<string>(boost::any_cast<string>(m["Operation"]));
     }
@@ -1088,6 +1102,7 @@ class ExecuteOperationASyncShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationId{};
   shared_ptr<string> attributesShrink{};
+  shared_ptr<string> clientToken{};
   shared_ptr<string> operation{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceType{};
@@ -1108,6 +1123,9 @@ public:
     if (attributesShrink) {
       res["Attributes"] = boost::any(*attributesShrink);
     }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (operation) {
       res["Operation"] = boost::any(*operation);
     }
@@ -1126,6 +1144,9 @@ public:
     }
     if (m.find("Attributes") != m.end() && !m["Attributes"].empty()) {
       attributesShrink = make_shared<string>(boost::any_cast<string>(m["Attributes"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
     if (m.find("Operation") != m.end() && !m["Operation"].empty()) {
       operation = make_shared<string>(boost::any_cast<string>(m["Operation"]));
@@ -1242,6 +1263,241 @@ public:
 
 
   virtual ~ExecuteOperationASyncResponse() = default;
+};
+class ExecuteOperationSyncRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationId{};
+  shared_ptr<map<string, boost::any>> attributes{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> operation{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> serviceType{};
+
+  ExecuteOperationSyncRequest() {}
+
+  explicit ExecuteOperationSyncRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationId) {
+      res["ApplicationId"] = boost::any(*applicationId);
+    }
+    if (attributes) {
+      res["Attributes"] = boost::any(*attributes);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (operation) {
+      res["Operation"] = boost::any(*operation);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
+      applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("Attributes") != m.end() && !m["Attributes"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Attributes"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      attributes = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Operation") != m.end() && !m["Operation"].empty()) {
+      operation = make_shared<string>(boost::any_cast<string>(m["Operation"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+  }
+
+
+  virtual ~ExecuteOperationSyncRequest() = default;
+};
+class ExecuteOperationSyncShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationId{};
+  shared_ptr<string> attributesShrink{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> operation{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> serviceType{};
+
+  ExecuteOperationSyncShrinkRequest() {}
+
+  explicit ExecuteOperationSyncShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationId) {
+      res["ApplicationId"] = boost::any(*applicationId);
+    }
+    if (attributesShrink) {
+      res["Attributes"] = boost::any(*attributesShrink);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (operation) {
+      res["Operation"] = boost::any(*operation);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
+      applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("Attributes") != m.end() && !m["Attributes"].empty()) {
+      attributesShrink = make_shared<string>(boost::any_cast<string>(m["Attributes"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Operation") != m.end() && !m["Operation"].empty()) {
+      operation = make_shared<string>(boost::any_cast<string>(m["Operation"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+  }
+
+
+  virtual ~ExecuteOperationSyncShrinkRequest() = default;
+};
+class ExecuteOperationSyncResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  ExecuteOperationSyncResponseBody() {}
+
+  explicit ExecuteOperationSyncResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ExecuteOperationSyncResponseBody() = default;
+};
+class ExecuteOperationSyncResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExecuteOperationSyncResponseBody> body{};
+
+  ExecuteOperationSyncResponse() {}
+
+  explicit ExecuteOperationSyncResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExecuteOperationSyncResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExecuteOperationSyncResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExecuteOperationSyncResponse() = default;
 };
 class GetApplicationRequest : public Darabonba::Model {
 public:
@@ -3891,6 +4147,7 @@ public:
 class ReleaseApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationId{};
+  shared_ptr<string> clientToken{};
   shared_ptr<string> resourceGroupId{};
 
   ReleaseApplicationRequest() {}
@@ -3906,6 +4163,9 @@ public:
     if (applicationId) {
       res["ApplicationId"] = boost::any(*applicationId);
     }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -3915,6 +4175,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
       applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -4029,6 +4292,7 @@ public:
 class ValidateApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationId{};
+  shared_ptr<string> clientToken{};
   shared_ptr<string> resourceGroupId{};
 
   ValidateApplicationRequest() {}
@@ -4044,6 +4308,9 @@ public:
     if (applicationId) {
       res["ApplicationId"] = boost::any(*applicationId);
     }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -4053,6 +4320,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
       applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -4167,6 +4437,7 @@ public:
 class ValuateApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationId{};
+  shared_ptr<string> clientToken{};
   shared_ptr<string> resourceGroupId{};
 
   ValuateApplicationRequest() {}
@@ -4182,6 +4453,9 @@ public:
     if (applicationId) {
       res["ApplicationId"] = boost::any(*applicationId);
     }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -4191,6 +4465,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
       applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -4842,6 +5119,8 @@ public:
   DeployApplicationResponse deployApplication(shared_ptr<DeployApplicationRequest> request);
   ExecuteOperationASyncResponse executeOperationASyncWithOptions(shared_ptr<ExecuteOperationASyncRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExecuteOperationASyncResponse executeOperationASync(shared_ptr<ExecuteOperationASyncRequest> request);
+  ExecuteOperationSyncResponse executeOperationSyncWithOptions(shared_ptr<ExecuteOperationSyncRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExecuteOperationSyncResponse executeOperationSync(shared_ptr<ExecuteOperationSyncRequest> request);
   GetApplicationResponse getApplicationWithOptions(shared_ptr<GetApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetApplicationResponse getApplication(shared_ptr<GetApplicationRequest> request);
   GetExecuteOperationResultResponse getExecuteOperationResultWithOptions(shared_ptr<GetExecuteOperationResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

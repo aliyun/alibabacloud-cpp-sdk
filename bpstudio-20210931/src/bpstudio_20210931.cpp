@@ -228,6 +228,9 @@ DeployApplicationResponse Alibabacloud_BPStudio20210931::Client::deployApplicati
     query->insert(pair<string, string>("ApplicationId", *request->applicationId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -268,6 +271,9 @@ ExecuteOperationASyncResponse Alibabacloud_BPStudio20210931::Client::executeOper
   if (!Darabonba_Util::Client::isUnset<string>(request->attributesShrink)) {
     body->insert(pair<string, string>("Attributes", *request->attributesShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->operation)) {
     body->insert(pair<string, string>("Operation", *request->operation));
   }
@@ -297,6 +303,54 @@ ExecuteOperationASyncResponse Alibabacloud_BPStudio20210931::Client::executeOper
 ExecuteOperationASyncResponse Alibabacloud_BPStudio20210931::Client::executeOperationASync(shared_ptr<ExecuteOperationASyncRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return executeOperationASyncWithOptions(request, runtime);
+}
+
+ExecuteOperationSyncResponse Alibabacloud_BPStudio20210931::Client::executeOperationSyncWithOptions(shared_ptr<ExecuteOperationSyncRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ExecuteOperationSyncShrinkRequest> request = make_shared<ExecuteOperationSyncShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->attributes)) {
+    request->attributesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->attributes, make_shared<string>("Attributes"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->applicationId)) {
+    body->insert(pair<string, string>("ApplicationId", *request->applicationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->attributesShrink)) {
+    body->insert(pair<string, string>("Attributes", *request->attributesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operation)) {
+    body->insert(pair<string, string>("Operation", *request->operation));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    body->insert(pair<string, string>("ServiceType", *request->serviceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteOperationSync"))},
+    {"version", boost::any(string("2021-09-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExecuteOperationSyncResponse(callApi(params, req, runtime));
+}
+
+ExecuteOperationSyncResponse Alibabacloud_BPStudio20210931::Client::executeOperationSync(shared_ptr<ExecuteOperationSyncRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return executeOperationSyncWithOptions(request, runtime);
 }
 
 GetApplicationResponse Alibabacloud_BPStudio20210931::Client::getApplicationWithOptions(shared_ptr<GetApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -677,6 +731,9 @@ ReleaseApplicationResponse Alibabacloud_BPStudio20210931::Client::releaseApplica
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationId)) {
     body->insert(pair<string, string>("ApplicationId", *request->applicationId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -709,6 +766,9 @@ ValidateApplicationResponse Alibabacloud_BPStudio20210931::Client::validateAppli
     query->insert(pair<string, string>("ApplicationId", *request->applicationId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -740,6 +800,9 @@ ValuateApplicationResponse Alibabacloud_BPStudio20210931::Client::valuateApplica
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationId)) {
     body->insert(pair<string, string>("ApplicationId", *request->applicationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
