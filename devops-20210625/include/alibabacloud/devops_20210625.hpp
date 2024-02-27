@@ -36502,6 +36502,7 @@ public:
   shared_ptr<string> email{};
   shared_ptr<long> hiredDate{};
   shared_ptr<ListOrganizationMembersResponseBodyMembersIdentities> identities{};
+  shared_ptr<string> jobNumber{};
   shared_ptr<long> joinTime{};
   shared_ptr<long> lastVisitTime{};
   shared_ptr<string> mobile{};
@@ -36537,6 +36538,9 @@ public:
     }
     if (identities) {
       res["identities"] = identities ? boost::any(identities->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (jobNumber) {
+      res["jobNumber"] = boost::any(*jobNumber);
     }
     if (joinTime) {
       res["joinTime"] = boost::any(*joinTime);
@@ -36591,6 +36595,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["identities"]));
         identities = make_shared<ListOrganizationMembersResponseBodyMembersIdentities>(model1);
       }
+    }
+    if (m.find("jobNumber") != m.end() && !m["jobNumber"].empty()) {
+      jobNumber = make_shared<string>(boost::any_cast<string>(m["jobNumber"]));
     }
     if (m.find("joinTime") != m.end() && !m["joinTime"].empty()) {
       joinTime = make_shared<long>(boost::any_cast<long>(m["joinTime"]));
