@@ -252,9 +252,17 @@ CreatePostPayOrderResponse Alibabacloud_Alikafka20190916::Client::createPostPayO
   return createPostPayOrderWithOptions(request, runtime);
 }
 
-CreatePrePayOrderResponse Alibabacloud_Alikafka20190916::Client::createPrePayOrderWithOptions(shared_ptr<CreatePrePayOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreatePrePayOrderResponse Alibabacloud_Alikafka20190916::Client::createPrePayOrderWithOptions(shared_ptr<CreatePrePayOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreatePrePayOrderShrinkRequest> request = make_shared<CreatePrePayOrderShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreatePrePayOrderRequestConfluentConfig>(tmpReq->confluentConfig)) {
+    request->confluentConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->confluentConfig, make_shared<string>("ConfluentConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->confluentConfigShrink)) {
+    query->insert(pair<string, string>("ConfluentConfig", *request->confluentConfigShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->deployType)) {
     query->insert(pair<string, long>("DeployType", *request->deployType));
   }
@@ -285,8 +293,8 @@ CreatePrePayOrderResponse Alibabacloud_Alikafka20190916::Client::createPrePayOrd
   if (!Darabonba_Util::Client::isUnset<string>(request->specType)) {
     query->insert(pair<string, string>("SpecType", *request->specType));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreatePrePayOrderRequestTag>>(request->tag)) {
-    query->insert(pair<string, vector<CreatePrePayOrderRequestTag>>("Tag", *request->tag));
+  if (!Darabonba_Util::Client::isUnset<vector<CreatePrePayOrderShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreatePrePayOrderShrinkRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->topicQuota)) {
     query->insert(pair<string, long>("TopicQuota", *request->topicQuota));
@@ -1237,6 +1245,9 @@ StartInstanceResponse Alibabacloud_Alikafka20190916::Client::startInstanceWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vSwitchIds)) {
+    query->insert(pair<string, vector<string>>("VSwitchIds", *request->vSwitchIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
     query->insert(pair<string, string>("VpcId", *request->vpcId));
   }
@@ -1613,9 +1624,17 @@ UpgradePostPayOrderResponse Alibabacloud_Alikafka20190916::Client::upgradePostPa
   return upgradePostPayOrderWithOptions(request, runtime);
 }
 
-UpgradePrePayOrderResponse Alibabacloud_Alikafka20190916::Client::upgradePrePayOrderWithOptions(shared_ptr<UpgradePrePayOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpgradePrePayOrderResponse Alibabacloud_Alikafka20190916::Client::upgradePrePayOrderWithOptions(shared_ptr<UpgradePrePayOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpgradePrePayOrderShrinkRequest> request = make_shared<UpgradePrePayOrderShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpgradePrePayOrderRequestConfluentConfig>(tmpReq->confluentConfig)) {
+    request->confluentConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->confluentConfig, make_shared<string>("ConfluentConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->confluentConfigShrink)) {
+    query->insert(pair<string, string>("ConfluentConfig", *request->confluentConfigShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->diskSize)) {
     query->insert(pair<string, long>("DiskSize", *request->diskSize));
   }
@@ -1633,6 +1652,9 @@ UpgradePrePayOrderResponse Alibabacloud_Alikafka20190916::Client::upgradePrePayO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ioMaxSpec)) {
     query->insert(pair<string, string>("IoMaxSpec", *request->ioMaxSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->paidType)) {
+    query->insert(pair<string, long>("PaidType", *request->paidType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->partitionNum)) {
     query->insert(pair<string, long>("PartitionNum", *request->partitionNum));

@@ -965,6 +965,154 @@ public:
 
   virtual ~CreatePostPayOrderResponse() = default;
 };
+class CreatePrePayOrderRequestConfluentConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> connectCU{};
+  shared_ptr<long> connectReplica{};
+  shared_ptr<long> controlCenterCU{};
+  shared_ptr<long> controlCenterReplica{};
+  shared_ptr<long> controlCenterStorage{};
+  shared_ptr<long> kafkaCU{};
+  shared_ptr<long> kafkaReplica{};
+  shared_ptr<long> kafkaRestProxyCU{};
+  shared_ptr<long> kafkaRestProxyReplica{};
+  shared_ptr<long> kafkaStorage{};
+  shared_ptr<long> ksqlCU{};
+  shared_ptr<long> ksqlReplica{};
+  shared_ptr<long> ksqlStorage{};
+  shared_ptr<long> schemaRegistryCU{};
+  shared_ptr<long> schemaRegistryReplica{};
+  shared_ptr<long> zooKeeperCU{};
+  shared_ptr<long> zooKeeperReplica{};
+  shared_ptr<long> zooKeeperStorage{};
+
+  CreatePrePayOrderRequestConfluentConfig() {}
+
+  explicit CreatePrePayOrderRequestConfluentConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connectCU) {
+      res["ConnectCU"] = boost::any(*connectCU);
+    }
+    if (connectReplica) {
+      res["ConnectReplica"] = boost::any(*connectReplica);
+    }
+    if (controlCenterCU) {
+      res["ControlCenterCU"] = boost::any(*controlCenterCU);
+    }
+    if (controlCenterReplica) {
+      res["ControlCenterReplica"] = boost::any(*controlCenterReplica);
+    }
+    if (controlCenterStorage) {
+      res["ControlCenterStorage"] = boost::any(*controlCenterStorage);
+    }
+    if (kafkaCU) {
+      res["KafkaCU"] = boost::any(*kafkaCU);
+    }
+    if (kafkaReplica) {
+      res["KafkaReplica"] = boost::any(*kafkaReplica);
+    }
+    if (kafkaRestProxyCU) {
+      res["KafkaRestProxyCU"] = boost::any(*kafkaRestProxyCU);
+    }
+    if (kafkaRestProxyReplica) {
+      res["KafkaRestProxyReplica"] = boost::any(*kafkaRestProxyReplica);
+    }
+    if (kafkaStorage) {
+      res["KafkaStorage"] = boost::any(*kafkaStorage);
+    }
+    if (ksqlCU) {
+      res["KsqlCU"] = boost::any(*ksqlCU);
+    }
+    if (ksqlReplica) {
+      res["KsqlReplica"] = boost::any(*ksqlReplica);
+    }
+    if (ksqlStorage) {
+      res["KsqlStorage"] = boost::any(*ksqlStorage);
+    }
+    if (schemaRegistryCU) {
+      res["SchemaRegistryCU"] = boost::any(*schemaRegistryCU);
+    }
+    if (schemaRegistryReplica) {
+      res["SchemaRegistryReplica"] = boost::any(*schemaRegistryReplica);
+    }
+    if (zooKeeperCU) {
+      res["ZooKeeperCU"] = boost::any(*zooKeeperCU);
+    }
+    if (zooKeeperReplica) {
+      res["ZooKeeperReplica"] = boost::any(*zooKeeperReplica);
+    }
+    if (zooKeeperStorage) {
+      res["ZooKeeperStorage"] = boost::any(*zooKeeperStorage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectCU") != m.end() && !m["ConnectCU"].empty()) {
+      connectCU = make_shared<long>(boost::any_cast<long>(m["ConnectCU"]));
+    }
+    if (m.find("ConnectReplica") != m.end() && !m["ConnectReplica"].empty()) {
+      connectReplica = make_shared<long>(boost::any_cast<long>(m["ConnectReplica"]));
+    }
+    if (m.find("ControlCenterCU") != m.end() && !m["ControlCenterCU"].empty()) {
+      controlCenterCU = make_shared<long>(boost::any_cast<long>(m["ControlCenterCU"]));
+    }
+    if (m.find("ControlCenterReplica") != m.end() && !m["ControlCenterReplica"].empty()) {
+      controlCenterReplica = make_shared<long>(boost::any_cast<long>(m["ControlCenterReplica"]));
+    }
+    if (m.find("ControlCenterStorage") != m.end() && !m["ControlCenterStorage"].empty()) {
+      controlCenterStorage = make_shared<long>(boost::any_cast<long>(m["ControlCenterStorage"]));
+    }
+    if (m.find("KafkaCU") != m.end() && !m["KafkaCU"].empty()) {
+      kafkaCU = make_shared<long>(boost::any_cast<long>(m["KafkaCU"]));
+    }
+    if (m.find("KafkaReplica") != m.end() && !m["KafkaReplica"].empty()) {
+      kafkaReplica = make_shared<long>(boost::any_cast<long>(m["KafkaReplica"]));
+    }
+    if (m.find("KafkaRestProxyCU") != m.end() && !m["KafkaRestProxyCU"].empty()) {
+      kafkaRestProxyCU = make_shared<long>(boost::any_cast<long>(m["KafkaRestProxyCU"]));
+    }
+    if (m.find("KafkaRestProxyReplica") != m.end() && !m["KafkaRestProxyReplica"].empty()) {
+      kafkaRestProxyReplica = make_shared<long>(boost::any_cast<long>(m["KafkaRestProxyReplica"]));
+    }
+    if (m.find("KafkaStorage") != m.end() && !m["KafkaStorage"].empty()) {
+      kafkaStorage = make_shared<long>(boost::any_cast<long>(m["KafkaStorage"]));
+    }
+    if (m.find("KsqlCU") != m.end() && !m["KsqlCU"].empty()) {
+      ksqlCU = make_shared<long>(boost::any_cast<long>(m["KsqlCU"]));
+    }
+    if (m.find("KsqlReplica") != m.end() && !m["KsqlReplica"].empty()) {
+      ksqlReplica = make_shared<long>(boost::any_cast<long>(m["KsqlReplica"]));
+    }
+    if (m.find("KsqlStorage") != m.end() && !m["KsqlStorage"].empty()) {
+      ksqlStorage = make_shared<long>(boost::any_cast<long>(m["KsqlStorage"]));
+    }
+    if (m.find("SchemaRegistryCU") != m.end() && !m["SchemaRegistryCU"].empty()) {
+      schemaRegistryCU = make_shared<long>(boost::any_cast<long>(m["SchemaRegistryCU"]));
+    }
+    if (m.find("SchemaRegistryReplica") != m.end() && !m["SchemaRegistryReplica"].empty()) {
+      schemaRegistryReplica = make_shared<long>(boost::any_cast<long>(m["SchemaRegistryReplica"]));
+    }
+    if (m.find("ZooKeeperCU") != m.end() && !m["ZooKeeperCU"].empty()) {
+      zooKeeperCU = make_shared<long>(boost::any_cast<long>(m["ZooKeeperCU"]));
+    }
+    if (m.find("ZooKeeperReplica") != m.end() && !m["ZooKeeperReplica"].empty()) {
+      zooKeeperReplica = make_shared<long>(boost::any_cast<long>(m["ZooKeeperReplica"]));
+    }
+    if (m.find("ZooKeeperStorage") != m.end() && !m["ZooKeeperStorage"].empty()) {
+      zooKeeperStorage = make_shared<long>(boost::any_cast<long>(m["ZooKeeperStorage"]));
+    }
+  }
+
+
+  virtual ~CreatePrePayOrderRequestConfluentConfig() = default;
+};
 class CreatePrePayOrderRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -1003,6 +1151,7 @@ public:
 };
 class CreatePrePayOrderRequest : public Darabonba::Model {
 public:
+  shared_ptr<CreatePrePayOrderRequestConfluentConfig> confluentConfig{};
   shared_ptr<long> deployType{};
   shared_ptr<long> diskSize{};
   shared_ptr<string> diskType{};
@@ -1026,6 +1175,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (confluentConfig) {
+      res["ConfluentConfig"] = confluentConfig ? boost::any(confluentConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (deployType) {
       res["DeployType"] = boost::any(*deployType);
     }
@@ -1070,6 +1222,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfluentConfig") != m.end() && !m["ConfluentConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConfluentConfig"].type()) {
+        CreatePrePayOrderRequestConfluentConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConfluentConfig"]));
+        confluentConfig = make_shared<CreatePrePayOrderRequestConfluentConfig>(model1);
+      }
+    }
     if (m.find("DeployType") != m.end() && !m["DeployType"].empty()) {
       deployType = make_shared<long>(boost::any_cast<long>(m["DeployType"]));
     }
@@ -1120,6 +1279,169 @@ public:
 
 
   virtual ~CreatePrePayOrderRequest() = default;
+};
+class CreatePrePayOrderShrinkRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreatePrePayOrderShrinkRequestTag() {}
+
+  explicit CreatePrePayOrderShrinkRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreatePrePayOrderShrinkRequestTag() = default;
+};
+class CreatePrePayOrderShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> confluentConfigShrink{};
+  shared_ptr<long> deployType{};
+  shared_ptr<long> diskSize{};
+  shared_ptr<string> diskType{};
+  shared_ptr<long> eipMax{};
+  shared_ptr<long> ioMax{};
+  shared_ptr<string> ioMaxSpec{};
+  shared_ptr<long> partitionNum{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> specType{};
+  shared_ptr<vector<CreatePrePayOrderShrinkRequestTag>> tag{};
+  shared_ptr<long> topicQuota{};
+
+  CreatePrePayOrderShrinkRequest() {}
+
+  explicit CreatePrePayOrderShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confluentConfigShrink) {
+      res["ConfluentConfig"] = boost::any(*confluentConfigShrink);
+    }
+    if (deployType) {
+      res["DeployType"] = boost::any(*deployType);
+    }
+    if (diskSize) {
+      res["DiskSize"] = boost::any(*diskSize);
+    }
+    if (diskType) {
+      res["DiskType"] = boost::any(*diskType);
+    }
+    if (eipMax) {
+      res["EipMax"] = boost::any(*eipMax);
+    }
+    if (ioMax) {
+      res["IoMax"] = boost::any(*ioMax);
+    }
+    if (ioMaxSpec) {
+      res["IoMaxSpec"] = boost::any(*ioMaxSpec);
+    }
+    if (partitionNum) {
+      res["PartitionNum"] = boost::any(*partitionNum);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (specType) {
+      res["SpecType"] = boost::any(*specType);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    if (topicQuota) {
+      res["TopicQuota"] = boost::any(*topicQuota);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfluentConfig") != m.end() && !m["ConfluentConfig"].empty()) {
+      confluentConfigShrink = make_shared<string>(boost::any_cast<string>(m["ConfluentConfig"]));
+    }
+    if (m.find("DeployType") != m.end() && !m["DeployType"].empty()) {
+      deployType = make_shared<long>(boost::any_cast<long>(m["DeployType"]));
+    }
+    if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["DiskSize"]));
+    }
+    if (m.find("DiskType") != m.end() && !m["DiskType"].empty()) {
+      diskType = make_shared<string>(boost::any_cast<string>(m["DiskType"]));
+    }
+    if (m.find("EipMax") != m.end() && !m["EipMax"].empty()) {
+      eipMax = make_shared<long>(boost::any_cast<long>(m["EipMax"]));
+    }
+    if (m.find("IoMax") != m.end() && !m["IoMax"].empty()) {
+      ioMax = make_shared<long>(boost::any_cast<long>(m["IoMax"]));
+    }
+    if (m.find("IoMaxSpec") != m.end() && !m["IoMaxSpec"].empty()) {
+      ioMaxSpec = make_shared<string>(boost::any_cast<string>(m["IoMaxSpec"]));
+    }
+    if (m.find("PartitionNum") != m.end() && !m["PartitionNum"].empty()) {
+      partitionNum = make_shared<long>(boost::any_cast<long>(m["PartitionNum"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SpecType") != m.end() && !m["SpecType"].empty()) {
+      specType = make_shared<string>(boost::any_cast<string>(m["SpecType"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreatePrePayOrderShrinkRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePrePayOrderShrinkRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreatePrePayOrderShrinkRequestTag>>(expect1);
+      }
+    }
+    if (m.find("TopicQuota") != m.end() && !m["TopicQuota"].empty()) {
+      topicQuota = make_shared<long>(boost::any_cast<long>(m["TopicQuota"]));
+    }
+  }
+
+
+  virtual ~CreatePrePayOrderShrinkRequest() = default;
 };
 class CreatePrePayOrderResponseBody : public Darabonba::Model {
 public:
@@ -4238,6 +4560,154 @@ public:
 
   virtual ~GetInstanceListRequest() = default;
 };
+class GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> connectCU{};
+  shared_ptr<long> connectReplica{};
+  shared_ptr<long> controlCenterCU{};
+  shared_ptr<long> controlCenterReplica{};
+  shared_ptr<long> controlCenterStorage{};
+  shared_ptr<long> kafkaCU{};
+  shared_ptr<long> kafkaReplica{};
+  shared_ptr<long> kafkaRestProxyCU{};
+  shared_ptr<long> kafkaRestProxyReplica{};
+  shared_ptr<long> kafkaStorage{};
+  shared_ptr<long> ksqlCU{};
+  shared_ptr<long> ksqlReplica{};
+  shared_ptr<long> ksqlStorage{};
+  shared_ptr<long> schemaRegistryCU{};
+  shared_ptr<long> schemaRegistryReplica{};
+  shared_ptr<long> zooKeeperCU{};
+  shared_ptr<long> zooKeeperReplica{};
+  shared_ptr<long> zooKeeperStorage{};
+
+  GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig() {}
+
+  explicit GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connectCU) {
+      res["ConnectCU"] = boost::any(*connectCU);
+    }
+    if (connectReplica) {
+      res["ConnectReplica"] = boost::any(*connectReplica);
+    }
+    if (controlCenterCU) {
+      res["ControlCenterCU"] = boost::any(*controlCenterCU);
+    }
+    if (controlCenterReplica) {
+      res["ControlCenterReplica"] = boost::any(*controlCenterReplica);
+    }
+    if (controlCenterStorage) {
+      res["ControlCenterStorage"] = boost::any(*controlCenterStorage);
+    }
+    if (kafkaCU) {
+      res["KafkaCU"] = boost::any(*kafkaCU);
+    }
+    if (kafkaReplica) {
+      res["KafkaReplica"] = boost::any(*kafkaReplica);
+    }
+    if (kafkaRestProxyCU) {
+      res["KafkaRestProxyCU"] = boost::any(*kafkaRestProxyCU);
+    }
+    if (kafkaRestProxyReplica) {
+      res["KafkaRestProxyReplica"] = boost::any(*kafkaRestProxyReplica);
+    }
+    if (kafkaStorage) {
+      res["KafkaStorage"] = boost::any(*kafkaStorage);
+    }
+    if (ksqlCU) {
+      res["KsqlCU"] = boost::any(*ksqlCU);
+    }
+    if (ksqlReplica) {
+      res["KsqlReplica"] = boost::any(*ksqlReplica);
+    }
+    if (ksqlStorage) {
+      res["KsqlStorage"] = boost::any(*ksqlStorage);
+    }
+    if (schemaRegistryCU) {
+      res["SchemaRegistryCU"] = boost::any(*schemaRegistryCU);
+    }
+    if (schemaRegistryReplica) {
+      res["SchemaRegistryReplica"] = boost::any(*schemaRegistryReplica);
+    }
+    if (zooKeeperCU) {
+      res["ZooKeeperCU"] = boost::any(*zooKeeperCU);
+    }
+    if (zooKeeperReplica) {
+      res["ZooKeeperReplica"] = boost::any(*zooKeeperReplica);
+    }
+    if (zooKeeperStorage) {
+      res["ZooKeeperStorage"] = boost::any(*zooKeeperStorage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectCU") != m.end() && !m["ConnectCU"].empty()) {
+      connectCU = make_shared<long>(boost::any_cast<long>(m["ConnectCU"]));
+    }
+    if (m.find("ConnectReplica") != m.end() && !m["ConnectReplica"].empty()) {
+      connectReplica = make_shared<long>(boost::any_cast<long>(m["ConnectReplica"]));
+    }
+    if (m.find("ControlCenterCU") != m.end() && !m["ControlCenterCU"].empty()) {
+      controlCenterCU = make_shared<long>(boost::any_cast<long>(m["ControlCenterCU"]));
+    }
+    if (m.find("ControlCenterReplica") != m.end() && !m["ControlCenterReplica"].empty()) {
+      controlCenterReplica = make_shared<long>(boost::any_cast<long>(m["ControlCenterReplica"]));
+    }
+    if (m.find("ControlCenterStorage") != m.end() && !m["ControlCenterStorage"].empty()) {
+      controlCenterStorage = make_shared<long>(boost::any_cast<long>(m["ControlCenterStorage"]));
+    }
+    if (m.find("KafkaCU") != m.end() && !m["KafkaCU"].empty()) {
+      kafkaCU = make_shared<long>(boost::any_cast<long>(m["KafkaCU"]));
+    }
+    if (m.find("KafkaReplica") != m.end() && !m["KafkaReplica"].empty()) {
+      kafkaReplica = make_shared<long>(boost::any_cast<long>(m["KafkaReplica"]));
+    }
+    if (m.find("KafkaRestProxyCU") != m.end() && !m["KafkaRestProxyCU"].empty()) {
+      kafkaRestProxyCU = make_shared<long>(boost::any_cast<long>(m["KafkaRestProxyCU"]));
+    }
+    if (m.find("KafkaRestProxyReplica") != m.end() && !m["KafkaRestProxyReplica"].empty()) {
+      kafkaRestProxyReplica = make_shared<long>(boost::any_cast<long>(m["KafkaRestProxyReplica"]));
+    }
+    if (m.find("KafkaStorage") != m.end() && !m["KafkaStorage"].empty()) {
+      kafkaStorage = make_shared<long>(boost::any_cast<long>(m["KafkaStorage"]));
+    }
+    if (m.find("KsqlCU") != m.end() && !m["KsqlCU"].empty()) {
+      ksqlCU = make_shared<long>(boost::any_cast<long>(m["KsqlCU"]));
+    }
+    if (m.find("KsqlReplica") != m.end() && !m["KsqlReplica"].empty()) {
+      ksqlReplica = make_shared<long>(boost::any_cast<long>(m["KsqlReplica"]));
+    }
+    if (m.find("KsqlStorage") != m.end() && !m["KsqlStorage"].empty()) {
+      ksqlStorage = make_shared<long>(boost::any_cast<long>(m["KsqlStorage"]));
+    }
+    if (m.find("SchemaRegistryCU") != m.end() && !m["SchemaRegistryCU"].empty()) {
+      schemaRegistryCU = make_shared<long>(boost::any_cast<long>(m["SchemaRegistryCU"]));
+    }
+    if (m.find("SchemaRegistryReplica") != m.end() && !m["SchemaRegistryReplica"].empty()) {
+      schemaRegistryReplica = make_shared<long>(boost::any_cast<long>(m["SchemaRegistryReplica"]));
+    }
+    if (m.find("ZooKeeperCU") != m.end() && !m["ZooKeeperCU"].empty()) {
+      zooKeeperCU = make_shared<long>(boost::any_cast<long>(m["ZooKeeperCU"]));
+    }
+    if (m.find("ZooKeeperReplica") != m.end() && !m["ZooKeeperReplica"].empty()) {
+      zooKeeperReplica = make_shared<long>(boost::any_cast<long>(m["ZooKeeperReplica"]));
+    }
+    if (m.find("ZooKeeperStorage") != m.end() && !m["ZooKeeperStorage"].empty()) {
+      zooKeeperStorage = make_shared<long>(boost::any_cast<long>(m["ZooKeeperStorage"]));
+    }
+  }
+
+
+  virtual ~GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig() = default;
+};
 class GetInstanceListResponseBodyInstanceListInstanceVOTagsTagVO : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -4349,6 +4819,7 @@ public:
 class GetInstanceListResponseBodyInstanceListInstanceVO : public Darabonba::Model {
 public:
   shared_ptr<string> allConfig{};
+  shared_ptr<GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig> confluentConfig{};
   shared_ptr<long> createTime{};
   shared_ptr<long> deployType{};
   shared_ptr<long> diskSize{};
@@ -4395,6 +4866,9 @@ public:
     map<string, boost::any> res;
     if (allConfig) {
       res["AllConfig"] = boost::any(*allConfig);
+    }
+    if (confluentConfig) {
+      res["ConfluentConfig"] = confluentConfig ? boost::any(confluentConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
@@ -4501,6 +4975,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AllConfig") != m.end() && !m["AllConfig"].empty()) {
       allConfig = make_shared<string>(boost::any_cast<string>(m["AllConfig"]));
+    }
+    if (m.find("ConfluentConfig") != m.end() && !m["ConfluentConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConfluentConfig"].type()) {
+        GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConfluentConfig"]));
+        confluentConfig = make_shared<GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig>(model1);
+      }
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
@@ -7177,6 +7658,7 @@ public:
   shared_ptr<string> userPhoneNum{};
   shared_ptr<string> username{};
   shared_ptr<string> vSwitchId{};
+  shared_ptr<vector<string>> vSwitchIds{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
 
@@ -7244,6 +7726,9 @@ public:
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
@@ -7307,6 +7792,16 @@ public:
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vSwitchIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -9031,14 +9526,164 @@ public:
 
   virtual ~UpgradePostPayOrderResponse() = default;
 };
+class UpgradePrePayOrderRequestConfluentConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> connectCU{};
+  shared_ptr<long> connectReplica{};
+  shared_ptr<long> controlCenterCU{};
+  shared_ptr<long> controlCenterReplica{};
+  shared_ptr<long> controlCenterStorage{};
+  shared_ptr<long> kafkaCU{};
+  shared_ptr<long> kafkaReplica{};
+  shared_ptr<long> kafkaRestProxyCU{};
+  shared_ptr<long> kafkaRestProxyReplica{};
+  shared_ptr<long> kafkaStorage{};
+  shared_ptr<long> ksqlCU{};
+  shared_ptr<long> ksqlReplica{};
+  shared_ptr<long> ksqlStorage{};
+  shared_ptr<long> schemaRegistryCU{};
+  shared_ptr<long> schemaRegistryReplica{};
+  shared_ptr<long> zooKeeperCU{};
+  shared_ptr<long> zooKeeperReplica{};
+  shared_ptr<long> zooKeeperStorage{};
+
+  UpgradePrePayOrderRequestConfluentConfig() {}
+
+  explicit UpgradePrePayOrderRequestConfluentConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connectCU) {
+      res["ConnectCU"] = boost::any(*connectCU);
+    }
+    if (connectReplica) {
+      res["ConnectReplica"] = boost::any(*connectReplica);
+    }
+    if (controlCenterCU) {
+      res["ControlCenterCU"] = boost::any(*controlCenterCU);
+    }
+    if (controlCenterReplica) {
+      res["ControlCenterReplica"] = boost::any(*controlCenterReplica);
+    }
+    if (controlCenterStorage) {
+      res["ControlCenterStorage"] = boost::any(*controlCenterStorage);
+    }
+    if (kafkaCU) {
+      res["KafkaCU"] = boost::any(*kafkaCU);
+    }
+    if (kafkaReplica) {
+      res["KafkaReplica"] = boost::any(*kafkaReplica);
+    }
+    if (kafkaRestProxyCU) {
+      res["KafkaRestProxyCU"] = boost::any(*kafkaRestProxyCU);
+    }
+    if (kafkaRestProxyReplica) {
+      res["KafkaRestProxyReplica"] = boost::any(*kafkaRestProxyReplica);
+    }
+    if (kafkaStorage) {
+      res["KafkaStorage"] = boost::any(*kafkaStorage);
+    }
+    if (ksqlCU) {
+      res["KsqlCU"] = boost::any(*ksqlCU);
+    }
+    if (ksqlReplica) {
+      res["KsqlReplica"] = boost::any(*ksqlReplica);
+    }
+    if (ksqlStorage) {
+      res["KsqlStorage"] = boost::any(*ksqlStorage);
+    }
+    if (schemaRegistryCU) {
+      res["SchemaRegistryCU"] = boost::any(*schemaRegistryCU);
+    }
+    if (schemaRegistryReplica) {
+      res["SchemaRegistryReplica"] = boost::any(*schemaRegistryReplica);
+    }
+    if (zooKeeperCU) {
+      res["ZooKeeperCU"] = boost::any(*zooKeeperCU);
+    }
+    if (zooKeeperReplica) {
+      res["ZooKeeperReplica"] = boost::any(*zooKeeperReplica);
+    }
+    if (zooKeeperStorage) {
+      res["ZooKeeperStorage"] = boost::any(*zooKeeperStorage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectCU") != m.end() && !m["ConnectCU"].empty()) {
+      connectCU = make_shared<long>(boost::any_cast<long>(m["ConnectCU"]));
+    }
+    if (m.find("ConnectReplica") != m.end() && !m["ConnectReplica"].empty()) {
+      connectReplica = make_shared<long>(boost::any_cast<long>(m["ConnectReplica"]));
+    }
+    if (m.find("ControlCenterCU") != m.end() && !m["ControlCenterCU"].empty()) {
+      controlCenterCU = make_shared<long>(boost::any_cast<long>(m["ControlCenterCU"]));
+    }
+    if (m.find("ControlCenterReplica") != m.end() && !m["ControlCenterReplica"].empty()) {
+      controlCenterReplica = make_shared<long>(boost::any_cast<long>(m["ControlCenterReplica"]));
+    }
+    if (m.find("ControlCenterStorage") != m.end() && !m["ControlCenterStorage"].empty()) {
+      controlCenterStorage = make_shared<long>(boost::any_cast<long>(m["ControlCenterStorage"]));
+    }
+    if (m.find("KafkaCU") != m.end() && !m["KafkaCU"].empty()) {
+      kafkaCU = make_shared<long>(boost::any_cast<long>(m["KafkaCU"]));
+    }
+    if (m.find("KafkaReplica") != m.end() && !m["KafkaReplica"].empty()) {
+      kafkaReplica = make_shared<long>(boost::any_cast<long>(m["KafkaReplica"]));
+    }
+    if (m.find("KafkaRestProxyCU") != m.end() && !m["KafkaRestProxyCU"].empty()) {
+      kafkaRestProxyCU = make_shared<long>(boost::any_cast<long>(m["KafkaRestProxyCU"]));
+    }
+    if (m.find("KafkaRestProxyReplica") != m.end() && !m["KafkaRestProxyReplica"].empty()) {
+      kafkaRestProxyReplica = make_shared<long>(boost::any_cast<long>(m["KafkaRestProxyReplica"]));
+    }
+    if (m.find("KafkaStorage") != m.end() && !m["KafkaStorage"].empty()) {
+      kafkaStorage = make_shared<long>(boost::any_cast<long>(m["KafkaStorage"]));
+    }
+    if (m.find("KsqlCU") != m.end() && !m["KsqlCU"].empty()) {
+      ksqlCU = make_shared<long>(boost::any_cast<long>(m["KsqlCU"]));
+    }
+    if (m.find("KsqlReplica") != m.end() && !m["KsqlReplica"].empty()) {
+      ksqlReplica = make_shared<long>(boost::any_cast<long>(m["KsqlReplica"]));
+    }
+    if (m.find("KsqlStorage") != m.end() && !m["KsqlStorage"].empty()) {
+      ksqlStorage = make_shared<long>(boost::any_cast<long>(m["KsqlStorage"]));
+    }
+    if (m.find("SchemaRegistryCU") != m.end() && !m["SchemaRegistryCU"].empty()) {
+      schemaRegistryCU = make_shared<long>(boost::any_cast<long>(m["SchemaRegistryCU"]));
+    }
+    if (m.find("SchemaRegistryReplica") != m.end() && !m["SchemaRegistryReplica"].empty()) {
+      schemaRegistryReplica = make_shared<long>(boost::any_cast<long>(m["SchemaRegistryReplica"]));
+    }
+    if (m.find("ZooKeeperCU") != m.end() && !m["ZooKeeperCU"].empty()) {
+      zooKeeperCU = make_shared<long>(boost::any_cast<long>(m["ZooKeeperCU"]));
+    }
+    if (m.find("ZooKeeperReplica") != m.end() && !m["ZooKeeperReplica"].empty()) {
+      zooKeeperReplica = make_shared<long>(boost::any_cast<long>(m["ZooKeeperReplica"]));
+    }
+    if (m.find("ZooKeeperStorage") != m.end() && !m["ZooKeeperStorage"].empty()) {
+      zooKeeperStorage = make_shared<long>(boost::any_cast<long>(m["ZooKeeperStorage"]));
+    }
+  }
+
+
+  virtual ~UpgradePrePayOrderRequestConfluentConfig() = default;
+};
 class UpgradePrePayOrderRequest : public Darabonba::Model {
 public:
+  shared_ptr<UpgradePrePayOrderRequestConfluentConfig> confluentConfig{};
   shared_ptr<long> diskSize{};
   shared_ptr<long> eipMax{};
   shared_ptr<bool> eipModel{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> ioMax{};
   shared_ptr<string> ioMaxSpec{};
+  shared_ptr<long> paidType{};
   shared_ptr<long> partitionNum{};
   shared_ptr<string> regionId{};
   shared_ptr<string> specType{};
@@ -9054,6 +9699,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (confluentConfig) {
+      res["ConfluentConfig"] = confluentConfig ? boost::any(confluentConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (diskSize) {
       res["DiskSize"] = boost::any(*diskSize);
     }
@@ -9072,6 +9720,9 @@ public:
     if (ioMaxSpec) {
       res["IoMaxSpec"] = boost::any(*ioMaxSpec);
     }
+    if (paidType) {
+      res["PaidType"] = boost::any(*paidType);
+    }
     if (partitionNum) {
       res["PartitionNum"] = boost::any(*partitionNum);
     }
@@ -9088,6 +9739,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfluentConfig") != m.end() && !m["ConfluentConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConfluentConfig"].type()) {
+        UpgradePrePayOrderRequestConfluentConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConfluentConfig"]));
+        confluentConfig = make_shared<UpgradePrePayOrderRequestConfluentConfig>(model1);
+      }
+    }
     if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
       diskSize = make_shared<long>(boost::any_cast<long>(m["DiskSize"]));
     }
@@ -9106,6 +9764,9 @@ public:
     if (m.find("IoMaxSpec") != m.end() && !m["IoMaxSpec"].empty()) {
       ioMaxSpec = make_shared<string>(boost::any_cast<string>(m["IoMaxSpec"]));
     }
+    if (m.find("PaidType") != m.end() && !m["PaidType"].empty()) {
+      paidType = make_shared<long>(boost::any_cast<long>(m["PaidType"]));
+    }
     if (m.find("PartitionNum") != m.end() && !m["PartitionNum"].empty()) {
       partitionNum = make_shared<long>(boost::any_cast<long>(m["PartitionNum"]));
     }
@@ -9122,6 +9783,112 @@ public:
 
 
   virtual ~UpgradePrePayOrderRequest() = default;
+};
+class UpgradePrePayOrderShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> confluentConfigShrink{};
+  shared_ptr<long> diskSize{};
+  shared_ptr<long> eipMax{};
+  shared_ptr<bool> eipModel{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> ioMax{};
+  shared_ptr<string> ioMaxSpec{};
+  shared_ptr<long> paidType{};
+  shared_ptr<long> partitionNum{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> specType{};
+  shared_ptr<long> topicQuota{};
+
+  UpgradePrePayOrderShrinkRequest() {}
+
+  explicit UpgradePrePayOrderShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confluentConfigShrink) {
+      res["ConfluentConfig"] = boost::any(*confluentConfigShrink);
+    }
+    if (diskSize) {
+      res["DiskSize"] = boost::any(*diskSize);
+    }
+    if (eipMax) {
+      res["EipMax"] = boost::any(*eipMax);
+    }
+    if (eipModel) {
+      res["EipModel"] = boost::any(*eipModel);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ioMax) {
+      res["IoMax"] = boost::any(*ioMax);
+    }
+    if (ioMaxSpec) {
+      res["IoMaxSpec"] = boost::any(*ioMaxSpec);
+    }
+    if (paidType) {
+      res["PaidType"] = boost::any(*paidType);
+    }
+    if (partitionNum) {
+      res["PartitionNum"] = boost::any(*partitionNum);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (specType) {
+      res["SpecType"] = boost::any(*specType);
+    }
+    if (topicQuota) {
+      res["TopicQuota"] = boost::any(*topicQuota);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfluentConfig") != m.end() && !m["ConfluentConfig"].empty()) {
+      confluentConfigShrink = make_shared<string>(boost::any_cast<string>(m["ConfluentConfig"]));
+    }
+    if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["DiskSize"]));
+    }
+    if (m.find("EipMax") != m.end() && !m["EipMax"].empty()) {
+      eipMax = make_shared<long>(boost::any_cast<long>(m["EipMax"]));
+    }
+    if (m.find("EipModel") != m.end() && !m["EipModel"].empty()) {
+      eipModel = make_shared<bool>(boost::any_cast<bool>(m["EipModel"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IoMax") != m.end() && !m["IoMax"].empty()) {
+      ioMax = make_shared<long>(boost::any_cast<long>(m["IoMax"]));
+    }
+    if (m.find("IoMaxSpec") != m.end() && !m["IoMaxSpec"].empty()) {
+      ioMaxSpec = make_shared<string>(boost::any_cast<string>(m["IoMaxSpec"]));
+    }
+    if (m.find("PaidType") != m.end() && !m["PaidType"].empty()) {
+      paidType = make_shared<long>(boost::any_cast<long>(m["PaidType"]));
+    }
+    if (m.find("PartitionNum") != m.end() && !m["PartitionNum"].empty()) {
+      partitionNum = make_shared<long>(boost::any_cast<long>(m["PartitionNum"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SpecType") != m.end() && !m["SpecType"].empty()) {
+      specType = make_shared<string>(boost::any_cast<string>(m["SpecType"]));
+    }
+    if (m.find("TopicQuota") != m.end() && !m["TopicQuota"].empty()) {
+      topicQuota = make_shared<long>(boost::any_cast<long>(m["TopicQuota"]));
+    }
+  }
+
+
+  virtual ~UpgradePrePayOrderShrinkRequest() = default;
 };
 class UpgradePrePayOrderResponseBody : public Darabonba::Model {
 public:
@@ -9245,7 +10012,7 @@ public:
   CreateConsumerGroupResponse createConsumerGroup(shared_ptr<CreateConsumerGroupRequest> request);
   CreatePostPayOrderResponse createPostPayOrderWithOptions(shared_ptr<CreatePostPayOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePostPayOrderResponse createPostPayOrder(shared_ptr<CreatePostPayOrderRequest> request);
-  CreatePrePayOrderResponse createPrePayOrderWithOptions(shared_ptr<CreatePrePayOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePrePayOrderResponse createPrePayOrderWithOptions(shared_ptr<CreatePrePayOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePrePayOrderResponse createPrePayOrder(shared_ptr<CreatePrePayOrderRequest> request);
   CreateSaslUserResponse createSaslUserWithOptions(shared_ptr<CreateSaslUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSaslUserResponse createSaslUser(shared_ptr<CreateSaslUserRequest> request);
@@ -9313,7 +10080,7 @@ public:
   UpgradeInstanceVersionResponse upgradeInstanceVersion(shared_ptr<UpgradeInstanceVersionRequest> request);
   UpgradePostPayOrderResponse upgradePostPayOrderWithOptions(shared_ptr<UpgradePostPayOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpgradePostPayOrderResponse upgradePostPayOrder(shared_ptr<UpgradePostPayOrderRequest> request);
-  UpgradePrePayOrderResponse upgradePrePayOrderWithOptions(shared_ptr<UpgradePrePayOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpgradePrePayOrderResponse upgradePrePayOrderWithOptions(shared_ptr<UpgradePrePayOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpgradePrePayOrderResponse upgradePrePayOrder(shared_ptr<UpgradePrePayOrderRequest> request);
 
   virtual ~Client() = default;
