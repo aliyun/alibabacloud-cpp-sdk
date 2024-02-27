@@ -26777,6 +26777,7 @@ public:
   shared_ptr<string> VPCId{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> zoneId{};
+  shared_ptr<string> zoneType{};
 
   ModifyDBClusterPrimaryZoneRequest() {}
 
@@ -26824,6 +26825,9 @@ public:
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
+    if (zoneType) {
+      res["ZoneType"] = boost::any(*zoneType);
+    }
     return res;
   }
 
@@ -26863,6 +26867,9 @@ public:
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+    if (m.find("ZoneType") != m.end() && !m["ZoneType"].empty()) {
+      zoneType = make_shared<string>(boost::any_cast<string>(m["ZoneType"]));
     }
   }
 

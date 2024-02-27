@@ -5586,6 +5586,9 @@ ModifyDBClusterPrimaryZoneResponse Alibabacloud_Polardb20170801::Client::modifyD
   if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
     query->insert(pair<string, string>("ZoneId", *request->zoneId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->zoneType)) {
+    query->insert(pair<string, string>("ZoneType", *request->zoneType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
