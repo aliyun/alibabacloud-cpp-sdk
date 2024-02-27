@@ -8550,6 +8550,609 @@ public:
 
   virtual ~CreateExpressCloudConnectionResponse() = default;
 };
+class CreateExpressConnectTrafficQosRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> qosDescription{};
+  shared_ptr<string> qosName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+
+  CreateExpressConnectTrafficQosRequest() {}
+
+  explicit CreateExpressConnectTrafficQosRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (qosDescription) {
+      res["QosDescription"] = boost::any(*qosDescription);
+    }
+    if (qosName) {
+      res["QosName"] = boost::any(*qosName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QosDescription") != m.end() && !m["QosDescription"].empty()) {
+      qosDescription = make_shared<string>(boost::any_cast<string>(m["QosDescription"]));
+    }
+    if (m.find("QosName") != m.end() && !m["QosName"].empty()) {
+      qosName = make_shared<string>(boost::any_cast<string>(m["QosName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+  }
+
+
+  virtual ~CreateExpressConnectTrafficQosRequest() = default;
+};
+class CreateExpressConnectTrafficQosResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> qosId{};
+  shared_ptr<string> requestId{};
+
+  CreateExpressConnectTrafficQosResponseBody() {}
+
+  explicit CreateExpressConnectTrafficQosResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateExpressConnectTrafficQosResponseBody() = default;
+};
+class CreateExpressConnectTrafficQosResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateExpressConnectTrafficQosResponseBody> body{};
+
+  CreateExpressConnectTrafficQosResponse() {}
+
+  explicit CreateExpressConnectTrafficQosResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateExpressConnectTrafficQosResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateExpressConnectTrafficQosResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateExpressConnectTrafficQosResponse() = default;
+};
+class CreateExpressConnectTrafficQosQueueRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bandwidthPercent{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> queueDescription{};
+  shared_ptr<string> queueName{};
+  shared_ptr<string> queueType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+
+  CreateExpressConnectTrafficQosQueueRequest() {}
+
+  explicit CreateExpressConnectTrafficQosQueueRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandwidthPercent) {
+      res["BandwidthPercent"] = boost::any(*bandwidthPercent);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueDescription) {
+      res["QueueDescription"] = boost::any(*queueDescription);
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    if (queueType) {
+      res["QueueType"] = boost::any(*queueType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthPercent") != m.end() && !m["BandwidthPercent"].empty()) {
+      bandwidthPercent = make_shared<string>(boost::any_cast<string>(m["BandwidthPercent"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueDescription") != m.end() && !m["QueueDescription"].empty()) {
+      queueDescription = make_shared<string>(boost::any_cast<string>(m["QueueDescription"]));
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("QueueType") != m.end() && !m["QueueType"].empty()) {
+      queueType = make_shared<string>(boost::any_cast<string>(m["QueueType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+  }
+
+
+  virtual ~CreateExpressConnectTrafficQosQueueRequest() = default;
+};
+class CreateExpressConnectTrafficQosQueueResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> qosId{};
+  shared_ptr<string> queueId{};
+  shared_ptr<string> requestId{};
+
+  CreateExpressConnectTrafficQosQueueResponseBody() {}
+
+  explicit CreateExpressConnectTrafficQosQueueResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueId) {
+      res["QueueId"] = boost::any(*queueId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueId") != m.end() && !m["QueueId"].empty()) {
+      queueId = make_shared<string>(boost::any_cast<string>(m["QueueId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateExpressConnectTrafficQosQueueResponseBody() = default;
+};
+class CreateExpressConnectTrafficQosQueueResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateExpressConnectTrafficQosQueueResponseBody> body{};
+
+  CreateExpressConnectTrafficQosQueueResponse() {}
+
+  explicit CreateExpressConnectTrafficQosQueueResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateExpressConnectTrafficQosQueueResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateExpressConnectTrafficQosQueueResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateExpressConnectTrafficQosQueueResponse() = default;
+};
+class CreateExpressConnectTrafficQosRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> dstCidr{};
+  shared_ptr<string> dstIPv6Cidr{};
+  shared_ptr<string> dstPortRange{};
+  shared_ptr<long> matchDscp{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> queueId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> remarkingDscp{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<string> ruleDescription{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> srcCidr{};
+  shared_ptr<string> srcIPv6Cidr{};
+  shared_ptr<string> srcPortRange{};
+
+  CreateExpressConnectTrafficQosRuleRequest() {}
+
+  explicit CreateExpressConnectTrafficQosRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dstCidr) {
+      res["DstCidr"] = boost::any(*dstCidr);
+    }
+    if (dstIPv6Cidr) {
+      res["DstIPv6Cidr"] = boost::any(*dstIPv6Cidr);
+    }
+    if (dstPortRange) {
+      res["DstPortRange"] = boost::any(*dstPortRange);
+    }
+    if (matchDscp) {
+      res["MatchDscp"] = boost::any(*matchDscp);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueId) {
+      res["QueueId"] = boost::any(*queueId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (remarkingDscp) {
+      res["RemarkingDscp"] = boost::any(*remarkingDscp);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (ruleDescription) {
+      res["RuleDescription"] = boost::any(*ruleDescription);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (srcCidr) {
+      res["SrcCidr"] = boost::any(*srcCidr);
+    }
+    if (srcIPv6Cidr) {
+      res["SrcIPv6Cidr"] = boost::any(*srcIPv6Cidr);
+    }
+    if (srcPortRange) {
+      res["SrcPortRange"] = boost::any(*srcPortRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DstCidr") != m.end() && !m["DstCidr"].empty()) {
+      dstCidr = make_shared<string>(boost::any_cast<string>(m["DstCidr"]));
+    }
+    if (m.find("DstIPv6Cidr") != m.end() && !m["DstIPv6Cidr"].empty()) {
+      dstIPv6Cidr = make_shared<string>(boost::any_cast<string>(m["DstIPv6Cidr"]));
+    }
+    if (m.find("DstPortRange") != m.end() && !m["DstPortRange"].empty()) {
+      dstPortRange = make_shared<string>(boost::any_cast<string>(m["DstPortRange"]));
+    }
+    if (m.find("MatchDscp") != m.end() && !m["MatchDscp"].empty()) {
+      matchDscp = make_shared<long>(boost::any_cast<long>(m["MatchDscp"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueId") != m.end() && !m["QueueId"].empty()) {
+      queueId = make_shared<string>(boost::any_cast<string>(m["QueueId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RemarkingDscp") != m.end() && !m["RemarkingDscp"].empty()) {
+      remarkingDscp = make_shared<long>(boost::any_cast<long>(m["RemarkingDscp"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("RuleDescription") != m.end() && !m["RuleDescription"].empty()) {
+      ruleDescription = make_shared<string>(boost::any_cast<string>(m["RuleDescription"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("SrcCidr") != m.end() && !m["SrcCidr"].empty()) {
+      srcCidr = make_shared<string>(boost::any_cast<string>(m["SrcCidr"]));
+    }
+    if (m.find("SrcIPv6Cidr") != m.end() && !m["SrcIPv6Cidr"].empty()) {
+      srcIPv6Cidr = make_shared<string>(boost::any_cast<string>(m["SrcIPv6Cidr"]));
+    }
+    if (m.find("SrcPortRange") != m.end() && !m["SrcPortRange"].empty()) {
+      srcPortRange = make_shared<string>(boost::any_cast<string>(m["SrcPortRange"]));
+    }
+  }
+
+
+  virtual ~CreateExpressConnectTrafficQosRuleRequest() = default;
+};
+class CreateExpressConnectTrafficQosRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> qosId{};
+  shared_ptr<string> queueId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> ruleId{};
+
+  CreateExpressConnectTrafficQosRuleResponseBody() {}
+
+  explicit CreateExpressConnectTrafficQosRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueId) {
+      res["QueueId"] = boost::any(*queueId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueId") != m.end() && !m["QueueId"].empty()) {
+      queueId = make_shared<string>(boost::any_cast<string>(m["QueueId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~CreateExpressConnectTrafficQosRuleResponseBody() = default;
+};
+class CreateExpressConnectTrafficQosRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateExpressConnectTrafficQosRuleResponseBody> body{};
+
+  CreateExpressConnectTrafficQosRuleResponse() {}
+
+  explicit CreateExpressConnectTrafficQosRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateExpressConnectTrafficQosRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateExpressConnectTrafficQosRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateExpressConnectTrafficQosRuleResponse() = default;
+};
 class CreateFailoverTestJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -22971,6 +23574,462 @@ public:
 
   virtual ~DeleteDhcpOptionsSetResponse() = default;
 };
+class DeleteExpressConnectTrafficQosRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+
+  DeleteExpressConnectTrafficQosRequest() {}
+
+  explicit DeleteExpressConnectTrafficQosRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+  }
+
+
+  virtual ~DeleteExpressConnectTrafficQosRequest() = default;
+};
+class DeleteExpressConnectTrafficQosResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteExpressConnectTrafficQosResponseBody() {}
+
+  explicit DeleteExpressConnectTrafficQosResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteExpressConnectTrafficQosResponseBody() = default;
+};
+class DeleteExpressConnectTrafficQosResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteExpressConnectTrafficQosResponseBody> body{};
+
+  DeleteExpressConnectTrafficQosResponse() {}
+
+  explicit DeleteExpressConnectTrafficQosResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteExpressConnectTrafficQosResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteExpressConnectTrafficQosResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteExpressConnectTrafficQosResponse() = default;
+};
+class DeleteExpressConnectTrafficQosQueueRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> queueId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+
+  DeleteExpressConnectTrafficQosQueueRequest() {}
+
+  explicit DeleteExpressConnectTrafficQosQueueRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueId) {
+      res["QueueId"] = boost::any(*queueId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueId") != m.end() && !m["QueueId"].empty()) {
+      queueId = make_shared<string>(boost::any_cast<string>(m["QueueId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+  }
+
+
+  virtual ~DeleteExpressConnectTrafficQosQueueRequest() = default;
+};
+class DeleteExpressConnectTrafficQosQueueResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteExpressConnectTrafficQosQueueResponseBody() {}
+
+  explicit DeleteExpressConnectTrafficQosQueueResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteExpressConnectTrafficQosQueueResponseBody() = default;
+};
+class DeleteExpressConnectTrafficQosQueueResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteExpressConnectTrafficQosQueueResponseBody> body{};
+
+  DeleteExpressConnectTrafficQosQueueResponse() {}
+
+  explicit DeleteExpressConnectTrafficQosQueueResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteExpressConnectTrafficQosQueueResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteExpressConnectTrafficQosQueueResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteExpressConnectTrafficQosQueueResponse() = default;
+};
+class DeleteExpressConnectTrafficQosRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> queueId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<string> ruleId{};
+
+  DeleteExpressConnectTrafficQosRuleRequest() {}
+
+  explicit DeleteExpressConnectTrafficQosRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueId) {
+      res["QueueId"] = boost::any(*queueId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueId") != m.end() && !m["QueueId"].empty()) {
+      queueId = make_shared<string>(boost::any_cast<string>(m["QueueId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~DeleteExpressConnectTrafficQosRuleRequest() = default;
+};
+class DeleteExpressConnectTrafficQosRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteExpressConnectTrafficQosRuleResponseBody() {}
+
+  explicit DeleteExpressConnectTrafficQosRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteExpressConnectTrafficQosRuleResponseBody() = default;
+};
+class DeleteExpressConnectTrafficQosRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteExpressConnectTrafficQosRuleResponseBody> body{};
+
+  DeleteExpressConnectTrafficQosRuleResponse() {}
+
+  explicit DeleteExpressConnectTrafficQosRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteExpressConnectTrafficQosRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteExpressConnectTrafficQosRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteExpressConnectTrafficQosRuleResponse() = default;
+};
 class DeleteFailoverTestJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -35310,6 +36369,1210 @@ public:
 
 
   virtual ~DescribeEipSegmentResponse() = default;
+};
+class DescribeExpressConnectTrafficQosRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<vector<string>> qosIdList{};
+  shared_ptr<vector<string>> qosNameList{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+
+  DescribeExpressConnectTrafficQosRequest() {}
+
+  explicit DescribeExpressConnectTrafficQosRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (qosIdList) {
+      res["QosIdList"] = boost::any(*qosIdList);
+    }
+    if (qosNameList) {
+      res["QosNameList"] = boost::any(*qosNameList);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QosIdList") != m.end() && !m["QosIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["QosIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["QosIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      qosIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("QosNameList") != m.end() && !m["QosNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["QosNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["QosNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      qosNameList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosRequest() = default;
+};
+class DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> instanceProgressing{};
+  shared_ptr<string> instanceStatus{};
+  shared_ptr<string> instanceType{};
+
+  DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList() {}
+
+  explicit DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceProgressing) {
+      res["InstanceProgressing"] = boost::any(*instanceProgressing);
+    }
+    if (instanceStatus) {
+      res["InstanceStatus"] = boost::any(*instanceStatus);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceProgressing") != m.end() && !m["InstanceProgressing"].empty()) {
+      instanceProgressing = make_shared<long>(boost::any_cast<long>(m["InstanceProgressing"]));
+    }
+    if (m.find("InstanceStatus") != m.end() && !m["InstanceStatus"].empty()) {
+      instanceStatus = make_shared<string>(boost::any_cast<string>(m["InstanceStatus"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList() = default;
+};
+class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList : public Darabonba::Model {
+public:
+  shared_ptr<string> bandwidthPercent{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> queueDescription{};
+  shared_ptr<string> queueId{};
+  shared_ptr<string> queueName{};
+  shared_ptr<string> queueType{};
+  shared_ptr<string> status{};
+
+  DescribeExpressConnectTrafficQosResponseBodyQosListQueueList() {}
+
+  explicit DescribeExpressConnectTrafficQosResponseBodyQosListQueueList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandwidthPercent) {
+      res["BandwidthPercent"] = boost::any(*bandwidthPercent);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueDescription) {
+      res["QueueDescription"] = boost::any(*queueDescription);
+    }
+    if (queueId) {
+      res["QueueId"] = boost::any(*queueId);
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    if (queueType) {
+      res["QueueType"] = boost::any(*queueType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthPercent") != m.end() && !m["BandwidthPercent"].empty()) {
+      bandwidthPercent = make_shared<string>(boost::any_cast<string>(m["BandwidthPercent"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueDescription") != m.end() && !m["QueueDescription"].empty()) {
+      queueDescription = make_shared<string>(boost::any_cast<string>(m["QueueDescription"]));
+    }
+    if (m.find("QueueId") != m.end() && !m["QueueId"].empty()) {
+      queueId = make_shared<string>(boost::any_cast<string>(m["QueueId"]));
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("QueueType") != m.end() && !m["QueueType"].empty()) {
+      queueType = make_shared<string>(boost::any_cast<string>(m["QueueType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosResponseBodyQosListQueueList() = default;
+};
+class DescribeExpressConnectTrafficQosResponseBodyQosList : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList>> associatedInstanceList{};
+  shared_ptr<long> progressing{};
+  shared_ptr<string> qosDescription{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> qosName{};
+  shared_ptr<vector<DescribeExpressConnectTrafficQosResponseBodyQosListQueueList>> queueList{};
+  shared_ptr<string> status{};
+
+  DescribeExpressConnectTrafficQosResponseBodyQosList() {}
+
+  explicit DescribeExpressConnectTrafficQosResponseBodyQosList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (associatedInstanceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*associatedInstanceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AssociatedInstanceList"] = boost::any(temp1);
+    }
+    if (progressing) {
+      res["Progressing"] = boost::any(*progressing);
+    }
+    if (qosDescription) {
+      res["QosDescription"] = boost::any(*qosDescription);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (qosName) {
+      res["QosName"] = boost::any(*qosName);
+    }
+    if (queueList) {
+      vector<boost::any> temp1;
+      for(auto item1:*queueList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["QueueList"] = boost::any(temp1);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssociatedInstanceList") != m.end() && !m["AssociatedInstanceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AssociatedInstanceList"].type()) {
+        vector<DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AssociatedInstanceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        associatedInstanceList = make_shared<vector<DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList>>(expect1);
+      }
+    }
+    if (m.find("Progressing") != m.end() && !m["Progressing"].empty()) {
+      progressing = make_shared<long>(boost::any_cast<long>(m["Progressing"]));
+    }
+    if (m.find("QosDescription") != m.end() && !m["QosDescription"].empty()) {
+      qosDescription = make_shared<string>(boost::any_cast<string>(m["QosDescription"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QosName") != m.end() && !m["QosName"].empty()) {
+      qosName = make_shared<string>(boost::any_cast<string>(m["QosName"]));
+    }
+    if (m.find("QueueList") != m.end() && !m["QueueList"].empty()) {
+      if (typeid(vector<boost::any>) == m["QueueList"].type()) {
+        vector<DescribeExpressConnectTrafficQosResponseBodyQosListQueueList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["QueueList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeExpressConnectTrafficQosResponseBodyQosListQueueList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        queueList = make_shared<vector<DescribeExpressConnectTrafficQosResponseBodyQosListQueueList>>(expect1);
+      }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosResponseBodyQosList() = default;
+};
+class DescribeExpressConnectTrafficQosResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> count{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<DescribeExpressConnectTrafficQosResponseBodyQosList>> qosList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeExpressConnectTrafficQosResponseBody() {}
+
+  explicit DescribeExpressConnectTrafficQosResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (qosList) {
+      vector<boost::any> temp1;
+      for(auto item1:*qosList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["QosList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<string>(boost::any_cast<string>(m["Count"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("QosList") != m.end() && !m["QosList"].empty()) {
+      if (typeid(vector<boost::any>) == m["QosList"].type()) {
+        vector<DescribeExpressConnectTrafficQosResponseBodyQosList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["QosList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeExpressConnectTrafficQosResponseBodyQosList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        qosList = make_shared<vector<DescribeExpressConnectTrafficQosResponseBodyQosList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosResponseBody() = default;
+};
+class DescribeExpressConnectTrafficQosResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeExpressConnectTrafficQosResponseBody> body{};
+
+  DescribeExpressConnectTrafficQosResponse() {}
+
+  explicit DescribeExpressConnectTrafficQosResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeExpressConnectTrafficQosResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeExpressConnectTrafficQosResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosResponse() = default;
+};
+class DescribeExpressConnectTrafficQosQueueRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> qosId{};
+  shared_ptr<vector<string>> queueIdList{};
+  shared_ptr<vector<string>> queueNameList{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+
+  DescribeExpressConnectTrafficQosQueueRequest() {}
+
+  explicit DescribeExpressConnectTrafficQosQueueRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueIdList) {
+      res["QueueIdList"] = boost::any(*queueIdList);
+    }
+    if (queueNameList) {
+      res["QueueNameList"] = boost::any(*queueNameList);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueIdList") != m.end() && !m["QueueIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["QueueIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["QueueIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      queueIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("QueueNameList") != m.end() && !m["QueueNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["QueueNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["QueueNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      queueNameList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosQueueRequest() = default;
+};
+class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList : public Darabonba::Model {
+public:
+  shared_ptr<string> dstCidr{};
+  shared_ptr<string> dstIPv6Cidr{};
+  shared_ptr<string> dstPortRange{};
+  shared_ptr<long> matchDscp{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> queueId{};
+  shared_ptr<long> remarkingDscp{};
+  shared_ptr<string> ruleDescription{};
+  shared_ptr<string> ruleId{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> srcCidr{};
+  shared_ptr<string> srcIPv6Cidr{};
+  shared_ptr<string> srcPortRange{};
+  shared_ptr<string> status{};
+
+  DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList() {}
+
+  explicit DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dstCidr) {
+      res["DstCidr"] = boost::any(*dstCidr);
+    }
+    if (dstIPv6Cidr) {
+      res["DstIPv6Cidr"] = boost::any(*dstIPv6Cidr);
+    }
+    if (dstPortRange) {
+      res["DstPortRange"] = boost::any(*dstPortRange);
+    }
+    if (matchDscp) {
+      res["MatchDscp"] = boost::any(*matchDscp);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueId) {
+      res["QueueId"] = boost::any(*queueId);
+    }
+    if (remarkingDscp) {
+      res["RemarkingDscp"] = boost::any(*remarkingDscp);
+    }
+    if (ruleDescription) {
+      res["RuleDescription"] = boost::any(*ruleDescription);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (srcCidr) {
+      res["SrcCidr"] = boost::any(*srcCidr);
+    }
+    if (srcIPv6Cidr) {
+      res["SrcIPv6Cidr"] = boost::any(*srcIPv6Cidr);
+    }
+    if (srcPortRange) {
+      res["SrcPortRange"] = boost::any(*srcPortRange);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DstCidr") != m.end() && !m["DstCidr"].empty()) {
+      dstCidr = make_shared<string>(boost::any_cast<string>(m["DstCidr"]));
+    }
+    if (m.find("DstIPv6Cidr") != m.end() && !m["DstIPv6Cidr"].empty()) {
+      dstIPv6Cidr = make_shared<string>(boost::any_cast<string>(m["DstIPv6Cidr"]));
+    }
+    if (m.find("DstPortRange") != m.end() && !m["DstPortRange"].empty()) {
+      dstPortRange = make_shared<string>(boost::any_cast<string>(m["DstPortRange"]));
+    }
+    if (m.find("MatchDscp") != m.end() && !m["MatchDscp"].empty()) {
+      matchDscp = make_shared<long>(boost::any_cast<long>(m["MatchDscp"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueId") != m.end() && !m["QueueId"].empty()) {
+      queueId = make_shared<string>(boost::any_cast<string>(m["QueueId"]));
+    }
+    if (m.find("RemarkingDscp") != m.end() && !m["RemarkingDscp"].empty()) {
+      remarkingDscp = make_shared<long>(boost::any_cast<long>(m["RemarkingDscp"]));
+    }
+    if (m.find("RuleDescription") != m.end() && !m["RuleDescription"].empty()) {
+      ruleDescription = make_shared<string>(boost::any_cast<string>(m["RuleDescription"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("SrcCidr") != m.end() && !m["SrcCidr"].empty()) {
+      srcCidr = make_shared<string>(boost::any_cast<string>(m["SrcCidr"]));
+    }
+    if (m.find("SrcIPv6Cidr") != m.end() && !m["SrcIPv6Cidr"].empty()) {
+      srcIPv6Cidr = make_shared<string>(boost::any_cast<string>(m["SrcIPv6Cidr"]));
+    }
+    if (m.find("SrcPortRange") != m.end() && !m["SrcPortRange"].empty()) {
+      srcPortRange = make_shared<string>(boost::any_cast<string>(m["SrcPortRange"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList() = default;
+};
+class DescribeExpressConnectTrafficQosQueueResponseBodyQueueList : public Darabonba::Model {
+public:
+  shared_ptr<string> bandwidthPercent{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> queueDescription{};
+  shared_ptr<string> queueId{};
+  shared_ptr<string> queueName{};
+  shared_ptr<string> queueType{};
+  shared_ptr<vector<DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList>> ruleList{};
+  shared_ptr<string> status{};
+
+  DescribeExpressConnectTrafficQosQueueResponseBodyQueueList() {}
+
+  explicit DescribeExpressConnectTrafficQosQueueResponseBodyQueueList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandwidthPercent) {
+      res["BandwidthPercent"] = boost::any(*bandwidthPercent);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueDescription) {
+      res["QueueDescription"] = boost::any(*queueDescription);
+    }
+    if (queueId) {
+      res["QueueId"] = boost::any(*queueId);
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    if (queueType) {
+      res["QueueType"] = boost::any(*queueType);
+    }
+    if (ruleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*ruleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RuleList"] = boost::any(temp1);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthPercent") != m.end() && !m["BandwidthPercent"].empty()) {
+      bandwidthPercent = make_shared<string>(boost::any_cast<string>(m["BandwidthPercent"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueDescription") != m.end() && !m["QueueDescription"].empty()) {
+      queueDescription = make_shared<string>(boost::any_cast<string>(m["QueueDescription"]));
+    }
+    if (m.find("QueueId") != m.end() && !m["QueueId"].empty()) {
+      queueId = make_shared<string>(boost::any_cast<string>(m["QueueId"]));
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("QueueType") != m.end() && !m["QueueType"].empty()) {
+      queueType = make_shared<string>(boost::any_cast<string>(m["QueueType"]));
+    }
+    if (m.find("RuleList") != m.end() && !m["RuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RuleList"].type()) {
+        vector<DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ruleList = make_shared<vector<DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList>>(expect1);
+      }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosQueueResponseBodyQueueList() = default;
+};
+class DescribeExpressConnectTrafficQosQueueResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeExpressConnectTrafficQosQueueResponseBodyQueueList>> queueList{};
+  shared_ptr<string> requestId{};
+
+  DescribeExpressConnectTrafficQosQueueResponseBody() {}
+
+  explicit DescribeExpressConnectTrafficQosQueueResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (queueList) {
+      vector<boost::any> temp1;
+      for(auto item1:*queueList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["QueueList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("QueueList") != m.end() && !m["QueueList"].empty()) {
+      if (typeid(vector<boost::any>) == m["QueueList"].type()) {
+        vector<DescribeExpressConnectTrafficQosQueueResponseBodyQueueList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["QueueList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeExpressConnectTrafficQosQueueResponseBodyQueueList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        queueList = make_shared<vector<DescribeExpressConnectTrafficQosQueueResponseBodyQueueList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosQueueResponseBody() = default;
+};
+class DescribeExpressConnectTrafficQosQueueResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeExpressConnectTrafficQosQueueResponseBody> body{};
+
+  DescribeExpressConnectTrafficQosQueueResponse() {}
+
+  explicit DescribeExpressConnectTrafficQosQueueResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeExpressConnectTrafficQosQueueResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeExpressConnectTrafficQosQueueResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosQueueResponse() = default;
+};
+class DescribeExpressConnectTrafficQosRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> queueId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<vector<string>> ruleIdList{};
+  shared_ptr<vector<string>> ruleNameList{};
+
+  DescribeExpressConnectTrafficQosRuleRequest() {}
+
+  explicit DescribeExpressConnectTrafficQosRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueId) {
+      res["QueueId"] = boost::any(*queueId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (ruleIdList) {
+      res["RuleIdList"] = boost::any(*ruleIdList);
+    }
+    if (ruleNameList) {
+      res["RuleNameList"] = boost::any(*ruleNameList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueId") != m.end() && !m["QueueId"].empty()) {
+      queueId = make_shared<string>(boost::any_cast<string>(m["QueueId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("RuleIdList") != m.end() && !m["RuleIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RuleIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RuleIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ruleIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RuleNameList") != m.end() && !m["RuleNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RuleNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RuleNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ruleNameList = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosRuleRequest() = default;
+};
+class DescribeExpressConnectTrafficQosRuleResponseBodyRuleList : public Darabonba::Model {
+public:
+  shared_ptr<string> dstCidr{};
+  shared_ptr<string> dstIPv6Cidr{};
+  shared_ptr<string> dstPortRange{};
+  shared_ptr<long> matchDscp{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> queueId{};
+  shared_ptr<long> remarkingDscp{};
+  shared_ptr<string> ruleDescription{};
+  shared_ptr<string> ruleId{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> srcCidr{};
+  shared_ptr<string> srcIPv6Cidr{};
+  shared_ptr<string> srcPortRange{};
+  shared_ptr<string> status{};
+
+  DescribeExpressConnectTrafficQosRuleResponseBodyRuleList() {}
+
+  explicit DescribeExpressConnectTrafficQosRuleResponseBodyRuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dstCidr) {
+      res["DstCidr"] = boost::any(*dstCidr);
+    }
+    if (dstIPv6Cidr) {
+      res["DstIPv6Cidr"] = boost::any(*dstIPv6Cidr);
+    }
+    if (dstPortRange) {
+      res["DstPortRange"] = boost::any(*dstPortRange);
+    }
+    if (matchDscp) {
+      res["MatchDscp"] = boost::any(*matchDscp);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueId) {
+      res["QueueId"] = boost::any(*queueId);
+    }
+    if (remarkingDscp) {
+      res["RemarkingDscp"] = boost::any(*remarkingDscp);
+    }
+    if (ruleDescription) {
+      res["RuleDescription"] = boost::any(*ruleDescription);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (srcCidr) {
+      res["SrcCidr"] = boost::any(*srcCidr);
+    }
+    if (srcIPv6Cidr) {
+      res["SrcIPv6Cidr"] = boost::any(*srcIPv6Cidr);
+    }
+    if (srcPortRange) {
+      res["SrcPortRange"] = boost::any(*srcPortRange);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DstCidr") != m.end() && !m["DstCidr"].empty()) {
+      dstCidr = make_shared<string>(boost::any_cast<string>(m["DstCidr"]));
+    }
+    if (m.find("DstIPv6Cidr") != m.end() && !m["DstIPv6Cidr"].empty()) {
+      dstIPv6Cidr = make_shared<string>(boost::any_cast<string>(m["DstIPv6Cidr"]));
+    }
+    if (m.find("DstPortRange") != m.end() && !m["DstPortRange"].empty()) {
+      dstPortRange = make_shared<string>(boost::any_cast<string>(m["DstPortRange"]));
+    }
+    if (m.find("MatchDscp") != m.end() && !m["MatchDscp"].empty()) {
+      matchDscp = make_shared<long>(boost::any_cast<long>(m["MatchDscp"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueId") != m.end() && !m["QueueId"].empty()) {
+      queueId = make_shared<string>(boost::any_cast<string>(m["QueueId"]));
+    }
+    if (m.find("RemarkingDscp") != m.end() && !m["RemarkingDscp"].empty()) {
+      remarkingDscp = make_shared<long>(boost::any_cast<long>(m["RemarkingDscp"]));
+    }
+    if (m.find("RuleDescription") != m.end() && !m["RuleDescription"].empty()) {
+      ruleDescription = make_shared<string>(boost::any_cast<string>(m["RuleDescription"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("SrcCidr") != m.end() && !m["SrcCidr"].empty()) {
+      srcCidr = make_shared<string>(boost::any_cast<string>(m["SrcCidr"]));
+    }
+    if (m.find("SrcIPv6Cidr") != m.end() && !m["SrcIPv6Cidr"].empty()) {
+      srcIPv6Cidr = make_shared<string>(boost::any_cast<string>(m["SrcIPv6Cidr"]));
+    }
+    if (m.find("SrcPortRange") != m.end() && !m["SrcPortRange"].empty()) {
+      srcPortRange = make_shared<string>(boost::any_cast<string>(m["SrcPortRange"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosRuleResponseBodyRuleList() = default;
+};
+class DescribeExpressConnectTrafficQosRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeExpressConnectTrafficQosRuleResponseBodyRuleList>> ruleList{};
+
+  DescribeExpressConnectTrafficQosRuleResponseBody() {}
+
+  explicit DescribeExpressConnectTrafficQosRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (ruleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*ruleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RuleList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RuleList") != m.end() && !m["RuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RuleList"].type()) {
+        vector<DescribeExpressConnectTrafficQosRuleResponseBodyRuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeExpressConnectTrafficQosRuleResponseBodyRuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ruleList = make_shared<vector<DescribeExpressConnectTrafficQosRuleResponseBodyRuleList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosRuleResponseBody() = default;
+};
+class DescribeExpressConnectTrafficQosRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeExpressConnectTrafficQosRuleResponseBody> body{};
+
+  DescribeExpressConnectTrafficQosRuleResponse() {}
+
+  explicit DescribeExpressConnectTrafficQosRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeExpressConnectTrafficQosRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeExpressConnectTrafficQosRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeExpressConnectTrafficQosRuleResponse() = default;
 };
 class DescribeFailoverTestJobRequest : public Darabonba::Model {
 public:
@@ -79294,6 +81557,588 @@ public:
 
   virtual ~ModifyExpressCloudConnectionBandwidthResponse() = default;
 };
+class ModifyExpressConnectTrafficQosRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> pconnIdList{};
+  shared_ptr<string> qosDescription{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> qosName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+
+  ModifyExpressConnectTrafficQosRequest() {}
+
+  explicit ModifyExpressConnectTrafficQosRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (pconnIdList) {
+      res["PconnIdList"] = boost::any(*pconnIdList);
+    }
+    if (qosDescription) {
+      res["QosDescription"] = boost::any(*qosDescription);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (qosName) {
+      res["QosName"] = boost::any(*qosName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PconnIdList") != m.end() && !m["PconnIdList"].empty()) {
+      pconnIdList = make_shared<string>(boost::any_cast<string>(m["PconnIdList"]));
+    }
+    if (m.find("QosDescription") != m.end() && !m["QosDescription"].empty()) {
+      qosDescription = make_shared<string>(boost::any_cast<string>(m["QosDescription"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QosName") != m.end() && !m["QosName"].empty()) {
+      qosName = make_shared<string>(boost::any_cast<string>(m["QosName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+  }
+
+
+  virtual ~ModifyExpressConnectTrafficQosRequest() = default;
+};
+class ModifyExpressConnectTrafficQosResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyExpressConnectTrafficQosResponseBody() {}
+
+  explicit ModifyExpressConnectTrafficQosResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyExpressConnectTrafficQosResponseBody() = default;
+};
+class ModifyExpressConnectTrafficQosResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyExpressConnectTrafficQosResponseBody> body{};
+
+  ModifyExpressConnectTrafficQosResponse() {}
+
+  explicit ModifyExpressConnectTrafficQosResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyExpressConnectTrafficQosResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyExpressConnectTrafficQosResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyExpressConnectTrafficQosResponse() = default;
+};
+class ModifyExpressConnectTrafficQosQueueRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bandwidthPercent{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> queueDescription{};
+  shared_ptr<string> queueId{};
+  shared_ptr<string> queueName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+
+  ModifyExpressConnectTrafficQosQueueRequest() {}
+
+  explicit ModifyExpressConnectTrafficQosQueueRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandwidthPercent) {
+      res["BandwidthPercent"] = boost::any(*bandwidthPercent);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueDescription) {
+      res["QueueDescription"] = boost::any(*queueDescription);
+    }
+    if (queueId) {
+      res["QueueId"] = boost::any(*queueId);
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthPercent") != m.end() && !m["BandwidthPercent"].empty()) {
+      bandwidthPercent = make_shared<string>(boost::any_cast<string>(m["BandwidthPercent"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueDescription") != m.end() && !m["QueueDescription"].empty()) {
+      queueDescription = make_shared<string>(boost::any_cast<string>(m["QueueDescription"]));
+    }
+    if (m.find("QueueId") != m.end() && !m["QueueId"].empty()) {
+      queueId = make_shared<string>(boost::any_cast<string>(m["QueueId"]));
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+  }
+
+
+  virtual ~ModifyExpressConnectTrafficQosQueueRequest() = default;
+};
+class ModifyExpressConnectTrafficQosQueueResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyExpressConnectTrafficQosQueueResponseBody() {}
+
+  explicit ModifyExpressConnectTrafficQosQueueResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyExpressConnectTrafficQosQueueResponseBody() = default;
+};
+class ModifyExpressConnectTrafficQosQueueResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyExpressConnectTrafficQosQueueResponseBody> body{};
+
+  ModifyExpressConnectTrafficQosQueueResponse() {}
+
+  explicit ModifyExpressConnectTrafficQosQueueResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyExpressConnectTrafficQosQueueResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyExpressConnectTrafficQosQueueResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyExpressConnectTrafficQosQueueResponse() = default;
+};
+class ModifyExpressConnectTrafficQosRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> dstCidr{};
+  shared_ptr<string> dstIPv6Cidr{};
+  shared_ptr<string> dstPortRange{};
+  shared_ptr<long> matchDscp{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> qosId{};
+  shared_ptr<string> queueId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> remarkingDscp{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<string> ruleDescription{};
+  shared_ptr<string> ruleId{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> srcCidr{};
+  shared_ptr<string> srcIPv6Cidr{};
+  shared_ptr<string> srcPortRange{};
+
+  ModifyExpressConnectTrafficQosRuleRequest() {}
+
+  explicit ModifyExpressConnectTrafficQosRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dstCidr) {
+      res["DstCidr"] = boost::any(*dstCidr);
+    }
+    if (dstIPv6Cidr) {
+      res["DstIPv6Cidr"] = boost::any(*dstIPv6Cidr);
+    }
+    if (dstPortRange) {
+      res["DstPortRange"] = boost::any(*dstPortRange);
+    }
+    if (matchDscp) {
+      res["MatchDscp"] = boost::any(*matchDscp);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (qosId) {
+      res["QosId"] = boost::any(*qosId);
+    }
+    if (queueId) {
+      res["QueueId"] = boost::any(*queueId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (remarkingDscp) {
+      res["RemarkingDscp"] = boost::any(*remarkingDscp);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (ruleDescription) {
+      res["RuleDescription"] = boost::any(*ruleDescription);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (srcCidr) {
+      res["SrcCidr"] = boost::any(*srcCidr);
+    }
+    if (srcIPv6Cidr) {
+      res["SrcIPv6Cidr"] = boost::any(*srcIPv6Cidr);
+    }
+    if (srcPortRange) {
+      res["SrcPortRange"] = boost::any(*srcPortRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DstCidr") != m.end() && !m["DstCidr"].empty()) {
+      dstCidr = make_shared<string>(boost::any_cast<string>(m["DstCidr"]));
+    }
+    if (m.find("DstIPv6Cidr") != m.end() && !m["DstIPv6Cidr"].empty()) {
+      dstIPv6Cidr = make_shared<string>(boost::any_cast<string>(m["DstIPv6Cidr"]));
+    }
+    if (m.find("DstPortRange") != m.end() && !m["DstPortRange"].empty()) {
+      dstPortRange = make_shared<string>(boost::any_cast<string>(m["DstPortRange"]));
+    }
+    if (m.find("MatchDscp") != m.end() && !m["MatchDscp"].empty()) {
+      matchDscp = make_shared<long>(boost::any_cast<long>(m["MatchDscp"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("QosId") != m.end() && !m["QosId"].empty()) {
+      qosId = make_shared<string>(boost::any_cast<string>(m["QosId"]));
+    }
+    if (m.find("QueueId") != m.end() && !m["QueueId"].empty()) {
+      queueId = make_shared<string>(boost::any_cast<string>(m["QueueId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RemarkingDscp") != m.end() && !m["RemarkingDscp"].empty()) {
+      remarkingDscp = make_shared<long>(boost::any_cast<long>(m["RemarkingDscp"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("RuleDescription") != m.end() && !m["RuleDescription"].empty()) {
+      ruleDescription = make_shared<string>(boost::any_cast<string>(m["RuleDescription"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("SrcCidr") != m.end() && !m["SrcCidr"].empty()) {
+      srcCidr = make_shared<string>(boost::any_cast<string>(m["SrcCidr"]));
+    }
+    if (m.find("SrcIPv6Cidr") != m.end() && !m["SrcIPv6Cidr"].empty()) {
+      srcIPv6Cidr = make_shared<string>(boost::any_cast<string>(m["SrcIPv6Cidr"]));
+    }
+    if (m.find("SrcPortRange") != m.end() && !m["SrcPortRange"].empty()) {
+      srcPortRange = make_shared<string>(boost::any_cast<string>(m["SrcPortRange"]));
+    }
+  }
+
+
+  virtual ~ModifyExpressConnectTrafficQosRuleRequest() = default;
+};
+class ModifyExpressConnectTrafficQosRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyExpressConnectTrafficQosRuleResponseBody() {}
+
+  explicit ModifyExpressConnectTrafficQosRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyExpressConnectTrafficQosRuleResponseBody() = default;
+};
+class ModifyExpressConnectTrafficQosRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyExpressConnectTrafficQosRuleResponseBody> body{};
+
+  ModifyExpressConnectTrafficQosRuleResponse() {}
+
+  explicit ModifyExpressConnectTrafficQosRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyExpressConnectTrafficQosRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyExpressConnectTrafficQosRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyExpressConnectTrafficQosRuleResponse() = default;
+};
 class ModifyFlowLogAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<long> aggregationInterval{};
@@ -98574,6 +101419,12 @@ public:
   CreateDhcpOptionsSetResponse createDhcpOptionsSet(shared_ptr<CreateDhcpOptionsSetRequest> request);
   CreateExpressCloudConnectionResponse createExpressCloudConnectionWithOptions(shared_ptr<CreateExpressCloudConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateExpressCloudConnectionResponse createExpressCloudConnection(shared_ptr<CreateExpressCloudConnectionRequest> request);
+  CreateExpressConnectTrafficQosResponse createExpressConnectTrafficQosWithOptions(shared_ptr<CreateExpressConnectTrafficQosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateExpressConnectTrafficQosResponse createExpressConnectTrafficQos(shared_ptr<CreateExpressConnectTrafficQosRequest> request);
+  CreateExpressConnectTrafficQosQueueResponse createExpressConnectTrafficQosQueueWithOptions(shared_ptr<CreateExpressConnectTrafficQosQueueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateExpressConnectTrafficQosQueueResponse createExpressConnectTrafficQosQueue(shared_ptr<CreateExpressConnectTrafficQosQueueRequest> request);
+  CreateExpressConnectTrafficQosRuleResponse createExpressConnectTrafficQosRuleWithOptions(shared_ptr<CreateExpressConnectTrafficQosRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateExpressConnectTrafficQosRuleResponse createExpressConnectTrafficQosRule(shared_ptr<CreateExpressConnectTrafficQosRuleRequest> request);
   CreateFailoverTestJobResponse createFailoverTestJobWithOptions(shared_ptr<CreateFailoverTestJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateFailoverTestJobResponse createFailoverTestJob(shared_ptr<CreateFailoverTestJobRequest> request);
   CreateFlowLogResponse createFlowLogWithOptions(shared_ptr<CreateFlowLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -98684,6 +101535,12 @@ public:
   DeleteCustomerGatewayResponse deleteCustomerGateway(shared_ptr<DeleteCustomerGatewayRequest> request);
   DeleteDhcpOptionsSetResponse deleteDhcpOptionsSetWithOptions(shared_ptr<DeleteDhcpOptionsSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDhcpOptionsSetResponse deleteDhcpOptionsSet(shared_ptr<DeleteDhcpOptionsSetRequest> request);
+  DeleteExpressConnectTrafficQosResponse deleteExpressConnectTrafficQosWithOptions(shared_ptr<DeleteExpressConnectTrafficQosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteExpressConnectTrafficQosResponse deleteExpressConnectTrafficQos(shared_ptr<DeleteExpressConnectTrafficQosRequest> request);
+  DeleteExpressConnectTrafficQosQueueResponse deleteExpressConnectTrafficQosQueueWithOptions(shared_ptr<DeleteExpressConnectTrafficQosQueueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteExpressConnectTrafficQosQueueResponse deleteExpressConnectTrafficQosQueue(shared_ptr<DeleteExpressConnectTrafficQosQueueRequest> request);
+  DeleteExpressConnectTrafficQosRuleResponse deleteExpressConnectTrafficQosRuleWithOptions(shared_ptr<DeleteExpressConnectTrafficQosRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteExpressConnectTrafficQosRuleResponse deleteExpressConnectTrafficQosRule(shared_ptr<DeleteExpressConnectTrafficQosRuleRequest> request);
   DeleteFailoverTestJobResponse deleteFailoverTestJobWithOptions(shared_ptr<DeleteFailoverTestJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteFailoverTestJobResponse deleteFailoverTestJob(shared_ptr<DeleteFailoverTestJobRequest> request);
   DeleteFlowLogResponse deleteFlowLogWithOptions(shared_ptr<DeleteFlowLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -98798,6 +101655,12 @@ public:
   DescribeEipMonitorDataResponse describeEipMonitorData(shared_ptr<DescribeEipMonitorDataRequest> request);
   DescribeEipSegmentResponse describeEipSegmentWithOptions(shared_ptr<DescribeEipSegmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeEipSegmentResponse describeEipSegment(shared_ptr<DescribeEipSegmentRequest> request);
+  DescribeExpressConnectTrafficQosResponse describeExpressConnectTrafficQosWithOptions(shared_ptr<DescribeExpressConnectTrafficQosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeExpressConnectTrafficQosResponse describeExpressConnectTrafficQos(shared_ptr<DescribeExpressConnectTrafficQosRequest> request);
+  DescribeExpressConnectTrafficQosQueueResponse describeExpressConnectTrafficQosQueueWithOptions(shared_ptr<DescribeExpressConnectTrafficQosQueueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeExpressConnectTrafficQosQueueResponse describeExpressConnectTrafficQosQueue(shared_ptr<DescribeExpressConnectTrafficQosQueueRequest> request);
+  DescribeExpressConnectTrafficQosRuleResponse describeExpressConnectTrafficQosRuleWithOptions(shared_ptr<DescribeExpressConnectTrafficQosRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeExpressConnectTrafficQosRuleResponse describeExpressConnectTrafficQosRule(shared_ptr<DescribeExpressConnectTrafficQosRuleRequest> request);
   DescribeFailoverTestJobResponse describeFailoverTestJobWithOptions(shared_ptr<DescribeFailoverTestJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeFailoverTestJobResponse describeFailoverTestJob(shared_ptr<DescribeFailoverTestJobRequest> request);
   DescribeFailoverTestJobsResponse describeFailoverTestJobsWithOptions(shared_ptr<DescribeFailoverTestJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -99032,6 +101895,12 @@ public:
   ModifyExpressCloudConnectionAttributeResponse modifyExpressCloudConnectionAttribute(shared_ptr<ModifyExpressCloudConnectionAttributeRequest> request);
   ModifyExpressCloudConnectionBandwidthResponse modifyExpressCloudConnectionBandwidthWithOptions(shared_ptr<ModifyExpressCloudConnectionBandwidthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyExpressCloudConnectionBandwidthResponse modifyExpressCloudConnectionBandwidth(shared_ptr<ModifyExpressCloudConnectionBandwidthRequest> request);
+  ModifyExpressConnectTrafficQosResponse modifyExpressConnectTrafficQosWithOptions(shared_ptr<ModifyExpressConnectTrafficQosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyExpressConnectTrafficQosResponse modifyExpressConnectTrafficQos(shared_ptr<ModifyExpressConnectTrafficQosRequest> request);
+  ModifyExpressConnectTrafficQosQueueResponse modifyExpressConnectTrafficQosQueueWithOptions(shared_ptr<ModifyExpressConnectTrafficQosQueueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyExpressConnectTrafficQosQueueResponse modifyExpressConnectTrafficQosQueue(shared_ptr<ModifyExpressConnectTrafficQosQueueRequest> request);
+  ModifyExpressConnectTrafficQosRuleResponse modifyExpressConnectTrafficQosRuleWithOptions(shared_ptr<ModifyExpressConnectTrafficQosRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyExpressConnectTrafficQosRuleResponse modifyExpressConnectTrafficQosRule(shared_ptr<ModifyExpressConnectTrafficQosRuleRequest> request);
   ModifyFlowLogAttributeResponse modifyFlowLogAttributeWithOptions(shared_ptr<ModifyFlowLogAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyFlowLogAttributeResponse modifyFlowLogAttribute(shared_ptr<ModifyFlowLogAttributeRequest> request);
   ModifyForwardEntryResponse modifyForwardEntryWithOptions(shared_ptr<ModifyForwardEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
