@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -164,8 +163,13 @@ AddUserResponse Alibabacloud_Quickbi-public20220101::Client::addUserWithOptions(
   if (!Darabonba_Util::Client::isUnset<long>(request->userType)) {
     query->insert(pair<string, long>("UserType", *request->userType));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleIds)) {
+    body->insert(pair<string, string>("RoleIds", *request->roleIds));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AddUser"))},
@@ -2017,6 +2021,9 @@ QueryUserInfoByAccountResponse Alibabacloud_Quickbi-public20220101::Client::quer
   if (!Darabonba_Util::Client::isUnset<string>(request->account)) {
     query->insert(pair<string, string>("Account", *request->account));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentAccountName)) {
+    query->insert(pair<string, string>("ParentAccountName", *request->parentAccountName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2607,6 +2614,9 @@ UpdateUserResponse Alibabacloud_Quickbi-public20220101::Client::updateUserWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nickName)) {
     query->insert(pair<string, string>("NickName", *request->nickName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleIds)) {
+    query->insert(pair<string, string>("RoleIds", *request->roleIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     query->insert(pair<string, string>("UserId", *request->userId));
