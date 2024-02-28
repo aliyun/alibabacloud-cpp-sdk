@@ -14,6 +14,151 @@
 using namespace std;
 
 namespace Alibabacloud_Ess20220222 {
+class ApplyEciScalingConfigurationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> format{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> scalingConfigurationId{};
+  shared_ptr<string> scalingGroupId{};
+
+  ApplyEciScalingConfigurationRequest() {}
+
+  explicit ApplyEciScalingConfigurationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (format) {
+      res["Format"] = boost::any(*format);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (scalingConfigurationId) {
+      res["ScalingConfigurationId"] = boost::any(*scalingConfigurationId);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Format") != m.end() && !m["Format"].empty()) {
+      format = make_shared<string>(boost::any_cast<string>(m["Format"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ScalingConfigurationId") != m.end() && !m["ScalingConfigurationId"].empty()) {
+      scalingConfigurationId = make_shared<string>(boost::any_cast<string>(m["ScalingConfigurationId"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~ApplyEciScalingConfigurationRequest() = default;
+};
+class ApplyEciScalingConfigurationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> scalingConfigurationId{};
+
+  ApplyEciScalingConfigurationResponseBody() {}
+
+  explicit ApplyEciScalingConfigurationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (scalingConfigurationId) {
+      res["ScalingConfigurationId"] = boost::any(*scalingConfigurationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ScalingConfigurationId") != m.end() && !m["ScalingConfigurationId"].empty()) {
+      scalingConfigurationId = make_shared<string>(boost::any_cast<string>(m["ScalingConfigurationId"]));
+    }
+  }
+
+
+  virtual ~ApplyEciScalingConfigurationResponseBody() = default;
+};
+class ApplyEciScalingConfigurationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ApplyEciScalingConfigurationResponseBody> body{};
+
+  ApplyEciScalingConfigurationResponse() {}
+
+  explicit ApplyEciScalingConfigurationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ApplyEciScalingConfigurationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ApplyEciScalingConfigurationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ApplyEciScalingConfigurationResponse() = default;
+};
 class ApplyScalingGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -10347,6 +10492,2111 @@ public:
 
   virtual ~DescribeAlarmsResponse() = default;
 };
+class DescribeEciScalingConfigurationDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> outputFormat{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> scalingConfigurationId{};
+  shared_ptr<string> scalingGroupId{};
+
+  DescribeEciScalingConfigurationDetailRequest() {}
+
+  explicit DescribeEciScalingConfigurationDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (outputFormat) {
+      res["OutputFormat"] = boost::any(*outputFormat);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (scalingConfigurationId) {
+      res["ScalingConfigurationId"] = boost::any(*scalingConfigurationId);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OutputFormat") != m.end() && !m["OutputFormat"].empty()) {
+      outputFormat = make_shared<string>(boost::any_cast<string>(m["OutputFormat"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ScalingConfigurationId") != m.end() && !m["ScalingConfigurationId"].empty()) {
+      scalingConfigurationId = make_shared<string>(boost::any_cast<string>(m["ScalingConfigurationId"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailRequest() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationAcrRegistryInfos : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> domains{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> regionId{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationAcrRegistryInfos() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationAcrRegistryInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domains) {
+      res["Domains"] = boost::any(*domains);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domains") != m.end() && !m["Domains"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Domains"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Domains"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      domains = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationAcrRegistryInfos() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersEnvironmentVars : public Darabonba::Model {
+public:
+  shared_ptr<string> fieldRefFieldPath{};
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersEnvironmentVars() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersEnvironmentVars(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fieldRefFieldPath) {
+      res["FieldRefFieldPath"] = boost::any(*fieldRefFieldPath);
+    }
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FieldRefFieldPath") != m.end() && !m["FieldRefFieldPath"].empty()) {
+      fieldRefFieldPath = make_shared<string>(boost::any_cast<string>(m["FieldRefFieldPath"]));
+    }
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersEnvironmentVars() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersPorts : public Darabonba::Model {
+public:
+  shared_ptr<long> port{};
+  shared_ptr<string> protocol{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersPorts() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersPorts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersPorts() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersVolumeMounts : public Darabonba::Model {
+public:
+  shared_ptr<string> mountPath{};
+  shared_ptr<string> mountPropagation{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> readOnly{};
+  shared_ptr<string> subPath{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersVolumeMounts() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersVolumeMounts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mountPath) {
+      res["MountPath"] = boost::any(*mountPath);
+    }
+    if (mountPropagation) {
+      res["MountPropagation"] = boost::any(*mountPropagation);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (readOnly) {
+      res["ReadOnly"] = boost::any(*readOnly);
+    }
+    if (subPath) {
+      res["SubPath"] = boost::any(*subPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
+      mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
+    }
+    if (m.find("MountPropagation") != m.end() && !m["MountPropagation"].empty()) {
+      mountPropagation = make_shared<string>(boost::any_cast<string>(m["MountPropagation"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ReadOnly") != m.end() && !m["ReadOnly"].empty()) {
+      readOnly = make_shared<bool>(boost::any_cast<bool>(m["ReadOnly"]));
+    }
+    if (m.find("SubPath") != m.end() && !m["SubPath"].empty()) {
+      subPath = make_shared<string>(boost::any_cast<string>(m["SubPath"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersVolumeMounts() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainers : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> args{};
+  shared_ptr<vector<string>> commands{};
+  shared_ptr<double> cpu{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersEnvironmentVars>> environmentVars{};
+  shared_ptr<long> gpu{};
+  shared_ptr<string> image{};
+  shared_ptr<string> imagePullPolicy{};
+  shared_ptr<vector<string>> lifecyclePostStartHandlerExecs{};
+  shared_ptr<string> lifecyclePostStartHandlerHttpGetHost{};
+  shared_ptr<string> lifecyclePostStartHandlerHttpGetPath{};
+  shared_ptr<long> lifecyclePostStartHandlerHttpGetPort{};
+  shared_ptr<string> lifecyclePostStartHandlerHttpGetScheme{};
+  shared_ptr<string> lifecyclePostStartHandlerTcpSocketHost{};
+  shared_ptr<long> lifecyclePostStartHandlerTcpSocketPort{};
+  shared_ptr<vector<string>> lifecyclePreStopHandlerExecs{};
+  shared_ptr<string> lifecyclePreStopHandlerHttpGetHost{};
+  shared_ptr<string> lifecyclePreStopHandlerHttpGetPath{};
+  shared_ptr<long> lifecyclePreStopHandlerHttpGetPort{};
+  shared_ptr<string> lifecyclePreStopHandlerHttpGetScheme{};
+  shared_ptr<string> lifecyclePreStopHandlerTcpSocketHost{};
+  shared_ptr<long> lifecyclePreStopHandlerTcpSocketPort{};
+  shared_ptr<vector<string>> livenessProbeExecCommands{};
+  shared_ptr<long> livenessProbeFailureThreshold{};
+  shared_ptr<string> livenessProbeHttpGetPath{};
+  shared_ptr<long> livenessProbeHttpGetPort{};
+  shared_ptr<string> livenessProbeHttpGetScheme{};
+  shared_ptr<long> livenessProbeInitialDelaySeconds{};
+  shared_ptr<long> livenessProbePeriodSeconds{};
+  shared_ptr<long> livenessProbeSuccessThreshold{};
+  shared_ptr<long> livenessProbeTcpSocketPort{};
+  shared_ptr<long> livenessProbeTimeoutSeconds{};
+  shared_ptr<double> memory{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersPorts>> ports{};
+  shared_ptr<vector<string>> readinessProbeExecCommands{};
+  shared_ptr<long> readinessProbeFailureThreshold{};
+  shared_ptr<string> readinessProbeHttpGetPath{};
+  shared_ptr<long> readinessProbeHttpGetPort{};
+  shared_ptr<string> readinessProbeHttpGetScheme{};
+  shared_ptr<long> readinessProbeInitialDelaySeconds{};
+  shared_ptr<long> readinessProbePeriodSeconds{};
+  shared_ptr<long> readinessProbeSuccessThreshold{};
+  shared_ptr<long> readinessProbeTcpSocketPort{};
+  shared_ptr<long> readinessProbeTimeoutSeconds{};
+  shared_ptr<vector<string>> securityContextCapabilityAdds{};
+  shared_ptr<bool> securityContextReadOnlyRootFilesystem{};
+  shared_ptr<long> securityContextRunAsUser{};
+  shared_ptr<bool> stdin{};
+  shared_ptr<bool> stdinOnce{};
+  shared_ptr<bool> tty{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersVolumeMounts>> volumeMounts{};
+  shared_ptr<string> workingDir{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainers() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (args) {
+      res["Args"] = boost::any(*args);
+    }
+    if (commands) {
+      res["Commands"] = boost::any(*commands);
+    }
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (environmentVars) {
+      vector<boost::any> temp1;
+      for(auto item1:*environmentVars){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EnvironmentVars"] = boost::any(temp1);
+    }
+    if (gpu) {
+      res["Gpu"] = boost::any(*gpu);
+    }
+    if (image) {
+      res["Image"] = boost::any(*image);
+    }
+    if (imagePullPolicy) {
+      res["ImagePullPolicy"] = boost::any(*imagePullPolicy);
+    }
+    if (lifecyclePostStartHandlerExecs) {
+      res["LifecyclePostStartHandlerExecs"] = boost::any(*lifecyclePostStartHandlerExecs);
+    }
+    if (lifecyclePostStartHandlerHttpGetHost) {
+      res["LifecyclePostStartHandlerHttpGetHost"] = boost::any(*lifecyclePostStartHandlerHttpGetHost);
+    }
+    if (lifecyclePostStartHandlerHttpGetPath) {
+      res["LifecyclePostStartHandlerHttpGetPath"] = boost::any(*lifecyclePostStartHandlerHttpGetPath);
+    }
+    if (lifecyclePostStartHandlerHttpGetPort) {
+      res["LifecyclePostStartHandlerHttpGetPort"] = boost::any(*lifecyclePostStartHandlerHttpGetPort);
+    }
+    if (lifecyclePostStartHandlerHttpGetScheme) {
+      res["LifecyclePostStartHandlerHttpGetScheme"] = boost::any(*lifecyclePostStartHandlerHttpGetScheme);
+    }
+    if (lifecyclePostStartHandlerTcpSocketHost) {
+      res["LifecyclePostStartHandlerTcpSocketHost"] = boost::any(*lifecyclePostStartHandlerTcpSocketHost);
+    }
+    if (lifecyclePostStartHandlerTcpSocketPort) {
+      res["LifecyclePostStartHandlerTcpSocketPort"] = boost::any(*lifecyclePostStartHandlerTcpSocketPort);
+    }
+    if (lifecyclePreStopHandlerExecs) {
+      res["LifecyclePreStopHandlerExecs"] = boost::any(*lifecyclePreStopHandlerExecs);
+    }
+    if (lifecyclePreStopHandlerHttpGetHost) {
+      res["LifecyclePreStopHandlerHttpGetHost"] = boost::any(*lifecyclePreStopHandlerHttpGetHost);
+    }
+    if (lifecyclePreStopHandlerHttpGetPath) {
+      res["LifecyclePreStopHandlerHttpGetPath"] = boost::any(*lifecyclePreStopHandlerHttpGetPath);
+    }
+    if (lifecyclePreStopHandlerHttpGetPort) {
+      res["LifecyclePreStopHandlerHttpGetPort"] = boost::any(*lifecyclePreStopHandlerHttpGetPort);
+    }
+    if (lifecyclePreStopHandlerHttpGetScheme) {
+      res["LifecyclePreStopHandlerHttpGetScheme"] = boost::any(*lifecyclePreStopHandlerHttpGetScheme);
+    }
+    if (lifecyclePreStopHandlerTcpSocketHost) {
+      res["LifecyclePreStopHandlerTcpSocketHost"] = boost::any(*lifecyclePreStopHandlerTcpSocketHost);
+    }
+    if (lifecyclePreStopHandlerTcpSocketPort) {
+      res["LifecyclePreStopHandlerTcpSocketPort"] = boost::any(*lifecyclePreStopHandlerTcpSocketPort);
+    }
+    if (livenessProbeExecCommands) {
+      res["LivenessProbeExecCommands"] = boost::any(*livenessProbeExecCommands);
+    }
+    if (livenessProbeFailureThreshold) {
+      res["LivenessProbeFailureThreshold"] = boost::any(*livenessProbeFailureThreshold);
+    }
+    if (livenessProbeHttpGetPath) {
+      res["LivenessProbeHttpGetPath"] = boost::any(*livenessProbeHttpGetPath);
+    }
+    if (livenessProbeHttpGetPort) {
+      res["LivenessProbeHttpGetPort"] = boost::any(*livenessProbeHttpGetPort);
+    }
+    if (livenessProbeHttpGetScheme) {
+      res["LivenessProbeHttpGetScheme"] = boost::any(*livenessProbeHttpGetScheme);
+    }
+    if (livenessProbeInitialDelaySeconds) {
+      res["LivenessProbeInitialDelaySeconds"] = boost::any(*livenessProbeInitialDelaySeconds);
+    }
+    if (livenessProbePeriodSeconds) {
+      res["LivenessProbePeriodSeconds"] = boost::any(*livenessProbePeriodSeconds);
+    }
+    if (livenessProbeSuccessThreshold) {
+      res["LivenessProbeSuccessThreshold"] = boost::any(*livenessProbeSuccessThreshold);
+    }
+    if (livenessProbeTcpSocketPort) {
+      res["LivenessProbeTcpSocketPort"] = boost::any(*livenessProbeTcpSocketPort);
+    }
+    if (livenessProbeTimeoutSeconds) {
+      res["LivenessProbeTimeoutSeconds"] = boost::any(*livenessProbeTimeoutSeconds);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (ports) {
+      vector<boost::any> temp1;
+      for(auto item1:*ports){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Ports"] = boost::any(temp1);
+    }
+    if (readinessProbeExecCommands) {
+      res["ReadinessProbeExecCommands"] = boost::any(*readinessProbeExecCommands);
+    }
+    if (readinessProbeFailureThreshold) {
+      res["ReadinessProbeFailureThreshold"] = boost::any(*readinessProbeFailureThreshold);
+    }
+    if (readinessProbeHttpGetPath) {
+      res["ReadinessProbeHttpGetPath"] = boost::any(*readinessProbeHttpGetPath);
+    }
+    if (readinessProbeHttpGetPort) {
+      res["ReadinessProbeHttpGetPort"] = boost::any(*readinessProbeHttpGetPort);
+    }
+    if (readinessProbeHttpGetScheme) {
+      res["ReadinessProbeHttpGetScheme"] = boost::any(*readinessProbeHttpGetScheme);
+    }
+    if (readinessProbeInitialDelaySeconds) {
+      res["ReadinessProbeInitialDelaySeconds"] = boost::any(*readinessProbeInitialDelaySeconds);
+    }
+    if (readinessProbePeriodSeconds) {
+      res["ReadinessProbePeriodSeconds"] = boost::any(*readinessProbePeriodSeconds);
+    }
+    if (readinessProbeSuccessThreshold) {
+      res["ReadinessProbeSuccessThreshold"] = boost::any(*readinessProbeSuccessThreshold);
+    }
+    if (readinessProbeTcpSocketPort) {
+      res["ReadinessProbeTcpSocketPort"] = boost::any(*readinessProbeTcpSocketPort);
+    }
+    if (readinessProbeTimeoutSeconds) {
+      res["ReadinessProbeTimeoutSeconds"] = boost::any(*readinessProbeTimeoutSeconds);
+    }
+    if (securityContextCapabilityAdds) {
+      res["SecurityContextCapabilityAdds"] = boost::any(*securityContextCapabilityAdds);
+    }
+    if (securityContextReadOnlyRootFilesystem) {
+      res["SecurityContextReadOnlyRootFilesystem"] = boost::any(*securityContextReadOnlyRootFilesystem);
+    }
+    if (securityContextRunAsUser) {
+      res["SecurityContextRunAsUser"] = boost::any(*securityContextRunAsUser);
+    }
+    if (stdin) {
+      res["Stdin"] = boost::any(*stdin);
+    }
+    if (stdinOnce) {
+      res["StdinOnce"] = boost::any(*stdinOnce);
+    }
+    if (tty) {
+      res["Tty"] = boost::any(*tty);
+    }
+    if (volumeMounts) {
+      vector<boost::any> temp1;
+      for(auto item1:*volumeMounts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VolumeMounts"] = boost::any(temp1);
+    }
+    if (workingDir) {
+      res["WorkingDir"] = boost::any(*workingDir);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Args") != m.end() && !m["Args"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Args"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Args"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      args = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Commands") != m.end() && !m["Commands"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Commands"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Commands"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      commands = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["Cpu"]));
+    }
+    if (m.find("EnvironmentVars") != m.end() && !m["EnvironmentVars"].empty()) {
+      if (typeid(vector<boost::any>) == m["EnvironmentVars"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersEnvironmentVars> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EnvironmentVars"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersEnvironmentVars model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        environmentVars = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersEnvironmentVars>>(expect1);
+      }
+    }
+    if (m.find("Gpu") != m.end() && !m["Gpu"].empty()) {
+      gpu = make_shared<long>(boost::any_cast<long>(m["Gpu"]));
+    }
+    if (m.find("Image") != m.end() && !m["Image"].empty()) {
+      image = make_shared<string>(boost::any_cast<string>(m["Image"]));
+    }
+    if (m.find("ImagePullPolicy") != m.end() && !m["ImagePullPolicy"].empty()) {
+      imagePullPolicy = make_shared<string>(boost::any_cast<string>(m["ImagePullPolicy"]));
+    }
+    if (m.find("LifecyclePostStartHandlerExecs") != m.end() && !m["LifecyclePostStartHandlerExecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LifecyclePostStartHandlerExecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LifecyclePostStartHandlerExecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      lifecyclePostStartHandlerExecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetHost") != m.end() && !m["LifecyclePostStartHandlerHttpGetHost"].empty()) {
+      lifecyclePostStartHandlerHttpGetHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerHttpGetHost"]));
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetPath") != m.end() && !m["LifecyclePostStartHandlerHttpGetPath"].empty()) {
+      lifecyclePostStartHandlerHttpGetPath = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerHttpGetPath"]));
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetPort") != m.end() && !m["LifecyclePostStartHandlerHttpGetPort"].empty()) {
+      lifecyclePostStartHandlerHttpGetPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePostStartHandlerHttpGetPort"]));
+    }
+    if (m.find("LifecyclePostStartHandlerHttpGetScheme") != m.end() && !m["LifecyclePostStartHandlerHttpGetScheme"].empty()) {
+      lifecyclePostStartHandlerHttpGetScheme = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerHttpGetScheme"]));
+    }
+    if (m.find("LifecyclePostStartHandlerTcpSocketHost") != m.end() && !m["LifecyclePostStartHandlerTcpSocketHost"].empty()) {
+      lifecyclePostStartHandlerTcpSocketHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePostStartHandlerTcpSocketHost"]));
+    }
+    if (m.find("LifecyclePostStartHandlerTcpSocketPort") != m.end() && !m["LifecyclePostStartHandlerTcpSocketPort"].empty()) {
+      lifecyclePostStartHandlerTcpSocketPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePostStartHandlerTcpSocketPort"]));
+    }
+    if (m.find("LifecyclePreStopHandlerExecs") != m.end() && !m["LifecyclePreStopHandlerExecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LifecyclePreStopHandlerExecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LifecyclePreStopHandlerExecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      lifecyclePreStopHandlerExecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetHost") != m.end() && !m["LifecyclePreStopHandlerHttpGetHost"].empty()) {
+      lifecyclePreStopHandlerHttpGetHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerHttpGetHost"]));
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetPath") != m.end() && !m["LifecyclePreStopHandlerHttpGetPath"].empty()) {
+      lifecyclePreStopHandlerHttpGetPath = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerHttpGetPath"]));
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetPort") != m.end() && !m["LifecyclePreStopHandlerHttpGetPort"].empty()) {
+      lifecyclePreStopHandlerHttpGetPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePreStopHandlerHttpGetPort"]));
+    }
+    if (m.find("LifecyclePreStopHandlerHttpGetScheme") != m.end() && !m["LifecyclePreStopHandlerHttpGetScheme"].empty()) {
+      lifecyclePreStopHandlerHttpGetScheme = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerHttpGetScheme"]));
+    }
+    if (m.find("LifecyclePreStopHandlerTcpSocketHost") != m.end() && !m["LifecyclePreStopHandlerTcpSocketHost"].empty()) {
+      lifecyclePreStopHandlerTcpSocketHost = make_shared<string>(boost::any_cast<string>(m["LifecyclePreStopHandlerTcpSocketHost"]));
+    }
+    if (m.find("LifecyclePreStopHandlerTcpSocketPort") != m.end() && !m["LifecyclePreStopHandlerTcpSocketPort"].empty()) {
+      lifecyclePreStopHandlerTcpSocketPort = make_shared<long>(boost::any_cast<long>(m["LifecyclePreStopHandlerTcpSocketPort"]));
+    }
+    if (m.find("LivenessProbeExecCommands") != m.end() && !m["LivenessProbeExecCommands"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LivenessProbeExecCommands"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LivenessProbeExecCommands"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      livenessProbeExecCommands = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LivenessProbeFailureThreshold") != m.end() && !m["LivenessProbeFailureThreshold"].empty()) {
+      livenessProbeFailureThreshold = make_shared<long>(boost::any_cast<long>(m["LivenessProbeFailureThreshold"]));
+    }
+    if (m.find("LivenessProbeHttpGetPath") != m.end() && !m["LivenessProbeHttpGetPath"].empty()) {
+      livenessProbeHttpGetPath = make_shared<string>(boost::any_cast<string>(m["LivenessProbeHttpGetPath"]));
+    }
+    if (m.find("LivenessProbeHttpGetPort") != m.end() && !m["LivenessProbeHttpGetPort"].empty()) {
+      livenessProbeHttpGetPort = make_shared<long>(boost::any_cast<long>(m["LivenessProbeHttpGetPort"]));
+    }
+    if (m.find("LivenessProbeHttpGetScheme") != m.end() && !m["LivenessProbeHttpGetScheme"].empty()) {
+      livenessProbeHttpGetScheme = make_shared<string>(boost::any_cast<string>(m["LivenessProbeHttpGetScheme"]));
+    }
+    if (m.find("LivenessProbeInitialDelaySeconds") != m.end() && !m["LivenessProbeInitialDelaySeconds"].empty()) {
+      livenessProbeInitialDelaySeconds = make_shared<long>(boost::any_cast<long>(m["LivenessProbeInitialDelaySeconds"]));
+    }
+    if (m.find("LivenessProbePeriodSeconds") != m.end() && !m["LivenessProbePeriodSeconds"].empty()) {
+      livenessProbePeriodSeconds = make_shared<long>(boost::any_cast<long>(m["LivenessProbePeriodSeconds"]));
+    }
+    if (m.find("LivenessProbeSuccessThreshold") != m.end() && !m["LivenessProbeSuccessThreshold"].empty()) {
+      livenessProbeSuccessThreshold = make_shared<long>(boost::any_cast<long>(m["LivenessProbeSuccessThreshold"]));
+    }
+    if (m.find("LivenessProbeTcpSocketPort") != m.end() && !m["LivenessProbeTcpSocketPort"].empty()) {
+      livenessProbeTcpSocketPort = make_shared<long>(boost::any_cast<long>(m["LivenessProbeTcpSocketPort"]));
+    }
+    if (m.find("LivenessProbeTimeoutSeconds") != m.end() && !m["LivenessProbeTimeoutSeconds"].empty()) {
+      livenessProbeTimeoutSeconds = make_shared<long>(boost::any_cast<long>(m["LivenessProbeTimeoutSeconds"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Ports") != m.end() && !m["Ports"].empty()) {
+      if (typeid(vector<boost::any>) == m["Ports"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersPorts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Ports"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersPorts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ports = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersPorts>>(expect1);
+      }
+    }
+    if (m.find("ReadinessProbeExecCommands") != m.end() && !m["ReadinessProbeExecCommands"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ReadinessProbeExecCommands"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ReadinessProbeExecCommands"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      readinessProbeExecCommands = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ReadinessProbeFailureThreshold") != m.end() && !m["ReadinessProbeFailureThreshold"].empty()) {
+      readinessProbeFailureThreshold = make_shared<long>(boost::any_cast<long>(m["ReadinessProbeFailureThreshold"]));
+    }
+    if (m.find("ReadinessProbeHttpGetPath") != m.end() && !m["ReadinessProbeHttpGetPath"].empty()) {
+      readinessProbeHttpGetPath = make_shared<string>(boost::any_cast<string>(m["ReadinessProbeHttpGetPath"]));
+    }
+    if (m.find("ReadinessProbeHttpGetPort") != m.end() && !m["ReadinessProbeHttpGetPort"].empty()) {
+      readinessProbeHttpGetPort = make_shared<long>(boost::any_cast<long>(m["ReadinessProbeHttpGetPort"]));
+    }
+    if (m.find("ReadinessProbeHttpGetScheme") != m.end() && !m["ReadinessProbeHttpGetScheme"].empty()) {
+      readinessProbeHttpGetScheme = make_shared<string>(boost::any_cast<string>(m["ReadinessProbeHttpGetScheme"]));
+    }
+    if (m.find("ReadinessProbeInitialDelaySeconds") != m.end() && !m["ReadinessProbeInitialDelaySeconds"].empty()) {
+      readinessProbeInitialDelaySeconds = make_shared<long>(boost::any_cast<long>(m["ReadinessProbeInitialDelaySeconds"]));
+    }
+    if (m.find("ReadinessProbePeriodSeconds") != m.end() && !m["ReadinessProbePeriodSeconds"].empty()) {
+      readinessProbePeriodSeconds = make_shared<long>(boost::any_cast<long>(m["ReadinessProbePeriodSeconds"]));
+    }
+    if (m.find("ReadinessProbeSuccessThreshold") != m.end() && !m["ReadinessProbeSuccessThreshold"].empty()) {
+      readinessProbeSuccessThreshold = make_shared<long>(boost::any_cast<long>(m["ReadinessProbeSuccessThreshold"]));
+    }
+    if (m.find("ReadinessProbeTcpSocketPort") != m.end() && !m["ReadinessProbeTcpSocketPort"].empty()) {
+      readinessProbeTcpSocketPort = make_shared<long>(boost::any_cast<long>(m["ReadinessProbeTcpSocketPort"]));
+    }
+    if (m.find("ReadinessProbeTimeoutSeconds") != m.end() && !m["ReadinessProbeTimeoutSeconds"].empty()) {
+      readinessProbeTimeoutSeconds = make_shared<long>(boost::any_cast<long>(m["ReadinessProbeTimeoutSeconds"]));
+    }
+    if (m.find("SecurityContextCapabilityAdds") != m.end() && !m["SecurityContextCapabilityAdds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityContextCapabilityAdds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityContextCapabilityAdds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityContextCapabilityAdds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SecurityContextReadOnlyRootFilesystem") != m.end() && !m["SecurityContextReadOnlyRootFilesystem"].empty()) {
+      securityContextReadOnlyRootFilesystem = make_shared<bool>(boost::any_cast<bool>(m["SecurityContextReadOnlyRootFilesystem"]));
+    }
+    if (m.find("SecurityContextRunAsUser") != m.end() && !m["SecurityContextRunAsUser"].empty()) {
+      securityContextRunAsUser = make_shared<long>(boost::any_cast<long>(m["SecurityContextRunAsUser"]));
+    }
+    if (m.find("Stdin") != m.end() && !m["Stdin"].empty()) {
+      stdin = make_shared<bool>(boost::any_cast<bool>(m["Stdin"]));
+    }
+    if (m.find("StdinOnce") != m.end() && !m["StdinOnce"].empty()) {
+      stdinOnce = make_shared<bool>(boost::any_cast<bool>(m["StdinOnce"]));
+    }
+    if (m.find("Tty") != m.end() && !m["Tty"].empty()) {
+      tty = make_shared<bool>(boost::any_cast<bool>(m["Tty"]));
+    }
+    if (m.find("VolumeMounts") != m.end() && !m["VolumeMounts"].empty()) {
+      if (typeid(vector<boost::any>) == m["VolumeMounts"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersVolumeMounts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VolumeMounts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersVolumeMounts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        volumeMounts = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainersVolumeMounts>>(expect1);
+      }
+    }
+    if (m.find("WorkingDir") != m.end() && !m["WorkingDir"].empty()) {
+      workingDir = make_shared<string>(boost::any_cast<string>(m["WorkingDir"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainers() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationDnsConfigOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationDnsConfigOptions() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationDnsConfigOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationDnsConfigOptions() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationHostAliases : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> hostnames{};
+  shared_ptr<string> ip{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationHostAliases() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationHostAliases(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostnames) {
+      res["Hostnames"] = boost::any(*hostnames);
+    }
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Hostnames") != m.end() && !m["Hostnames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Hostnames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Hostnames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      hostnames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationHostAliases() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationImageRegistryCredentials : public Darabonba::Model {
+public:
+  shared_ptr<string> password{};
+  shared_ptr<string> server{};
+  shared_ptr<string> userName{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationImageRegistryCredentials() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationImageRegistryCredentials(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (server) {
+      res["Server"] = boost::any(*server);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("Server") != m.end() && !m["Server"].empty()) {
+      server = make_shared<string>(boost::any_cast<string>(m["Server"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationImageRegistryCredentials() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerEnvironmentVars : public Darabonba::Model {
+public:
+  shared_ptr<string> fieldRefFieldPath{};
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerEnvironmentVars() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerEnvironmentVars(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fieldRefFieldPath) {
+      res["FieldRefFieldPath"] = boost::any(*fieldRefFieldPath);
+    }
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FieldRefFieldPath") != m.end() && !m["FieldRefFieldPath"].empty()) {
+      fieldRefFieldPath = make_shared<string>(boost::any_cast<string>(m["FieldRefFieldPath"]));
+    }
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerEnvironmentVars() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerPorts : public Darabonba::Model {
+public:
+  shared_ptr<long> port{};
+  shared_ptr<string> protocol{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerPorts() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerPorts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerPorts() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerVolumeMounts : public Darabonba::Model {
+public:
+  shared_ptr<string> mountPath{};
+  shared_ptr<string> mountPropagation{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> readOnly{};
+  shared_ptr<string> subPath{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerVolumeMounts() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerVolumeMounts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mountPath) {
+      res["MountPath"] = boost::any(*mountPath);
+    }
+    if (mountPropagation) {
+      res["MountPropagation"] = boost::any(*mountPropagation);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (readOnly) {
+      res["ReadOnly"] = boost::any(*readOnly);
+    }
+    if (subPath) {
+      res["SubPath"] = boost::any(*subPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
+      mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
+    }
+    if (m.find("MountPropagation") != m.end() && !m["MountPropagation"].empty()) {
+      mountPropagation = make_shared<string>(boost::any_cast<string>(m["MountPropagation"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ReadOnly") != m.end() && !m["ReadOnly"].empty()) {
+      readOnly = make_shared<bool>(boost::any_cast<bool>(m["ReadOnly"]));
+    }
+    if (m.find("SubPath") != m.end() && !m["SubPath"].empty()) {
+      subPath = make_shared<string>(boost::any_cast<string>(m["SubPath"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerVolumeMounts() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainers : public Darabonba::Model {
+public:
+  shared_ptr<double> cpu{};
+  shared_ptr<long> gpu{};
+  shared_ptr<string> image{};
+  shared_ptr<string> imagePullPolicy{};
+  shared_ptr<vector<string>> initContainerArgs{};
+  shared_ptr<vector<string>> initContainerCommands{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerEnvironmentVars>> initContainerEnvironmentVars{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerPorts>> initContainerPorts{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerVolumeMounts>> initContainerVolumeMounts{};
+  shared_ptr<double> memory{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> securityContextCapabilityAdds{};
+  shared_ptr<bool> securityContextReadOnlyRootFilesystem{};
+  shared_ptr<string> securityContextRunAsUser{};
+  shared_ptr<string> workingDir{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainers() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (gpu) {
+      res["Gpu"] = boost::any(*gpu);
+    }
+    if (image) {
+      res["Image"] = boost::any(*image);
+    }
+    if (imagePullPolicy) {
+      res["ImagePullPolicy"] = boost::any(*imagePullPolicy);
+    }
+    if (initContainerArgs) {
+      res["InitContainerArgs"] = boost::any(*initContainerArgs);
+    }
+    if (initContainerCommands) {
+      res["InitContainerCommands"] = boost::any(*initContainerCommands);
+    }
+    if (initContainerEnvironmentVars) {
+      vector<boost::any> temp1;
+      for(auto item1:*initContainerEnvironmentVars){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InitContainerEnvironmentVars"] = boost::any(temp1);
+    }
+    if (initContainerPorts) {
+      vector<boost::any> temp1;
+      for(auto item1:*initContainerPorts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InitContainerPorts"] = boost::any(temp1);
+    }
+    if (initContainerVolumeMounts) {
+      vector<boost::any> temp1;
+      for(auto item1:*initContainerVolumeMounts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InitContainerVolumeMounts"] = boost::any(temp1);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (securityContextCapabilityAdds) {
+      res["SecurityContextCapabilityAdds"] = boost::any(*securityContextCapabilityAdds);
+    }
+    if (securityContextReadOnlyRootFilesystem) {
+      res["SecurityContextReadOnlyRootFilesystem"] = boost::any(*securityContextReadOnlyRootFilesystem);
+    }
+    if (securityContextRunAsUser) {
+      res["SecurityContextRunAsUser"] = boost::any(*securityContextRunAsUser);
+    }
+    if (workingDir) {
+      res["WorkingDir"] = boost::any(*workingDir);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["Cpu"]));
+    }
+    if (m.find("Gpu") != m.end() && !m["Gpu"].empty()) {
+      gpu = make_shared<long>(boost::any_cast<long>(m["Gpu"]));
+    }
+    if (m.find("Image") != m.end() && !m["Image"].empty()) {
+      image = make_shared<string>(boost::any_cast<string>(m["Image"]));
+    }
+    if (m.find("ImagePullPolicy") != m.end() && !m["ImagePullPolicy"].empty()) {
+      imagePullPolicy = make_shared<string>(boost::any_cast<string>(m["ImagePullPolicy"]));
+    }
+    if (m.find("InitContainerArgs") != m.end() && !m["InitContainerArgs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InitContainerArgs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InitContainerArgs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      initContainerArgs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InitContainerCommands") != m.end() && !m["InitContainerCommands"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InitContainerCommands"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InitContainerCommands"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      initContainerCommands = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InitContainerEnvironmentVars") != m.end() && !m["InitContainerEnvironmentVars"].empty()) {
+      if (typeid(vector<boost::any>) == m["InitContainerEnvironmentVars"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerEnvironmentVars> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InitContainerEnvironmentVars"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerEnvironmentVars model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        initContainerEnvironmentVars = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerEnvironmentVars>>(expect1);
+      }
+    }
+    if (m.find("InitContainerPorts") != m.end() && !m["InitContainerPorts"].empty()) {
+      if (typeid(vector<boost::any>) == m["InitContainerPorts"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerPorts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InitContainerPorts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerPorts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        initContainerPorts = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerPorts>>(expect1);
+      }
+    }
+    if (m.find("InitContainerVolumeMounts") != m.end() && !m["InitContainerVolumeMounts"].empty()) {
+      if (typeid(vector<boost::any>) == m["InitContainerVolumeMounts"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerVolumeMounts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InitContainerVolumeMounts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerVolumeMounts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        initContainerVolumeMounts = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainersInitContainerVolumeMounts>>(expect1);
+      }
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SecurityContextCapabilityAdds") != m.end() && !m["SecurityContextCapabilityAdds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityContextCapabilityAdds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityContextCapabilityAdds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityContextCapabilityAdds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SecurityContextReadOnlyRootFilesystem") != m.end() && !m["SecurityContextReadOnlyRootFilesystem"].empty()) {
+      securityContextReadOnlyRootFilesystem = make_shared<bool>(boost::any_cast<bool>(m["SecurityContextReadOnlyRootFilesystem"]));
+    }
+    if (m.find("SecurityContextRunAsUser") != m.end() && !m["SecurityContextRunAsUser"].empty()) {
+      securityContextRunAsUser = make_shared<string>(boost::any_cast<string>(m["SecurityContextRunAsUser"]));
+    }
+    if (m.find("WorkingDir") != m.end() && !m["WorkingDir"].empty()) {
+      workingDir = make_shared<string>(boost::any_cast<string>(m["WorkingDir"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainers() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationSecurityContextSysCtls : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationSecurityContextSysCtls() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationSecurityContextSysCtls(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationSecurityContextSysCtls() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationTags() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationTags() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumesConfigFileVolumeConfigFileToPaths : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<long> mode{};
+  shared_ptr<string> path{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumesConfigFileVolumeConfigFileToPaths() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumesConfigFileVolumeConfigFileToPaths(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<long>(boost::any_cast<long>(m["Mode"]));
+    }
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumesConfigFileVolumeConfigFileToPaths() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumes : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumesConfigFileVolumeConfigFileToPaths>> configFileVolumeConfigFileToPaths{};
+  shared_ptr<long> configFileVolumeDefaultMode{};
+  shared_ptr<string> diskVolumeDiskId{};
+  shared_ptr<long> diskVolumeDiskSize{};
+  shared_ptr<string> diskVolumeFsType{};
+  shared_ptr<string> emptyDirVolumeMedium{};
+  shared_ptr<string> emptyDirVolumeSizeLimit{};
+  shared_ptr<string> flexVolumeDriver{};
+  shared_ptr<string> flexVolumeFsType{};
+  shared_ptr<string> flexVolumeOptions{};
+  shared_ptr<string> hostPathVolumePath{};
+  shared_ptr<string> hostPathVolumeType{};
+  shared_ptr<string> NFSVolumePath{};
+  shared_ptr<bool> NFSVolumeReadOnly{};
+  shared_ptr<string> NFSVolumeServer{};
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumes() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configFileVolumeConfigFileToPaths) {
+      vector<boost::any> temp1;
+      for(auto item1:*configFileVolumeConfigFileToPaths){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConfigFileVolumeConfigFileToPaths"] = boost::any(temp1);
+    }
+    if (configFileVolumeDefaultMode) {
+      res["ConfigFileVolumeDefaultMode"] = boost::any(*configFileVolumeDefaultMode);
+    }
+    if (diskVolumeDiskId) {
+      res["DiskVolumeDiskId"] = boost::any(*diskVolumeDiskId);
+    }
+    if (diskVolumeDiskSize) {
+      res["DiskVolumeDiskSize"] = boost::any(*diskVolumeDiskSize);
+    }
+    if (diskVolumeFsType) {
+      res["DiskVolumeFsType"] = boost::any(*diskVolumeFsType);
+    }
+    if (emptyDirVolumeMedium) {
+      res["EmptyDirVolumeMedium"] = boost::any(*emptyDirVolumeMedium);
+    }
+    if (emptyDirVolumeSizeLimit) {
+      res["EmptyDirVolumeSizeLimit"] = boost::any(*emptyDirVolumeSizeLimit);
+    }
+    if (flexVolumeDriver) {
+      res["FlexVolumeDriver"] = boost::any(*flexVolumeDriver);
+    }
+    if (flexVolumeFsType) {
+      res["FlexVolumeFsType"] = boost::any(*flexVolumeFsType);
+    }
+    if (flexVolumeOptions) {
+      res["FlexVolumeOptions"] = boost::any(*flexVolumeOptions);
+    }
+    if (hostPathVolumePath) {
+      res["HostPathVolumePath"] = boost::any(*hostPathVolumePath);
+    }
+    if (hostPathVolumeType) {
+      res["HostPathVolumeType"] = boost::any(*hostPathVolumeType);
+    }
+    if (NFSVolumePath) {
+      res["NFSVolumePath"] = boost::any(*NFSVolumePath);
+    }
+    if (NFSVolumeReadOnly) {
+      res["NFSVolumeReadOnly"] = boost::any(*NFSVolumeReadOnly);
+    }
+    if (NFSVolumeServer) {
+      res["NFSVolumeServer"] = boost::any(*NFSVolumeServer);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigFileVolumeConfigFileToPaths") != m.end() && !m["ConfigFileVolumeConfigFileToPaths"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConfigFileVolumeConfigFileToPaths"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumesConfigFileVolumeConfigFileToPaths> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConfigFileVolumeConfigFileToPaths"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumesConfigFileVolumeConfigFileToPaths model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        configFileVolumeConfigFileToPaths = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumesConfigFileVolumeConfigFileToPaths>>(expect1);
+      }
+    }
+    if (m.find("ConfigFileVolumeDefaultMode") != m.end() && !m["ConfigFileVolumeDefaultMode"].empty()) {
+      configFileVolumeDefaultMode = make_shared<long>(boost::any_cast<long>(m["ConfigFileVolumeDefaultMode"]));
+    }
+    if (m.find("DiskVolumeDiskId") != m.end() && !m["DiskVolumeDiskId"].empty()) {
+      diskVolumeDiskId = make_shared<string>(boost::any_cast<string>(m["DiskVolumeDiskId"]));
+    }
+    if (m.find("DiskVolumeDiskSize") != m.end() && !m["DiskVolumeDiskSize"].empty()) {
+      diskVolumeDiskSize = make_shared<long>(boost::any_cast<long>(m["DiskVolumeDiskSize"]));
+    }
+    if (m.find("DiskVolumeFsType") != m.end() && !m["DiskVolumeFsType"].empty()) {
+      diskVolumeFsType = make_shared<string>(boost::any_cast<string>(m["DiskVolumeFsType"]));
+    }
+    if (m.find("EmptyDirVolumeMedium") != m.end() && !m["EmptyDirVolumeMedium"].empty()) {
+      emptyDirVolumeMedium = make_shared<string>(boost::any_cast<string>(m["EmptyDirVolumeMedium"]));
+    }
+    if (m.find("EmptyDirVolumeSizeLimit") != m.end() && !m["EmptyDirVolumeSizeLimit"].empty()) {
+      emptyDirVolumeSizeLimit = make_shared<string>(boost::any_cast<string>(m["EmptyDirVolumeSizeLimit"]));
+    }
+    if (m.find("FlexVolumeDriver") != m.end() && !m["FlexVolumeDriver"].empty()) {
+      flexVolumeDriver = make_shared<string>(boost::any_cast<string>(m["FlexVolumeDriver"]));
+    }
+    if (m.find("FlexVolumeFsType") != m.end() && !m["FlexVolumeFsType"].empty()) {
+      flexVolumeFsType = make_shared<string>(boost::any_cast<string>(m["FlexVolumeFsType"]));
+    }
+    if (m.find("FlexVolumeOptions") != m.end() && !m["FlexVolumeOptions"].empty()) {
+      flexVolumeOptions = make_shared<string>(boost::any_cast<string>(m["FlexVolumeOptions"]));
+    }
+    if (m.find("HostPathVolumePath") != m.end() && !m["HostPathVolumePath"].empty()) {
+      hostPathVolumePath = make_shared<string>(boost::any_cast<string>(m["HostPathVolumePath"]));
+    }
+    if (m.find("HostPathVolumeType") != m.end() && !m["HostPathVolumeType"].empty()) {
+      hostPathVolumeType = make_shared<string>(boost::any_cast<string>(m["HostPathVolumeType"]));
+    }
+    if (m.find("NFSVolumePath") != m.end() && !m["NFSVolumePath"].empty()) {
+      NFSVolumePath = make_shared<string>(boost::any_cast<string>(m["NFSVolumePath"]));
+    }
+    if (m.find("NFSVolumeReadOnly") != m.end() && !m["NFSVolumeReadOnly"].empty()) {
+      NFSVolumeReadOnly = make_shared<bool>(boost::any_cast<bool>(m["NFSVolumeReadOnly"]));
+    }
+    if (m.find("NFSVolumeServer") != m.end() && !m["NFSVolumeServer"].empty()) {
+      NFSVolumeServer = make_shared<string>(boost::any_cast<string>(m["NFSVolumeServer"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumes() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBodyScalingConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationAcrRegistryInfos>> acrRegistryInfos{};
+  shared_ptr<long> activeDeadlineSeconds{};
+  shared_ptr<bool> autoCreateEip{};
+  shared_ptr<bool> autoMatchImageCache{};
+  shared_ptr<vector<string>> computeCategory{};
+  shared_ptr<string> containerGroupName{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainers>> containers{};
+  shared_ptr<bool> costOptimization{};
+  shared_ptr<double> cpu{};
+  shared_ptr<long> cpuOptionsCore{};
+  shared_ptr<long> cpuOptionsThreadsPerCore{};
+  shared_ptr<string> creationTime{};
+  shared_ptr<string> dataCacheBucket{};
+  shared_ptr<bool> dataCacheBurstingEnabled{};
+  shared_ptr<string> dataCachePL{};
+  shared_ptr<long> dataCacheProvisionedIops{};
+  shared_ptr<string> description{};
+  shared_ptr<vector<string>> dnsConfigNameServers{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationDnsConfigOptions>> dnsConfigOptions{};
+  shared_ptr<vector<string>> dnsConfigSearches{};
+  shared_ptr<string> dnsPolicy{};
+  shared_ptr<long> egressBandwidth{};
+  shared_ptr<long> eipBandwidth{};
+  shared_ptr<string> eipCommonBandwidthPackage{};
+  shared_ptr<string> eipISP{};
+  shared_ptr<string> eipPublicIpAddressPoolId{};
+  shared_ptr<long> ephemeralStorage{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationHostAliases>> hostAliases{};
+  shared_ptr<string> hostName{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationImageRegistryCredentials>> imageRegistryCredentials{};
+  shared_ptr<string> imageSnapshotId{};
+  shared_ptr<long> ingressBandwidth{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainers>> initContainers{};
+  shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<vector<string>> instanceTypes{};
+  shared_ptr<long> ipv6AddressCount{};
+  shared_ptr<string> lifecycleState{};
+  shared_ptr<long> loadBalancerWeight{};
+  shared_ptr<double> memory{};
+  shared_ptr<vector<string>> ntpServers{};
+  shared_ptr<string> ramRoleName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> restartPolicy{};
+  shared_ptr<string> scalingConfigurationId{};
+  shared_ptr<string> scalingConfigurationName{};
+  shared_ptr<string> scalingGroupId{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationSecurityContextSysCtls>> securityContextSysCtls{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<bool> slsEnable{};
+  shared_ptr<double> spotPriceLimit{};
+  shared_ptr<string> spotStrategy{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationTags>> tags{};
+  shared_ptr<long> terminationGracePeriodSeconds{};
+  shared_ptr<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumes>> volumes{};
+
+  DescribeEciScalingConfigurationDetailResponseBodyScalingConfiguration() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBodyScalingConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acrRegistryInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*acrRegistryInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AcrRegistryInfos"] = boost::any(temp1);
+    }
+    if (activeDeadlineSeconds) {
+      res["ActiveDeadlineSeconds"] = boost::any(*activeDeadlineSeconds);
+    }
+    if (autoCreateEip) {
+      res["AutoCreateEip"] = boost::any(*autoCreateEip);
+    }
+    if (autoMatchImageCache) {
+      res["AutoMatchImageCache"] = boost::any(*autoMatchImageCache);
+    }
+    if (computeCategory) {
+      res["ComputeCategory"] = boost::any(*computeCategory);
+    }
+    if (containerGroupName) {
+      res["ContainerGroupName"] = boost::any(*containerGroupName);
+    }
+    if (containers) {
+      vector<boost::any> temp1;
+      for(auto item1:*containers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Containers"] = boost::any(temp1);
+    }
+    if (costOptimization) {
+      res["CostOptimization"] = boost::any(*costOptimization);
+    }
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (cpuOptionsCore) {
+      res["CpuOptionsCore"] = boost::any(*cpuOptionsCore);
+    }
+    if (cpuOptionsThreadsPerCore) {
+      res["CpuOptionsThreadsPerCore"] = boost::any(*cpuOptionsThreadsPerCore);
+    }
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (dataCacheBucket) {
+      res["DataCacheBucket"] = boost::any(*dataCacheBucket);
+    }
+    if (dataCacheBurstingEnabled) {
+      res["DataCacheBurstingEnabled"] = boost::any(*dataCacheBurstingEnabled);
+    }
+    if (dataCachePL) {
+      res["DataCachePL"] = boost::any(*dataCachePL);
+    }
+    if (dataCacheProvisionedIops) {
+      res["DataCacheProvisionedIops"] = boost::any(*dataCacheProvisionedIops);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dnsConfigNameServers) {
+      res["DnsConfigNameServers"] = boost::any(*dnsConfigNameServers);
+    }
+    if (dnsConfigOptions) {
+      vector<boost::any> temp1;
+      for(auto item1:*dnsConfigOptions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DnsConfigOptions"] = boost::any(temp1);
+    }
+    if (dnsConfigSearches) {
+      res["DnsConfigSearches"] = boost::any(*dnsConfigSearches);
+    }
+    if (dnsPolicy) {
+      res["DnsPolicy"] = boost::any(*dnsPolicy);
+    }
+    if (egressBandwidth) {
+      res["EgressBandwidth"] = boost::any(*egressBandwidth);
+    }
+    if (eipBandwidth) {
+      res["EipBandwidth"] = boost::any(*eipBandwidth);
+    }
+    if (eipCommonBandwidthPackage) {
+      res["EipCommonBandwidthPackage"] = boost::any(*eipCommonBandwidthPackage);
+    }
+    if (eipISP) {
+      res["EipISP"] = boost::any(*eipISP);
+    }
+    if (eipPublicIpAddressPoolId) {
+      res["EipPublicIpAddressPoolId"] = boost::any(*eipPublicIpAddressPoolId);
+    }
+    if (ephemeralStorage) {
+      res["EphemeralStorage"] = boost::any(*ephemeralStorage);
+    }
+    if (hostAliases) {
+      vector<boost::any> temp1;
+      for(auto item1:*hostAliases){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HostAliases"] = boost::any(temp1);
+    }
+    if (hostName) {
+      res["HostName"] = boost::any(*hostName);
+    }
+    if (imageRegistryCredentials) {
+      vector<boost::any> temp1;
+      for(auto item1:*imageRegistryCredentials){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ImageRegistryCredentials"] = boost::any(temp1);
+    }
+    if (imageSnapshotId) {
+      res["ImageSnapshotId"] = boost::any(*imageSnapshotId);
+    }
+    if (ingressBandwidth) {
+      res["IngressBandwidth"] = boost::any(*ingressBandwidth);
+    }
+    if (initContainers) {
+      vector<boost::any> temp1;
+      for(auto item1:*initContainers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InitContainers"] = boost::any(temp1);
+    }
+    if (instanceFamilyLevel) {
+      res["InstanceFamilyLevel"] = boost::any(*instanceFamilyLevel);
+    }
+    if (instanceTypes) {
+      res["InstanceTypes"] = boost::any(*instanceTypes);
+    }
+    if (ipv6AddressCount) {
+      res["Ipv6AddressCount"] = boost::any(*ipv6AddressCount);
+    }
+    if (lifecycleState) {
+      res["LifecycleState"] = boost::any(*lifecycleState);
+    }
+    if (loadBalancerWeight) {
+      res["LoadBalancerWeight"] = boost::any(*loadBalancerWeight);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (ntpServers) {
+      res["NtpServers"] = boost::any(*ntpServers);
+    }
+    if (ramRoleName) {
+      res["RamRoleName"] = boost::any(*ramRoleName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (restartPolicy) {
+      res["RestartPolicy"] = boost::any(*restartPolicy);
+    }
+    if (scalingConfigurationId) {
+      res["ScalingConfigurationId"] = boost::any(*scalingConfigurationId);
+    }
+    if (scalingConfigurationName) {
+      res["ScalingConfigurationName"] = boost::any(*scalingConfigurationName);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    if (securityContextSysCtls) {
+      vector<boost::any> temp1;
+      for(auto item1:*securityContextSysCtls){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SecurityContextSysCtls"] = boost::any(temp1);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (slsEnable) {
+      res["SlsEnable"] = boost::any(*slsEnable);
+    }
+    if (spotPriceLimit) {
+      res["SpotPriceLimit"] = boost::any(*spotPriceLimit);
+    }
+    if (spotStrategy) {
+      res["SpotStrategy"] = boost::any(*spotStrategy);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    if (terminationGracePeriodSeconds) {
+      res["TerminationGracePeriodSeconds"] = boost::any(*terminationGracePeriodSeconds);
+    }
+    if (volumes) {
+      vector<boost::any> temp1;
+      for(auto item1:*volumes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Volumes"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcrRegistryInfos") != m.end() && !m["AcrRegistryInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["AcrRegistryInfos"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationAcrRegistryInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AcrRegistryInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationAcrRegistryInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        acrRegistryInfos = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationAcrRegistryInfos>>(expect1);
+      }
+    }
+    if (m.find("ActiveDeadlineSeconds") != m.end() && !m["ActiveDeadlineSeconds"].empty()) {
+      activeDeadlineSeconds = make_shared<long>(boost::any_cast<long>(m["ActiveDeadlineSeconds"]));
+    }
+    if (m.find("AutoCreateEip") != m.end() && !m["AutoCreateEip"].empty()) {
+      autoCreateEip = make_shared<bool>(boost::any_cast<bool>(m["AutoCreateEip"]));
+    }
+    if (m.find("AutoMatchImageCache") != m.end() && !m["AutoMatchImageCache"].empty()) {
+      autoMatchImageCache = make_shared<bool>(boost::any_cast<bool>(m["AutoMatchImageCache"]));
+    }
+    if (m.find("ComputeCategory") != m.end() && !m["ComputeCategory"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ComputeCategory"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ComputeCategory"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      computeCategory = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ContainerGroupName") != m.end() && !m["ContainerGroupName"].empty()) {
+      containerGroupName = make_shared<string>(boost::any_cast<string>(m["ContainerGroupName"]));
+    }
+    if (m.find("Containers") != m.end() && !m["Containers"].empty()) {
+      if (typeid(vector<boost::any>) == m["Containers"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Containers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        containers = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationContainers>>(expect1);
+      }
+    }
+    if (m.find("CostOptimization") != m.end() && !m["CostOptimization"].empty()) {
+      costOptimization = make_shared<bool>(boost::any_cast<bool>(m["CostOptimization"]));
+    }
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["Cpu"]));
+    }
+    if (m.find("CpuOptionsCore") != m.end() && !m["CpuOptionsCore"].empty()) {
+      cpuOptionsCore = make_shared<long>(boost::any_cast<long>(m["CpuOptionsCore"]));
+    }
+    if (m.find("CpuOptionsThreadsPerCore") != m.end() && !m["CpuOptionsThreadsPerCore"].empty()) {
+      cpuOptionsThreadsPerCore = make_shared<long>(boost::any_cast<long>(m["CpuOptionsThreadsPerCore"]));
+    }
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("DataCacheBucket") != m.end() && !m["DataCacheBucket"].empty()) {
+      dataCacheBucket = make_shared<string>(boost::any_cast<string>(m["DataCacheBucket"]));
+    }
+    if (m.find("DataCacheBurstingEnabled") != m.end() && !m["DataCacheBurstingEnabled"].empty()) {
+      dataCacheBurstingEnabled = make_shared<bool>(boost::any_cast<bool>(m["DataCacheBurstingEnabled"]));
+    }
+    if (m.find("DataCachePL") != m.end() && !m["DataCachePL"].empty()) {
+      dataCachePL = make_shared<string>(boost::any_cast<string>(m["DataCachePL"]));
+    }
+    if (m.find("DataCacheProvisionedIops") != m.end() && !m["DataCacheProvisionedIops"].empty()) {
+      dataCacheProvisionedIops = make_shared<long>(boost::any_cast<long>(m["DataCacheProvisionedIops"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DnsConfigNameServers") != m.end() && !m["DnsConfigNameServers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DnsConfigNameServers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DnsConfigNameServers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dnsConfigNameServers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DnsConfigOptions") != m.end() && !m["DnsConfigOptions"].empty()) {
+      if (typeid(vector<boost::any>) == m["DnsConfigOptions"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationDnsConfigOptions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DnsConfigOptions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationDnsConfigOptions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dnsConfigOptions = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationDnsConfigOptions>>(expect1);
+      }
+    }
+    if (m.find("DnsConfigSearches") != m.end() && !m["DnsConfigSearches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DnsConfigSearches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DnsConfigSearches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dnsConfigSearches = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DnsPolicy") != m.end() && !m["DnsPolicy"].empty()) {
+      dnsPolicy = make_shared<string>(boost::any_cast<string>(m["DnsPolicy"]));
+    }
+    if (m.find("EgressBandwidth") != m.end() && !m["EgressBandwidth"].empty()) {
+      egressBandwidth = make_shared<long>(boost::any_cast<long>(m["EgressBandwidth"]));
+    }
+    if (m.find("EipBandwidth") != m.end() && !m["EipBandwidth"].empty()) {
+      eipBandwidth = make_shared<long>(boost::any_cast<long>(m["EipBandwidth"]));
+    }
+    if (m.find("EipCommonBandwidthPackage") != m.end() && !m["EipCommonBandwidthPackage"].empty()) {
+      eipCommonBandwidthPackage = make_shared<string>(boost::any_cast<string>(m["EipCommonBandwidthPackage"]));
+    }
+    if (m.find("EipISP") != m.end() && !m["EipISP"].empty()) {
+      eipISP = make_shared<string>(boost::any_cast<string>(m["EipISP"]));
+    }
+    if (m.find("EipPublicIpAddressPoolId") != m.end() && !m["EipPublicIpAddressPoolId"].empty()) {
+      eipPublicIpAddressPoolId = make_shared<string>(boost::any_cast<string>(m["EipPublicIpAddressPoolId"]));
+    }
+    if (m.find("EphemeralStorage") != m.end() && !m["EphemeralStorage"].empty()) {
+      ephemeralStorage = make_shared<long>(boost::any_cast<long>(m["EphemeralStorage"]));
+    }
+    if (m.find("HostAliases") != m.end() && !m["HostAliases"].empty()) {
+      if (typeid(vector<boost::any>) == m["HostAliases"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationHostAliases> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HostAliases"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationHostAliases model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hostAliases = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationHostAliases>>(expect1);
+      }
+    }
+    if (m.find("HostName") != m.end() && !m["HostName"].empty()) {
+      hostName = make_shared<string>(boost::any_cast<string>(m["HostName"]));
+    }
+    if (m.find("ImageRegistryCredentials") != m.end() && !m["ImageRegistryCredentials"].empty()) {
+      if (typeid(vector<boost::any>) == m["ImageRegistryCredentials"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationImageRegistryCredentials> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ImageRegistryCredentials"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationImageRegistryCredentials model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        imageRegistryCredentials = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationImageRegistryCredentials>>(expect1);
+      }
+    }
+    if (m.find("ImageSnapshotId") != m.end() && !m["ImageSnapshotId"].empty()) {
+      imageSnapshotId = make_shared<string>(boost::any_cast<string>(m["ImageSnapshotId"]));
+    }
+    if (m.find("IngressBandwidth") != m.end() && !m["IngressBandwidth"].empty()) {
+      ingressBandwidth = make_shared<long>(boost::any_cast<long>(m["IngressBandwidth"]));
+    }
+    if (m.find("InitContainers") != m.end() && !m["InitContainers"].empty()) {
+      if (typeid(vector<boost::any>) == m["InitContainers"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InitContainers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        initContainers = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationInitContainers>>(expect1);
+      }
+    }
+    if (m.find("InstanceFamilyLevel") != m.end() && !m["InstanceFamilyLevel"].empty()) {
+      instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["InstanceFamilyLevel"]));
+    }
+    if (m.find("InstanceTypes") != m.end() && !m["InstanceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Ipv6AddressCount") != m.end() && !m["Ipv6AddressCount"].empty()) {
+      ipv6AddressCount = make_shared<long>(boost::any_cast<long>(m["Ipv6AddressCount"]));
+    }
+    if (m.find("LifecycleState") != m.end() && !m["LifecycleState"].empty()) {
+      lifecycleState = make_shared<string>(boost::any_cast<string>(m["LifecycleState"]));
+    }
+    if (m.find("LoadBalancerWeight") != m.end() && !m["LoadBalancerWeight"].empty()) {
+      loadBalancerWeight = make_shared<long>(boost::any_cast<long>(m["LoadBalancerWeight"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+    if (m.find("NtpServers") != m.end() && !m["NtpServers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NtpServers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NtpServers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ntpServers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RamRoleName") != m.end() && !m["RamRoleName"].empty()) {
+      ramRoleName = make_shared<string>(boost::any_cast<string>(m["RamRoleName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("RestartPolicy") != m.end() && !m["RestartPolicy"].empty()) {
+      restartPolicy = make_shared<string>(boost::any_cast<string>(m["RestartPolicy"]));
+    }
+    if (m.find("ScalingConfigurationId") != m.end() && !m["ScalingConfigurationId"].empty()) {
+      scalingConfigurationId = make_shared<string>(boost::any_cast<string>(m["ScalingConfigurationId"]));
+    }
+    if (m.find("ScalingConfigurationName") != m.end() && !m["ScalingConfigurationName"].empty()) {
+      scalingConfigurationName = make_shared<string>(boost::any_cast<string>(m["ScalingConfigurationName"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("SecurityContextSysCtls") != m.end() && !m["SecurityContextSysCtls"].empty()) {
+      if (typeid(vector<boost::any>) == m["SecurityContextSysCtls"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationSecurityContextSysCtls> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SecurityContextSysCtls"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationSecurityContextSysCtls model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        securityContextSysCtls = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationSecurityContextSysCtls>>(expect1);
+      }
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("SlsEnable") != m.end() && !m["SlsEnable"].empty()) {
+      slsEnable = make_shared<bool>(boost::any_cast<bool>(m["SlsEnable"]));
+    }
+    if (m.find("SpotPriceLimit") != m.end() && !m["SpotPriceLimit"].empty()) {
+      spotPriceLimit = make_shared<double>(boost::any_cast<double>(m["SpotPriceLimit"]));
+    }
+    if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
+      spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationTags>>(expect1);
+      }
+    }
+    if (m.find("TerminationGracePeriodSeconds") != m.end() && !m["TerminationGracePeriodSeconds"].empty()) {
+      terminationGracePeriodSeconds = make_shared<long>(boost::any_cast<long>(m["TerminationGracePeriodSeconds"]));
+    }
+    if (m.find("Volumes") != m.end() && !m["Volumes"].empty()) {
+      if (typeid(vector<boost::any>) == m["Volumes"].type()) {
+        vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Volumes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        volumes = make_shared<vector<DescribeEciScalingConfigurationDetailResponseBodyScalingConfigurationVolumes>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBodyScalingConfiguration() = default;
+};
+class DescribeEciScalingConfigurationDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> output{};
+  shared_ptr<string> requestId{};
+  shared_ptr<DescribeEciScalingConfigurationDetailResponseBodyScalingConfiguration> scalingConfiguration{};
+
+  DescribeEciScalingConfigurationDetailResponseBody() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (output) {
+      res["Output"] = boost::any(*output);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (scalingConfiguration) {
+      res["ScalingConfiguration"] = scalingConfiguration ? boost::any(scalingConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Output") != m.end() && !m["Output"].empty()) {
+      output = make_shared<string>(boost::any_cast<string>(m["Output"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ScalingConfiguration") != m.end() && !m["ScalingConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ScalingConfiguration"].type()) {
+        DescribeEciScalingConfigurationDetailResponseBodyScalingConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ScalingConfiguration"]));
+        scalingConfiguration = make_shared<DescribeEciScalingConfigurationDetailResponseBodyScalingConfiguration>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponseBody() = default;
+};
+class DescribeEciScalingConfigurationDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeEciScalingConfigurationDetailResponseBody> body{};
+
+  DescribeEciScalingConfigurationDetailResponse() {}
+
+  explicit DescribeEciScalingConfigurationDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeEciScalingConfigurationDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeEciScalingConfigurationDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeEciScalingConfigurationDetailResponse() = default;
+};
 class DescribeEciScalingConfigurationsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ownerAccount{};
@@ -15560,6 +17810,1024 @@ public:
 
 
   virtual ~DescribeScalingConfigurationsResponse() = default;
+};
+class DescribeScalingGroupDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> outputFormat{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> scalingGroupId{};
+
+  DescribeScalingGroupDetailRequest() {}
+
+  explicit DescribeScalingGroupDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (outputFormat) {
+      res["OutputFormat"] = boost::any(*outputFormat);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OutputFormat") != m.end() && !m["OutputFormat"].empty()) {
+      outputFormat = make_shared<string>(boost::any_cast<string>(m["OutputFormat"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDetailRequest() = default;
+};
+class DescribeScalingGroupDetailResponseBodyScalingGroupAlbServerGroups : public Darabonba::Model {
+public:
+  shared_ptr<string> albServerGroupId{};
+  shared_ptr<long> port{};
+  shared_ptr<long> weight{};
+
+  DescribeScalingGroupDetailResponseBodyScalingGroupAlbServerGroups() {}
+
+  explicit DescribeScalingGroupDetailResponseBodyScalingGroupAlbServerGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (albServerGroupId) {
+      res["AlbServerGroupId"] = boost::any(*albServerGroupId);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlbServerGroupId") != m.end() && !m["AlbServerGroupId"].empty()) {
+      albServerGroupId = make_shared<string>(boost::any_cast<string>(m["AlbServerGroupId"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDetailResponseBodyScalingGroupAlbServerGroups() = default;
+};
+class DescribeScalingGroupDetailResponseBodyScalingGroupLaunchTemplateOverrides : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceType{};
+  shared_ptr<double> spotPriceLimit{};
+  shared_ptr<long> weightedCapacity{};
+
+  DescribeScalingGroupDetailResponseBodyScalingGroupLaunchTemplateOverrides() {}
+
+  explicit DescribeScalingGroupDetailResponseBodyScalingGroupLaunchTemplateOverrides(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (spotPriceLimit) {
+      res["SpotPriceLimit"] = boost::any(*spotPriceLimit);
+    }
+    if (weightedCapacity) {
+      res["WeightedCapacity"] = boost::any(*weightedCapacity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("SpotPriceLimit") != m.end() && !m["SpotPriceLimit"].empty()) {
+      spotPriceLimit = make_shared<double>(boost::any_cast<double>(m["SpotPriceLimit"]));
+    }
+    if (m.find("WeightedCapacity") != m.end() && !m["WeightedCapacity"].empty()) {
+      weightedCapacity = make_shared<long>(boost::any_cast<long>(m["WeightedCapacity"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDetailResponseBodyScalingGroupLaunchTemplateOverrides() = default;
+};
+class DescribeScalingGroupDetailResponseBodyScalingGroupLoadBalancerConfigs : public Darabonba::Model {
+public:
+  shared_ptr<string> loadBalancerId{};
+  shared_ptr<long> weight{};
+
+  DescribeScalingGroupDetailResponseBodyScalingGroupLoadBalancerConfigs() {}
+
+  explicit DescribeScalingGroupDetailResponseBodyScalingGroupLoadBalancerConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (loadBalancerId) {
+      res["LoadBalancerId"] = boost::any(*loadBalancerId);
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LoadBalancerId") != m.end() && !m["LoadBalancerId"].empty()) {
+      loadBalancerId = make_shared<string>(boost::any_cast<string>(m["LoadBalancerId"]));
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDetailResponseBodyScalingGroupLoadBalancerConfigs() = default;
+};
+class DescribeScalingGroupDetailResponseBodyScalingGroupServerGroups : public Darabonba::Model {
+public:
+  shared_ptr<long> port{};
+  shared_ptr<string> serverGroupId{};
+  shared_ptr<string> type{};
+  shared_ptr<long> weight{};
+
+  DescribeScalingGroupDetailResponseBodyScalingGroupServerGroups() {}
+
+  explicit DescribeScalingGroupDetailResponseBodyScalingGroupServerGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (serverGroupId) {
+      res["ServerGroupId"] = boost::any(*serverGroupId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("ServerGroupId") != m.end() && !m["ServerGroupId"].empty()) {
+      serverGroupId = make_shared<string>(boost::any_cast<string>(m["ServerGroupId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDetailResponseBodyScalingGroupServerGroups() = default;
+};
+class DescribeScalingGroupDetailResponseBodyScalingGroupTags : public Darabonba::Model {
+public:
+  shared_ptr<bool> propagate{};
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  DescribeScalingGroupDetailResponseBodyScalingGroupTags() {}
+
+  explicit DescribeScalingGroupDetailResponseBodyScalingGroupTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (propagate) {
+      res["Propagate"] = boost::any(*propagate);
+    }
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Propagate") != m.end() && !m["Propagate"].empty()) {
+      propagate = make_shared<bool>(boost::any_cast<bool>(m["Propagate"]));
+    }
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDetailResponseBodyScalingGroupTags() = default;
+};
+class DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroupsVServerGroupAttributes : public Darabonba::Model {
+public:
+  shared_ptr<long> port{};
+  shared_ptr<string> VServerGroupId{};
+  shared_ptr<long> weight{};
+
+  DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroupsVServerGroupAttributes() {}
+
+  explicit DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroupsVServerGroupAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (VServerGroupId) {
+      res["VServerGroupId"] = boost::any(*VServerGroupId);
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("VServerGroupId") != m.end() && !m["VServerGroupId"].empty()) {
+      VServerGroupId = make_shared<string>(boost::any_cast<string>(m["VServerGroupId"]));
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroupsVServerGroupAttributes() = default;
+};
+class DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroups : public Darabonba::Model {
+public:
+  shared_ptr<string> loadBalancerId{};
+  shared_ptr<vector<DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroupsVServerGroupAttributes>> VServerGroupAttributes{};
+
+  DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroups() {}
+
+  explicit DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (loadBalancerId) {
+      res["LoadBalancerId"] = boost::any(*loadBalancerId);
+    }
+    if (VServerGroupAttributes) {
+      vector<boost::any> temp1;
+      for(auto item1:*VServerGroupAttributes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VServerGroupAttributes"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LoadBalancerId") != m.end() && !m["LoadBalancerId"].empty()) {
+      loadBalancerId = make_shared<string>(boost::any_cast<string>(m["LoadBalancerId"]));
+    }
+    if (m.find("VServerGroupAttributes") != m.end() && !m["VServerGroupAttributes"].empty()) {
+      if (typeid(vector<boost::any>) == m["VServerGroupAttributes"].type()) {
+        vector<DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroupsVServerGroupAttributes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VServerGroupAttributes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroupsVServerGroupAttributes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        VServerGroupAttributes = make_shared<vector<DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroupsVServerGroupAttributes>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroups() = default;
+};
+class DescribeScalingGroupDetailResponseBodyScalingGroup : public Darabonba::Model {
+public:
+  shared_ptr<long> activeCapacity{};
+  shared_ptr<string> activeScalingConfigurationId{};
+  shared_ptr<vector<DescribeScalingGroupDetailResponseBodyScalingGroupAlbServerGroups>> albServerGroups{};
+  shared_ptr<string> allocationStrategy{};
+  shared_ptr<bool> azBalance{};
+  shared_ptr<bool> compensateWithOnDemand{};
+  shared_ptr<string> creationTime{};
+  shared_ptr<string> currentHostName{};
+  shared_ptr<string> customPolicyARN{};
+  shared_ptr<vector<string>> DBInstanceIds{};
+  shared_ptr<long> defaultCooldown{};
+  shared_ptr<long> desiredCapacity{};
+  shared_ptr<bool> enableDesiredCapacity{};
+  shared_ptr<bool> groupDeletionProtection{};
+  shared_ptr<string> groupType{};
+  shared_ptr<string> healthCheckType{};
+  shared_ptr<vector<string>> healthCheckTypes{};
+  shared_ptr<long> initCapacity{};
+  shared_ptr<bool> isElasticStrengthInAlarm{};
+  shared_ptr<string> launchTemplateId{};
+  shared_ptr<vector<DescribeScalingGroupDetailResponseBodyScalingGroupLaunchTemplateOverrides>> launchTemplateOverrides{};
+  shared_ptr<string> launchTemplateVersion{};
+  shared_ptr<string> lifecycleState{};
+  shared_ptr<vector<DescribeScalingGroupDetailResponseBodyScalingGroupLoadBalancerConfigs>> loadBalancerConfigs{};
+  shared_ptr<vector<string>> loadBalancerIds{};
+  shared_ptr<long> maxInstanceLifetime{};
+  shared_ptr<long> maxSize{};
+  shared_ptr<long> minSize{};
+  shared_ptr<string> modificationTime{};
+  shared_ptr<string> monitorGroupId{};
+  shared_ptr<string> multiAZPolicy{};
+  shared_ptr<long> onDemandBaseCapacity{};
+  shared_ptr<long> onDemandPercentageAboveBaseCapacity{};
+  shared_ptr<long> pendingCapacity{};
+  shared_ptr<long> pendingWaitCapacity{};
+  shared_ptr<long> protectedCapacity{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> removalPolicies{};
+  shared_ptr<long> removingCapacity{};
+  shared_ptr<long> removingWaitCapacity{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> scalingGroupId{};
+  shared_ptr<string> scalingGroupName{};
+  shared_ptr<string> scalingPolicy{};
+  shared_ptr<vector<DescribeScalingGroupDetailResponseBodyScalingGroupServerGroups>> serverGroups{};
+  shared_ptr<string> spotAllocationStrategy{};
+  shared_ptr<long> spotInstancePools{};
+  shared_ptr<bool> spotInstanceRemedy{};
+  shared_ptr<long> standbyCapacity{};
+  shared_ptr<long> stoppedCapacity{};
+  shared_ptr<vector<string>> suspendedProcesses{};
+  shared_ptr<bool> systemSuspended{};
+  shared_ptr<vector<DescribeScalingGroupDetailResponseBodyScalingGroupTags>> tags{};
+  shared_ptr<long> totalCapacity{};
+  shared_ptr<long> totalInstanceCount{};
+  shared_ptr<vector<DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroups>> VServerGroups{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<vector<string>> vSwitchIds{};
+  shared_ptr<string> vpcId{};
+
+  DescribeScalingGroupDetailResponseBodyScalingGroup() {}
+
+  explicit DescribeScalingGroupDetailResponseBodyScalingGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (activeCapacity) {
+      res["ActiveCapacity"] = boost::any(*activeCapacity);
+    }
+    if (activeScalingConfigurationId) {
+      res["ActiveScalingConfigurationId"] = boost::any(*activeScalingConfigurationId);
+    }
+    if (albServerGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*albServerGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AlbServerGroups"] = boost::any(temp1);
+    }
+    if (allocationStrategy) {
+      res["AllocationStrategy"] = boost::any(*allocationStrategy);
+    }
+    if (azBalance) {
+      res["AzBalance"] = boost::any(*azBalance);
+    }
+    if (compensateWithOnDemand) {
+      res["CompensateWithOnDemand"] = boost::any(*compensateWithOnDemand);
+    }
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (currentHostName) {
+      res["CurrentHostName"] = boost::any(*currentHostName);
+    }
+    if (customPolicyARN) {
+      res["CustomPolicyARN"] = boost::any(*customPolicyARN);
+    }
+    if (DBInstanceIds) {
+      res["DBInstanceIds"] = boost::any(*DBInstanceIds);
+    }
+    if (defaultCooldown) {
+      res["DefaultCooldown"] = boost::any(*defaultCooldown);
+    }
+    if (desiredCapacity) {
+      res["DesiredCapacity"] = boost::any(*desiredCapacity);
+    }
+    if (enableDesiredCapacity) {
+      res["EnableDesiredCapacity"] = boost::any(*enableDesiredCapacity);
+    }
+    if (groupDeletionProtection) {
+      res["GroupDeletionProtection"] = boost::any(*groupDeletionProtection);
+    }
+    if (groupType) {
+      res["GroupType"] = boost::any(*groupType);
+    }
+    if (healthCheckType) {
+      res["HealthCheckType"] = boost::any(*healthCheckType);
+    }
+    if (healthCheckTypes) {
+      res["HealthCheckTypes"] = boost::any(*healthCheckTypes);
+    }
+    if (initCapacity) {
+      res["InitCapacity"] = boost::any(*initCapacity);
+    }
+    if (isElasticStrengthInAlarm) {
+      res["IsElasticStrengthInAlarm"] = boost::any(*isElasticStrengthInAlarm);
+    }
+    if (launchTemplateId) {
+      res["LaunchTemplateId"] = boost::any(*launchTemplateId);
+    }
+    if (launchTemplateOverrides) {
+      vector<boost::any> temp1;
+      for(auto item1:*launchTemplateOverrides){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["LaunchTemplateOverrides"] = boost::any(temp1);
+    }
+    if (launchTemplateVersion) {
+      res["LaunchTemplateVersion"] = boost::any(*launchTemplateVersion);
+    }
+    if (lifecycleState) {
+      res["LifecycleState"] = boost::any(*lifecycleState);
+    }
+    if (loadBalancerConfigs) {
+      vector<boost::any> temp1;
+      for(auto item1:*loadBalancerConfigs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["LoadBalancerConfigs"] = boost::any(temp1);
+    }
+    if (loadBalancerIds) {
+      res["LoadBalancerIds"] = boost::any(*loadBalancerIds);
+    }
+    if (maxInstanceLifetime) {
+      res["MaxInstanceLifetime"] = boost::any(*maxInstanceLifetime);
+    }
+    if (maxSize) {
+      res["MaxSize"] = boost::any(*maxSize);
+    }
+    if (minSize) {
+      res["MinSize"] = boost::any(*minSize);
+    }
+    if (modificationTime) {
+      res["ModificationTime"] = boost::any(*modificationTime);
+    }
+    if (monitorGroupId) {
+      res["MonitorGroupId"] = boost::any(*monitorGroupId);
+    }
+    if (multiAZPolicy) {
+      res["MultiAZPolicy"] = boost::any(*multiAZPolicy);
+    }
+    if (onDemandBaseCapacity) {
+      res["OnDemandBaseCapacity"] = boost::any(*onDemandBaseCapacity);
+    }
+    if (onDemandPercentageAboveBaseCapacity) {
+      res["OnDemandPercentageAboveBaseCapacity"] = boost::any(*onDemandPercentageAboveBaseCapacity);
+    }
+    if (pendingCapacity) {
+      res["PendingCapacity"] = boost::any(*pendingCapacity);
+    }
+    if (pendingWaitCapacity) {
+      res["PendingWaitCapacity"] = boost::any(*pendingWaitCapacity);
+    }
+    if (protectedCapacity) {
+      res["ProtectedCapacity"] = boost::any(*protectedCapacity);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (removalPolicies) {
+      res["RemovalPolicies"] = boost::any(*removalPolicies);
+    }
+    if (removingCapacity) {
+      res["RemovingCapacity"] = boost::any(*removingCapacity);
+    }
+    if (removingWaitCapacity) {
+      res["RemovingWaitCapacity"] = boost::any(*removingWaitCapacity);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    if (scalingGroupName) {
+      res["ScalingGroupName"] = boost::any(*scalingGroupName);
+    }
+    if (scalingPolicy) {
+      res["ScalingPolicy"] = boost::any(*scalingPolicy);
+    }
+    if (serverGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*serverGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServerGroups"] = boost::any(temp1);
+    }
+    if (spotAllocationStrategy) {
+      res["SpotAllocationStrategy"] = boost::any(*spotAllocationStrategy);
+    }
+    if (spotInstancePools) {
+      res["SpotInstancePools"] = boost::any(*spotInstancePools);
+    }
+    if (spotInstanceRemedy) {
+      res["SpotInstanceRemedy"] = boost::any(*spotInstanceRemedy);
+    }
+    if (standbyCapacity) {
+      res["StandbyCapacity"] = boost::any(*standbyCapacity);
+    }
+    if (stoppedCapacity) {
+      res["StoppedCapacity"] = boost::any(*stoppedCapacity);
+    }
+    if (suspendedProcesses) {
+      res["SuspendedProcesses"] = boost::any(*suspendedProcesses);
+    }
+    if (systemSuspended) {
+      res["SystemSuspended"] = boost::any(*systemSuspended);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    if (totalCapacity) {
+      res["TotalCapacity"] = boost::any(*totalCapacity);
+    }
+    if (totalInstanceCount) {
+      res["TotalInstanceCount"] = boost::any(*totalInstanceCount);
+    }
+    if (VServerGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*VServerGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VServerGroups"] = boost::any(temp1);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActiveCapacity") != m.end() && !m["ActiveCapacity"].empty()) {
+      activeCapacity = make_shared<long>(boost::any_cast<long>(m["ActiveCapacity"]));
+    }
+    if (m.find("ActiveScalingConfigurationId") != m.end() && !m["ActiveScalingConfigurationId"].empty()) {
+      activeScalingConfigurationId = make_shared<string>(boost::any_cast<string>(m["ActiveScalingConfigurationId"]));
+    }
+    if (m.find("AlbServerGroups") != m.end() && !m["AlbServerGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["AlbServerGroups"].type()) {
+        vector<DescribeScalingGroupDetailResponseBodyScalingGroupAlbServerGroups> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AlbServerGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingGroupDetailResponseBodyScalingGroupAlbServerGroups model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        albServerGroups = make_shared<vector<DescribeScalingGroupDetailResponseBodyScalingGroupAlbServerGroups>>(expect1);
+      }
+    }
+    if (m.find("AllocationStrategy") != m.end() && !m["AllocationStrategy"].empty()) {
+      allocationStrategy = make_shared<string>(boost::any_cast<string>(m["AllocationStrategy"]));
+    }
+    if (m.find("AzBalance") != m.end() && !m["AzBalance"].empty()) {
+      azBalance = make_shared<bool>(boost::any_cast<bool>(m["AzBalance"]));
+    }
+    if (m.find("CompensateWithOnDemand") != m.end() && !m["CompensateWithOnDemand"].empty()) {
+      compensateWithOnDemand = make_shared<bool>(boost::any_cast<bool>(m["CompensateWithOnDemand"]));
+    }
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("CurrentHostName") != m.end() && !m["CurrentHostName"].empty()) {
+      currentHostName = make_shared<string>(boost::any_cast<string>(m["CurrentHostName"]));
+    }
+    if (m.find("CustomPolicyARN") != m.end() && !m["CustomPolicyARN"].empty()) {
+      customPolicyARN = make_shared<string>(boost::any_cast<string>(m["CustomPolicyARN"]));
+    }
+    if (m.find("DBInstanceIds") != m.end() && !m["DBInstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DBInstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DBInstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      DBInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DefaultCooldown") != m.end() && !m["DefaultCooldown"].empty()) {
+      defaultCooldown = make_shared<long>(boost::any_cast<long>(m["DefaultCooldown"]));
+    }
+    if (m.find("DesiredCapacity") != m.end() && !m["DesiredCapacity"].empty()) {
+      desiredCapacity = make_shared<long>(boost::any_cast<long>(m["DesiredCapacity"]));
+    }
+    if (m.find("EnableDesiredCapacity") != m.end() && !m["EnableDesiredCapacity"].empty()) {
+      enableDesiredCapacity = make_shared<bool>(boost::any_cast<bool>(m["EnableDesiredCapacity"]));
+    }
+    if (m.find("GroupDeletionProtection") != m.end() && !m["GroupDeletionProtection"].empty()) {
+      groupDeletionProtection = make_shared<bool>(boost::any_cast<bool>(m["GroupDeletionProtection"]));
+    }
+    if (m.find("GroupType") != m.end() && !m["GroupType"].empty()) {
+      groupType = make_shared<string>(boost::any_cast<string>(m["GroupType"]));
+    }
+    if (m.find("HealthCheckType") != m.end() && !m["HealthCheckType"].empty()) {
+      healthCheckType = make_shared<string>(boost::any_cast<string>(m["HealthCheckType"]));
+    }
+    if (m.find("HealthCheckTypes") != m.end() && !m["HealthCheckTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HealthCheckTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HealthCheckTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      healthCheckTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InitCapacity") != m.end() && !m["InitCapacity"].empty()) {
+      initCapacity = make_shared<long>(boost::any_cast<long>(m["InitCapacity"]));
+    }
+    if (m.find("IsElasticStrengthInAlarm") != m.end() && !m["IsElasticStrengthInAlarm"].empty()) {
+      isElasticStrengthInAlarm = make_shared<bool>(boost::any_cast<bool>(m["IsElasticStrengthInAlarm"]));
+    }
+    if (m.find("LaunchTemplateId") != m.end() && !m["LaunchTemplateId"].empty()) {
+      launchTemplateId = make_shared<string>(boost::any_cast<string>(m["LaunchTemplateId"]));
+    }
+    if (m.find("LaunchTemplateOverrides") != m.end() && !m["LaunchTemplateOverrides"].empty()) {
+      if (typeid(vector<boost::any>) == m["LaunchTemplateOverrides"].type()) {
+        vector<DescribeScalingGroupDetailResponseBodyScalingGroupLaunchTemplateOverrides> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["LaunchTemplateOverrides"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingGroupDetailResponseBodyScalingGroupLaunchTemplateOverrides model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        launchTemplateOverrides = make_shared<vector<DescribeScalingGroupDetailResponseBodyScalingGroupLaunchTemplateOverrides>>(expect1);
+      }
+    }
+    if (m.find("LaunchTemplateVersion") != m.end() && !m["LaunchTemplateVersion"].empty()) {
+      launchTemplateVersion = make_shared<string>(boost::any_cast<string>(m["LaunchTemplateVersion"]));
+    }
+    if (m.find("LifecycleState") != m.end() && !m["LifecycleState"].empty()) {
+      lifecycleState = make_shared<string>(boost::any_cast<string>(m["LifecycleState"]));
+    }
+    if (m.find("LoadBalancerConfigs") != m.end() && !m["LoadBalancerConfigs"].empty()) {
+      if (typeid(vector<boost::any>) == m["LoadBalancerConfigs"].type()) {
+        vector<DescribeScalingGroupDetailResponseBodyScalingGroupLoadBalancerConfigs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["LoadBalancerConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingGroupDetailResponseBodyScalingGroupLoadBalancerConfigs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        loadBalancerConfigs = make_shared<vector<DescribeScalingGroupDetailResponseBodyScalingGroupLoadBalancerConfigs>>(expect1);
+      }
+    }
+    if (m.find("LoadBalancerIds") != m.end() && !m["LoadBalancerIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LoadBalancerIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LoadBalancerIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      loadBalancerIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxInstanceLifetime") != m.end() && !m["MaxInstanceLifetime"].empty()) {
+      maxInstanceLifetime = make_shared<long>(boost::any_cast<long>(m["MaxInstanceLifetime"]));
+    }
+    if (m.find("MaxSize") != m.end() && !m["MaxSize"].empty()) {
+      maxSize = make_shared<long>(boost::any_cast<long>(m["MaxSize"]));
+    }
+    if (m.find("MinSize") != m.end() && !m["MinSize"].empty()) {
+      minSize = make_shared<long>(boost::any_cast<long>(m["MinSize"]));
+    }
+    if (m.find("ModificationTime") != m.end() && !m["ModificationTime"].empty()) {
+      modificationTime = make_shared<string>(boost::any_cast<string>(m["ModificationTime"]));
+    }
+    if (m.find("MonitorGroupId") != m.end() && !m["MonitorGroupId"].empty()) {
+      monitorGroupId = make_shared<string>(boost::any_cast<string>(m["MonitorGroupId"]));
+    }
+    if (m.find("MultiAZPolicy") != m.end() && !m["MultiAZPolicy"].empty()) {
+      multiAZPolicy = make_shared<string>(boost::any_cast<string>(m["MultiAZPolicy"]));
+    }
+    if (m.find("OnDemandBaseCapacity") != m.end() && !m["OnDemandBaseCapacity"].empty()) {
+      onDemandBaseCapacity = make_shared<long>(boost::any_cast<long>(m["OnDemandBaseCapacity"]));
+    }
+    if (m.find("OnDemandPercentageAboveBaseCapacity") != m.end() && !m["OnDemandPercentageAboveBaseCapacity"].empty()) {
+      onDemandPercentageAboveBaseCapacity = make_shared<long>(boost::any_cast<long>(m["OnDemandPercentageAboveBaseCapacity"]));
+    }
+    if (m.find("PendingCapacity") != m.end() && !m["PendingCapacity"].empty()) {
+      pendingCapacity = make_shared<long>(boost::any_cast<long>(m["PendingCapacity"]));
+    }
+    if (m.find("PendingWaitCapacity") != m.end() && !m["PendingWaitCapacity"].empty()) {
+      pendingWaitCapacity = make_shared<long>(boost::any_cast<long>(m["PendingWaitCapacity"]));
+    }
+    if (m.find("ProtectedCapacity") != m.end() && !m["ProtectedCapacity"].empty()) {
+      protectedCapacity = make_shared<long>(boost::any_cast<long>(m["ProtectedCapacity"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RemovalPolicies") != m.end() && !m["RemovalPolicies"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RemovalPolicies"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RemovalPolicies"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      removalPolicies = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RemovingCapacity") != m.end() && !m["RemovingCapacity"].empty()) {
+      removingCapacity = make_shared<long>(boost::any_cast<long>(m["RemovingCapacity"]));
+    }
+    if (m.find("RemovingWaitCapacity") != m.end() && !m["RemovingWaitCapacity"].empty()) {
+      removingWaitCapacity = make_shared<long>(boost::any_cast<long>(m["RemovingWaitCapacity"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("ScalingGroupName") != m.end() && !m["ScalingGroupName"].empty()) {
+      scalingGroupName = make_shared<string>(boost::any_cast<string>(m["ScalingGroupName"]));
+    }
+    if (m.find("ScalingPolicy") != m.end() && !m["ScalingPolicy"].empty()) {
+      scalingPolicy = make_shared<string>(boost::any_cast<string>(m["ScalingPolicy"]));
+    }
+    if (m.find("ServerGroups") != m.end() && !m["ServerGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServerGroups"].type()) {
+        vector<DescribeScalingGroupDetailResponseBodyScalingGroupServerGroups> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServerGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingGroupDetailResponseBodyScalingGroupServerGroups model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serverGroups = make_shared<vector<DescribeScalingGroupDetailResponseBodyScalingGroupServerGroups>>(expect1);
+      }
+    }
+    if (m.find("SpotAllocationStrategy") != m.end() && !m["SpotAllocationStrategy"].empty()) {
+      spotAllocationStrategy = make_shared<string>(boost::any_cast<string>(m["SpotAllocationStrategy"]));
+    }
+    if (m.find("SpotInstancePools") != m.end() && !m["SpotInstancePools"].empty()) {
+      spotInstancePools = make_shared<long>(boost::any_cast<long>(m["SpotInstancePools"]));
+    }
+    if (m.find("SpotInstanceRemedy") != m.end() && !m["SpotInstanceRemedy"].empty()) {
+      spotInstanceRemedy = make_shared<bool>(boost::any_cast<bool>(m["SpotInstanceRemedy"]));
+    }
+    if (m.find("StandbyCapacity") != m.end() && !m["StandbyCapacity"].empty()) {
+      standbyCapacity = make_shared<long>(boost::any_cast<long>(m["StandbyCapacity"]));
+    }
+    if (m.find("StoppedCapacity") != m.end() && !m["StoppedCapacity"].empty()) {
+      stoppedCapacity = make_shared<long>(boost::any_cast<long>(m["StoppedCapacity"]));
+    }
+    if (m.find("SuspendedProcesses") != m.end() && !m["SuspendedProcesses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SuspendedProcesses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SuspendedProcesses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      suspendedProcesses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SystemSuspended") != m.end() && !m["SystemSuspended"].empty()) {
+      systemSuspended = make_shared<bool>(boost::any_cast<bool>(m["SystemSuspended"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeScalingGroupDetailResponseBodyScalingGroupTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingGroupDetailResponseBodyScalingGroupTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeScalingGroupDetailResponseBodyScalingGroupTags>>(expect1);
+      }
+    }
+    if (m.find("TotalCapacity") != m.end() && !m["TotalCapacity"].empty()) {
+      totalCapacity = make_shared<long>(boost::any_cast<long>(m["TotalCapacity"]));
+    }
+    if (m.find("TotalInstanceCount") != m.end() && !m["TotalInstanceCount"].empty()) {
+      totalInstanceCount = make_shared<long>(boost::any_cast<long>(m["TotalInstanceCount"]));
+    }
+    if (m.find("VServerGroups") != m.end() && !m["VServerGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["VServerGroups"].type()) {
+        vector<DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroups> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VServerGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroups model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        VServerGroups = make_shared<vector<DescribeScalingGroupDetailResponseBodyScalingGroupVServerGroups>>(expect1);
+      }
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDetailResponseBodyScalingGroup() = default;
+};
+class DescribeScalingGroupDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> output{};
+  shared_ptr<string> requestId{};
+  shared_ptr<DescribeScalingGroupDetailResponseBodyScalingGroup> scalingGroup{};
+
+  DescribeScalingGroupDetailResponseBody() {}
+
+  explicit DescribeScalingGroupDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (output) {
+      res["Output"] = boost::any(*output);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (scalingGroup) {
+      res["ScalingGroup"] = scalingGroup ? boost::any(scalingGroup->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Output") != m.end() && !m["Output"].empty()) {
+      output = make_shared<string>(boost::any_cast<string>(m["Output"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ScalingGroup") != m.end() && !m["ScalingGroup"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ScalingGroup"].type()) {
+        DescribeScalingGroupDetailResponseBodyScalingGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ScalingGroup"]));
+        scalingGroup = make_shared<DescribeScalingGroupDetailResponseBodyScalingGroup>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDetailResponseBody() = default;
+};
+class DescribeScalingGroupDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeScalingGroupDetailResponseBody> body{};
+
+  DescribeScalingGroupDetailResponse() {}
+
+  explicit DescribeScalingGroupDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeScalingGroupDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeScalingGroupDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupDetailResponse() = default;
 };
 class DescribeScalingGroupsRequestTags : public Darabonba::Model {
 public:
@@ -30059,6 +33327,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  ApplyEciScalingConfigurationResponse applyEciScalingConfigurationWithOptions(shared_ptr<ApplyEciScalingConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ApplyEciScalingConfigurationResponse applyEciScalingConfiguration(shared_ptr<ApplyEciScalingConfigurationRequest> request);
   ApplyScalingGroupResponse applyScalingGroupWithOptions(shared_ptr<ApplyScalingGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApplyScalingGroupResponse applyScalingGroup(shared_ptr<ApplyScalingGroupRequest> request);
   AttachAlbServerGroupsResponse attachAlbServerGroupsWithOptions(shared_ptr<AttachAlbServerGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -30113,6 +33383,8 @@ public:
   DeleteScheduledTaskResponse deleteScheduledTask(shared_ptr<DeleteScheduledTaskRequest> request);
   DescribeAlarmsResponse describeAlarmsWithOptions(shared_ptr<DescribeAlarmsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAlarmsResponse describeAlarms(shared_ptr<DescribeAlarmsRequest> request);
+  DescribeEciScalingConfigurationDetailResponse describeEciScalingConfigurationDetailWithOptions(shared_ptr<DescribeEciScalingConfigurationDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeEciScalingConfigurationDetailResponse describeEciScalingConfigurationDetail(shared_ptr<DescribeEciScalingConfigurationDetailRequest> request);
   DescribeEciScalingConfigurationsResponse describeEciScalingConfigurationsWithOptions(shared_ptr<DescribeEciScalingConfigurationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeEciScalingConfigurationsResponse describeEciScalingConfigurations(shared_ptr<DescribeEciScalingConfigurationsRequest> request);
   DescribeLifecycleActionsResponse describeLifecycleActionsWithOptions(shared_ptr<DescribeLifecycleActionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -30133,6 +33405,8 @@ public:
   DescribeScalingActivityDetailResponse describeScalingActivityDetail(shared_ptr<DescribeScalingActivityDetailRequest> request);
   DescribeScalingConfigurationsResponse describeScalingConfigurationsWithOptions(shared_ptr<DescribeScalingConfigurationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeScalingConfigurationsResponse describeScalingConfigurations(shared_ptr<DescribeScalingConfigurationsRequest> request);
+  DescribeScalingGroupDetailResponse describeScalingGroupDetailWithOptions(shared_ptr<DescribeScalingGroupDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeScalingGroupDetailResponse describeScalingGroupDetail(shared_ptr<DescribeScalingGroupDetailRequest> request);
   DescribeScalingGroupsResponse describeScalingGroupsWithOptions(shared_ptr<DescribeScalingGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeScalingGroupsResponse describeScalingGroups(shared_ptr<DescribeScalingGroupsRequest> request);
   DescribeScalingInstancesResponse describeScalingInstancesWithOptions(shared_ptr<DescribeScalingInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
