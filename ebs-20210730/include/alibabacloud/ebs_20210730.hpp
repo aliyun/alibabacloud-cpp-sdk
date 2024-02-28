@@ -8487,6 +8487,206 @@ public:
 
   virtual ~DescribeReplicaGroupDrillsResponse() = default;
 };
+class DescribeSolutionInstanceConfigurationRequestParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> parameterKey{};
+  shared_ptr<string> parameterValue{};
+
+  DescribeSolutionInstanceConfigurationRequestParameters() {}
+
+  explicit DescribeSolutionInstanceConfigurationRequestParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameterKey) {
+      res["ParameterKey"] = boost::any(*parameterKey);
+    }
+    if (parameterValue) {
+      res["ParameterValue"] = boost::any(*parameterValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParameterKey") != m.end() && !m["ParameterKey"].empty()) {
+      parameterKey = make_shared<string>(boost::any_cast<string>(m["ParameterKey"]));
+    }
+    if (m.find("ParameterValue") != m.end() && !m["ParameterValue"].empty()) {
+      parameterValue = make_shared<string>(boost::any_cast<string>(m["ParameterValue"]));
+    }
+  }
+
+
+  virtual ~DescribeSolutionInstanceConfigurationRequestParameters() = default;
+};
+class DescribeSolutionInstanceConfigurationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<vector<DescribeSolutionInstanceConfigurationRequestParameters>> parameters{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> solutionId{};
+
+  DescribeSolutionInstanceConfigurationRequest() {}
+
+  explicit DescribeSolutionInstanceConfigurationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (parameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*parameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Parameters"] = boost::any(temp1);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (solutionId) {
+      res["SolutionId"] = boost::any(*solutionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["Parameters"].type()) {
+        vector<DescribeSolutionInstanceConfigurationRequestParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Parameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSolutionInstanceConfigurationRequestParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        parameters = make_shared<vector<DescribeSolutionInstanceConfigurationRequestParameters>>(expect1);
+      }
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SolutionId") != m.end() && !m["SolutionId"].empty()) {
+      solutionId = make_shared<string>(boost::any_cast<string>(m["SolutionId"]));
+    }
+  }
+
+
+  virtual ~DescribeSolutionInstanceConfigurationRequest() = default;
+};
+class DescribeSolutionInstanceConfigurationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<map<string, boost::any>>> data{};
+  shared_ptr<string> requestId{};
+
+  DescribeSolutionInstanceConfigurationResponseBody() {}
+
+  explicit DescribeSolutionInstanceConfigurationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Data"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      data = make_shared<vector<map<string, boost::any>>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeSolutionInstanceConfigurationResponseBody() = default;
+};
+class DescribeSolutionInstanceConfigurationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSolutionInstanceConfigurationResponseBody> body{};
+
+  DescribeSolutionInstanceConfigurationResponse() {}
+
+  explicit DescribeSolutionInstanceConfigurationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSolutionInstanceConfigurationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSolutionInstanceConfigurationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSolutionInstanceConfigurationResponse() = default;
+};
 class FailoverDiskReplicaGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -12747,6 +12947,8 @@ public:
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DescribeReplicaGroupDrillsResponse describeReplicaGroupDrillsWithOptions(shared_ptr<DescribeReplicaGroupDrillsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeReplicaGroupDrillsResponse describeReplicaGroupDrills(shared_ptr<DescribeReplicaGroupDrillsRequest> request);
+  DescribeSolutionInstanceConfigurationResponse describeSolutionInstanceConfigurationWithOptions(shared_ptr<DescribeSolutionInstanceConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSolutionInstanceConfigurationResponse describeSolutionInstanceConfiguration(shared_ptr<DescribeSolutionInstanceConfigurationRequest> request);
   FailoverDiskReplicaGroupResponse failoverDiskReplicaGroupWithOptions(shared_ptr<FailoverDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FailoverDiskReplicaGroupResponse failoverDiskReplicaGroup(shared_ptr<FailoverDiskReplicaGroupRequest> request);
   FailoverDiskReplicaPairResponse failoverDiskReplicaPairWithOptions(shared_ptr<FailoverDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
