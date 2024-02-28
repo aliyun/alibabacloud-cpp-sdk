@@ -7178,6 +7178,64 @@ DescribeInstanceLinkedWhitelistTemplateResponse Alibabacloud_Rds20140815::Client
   return describeInstanceLinkedWhitelistTemplateWithOptions(request, runtime);
 }
 
+DescribeKmsAssociateResourcesResponse Alibabacloud_Rds20140815::Client::describeKmsAssociateResourcesWithOptions(shared_ptr<DescribeKmsAssociateResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kmsResourceId)) {
+    query->insert(pair<string, string>("KmsResourceId", *request->kmsResourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kmsResourceRegionId)) {
+    query->insert(pair<string, string>("KmsResourceRegionId", *request->kmsResourceRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kmsResourceType)) {
+    query->insert(pair<string, string>("KmsResourceType", *request->kmsResourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kmsResourceUser)) {
+    query->insert(pair<string, string>("KmsResourceUser", *request->kmsResourceUser));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerId)) {
+    query->insert(pair<string, string>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerId)) {
+    query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeKmsAssociateResources"))},
+    {"version", boost::any(string("2014-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeKmsAssociateResourcesResponse(callApi(params, req, runtime));
+}
+
+DescribeKmsAssociateResourcesResponse Alibabacloud_Rds20140815::Client::describeKmsAssociateResources(shared_ptr<DescribeKmsAssociateResourcesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeKmsAssociateResourcesWithOptions(request, runtime);
+}
+
 DescribeLocalAvailableRecoveryTimeResponse Alibabacloud_Rds20140815::Client::describeLocalAvailableRecoveryTimeWithOptions(shared_ptr<DescribeLocalAvailableRecoveryTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
