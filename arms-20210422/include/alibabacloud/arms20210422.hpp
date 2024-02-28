@@ -17247,6 +17247,7 @@ public:
 class SetRetcodeShareStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> pid{};
+  shared_ptr<string> regionId{};
   shared_ptr<bool> status{};
 
   SetRetcodeShareStatusRequest() {}
@@ -17262,6 +17263,9 @@ public:
     if (pid) {
       res["Pid"] = boost::any(*pid);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -17271,6 +17275,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Pid") != m.end() && !m["Pid"].empty()) {
       pid = make_shared<string>(boost::any_cast<string>(m["Pid"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<bool>(boost::any_cast<bool>(m["Status"]));

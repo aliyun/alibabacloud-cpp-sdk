@@ -2944,6 +2944,9 @@ SetRetcodeShareStatusResponse Alibabacloud_ARMS20210422::Client::setRetcodeShare
   if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
     query->insert(pair<string, string>("Pid", *request->pid));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->status)) {
     query->insert(pair<string, bool>("Status", *request->status));
   }
