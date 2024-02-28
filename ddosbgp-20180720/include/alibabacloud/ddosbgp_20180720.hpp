@@ -2402,8 +2402,45 @@ public:
 
   virtual ~DescribeInstanceListRequest() = default;
 };
+class DescribeInstanceListResponseBodyInstanceListAutoProtectCondition : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> events{};
+
+  DescribeInstanceListResponseBodyInstanceListAutoProtectCondition() {}
+
+  explicit DescribeInstanceListResponseBodyInstanceListAutoProtectCondition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (events) {
+      res["Events"] = boost::any(*events);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Events") != m.end() && !m["Events"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Events"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Events"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      events = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeInstanceListResponseBodyInstanceListAutoProtectCondition() = default;
+};
 class DescribeInstanceListResponseBodyInstanceList : public Darabonba::Model {
 public:
+  shared_ptr<DescribeInstanceListResponseBodyInstanceListAutoProtectCondition> autoProtectCondition{};
   shared_ptr<bool> autoRenewal{};
   shared_ptr<string> blackholdingCount{};
   shared_ptr<string> commodityType{};
@@ -2427,6 +2464,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoProtectCondition) {
+      res["AutoProtectCondition"] = autoProtectCondition ? boost::any(autoProtectCondition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (autoRenewal) {
       res["AutoRenewal"] = boost::any(*autoRenewal);
     }
@@ -2467,6 +2507,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoProtectCondition") != m.end() && !m["AutoProtectCondition"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AutoProtectCondition"].type()) {
+        DescribeInstanceListResponseBodyInstanceListAutoProtectCondition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AutoProtectCondition"]));
+        autoProtectCondition = make_shared<DescribeInstanceListResponseBodyInstanceListAutoProtectCondition>(model1);
+      }
+    }
     if (m.find("AutoRenewal") != m.end() && !m["AutoRenewal"].empty()) {
       autoRenewal = make_shared<bool>(boost::any_cast<bool>(m["AutoRenewal"]));
     }
@@ -3729,6 +3776,7 @@ class DescribePackIpListResponseBodyIpList : public Darabonba::Model {
 public:
   shared_ptr<string> ip{};
   shared_ptr<string> memberUid{};
+  shared_ptr<long> nsmStatus{};
   shared_ptr<string> product{};
   shared_ptr<string> region{};
   shared_ptr<string> remark{};
@@ -3749,6 +3797,9 @@ public:
     }
     if (memberUid) {
       res["MemberUid"] = boost::any(*memberUid);
+    }
+    if (nsmStatus) {
+      res["NsmStatus"] = boost::any(*nsmStatus);
     }
     if (product) {
       res["Product"] = boost::any(*product);
@@ -3771,6 +3822,9 @@ public:
     }
     if (m.find("MemberUid") != m.end() && !m["MemberUid"].empty()) {
       memberUid = make_shared<string>(boost::any_cast<string>(m["MemberUid"]));
+    }
+    if (m.find("NsmStatus") != m.end() && !m["NsmStatus"].empty()) {
+      nsmStatus = make_shared<long>(boost::any_cast<long>(m["NsmStatus"]));
     }
     if (m.find("Product") != m.end() && !m["Product"].empty()) {
       product = make_shared<string>(boost::any_cast<string>(m["Product"]));
