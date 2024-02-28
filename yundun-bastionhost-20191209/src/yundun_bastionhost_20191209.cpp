@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -655,6 +654,12 @@ CreateUserResponse Alibabacloud_Yundun-bastionhost20191209::Client::createUserWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->languageStatus)) {
+    query->insert(pair<string, string>("LanguageStatus", *request->languageStatus));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
     query->insert(pair<string, string>("Mobile", *request->mobile));
@@ -3079,6 +3084,12 @@ ModifyUserResponse Alibabacloud_Yundun-bastionhost20191209::Client::modifyUserWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->languageStatus)) {
+    query->insert(pair<string, string>("LanguageStatus", *request->languageStatus));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
     query->insert(pair<string, string>("Mobile", *request->mobile));
