@@ -1858,6 +1858,9 @@ CreateAutoSnapshotPolicyResponse Alibabacloud_Ecs20140526::Client::createAutoSna
   if (!Darabonba_Util::Client::isUnset<long>(request->copiedSnapshotsRetentionDays)) {
     query->insert(pair<string, long>("CopiedSnapshotsRetentionDays", *request->copiedSnapshotsRetentionDays));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration>(request->copyEncryptionConfiguration)) {
+    query->insert(pair<string, CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration>("CopyEncryptionConfiguration", *request->copyEncryptionConfiguration));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableCrossRegionCopy)) {
     query->insert(pair<string, bool>("EnableCrossRegionCopy", *request->enableCrossRegionCopy));
   }
@@ -14463,11 +14466,19 @@ ModifyAutoSnapshotPolicyResponse Alibabacloud_Ecs20140526::Client::modifyAutoSna
   return modifyAutoSnapshotPolicyWithOptions(request, runtime);
 }
 
-ModifyAutoSnapshotPolicyExResponse Alibabacloud_Ecs20140526::Client::modifyAutoSnapshotPolicyExWithOptions(shared_ptr<ModifyAutoSnapshotPolicyExRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ModifyAutoSnapshotPolicyExResponse Alibabacloud_Ecs20140526::Client::modifyAutoSnapshotPolicyExWithOptions(shared_ptr<ModifyAutoSnapshotPolicyExRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ModifyAutoSnapshotPolicyExShrinkRequest> request = make_shared<ModifyAutoSnapshotPolicyExShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration>(tmpReq->copyEncryptionConfiguration)) {
+    request->copyEncryptionConfigurationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->copyEncryptionConfiguration, make_shared<string>("CopyEncryptionConfiguration"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->copiedSnapshotsRetentionDays)) {
     query->insert(pair<string, long>("CopiedSnapshotsRetentionDays", *request->copiedSnapshotsRetentionDays));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->copyEncryptionConfigurationShrink)) {
+    query->insert(pair<string, string>("CopyEncryptionConfiguration", *request->copyEncryptionConfigurationShrink));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableCrossRegionCopy)) {
     query->insert(pair<string, bool>("EnableCrossRegionCopy", *request->enableCrossRegionCopy));

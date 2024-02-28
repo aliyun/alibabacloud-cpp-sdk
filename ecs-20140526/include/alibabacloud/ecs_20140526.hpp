@@ -7658,6 +7658,106 @@ public:
 
   virtual ~CreateAutoProvisioningGroupResponse() = default;
 };
+class CreateAutoSnapshotPolicyRequestCopyEncryptionConfigurationArn : public Darabonba::Model {
+public:
+  shared_ptr<long> assumeRoleFor{};
+  shared_ptr<string> roleType{};
+  shared_ptr<string> rolearn{};
+
+  CreateAutoSnapshotPolicyRequestCopyEncryptionConfigurationArn() {}
+
+  explicit CreateAutoSnapshotPolicyRequestCopyEncryptionConfigurationArn(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assumeRoleFor) {
+      res["AssumeRoleFor"] = boost::any(*assumeRoleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
+    if (rolearn) {
+      res["Rolearn"] = boost::any(*rolearn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssumeRoleFor") != m.end() && !m["AssumeRoleFor"].empty()) {
+      assumeRoleFor = make_shared<long>(boost::any_cast<long>(m["AssumeRoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<string>(boost::any_cast<string>(m["RoleType"]));
+    }
+    if (m.find("Rolearn") != m.end() && !m["Rolearn"].empty()) {
+      rolearn = make_shared<string>(boost::any_cast<string>(m["Rolearn"]));
+    }
+  }
+
+
+  virtual ~CreateAutoSnapshotPolicyRequestCopyEncryptionConfigurationArn() = default;
+};
+class CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateAutoSnapshotPolicyRequestCopyEncryptionConfigurationArn>> arn{};
+  shared_ptr<bool> encrypted{};
+  shared_ptr<string> KMSKeyId{};
+
+  CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration() {}
+
+  explicit CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arn) {
+      vector<boost::any> temp1;
+      for(auto item1:*arn){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Arn"] = boost::any(temp1);
+    }
+    if (encrypted) {
+      res["Encrypted"] = boost::any(*encrypted);
+    }
+    if (KMSKeyId) {
+      res["KMSKeyId"] = boost::any(*KMSKeyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
+      if (typeid(vector<boost::any>) == m["Arn"].type()) {
+        vector<CreateAutoSnapshotPolicyRequestCopyEncryptionConfigurationArn> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Arn"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAutoSnapshotPolicyRequestCopyEncryptionConfigurationArn model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        arn = make_shared<vector<CreateAutoSnapshotPolicyRequestCopyEncryptionConfigurationArn>>(expect1);
+      }
+    }
+    if (m.find("Encrypted") != m.end() && !m["Encrypted"].empty()) {
+      encrypted = make_shared<bool>(boost::any_cast<bool>(m["Encrypted"]));
+    }
+    if (m.find("KMSKeyId") != m.end() && !m["KMSKeyId"].empty()) {
+      KMSKeyId = make_shared<string>(boost::any_cast<string>(m["KMSKeyId"]));
+    }
+  }
+
+
+  virtual ~CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration() = default;
+};
 class CreateAutoSnapshotPolicyRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -7697,6 +7797,7 @@ public:
 class CreateAutoSnapshotPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<long> copiedSnapshotsRetentionDays{};
+  shared_ptr<CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration> copyEncryptionConfiguration{};
   shared_ptr<bool> enableCrossRegionCopy{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceGroupId{};
@@ -7723,6 +7824,9 @@ public:
     map<string, boost::any> res;
     if (copiedSnapshotsRetentionDays) {
       res["CopiedSnapshotsRetentionDays"] = boost::any(*copiedSnapshotsRetentionDays);
+    }
+    if (copyEncryptionConfiguration) {
+      res["CopyEncryptionConfiguration"] = copyEncryptionConfiguration ? boost::any(copyEncryptionConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (enableCrossRegionCopy) {
       res["EnableCrossRegionCopy"] = boost::any(*enableCrossRegionCopy);
@@ -7773,6 +7877,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CopiedSnapshotsRetentionDays") != m.end() && !m["CopiedSnapshotsRetentionDays"].empty()) {
       copiedSnapshotsRetentionDays = make_shared<long>(boost::any_cast<long>(m["CopiedSnapshotsRetentionDays"]));
+    }
+    if (m.find("CopyEncryptionConfiguration") != m.end() && !m["CopyEncryptionConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CopyEncryptionConfiguration"].type()) {
+        CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CopyEncryptionConfiguration"]));
+        copyEncryptionConfiguration = make_shared<CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration>(model1);
+      }
     }
     if (m.find("EnableCrossRegionCopy") != m.end() && !m["EnableCrossRegionCopy"].empty()) {
       enableCrossRegionCopy = make_shared<bool>(boost::any_cast<bool>(m["EnableCrossRegionCopy"]));
@@ -28006,6 +28117,42 @@ public:
 
   virtual ~DescribeAutoSnapshotPolicyExRequest() = default;
 };
+class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyCopyEncryptionConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<bool> encrypted{};
+  shared_ptr<string> KMSKeyId{};
+
+  DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyCopyEncryptionConfiguration() {}
+
+  explicit DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyCopyEncryptionConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (encrypted) {
+      res["Encrypted"] = boost::any(*encrypted);
+    }
+    if (KMSKeyId) {
+      res["KMSKeyId"] = boost::any(*KMSKeyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Encrypted") != m.end() && !m["Encrypted"].empty()) {
+      encrypted = make_shared<bool>(boost::any_cast<bool>(m["Encrypted"]));
+    }
+    if (m.find("KMSKeyId") != m.end() && !m["KMSKeyId"].empty()) {
+      KMSKeyId = make_shared<string>(boost::any_cast<string>(m["KMSKeyId"]));
+    }
+  }
+
+
+  virtual ~DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyCopyEncryptionConfiguration() = default;
+};
 class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTagsTag : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -28090,6 +28237,7 @@ public:
   shared_ptr<string> autoSnapshotPolicyId{};
   shared_ptr<string> autoSnapshotPolicyName{};
   shared_ptr<long> copiedSnapshotsRetentionDays{};
+  shared_ptr<DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyCopyEncryptionConfiguration> copyEncryptionConfiguration{};
   shared_ptr<string> creationTime{};
   shared_ptr<long> diskNums{};
   shared_ptr<bool> enableCrossRegionCopy{};
@@ -28122,6 +28270,9 @@ public:
     }
     if (copiedSnapshotsRetentionDays) {
       res["CopiedSnapshotsRetentionDays"] = boost::any(*copiedSnapshotsRetentionDays);
+    }
+    if (copyEncryptionConfiguration) {
+      res["CopyEncryptionConfiguration"] = copyEncryptionConfiguration ? boost::any(copyEncryptionConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
@@ -28174,6 +28325,13 @@ public:
     }
     if (m.find("CopiedSnapshotsRetentionDays") != m.end() && !m["CopiedSnapshotsRetentionDays"].empty()) {
       copiedSnapshotsRetentionDays = make_shared<long>(boost::any_cast<long>(m["CopiedSnapshotsRetentionDays"]));
+    }
+    if (m.find("CopyEncryptionConfiguration") != m.end() && !m["CopyEncryptionConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CopyEncryptionConfiguration"].type()) {
+        DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyCopyEncryptionConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CopyEncryptionConfiguration"]));
+        copyEncryptionConfiguration = make_shared<DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyCopyEncryptionConfiguration>(model1);
+      }
     }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
@@ -87029,9 +87187,110 @@ public:
 
   virtual ~ModifyAutoSnapshotPolicyResponse() = default;
 };
+class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn : public Darabonba::Model {
+public:
+  shared_ptr<long> assumeRoleFor{};
+  shared_ptr<string> roleType{};
+  shared_ptr<string> rolearn{};
+
+  ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn() {}
+
+  explicit ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assumeRoleFor) {
+      res["AssumeRoleFor"] = boost::any(*assumeRoleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
+    if (rolearn) {
+      res["Rolearn"] = boost::any(*rolearn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssumeRoleFor") != m.end() && !m["AssumeRoleFor"].empty()) {
+      assumeRoleFor = make_shared<long>(boost::any_cast<long>(m["AssumeRoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<string>(boost::any_cast<string>(m["RoleType"]));
+    }
+    if (m.find("Rolearn") != m.end() && !m["Rolearn"].empty()) {
+      rolearn = make_shared<string>(boost::any_cast<string>(m["Rolearn"]));
+    }
+  }
+
+
+  virtual ~ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn() = default;
+};
+class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<vector<ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn>> arn{};
+  shared_ptr<bool> encrypted{};
+  shared_ptr<string> KMSKeyId{};
+
+  ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration() {}
+
+  explicit ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arn) {
+      vector<boost::any> temp1;
+      for(auto item1:*arn){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Arn"] = boost::any(temp1);
+    }
+    if (encrypted) {
+      res["Encrypted"] = boost::any(*encrypted);
+    }
+    if (KMSKeyId) {
+      res["KMSKeyId"] = boost::any(*KMSKeyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
+      if (typeid(vector<boost::any>) == m["Arn"].type()) {
+        vector<ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Arn"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        arn = make_shared<vector<ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn>>(expect1);
+      }
+    }
+    if (m.find("Encrypted") != m.end() && !m["Encrypted"].empty()) {
+      encrypted = make_shared<bool>(boost::any_cast<bool>(m["Encrypted"]));
+    }
+    if (m.find("KMSKeyId") != m.end() && !m["KMSKeyId"].empty()) {
+      KMSKeyId = make_shared<string>(boost::any_cast<string>(m["KMSKeyId"]));
+    }
+  }
+
+
+  virtual ~ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration() = default;
+};
 class ModifyAutoSnapshotPolicyExRequest : public Darabonba::Model {
 public:
   shared_ptr<long> copiedSnapshotsRetentionDays{};
+  shared_ptr<ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration> copyEncryptionConfiguration{};
   shared_ptr<bool> enableCrossRegionCopy{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -87056,6 +87315,9 @@ public:
     map<string, boost::any> res;
     if (copiedSnapshotsRetentionDays) {
       res["CopiedSnapshotsRetentionDays"] = boost::any(*copiedSnapshotsRetentionDays);
+    }
+    if (copyEncryptionConfiguration) {
+      res["CopyEncryptionConfiguration"] = copyEncryptionConfiguration ? boost::any(copyEncryptionConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (enableCrossRegionCopy) {
       res["EnableCrossRegionCopy"] = boost::any(*enableCrossRegionCopy);
@@ -87097,6 +87359,13 @@ public:
     if (m.find("CopiedSnapshotsRetentionDays") != m.end() && !m["CopiedSnapshotsRetentionDays"].empty()) {
       copiedSnapshotsRetentionDays = make_shared<long>(boost::any_cast<long>(m["CopiedSnapshotsRetentionDays"]));
     }
+    if (m.find("CopyEncryptionConfiguration") != m.end() && !m["CopyEncryptionConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CopyEncryptionConfiguration"].type()) {
+        ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CopyEncryptionConfiguration"]));
+        copyEncryptionConfiguration = make_shared<ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration>(model1);
+      }
+    }
     if (m.find("EnableCrossRegionCopy") != m.end() && !m["EnableCrossRegionCopy"].empty()) {
       enableCrossRegionCopy = make_shared<bool>(boost::any_cast<bool>(m["EnableCrossRegionCopy"]));
     }
@@ -87134,6 +87403,119 @@ public:
 
 
   virtual ~ModifyAutoSnapshotPolicyExRequest() = default;
+};
+class ModifyAutoSnapshotPolicyExShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> copiedSnapshotsRetentionDays{};
+  shared_ptr<string> copyEncryptionConfigurationShrink{};
+  shared_ptr<bool> enableCrossRegionCopy{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> targetCopyRegions{};
+  shared_ptr<string> autoSnapshotPolicyId{};
+  shared_ptr<string> autoSnapshotPolicyName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> repeatWeekdays{};
+  shared_ptr<long> retentionDays{};
+  shared_ptr<string> timePoints{};
+
+  ModifyAutoSnapshotPolicyExShrinkRequest() {}
+
+  explicit ModifyAutoSnapshotPolicyExShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (copiedSnapshotsRetentionDays) {
+      res["CopiedSnapshotsRetentionDays"] = boost::any(*copiedSnapshotsRetentionDays);
+    }
+    if (copyEncryptionConfigurationShrink) {
+      res["CopyEncryptionConfiguration"] = boost::any(*copyEncryptionConfigurationShrink);
+    }
+    if (enableCrossRegionCopy) {
+      res["EnableCrossRegionCopy"] = boost::any(*enableCrossRegionCopy);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (targetCopyRegions) {
+      res["TargetCopyRegions"] = boost::any(*targetCopyRegions);
+    }
+    if (autoSnapshotPolicyId) {
+      res["autoSnapshotPolicyId"] = boost::any(*autoSnapshotPolicyId);
+    }
+    if (autoSnapshotPolicyName) {
+      res["autoSnapshotPolicyName"] = boost::any(*autoSnapshotPolicyName);
+    }
+    if (regionId) {
+      res["regionId"] = boost::any(*regionId);
+    }
+    if (repeatWeekdays) {
+      res["repeatWeekdays"] = boost::any(*repeatWeekdays);
+    }
+    if (retentionDays) {
+      res["retentionDays"] = boost::any(*retentionDays);
+    }
+    if (timePoints) {
+      res["timePoints"] = boost::any(*timePoints);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CopiedSnapshotsRetentionDays") != m.end() && !m["CopiedSnapshotsRetentionDays"].empty()) {
+      copiedSnapshotsRetentionDays = make_shared<long>(boost::any_cast<long>(m["CopiedSnapshotsRetentionDays"]));
+    }
+    if (m.find("CopyEncryptionConfiguration") != m.end() && !m["CopyEncryptionConfiguration"].empty()) {
+      copyEncryptionConfigurationShrink = make_shared<string>(boost::any_cast<string>(m["CopyEncryptionConfiguration"]));
+    }
+    if (m.find("EnableCrossRegionCopy") != m.end() && !m["EnableCrossRegionCopy"].empty()) {
+      enableCrossRegionCopy = make_shared<bool>(boost::any_cast<bool>(m["EnableCrossRegionCopy"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TargetCopyRegions") != m.end() && !m["TargetCopyRegions"].empty()) {
+      targetCopyRegions = make_shared<string>(boost::any_cast<string>(m["TargetCopyRegions"]));
+    }
+    if (m.find("autoSnapshotPolicyId") != m.end() && !m["autoSnapshotPolicyId"].empty()) {
+      autoSnapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["autoSnapshotPolicyId"]));
+    }
+    if (m.find("autoSnapshotPolicyName") != m.end() && !m["autoSnapshotPolicyName"].empty()) {
+      autoSnapshotPolicyName = make_shared<string>(boost::any_cast<string>(m["autoSnapshotPolicyName"]));
+    }
+    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
+    }
+    if (m.find("repeatWeekdays") != m.end() && !m["repeatWeekdays"].empty()) {
+      repeatWeekdays = make_shared<string>(boost::any_cast<string>(m["repeatWeekdays"]));
+    }
+    if (m.find("retentionDays") != m.end() && !m["retentionDays"].empty()) {
+      retentionDays = make_shared<long>(boost::any_cast<long>(m["retentionDays"]));
+    }
+    if (m.find("timePoints") != m.end() && !m["timePoints"].empty()) {
+      timePoints = make_shared<string>(boost::any_cast<string>(m["timePoints"]));
+    }
+  }
+
+
+  virtual ~ModifyAutoSnapshotPolicyExShrinkRequest() = default;
 };
 class ModifyAutoSnapshotPolicyExResponseBody : public Darabonba::Model {
 public:
@@ -110782,7 +111164,7 @@ public:
   ModifyAutoProvisioningGroupResponse modifyAutoProvisioningGroup(shared_ptr<ModifyAutoProvisioningGroupRequest> request);
   ModifyAutoSnapshotPolicyResponse modifyAutoSnapshotPolicyWithOptions(shared_ptr<ModifyAutoSnapshotPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyAutoSnapshotPolicyResponse modifyAutoSnapshotPolicy(shared_ptr<ModifyAutoSnapshotPolicyRequest> request);
-  ModifyAutoSnapshotPolicyExResponse modifyAutoSnapshotPolicyExWithOptions(shared_ptr<ModifyAutoSnapshotPolicyExRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyAutoSnapshotPolicyExResponse modifyAutoSnapshotPolicyExWithOptions(shared_ptr<ModifyAutoSnapshotPolicyExRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyAutoSnapshotPolicyExResponse modifyAutoSnapshotPolicyEx(shared_ptr<ModifyAutoSnapshotPolicyExRequest> request);
   ModifyBandwidthPackageSpecResponse modifyBandwidthPackageSpecWithOptions(shared_ptr<ModifyBandwidthPackageSpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyBandwidthPackageSpecResponse modifyBandwidthPackageSpec(shared_ptr<ModifyBandwidthPackageSpecRequest> request);
