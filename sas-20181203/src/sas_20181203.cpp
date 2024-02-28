@@ -6555,6 +6555,9 @@ DescribeExposedCheckWarningResponse Alibabacloud_Sas20181203::Client::describeEx
 DescribeExposedInstanceCriteriaResponse Alibabacloud_Sas20181203::Client::describeExposedInstanceCriteriaWithOptions(shared_ptr<DescribeExposedInstanceCriteriaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceDirectoryAccountId)) {
+    query->insert(pair<string, string>("ResourceDirectoryAccountId", *request->resourceDirectoryAccountId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->value)) {
     query->insert(pair<string, string>("Value", *request->value));
   }
@@ -6583,6 +6586,9 @@ DescribeExposedInstanceCriteriaResponse Alibabacloud_Sas20181203::Client::descri
 DescribeExposedInstanceDetailResponse Alibabacloud_Sas20181203::Client::describeExposedInstanceDetailWithOptions(shared_ptr<DescribeExposedInstanceDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceDirectoryAccountId)) {
+    query->insert(pair<string, long>("ResourceDirectoryAccountId", *request->resourceDirectoryAccountId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
     query->insert(pair<string, string>("Uuid", *request->uuid));
   }
@@ -6638,6 +6644,9 @@ DescribeExposedInstanceListResponse Alibabacloud_Sas20181203::Client::describeEx
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceDirectoryAccountId)) {
+    query->insert(pair<string, long>("ResourceDirectoryAccountId", *request->resourceDirectoryAccountId));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->vulStatus)) {
     query->insert(pair<string, bool>("VulStatus", *request->vulStatus));
   }
@@ -6692,6 +6701,9 @@ DescribeExposedStatisticsDetailResponse Alibabacloud_Sas20181203::Client::descri
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceDirectoryAccountId)) {
+    query->insert(pair<string, long>("ResourceDirectoryAccountId", *request->resourceDirectoryAccountId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->statisticsType)) {
     query->insert(pair<string, string>("StatisticsType", *request->statisticsType));
