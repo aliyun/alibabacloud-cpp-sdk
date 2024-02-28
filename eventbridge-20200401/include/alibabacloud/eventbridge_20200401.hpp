@@ -5,7 +5,6 @@
 
 #include <alibabacloud/open_api.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -250,17 +249,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -995,17 +984,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1183,17 +1162,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2037,17 +2006,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3670,6 +3629,514 @@ public:
 
   virtual ~CreateEventStreamingRequestSinkSinkMNSParameters() = default;
 };
+class CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType() {}
+
+  explicit CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType() = default;
+};
+class CreateEventStreamingRequestSinkSinkPrometheusParametersData : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkPrometheusParametersData() {}
+
+  explicit CreateEventStreamingRequestSinkSinkPrometheusParametersData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkPrometheusParametersData() = default;
+};
+class CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType() {}
+
+  explicit CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType() = default;
+};
+class CreateEventStreamingRequestSinkSinkPrometheusParametersPassword : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkPrometheusParametersPassword() {}
+
+  explicit CreateEventStreamingRequestSinkSinkPrometheusParametersPassword(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkPrometheusParametersPassword() = default;
+};
+class CreateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId() {}
+
+  explicit CreateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId() = default;
+};
+class CreateEventStreamingRequestSinkSinkPrometheusParametersURL : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkPrometheusParametersURL() {}
+
+  explicit CreateEventStreamingRequestSinkSinkPrometheusParametersURL(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkPrometheusParametersURL() = default;
+};
+class CreateEventStreamingRequestSinkSinkPrometheusParametersUsername : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkPrometheusParametersUsername() {}
+
+  explicit CreateEventStreamingRequestSinkSinkPrometheusParametersUsername(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkPrometheusParametersUsername() = default;
+};
+class CreateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId() {}
+
+  explicit CreateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId() = default;
+};
+class CreateEventStreamingRequestSinkSinkPrometheusParametersVpcId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkPrometheusParametersVpcId() {}
+
+  explicit CreateEventStreamingRequestSinkSinkPrometheusParametersVpcId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkPrometheusParametersVpcId() = default;
+};
+class CreateEventStreamingRequestSinkSinkPrometheusParameters : public Darabonba::Model {
+public:
+  shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType> authorizationType{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersData> data{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType> networkType{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersPassword> password{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId> securityGroupId{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersURL> URL{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersUsername> username{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId> vSwitchId{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersVpcId> vpcId{};
+
+  CreateEventStreamingRequestSinkSinkPrometheusParameters() {}
+
+  explicit CreateEventStreamingRequestSinkSinkPrometheusParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationType) {
+      res["AuthorizationType"] = authorizationType ? boost::any(authorizationType->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkType) {
+      res["NetworkType"] = networkType ? boost::any(networkType->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (password) {
+      res["Password"] = password ? boost::any(password->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (URL) {
+      res["URL"] = URL ? boost::any(URL->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (username) {
+      res["Username"] = username ? boost::any(username->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = vSwitchId ? boost::any(vSwitchId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vpcId) {
+      res["VpcId"] = vpcId ? boost::any(vpcId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationType") != m.end() && !m["AuthorizationType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AuthorizationType"].type()) {
+        CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AuthorizationType"]));
+        authorizationType = make_shared<CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType>(model1);
+      }
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateEventStreamingRequestSinkSinkPrometheusParametersData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateEventStreamingRequestSinkSinkPrometheusParametersData>(model1);
+      }
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkType"].type()) {
+        CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkType"]));
+        networkType = make_shared<CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType>(model1);
+      }
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Password"].type()) {
+        CreateEventStreamingRequestSinkSinkPrometheusParametersPassword model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Password"]));
+        password = make_shared<CreateEventStreamingRequestSinkSinkPrometheusParametersPassword>(model1);
+      }
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityGroupId"].type()) {
+        CreateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
+        securityGroupId = make_shared<CreateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId>(model1);
+      }
+    }
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      if (typeid(map<string, boost::any>) == m["URL"].type()) {
+        CreateEventStreamingRequestSinkSinkPrometheusParametersURL model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["URL"]));
+        URL = make_shared<CreateEventStreamingRequestSinkSinkPrometheusParametersURL>(model1);
+      }
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Username"].type()) {
+        CreateEventStreamingRequestSinkSinkPrometheusParametersUsername model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Username"]));
+        username = make_shared<CreateEventStreamingRequestSinkSinkPrometheusParametersUsername>(model1);
+      }
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VSwitchId"].type()) {
+        CreateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VSwitchId"]));
+        vSwitchId = make_shared<CreateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId>(model1);
+      }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VpcId"].type()) {
+        CreateEventStreamingRequestSinkSinkPrometheusParametersVpcId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VpcId"]));
+        vpcId = make_shared<CreateEventStreamingRequestSinkSinkPrometheusParametersVpcId>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkPrometheusParameters() = default;
+};
 class CreateEventStreamingRequestSinkSinkRabbitMQParametersBody : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -5255,6 +5722,7 @@ public:
   shared_ptr<CreateEventStreamingRequestSinkSinkFnfParameters> sinkFnfParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkKafkaParameters> sinkKafkaParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkMNSParameters> sinkMNSParameters{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParameters> sinkPrometheusParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkRabbitMQParameters> sinkRabbitMQParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkRocketMQParameters> sinkRocketMQParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkSLSParameters> sinkSLSParameters{};
@@ -5283,6 +5751,9 @@ public:
     }
     if (sinkMNSParameters) {
       res["SinkMNSParameters"] = sinkMNSParameters ? boost::any(sinkMNSParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sinkPrometheusParameters) {
+      res["SinkPrometheusParameters"] = sinkPrometheusParameters ? boost::any(sinkPrometheusParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sinkRabbitMQParameters) {
       res["SinkRabbitMQParameters"] = sinkRabbitMQParameters ? boost::any(sinkRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -5330,6 +5801,13 @@ public:
         CreateEventStreamingRequestSinkSinkMNSParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkMNSParameters"]));
         sinkMNSParameters = make_shared<CreateEventStreamingRequestSinkSinkMNSParameters>(model1);
+      }
+    }
+    if (m.find("SinkPrometheusParameters") != m.end() && !m["SinkPrometheusParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkPrometheusParameters"].type()) {
+        CreateEventStreamingRequestSinkSinkPrometheusParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkPrometheusParameters"]));
+        sinkPrometheusParameters = make_shared<CreateEventStreamingRequestSinkSinkPrometheusParameters>(model1);
       }
     }
     if (m.find("SinkRabbitMQParameters") != m.end() && !m["SinkRabbitMQParameters"].empty()) {
@@ -5439,6 +5917,7 @@ public:
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> topic{};
   shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> valueDataType{};
   shared_ptr<string> vpcId{};
 
   CreateEventStreamingRequestSourceSourceKafkaParameters() {}
@@ -5475,6 +5954,9 @@ public:
     if (vSwitchIds) {
       res["VSwitchIds"] = boost::any(*vSwitchIds);
     }
+    if (valueDataType) {
+      res["ValueDataType"] = boost::any(*valueDataType);
+    }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
@@ -5505,6 +5987,9 @@ public:
     }
     if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
       vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("ValueDataType") != m.end() && !m["ValueDataType"].empty()) {
+      valueDataType = make_shared<string>(boost::any_cast<string>(m["ValueDataType"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -5559,6 +6044,7 @@ public:
 };
 class CreateEventStreamingRequestSourceSourceMQTTParameters : public Darabonba::Model {
 public:
+  shared_ptr<string> bodyDataType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> topic{};
@@ -5573,6 +6059,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bodyDataType) {
+      res["BodyDataType"] = boost::any(*bodyDataType);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -5586,6 +6075,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BodyDataType") != m.end() && !m["BodyDataType"].empty()) {
+      bodyDataType = make_shared<string>(boost::any_cast<string>(m["BodyDataType"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -5599,6 +6091,49 @@ public:
 
 
   virtual ~CreateEventStreamingRequestSourceSourceMQTTParameters() = default;
+};
+class CreateEventStreamingRequestSourceSourcePrometheusParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dataType{};
+  shared_ptr<string> labels{};
+
+  CreateEventStreamingRequestSourceSourcePrometheusParameters() {}
+
+  explicit CreateEventStreamingRequestSourceSourcePrometheusParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
+    }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSourceSourcePrometheusParameters() = default;
 };
 class CreateEventStreamingRequestSourceSourceRabbitMQParameters : public Darabonba::Model {
 public:
@@ -5882,6 +6417,7 @@ public:
   shared_ptr<CreateEventStreamingRequestSourceSourceKafkaParameters> sourceKafkaParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceMNSParameters> sourceMNSParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceMQTTParameters> sourceMQTTParameters{};
+  shared_ptr<CreateEventStreamingRequestSourceSourcePrometheusParameters> sourcePrometheusParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceRabbitMQParameters> sourceRabbitMQParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceRocketMQParameters> sourceRocketMQParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceSLSParameters> sourceSLSParameters{};
@@ -5907,6 +6443,9 @@ public:
     }
     if (sourceMQTTParameters) {
       res["SourceMQTTParameters"] = sourceMQTTParameters ? boost::any(sourceMQTTParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourcePrometheusParameters) {
+      res["SourcePrometheusParameters"] = sourcePrometheusParameters ? boost::any(sourcePrometheusParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceRabbitMQParameters) {
       res["SourceRabbitMQParameters"] = sourceRabbitMQParameters ? boost::any(sourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -5947,6 +6486,13 @@ public:
         CreateEventStreamingRequestSourceSourceMQTTParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceMQTTParameters"]));
         sourceMQTTParameters = make_shared<CreateEventStreamingRequestSourceSourceMQTTParameters>(model1);
+      }
+    }
+    if (m.find("SourcePrometheusParameters") != m.end() && !m["SourcePrometheusParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourcePrometheusParameters"].type()) {
+        CreateEventStreamingRequestSourceSourcePrometheusParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourcePrometheusParameters"]));
+        sourcePrometheusParameters = make_shared<CreateEventStreamingRequestSourceSourcePrometheusParameters>(model1);
       }
     }
     if (m.find("SourceRabbitMQParameters") != m.end() && !m["SourceRabbitMQParameters"].empty()) {
@@ -6274,17 +6820,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6736,17 +7272,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6877,17 +7403,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7011,17 +7527,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7145,17 +7651,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7286,17 +7782,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7427,17 +7913,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7568,17 +8044,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7716,17 +8182,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -8025,17 +8481,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -8173,17 +8619,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -8321,17 +8757,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -8563,17 +8989,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -9322,17 +9738,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -9524,17 +9930,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -12166,6 +12562,7 @@ public:
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> topic{};
   shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> valueDataType{};
   shared_ptr<string> vpcId{};
 
   GetEventStreamingResponseBodyDataSourceSourceKafkaParameters() {}
@@ -12202,6 +12599,9 @@ public:
     if (vSwitchIds) {
       res["VSwitchIds"] = boost::any(*vSwitchIds);
     }
+    if (valueDataType) {
+      res["ValueDataType"] = boost::any(*valueDataType);
+    }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
@@ -12232,6 +12632,9 @@ public:
     }
     if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
       vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("ValueDataType") != m.end() && !m["ValueDataType"].empty()) {
+      valueDataType = make_shared<string>(boost::any_cast<string>(m["ValueDataType"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -12326,6 +12729,49 @@ public:
 
 
   virtual ~GetEventStreamingResponseBodyDataSourceSourceMQTTParameters() = default;
+};
+class GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dataType{};
+  shared_ptr<string> labels{};
+
+  GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters() {}
+
+  explicit GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
+    }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters() = default;
 };
 class GetEventStreamingResponseBodyDataSourceSourceRabbitMQParameters : public Darabonba::Model {
 public:
@@ -12574,6 +13020,7 @@ public:
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceKafkaParameters> sourceKafkaParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceMNSParameters> sourceMNSParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceMQTTParameters> sourceMQTTParameters{};
+  shared_ptr<GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters> sourcePrometheusParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceRabbitMQParameters> sourceRabbitMQParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters> sourceRocketMQParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceSLSParameters> sourceSLSParameters{};
@@ -12599,6 +13046,9 @@ public:
     }
     if (sourceMQTTParameters) {
       res["SourceMQTTParameters"] = sourceMQTTParameters ? boost::any(sourceMQTTParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourcePrometheusParameters) {
+      res["SourcePrometheusParameters"] = sourcePrometheusParameters ? boost::any(sourcePrometheusParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceRabbitMQParameters) {
       res["SourceRabbitMQParameters"] = sourceRabbitMQParameters ? boost::any(sourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -12639,6 +13089,13 @@ public:
         GetEventStreamingResponseBodyDataSourceSourceMQTTParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceMQTTParameters"]));
         sourceMQTTParameters = make_shared<GetEventStreamingResponseBodyDataSourceSourceMQTTParameters>(model1);
+      }
+    }
+    if (m.find("SourcePrometheusParameters") != m.end() && !m["SourcePrometheusParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourcePrometheusParameters"].type()) {
+        GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourcePrometheusParameters"]));
+        sourcePrometheusParameters = make_shared<GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters>(model1);
       }
     }
     if (m.find("SourceRabbitMQParameters") != m.end() && !m["SourceRabbitMQParameters"].empty()) {
@@ -12873,17 +13330,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -13311,17 +13758,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -13626,17 +14063,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -13953,17 +14380,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -14740,17 +15157,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -15013,17 +15420,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -18447,17 +18844,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -18838,17 +19225,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -19210,17 +19587,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -19979,6 +20346,8 @@ public:
 class ListUserDefinedEventSourcesResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<ListUserDefinedEventSourcesResponseBodyDataEventSourceList>> eventSourceList{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> total{};
 
   ListUserDefinedEventSourcesResponseBodyData() {}
 
@@ -19997,6 +20366,12 @@ public:
       }
       res["EventSourceList"] = boost::any(temp1);
     }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
     return res;
   }
 
@@ -20013,6 +20388,12 @@ public:
         }
         eventSourceList = make_shared<vector<ListUserDefinedEventSourcesResponseBodyDataEventSourceList>>(expect1);
       }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
     }
   }
 
@@ -20092,17 +20473,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -20233,17 +20604,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -20717,17 +21078,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -20884,17 +21235,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -21159,17 +21500,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -21449,17 +21780,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -21764,17 +22085,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -21845,7 +22156,7 @@ public:
 };
 class StartEventStreamingResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<bool> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -21877,7 +22188,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<bool>(boost::any_cast<bool>(m["Code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -21905,17 +22216,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -22093,17 +22394,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -22345,17 +22636,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -23050,17 +23331,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -23198,17 +23469,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -24019,17 +24280,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -25306,6 +25557,514 @@ public:
 
   virtual ~UpdateEventStreamingRequestSinkSinkMNSParameters() = default;
 };
+class UpdateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType() = default;
+};
+class UpdateEventStreamingRequestSinkSinkPrometheusParametersData : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkPrometheusParametersData() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkPrometheusParametersData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkPrometheusParametersData() = default;
+};
+class UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType() = default;
+};
+class UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword() = default;
+};
+class UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId() = default;
+};
+class UpdateEventStreamingRequestSinkSinkPrometheusParametersURL : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkPrometheusParametersURL() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkPrometheusParametersURL(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkPrometheusParametersURL() = default;
+};
+class UpdateEventStreamingRequestSinkSinkPrometheusParametersUsername : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkPrometheusParametersUsername() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkPrometheusParametersUsername(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkPrometheusParametersUsername() = default;
+};
+class UpdateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId() = default;
+};
+class UpdateEventStreamingRequestSinkSinkPrometheusParametersVpcId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkPrometheusParametersVpcId() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkPrometheusParametersVpcId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkPrometheusParametersVpcId() = default;
+};
+class UpdateEventStreamingRequestSinkSinkPrometheusParameters : public Darabonba::Model {
+public:
+  shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType> authorizationType{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersData> data{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType> networkType{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword> password{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId> securityGroupId{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersURL> URL{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersUsername> username{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId> vSwitchId{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersVpcId> vpcId{};
+
+  UpdateEventStreamingRequestSinkSinkPrometheusParameters() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkPrometheusParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationType) {
+      res["AuthorizationType"] = authorizationType ? boost::any(authorizationType->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (networkType) {
+      res["NetworkType"] = networkType ? boost::any(networkType->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (password) {
+      res["Password"] = password ? boost::any(password->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (URL) {
+      res["URL"] = URL ? boost::any(URL->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (username) {
+      res["Username"] = username ? boost::any(username->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = vSwitchId ? boost::any(vSwitchId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vpcId) {
+      res["VpcId"] = vpcId ? boost::any(vpcId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationType") != m.end() && !m["AuthorizationType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AuthorizationType"].type()) {
+        UpdateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AuthorizationType"]));
+        authorizationType = make_shared<UpdateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType>(model1);
+      }
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        UpdateEventStreamingRequestSinkSinkPrometheusParametersData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<UpdateEventStreamingRequestSinkSinkPrometheusParametersData>(model1);
+      }
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NetworkType"].type()) {
+        UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkType"]));
+        networkType = make_shared<UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType>(model1);
+      }
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Password"].type()) {
+        UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Password"]));
+        password = make_shared<UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword>(model1);
+      }
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityGroupId"].type()) {
+        UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
+        securityGroupId = make_shared<UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId>(model1);
+      }
+    }
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      if (typeid(map<string, boost::any>) == m["URL"].type()) {
+        UpdateEventStreamingRequestSinkSinkPrometheusParametersURL model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["URL"]));
+        URL = make_shared<UpdateEventStreamingRequestSinkSinkPrometheusParametersURL>(model1);
+      }
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Username"].type()) {
+        UpdateEventStreamingRequestSinkSinkPrometheusParametersUsername model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Username"]));
+        username = make_shared<UpdateEventStreamingRequestSinkSinkPrometheusParametersUsername>(model1);
+      }
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VSwitchId"].type()) {
+        UpdateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VSwitchId"]));
+        vSwitchId = make_shared<UpdateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId>(model1);
+      }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VpcId"].type()) {
+        UpdateEventStreamingRequestSinkSinkPrometheusParametersVpcId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VpcId"]));
+        vpcId = make_shared<UpdateEventStreamingRequestSinkSinkPrometheusParametersVpcId>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkPrometheusParameters() = default;
+};
 class UpdateEventStreamingRequestSinkSinkRabbitMQParametersBody : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -26458,6 +27217,7 @@ public:
   shared_ptr<UpdateEventStreamingRequestSinkSinkFnfParameters> sinkFnfParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkKafkaParameters> sinkKafkaParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkMNSParameters> sinkMNSParameters{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParameters> sinkPrometheusParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRabbitMQParameters> sinkRabbitMQParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParameters> sinkRocketMQParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkSLSParameters> sinkSLSParameters{};
@@ -26483,6 +27243,9 @@ public:
     }
     if (sinkMNSParameters) {
       res["SinkMNSParameters"] = sinkMNSParameters ? boost::any(sinkMNSParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sinkPrometheusParameters) {
+      res["SinkPrometheusParameters"] = sinkPrometheusParameters ? boost::any(sinkPrometheusParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sinkRabbitMQParameters) {
       res["SinkRabbitMQParameters"] = sinkRabbitMQParameters ? boost::any(sinkRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -26523,6 +27286,13 @@ public:
         UpdateEventStreamingRequestSinkSinkMNSParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkMNSParameters"]));
         sinkMNSParameters = make_shared<UpdateEventStreamingRequestSinkSinkMNSParameters>(model1);
+      }
+    }
+    if (m.find("SinkPrometheusParameters") != m.end() && !m["SinkPrometheusParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SinkPrometheusParameters"].type()) {
+        UpdateEventStreamingRequestSinkSinkPrometheusParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SinkPrometheusParameters"]));
+        sinkPrometheusParameters = make_shared<UpdateEventStreamingRequestSinkSinkPrometheusParameters>(model1);
       }
     }
     if (m.find("SinkRabbitMQParameters") != m.end() && !m["SinkRabbitMQParameters"].empty()) {
@@ -26632,6 +27402,7 @@ public:
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> topic{};
   shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> valueDataType{};
   shared_ptr<string> vpcId{};
 
   UpdateEventStreamingRequestSourceSourceKafkaParameters() {}
@@ -26668,6 +27439,9 @@ public:
     if (vSwitchIds) {
       res["VSwitchIds"] = boost::any(*vSwitchIds);
     }
+    if (valueDataType) {
+      res["ValueDataType"] = boost::any(*valueDataType);
+    }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
@@ -26698,6 +27472,9 @@ public:
     }
     if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
       vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("ValueDataType") != m.end() && !m["ValueDataType"].empty()) {
+      valueDataType = make_shared<string>(boost::any_cast<string>(m["ValueDataType"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -26792,6 +27569,49 @@ public:
 
 
   virtual ~UpdateEventStreamingRequestSourceSourceMQTTParameters() = default;
+};
+class UpdateEventStreamingRequestSourceSourcePrometheusParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dataType{};
+  shared_ptr<string> labels{};
+
+  UpdateEventStreamingRequestSourceSourcePrometheusParameters() {}
+
+  explicit UpdateEventStreamingRequestSourceSourcePrometheusParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
+    }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSourceSourcePrometheusParameters() = default;
 };
 class UpdateEventStreamingRequestSourceSourceRabbitMQParameters : public Darabonba::Model {
 public:
@@ -27012,6 +27832,7 @@ public:
   shared_ptr<UpdateEventStreamingRequestSourceSourceKafkaParameters> sourceKafkaParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceMNSParameters> sourceMNSParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceMQTTParameters> sourceMQTTParameters{};
+  shared_ptr<UpdateEventStreamingRequestSourceSourcePrometheusParameters> sourcePrometheusParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceRabbitMQParameters> sourceRabbitMQParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceRocketMQParameters> sourceRocketMQParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceSLSParameters> sourceSLSParameters{};
@@ -27037,6 +27858,9 @@ public:
     }
     if (sourceMQTTParameters) {
       res["SourceMQTTParameters"] = sourceMQTTParameters ? boost::any(sourceMQTTParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourcePrometheusParameters) {
+      res["SourcePrometheusParameters"] = sourcePrometheusParameters ? boost::any(sourcePrometheusParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceRabbitMQParameters) {
       res["SourceRabbitMQParameters"] = sourceRabbitMQParameters ? boost::any(sourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -27077,6 +27901,13 @@ public:
         UpdateEventStreamingRequestSourceSourceMQTTParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceMQTTParameters"]));
         sourceMQTTParameters = make_shared<UpdateEventStreamingRequestSourceSourceMQTTParameters>(model1);
+      }
+    }
+    if (m.find("SourcePrometheusParameters") != m.end() && !m["SourcePrometheusParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourcePrometheusParameters"].type()) {
+        UpdateEventStreamingRequestSourceSourcePrometheusParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourcePrometheusParameters"]));
+        sourcePrometheusParameters = make_shared<UpdateEventStreamingRequestSourceSourcePrometheusParameters>(model1);
       }
     }
     if (m.find("SourceRabbitMQParameters") != m.end() && !m["SourceRabbitMQParameters"].empty()) {
@@ -27364,17 +28195,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -27540,17 +28361,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
