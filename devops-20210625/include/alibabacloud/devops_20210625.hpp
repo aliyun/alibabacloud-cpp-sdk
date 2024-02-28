@@ -28678,6 +28678,49 @@ public:
 
   virtual ~GetWorkItemInfoResponseBodyWorkitemCustomFields() = default;
 };
+class GetWorkItemInfoResponseBodyWorkitemTagDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> color{};
+  shared_ptr<string> identifier{};
+  shared_ptr<string> name{};
+
+  GetWorkItemInfoResponseBodyWorkitemTagDetails() {}
+
+  explicit GetWorkItemInfoResponseBodyWorkitemTagDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (color) {
+      res["color"] = boost::any(*color);
+    }
+    if (identifier) {
+      res["identifier"] = boost::any(*identifier);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("color") != m.end() && !m["color"].empty()) {
+      color = make_shared<string>(boost::any_cast<string>(m["color"]));
+    }
+    if (m.find("identifier") != m.end() && !m["identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["identifier"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~GetWorkItemInfoResponseBodyWorkitemTagDetails() = default;
+};
 class GetWorkItemInfoResponseBodyWorkitem : public Darabonba::Model {
 public:
   shared_ptr<string> assignedTo{};
@@ -28703,6 +28746,7 @@ public:
   shared_ptr<string> statusStageIdentifier{};
   shared_ptr<string> subject{};
   shared_ptr<vector<string>> tag{};
+  shared_ptr<vector<GetWorkItemInfoResponseBodyWorkitemTagDetails>> tagDetails{};
   shared_ptr<vector<string>> tracker{};
   shared_ptr<long> updateStatusAt{};
   shared_ptr<vector<string>> verifier{};
@@ -28790,6 +28834,13 @@ public:
     }
     if (tag) {
       res["tag"] = boost::any(*tag);
+    }
+    if (tagDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tagDetails"] = boost::any(temp1);
     }
     if (tracker) {
       res["tracker"] = boost::any(*tracker);
@@ -28906,6 +28957,19 @@ public:
         }
       }
       tag = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("tagDetails") != m.end() && !m["tagDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["tagDetails"].type()) {
+        vector<GetWorkItemInfoResponseBodyWorkitemTagDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tagDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetWorkItemInfoResponseBodyWorkitemTagDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagDetails = make_shared<vector<GetWorkItemInfoResponseBodyWorkitemTagDetails>>(expect1);
+      }
     }
     if (m.find("tracker") != m.end() && !m["tracker"].empty()) {
       vector<string> toVec1;
