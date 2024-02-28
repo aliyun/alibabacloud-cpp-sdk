@@ -11545,6 +11545,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
+  shared_ptr<long> duration{};
   shared_ptr<string> grafanaInstanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -11575,6 +11576,9 @@ public:
     }
     if (clusterType) {
       res["ClusterType"] = boost::any(*clusterType);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
     }
     if (grafanaInstanceId) {
       res["GrafanaInstanceId"] = boost::any(*grafanaInstanceId);
@@ -11619,6 +11623,9 @@ public:
     }
     if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
       clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
     }
     if (m.find("GrafanaInstanceId") != m.end() && !m["GrafanaInstanceId"].empty()) {
       grafanaInstanceId = make_shared<string>(boost::any_cast<string>(m["GrafanaInstanceId"]));
@@ -22983,6 +22990,7 @@ public:
   shared_ptr<string> bindResourceStoreDuration{};
   shared_ptr<string> bindResourceType{};
   shared_ptr<string> bindVpcCidr{};
+  shared_ptr<string> dbInstanceStatus{};
   shared_ptr<string> environmentId{};
   shared_ptr<string> environmentName{};
   shared_ptr<string> environmentSubType{};
@@ -23028,6 +23036,9 @@ public:
     }
     if (bindVpcCidr) {
       res["BindVpcCidr"] = boost::any(*bindVpcCidr);
+    }
+    if (dbInstanceStatus) {
+      res["DbInstanceStatus"] = boost::any(*dbInstanceStatus);
     }
     if (environmentId) {
       res["EnvironmentId"] = boost::any(*environmentId);
@@ -23105,6 +23116,9 @@ public:
     }
     if (m.find("BindVpcCidr") != m.end() && !m["BindVpcCidr"].empty()) {
       bindVpcCidr = make_shared<string>(boost::any_cast<string>(m["BindVpcCidr"]));
+    }
+    if (m.find("DbInstanceStatus") != m.end() && !m["DbInstanceStatus"].empty()) {
+      dbInstanceStatus = make_shared<string>(boost::any_cast<string>(m["DbInstanceStatus"]));
     }
     if (m.find("EnvironmentId") != m.end() && !m["EnvironmentId"].empty()) {
       environmentId = make_shared<string>(boost::any_cast<string>(m["EnvironmentId"]));

@@ -1770,6 +1770,9 @@ CreatePrometheusInstanceResponse Alibabacloud_ARMS20190808::Client::createPromet
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
     query->insert(pair<string, string>("ClusterType", *request->clusterType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->duration)) {
+    query->insert(pair<string, long>("Duration", *request->duration));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->grafanaInstanceId)) {
     query->insert(pair<string, string>("GrafanaInstanceId", *request->grafanaInstanceId));
   }
