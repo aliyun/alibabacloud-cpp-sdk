@@ -8,7 +8,6 @@
 #include <alibabacloud/oss.hpp>
 #include <alibabacloud/ossutil.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/file_form.hpp>
 #include <darabonba/util.hpp>
@@ -3315,6 +3314,34 @@ GenerateDISyncTaskConfigForUpdatingResponse Alibabacloud_Dataworks-public2020051
 GenerateDISyncTaskConfigForUpdatingResponse Alibabacloud_Dataworks-public20200518::Client::generateDISyncTaskConfigForUpdating(shared_ptr<GenerateDISyncTaskConfigForUpdatingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return generateDISyncTaskConfigForUpdatingWithOptions(request, runtime);
+}
+
+GetAlertMessageResponse Alibabacloud_Dataworks-public20200518::Client::getAlertMessageWithOptions(shared_ptr<GetAlertMessageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertId)) {
+    body->insert(pair<string, string>("AlertId", *request->alertId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAlertMessage"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAlertMessageResponse(callApi(params, req, runtime));
+}
+
+GetAlertMessageResponse Alibabacloud_Dataworks-public20200518::Client::getAlertMessage(shared_ptr<GetAlertMessageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getAlertMessageWithOptions(request, runtime);
 }
 
 GetBaselineResponse Alibabacloud_Dataworks-public20200518::Client::getBaselineWithOptions(shared_ptr<GetBaselineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -7347,6 +7374,9 @@ ListNodesResponse Alibabacloud_Dataworks-public20200518::Client::listNodesWithOp
   if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
     body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->schedulerType)) {
+    body->insert(pair<string, string>("SchedulerType", *request->schedulerType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -8542,11 +8572,20 @@ RevokeTablePermissionResponse Alibabacloud_Dataworks-public20200518::Client::rev
 RunCycleDagNodesResponse Alibabacloud_Dataworks-public20200518::Client::runCycleDagNodesWithOptions(shared_ptr<RunCycleDagNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertNoticeType)) {
+    body->insert(pair<string, string>("AlertNoticeType", *request->alertNoticeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertType)) {
+    body->insert(pair<string, string>("AlertType", *request->alertType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->bizBeginTime)) {
     body->insert(pair<string, string>("BizBeginTime", *request->bizBeginTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->bizEndTime)) {
     body->insert(pair<string, string>("BizEndTime", *request->bizEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->concurrentRuns)) {
+    body->insert(pair<string, long>("ConcurrentRuns", *request->concurrentRuns));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endBizDate)) {
     body->insert(pair<string, string>("EndBizDate", *request->endBizDate));
