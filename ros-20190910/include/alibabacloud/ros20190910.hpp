@@ -9004,6 +9004,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<GetStackResponseBodyResourceProgress> resourceProgress{};
+  shared_ptr<string> rollbackFailedRootReason{};
   shared_ptr<string> rootStackId{};
   shared_ptr<bool> serviceManaged{};
   shared_ptr<string> serviceName{};
@@ -9095,6 +9096,9 @@ public:
     }
     if (resourceProgress) {
       res["ResourceProgress"] = resourceProgress ? boost::any(resourceProgress->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rollbackFailedRootReason) {
+      res["RollbackFailedRootReason"] = boost::any(*rollbackFailedRootReason);
     }
     if (rootStackId) {
       res["RootStackId"] = boost::any(*rootStackId);
@@ -9262,6 +9266,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceProgress"]));
         resourceProgress = make_shared<GetStackResponseBodyResourceProgress>(model1);
       }
+    }
+    if (m.find("RollbackFailedRootReason") != m.end() && !m["RollbackFailedRootReason"].empty()) {
+      rollbackFailedRootReason = make_shared<string>(boost::any_cast<string>(m["RollbackFailedRootReason"]));
     }
     if (m.find("RootStackId") != m.end() && !m["RootStackId"].empty()) {
       rootStackId = make_shared<string>(boost::any_cast<string>(m["RootStackId"]));
