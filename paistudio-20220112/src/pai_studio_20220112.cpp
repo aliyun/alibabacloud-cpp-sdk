@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -257,6 +256,9 @@ CreateTrainingJobResponse Alibabacloud_PaiStudio20220112::Client::createTraining
   }
   if (!Darabonba_Util::Client::isUnset<CreateTrainingJobRequestComputeResource>(request->computeResource)) {
     body->insert(pair<string, CreateTrainingJobRequestComputeResource>("ComputeResource", *request->computeResource));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateTrainingJobRequestExperimentConfig>(request->experimentConfig)) {
+    body->insert(pair<string, CreateTrainingJobRequestExperimentConfig>("ExperimentConfig", *request->experimentConfig));
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateTrainingJobRequestHyperParameters>>(request->hyperParameters)) {
     body->insert(pair<string, vector<CreateTrainingJobRequestHyperParameters>>("HyperParameters", *request->hyperParameters));
