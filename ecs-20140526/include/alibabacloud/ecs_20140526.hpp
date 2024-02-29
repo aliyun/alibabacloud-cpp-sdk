@@ -7113,6 +7113,42 @@ public:
 
   virtual ~CreateAutoProvisioningGroupRequestSystemDiskConfig() = default;
 };
+class CreateAutoProvisioningGroupRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateAutoProvisioningGroupRequestTag() {}
+
+  explicit CreateAutoProvisioningGroupRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateAutoProvisioningGroupRequestTag() = default;
+};
 class CreateAutoProvisioningGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateAutoProvisioningGroupRequestLaunchConfiguration> launchConfiguration{};
@@ -7142,6 +7178,7 @@ public:
   shared_ptr<long> spotInstancePoolsToUseCount{};
   shared_ptr<string> spotTargetCapacity{};
   shared_ptr<vector<CreateAutoProvisioningGroupRequestSystemDiskConfig>> systemDiskConfig{};
+  shared_ptr<vector<CreateAutoProvisioningGroupRequestTag>> tag{};
   shared_ptr<bool> terminateInstances{};
   shared_ptr<bool> terminateInstancesWithExpiration{};
   shared_ptr<string> totalTargetCapacity{};
@@ -7250,6 +7287,13 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["SystemDiskConfig"] = boost::any(temp1);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (terminateInstances) {
       res["TerminateInstances"] = boost::any(*terminateInstances);
@@ -7383,6 +7427,19 @@ public:
           }
         }
         systemDiskConfig = make_shared<vector<CreateAutoProvisioningGroupRequestSystemDiskConfig>>(expect1);
+      }
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateAutoProvisioningGroupRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAutoProvisioningGroupRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateAutoProvisioningGroupRequestTag>>(expect1);
       }
     }
     if (m.find("TerminateInstances") != m.end() && !m["TerminateInstances"].empty()) {
@@ -27299,6 +27356,42 @@ public:
 
   virtual ~DescribeAutoProvisioningGroupInstancesResponse() = default;
 };
+class DescribeAutoProvisioningGroupsRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeAutoProvisioningGroupsRequestTag() {}
+
+  explicit DescribeAutoProvisioningGroupsRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeAutoProvisioningGroupsRequestTag() = default;
+};
 class DescribeAutoProvisioningGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> autoProvisioningGroupId{};
@@ -27312,6 +27405,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<DescribeAutoProvisioningGroupsRequestTag>> tag{};
 
   DescribeAutoProvisioningGroupsRequest() {}
 
@@ -27355,6 +27449,13 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     return res;
   }
@@ -27406,6 +27507,19 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeAutoProvisioningGroupsRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAutoProvisioningGroupsRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeAutoProvisioningGroupsRequestTag>>(expect1);
+      }
     }
   }
 
@@ -27584,6 +27698,85 @@ public:
 
   virtual ~DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupSpotOptions() = default;
 };
+class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTagsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTagsTag() {}
+
+  explicit DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTagsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTagsTag() = default;
+};
+class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTagsTag>> tag{};
+
+  DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTags() {}
+
+  explicit DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTagsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTagsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTagsTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTags() = default;
+};
 class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTargetCapacitySpecification : public Darabonba::Model {
 public:
   shared_ptr<string> defaultTargetCapacityType{};
@@ -27651,6 +27844,7 @@ public:
   shared_ptr<DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupSpotOptions> spotOptions{};
   shared_ptr<string> state{};
   shared_ptr<string> status{};
+  shared_ptr<DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTags> tags{};
   shared_ptr<DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTargetCapacitySpecification> targetCapacitySpecification{};
   shared_ptr<bool> terminateInstances{};
   shared_ptr<bool> terminateInstancesWithExpiration{};
@@ -27711,6 +27905,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (targetCapacitySpecification) {
       res["TargetCapacitySpecification"] = targetCapacitySpecification ? boost::any(targetCapacitySpecification->toMap()) : boost::any(map<string,boost::any>({}));
@@ -27787,6 +27984,13 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTags>(model1);
+      }
     }
     if (m.find("TargetCapacitySpecification") != m.end() && !m["TargetCapacitySpecification"].empty()) {
       if (typeid(map<string, boost::any>) == m["TargetCapacitySpecification"].type()) {
@@ -87404,119 +87608,6 @@ public:
 
   virtual ~ModifyAutoSnapshotPolicyExRequest() = default;
 };
-class ModifyAutoSnapshotPolicyExShrinkRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> copiedSnapshotsRetentionDays{};
-  shared_ptr<string> copyEncryptionConfigurationShrink{};
-  shared_ptr<bool> enableCrossRegionCopy{};
-  shared_ptr<long> ownerId{};
-  shared_ptr<string> resourceOwnerAccount{};
-  shared_ptr<long> resourceOwnerId{};
-  shared_ptr<string> targetCopyRegions{};
-  shared_ptr<string> autoSnapshotPolicyId{};
-  shared_ptr<string> autoSnapshotPolicyName{};
-  shared_ptr<string> regionId{};
-  shared_ptr<string> repeatWeekdays{};
-  shared_ptr<long> retentionDays{};
-  shared_ptr<string> timePoints{};
-
-  ModifyAutoSnapshotPolicyExShrinkRequest() {}
-
-  explicit ModifyAutoSnapshotPolicyExShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (copiedSnapshotsRetentionDays) {
-      res["CopiedSnapshotsRetentionDays"] = boost::any(*copiedSnapshotsRetentionDays);
-    }
-    if (copyEncryptionConfigurationShrink) {
-      res["CopyEncryptionConfiguration"] = boost::any(*copyEncryptionConfigurationShrink);
-    }
-    if (enableCrossRegionCopy) {
-      res["EnableCrossRegionCopy"] = boost::any(*enableCrossRegionCopy);
-    }
-    if (ownerId) {
-      res["OwnerId"] = boost::any(*ownerId);
-    }
-    if (resourceOwnerAccount) {
-      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
-    }
-    if (resourceOwnerId) {
-      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
-    }
-    if (targetCopyRegions) {
-      res["TargetCopyRegions"] = boost::any(*targetCopyRegions);
-    }
-    if (autoSnapshotPolicyId) {
-      res["autoSnapshotPolicyId"] = boost::any(*autoSnapshotPolicyId);
-    }
-    if (autoSnapshotPolicyName) {
-      res["autoSnapshotPolicyName"] = boost::any(*autoSnapshotPolicyName);
-    }
-    if (regionId) {
-      res["regionId"] = boost::any(*regionId);
-    }
-    if (repeatWeekdays) {
-      res["repeatWeekdays"] = boost::any(*repeatWeekdays);
-    }
-    if (retentionDays) {
-      res["retentionDays"] = boost::any(*retentionDays);
-    }
-    if (timePoints) {
-      res["timePoints"] = boost::any(*timePoints);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("CopiedSnapshotsRetentionDays") != m.end() && !m["CopiedSnapshotsRetentionDays"].empty()) {
-      copiedSnapshotsRetentionDays = make_shared<long>(boost::any_cast<long>(m["CopiedSnapshotsRetentionDays"]));
-    }
-    if (m.find("CopyEncryptionConfiguration") != m.end() && !m["CopyEncryptionConfiguration"].empty()) {
-      copyEncryptionConfigurationShrink = make_shared<string>(boost::any_cast<string>(m["CopyEncryptionConfiguration"]));
-    }
-    if (m.find("EnableCrossRegionCopy") != m.end() && !m["EnableCrossRegionCopy"].empty()) {
-      enableCrossRegionCopy = make_shared<bool>(boost::any_cast<bool>(m["EnableCrossRegionCopy"]));
-    }
-    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
-      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
-    }
-    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
-      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
-    }
-    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
-      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
-    }
-    if (m.find("TargetCopyRegions") != m.end() && !m["TargetCopyRegions"].empty()) {
-      targetCopyRegions = make_shared<string>(boost::any_cast<string>(m["TargetCopyRegions"]));
-    }
-    if (m.find("autoSnapshotPolicyId") != m.end() && !m["autoSnapshotPolicyId"].empty()) {
-      autoSnapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["autoSnapshotPolicyId"]));
-    }
-    if (m.find("autoSnapshotPolicyName") != m.end() && !m["autoSnapshotPolicyName"].empty()) {
-      autoSnapshotPolicyName = make_shared<string>(boost::any_cast<string>(m["autoSnapshotPolicyName"]));
-    }
-    if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
-    }
-    if (m.find("repeatWeekdays") != m.end() && !m["repeatWeekdays"].empty()) {
-      repeatWeekdays = make_shared<string>(boost::any_cast<string>(m["repeatWeekdays"]));
-    }
-    if (m.find("retentionDays") != m.end() && !m["retentionDays"].empty()) {
-      retentionDays = make_shared<long>(boost::any_cast<long>(m["retentionDays"]));
-    }
-    if (m.find("timePoints") != m.end() && !m["timePoints"].empty()) {
-      timePoints = make_shared<string>(boost::any_cast<string>(m["timePoints"]));
-    }
-  }
-
-
-  virtual ~ModifyAutoSnapshotPolicyExShrinkRequest() = default;
-};
 class ModifyAutoSnapshotPolicyExResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
@@ -111164,7 +111255,7 @@ public:
   ModifyAutoProvisioningGroupResponse modifyAutoProvisioningGroup(shared_ptr<ModifyAutoProvisioningGroupRequest> request);
   ModifyAutoSnapshotPolicyResponse modifyAutoSnapshotPolicyWithOptions(shared_ptr<ModifyAutoSnapshotPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyAutoSnapshotPolicyResponse modifyAutoSnapshotPolicy(shared_ptr<ModifyAutoSnapshotPolicyRequest> request);
-  ModifyAutoSnapshotPolicyExResponse modifyAutoSnapshotPolicyExWithOptions(shared_ptr<ModifyAutoSnapshotPolicyExRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyAutoSnapshotPolicyExResponse modifyAutoSnapshotPolicyExWithOptions(shared_ptr<ModifyAutoSnapshotPolicyExRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyAutoSnapshotPolicyExResponse modifyAutoSnapshotPolicyEx(shared_ptr<ModifyAutoSnapshotPolicyExRequest> request);
   ModifyBandwidthPackageSpecResponse modifyBandwidthPackageSpecWithOptions(shared_ptr<ModifyBandwidthPackageSpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyBandwidthPackageSpecResponse modifyBandwidthPackageSpec(shared_ptr<ModifyBandwidthPackageSpecRequest> request);

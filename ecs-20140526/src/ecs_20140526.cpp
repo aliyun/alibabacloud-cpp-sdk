@@ -1812,6 +1812,9 @@ CreateAutoProvisioningGroupResponse Alibabacloud_Ecs20140526::Client::createAuto
   if (!Darabonba_Util::Client::isUnset<vector<CreateAutoProvisioningGroupRequestSystemDiskConfig>>(request->systemDiskConfig)) {
     query->insert(pair<string, vector<CreateAutoProvisioningGroupRequestSystemDiskConfig>>("SystemDiskConfig", *request->systemDiskConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAutoProvisioningGroupRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateAutoProvisioningGroupRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->terminateInstances)) {
     query->insert(pair<string, bool>("TerminateInstances", *request->terminateInstances));
   }
@@ -6613,6 +6616,9 @@ DescribeAutoProvisioningGroupsResponse Alibabacloud_Ecs20140526::Client::describ
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeAutoProvisioningGroupsRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<DescribeAutoProvisioningGroupsRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -14466,19 +14472,14 @@ ModifyAutoSnapshotPolicyResponse Alibabacloud_Ecs20140526::Client::modifyAutoSna
   return modifyAutoSnapshotPolicyWithOptions(request, runtime);
 }
 
-ModifyAutoSnapshotPolicyExResponse Alibabacloud_Ecs20140526::Client::modifyAutoSnapshotPolicyExWithOptions(shared_ptr<ModifyAutoSnapshotPolicyExRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ModifyAutoSnapshotPolicyExShrinkRequest> request = make_shared<ModifyAutoSnapshotPolicyExShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration>(tmpReq->copyEncryptionConfiguration)) {
-    request->copyEncryptionConfigurationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->copyEncryptionConfiguration, make_shared<string>("CopyEncryptionConfiguration"), make_shared<string>("json")));
-  }
+ModifyAutoSnapshotPolicyExResponse Alibabacloud_Ecs20140526::Client::modifyAutoSnapshotPolicyExWithOptions(shared_ptr<ModifyAutoSnapshotPolicyExRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->copiedSnapshotsRetentionDays)) {
     query->insert(pair<string, long>("CopiedSnapshotsRetentionDays", *request->copiedSnapshotsRetentionDays));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->copyEncryptionConfigurationShrink)) {
-    query->insert(pair<string, string>("CopyEncryptionConfiguration", *request->copyEncryptionConfigurationShrink));
+  if (!Darabonba_Util::Client::isUnset<ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration>(request->copyEncryptionConfiguration)) {
+    query->insert(pair<string, ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration>("CopyEncryptionConfiguration", *request->copyEncryptionConfiguration));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableCrossRegionCopy)) {
     query->insert(pair<string, bool>("EnableCrossRegionCopy", *request->enableCrossRegionCopy));
