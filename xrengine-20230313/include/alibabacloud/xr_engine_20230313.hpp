@@ -2282,6 +2282,7 @@ public:
   shared_ptr<map<string, boost::any>> files{};
   shared_ptr<string> id{};
   shared_ptr<string> name{};
+  shared_ptr<long> sortOrder{};
   shared_ptr<string> type{};
 
   ListDigitalHumanMaterialsResponseBodyData() {}
@@ -2315,6 +2316,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (sortOrder) {
+      res["SortOrder"] = boost::any(*sortOrder);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -2355,6 +2359,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SortOrder") != m.end() && !m["SortOrder"].empty()) {
+      sortOrder = make_shared<long>(boost::any_cast<long>(m["SortOrder"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
