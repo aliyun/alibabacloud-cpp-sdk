@@ -570,6 +570,9 @@ CreateDataFlowResponse Alibabacloud_NAS20170626::Client::createDataFlowWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
     query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemPath)) {
+    query->insert(pair<string, string>("FileSystemPath", *request->fileSystemPath));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fsetId)) {
     query->insert(pair<string, string>("FsetId", *request->fsetId));
   }
@@ -578,6 +581,9 @@ CreateDataFlowResponse Alibabacloud_NAS20170626::Client::createDataFlowWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceStorage)) {
     query->insert(pair<string, string>("SourceStorage", *request->sourceStorage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceStoragePath)) {
+    query->insert(pair<string, string>("SourceStoragePath", *request->sourceStoragePath));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->throughput)) {
     query->insert(pair<string, long>("Throughput", *request->throughput));
@@ -609,6 +615,9 @@ CreateDataFlowTaskResponse Alibabacloud_NAS20170626::Client::createDataFlowTaskW
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->conflictPolicy)) {
+    query->insert(pair<string, string>("ConflictPolicy", *request->conflictPolicy));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->dataFlowId)) {
     query->insert(pair<string, string>("DataFlowId", *request->dataFlowId));

@@ -1978,9 +1978,11 @@ public:
   shared_ptr<string> description{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> fileSystemId{};
+  shared_ptr<string> fileSystemPath{};
   shared_ptr<string> fsetId{};
   shared_ptr<string> sourceSecurityType{};
   shared_ptr<string> sourceStorage{};
+  shared_ptr<string> sourceStoragePath{};
   shared_ptr<long> throughput{};
 
   CreateDataFlowRequest() {}
@@ -2018,6 +2020,9 @@ public:
     if (fileSystemId) {
       res["FileSystemId"] = boost::any(*fileSystemId);
     }
+    if (fileSystemPath) {
+      res["FileSystemPath"] = boost::any(*fileSystemPath);
+    }
     if (fsetId) {
       res["FsetId"] = boost::any(*fsetId);
     }
@@ -2026,6 +2031,9 @@ public:
     }
     if (sourceStorage) {
       res["SourceStorage"] = boost::any(*sourceStorage);
+    }
+    if (sourceStoragePath) {
+      res["SourceStoragePath"] = boost::any(*sourceStoragePath);
     }
     if (throughput) {
       res["Throughput"] = boost::any(*throughput);
@@ -2065,6 +2073,9 @@ public:
     if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
       fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
     }
+    if (m.find("FileSystemPath") != m.end() && !m["FileSystemPath"].empty()) {
+      fileSystemPath = make_shared<string>(boost::any_cast<string>(m["FileSystemPath"]));
+    }
     if (m.find("FsetId") != m.end() && !m["FsetId"].empty()) {
       fsetId = make_shared<string>(boost::any_cast<string>(m["FsetId"]));
     }
@@ -2073,6 +2084,9 @@ public:
     }
     if (m.find("SourceStorage") != m.end() && !m["SourceStorage"].empty()) {
       sourceStorage = make_shared<string>(boost::any_cast<string>(m["SourceStorage"]));
+    }
+    if (m.find("SourceStoragePath") != m.end() && !m["SourceStoragePath"].empty()) {
+      sourceStoragePath = make_shared<string>(boost::any_cast<string>(m["SourceStoragePath"]));
     }
     if (m.find("Throughput") != m.end() && !m["Throughput"].empty()) {
       throughput = make_shared<long>(boost::any_cast<long>(m["Throughput"]));
@@ -2173,6 +2187,7 @@ public:
 class CreateDataFlowTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<string> conflictPolicy{};
   shared_ptr<string> dataFlowId{};
   shared_ptr<string> dataType{};
   shared_ptr<string> directory{};
@@ -2194,6 +2209,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (conflictPolicy) {
+      res["ConflictPolicy"] = boost::any(*conflictPolicy);
     }
     if (dataFlowId) {
       res["DataFlowId"] = boost::any(*dataFlowId);
@@ -2225,6 +2243,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ConflictPolicy") != m.end() && !m["ConflictPolicy"].empty()) {
+      conflictPolicy = make_shared<string>(boost::any_cast<string>(m["ConflictPolicy"]));
     }
     if (m.find("DataFlowId") != m.end() && !m["DataFlowId"].empty()) {
       dataFlowId = make_shared<string>(boost::any_cast<string>(m["DataFlowId"]));
@@ -7291,9 +7312,11 @@ public:
 };
 class DescribeDataFlowTasksResponseBodyTaskInfoTask : public Darabonba::Model {
 public:
+  shared_ptr<string> conflictPolicy{};
   shared_ptr<string> createTime{};
   shared_ptr<string> dataFlowId{};
   shared_ptr<string> dataType{};
+  shared_ptr<string> directory{};
   shared_ptr<string> endTime{};
   shared_ptr<string> fileSystemPath{};
   shared_ptr<string> filesystemId{};
@@ -7317,6 +7340,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (conflictPolicy) {
+      res["ConflictPolicy"] = boost::any(*conflictPolicy);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -7325,6 +7351,9 @@ public:
     }
     if (dataType) {
       res["DataType"] = boost::any(*dataType);
+    }
+    if (directory) {
+      res["Directory"] = boost::any(*directory);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
@@ -7366,6 +7395,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConflictPolicy") != m.end() && !m["ConflictPolicy"].empty()) {
+      conflictPolicy = make_shared<string>(boost::any_cast<string>(m["ConflictPolicy"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
@@ -7374,6 +7406,9 @@ public:
     }
     if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
       dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
+    }
+    if (m.find("Directory") != m.end() && !m["Directory"].empty()) {
+      directory = make_shared<string>(boost::any_cast<string>(m["Directory"]));
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
@@ -7745,6 +7780,7 @@ public:
   shared_ptr<string> fsetId{};
   shared_ptr<string> sourceSecurityType{};
   shared_ptr<string> sourceStorage{};
+  shared_ptr<string> sourceStoragePath{};
   shared_ptr<string> status{};
   shared_ptr<long> throughput{};
   shared_ptr<string> updateTime{};
@@ -7797,6 +7833,9 @@ public:
     }
     if (sourceStorage) {
       res["SourceStorage"] = boost::any(*sourceStorage);
+    }
+    if (sourceStoragePath) {
+      res["SourceStoragePath"] = boost::any(*sourceStoragePath);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -7853,6 +7892,9 @@ public:
     }
     if (m.find("SourceStorage") != m.end() && !m["SourceStorage"].empty()) {
       sourceStorage = make_shared<string>(boost::any_cast<string>(m["SourceStorage"]));
+    }
+    if (m.find("SourceStoragePath") != m.end() && !m["SourceStoragePath"].empty()) {
+      sourceStoragePath = make_shared<string>(boost::any_cast<string>(m["SourceStoragePath"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
