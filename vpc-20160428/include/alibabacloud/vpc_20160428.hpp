@@ -31286,6 +31286,337 @@ public:
 
   virtual ~DeletionProtectionResponse() = default;
 };
+class Describe95TrafficRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> day{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> resourceType{};
+
+  Describe95TrafficRequest() {}
+
+  explicit Describe95TrafficRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (day) {
+      res["Day"] = boost::any(*day);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Day") != m.end() && !m["Day"].empty()) {
+      day = make_shared<string>(boost::any_cast<string>(m["Day"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~Describe95TrafficRequest() = default;
+};
+class Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailListTraffic95Detail : public Darabonba::Model {
+public:
+  shared_ptr<string> billBandwidth{};
+  shared_ptr<string> inBandwidth{};
+  shared_ptr<string> outBandwidth{};
+  shared_ptr<string> time{};
+
+  Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailListTraffic95Detail() {}
+
+  explicit Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailListTraffic95Detail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (billBandwidth) {
+      res["BillBandwidth"] = boost::any(*billBandwidth);
+    }
+    if (inBandwidth) {
+      res["InBandwidth"] = boost::any(*inBandwidth);
+    }
+    if (outBandwidth) {
+      res["OutBandwidth"] = boost::any(*outBandwidth);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BillBandwidth") != m.end() && !m["BillBandwidth"].empty()) {
+      billBandwidth = make_shared<string>(boost::any_cast<string>(m["BillBandwidth"]));
+    }
+    if (m.find("InBandwidth") != m.end() && !m["InBandwidth"].empty()) {
+      inBandwidth = make_shared<string>(boost::any_cast<string>(m["InBandwidth"]));
+    }
+    if (m.find("OutBandwidth") != m.end() && !m["OutBandwidth"].empty()) {
+      outBandwidth = make_shared<string>(boost::any_cast<string>(m["OutBandwidth"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["Time"]));
+    }
+  }
+
+
+  virtual ~Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailListTraffic95Detail() = default;
+};
+class Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailList : public Darabonba::Model {
+public:
+  shared_ptr<vector<Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailListTraffic95Detail>> traffic95Detail{};
+
+  Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailList() {}
+
+  explicit Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (traffic95Detail) {
+      vector<boost::any> temp1;
+      for(auto item1:*traffic95Detail){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Traffic95Detail"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Traffic95Detail") != m.end() && !m["Traffic95Detail"].empty()) {
+      if (typeid(vector<boost::any>) == m["Traffic95Detail"].type()) {
+        vector<Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailListTraffic95Detail> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Traffic95Detail"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailListTraffic95Detail model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        traffic95Detail = make_shared<vector<Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailListTraffic95Detail>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailList() = default;
+};
+class Describe95TrafficResponseBodyTraffic95Summary : public Darabonba::Model {
+public:
+  shared_ptr<long> bandwidth{};
+  shared_ptr<string> fifthPeakBandwidth{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> internetChargeType{};
+  shared_ptr<string> minimumConsumeBandwidth{};
+  shared_ptr<Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailList> traffic95DetailList{};
+
+  Describe95TrafficResponseBodyTraffic95Summary() {}
+
+  explicit Describe95TrafficResponseBodyTraffic95Summary(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
+    if (fifthPeakBandwidth) {
+      res["FifthPeakBandwidth"] = boost::any(*fifthPeakBandwidth);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (internetChargeType) {
+      res["InternetChargeType"] = boost::any(*internetChargeType);
+    }
+    if (minimumConsumeBandwidth) {
+      res["MinimumConsumeBandwidth"] = boost::any(*minimumConsumeBandwidth);
+    }
+    if (traffic95DetailList) {
+      res["Traffic95DetailList"] = traffic95DetailList ? boost::any(traffic95DetailList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
+    }
+    if (m.find("FifthPeakBandwidth") != m.end() && !m["FifthPeakBandwidth"].empty()) {
+      fifthPeakBandwidth = make_shared<string>(boost::any_cast<string>(m["FifthPeakBandwidth"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InternetChargeType") != m.end() && !m["InternetChargeType"].empty()) {
+      internetChargeType = make_shared<string>(boost::any_cast<string>(m["InternetChargeType"]));
+    }
+    if (m.find("MinimumConsumeBandwidth") != m.end() && !m["MinimumConsumeBandwidth"].empty()) {
+      minimumConsumeBandwidth = make_shared<string>(boost::any_cast<string>(m["MinimumConsumeBandwidth"]));
+    }
+    if (m.find("Traffic95DetailList") != m.end() && !m["Traffic95DetailList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Traffic95DetailList"].type()) {
+        Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Traffic95DetailList"]));
+        traffic95DetailList = make_shared<Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailList>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Describe95TrafficResponseBodyTraffic95Summary() = default;
+};
+class Describe95TrafficResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<Describe95TrafficResponseBodyTraffic95Summary> traffic95Summary{};
+
+  Describe95TrafficResponseBody() {}
+
+  explicit Describe95TrafficResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (traffic95Summary) {
+      res["Traffic95Summary"] = traffic95Summary ? boost::any(traffic95Summary->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Traffic95Summary") != m.end() && !m["Traffic95Summary"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Traffic95Summary"].type()) {
+        Describe95TrafficResponseBodyTraffic95Summary model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Traffic95Summary"]));
+        traffic95Summary = make_shared<Describe95TrafficResponseBodyTraffic95Summary>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Describe95TrafficResponseBody() = default;
+};
+class Describe95TrafficResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<Describe95TrafficResponseBody> body{};
+
+  Describe95TrafficResponse() {}
+
+  explicit Describe95TrafficResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        Describe95TrafficResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<Describe95TrafficResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~Describe95TrafficResponse() = default;
+};
 class DescribeAccessPointsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -101631,6 +101962,8 @@ public:
   DeleteVpnRouteEntryResponse deleteVpnRouteEntry(shared_ptr<DeleteVpnRouteEntryRequest> request);
   DeletionProtectionResponse deletionProtectionWithOptions(shared_ptr<DeletionProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeletionProtectionResponse deletionProtection(shared_ptr<DeletionProtectionRequest> request);
+  Describe95TrafficResponse describe95TrafficWithOptions(shared_ptr<Describe95TrafficRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  Describe95TrafficResponse describe95Traffic(shared_ptr<Describe95TrafficRequest> request);
   DescribeAccessPointsResponse describeAccessPointsWithOptions(shared_ptr<DescribeAccessPointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAccessPointsResponse describeAccessPoints(shared_ptr<DescribeAccessPointsRequest> request);
   DescribeBgpGroupsResponse describeBgpGroupsWithOptions(shared_ptr<DescribeBgpGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
