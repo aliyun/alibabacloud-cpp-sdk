@@ -11420,6 +11420,10 @@ public:
 class DescribeDBClusterParametersResponseBodyParametersParameters : public Darabonba::Model {
 public:
   shared_ptr<string> isEqual{};
+  shared_ptr<string> isInstancePolarDBKey{};
+  shared_ptr<string> isInstanceRdsKey{};
+  shared_ptr<string> isPolarDBKey{};
+  shared_ptr<string> isRdsKey{};
   shared_ptr<string> distParameterDescription{};
   shared_ptr<string> distParameterName{};
   shared_ptr<string> distParameterOptional{};
@@ -11441,6 +11445,18 @@ public:
     map<string, boost::any> res;
     if (isEqual) {
       res["IsEqual"] = boost::any(*isEqual);
+    }
+    if (isInstancePolarDBKey) {
+      res["IsInstancePolarDBKey"] = boost::any(*isInstancePolarDBKey);
+    }
+    if (isInstanceRdsKey) {
+      res["IsInstanceRdsKey"] = boost::any(*isInstanceRdsKey);
+    }
+    if (isPolarDBKey) {
+      res["IsPolarDBKey"] = boost::any(*isPolarDBKey);
+    }
+    if (isRdsKey) {
+      res["IsRdsKey"] = boost::any(*isRdsKey);
     }
     if (distParameterDescription) {
       res["distParameterDescription"] = boost::any(*distParameterDescription);
@@ -11472,6 +11488,18 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("IsEqual") != m.end() && !m["IsEqual"].empty()) {
       isEqual = make_shared<string>(boost::any_cast<string>(m["IsEqual"]));
+    }
+    if (m.find("IsInstancePolarDBKey") != m.end() && !m["IsInstancePolarDBKey"].empty()) {
+      isInstancePolarDBKey = make_shared<string>(boost::any_cast<string>(m["IsInstancePolarDBKey"]));
+    }
+    if (m.find("IsInstanceRdsKey") != m.end() && !m["IsInstanceRdsKey"].empty()) {
+      isInstanceRdsKey = make_shared<string>(boost::any_cast<string>(m["IsInstanceRdsKey"]));
+    }
+    if (m.find("IsPolarDBKey") != m.end() && !m["IsPolarDBKey"].empty()) {
+      isPolarDBKey = make_shared<string>(boost::any_cast<string>(m["IsPolarDBKey"]));
+    }
+    if (m.find("IsRdsKey") != m.end() && !m["IsRdsKey"].empty()) {
+      isRdsKey = make_shared<string>(boost::any_cast<string>(m["IsRdsKey"]));
     }
     if (m.find("distParameterDescription") != m.end() && !m["distParameterDescription"].empty()) {
       distParameterDescription = make_shared<string>(boost::any_cast<string>(m["distParameterDescription"]));
@@ -11836,6 +11864,7 @@ class DescribeDBClusterPerformanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> interval{};
   shared_ptr<string> key{};
   shared_ptr<string> startTime{};
 
@@ -11855,6 +11884,9 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
     if (key) {
       res["Key"] = boost::any(*key);
     }
@@ -11870,6 +11902,9 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<string>(boost::any_cast<string>(m["Interval"]));
     }
     if (m.find("Key") != m.end() && !m["Key"].empty()) {
       key = make_shared<string>(boost::any_cast<string>(m["Key"]));
