@@ -5,7 +5,6 @@
 
 #include <alibabacloud/open_api.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -469,6 +468,42 @@ public:
 
   virtual ~TaskTemplateConfig() = default;
 };
+class CreateTaskDetailVoteInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> minVote{};
+  shared_ptr<long> voteNum{};
+
+  CreateTaskDetailVoteInfo() {}
+
+  explicit CreateTaskDetailVoteInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (minVote) {
+      res["MinVote"] = boost::any(*minVote);
+    }
+    if (voteNum) {
+      res["VoteNum"] = boost::any(*voteNum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MinVote") != m.end() && !m["MinVote"].empty()) {
+      minVote = make_shared<long>(boost::any_cast<long>(m["MinVote"]));
+    }
+    if (m.find("VoteNum") != m.end() && !m["VoteNum"].empty()) {
+      voteNum = make_shared<long>(boost::any_cast<long>(m["VoteNum"]));
+    }
+  }
+
+
+  virtual ~CreateTaskDetailVoteInfo() = default;
+};
 class CreateTaskDetail : public Darabonba::Model {
 public:
   shared_ptr<CreateTaskDetailAdmins> admins{};
@@ -482,6 +517,7 @@ public:
   shared_ptr<vector<CreateTaskDetailTaskWorkflow>> taskWorkflow{};
   shared_ptr<string> templateId{};
   shared_ptr<string> UUID{};
+  shared_ptr<map<string, CreateTaskDetailVoteInfo>> voteConfigs{};
 
   CreateTaskDetail() {}
 
@@ -533,6 +569,13 @@ public:
     }
     if (UUID) {
       res["UUID"] = boost::any(*UUID);
+    }
+    if (voteConfigs) {
+      map<string, boost::any> temp1;
+      for(auto item1:*voteConfigs){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["VoteConfigs"] = boost::any(temp1);
     }
     return res;
   }
@@ -614,6 +657,19 @@ public:
     }
     if (m.find("UUID") != m.end() && !m["UUID"].empty()) {
       UUID = make_shared<string>(boost::any_cast<string>(m["UUID"]));
+    }
+    if (m.find("VoteConfigs") != m.end() && !m["VoteConfigs"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VoteConfigs"].type()) {
+        map<string, CreateTaskDetailVoteInfo> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["VoteConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            CreateTaskDetailVoteInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
+        }
+        voteConfigs = make_shared<map<string, CreateTaskDetailVoteInfo>>(expect1);
+      }
     }
   }
 
@@ -883,6 +939,68 @@ public:
 
 
   virtual ~MarkResult() = default;
+};
+class OpenDatasetProxyAppendDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<map<string, string>>> dataMeta{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> traceId{};
+  shared_ptr<string> UUID{};
+
+  OpenDatasetProxyAppendDataRequest() {}
+
+  explicit OpenDatasetProxyAppendDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataMeta) {
+      res["DataMeta"] = boost::any(*dataMeta);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    if (UUID) {
+      res["UUID"] = boost::any(*UUID);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataMeta") != m.end() && !m["DataMeta"].empty()) {
+      vector<map<string, string>> toVec1;
+      if (typeid(vector<boost::any>) == m["DataMeta"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DataMeta"]);
+        for (auto item:vec1) {
+          map<string, string> map2 = boost::any_cast<map<string, string>>(item);
+          map<string, string> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      dataMeta = make_shared<vector<map<string, string>>>(toVec1);
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+    if (m.find("UUID") != m.end() && !m["UUID"].empty()) {
+      UUID = make_shared<string>(boost::any_cast<string>(m["UUID"]));
+    }
+  }
+
+
+  virtual ~OpenDatasetProxyAppendDataRequest() = default;
 };
 class QuestionPlugin : public Darabonba::Model {
 public:
@@ -4022,17 +4140,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4188,17 +4296,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4354,17 +4452,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4537,17 +4625,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4663,17 +4741,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4796,17 +4864,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4922,17 +4980,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5102,17 +5150,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5268,17 +5306,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5405,17 +5433,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5542,17 +5560,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5679,17 +5687,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5845,17 +5843,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5978,17 +5966,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6115,17 +6093,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6262,17 +6230,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6442,17 +6400,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6589,17 +6537,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6807,17 +6745,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6944,17 +6872,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7091,17 +7009,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7271,17 +7179,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7408,17 +7306,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7545,17 +7433,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7763,17 +7641,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7974,17 +7842,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -8185,17 +8043,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -8396,17 +8244,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -8678,17 +8516,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -8889,17 +8717,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -9100,17 +8918,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -9262,17 +9070,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -9421,17 +9219,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -9590,17 +9378,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -9756,17 +9534,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -9918,17 +9686,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -10087,17 +9845,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -10147,215 +9895,215 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  AddWorkNodeWorkforceResponse addWorkNodeWorkforce(shared_ptr<string> TenantId,
-                                                    shared_ptr<string> TaskId,
-                                                    shared_ptr<string> WorkNodeId,
-                                                    shared_ptr<AddWorkNodeWorkforceRequest> request);
   AddWorkNodeWorkforceResponse addWorkNodeWorkforceWithOptions(shared_ptr<string> TenantId,
                                                                shared_ptr<string> TaskId,
                                                                shared_ptr<string> WorkNodeId,
                                                                shared_ptr<AddWorkNodeWorkforceRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateTaskResponse createTask(shared_ptr<string> TenantId, shared_ptr<CreateTaskRequest> request);
+  AddWorkNodeWorkforceResponse addWorkNodeWorkforce(shared_ptr<string> TenantId,
+                                                    shared_ptr<string> TaskId,
+                                                    shared_ptr<string> WorkNodeId,
+                                                    shared_ptr<AddWorkNodeWorkforceRequest> request);
   CreateTaskResponse createTaskWithOptions(shared_ptr<string> TenantId,
                                            shared_ptr<CreateTaskRequest> request,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateTemplateResponse createTemplate(shared_ptr<string> TenantId, shared_ptr<CreateTemplateRequest> request);
+  CreateTaskResponse createTask(shared_ptr<string> TenantId, shared_ptr<CreateTaskRequest> request);
   CreateTemplateResponse createTemplateWithOptions(shared_ptr<string> TenantId,
                                                    shared_ptr<CreateTemplateRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateUserResponse createUser(shared_ptr<string> TenantId, shared_ptr<CreateUserRequest> request);
+  CreateTemplateResponse createTemplate(shared_ptr<string> TenantId, shared_ptr<CreateTemplateRequest> request);
   CreateUserResponse createUserWithOptions(shared_ptr<string> TenantId,
                                            shared_ptr<CreateUserRequest> request,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteTaskResponse deleteTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
+  CreateUserResponse createUser(shared_ptr<string> TenantId, shared_ptr<CreateUserRequest> request);
   DeleteTaskResponse deleteTaskWithOptions(shared_ptr<string> TenantId,
                                            shared_ptr<string> TaskId,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteTemplateResponse deleteTemplate(shared_ptr<string> TenantId, shared_ptr<string> TemplateId);
+  DeleteTaskResponse deleteTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
   DeleteTemplateResponse deleteTemplateWithOptions(shared_ptr<string> TenantId,
                                                    shared_ptr<string> TemplateId,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteUserResponse deleteUser(shared_ptr<string> TenantId, shared_ptr<string> UserId);
+  DeleteTemplateResponse deleteTemplate(shared_ptr<string> TenantId, shared_ptr<string> TemplateId);
   DeleteUserResponse deleteUserWithOptions(shared_ptr<string> TenantId,
                                            shared_ptr<string> UserId,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ExportAnnotationsResponse exportAnnotations(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<ExportAnnotationsRequest> request);
+  DeleteUserResponse deleteUser(shared_ptr<string> TenantId, shared_ptr<string> UserId);
   ExportAnnotationsResponse exportAnnotationsWithOptions(shared_ptr<string> TenantId,
                                                          shared_ptr<string> TaskId,
                                                          shared_ptr<ExportAnnotationsRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetJobResponse getJob(shared_ptr<string> TenantId, shared_ptr<string> JobId, shared_ptr<GetJobRequest> request);
+  ExportAnnotationsResponse exportAnnotations(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<ExportAnnotationsRequest> request);
   GetJobResponse getJobWithOptions(shared_ptr<string> TenantId,
                                    shared_ptr<string> JobId,
                                    shared_ptr<GetJobRequest> request,
                                    shared_ptr<map<string, string>> headers,
                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetSubtaskResponse getSubtask(shared_ptr<string> TenantId, shared_ptr<string> TaskID, shared_ptr<string> SubtaskId);
+  GetJobResponse getJob(shared_ptr<string> TenantId, shared_ptr<string> JobId, shared_ptr<GetJobRequest> request);
   GetSubtaskResponse getSubtaskWithOptions(shared_ptr<string> TenantId,
                                            shared_ptr<string> TaskID,
                                            shared_ptr<string> SubtaskId,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetSubtaskItemResponse getSubtaskItem(shared_ptr<string> TenantId,
-                                        shared_ptr<string> TaskId,
-                                        shared_ptr<string> SubtaskId,
-                                        shared_ptr<string> ItemId);
+  GetSubtaskResponse getSubtask(shared_ptr<string> TenantId, shared_ptr<string> TaskID, shared_ptr<string> SubtaskId);
   GetSubtaskItemResponse getSubtaskItemWithOptions(shared_ptr<string> TenantId,
                                                    shared_ptr<string> TaskId,
                                                    shared_ptr<string> SubtaskId,
                                                    shared_ptr<string> ItemId,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTaskResponse getTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
+  GetSubtaskItemResponse getSubtaskItem(shared_ptr<string> TenantId,
+                                        shared_ptr<string> TaskId,
+                                        shared_ptr<string> SubtaskId,
+                                        shared_ptr<string> ItemId);
   GetTaskResponse getTaskWithOptions(shared_ptr<string> TenantId,
                                      shared_ptr<string> TaskId,
                                      shared_ptr<map<string, string>> headers,
                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTaskStatisticsResponse getTaskStatistics(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<GetTaskStatisticsRequest> request);
+  GetTaskResponse getTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
   GetTaskStatisticsResponse getTaskStatisticsWithOptions(shared_ptr<string> TenantId,
                                                          shared_ptr<string> TaskId,
                                                          shared_ptr<GetTaskStatisticsRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTaskStatusResponse getTaskStatus(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
+  GetTaskStatisticsResponse getTaskStatistics(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<GetTaskStatisticsRequest> request);
   GetTaskStatusResponse getTaskStatusWithOptions(shared_ptr<string> TenantId,
                                                  shared_ptr<string> TaskId,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTaskTemplateResponse getTaskTemplate(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
+  GetTaskStatusResponse getTaskStatus(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
   GetTaskTemplateResponse getTaskTemplateWithOptions(shared_ptr<string> TenantId,
                                                      shared_ptr<string> TaskId,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTaskTemplateQuestionsResponse getTaskTemplateQuestions(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
+  GetTaskTemplateResponse getTaskTemplate(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
   GetTaskTemplateQuestionsResponse getTaskTemplateQuestionsWithOptions(shared_ptr<string> TenantId,
                                                                        shared_ptr<string> TaskId,
                                                                        shared_ptr<map<string, string>> headers,
                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTaskTemplateViewsResponse getTaskTemplateViews(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
+  GetTaskTemplateQuestionsResponse getTaskTemplateQuestions(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
   GetTaskTemplateViewsResponse getTaskTemplateViewsWithOptions(shared_ptr<string> TenantId,
                                                                shared_ptr<string> TaskId,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTaskWorkforceResponse getTaskWorkforce(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
+  GetTaskTemplateViewsResponse getTaskTemplateViews(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
   GetTaskWorkforceResponse getTaskWorkforceWithOptions(shared_ptr<string> TenantId,
                                                        shared_ptr<string> TaskId,
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTaskWorkforceStatisticResponse getTaskWorkforceStatistic(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<GetTaskWorkforceStatisticRequest> request);
+  GetTaskWorkforceResponse getTaskWorkforce(shared_ptr<string> TenantId, shared_ptr<string> TaskId);
   GetTaskWorkforceStatisticResponse getTaskWorkforceStatisticWithOptions(shared_ptr<string> TenantId,
                                                                          shared_ptr<string> TaskId,
                                                                          shared_ptr<GetTaskWorkforceStatisticRequest> request,
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTemplateResponse getTemplate(shared_ptr<string> TenantId, shared_ptr<string> TemplateId);
+  GetTaskWorkforceStatisticResponse getTaskWorkforceStatistic(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<GetTaskWorkforceStatisticRequest> request);
   GetTemplateResponse getTemplateWithOptions(shared_ptr<string> TenantId,
                                              shared_ptr<string> TemplateId,
                                              shared_ptr<map<string, string>> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTemplateQuestionsResponse getTemplateQuestions(shared_ptr<string> TenantId, shared_ptr<string> TemplateId);
+  GetTemplateResponse getTemplate(shared_ptr<string> TenantId, shared_ptr<string> TemplateId);
   GetTemplateQuestionsResponse getTemplateQuestionsWithOptions(shared_ptr<string> TenantId,
                                                                shared_ptr<string> TemplateId,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTemplateViewResponse getTemplateView(shared_ptr<string> TenantId, shared_ptr<string> TemplateId);
+  GetTemplateQuestionsResponse getTemplateQuestions(shared_ptr<string> TenantId, shared_ptr<string> TemplateId);
   GetTemplateViewResponse getTemplateViewWithOptions(shared_ptr<string> TenantId,
                                                      shared_ptr<string> TemplateId,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTenantResponse getTenant(shared_ptr<string> TenantId);
+  GetTemplateViewResponse getTemplateView(shared_ptr<string> TenantId, shared_ptr<string> TemplateId);
   GetTenantResponse getTenantWithOptions(shared_ptr<string> TenantId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetUserResponse getUser(shared_ptr<string> TenantId, shared_ptr<string> UserId);
+  GetTenantResponse getTenant(shared_ptr<string> TenantId);
   GetUserResponse getUserWithOptions(shared_ptr<string> TenantId,
                                      shared_ptr<string> UserId,
                                      shared_ptr<map<string, string>> headers,
                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListJobsResponse listJobs(shared_ptr<string> TenantId, shared_ptr<ListJobsRequest> request);
+  GetUserResponse getUser(shared_ptr<string> TenantId, shared_ptr<string> UserId);
   ListJobsResponse listJobsWithOptions(shared_ptr<string> TenantId,
                                        shared_ptr<ListJobsRequest> request,
                                        shared_ptr<map<string, string>> headers,
                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListSubtaskItemsResponse listSubtaskItems(shared_ptr<string> TenantId,
-                                            shared_ptr<string> TaskID,
-                                            shared_ptr<string> SubtaskId,
-                                            shared_ptr<ListSubtaskItemsRequest> request);
+  ListJobsResponse listJobs(shared_ptr<string> TenantId, shared_ptr<ListJobsRequest> request);
   ListSubtaskItemsResponse listSubtaskItemsWithOptions(shared_ptr<string> TenantId,
                                                        shared_ptr<string> TaskID,
                                                        shared_ptr<string> SubtaskId,
                                                        shared_ptr<ListSubtaskItemsRequest> request,
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListSubtasksResponse listSubtasks(shared_ptr<string> TenantId, shared_ptr<string> TaskID, shared_ptr<ListSubtasksRequest> request);
+  ListSubtaskItemsResponse listSubtaskItems(shared_ptr<string> TenantId,
+                                            shared_ptr<string> TaskID,
+                                            shared_ptr<string> SubtaskId,
+                                            shared_ptr<ListSubtaskItemsRequest> request);
   ListSubtasksResponse listSubtasksWithOptions(shared_ptr<string> TenantId,
                                                shared_ptr<string> TaskID,
                                                shared_ptr<ListSubtasksRequest> request,
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListTasksResponse listTasks(shared_ptr<string> TenantId, shared_ptr<ListTasksRequest> request);
+  ListSubtasksResponse listSubtasks(shared_ptr<string> TenantId, shared_ptr<string> TaskID, shared_ptr<ListSubtasksRequest> request);
   ListTasksResponse listTasksWithOptions(shared_ptr<string> TenantId,
                                          shared_ptr<ListTasksRequest> request,
                                          shared_ptr<map<string, string>> headers,
                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListTemplatesResponse listTemplates(shared_ptr<string> TenantId, shared_ptr<ListTemplatesRequest> request);
+  ListTasksResponse listTasks(shared_ptr<string> TenantId, shared_ptr<ListTasksRequest> request);
   ListTemplatesResponse listTemplatesWithOptions(shared_ptr<string> TenantId,
                                                  shared_ptr<ListTemplatesRequest> tmpReq,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListTenantsResponse listTenants(shared_ptr<ListTenantsRequest> request);
+  ListTemplatesResponse listTemplates(shared_ptr<string> TenantId, shared_ptr<ListTemplatesRequest> request);
   ListTenantsResponse listTenantsWithOptions(shared_ptr<ListTenantsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListUsersResponse listUsers(shared_ptr<string> TenantId, shared_ptr<ListUsersRequest> request);
+  ListTenantsResponse listTenants(shared_ptr<ListTenantsRequest> request);
   ListUsersResponse listUsersWithOptions(shared_ptr<string> TenantId,
                                          shared_ptr<ListUsersRequest> request,
                                          shared_ptr<map<string, string>> headers,
                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RemoveWorkNodeWorkforceResponse removeWorkNodeWorkforce(shared_ptr<string> TenantId,
-                                                          shared_ptr<string> TaskId,
-                                                          shared_ptr<string> WorkNodeId,
-                                                          shared_ptr<RemoveWorkNodeWorkforceRequest> request);
+  ListUsersResponse listUsers(shared_ptr<string> TenantId, shared_ptr<ListUsersRequest> request);
   RemoveWorkNodeWorkforceResponse removeWorkNodeWorkforceWithOptions(shared_ptr<string> TenantId,
                                                                      shared_ptr<string> TaskId,
                                                                      shared_ptr<string> WorkNodeId,
                                                                      shared_ptr<RemoveWorkNodeWorkforceRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateTaskResponse updateTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<UpdateTaskRequest> request);
+  RemoveWorkNodeWorkforceResponse removeWorkNodeWorkforce(shared_ptr<string> TenantId,
+                                                          shared_ptr<string> TaskId,
+                                                          shared_ptr<string> WorkNodeId,
+                                                          shared_ptr<RemoveWorkNodeWorkforceRequest> request);
   UpdateTaskResponse updateTaskWithOptions(shared_ptr<string> TenantId,
                                            shared_ptr<string> TaskId,
                                            shared_ptr<UpdateTaskRequest> request,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateTaskWorkforceResponse updateTaskWorkforce(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<UpdateTaskWorkforceRequest> request);
+  UpdateTaskResponse updateTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<UpdateTaskRequest> request);
   UpdateTaskWorkforceResponse updateTaskWorkforceWithOptions(shared_ptr<string> TenantId,
                                                              shared_ptr<string> TaskId,
                                                              shared_ptr<UpdateTaskWorkforceRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateTemplateResponse updateTemplate(shared_ptr<string> TenantId, shared_ptr<string> TemplateId, shared_ptr<UpdateTemplateRequest> request);
+  UpdateTaskWorkforceResponse updateTaskWorkforce(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<UpdateTaskWorkforceRequest> request);
   UpdateTemplateResponse updateTemplateWithOptions(shared_ptr<string> TenantId,
                                                    shared_ptr<string> TemplateId,
                                                    shared_ptr<UpdateTemplateRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateTenantResponse updateTenant(shared_ptr<string> TenantId, shared_ptr<UpdateTenantRequest> request);
+  UpdateTemplateResponse updateTemplate(shared_ptr<string> TenantId, shared_ptr<string> TemplateId, shared_ptr<UpdateTemplateRequest> request);
   UpdateTenantResponse updateTenantWithOptions(shared_ptr<string> TenantId,
                                                shared_ptr<UpdateTenantRequest> request,
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateUserResponse updateUser(shared_ptr<string> TenantId, shared_ptr<string> UserId, shared_ptr<UpdateUserRequest> request);
+  UpdateTenantResponse updateTenant(shared_ptr<string> TenantId, shared_ptr<UpdateTenantRequest> request);
   UpdateUserResponse updateUserWithOptions(shared_ptr<string> TenantId,
                                            shared_ptr<string> UserId,
                                            shared_ptr<UpdateUserRequest> request,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateUserResponse updateUser(shared_ptr<string> TenantId, shared_ptr<string> UserId, shared_ptr<UpdateUserRequest> request);
 
   virtual ~Client() = default;
 };

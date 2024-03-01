@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -38,15 +37,6 @@ string Alibabacloud_OpenITag20220616::Client::getEndpoint(shared_ptr<string> pro
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-AddWorkNodeWorkforceResponse Alibabacloud_OpenITag20220616::Client::addWorkNodeWorkforce(shared_ptr<string> TenantId,
-                                                                                         shared_ptr<string> TaskId,
-                                                                                         shared_ptr<string> WorkNodeId,
-                                                                                         shared_ptr<AddWorkNodeWorkforceRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return addWorkNodeWorkforceWithOptions(TenantId, TaskId, WorkNodeId, request, headers, runtime);
-}
-
 AddWorkNodeWorkforceResponse Alibabacloud_OpenITag20220616::Client::addWorkNodeWorkforceWithOptions(shared_ptr<string> TenantId,
                                                                                                     shared_ptr<string> TaskId,
                                                                                                     shared_ptr<string> WorkNodeId,
@@ -76,10 +66,13 @@ AddWorkNodeWorkforceResponse Alibabacloud_OpenITag20220616::Client::addWorkNodeW
   return AddWorkNodeWorkforceResponse(callApi(params, req, runtime));
 }
 
-CreateTaskResponse Alibabacloud_OpenITag20220616::Client::createTask(shared_ptr<string> TenantId, shared_ptr<CreateTaskRequest> request) {
+AddWorkNodeWorkforceResponse Alibabacloud_OpenITag20220616::Client::addWorkNodeWorkforce(shared_ptr<string> TenantId,
+                                                                                         shared_ptr<string> TaskId,
+                                                                                         shared_ptr<string> WorkNodeId,
+                                                                                         shared_ptr<AddWorkNodeWorkforceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createTaskWithOptions(TenantId, request, headers, runtime);
+  return addWorkNodeWorkforceWithOptions(TenantId, TaskId, WorkNodeId, request, headers, runtime);
 }
 
 CreateTaskResponse Alibabacloud_OpenITag20220616::Client::createTaskWithOptions(shared_ptr<string> TenantId,
@@ -89,7 +82,7 @@ CreateTaskResponse Alibabacloud_OpenITag20220616::Client::createTaskWithOptions(
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(make_shared<map<string, boost::any>>(request->body->toMap())))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateTask"))},
@@ -105,10 +98,10 @@ CreateTaskResponse Alibabacloud_OpenITag20220616::Client::createTaskWithOptions(
   return CreateTaskResponse(callApi(params, req, runtime));
 }
 
-CreateTemplateResponse Alibabacloud_OpenITag20220616::Client::createTemplate(shared_ptr<string> TenantId, shared_ptr<CreateTemplateRequest> request) {
+CreateTaskResponse Alibabacloud_OpenITag20220616::Client::createTask(shared_ptr<string> TenantId, shared_ptr<CreateTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createTemplateWithOptions(TenantId, request, headers, runtime);
+  return createTaskWithOptions(TenantId, request, headers, runtime);
 }
 
 CreateTemplateResponse Alibabacloud_OpenITag20220616::Client::createTemplateWithOptions(shared_ptr<string> TenantId,
@@ -118,7 +111,7 @@ CreateTemplateResponse Alibabacloud_OpenITag20220616::Client::createTemplateWith
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(make_shared<map<string, boost::any>>(request->body->toMap())))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateTemplate"))},
@@ -134,10 +127,10 @@ CreateTemplateResponse Alibabacloud_OpenITag20220616::Client::createTemplateWith
   return CreateTemplateResponse(callApi(params, req, runtime));
 }
 
-CreateUserResponse Alibabacloud_OpenITag20220616::Client::createUser(shared_ptr<string> TenantId, shared_ptr<CreateUserRequest> request) {
+CreateTemplateResponse Alibabacloud_OpenITag20220616::Client::createTemplate(shared_ptr<string> TenantId, shared_ptr<CreateTemplateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createUserWithOptions(TenantId, request, headers, runtime);
+  return createTemplateWithOptions(TenantId, request, headers, runtime);
 }
 
 CreateUserResponse Alibabacloud_OpenITag20220616::Client::createUserWithOptions(shared_ptr<string> TenantId,
@@ -176,10 +169,10 @@ CreateUserResponse Alibabacloud_OpenITag20220616::Client::createUserWithOptions(
   return CreateUserResponse(callApi(params, req, runtime));
 }
 
-DeleteTaskResponse Alibabacloud_OpenITag20220616::Client::deleteTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
+CreateUserResponse Alibabacloud_OpenITag20220616::Client::createUser(shared_ptr<string> TenantId, shared_ptr<CreateUserRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteTaskWithOptions(TenantId, TaskId, headers, runtime);
+  return createUserWithOptions(TenantId, request, headers, runtime);
 }
 
 DeleteTaskResponse Alibabacloud_OpenITag20220616::Client::deleteTaskWithOptions(shared_ptr<string> TenantId,
@@ -203,10 +196,10 @@ DeleteTaskResponse Alibabacloud_OpenITag20220616::Client::deleteTaskWithOptions(
   return DeleteTaskResponse(callApi(params, req, runtime));
 }
 
-DeleteTemplateResponse Alibabacloud_OpenITag20220616::Client::deleteTemplate(shared_ptr<string> TenantId, shared_ptr<string> TemplateId) {
+DeleteTaskResponse Alibabacloud_OpenITag20220616::Client::deleteTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteTemplateWithOptions(TenantId, TemplateId, headers, runtime);
+  return deleteTaskWithOptions(TenantId, TaskId, headers, runtime);
 }
 
 DeleteTemplateResponse Alibabacloud_OpenITag20220616::Client::deleteTemplateWithOptions(shared_ptr<string> TenantId,
@@ -230,10 +223,10 @@ DeleteTemplateResponse Alibabacloud_OpenITag20220616::Client::deleteTemplateWith
   return DeleteTemplateResponse(callApi(params, req, runtime));
 }
 
-DeleteUserResponse Alibabacloud_OpenITag20220616::Client::deleteUser(shared_ptr<string> TenantId, shared_ptr<string> UserId) {
+DeleteTemplateResponse Alibabacloud_OpenITag20220616::Client::deleteTemplate(shared_ptr<string> TenantId, shared_ptr<string> TemplateId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteUserWithOptions(TenantId, UserId, headers, runtime);
+  return deleteTemplateWithOptions(TenantId, TemplateId, headers, runtime);
 }
 
 DeleteUserResponse Alibabacloud_OpenITag20220616::Client::deleteUserWithOptions(shared_ptr<string> TenantId,
@@ -257,10 +250,10 @@ DeleteUserResponse Alibabacloud_OpenITag20220616::Client::deleteUserWithOptions(
   return DeleteUserResponse(callApi(params, req, runtime));
 }
 
-ExportAnnotationsResponse Alibabacloud_OpenITag20220616::Client::exportAnnotations(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<ExportAnnotationsRequest> request) {
+DeleteUserResponse Alibabacloud_OpenITag20220616::Client::deleteUser(shared_ptr<string> TenantId, shared_ptr<string> UserId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return exportAnnotationsWithOptions(TenantId, TaskId, request, headers, runtime);
+  return deleteUserWithOptions(TenantId, UserId, headers, runtime);
 }
 
 ExportAnnotationsResponse Alibabacloud_OpenITag20220616::Client::exportAnnotationsWithOptions(shared_ptr<string> TenantId,
@@ -297,10 +290,10 @@ ExportAnnotationsResponse Alibabacloud_OpenITag20220616::Client::exportAnnotatio
   return ExportAnnotationsResponse(callApi(params, req, runtime));
 }
 
-GetJobResponse Alibabacloud_OpenITag20220616::Client::getJob(shared_ptr<string> TenantId, shared_ptr<string> JobId, shared_ptr<GetJobRequest> request) {
+ExportAnnotationsResponse Alibabacloud_OpenITag20220616::Client::exportAnnotations(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<ExportAnnotationsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getJobWithOptions(TenantId, JobId, request, headers, runtime);
+  return exportAnnotationsWithOptions(TenantId, TaskId, request, headers, runtime);
 }
 
 GetJobResponse Alibabacloud_OpenITag20220616::Client::getJobWithOptions(shared_ptr<string> TenantId,
@@ -331,10 +324,10 @@ GetJobResponse Alibabacloud_OpenITag20220616::Client::getJobWithOptions(shared_p
   return GetJobResponse(callApi(params, req, runtime));
 }
 
-GetSubtaskResponse Alibabacloud_OpenITag20220616::Client::getSubtask(shared_ptr<string> TenantId, shared_ptr<string> TaskID, shared_ptr<string> SubtaskId) {
+GetJobResponse Alibabacloud_OpenITag20220616::Client::getJob(shared_ptr<string> TenantId, shared_ptr<string> JobId, shared_ptr<GetJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getSubtaskWithOptions(TenantId, TaskID, SubtaskId, headers, runtime);
+  return getJobWithOptions(TenantId, JobId, request, headers, runtime);
 }
 
 GetSubtaskResponse Alibabacloud_OpenITag20220616::Client::getSubtaskWithOptions(shared_ptr<string> TenantId,
@@ -359,13 +352,10 @@ GetSubtaskResponse Alibabacloud_OpenITag20220616::Client::getSubtaskWithOptions(
   return GetSubtaskResponse(callApi(params, req, runtime));
 }
 
-GetSubtaskItemResponse Alibabacloud_OpenITag20220616::Client::getSubtaskItem(shared_ptr<string> TenantId,
-                                                                             shared_ptr<string> TaskId,
-                                                                             shared_ptr<string> SubtaskId,
-                                                                             shared_ptr<string> ItemId) {
+GetSubtaskResponse Alibabacloud_OpenITag20220616::Client::getSubtask(shared_ptr<string> TenantId, shared_ptr<string> TaskID, shared_ptr<string> SubtaskId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getSubtaskItemWithOptions(TenantId, TaskId, SubtaskId, ItemId, headers, runtime);
+  return getSubtaskWithOptions(TenantId, TaskID, SubtaskId, headers, runtime);
 }
 
 GetSubtaskItemResponse Alibabacloud_OpenITag20220616::Client::getSubtaskItemWithOptions(shared_ptr<string> TenantId,
@@ -391,10 +381,13 @@ GetSubtaskItemResponse Alibabacloud_OpenITag20220616::Client::getSubtaskItemWith
   return GetSubtaskItemResponse(callApi(params, req, runtime));
 }
 
-GetTaskResponse Alibabacloud_OpenITag20220616::Client::getTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
+GetSubtaskItemResponse Alibabacloud_OpenITag20220616::Client::getSubtaskItem(shared_ptr<string> TenantId,
+                                                                             shared_ptr<string> TaskId,
+                                                                             shared_ptr<string> SubtaskId,
+                                                                             shared_ptr<string> ItemId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTaskWithOptions(TenantId, TaskId, headers, runtime);
+  return getSubtaskItemWithOptions(TenantId, TaskId, SubtaskId, ItemId, headers, runtime);
 }
 
 GetTaskResponse Alibabacloud_OpenITag20220616::Client::getTaskWithOptions(shared_ptr<string> TenantId,
@@ -418,10 +411,10 @@ GetTaskResponse Alibabacloud_OpenITag20220616::Client::getTaskWithOptions(shared
   return GetTaskResponse(callApi(params, req, runtime));
 }
 
-GetTaskStatisticsResponse Alibabacloud_OpenITag20220616::Client::getTaskStatistics(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<GetTaskStatisticsRequest> request) {
+GetTaskResponse Alibabacloud_OpenITag20220616::Client::getTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTaskStatisticsWithOptions(TenantId, TaskId, request, headers, runtime);
+  return getTaskWithOptions(TenantId, TaskId, headers, runtime);
 }
 
 GetTaskStatisticsResponse Alibabacloud_OpenITag20220616::Client::getTaskStatisticsWithOptions(shared_ptr<string> TenantId,
@@ -452,10 +445,10 @@ GetTaskStatisticsResponse Alibabacloud_OpenITag20220616::Client::getTaskStatisti
   return GetTaskStatisticsResponse(callApi(params, req, runtime));
 }
 
-GetTaskStatusResponse Alibabacloud_OpenITag20220616::Client::getTaskStatus(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
+GetTaskStatisticsResponse Alibabacloud_OpenITag20220616::Client::getTaskStatistics(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<GetTaskStatisticsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTaskStatusWithOptions(TenantId, TaskId, headers, runtime);
+  return getTaskStatisticsWithOptions(TenantId, TaskId, request, headers, runtime);
 }
 
 GetTaskStatusResponse Alibabacloud_OpenITag20220616::Client::getTaskStatusWithOptions(shared_ptr<string> TenantId,
@@ -479,10 +472,10 @@ GetTaskStatusResponse Alibabacloud_OpenITag20220616::Client::getTaskStatusWithOp
   return GetTaskStatusResponse(callApi(params, req, runtime));
 }
 
-GetTaskTemplateResponse Alibabacloud_OpenITag20220616::Client::getTaskTemplate(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
+GetTaskStatusResponse Alibabacloud_OpenITag20220616::Client::getTaskStatus(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTaskTemplateWithOptions(TenantId, TaskId, headers, runtime);
+  return getTaskStatusWithOptions(TenantId, TaskId, headers, runtime);
 }
 
 GetTaskTemplateResponse Alibabacloud_OpenITag20220616::Client::getTaskTemplateWithOptions(shared_ptr<string> TenantId,
@@ -506,10 +499,10 @@ GetTaskTemplateResponse Alibabacloud_OpenITag20220616::Client::getTaskTemplateWi
   return GetTaskTemplateResponse(callApi(params, req, runtime));
 }
 
-GetTaskTemplateQuestionsResponse Alibabacloud_OpenITag20220616::Client::getTaskTemplateQuestions(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
+GetTaskTemplateResponse Alibabacloud_OpenITag20220616::Client::getTaskTemplate(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTaskTemplateQuestionsWithOptions(TenantId, TaskId, headers, runtime);
+  return getTaskTemplateWithOptions(TenantId, TaskId, headers, runtime);
 }
 
 GetTaskTemplateQuestionsResponse Alibabacloud_OpenITag20220616::Client::getTaskTemplateQuestionsWithOptions(shared_ptr<string> TenantId,
@@ -533,10 +526,10 @@ GetTaskTemplateQuestionsResponse Alibabacloud_OpenITag20220616::Client::getTaskT
   return GetTaskTemplateQuestionsResponse(callApi(params, req, runtime));
 }
 
-GetTaskTemplateViewsResponse Alibabacloud_OpenITag20220616::Client::getTaskTemplateViews(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
+GetTaskTemplateQuestionsResponse Alibabacloud_OpenITag20220616::Client::getTaskTemplateQuestions(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTaskTemplateViewsWithOptions(TenantId, TaskId, headers, runtime);
+  return getTaskTemplateQuestionsWithOptions(TenantId, TaskId, headers, runtime);
 }
 
 GetTaskTemplateViewsResponse Alibabacloud_OpenITag20220616::Client::getTaskTemplateViewsWithOptions(shared_ptr<string> TenantId,
@@ -560,10 +553,10 @@ GetTaskTemplateViewsResponse Alibabacloud_OpenITag20220616::Client::getTaskTempl
   return GetTaskTemplateViewsResponse(callApi(params, req, runtime));
 }
 
-GetTaskWorkforceResponse Alibabacloud_OpenITag20220616::Client::getTaskWorkforce(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
+GetTaskTemplateViewsResponse Alibabacloud_OpenITag20220616::Client::getTaskTemplateViews(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTaskWorkforceWithOptions(TenantId, TaskId, headers, runtime);
+  return getTaskTemplateViewsWithOptions(TenantId, TaskId, headers, runtime);
 }
 
 GetTaskWorkforceResponse Alibabacloud_OpenITag20220616::Client::getTaskWorkforceWithOptions(shared_ptr<string> TenantId,
@@ -587,10 +580,10 @@ GetTaskWorkforceResponse Alibabacloud_OpenITag20220616::Client::getTaskWorkforce
   return GetTaskWorkforceResponse(callApi(params, req, runtime));
 }
 
-GetTaskWorkforceStatisticResponse Alibabacloud_OpenITag20220616::Client::getTaskWorkforceStatistic(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<GetTaskWorkforceStatisticRequest> request) {
+GetTaskWorkforceResponse Alibabacloud_OpenITag20220616::Client::getTaskWorkforce(shared_ptr<string> TenantId, shared_ptr<string> TaskId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTaskWorkforceStatisticWithOptions(TenantId, TaskId, request, headers, runtime);
+  return getTaskWorkforceWithOptions(TenantId, TaskId, headers, runtime);
 }
 
 GetTaskWorkforceStatisticResponse Alibabacloud_OpenITag20220616::Client::getTaskWorkforceStatisticWithOptions(shared_ptr<string> TenantId,
@@ -627,10 +620,10 @@ GetTaskWorkforceStatisticResponse Alibabacloud_OpenITag20220616::Client::getTask
   return GetTaskWorkforceStatisticResponse(callApi(params, req, runtime));
 }
 
-GetTemplateResponse Alibabacloud_OpenITag20220616::Client::getTemplate(shared_ptr<string> TenantId, shared_ptr<string> TemplateId) {
+GetTaskWorkforceStatisticResponse Alibabacloud_OpenITag20220616::Client::getTaskWorkforceStatistic(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<GetTaskWorkforceStatisticRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTemplateWithOptions(TenantId, TemplateId, headers, runtime);
+  return getTaskWorkforceStatisticWithOptions(TenantId, TaskId, request, headers, runtime);
 }
 
 GetTemplateResponse Alibabacloud_OpenITag20220616::Client::getTemplateWithOptions(shared_ptr<string> TenantId,
@@ -654,10 +647,10 @@ GetTemplateResponse Alibabacloud_OpenITag20220616::Client::getTemplateWithOption
   return GetTemplateResponse(callApi(params, req, runtime));
 }
 
-GetTemplateQuestionsResponse Alibabacloud_OpenITag20220616::Client::getTemplateQuestions(shared_ptr<string> TenantId, shared_ptr<string> TemplateId) {
+GetTemplateResponse Alibabacloud_OpenITag20220616::Client::getTemplate(shared_ptr<string> TenantId, shared_ptr<string> TemplateId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTemplateQuestionsWithOptions(TenantId, TemplateId, headers, runtime);
+  return getTemplateWithOptions(TenantId, TemplateId, headers, runtime);
 }
 
 GetTemplateQuestionsResponse Alibabacloud_OpenITag20220616::Client::getTemplateQuestionsWithOptions(shared_ptr<string> TenantId,
@@ -681,10 +674,10 @@ GetTemplateQuestionsResponse Alibabacloud_OpenITag20220616::Client::getTemplateQ
   return GetTemplateQuestionsResponse(callApi(params, req, runtime));
 }
 
-GetTemplateViewResponse Alibabacloud_OpenITag20220616::Client::getTemplateView(shared_ptr<string> TenantId, shared_ptr<string> TemplateId) {
+GetTemplateQuestionsResponse Alibabacloud_OpenITag20220616::Client::getTemplateQuestions(shared_ptr<string> TenantId, shared_ptr<string> TemplateId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTemplateViewWithOptions(TenantId, TemplateId, headers, runtime);
+  return getTemplateQuestionsWithOptions(TenantId, TemplateId, headers, runtime);
 }
 
 GetTemplateViewResponse Alibabacloud_OpenITag20220616::Client::getTemplateViewWithOptions(shared_ptr<string> TenantId,
@@ -708,10 +701,10 @@ GetTemplateViewResponse Alibabacloud_OpenITag20220616::Client::getTemplateViewWi
   return GetTemplateViewResponse(callApi(params, req, runtime));
 }
 
-GetTenantResponse Alibabacloud_OpenITag20220616::Client::getTenant(shared_ptr<string> TenantId) {
+GetTemplateViewResponse Alibabacloud_OpenITag20220616::Client::getTemplateView(shared_ptr<string> TenantId, shared_ptr<string> TemplateId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTenantWithOptions(TenantId, headers, runtime);
+  return getTemplateViewWithOptions(TenantId, TemplateId, headers, runtime);
 }
 
 GetTenantResponse Alibabacloud_OpenITag20220616::Client::getTenantWithOptions(shared_ptr<string> TenantId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -732,10 +725,10 @@ GetTenantResponse Alibabacloud_OpenITag20220616::Client::getTenantWithOptions(sh
   return GetTenantResponse(callApi(params, req, runtime));
 }
 
-GetUserResponse Alibabacloud_OpenITag20220616::Client::getUser(shared_ptr<string> TenantId, shared_ptr<string> UserId) {
+GetTenantResponse Alibabacloud_OpenITag20220616::Client::getTenant(shared_ptr<string> TenantId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getUserWithOptions(TenantId, UserId, headers, runtime);
+  return getTenantWithOptions(TenantId, headers, runtime);
 }
 
 GetUserResponse Alibabacloud_OpenITag20220616::Client::getUserWithOptions(shared_ptr<string> TenantId,
@@ -759,10 +752,10 @@ GetUserResponse Alibabacloud_OpenITag20220616::Client::getUserWithOptions(shared
   return GetUserResponse(callApi(params, req, runtime));
 }
 
-ListJobsResponse Alibabacloud_OpenITag20220616::Client::listJobs(shared_ptr<string> TenantId, shared_ptr<ListJobsRequest> request) {
+GetUserResponse Alibabacloud_OpenITag20220616::Client::getUser(shared_ptr<string> TenantId, shared_ptr<string> UserId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listJobsWithOptions(TenantId, request, headers, runtime);
+  return getUserWithOptions(TenantId, UserId, headers, runtime);
 }
 
 ListJobsResponse Alibabacloud_OpenITag20220616::Client::listJobsWithOptions(shared_ptr<string> TenantId,
@@ -798,13 +791,10 @@ ListJobsResponse Alibabacloud_OpenITag20220616::Client::listJobsWithOptions(shar
   return ListJobsResponse(callApi(params, req, runtime));
 }
 
-ListSubtaskItemsResponse Alibabacloud_OpenITag20220616::Client::listSubtaskItems(shared_ptr<string> TenantId,
-                                                                                 shared_ptr<string> TaskID,
-                                                                                 shared_ptr<string> SubtaskId,
-                                                                                 shared_ptr<ListSubtaskItemsRequest> request) {
+ListJobsResponse Alibabacloud_OpenITag20220616::Client::listJobs(shared_ptr<string> TenantId, shared_ptr<ListJobsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listSubtaskItemsWithOptions(TenantId, TaskID, SubtaskId, request, headers, runtime);
+  return listJobsWithOptions(TenantId, request, headers, runtime);
 }
 
 ListSubtaskItemsResponse Alibabacloud_OpenITag20220616::Client::listSubtaskItemsWithOptions(shared_ptr<string> TenantId,
@@ -839,10 +829,13 @@ ListSubtaskItemsResponse Alibabacloud_OpenITag20220616::Client::listSubtaskItems
   return ListSubtaskItemsResponse(callApi(params, req, runtime));
 }
 
-ListSubtasksResponse Alibabacloud_OpenITag20220616::Client::listSubtasks(shared_ptr<string> TenantId, shared_ptr<string> TaskID, shared_ptr<ListSubtasksRequest> request) {
+ListSubtaskItemsResponse Alibabacloud_OpenITag20220616::Client::listSubtaskItems(shared_ptr<string> TenantId,
+                                                                                 shared_ptr<string> TaskID,
+                                                                                 shared_ptr<string> SubtaskId,
+                                                                                 shared_ptr<ListSubtaskItemsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listSubtasksWithOptions(TenantId, TaskID, request, headers, runtime);
+  return listSubtaskItemsWithOptions(TenantId, TaskID, SubtaskId, request, headers, runtime);
 }
 
 ListSubtasksResponse Alibabacloud_OpenITag20220616::Client::listSubtasksWithOptions(shared_ptr<string> TenantId,
@@ -876,10 +869,10 @@ ListSubtasksResponse Alibabacloud_OpenITag20220616::Client::listSubtasksWithOpti
   return ListSubtasksResponse(callApi(params, req, runtime));
 }
 
-ListTasksResponse Alibabacloud_OpenITag20220616::Client::listTasks(shared_ptr<string> TenantId, shared_ptr<ListTasksRequest> request) {
+ListSubtasksResponse Alibabacloud_OpenITag20220616::Client::listSubtasks(shared_ptr<string> TenantId, shared_ptr<string> TaskID, shared_ptr<ListSubtasksRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listTasksWithOptions(TenantId, request, headers, runtime);
+  return listSubtasksWithOptions(TenantId, TaskID, request, headers, runtime);
 }
 
 ListTasksResponse Alibabacloud_OpenITag20220616::Client::listTasksWithOptions(shared_ptr<string> TenantId,
@@ -912,10 +905,10 @@ ListTasksResponse Alibabacloud_OpenITag20220616::Client::listTasksWithOptions(sh
   return ListTasksResponse(callApi(params, req, runtime));
 }
 
-ListTemplatesResponse Alibabacloud_OpenITag20220616::Client::listTemplates(shared_ptr<string> TenantId, shared_ptr<ListTemplatesRequest> request) {
+ListTasksResponse Alibabacloud_OpenITag20220616::Client::listTasks(shared_ptr<string> TenantId, shared_ptr<ListTasksRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listTemplatesWithOptions(TenantId, request, headers, runtime);
+  return listTasksWithOptions(TenantId, request, headers, runtime);
 }
 
 ListTemplatesResponse Alibabacloud_OpenITag20220616::Client::listTemplatesWithOptions(shared_ptr<string> TenantId,
@@ -959,10 +952,10 @@ ListTemplatesResponse Alibabacloud_OpenITag20220616::Client::listTemplatesWithOp
   return ListTemplatesResponse(callApi(params, req, runtime));
 }
 
-ListTenantsResponse Alibabacloud_OpenITag20220616::Client::listTenants(shared_ptr<ListTenantsRequest> request) {
+ListTemplatesResponse Alibabacloud_OpenITag20220616::Client::listTemplates(shared_ptr<string> TenantId, shared_ptr<ListTemplatesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listTenantsWithOptions(request, headers, runtime);
+  return listTemplatesWithOptions(TenantId, request, headers, runtime);
 }
 
 ListTenantsResponse Alibabacloud_OpenITag20220616::Client::listTenantsWithOptions(shared_ptr<ListTenantsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -992,10 +985,10 @@ ListTenantsResponse Alibabacloud_OpenITag20220616::Client::listTenantsWithOption
   return ListTenantsResponse(callApi(params, req, runtime));
 }
 
-ListUsersResponse Alibabacloud_OpenITag20220616::Client::listUsers(shared_ptr<string> TenantId, shared_ptr<ListUsersRequest> request) {
+ListTenantsResponse Alibabacloud_OpenITag20220616::Client::listTenants(shared_ptr<ListTenantsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listUsersWithOptions(TenantId, request, headers, runtime);
+  return listTenantsWithOptions(request, headers, runtime);
 }
 
 ListUsersResponse Alibabacloud_OpenITag20220616::Client::listUsersWithOptions(shared_ptr<string> TenantId,
@@ -1028,13 +1021,10 @@ ListUsersResponse Alibabacloud_OpenITag20220616::Client::listUsersWithOptions(sh
   return ListUsersResponse(callApi(params, req, runtime));
 }
 
-RemoveWorkNodeWorkforceResponse Alibabacloud_OpenITag20220616::Client::removeWorkNodeWorkforce(shared_ptr<string> TenantId,
-                                                                                               shared_ptr<string> TaskId,
-                                                                                               shared_ptr<string> WorkNodeId,
-                                                                                               shared_ptr<RemoveWorkNodeWorkforceRequest> request) {
+ListUsersResponse Alibabacloud_OpenITag20220616::Client::listUsers(shared_ptr<string> TenantId, shared_ptr<ListUsersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return removeWorkNodeWorkforceWithOptions(TenantId, TaskId, WorkNodeId, request, headers, runtime);
+  return listUsersWithOptions(TenantId, request, headers, runtime);
 }
 
 RemoveWorkNodeWorkforceResponse Alibabacloud_OpenITag20220616::Client::removeWorkNodeWorkforceWithOptions(shared_ptr<string> TenantId,
@@ -1066,10 +1056,13 @@ RemoveWorkNodeWorkforceResponse Alibabacloud_OpenITag20220616::Client::removeWor
   return RemoveWorkNodeWorkforceResponse(callApi(params, req, runtime));
 }
 
-UpdateTaskResponse Alibabacloud_OpenITag20220616::Client::updateTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<UpdateTaskRequest> request) {
+RemoveWorkNodeWorkforceResponse Alibabacloud_OpenITag20220616::Client::removeWorkNodeWorkforce(shared_ptr<string> TenantId,
+                                                                                               shared_ptr<string> TaskId,
+                                                                                               shared_ptr<string> WorkNodeId,
+                                                                                               shared_ptr<RemoveWorkNodeWorkforceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateTaskWithOptions(TenantId, TaskId, request, headers, runtime);
+  return removeWorkNodeWorkforceWithOptions(TenantId, TaskId, WorkNodeId, request, headers, runtime);
 }
 
 UpdateTaskResponse Alibabacloud_OpenITag20220616::Client::updateTaskWithOptions(shared_ptr<string> TenantId,
@@ -1080,7 +1073,7 @@ UpdateTaskResponse Alibabacloud_OpenITag20220616::Client::updateTaskWithOptions(
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(make_shared<map<string, boost::any>>(request->body->toMap())))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateTask"))},
@@ -1096,10 +1089,10 @@ UpdateTaskResponse Alibabacloud_OpenITag20220616::Client::updateTaskWithOptions(
   return UpdateTaskResponse(callApi(params, req, runtime));
 }
 
-UpdateTaskWorkforceResponse Alibabacloud_OpenITag20220616::Client::updateTaskWorkforce(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<UpdateTaskWorkforceRequest> request) {
+UpdateTaskResponse Alibabacloud_OpenITag20220616::Client::updateTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<UpdateTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateTaskWorkforceWithOptions(TenantId, TaskId, request, headers, runtime);
+  return updateTaskWithOptions(TenantId, TaskId, request, headers, runtime);
 }
 
 UpdateTaskWorkforceResponse Alibabacloud_OpenITag20220616::Client::updateTaskWorkforceWithOptions(shared_ptr<string> TenantId,
@@ -1130,10 +1123,10 @@ UpdateTaskWorkforceResponse Alibabacloud_OpenITag20220616::Client::updateTaskWor
   return UpdateTaskWorkforceResponse(callApi(params, req, runtime));
 }
 
-UpdateTemplateResponse Alibabacloud_OpenITag20220616::Client::updateTemplate(shared_ptr<string> TenantId, shared_ptr<string> TemplateId, shared_ptr<UpdateTemplateRequest> request) {
+UpdateTaskWorkforceResponse Alibabacloud_OpenITag20220616::Client::updateTaskWorkforce(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<UpdateTaskWorkforceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateTemplateWithOptions(TenantId, TemplateId, request, headers, runtime);
+  return updateTaskWorkforceWithOptions(TenantId, TaskId, request, headers, runtime);
 }
 
 UpdateTemplateResponse Alibabacloud_OpenITag20220616::Client::updateTemplateWithOptions(shared_ptr<string> TenantId,
@@ -1144,7 +1137,7 @@ UpdateTemplateResponse Alibabacloud_OpenITag20220616::Client::updateTemplateWith
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(make_shared<map<string, boost::any>>(request->body->toMap())))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateTemplate"))},
@@ -1160,10 +1153,10 @@ UpdateTemplateResponse Alibabacloud_OpenITag20220616::Client::updateTemplateWith
   return UpdateTemplateResponse(callApi(params, req, runtime));
 }
 
-UpdateTenantResponse Alibabacloud_OpenITag20220616::Client::updateTenant(shared_ptr<string> TenantId, shared_ptr<UpdateTenantRequest> request) {
+UpdateTemplateResponse Alibabacloud_OpenITag20220616::Client::updateTemplate(shared_ptr<string> TenantId, shared_ptr<string> TemplateId, shared_ptr<UpdateTemplateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateTenantWithOptions(TenantId, request, headers, runtime);
+  return updateTemplateWithOptions(TenantId, TemplateId, request, headers, runtime);
 }
 
 UpdateTenantResponse Alibabacloud_OpenITag20220616::Client::updateTenantWithOptions(shared_ptr<string> TenantId,
@@ -1196,10 +1189,10 @@ UpdateTenantResponse Alibabacloud_OpenITag20220616::Client::updateTenantWithOpti
   return UpdateTenantResponse(callApi(params, req, runtime));
 }
 
-UpdateUserResponse Alibabacloud_OpenITag20220616::Client::updateUser(shared_ptr<string> TenantId, shared_ptr<string> UserId, shared_ptr<UpdateUserRequest> request) {
+UpdateTenantResponse Alibabacloud_OpenITag20220616::Client::updateTenant(shared_ptr<string> TenantId, shared_ptr<UpdateTenantRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateUserWithOptions(TenantId, UserId, request, headers, runtime);
+  return updateTenantWithOptions(TenantId, request, headers, runtime);
 }
 
 UpdateUserResponse Alibabacloud_OpenITag20220616::Client::updateUserWithOptions(shared_ptr<string> TenantId,
@@ -1231,5 +1224,11 @@ UpdateUserResponse Alibabacloud_OpenITag20220616::Client::updateUserWithOptions(
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateUserResponse(callApi(params, req, runtime));
+}
+
+UpdateUserResponse Alibabacloud_OpenITag20220616::Client::updateUser(shared_ptr<string> TenantId, shared_ptr<string> UserId, shared_ptr<UpdateUserRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateUserWithOptions(TenantId, UserId, request, headers, runtime);
 }
 
