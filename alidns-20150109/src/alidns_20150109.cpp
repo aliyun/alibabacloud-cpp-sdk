@@ -3313,6 +3313,55 @@ DescribeInstanceDomainsResponse Alibabacloud_Alidns20150109::Client::describeIns
   return describeInstanceDomainsWithOptions(request, runtime);
 }
 
+DescribeInternetDnsLogsResponse Alibabacloud_Alidns20150109::Client::describeInternetDnsLogsWithOptions(shared_ptr<DescribeInternetDnsLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
+    query->insert(pair<string, string>("DomainName", *request->domainName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTimestamp)) {
+    query->insert(pair<string, long>("EndTimestamp", *request->endTimestamp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->module)) {
+    query->insert(pair<string, string>("Module", *request->module));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->queryCondition)) {
+    query->insert(pair<string, string>("QueryCondition", *request->queryCondition));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTimestamp)) {
+    query->insert(pair<string, long>("StartTimestamp", *request->startTimestamp));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeInternetDnsLogs"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeInternetDnsLogsResponse(callApi(params, req, runtime));
+}
+
+DescribeInternetDnsLogsResponse Alibabacloud_Alidns20150109::Client::describeInternetDnsLogs(shared_ptr<DescribeInternetDnsLogsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeInternetDnsLogsWithOptions(request, runtime);
+}
+
 DescribeIspFlushCacheInstancesResponse Alibabacloud_Alidns20150109::Client::describeIspFlushCacheInstancesWithOptions(shared_ptr<DescribeIspFlushCacheInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
