@@ -2024,9 +2024,76 @@ public:
 
   virtual ~DataIngestionActions() = default;
 };
+class MNS : public Darabonba::Model {
+public:
+  shared_ptr<string> topicName{};
+
+  MNS() {}
+
+  explicit MNS(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (topicName) {
+      res["TopicName"] = boost::any(*topicName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
+      topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
+    }
+  }
+
+
+  virtual ~MNS() = default;
+};
+class RocketMQ : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> topicName{};
+
+  RocketMQ() {}
+
+  explicit RocketMQ(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (topicName) {
+      res["TopicName"] = boost::any(*topicName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
+      topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
+    }
+  }
+
+
+  virtual ~RocketMQ() = default;
+};
 class DataIngestionNotification : public Darabonba::Model {
 public:
   shared_ptr<string> endpoint{};
+  shared_ptr<MNS> MNS{};
+  shared_ptr<RocketMQ> rocketMQ{};
   shared_ptr<string> topic{};
 
   DataIngestionNotification() {}
@@ -2042,6 +2109,12 @@ public:
     if (endpoint) {
       res["Endpoint"] = boost::any(*endpoint);
     }
+    if (MNS) {
+      res["MNS"] = MNS ? boost::any(MNS->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rocketMQ) {
+      res["RocketMQ"] = rocketMQ ? boost::any(rocketMQ->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (topic) {
       res["Topic"] = boost::any(*topic);
     }
@@ -2051,6 +2124,20 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("MNS") != m.end() && !m["MNS"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MNS"].type()) {
+        MNS model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MNS"]));
+        MNS = make_shared<MNS>(model1);
+      }
+    }
+    if (m.find("RocketMQ") != m.end() && !m["RocketMQ"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RocketMQ"].type()) {
+        RocketMQ model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RocketMQ"]));
+        rocketMQ = make_shared<RocketMQ>(model1);
+      }
     }
     if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
       topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
@@ -4744,71 +4831,6 @@ public:
 
 
   virtual ~LocationDateCluster() = default;
-};
-class MNS : public Darabonba::Model {
-public:
-  shared_ptr<string> topicName{};
-
-  MNS() {}
-
-  explicit MNS(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (topicName) {
-      res["TopicName"] = boost::any(*topicName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
-      topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
-    }
-  }
-
-
-  virtual ~MNS() = default;
-};
-class RocketMQ : public Darabonba::Model {
-public:
-  shared_ptr<string> instanceId{};
-  shared_ptr<string> topicName{};
-
-  RocketMQ() {}
-
-  explicit RocketMQ(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
-    }
-    if (topicName) {
-      res["TopicName"] = boost::any(*topicName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
-      topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
-    }
-  }
-
-
-  virtual ~RocketMQ() = default;
 };
 class Notification : public Darabonba::Model {
 public:
