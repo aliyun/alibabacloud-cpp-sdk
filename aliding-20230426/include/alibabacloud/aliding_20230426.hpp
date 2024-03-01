@@ -6990,6 +6990,35 @@ public:
 
   virtual ~CreateEventRequestReminders() = default;
 };
+class CreateEventRequestRichTextDescription : public Darabonba::Model {
+public:
+  shared_ptr<string> text{};
+
+  CreateEventRequestRichTextDescription() {}
+
+  explicit CreateEventRequestRichTextDescription(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+  }
+
+
+  virtual ~CreateEventRequestRichTextDescription() = default;
+};
 class CreateEventRequestUiConfigs : public Darabonba::Model {
 public:
   shared_ptr<string> uiName{};
@@ -7080,6 +7109,7 @@ public:
   shared_ptr<CreateEventRequestOnlineMeetingInfo> onlineMeetingInfo{};
   shared_ptr<CreateEventRequestRecurrence> recurrence{};
   shared_ptr<vector<CreateEventRequestReminders>> reminders{};
+  shared_ptr<CreateEventRequestRichTextDescription> richTextDescription{};
   shared_ptr<string> summary{};
   shared_ptr<vector<CreateEventRequestUiConfigs>> uiConfigs{};
   shared_ptr<string> calendarId{};
@@ -7129,6 +7159,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Reminders"] = boost::any(temp1);
+    }
+    if (richTextDescription) {
+      res["RichTextDescription"] = richTextDescription ? boost::any(richTextDescription->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (summary) {
       res["Summary"] = boost::any(*summary);
@@ -7218,6 +7251,13 @@ public:
         reminders = make_shared<vector<CreateEventRequestReminders>>(expect1);
       }
     }
+    if (m.find("RichTextDescription") != m.end() && !m["RichTextDescription"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RichTextDescription"].type()) {
+        CreateEventRequestRichTextDescription model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RichTextDescription"]));
+        richTextDescription = make_shared<CreateEventRequestRichTextDescription>(model1);
+      }
+    }
     if (m.find("Summary") != m.end() && !m["Summary"].empty()) {
       summary = make_shared<string>(boost::any_cast<string>(m["Summary"]));
     }
@@ -7260,6 +7300,7 @@ public:
   shared_ptr<string> onlineMeetingInfoShrink{};
   shared_ptr<string> recurrenceShrink{};
   shared_ptr<string> remindersShrink{};
+  shared_ptr<string> richTextDescriptionShrink{};
   shared_ptr<string> summary{};
   shared_ptr<string> uiConfigsShrink{};
   shared_ptr<string> calendarId{};
@@ -7301,6 +7342,9 @@ public:
     }
     if (remindersShrink) {
       res["Reminders"] = boost::any(*remindersShrink);
+    }
+    if (richTextDescriptionShrink) {
+      res["RichTextDescription"] = boost::any(*richTextDescriptionShrink);
     }
     if (summary) {
       res["Summary"] = boost::any(*summary);
@@ -7344,6 +7388,9 @@ public:
     }
     if (m.find("Reminders") != m.end() && !m["Reminders"].empty()) {
       remindersShrink = make_shared<string>(boost::any_cast<string>(m["Reminders"]));
+    }
+    if (m.find("RichTextDescription") != m.end() && !m["RichTextDescription"].empty()) {
+      richTextDescriptionShrink = make_shared<string>(boost::any_cast<string>(m["RichTextDescription"]));
     }
     if (m.find("Summary") != m.end() && !m["Summary"].empty()) {
       summary = make_shared<string>(boost::any_cast<string>(m["Summary"]));
@@ -7769,6 +7816,35 @@ public:
 
   virtual ~CreateEventResponseBodyReminders() = default;
 };
+class CreateEventResponseBodyRichTextDescription : public Darabonba::Model {
+public:
+  shared_ptr<string> text{};
+
+  CreateEventResponseBodyRichTextDescription() {}
+
+  explicit CreateEventResponseBodyRichTextDescription(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (text) {
+      res["text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("text") != m.end() && !m["text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["text"]));
+    }
+  }
+
+
+  virtual ~CreateEventResponseBodyRichTextDescription() = default;
+};
 class CreateEventResponseBodyStart : public Darabonba::Model {
 public:
   shared_ptr<string> date{};
@@ -7862,6 +7938,7 @@ public:
   shared_ptr<CreateEventResponseBodyRecurrence> recurrence{};
   shared_ptr<vector<CreateEventResponseBodyReminders>> reminders{};
   shared_ptr<string> requestId{};
+  shared_ptr<CreateEventResponseBodyRichTextDescription> richTextDescription{};
   shared_ptr<CreateEventResponseBodyStart> start{};
   shared_ptr<string> summary{};
   shared_ptr<vector<CreateEventResponseBodyUiConfigs>> uiConfigs{};
@@ -7920,6 +7997,9 @@ public:
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
+    }
+    if (richTextDescription) {
+      res["richTextDescription"] = richTextDescription ? boost::any(richTextDescription->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (start) {
       res["start"] = start ? boost::any(start->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8016,6 +8096,13 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("richTextDescription") != m.end() && !m["richTextDescription"].empty()) {
+      if (typeid(map<string, boost::any>) == m["richTextDescription"].type()) {
+        CreateEventResponseBodyRichTextDescription model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["richTextDescription"]));
+        richTextDescription = make_shared<CreateEventResponseBodyRichTextDescription>(model1);
+      }
     }
     if (m.find("start") != m.end() && !m["start"].empty()) {
       if (typeid(map<string, boost::any>) == m["start"].type()) {
@@ -22723,7 +22810,7 @@ public:
 };
 class GetDocContentHeadersAccountContext : public Darabonba::Model {
 public:
-  shared_ptr<string> userToken{};
+  shared_ptr<string> accountId{};
 
   GetDocContentHeadersAccountContext() {}
 
@@ -22735,15 +22822,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (userToken) {
-      res["userToken"] = boost::any(*userToken);
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("userToken") != m.end() && !m["userToken"].empty()) {
-      userToken = make_shared<string>(boost::any_cast<string>(m["userToken"]));
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
     }
   }
 
@@ -22870,6 +22957,7 @@ public:
   shared_ptr<string> dentryUuid{};
   shared_ptr<string> targetFormat{};
   shared_ptr<GetDocContentRequestTenantContext> tenantContext{};
+  shared_ptr<string> userToken{};
 
   GetDocContentRequest() {}
 
@@ -22890,6 +22978,9 @@ public:
     if (tenantContext) {
       res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (userToken) {
+      res["userToken"] = boost::any(*userToken);
+    }
     return res;
   }
 
@@ -22907,6 +22998,9 @@ public:
         tenantContext = make_shared<GetDocContentRequestTenantContext>(model1);
       }
     }
+    if (m.find("userToken") != m.end() && !m["userToken"].empty()) {
+      userToken = make_shared<string>(boost::any_cast<string>(m["userToken"]));
+    }
   }
 
 
@@ -22917,6 +23011,7 @@ public:
   shared_ptr<string> dentryUuid{};
   shared_ptr<string> targetFormat{};
   shared_ptr<string> tenantContextShrink{};
+  shared_ptr<string> userToken{};
 
   GetDocContentShrinkRequest() {}
 
@@ -22937,6 +23032,9 @@ public:
     if (tenantContextShrink) {
       res["TenantContext"] = boost::any(*tenantContextShrink);
     }
+    if (userToken) {
+      res["userToken"] = boost::any(*userToken);
+    }
     return res;
   }
 
@@ -22949,6 +23047,9 @@ public:
     }
     if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
       tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+    if (m.find("userToken") != m.end() && !m["userToken"].empty()) {
+      userToken = make_shared<string>(boost::any_cast<string>(m["userToken"]));
     }
   }
 

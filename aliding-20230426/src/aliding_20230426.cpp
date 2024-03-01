@@ -1048,6 +1048,9 @@ CreateEventResponse Alibabacloud_Aliding20230426::Client::createEventWithOptions
   if (!Darabonba_Util::Client::isUnset<vector<CreateEventRequestReminders>>(tmpReq->reminders)) {
     request->remindersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->reminders, make_shared<string>("Reminders"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateEventRequestRichTextDescription>(tmpReq->richTextDescription)) {
+    request->richTextDescriptionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->richTextDescription, make_shared<string>("RichTextDescription"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateEventRequestUiConfigs>>(tmpReq->uiConfigs)) {
     request->uiConfigsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->uiConfigs, make_shared<string>("UiConfigs"), make_shared<string>("json")));
   }
@@ -1081,6 +1084,9 @@ CreateEventResponse Alibabacloud_Aliding20230426::Client::createEventWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->remindersShrink)) {
     body->insert(pair<string, string>("Reminders", *request->remindersShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->richTextDescriptionShrink)) {
+    body->insert(pair<string, string>("RichTextDescription", *request->richTextDescriptionShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->summary)) {
     body->insert(pair<string, string>("Summary", *request->summary));
@@ -3548,6 +3554,9 @@ GetDocContentResponse Alibabacloud_Aliding20230426::Client::getDocContentWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
     body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userToken)) {
+    body->insert(pair<string, string>("userToken", *request->userToken));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
