@@ -14131,6 +14131,7 @@ public:
 };
 class CreateTimingSyntheticTaskRequestMonitorConfApiHTTP : public Darabonba::Model {
 public:
+  shared_ptr<bool> checkCert{};
   shared_ptr<long> connectTimeout{};
   shared_ptr<string> method{};
   shared_ptr<CreateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody> requestBody{};
@@ -14148,6 +14149,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (checkCert) {
+      res["CheckCert"] = boost::any(*checkCert);
+    }
     if (connectTimeout) {
       res["ConnectTimeout"] = boost::any(*connectTimeout);
     }
@@ -14170,6 +14174,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckCert") != m.end() && !m["CheckCert"].empty()) {
+      checkCert = make_shared<bool>(boost::any_cast<bool>(m["CheckCert"]));
+    }
     if (m.find("ConnectTimeout") != m.end() && !m["ConnectTimeout"].empty()) {
       connectTimeout = make_shared<long>(boost::any_cast<long>(m["ConnectTimeout"]));
     }
@@ -34577,6 +34584,7 @@ public:
 };
 class GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTP : public Darabonba::Model {
 public:
+  shared_ptr<bool> checkCert{};
   shared_ptr<long> connectTimeout{};
   shared_ptr<string> method{};
   shared_ptr<GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTPRequestBody> requestBody{};
@@ -34594,6 +34602,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (checkCert) {
+      res["CheckCert"] = boost::any(*checkCert);
+    }
     if (connectTimeout) {
       res["ConnectTimeout"] = boost::any(*connectTimeout);
     }
@@ -34616,6 +34627,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckCert") != m.end() && !m["CheckCert"].empty()) {
+      checkCert = make_shared<bool>(boost::any_cast<bool>(m["CheckCert"]));
+    }
     if (m.find("ConnectTimeout") != m.end() && !m["ConnectTimeout"].empty()) {
       connectTimeout = make_shared<long>(boost::any_cast<long>(m["ConnectTimeout"]));
     }
@@ -63603,6 +63617,7 @@ public:
 };
 class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTP : public Darabonba::Model {
 public:
+  shared_ptr<bool> checkCert{};
   shared_ptr<long> connectTimeout{};
   shared_ptr<string> method{};
   shared_ptr<UpdateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody> requestBody{};
@@ -63620,6 +63635,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (checkCert) {
+      res["CheckCert"] = boost::any(*checkCert);
+    }
     if (connectTimeout) {
       res["ConnectTimeout"] = boost::any(*connectTimeout);
     }
@@ -63642,6 +63660,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckCert") != m.end() && !m["CheckCert"].empty()) {
+      checkCert = make_shared<bool>(boost::any_cast<bool>(m["CheckCert"]));
+    }
     if (m.find("ConnectTimeout") != m.end() && !m["ConnectTimeout"].empty()) {
       connectTimeout = make_shared<long>(boost::any_cast<long>(m["ConnectTimeout"]));
     }
