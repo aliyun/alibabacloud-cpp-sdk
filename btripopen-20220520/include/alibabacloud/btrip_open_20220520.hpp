@@ -80286,6 +80286,7 @@ public:
 class IntlFlightListingSearchResponseBodyModuleFlightItemListBestPriceItem : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> agreementPriceCodes{};
+  shared_ptr<string> itemType{};
   shared_ptr<map<string, ModuleFlightItemListBestPriceItemShoppingItemMapValue>> shoppingItemMap{};
 
   IntlFlightListingSearchResponseBodyModuleFlightItemListBestPriceItem() {}
@@ -80300,6 +80301,9 @@ public:
     map<string, boost::any> res;
     if (agreementPriceCodes) {
       res["agreement_price_codes"] = boost::any(*agreementPriceCodes);
+    }
+    if (itemType) {
+      res["item_type"] = boost::any(*itemType);
     }
     if (shoppingItemMap) {
       map<string, boost::any> temp1;
@@ -80321,6 +80325,9 @@ public:
         }
       }
       agreementPriceCodes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("item_type") != m.end() && !m["item_type"].empty()) {
+      itemType = make_shared<string>(boost::any_cast<string>(m["item_type"]));
     }
     if (m.find("shopping_item_map") != m.end() && !m["shopping_item_map"].empty()) {
       if (typeid(map<string, boost::any>) == m["shopping_item_map"].type()) {
@@ -82573,6 +82580,7 @@ public:
   shared_ptr<vector<string>> agreementPriceCodes{};
   shared_ptr<vector<IntlFlightOtaItemDetailResponseBodyModuleGroupItemFlightRuleInfoList>> flightRuleInfoList{};
   shared_ptr<string> itemId{};
+  shared_ptr<string> itemType{};
   shared_ptr<map<string, ModuleGroupItemShoppingItemMapValue>> shoppingItemMap{};
   shared_ptr<map<string, vector<ModuleGroupItemSubItemPositionMapValue>>> subItemPositionMap{};
   shared_ptr<vector<IntlFlightOtaItemDetailResponseBodyModuleGroupItemSubItems>> subItems{};
@@ -82599,6 +82607,9 @@ public:
     }
     if (itemId) {
       res["item_id"] = boost::any(*itemId);
+    }
+    if (itemType) {
+      res["item_type"] = boost::any(*itemType);
     }
     if (shoppingItemMap) {
       map<string, boost::any> temp1;
@@ -82654,6 +82665,9 @@ public:
     }
     if (m.find("item_id") != m.end() && !m["item_id"].empty()) {
       itemId = make_shared<string>(boost::any_cast<string>(m["item_id"]));
+    }
+    if (m.find("item_type") != m.end() && !m["item_type"].empty()) {
+      itemType = make_shared<string>(boost::any_cast<string>(m["item_type"]));
     }
     if (m.find("shopping_item_map") != m.end() && !m["shopping_item_map"].empty()) {
       if (typeid(map<string, boost::any>) == m["shopping_item_map"].type()) {
@@ -84583,6 +84597,7 @@ public:
   shared_ptr<vector<string>> agreementPriceCodes{};
   shared_ptr<vector<IntlFlightOtaSearchResponseBodyModuleItemListFlightRuleInfoList>> flightRuleInfoList{};
   shared_ptr<string> itemId{};
+  shared_ptr<string> itemType{};
   shared_ptr<map<string, ModuleItemListShoppingItemMapValue>> shoppingItemMap{};
   shared_ptr<map<string, vector<ModuleItemListSubItemPositionMapValue>>> subItemPositionMap{};
   shared_ptr<vector<IntlFlightOtaSearchResponseBodyModuleItemListSubItems>> subItems{};
@@ -84609,6 +84624,9 @@ public:
     }
     if (itemId) {
       res["item_id"] = boost::any(*itemId);
+    }
+    if (itemType) {
+      res["item_type"] = boost::any(*itemType);
     }
     if (shoppingItemMap) {
       map<string, boost::any> temp1;
@@ -84664,6 +84682,9 @@ public:
     }
     if (m.find("item_id") != m.end() && !m["item_id"].empty()) {
       itemId = make_shared<string>(boost::any_cast<string>(m["item_id"]));
+    }
+    if (m.find("item_type") != m.end() && !m["item_type"].empty()) {
+      itemType = make_shared<string>(boost::any_cast<string>(m["item_type"]));
     }
     if (m.find("shopping_item_map") != m.end() && !m["shopping_item_map"].empty()) {
       if (typeid(map<string, boost::any>) == m["shopping_item_map"].type()) {
