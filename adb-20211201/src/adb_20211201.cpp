@@ -1759,6 +1759,9 @@ DescribeDBResourceGroupResponse Alibabacloud_Adb20211201::Client::describeDBReso
   if (!Darabonba_Util::Client::isUnset<string>(request->groupType)) {
     query->insert(pair<string, string>("GroupType", *request->groupType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }

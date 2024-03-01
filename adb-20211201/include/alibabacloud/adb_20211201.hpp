@@ -12036,6 +12036,7 @@ public:
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupType{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
 
   DescribeDBResourceGroupRequest() {}
@@ -12057,6 +12058,9 @@ public:
     if (groupType) {
       res["GroupType"] = boost::any(*groupType);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -12072,6 +12076,9 @@ public:
     }
     if (m.find("GroupType") != m.end() && !m["GroupType"].empty()) {
       groupType = make_shared<string>(boost::any_cast<string>(m["GroupType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
