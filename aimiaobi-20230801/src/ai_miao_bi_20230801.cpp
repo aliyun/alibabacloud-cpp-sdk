@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -363,6 +362,9 @@ GenerateFileUrlByKeyResponse Alibabacloud_AiMiaoBi20230801::Client::generateFile
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->fileKey)) {
     body->insert(pair<string, string>("FileKey", *request->fileKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    body->insert(pair<string, string>("FileName", *request->fileName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
