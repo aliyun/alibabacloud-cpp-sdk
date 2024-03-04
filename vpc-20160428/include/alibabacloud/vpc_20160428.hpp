@@ -14989,6 +14989,7 @@ public:
 };
 class CreatePublicIpAddressPoolResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> publicIpAddressPoolId{};
   shared_ptr<string> pulbicIpAddressPoolId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
@@ -15003,6 +15004,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (publicIpAddressPoolId) {
+      res["PublicIpAddressPoolId"] = boost::any(*publicIpAddressPoolId);
+    }
     if (pulbicIpAddressPoolId) {
       res["PulbicIpAddressPoolId"] = boost::any(*pulbicIpAddressPoolId);
     }
@@ -15016,6 +15020,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PublicIpAddressPoolId") != m.end() && !m["PublicIpAddressPoolId"].empty()) {
+      publicIpAddressPoolId = make_shared<string>(boost::any_cast<string>(m["PublicIpAddressPoolId"]));
+    }
     if (m.find("PulbicIpAddressPoolId") != m.end() && !m["PulbicIpAddressPoolId"].empty()) {
       pulbicIpAddressPoolId = make_shared<string>(boost::any_cast<string>(m["PulbicIpAddressPoolId"]));
     }
