@@ -6427,6 +6427,46 @@ SubmitSyncMediaInfoJobResponse Alibabacloud_ICE20201109::Client::submitSyncMedia
   return submitSyncMediaInfoJobWithOptions(request, runtime);
 }
 
+SubmitTextGenerateJobResponse Alibabacloud_ICE20201109::Client::submitTextGenerateJobWithOptions(shared_ptr<SubmitTextGenerateJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->generateConfig)) {
+    query->insert(pair<string, string>("GenerateConfig", *request->generateConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
+    query->insert(pair<string, string>("Title", *request->title));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitTextGenerateJob"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitTextGenerateJobResponse(callApi(params, req, runtime));
+}
+
+SubmitTextGenerateJobResponse Alibabacloud_ICE20201109::Client::submitTextGenerateJob(shared_ptr<SubmitTextGenerateJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitTextGenerateJobWithOptions(request, runtime);
+}
+
 SubmitTranscodeJobResponse Alibabacloud_ICE20201109::Client::submitTranscodeJobWithOptions(shared_ptr<SubmitTranscodeJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<SubmitTranscodeJobShrinkRequest> request = make_shared<SubmitTranscodeJobShrinkRequest>();
