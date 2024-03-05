@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_CARBONFOOTPRINT20230711_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -62,17 +61,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -278,17 +267,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -497,17 +476,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -702,17 +671,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -752,9 +711,50 @@ public:
 
   virtual ~QueryMultiAccountCarbonTrackResponse() = default;
 };
+class VerifyResponseBodyDataAllMultiAccountUids : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<string> displayName{};
+
+  VerifyResponseBodyDataAllMultiAccountUids() {}
+
+  explicit VerifyResponseBodyDataAllMultiAccountUids(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    if (displayName) {
+      res["displayName"] = boost::any(*displayName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+    if (m.find("displayName") != m.end() && !m["displayName"].empty()) {
+      displayName = make_shared<string>(boost::any_cast<string>(m["displayName"]));
+    }
+  }
+
+
+  virtual ~VerifyResponseBodyDataAllMultiAccountUids() = default;
+};
 class VerifyResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> allowedUids{};
+  shared_ptr<long> accountType{};
+  shared_ptr<vector<VerifyResponseBodyDataAllMultiAccountUids>> allMultiAccountUids{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<long> multiAccountsAllow{};
 
   VerifyResponseBodyData() {}
 
@@ -769,6 +769,25 @@ public:
     if (allowedUids) {
       res["AllowedUids"] = boost::any(*allowedUids);
     }
+    if (accountType) {
+      res["accountType"] = boost::any(*accountType);
+    }
+    if (allMultiAccountUids) {
+      vector<boost::any> temp1;
+      for(auto item1:*allMultiAccountUids){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["allMultiAccountUids"] = boost::any(temp1);
+    }
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (multiAccountsAllow) {
+      res["multiAccountsAllow"] = boost::any(*multiAccountsAllow);
+    }
     return res;
   }
 
@@ -782,6 +801,31 @@ public:
         }
       }
       allowedUids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("accountType") != m.end() && !m["accountType"].empty()) {
+      accountType = make_shared<long>(boost::any_cast<long>(m["accountType"]));
+    }
+    if (m.find("allMultiAccountUids") != m.end() && !m["allMultiAccountUids"].empty()) {
+      if (typeid(vector<boost::any>) == m["allMultiAccountUids"].type()) {
+        vector<VerifyResponseBodyDataAllMultiAccountUids> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["allMultiAccountUids"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            VerifyResponseBodyDataAllMultiAccountUids model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        allMultiAccountUids = make_shared<vector<VerifyResponseBodyDataAllMultiAccountUids>>(expect1);
+      }
+    }
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("multiAccountsAllow") != m.end() && !m["multiAccountsAllow"].empty()) {
+      multiAccountsAllow = make_shared<long>(boost::any_cast<long>(m["multiAccountsAllow"]));
     }
   }
 
@@ -840,17 +884,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
