@@ -646,6 +646,7 @@ public:
   shared_ptr<long> queueCapacity{};
   shared_ptr<string> renewStatus{};
   shared_ptr<string> renewalDurationUnit{};
+  shared_ptr<string> serverlessChargeType{};
   shared_ptr<long> storageSize{};
   shared_ptr<bool> supportEip{};
   shared_ptr<bool> supportTracing{};
@@ -702,6 +703,9 @@ public:
     }
     if (renewalDurationUnit) {
       res["RenewalDurationUnit"] = boost::any(*renewalDurationUnit);
+    }
+    if (serverlessChargeType) {
+      res["ServerlessChargeType"] = boost::any(*serverlessChargeType);
     }
     if (storageSize) {
       res["StorageSize"] = boost::any(*storageSize);
@@ -760,6 +764,9 @@ public:
     }
     if (m.find("RenewalDurationUnit") != m.end() && !m["RenewalDurationUnit"].empty()) {
       renewalDurationUnit = make_shared<string>(boost::any_cast<string>(m["RenewalDurationUnit"]));
+    }
+    if (m.find("ServerlessChargeType") != m.end() && !m["ServerlessChargeType"].empty()) {
+      serverlessChargeType = make_shared<string>(boost::any_cast<string>(m["ServerlessChargeType"]));
     }
     if (m.find("StorageSize") != m.end() && !m["StorageSize"].empty()) {
       storageSize = make_shared<long>(boost::any_cast<long>(m["StorageSize"]));

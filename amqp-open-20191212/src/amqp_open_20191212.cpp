@@ -217,6 +217,9 @@ CreateInstanceResponse Alibabacloud_Amqp-open20191212::Client::createInstanceWit
   if (!Darabonba_Util::Client::isUnset<string>(request->renewalDurationUnit)) {
     query->insert(pair<string, string>("RenewalDurationUnit", *request->renewalDurationUnit));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverlessChargeType)) {
+    query->insert(pair<string, string>("ServerlessChargeType", *request->serverlessChargeType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->storageSize)) {
     query->insert(pair<string, long>("StorageSize", *request->storageSize));
   }
