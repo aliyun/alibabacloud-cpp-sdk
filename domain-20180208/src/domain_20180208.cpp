@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -861,6 +860,43 @@ SelectedDomainListResponse Alibabacloud_Domain20180208::Client::selectedDomainLi
 SelectedDomainListResponse Alibabacloud_Domain20180208::Client::selectedDomainList(shared_ptr<SelectedDomainListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return selectedDomainListWithOptions(request, runtime);
+}
+
+SubmitPurchaseInfoResponse Alibabacloud_Domain20180208::Client::submitPurchaseInfoWithOptions(shared_ptr<SubmitPurchaseInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizId)) {
+    body->insert(pair<string, string>("BizId", *request->bizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->purchaseCurrency)) {
+    body->insert(pair<string, string>("PurchaseCurrency", *request->purchaseCurrency));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->purchasePrice)) {
+    body->insert(pair<string, double>("PurchasePrice", *request->purchasePrice));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->purchaseProofs)) {
+    body->insert(pair<string, vector<string>>("PurchaseProofs", *request->purchaseProofs));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitPurchaseInfo"))},
+    {"version", boost::any(string("2018-02-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitPurchaseInfoResponse(callApi(params, req, runtime));
+}
+
+SubmitPurchaseInfoResponse Alibabacloud_Domain20180208::Client::submitPurchaseInfo(shared_ptr<SubmitPurchaseInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitPurchaseInfoWithOptions(request, runtime);
 }
 
 UpdatePartnerReservePriceResponse Alibabacloud_Domain20180208::Client::updatePartnerReservePriceWithOptions(shared_ptr<UpdatePartnerReservePriceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
