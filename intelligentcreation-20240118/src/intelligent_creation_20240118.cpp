@@ -9,6 +9,7 @@
 #include <darabonba/util.hpp>
 #include <iostream>
 #include <map>
+#include <vector>
 
 using namespace std;
 
@@ -86,6 +87,56 @@ ActualDeductResourcesResponse Alibabacloud_IntelligentCreation20240118::Client::
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return actualDeductResourcesWithOptions(request, headers, runtime);
+}
+
+CopywritingQAResponse Alibabacloud_IntelligentCreation20240118::Client::copywritingQAWithOptions(shared_ptr<CopywritingQARequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CopywritingQAShrinkRequest> request = make_shared<CopywritingQAShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CopywritingQARequestHistory>(tmpReq->history)) {
+    request->historyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->history, make_shared<string>("history"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("accountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->historyShrink)) {
+    query->insert(pair<string, string>("history", *request->historyShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->question)) {
+    query->insert(pair<string, string>("question", *request->question));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    query->insert(pair<string, string>("sessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
+    query->insert(pair<string, bool>("stream", *request->stream));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subAccountId)) {
+    query->insert(pair<string, string>("subAccountId", *request->subAccountId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CopywritingQA"))},
+    {"version", boost::any(string("2024-01-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/digitalHuman/commands/copywritingQA"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CopywritingQAResponse(callApi(params, req, runtime));
+}
+
+CopywritingQAResponse Alibabacloud_IntelligentCreation20240118::Client::copywritingQA(shared_ptr<CopywritingQARequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return copywritingQAWithOptions(request, headers, runtime);
 }
 
 DirectDeductResourceResponse Alibabacloud_IntelligentCreation20240118::Client::directDeductResourceWithOptions(shared_ptr<DirectDeductResourceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -226,5 +277,49 @@ GetRemainResourceResponse Alibabacloud_IntelligentCreation20240118::Client::getR
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getRemainResourceWithOptions(request, headers, runtime);
+}
+
+SubmitBulletQuestionsResponse Alibabacloud_IntelligentCreation20240118::Client::submitBulletQuestionsWithOptions(shared_ptr<SubmitBulletQuestionsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitBulletQuestionsShrinkRequest> request = make_shared<SubmitBulletQuestionsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<SubmitBulletQuestionsRequestQuestions>>(tmpReq->questions)) {
+    request->questionsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->questions, make_shared<string>("questions"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("accountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->questionsShrink)) {
+    query->insert(pair<string, string>("questions", *request->questionsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roomId)) {
+    query->insert(pair<string, string>("roomId", *request->roomId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subAccountId)) {
+    query->insert(pair<string, string>("subAccountId", *request->subAccountId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitBulletQuestions"))},
+    {"version", boost::any(string("2024-01-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/digitalHuman/commands/submitBulletQuestions"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitBulletQuestionsResponse(callApi(params, req, runtime));
+}
+
+SubmitBulletQuestionsResponse Alibabacloud_IntelligentCreation20240118::Client::submitBulletQuestions(shared_ptr<SubmitBulletQuestionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return submitBulletQuestionsWithOptions(request, headers, runtime);
 }
 
