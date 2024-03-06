@@ -1613,6 +1613,31 @@ DescribeBackupPolicyResponse Alibabacloud_Dds20151201::Client::describeBackupPol
   return describeBackupPolicyWithOptions(request, runtime);
 }
 
+DescribeBackupTasksResponse Alibabacloud_Dds20151201::Client::describeBackupTasksWithOptions(shared_ptr<DescribeBackupTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeBackupTasks"))},
+    {"version", boost::any(string("2015-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeBackupTasksResponse(callApi(params, req, runtime));
+}
+
+DescribeBackupTasksResponse Alibabacloud_Dds20151201::Client::describeBackupTasks(shared_ptr<DescribeBackupTasksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeBackupTasksWithOptions(request, runtime);
+}
+
 DescribeBackupsResponse Alibabacloud_Dds20151201::Client::describeBackupsWithOptions(shared_ptr<DescribeBackupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2541,6 +2566,31 @@ DescribeInstanceAutoRenewalAttributeResponse Alibabacloud_Dds20151201::Client::d
 DescribeInstanceAutoRenewalAttributeResponse Alibabacloud_Dds20151201::Client::describeInstanceAutoRenewalAttribute(shared_ptr<DescribeInstanceAutoRenewalAttributeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeInstanceAutoRenewalAttributeWithOptions(request, runtime);
+}
+
+DescribeInstanceRecoverTimeResponse Alibabacloud_Dds20151201::Client::describeInstanceRecoverTimeWithOptions(shared_ptr<DescribeInstanceRecoverTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeInstanceRecoverTime"))},
+    {"version", boost::any(string("2015-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeInstanceRecoverTimeResponse(callApi(params, req, runtime));
+}
+
+DescribeInstanceRecoverTimeResponse Alibabacloud_Dds20151201::Client::describeInstanceRecoverTime(shared_ptr<DescribeInstanceRecoverTimeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeInstanceRecoverTimeWithOptions(request, runtime);
 }
 
 DescribeKernelReleaseNotesResponse Alibabacloud_Dds20151201::Client::describeKernelReleaseNotesWithOptions(shared_ptr<DescribeKernelReleaseNotesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
