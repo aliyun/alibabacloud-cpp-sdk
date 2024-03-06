@@ -58,8 +58,13 @@ AllowResponse Alibabacloud_CarbonFootprint20230711::Client::allow() {
   return allowWithOptions(runtime);
 }
 
-GetSummaryDataResponse Alibabacloud_CarbonFootprint20230711::Client::getSummaryDataWithOptions(shared_ptr<GetSummaryDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+GetSummaryDataResponse Alibabacloud_CarbonFootprint20230711::Client::getSummaryDataWithOptions(shared_ptr<GetSummaryDataRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetSummaryDataShrinkRequest> request = make_shared<GetSummaryDataShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->uids)) {
+    request->uidsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->uids, make_shared<string>("Uids"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
@@ -69,6 +74,9 @@ GetSummaryDataResponse Alibabacloud_CarbonFootprint20230711::Client::getSummaryD
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uidsShrink)) {
+    query->insert(pair<string, string>("Uids", *request->uidsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
