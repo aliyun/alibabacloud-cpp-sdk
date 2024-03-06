@@ -539,6 +539,42 @@ public:
 
   virtual ~ActualDeductResourcesResponse() = default;
 };
+class CopywritingQARequestHistories : public Darabonba::Model {
+public:
+  shared_ptr<string> bot{};
+  shared_ptr<string> user{};
+
+  CopywritingQARequestHistories() {}
+
+  explicit CopywritingQARequestHistories(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bot) {
+      res["bot"] = boost::any(*bot);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("bot") != m.end() && !m["bot"].empty()) {
+      bot = make_shared<string>(boost::any_cast<string>(m["bot"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~CopywritingQARequestHistories() = default;
+};
 class CopywritingQARequestHistory : public Darabonba::Model {
 public:
   shared_ptr<string> bot{};
@@ -578,6 +614,7 @@ public:
 class CopywritingQARequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
+  shared_ptr<vector<CopywritingQARequestHistories>> histories{};
   shared_ptr<CopywritingQARequestHistory> history{};
   shared_ptr<string> question{};
   shared_ptr<string> sessionId{};
@@ -596,6 +633,13 @@ public:
     map<string, boost::any> res;
     if (accountId) {
       res["accountId"] = boost::any(*accountId);
+    }
+    if (histories) {
+      vector<boost::any> temp1;
+      for(auto item1:*histories){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["histories"] = boost::any(temp1);
     }
     if (history) {
       res["history"] = history ? boost::any(history->toMap()) : boost::any(map<string,boost::any>({}));
@@ -618,6 +662,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
       accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+    if (m.find("histories") != m.end() && !m["histories"].empty()) {
+      if (typeid(vector<boost::any>) == m["histories"].type()) {
+        vector<CopywritingQARequestHistories> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["histories"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CopywritingQARequestHistories model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        histories = make_shared<vector<CopywritingQARequestHistories>>(expect1);
+      }
     }
     if (m.find("history") != m.end() && !m["history"].empty()) {
       if (typeid(map<string, boost::any>) == m["history"].type()) {
@@ -646,6 +703,7 @@ public:
 class CopywritingQAShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
+  shared_ptr<string> historiesShrink{};
   shared_ptr<string> historyShrink{};
   shared_ptr<string> question{};
   shared_ptr<string> sessionId{};
@@ -664,6 +722,9 @@ public:
     map<string, boost::any> res;
     if (accountId) {
       res["accountId"] = boost::any(*accountId);
+    }
+    if (historiesShrink) {
+      res["histories"] = boost::any(*historiesShrink);
     }
     if (historyShrink) {
       res["history"] = boost::any(*historyShrink);
@@ -686,6 +747,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
       accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+    if (m.find("histories") != m.end() && !m["histories"].empty()) {
+      historiesShrink = make_shared<string>(boost::any_cast<string>(m["histories"]));
     }
     if (m.find("history") != m.end() && !m["history"].empty()) {
       historyShrink = make_shared<string>(boost::any_cast<string>(m["history"]));
@@ -1312,6 +1376,7 @@ class SubmitBulletQuestionsRequestQuestions : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
   shared_ptr<string> id{};
+  shared_ptr<long> time{};
   shared_ptr<string> username{};
 
   SubmitBulletQuestionsRequestQuestions() {}
@@ -1330,6 +1395,9 @@ public:
     if (id) {
       res["id"] = boost::any(*id);
     }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
     if (username) {
       res["username"] = boost::any(*username);
     }
@@ -1342,6 +1410,9 @@ public:
     }
     if (m.find("id") != m.end() && !m["id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<long>(boost::any_cast<long>(m["time"]));
     }
     if (m.find("username") != m.end() && !m["username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["username"]));

@@ -93,12 +93,18 @@ CopywritingQAResponse Alibabacloud_IntelligentCreation20240118::Client::copywrit
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CopywritingQAShrinkRequest> request = make_shared<CopywritingQAShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CopywritingQARequestHistories>>(tmpReq->histories)) {
+    request->historiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->histories, make_shared<string>("histories"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<CopywritingQARequestHistory>(tmpReq->history)) {
     request->historyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->history, make_shared<string>("history"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
     query->insert(pair<string, string>("accountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->historiesShrink)) {
+    query->insert(pair<string, string>("histories", *request->historiesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->historyShrink)) {
     query->insert(pair<string, string>("history", *request->historyShrink));
