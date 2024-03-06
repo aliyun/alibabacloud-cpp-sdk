@@ -2853,10 +2853,14 @@ public:
 };
 class GetJobResponseBodyJobInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> createTime{};
   shared_ptr<GetJobResponseBodyJobInfoDeploymentPolicy> deploymentPolicy{};
+  shared_ptr<string> endTime{};
   shared_ptr<string> jobDescription{};
   shared_ptr<string> jobId{};
   shared_ptr<string> jobName{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
   shared_ptr<vector<GetJobResponseBodyJobInfoTasks>> tasks{};
 
   GetJobResponseBodyJobInfo() {}
@@ -2869,8 +2873,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
     if (deploymentPolicy) {
       res["DeploymentPolicy"] = deploymentPolicy ? boost::any(deploymentPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
     }
     if (jobDescription) {
       res["JobDescription"] = boost::any(*jobDescription);
@@ -2880,6 +2890,12 @@ public:
     }
     if (jobName) {
       res["JobName"] = boost::any(*jobName);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
     }
     if (tasks) {
       vector<boost::any> temp1;
@@ -2892,12 +2908,18 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
     if (m.find("DeploymentPolicy") != m.end() && !m["DeploymentPolicy"].empty()) {
       if (typeid(map<string, boost::any>) == m["DeploymentPolicy"].type()) {
         GetJobResponseBodyJobInfoDeploymentPolicy model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeploymentPolicy"]));
         deploymentPolicy = make_shared<GetJobResponseBodyJobInfoDeploymentPolicy>(model1);
       }
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
     if (m.find("JobDescription") != m.end() && !m["JobDescription"].empty()) {
       jobDescription = make_shared<string>(boost::any_cast<string>(m["JobDescription"]));
@@ -2907,6 +2929,12 @@ public:
     }
     if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
       jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
       if (typeid(vector<boost::any>) == m["Tasks"].type()) {
@@ -3384,6 +3412,7 @@ public:
   shared_ptr<vector<string>> hostName{};
   shared_ptr<vector<string>> ipAddress{};
   shared_ptr<string> status{};
+  shared_ptr<string> statusReason{};
 
   ListJobExecutorsResponseBodyExecutors() {}
 
@@ -3412,6 +3441,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (statusReason) {
+      res["StatusReason"] = boost::any(*statusReason);
     }
     return res;
   }
@@ -3448,6 +3480,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StatusReason") != m.end() && !m["StatusReason"].empty()) {
+      statusReason = make_shared<string>(boost::any_cast<string>(m["StatusReason"]));
     }
   }
 
@@ -3593,6 +3628,7 @@ public:
 };
 class ListJobsRequestFilter : public Darabonba::Model {
 public:
+  shared_ptr<string> jobId{};
   shared_ptr<string> jobName{};
   shared_ptr<string> status{};
   shared_ptr<long> timeCreatedAfter{};
@@ -3608,6 +3644,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
     if (jobName) {
       res["JobName"] = boost::any(*jobName);
     }
@@ -3624,6 +3663,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
     if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
       jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
     }
@@ -3788,11 +3830,13 @@ public:
 class ListJobsResponseBodyJobList : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<string> endTime{};
   shared_ptr<long> executorCount{};
   shared_ptr<string> jobDescription{};
   shared_ptr<string> jobId{};
   shared_ptr<string> jobName{};
   shared_ptr<string> ownerUid{};
+  shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<long> taskCount{};
 
@@ -3809,6 +3853,9 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (executorCount) {
       res["ExecutorCount"] = boost::any(*executorCount);
     }
@@ -3824,6 +3871,9 @@ public:
     if (ownerUid) {
       res["OwnerUid"] = boost::any(*ownerUid);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -3836,6 +3886,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
     if (m.find("ExecutorCount") != m.end() && !m["ExecutorCount"].empty()) {
       executorCount = make_shared<long>(boost::any_cast<long>(m["ExecutorCount"]));
@@ -3851,6 +3904,9 @@ public:
     }
     if (m.find("OwnerUid") != m.end() && !m["OwnerUid"].empty()) {
       ownerUid = make_shared<string>(boost::any_cast<string>(m["OwnerUid"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
