@@ -1561,6 +1561,386 @@ public:
 
   virtual ~CreateHpoExperimentResponse() = default;
 };
+class ListHpoExperimentsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessibility{};
+  shared_ptr<string> creator{};
+  shared_ptr<string> includeConfigData{};
+  shared_ptr<string> maxCreateTime{};
+  shared_ptr<string> minCreateTime{};
+  shared_ptr<string> name{};
+  shared_ptr<string> order{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> sortBy{};
+  shared_ptr<string> status{};
+  shared_ptr<string> workspaceId{};
+
+  ListHpoExperimentsRequest() {}
+
+  explicit ListHpoExperimentsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
+    if (creator) {
+      res["Creator"] = boost::any(*creator);
+    }
+    if (includeConfigData) {
+      res["IncludeConfigData"] = boost::any(*includeConfigData);
+    }
+    if (maxCreateTime) {
+      res["MaxCreateTime"] = boost::any(*maxCreateTime);
+    }
+    if (minCreateTime) {
+      res["MinCreateTime"] = boost::any(*minCreateTime);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (sortBy) {
+      res["SortBy"] = boost::any(*sortBy);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
+    if (m.find("Creator") != m.end() && !m["Creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["Creator"]));
+    }
+    if (m.find("IncludeConfigData") != m.end() && !m["IncludeConfigData"].empty()) {
+      includeConfigData = make_shared<string>(boost::any_cast<string>(m["IncludeConfigData"]));
+    }
+    if (m.find("MaxCreateTime") != m.end() && !m["MaxCreateTime"].empty()) {
+      maxCreateTime = make_shared<string>(boost::any_cast<string>(m["MaxCreateTime"]));
+    }
+    if (m.find("MinCreateTime") != m.end() && !m["MinCreateTime"].empty()) {
+      minCreateTime = make_shared<string>(boost::any_cast<string>(m["MinCreateTime"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
+      sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~ListHpoExperimentsRequest() = default;
+};
+class ListHpoExperimentsResponseBodyExperiments : public Darabonba::Model {
+public:
+  shared_ptr<string> accessibility{};
+  shared_ptr<string> configIni{};
+  shared_ptr<string> configYml{};
+  shared_ptr<string> creator{};
+  shared_ptr<bool> deleted{};
+  shared_ptr<string> description{};
+  shared_ptr<string> experimentId{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifiedTime{};
+  shared_ptr<string> jobType{};
+  shared_ptr<string> name{};
+  shared_ptr<string> searchSpace{};
+  shared_ptr<string> status{};
+  shared_ptr<long> trialCount{};
+  shared_ptr<map<string, string>> trialStatus{};
+  shared_ptr<string> workspaceId{};
+
+  ListHpoExperimentsResponseBodyExperiments() {}
+
+  explicit ListHpoExperimentsResponseBodyExperiments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
+    if (configIni) {
+      res["ConfigIni"] = boost::any(*configIni);
+    }
+    if (configYml) {
+      res["ConfigYml"] = boost::any(*configYml);
+    }
+    if (creator) {
+      res["Creator"] = boost::any(*creator);
+    }
+    if (deleted) {
+      res["Deleted"] = boost::any(*deleted);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (experimentId) {
+      res["ExperimentId"] = boost::any(*experimentId);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
+    if (jobType) {
+      res["JobType"] = boost::any(*jobType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (searchSpace) {
+      res["SearchSpace"] = boost::any(*searchSpace);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (trialCount) {
+      res["TrialCount"] = boost::any(*trialCount);
+    }
+    if (trialStatus) {
+      res["TrialStatus"] = boost::any(*trialStatus);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
+    if (m.find("ConfigIni") != m.end() && !m["ConfigIni"].empty()) {
+      configIni = make_shared<string>(boost::any_cast<string>(m["ConfigIni"]));
+    }
+    if (m.find("ConfigYml") != m.end() && !m["ConfigYml"].empty()) {
+      configYml = make_shared<string>(boost::any_cast<string>(m["ConfigYml"]));
+    }
+    if (m.find("Creator") != m.end() && !m["Creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["Creator"]));
+    }
+    if (m.find("Deleted") != m.end() && !m["Deleted"].empty()) {
+      deleted = make_shared<bool>(boost::any_cast<bool>(m["Deleted"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ExperimentId") != m.end() && !m["ExperimentId"].empty()) {
+      experimentId = make_shared<string>(boost::any_cast<string>(m["ExperimentId"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
+    if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
+      jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SearchSpace") != m.end() && !m["SearchSpace"].empty()) {
+      searchSpace = make_shared<string>(boost::any_cast<string>(m["SearchSpace"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TrialCount") != m.end() && !m["TrialCount"].empty()) {
+      trialCount = make_shared<long>(boost::any_cast<long>(m["TrialCount"]));
+    }
+    if (m.find("TrialStatus") != m.end() && !m["TrialStatus"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["TrialStatus"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      trialStatus = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~ListHpoExperimentsResponseBodyExperiments() = default;
+};
+class ListHpoExperimentsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<map<string, string>> detail{};
+  shared_ptr<vector<ListHpoExperimentsResponseBodyExperiments>> experiments{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListHpoExperimentsResponseBody() {}
+
+  explicit ListHpoExperimentsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (detail) {
+      res["Detail"] = boost::any(*detail);
+    }
+    if (experiments) {
+      vector<boost::any> temp1;
+      for(auto item1:*experiments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Experiments"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Detail") != m.end() && !m["Detail"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Detail"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      detail = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Experiments") != m.end() && !m["Experiments"].empty()) {
+      if (typeid(vector<boost::any>) == m["Experiments"].type()) {
+        vector<ListHpoExperimentsResponseBodyExperiments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Experiments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListHpoExperimentsResponseBodyExperiments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        experiments = make_shared<vector<ListHpoExperimentsResponseBodyExperiments>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListHpoExperimentsResponseBody() = default;
+};
+class ListHpoExperimentsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListHpoExperimentsResponseBody> body{};
+
+  ListHpoExperimentsResponse() {}
+
+  explicit ListHpoExperimentsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListHpoExperimentsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListHpoExperimentsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListHpoExperimentsResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -1573,6 +1953,8 @@ public:
                      shared_ptr<string> endpoint);
   CreateHpoExperimentResponse createHpoExperimentWithOptions(shared_ptr<CreateHpoExperimentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateHpoExperimentResponse createHpoExperiment(shared_ptr<CreateHpoExperimentRequest> request);
+  ListHpoExperimentsResponse listHpoExperimentsWithOptions(shared_ptr<ListHpoExperimentsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListHpoExperimentsResponse listHpoExperiments(shared_ptr<ListHpoExperimentsRequest> request);
 
   virtual ~Client() = default;
 };
