@@ -326,6 +326,42 @@ public:
 
   virtual ~ConvertInstanceResponse() = default;
 };
+class CreateInstanceRequestHaResourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> memoryGB{};
+
+  CreateInstanceRequestHaResourceSpec() {}
+
+  explicit CreateInstanceRequestHaResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memoryGB) {
+      res["MemoryGB"] = boost::any(*memoryGB);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
+      memoryGB = make_shared<long>(boost::any_cast<long>(m["MemoryGB"]));
+    }
+  }
+
+
+  virtual ~CreateInstanceRequestHaResourceSpec() = default;
+};
 class CreateInstanceRequestResourceSpec : public Darabonba::Model {
 public:
   shared_ptr<long> cpu{};
@@ -426,15 +462,24 @@ public:
 };
 class CreateInstanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> architectureType{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<string> chargeType{};
   shared_ptr<long> duration{};
+  shared_ptr<string> extra{};
+  shared_ptr<bool> ha{};
+  shared_ptr<CreateInstanceRequestHaResourceSpec> haResourceSpec{};
+  shared_ptr<vector<string>> haVSwitchIds{};
+  shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceName{};
+  shared_ptr<string> monitorType{};
   shared_ptr<string> pricingCycle{};
   shared_ptr<string> promotionCode{};
   shared_ptr<string> region{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<CreateInstanceRequestResourceSpec> resourceSpec{};
   shared_ptr<CreateInstanceRequestStorage> storage{};
+  shared_ptr<bool> usePromotionCode{};
   shared_ptr<vector<string>> vSwitchIds{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
@@ -449,6 +494,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (architectureType) {
+      res["ArchitectureType"] = boost::any(*architectureType);
+    }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
     }
@@ -458,8 +506,26 @@ public:
     if (duration) {
       res["Duration"] = boost::any(*duration);
     }
+    if (extra) {
+      res["Extra"] = boost::any(*extra);
+    }
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpec) {
+      res["HaResourceSpec"] = haResourceSpec ? boost::any(haResourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (haVSwitchIds) {
+      res["HaVSwitchIds"] = boost::any(*haVSwitchIds);
+    }
+    if (haZoneId) {
+      res["HaZoneId"] = boost::any(*haZoneId);
+    }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (monitorType) {
+      res["MonitorType"] = boost::any(*monitorType);
     }
     if (pricingCycle) {
       res["PricingCycle"] = boost::any(*pricingCycle);
@@ -470,11 +536,17 @@ public:
     if (region) {
       res["Region"] = boost::any(*region);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceSpec) {
       res["ResourceSpec"] = resourceSpec ? boost::any(resourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (storage) {
       res["Storage"] = storage ? boost::any(storage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (usePromotionCode) {
+      res["UsePromotionCode"] = boost::any(*usePromotionCode);
     }
     if (vSwitchIds) {
       res["VSwitchIds"] = boost::any(*vSwitchIds);
@@ -489,6 +561,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArchitectureType") != m.end() && !m["ArchitectureType"].empty()) {
+      architectureType = make_shared<string>(boost::any_cast<string>(m["ArchitectureType"]));
+    }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
     }
@@ -498,8 +573,37 @@ public:
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
     }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      extra = make_shared<string>(boost::any_cast<string>(m["Extra"]));
+    }
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HaResourceSpec"].type()) {
+        CreateInstanceRequestHaResourceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HaResourceSpec"]));
+        haResourceSpec = make_shared<CreateInstanceRequestHaResourceSpec>(model1);
+      }
+    }
+    if (m.find("HaVSwitchIds") != m.end() && !m["HaVSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HaVSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HaVSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      haVSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
+      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
+    }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("MonitorType") != m.end() && !m["MonitorType"].empty()) {
+      monitorType = make_shared<string>(boost::any_cast<string>(m["MonitorType"]));
     }
     if (m.find("PricingCycle") != m.end() && !m["PricingCycle"].empty()) {
       pricingCycle = make_shared<string>(boost::any_cast<string>(m["PricingCycle"]));
@@ -509,6 +613,9 @@ public:
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceSpec") != m.end() && !m["ResourceSpec"].empty()) {
       if (typeid(map<string, boost::any>) == m["ResourceSpec"].type()) {
@@ -523,6 +630,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Storage"]));
         storage = make_shared<CreateInstanceRequestStorage>(model1);
       }
+    }
+    if (m.find("UsePromotionCode") != m.end() && !m["UsePromotionCode"].empty()) {
+      usePromotionCode = make_shared<bool>(boost::any_cast<bool>(m["UsePromotionCode"]));
     }
     if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
       vector<string> toVec1;
@@ -547,15 +657,24 @@ public:
 };
 class CreateInstanceShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> architectureType{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<string> chargeType{};
   shared_ptr<long> duration{};
+  shared_ptr<string> extra{};
+  shared_ptr<bool> ha{};
+  shared_ptr<string> haResourceSpecShrink{};
+  shared_ptr<string> haVSwitchIdsShrink{};
+  shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceName{};
+  shared_ptr<string> monitorType{};
   shared_ptr<string> pricingCycle{};
   shared_ptr<string> promotionCode{};
   shared_ptr<string> region{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceSpecShrink{};
   shared_ptr<string> storageShrink{};
+  shared_ptr<bool> usePromotionCode{};
   shared_ptr<string> vSwitchIdsShrink{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
@@ -570,6 +689,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (architectureType) {
+      res["ArchitectureType"] = boost::any(*architectureType);
+    }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
     }
@@ -579,8 +701,26 @@ public:
     if (duration) {
       res["Duration"] = boost::any(*duration);
     }
+    if (extra) {
+      res["Extra"] = boost::any(*extra);
+    }
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpecShrink) {
+      res["HaResourceSpec"] = boost::any(*haResourceSpecShrink);
+    }
+    if (haVSwitchIdsShrink) {
+      res["HaVSwitchIds"] = boost::any(*haVSwitchIdsShrink);
+    }
+    if (haZoneId) {
+      res["HaZoneId"] = boost::any(*haZoneId);
+    }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (monitorType) {
+      res["MonitorType"] = boost::any(*monitorType);
     }
     if (pricingCycle) {
       res["PricingCycle"] = boost::any(*pricingCycle);
@@ -591,11 +731,17 @@ public:
     if (region) {
       res["Region"] = boost::any(*region);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceSpecShrink) {
       res["ResourceSpec"] = boost::any(*resourceSpecShrink);
     }
     if (storageShrink) {
       res["Storage"] = boost::any(*storageShrink);
+    }
+    if (usePromotionCode) {
+      res["UsePromotionCode"] = boost::any(*usePromotionCode);
     }
     if (vSwitchIdsShrink) {
       res["VSwitchIds"] = boost::any(*vSwitchIdsShrink);
@@ -610,6 +756,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArchitectureType") != m.end() && !m["ArchitectureType"].empty()) {
+      architectureType = make_shared<string>(boost::any_cast<string>(m["ArchitectureType"]));
+    }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
     }
@@ -619,8 +768,26 @@ public:
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
     }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      extra = make_shared<string>(boost::any_cast<string>(m["Extra"]));
+    }
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      haResourceSpecShrink = make_shared<string>(boost::any_cast<string>(m["HaResourceSpec"]));
+    }
+    if (m.find("HaVSwitchIds") != m.end() && !m["HaVSwitchIds"].empty()) {
+      haVSwitchIdsShrink = make_shared<string>(boost::any_cast<string>(m["HaVSwitchIds"]));
+    }
+    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
+      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
+    }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("MonitorType") != m.end() && !m["MonitorType"].empty()) {
+      monitorType = make_shared<string>(boost::any_cast<string>(m["MonitorType"]));
     }
     if (m.find("PricingCycle") != m.end() && !m["PricingCycle"].empty()) {
       pricingCycle = make_shared<string>(boost::any_cast<string>(m["PricingCycle"]));
@@ -631,11 +798,17 @@ public:
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceSpec") != m.end() && !m["ResourceSpec"].empty()) {
       resourceSpecShrink = make_shared<string>(boost::any_cast<string>(m["ResourceSpec"]));
     }
     if (m.find("Storage") != m.end() && !m["Storage"].empty()) {
       storageShrink = make_shared<string>(boost::any_cast<string>(m["Storage"]));
+    }
+    if (m.find("UsePromotionCode") != m.end() && !m["UsePromotionCode"].empty()) {
+      usePromotionCode = make_shared<bool>(boost::any_cast<bool>(m["UsePromotionCode"]));
     }
     if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
       vSwitchIdsShrink = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
@@ -824,6 +997,7 @@ public:
 };
 class CreateNamespaceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> ha{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> region{};
@@ -839,6 +1013,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -855,6 +1032,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -878,6 +1058,7 @@ public:
 };
 class CreateNamespaceShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> ha{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> region{};
@@ -893,6 +1074,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -909,6 +1093,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -1307,11 +1494,13 @@ public:
 };
 class DescribeInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> architectureType{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> pageIndex{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> region{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<DescribeInstancesRequestTags>> tags{};
 
   DescribeInstancesRequest() {}
@@ -1324,6 +1513,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (architectureType) {
+      res["ArchitectureType"] = boost::any(*architectureType);
+    }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
     }
@@ -1339,6 +1531,9 @@ public:
     if (region) {
       res["Region"] = boost::any(*region);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (tags) {
       vector<boost::any> temp1;
       for(auto item1:*tags){
@@ -1350,6 +1545,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArchitectureType") != m.end() && !m["ArchitectureType"].empty()) {
+      architectureType = make_shared<string>(boost::any_cast<string>(m["ArchitectureType"]));
+    }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
     }
@@ -1364,6 +1562,9 @@ public:
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
@@ -1385,11 +1586,13 @@ public:
 };
 class DescribeInstancesShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> architectureType{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> pageIndex{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> region{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> tagsShrink{};
 
   DescribeInstancesShrinkRequest() {}
@@ -1402,6 +1605,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (architectureType) {
+      res["ArchitectureType"] = boost::any(*architectureType);
+    }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
     }
@@ -1417,6 +1623,9 @@ public:
     if (region) {
       res["Region"] = boost::any(*region);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (tagsShrink) {
       res["Tags"] = boost::any(*tagsShrink);
     }
@@ -1424,6 +1633,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArchitectureType") != m.end() && !m["ArchitectureType"].empty()) {
+      architectureType = make_shared<string>(boost::any_cast<string>(m["ArchitectureType"]));
+    }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
     }
@@ -1439,6 +1651,9 @@ public:
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
     }
@@ -1446,6 +1661,85 @@ public:
 
 
   virtual ~DescribeInstancesShrinkRequest() = default;
+};
+class DescribeInstancesResponseBodyInstancesHaResourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> memoryGB{};
+
+  DescribeInstancesResponseBodyInstancesHaResourceSpec() {}
+
+  explicit DescribeInstancesResponseBodyInstancesHaResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memoryGB) {
+      res["MemoryGB"] = boost::any(*memoryGB);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
+      memoryGB = make_shared<long>(boost::any_cast<long>(m["MemoryGB"]));
+    }
+  }
+
+
+  virtual ~DescribeInstancesResponseBodyInstancesHaResourceSpec() = default;
+};
+class DescribeInstancesResponseBodyInstancesHostAliases : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> hostNames{};
+  shared_ptr<string> ip{};
+
+  DescribeInstancesResponseBodyInstancesHostAliases() {}
+
+  explicit DescribeInstancesResponseBodyInstancesHostAliases(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostNames) {
+      res["HostNames"] = boost::any(*hostNames);
+    }
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HostNames") != m.end() && !m["HostNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HostNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HostNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      hostNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+  }
+
+
+  virtual ~DescribeInstancesResponseBodyInstancesHostAliases() = default;
 };
 class DescribeInstancesResponseBodyInstancesResourceSpec : public Darabonba::Model {
 public:
@@ -1583,14 +1877,23 @@ public:
 };
 class DescribeInstancesResponseBodyInstances : public Darabonba::Model {
 public:
+  shared_ptr<string> architectureType{};
+  shared_ptr<string> askClusterId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> clusterStatus{};
+  shared_ptr<bool> ha{};
+  shared_ptr<DescribeInstancesResponseBodyInstancesHaResourceSpec> haResourceSpec{};
+  shared_ptr<vector<string>> haVSwitchIds{};
+  shared_ptr<string> haZoneId{};
+  shared_ptr<vector<DescribeInstancesResponseBodyInstancesHostAliases>> hostAliases{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
+  shared_ptr<string> monitorType{};
   shared_ptr<string> orderState{};
   shared_ptr<string> region{};
   shared_ptr<long> resourceCreateTime{};
   shared_ptr<long> resourceExpiredTime{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceId{};
   shared_ptr<DescribeInstancesResponseBodyInstancesResourceSpec> resourceSpec{};
   shared_ptr<DescribeInstancesResponseBodyInstancesStorage> storage{};
@@ -1610,17 +1913,45 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (architectureType) {
+      res["ArchitectureType"] = boost::any(*architectureType);
+    }
+    if (askClusterId) {
+      res["AskClusterId"] = boost::any(*askClusterId);
+    }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
     }
     if (clusterStatus) {
       res["ClusterStatus"] = boost::any(*clusterStatus);
     }
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpec) {
+      res["HaResourceSpec"] = haResourceSpec ? boost::any(haResourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (haVSwitchIds) {
+      res["HaVSwitchIds"] = boost::any(*haVSwitchIds);
+    }
+    if (haZoneId) {
+      res["HaZoneId"] = boost::any(*haZoneId);
+    }
+    if (hostAliases) {
+      vector<boost::any> temp1;
+      for(auto item1:*hostAliases){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HostAliases"] = boost::any(temp1);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (monitorType) {
+      res["MonitorType"] = boost::any(*monitorType);
     }
     if (orderState) {
       res["OrderState"] = boost::any(*orderState);
@@ -1633,6 +1964,9 @@ public:
     }
     if (resourceExpiredTime) {
       res["ResourceExpiredTime"] = boost::any(*resourceExpiredTime);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
@@ -1666,17 +2000,62 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArchitectureType") != m.end() && !m["ArchitectureType"].empty()) {
+      architectureType = make_shared<string>(boost::any_cast<string>(m["ArchitectureType"]));
+    }
+    if (m.find("AskClusterId") != m.end() && !m["AskClusterId"].empty()) {
+      askClusterId = make_shared<string>(boost::any_cast<string>(m["AskClusterId"]));
+    }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
     }
     if (m.find("ClusterStatus") != m.end() && !m["ClusterStatus"].empty()) {
       clusterStatus = make_shared<string>(boost::any_cast<string>(m["ClusterStatus"]));
     }
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HaResourceSpec"].type()) {
+        DescribeInstancesResponseBodyInstancesHaResourceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HaResourceSpec"]));
+        haResourceSpec = make_shared<DescribeInstancesResponseBodyInstancesHaResourceSpec>(model1);
+      }
+    }
+    if (m.find("HaVSwitchIds") != m.end() && !m["HaVSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HaVSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HaVSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      haVSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
+      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
+    }
+    if (m.find("HostAliases") != m.end() && !m["HostAliases"].empty()) {
+      if (typeid(vector<boost::any>) == m["HostAliases"].type()) {
+        vector<DescribeInstancesResponseBodyInstancesHostAliases> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HostAliases"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeInstancesResponseBodyInstancesHostAliases model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hostAliases = make_shared<vector<DescribeInstancesResponseBodyInstancesHostAliases>>(expect1);
+      }
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("MonitorType") != m.end() && !m["MonitorType"].empty()) {
+      monitorType = make_shared<string>(boost::any_cast<string>(m["MonitorType"]));
     }
     if (m.find("OrderState") != m.end() && !m["OrderState"].empty()) {
       orderState = make_shared<string>(boost::any_cast<string>(m["OrderState"]));
@@ -1689,6 +2068,9 @@ public:
     }
     if (m.find("ResourceExpiredTime") != m.end() && !m["ResourceExpiredTime"].empty()) {
       resourceExpiredTime = make_shared<long>(boost::any_cast<long>(m["ResourceExpiredTime"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
@@ -1919,6 +2301,7 @@ public:
 };
 class DescribeNamespacesRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> ha{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> namespace_{};
   shared_ptr<long> pageIndex{};
@@ -1936,6 +2319,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -1962,6 +2348,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -1997,6 +2386,7 @@ public:
 };
 class DescribeNamespacesShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> ha{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> namespace_{};
   shared_ptr<long> pageIndex{};
@@ -2014,6 +2404,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -2036,6 +2429,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -2098,6 +2494,7 @@ public:
 class DescribeNamespacesResponseBodyNamespacesResourceUsed : public Darabonba::Model {
 public:
   shared_ptr<double> cpu{};
+  shared_ptr<double> cu{};
   shared_ptr<double> memoryGB{};
 
   DescribeNamespacesResponseBodyNamespacesResourceUsed() {}
@@ -2113,6 +2510,9 @@ public:
     if (cpu) {
       res["Cpu"] = boost::any(*cpu);
     }
+    if (cu) {
+      res["Cu"] = boost::any(*cu);
+    }
     if (memoryGB) {
       res["MemoryGB"] = boost::any(*memoryGB);
     }
@@ -2122,6 +2522,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
       cpu = make_shared<double>(boost::any_cast<double>(m["Cpu"]));
+    }
+    if (m.find("Cu") != m.end() && !m["Cu"].empty()) {
+      cu = make_shared<double>(boost::any_cast<double>(m["Cu"]));
     }
     if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
       memoryGB = make_shared<double>(boost::any_cast<double>(m["MemoryGB"]));
@@ -2171,6 +2574,7 @@ class DescribeNamespacesResponseBodyNamespaces : public Darabonba::Model {
 public:
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
+  shared_ptr<bool> ha{};
   shared_ptr<string> namespace_{};
   shared_ptr<DescribeNamespacesResponseBodyNamespacesResourceSpec> resourceSpec{};
   shared_ptr<DescribeNamespacesResponseBodyNamespacesResourceUsed> resourceUsed{};
@@ -2192,6 +2596,9 @@ public:
     }
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
@@ -2221,6 +2628,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
+    }
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
@@ -2572,6 +2982,7 @@ public:
 };
 class DescribeSupportedZonesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> architectureType{};
   shared_ptr<string> region{};
 
   DescribeSupportedZonesRequest() {}
@@ -2584,6 +2995,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (architectureType) {
+      res["ArchitectureType"] = boost::any(*architectureType);
+    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -2591,6 +3005,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArchitectureType") != m.end() && !m["ArchitectureType"].empty()) {
+      architectureType = make_shared<string>(boost::any_cast<string>(m["ArchitectureType"]));
+    }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
@@ -3016,6 +3433,42 @@ public:
 
   virtual ~ListTagResourcesResponse() = default;
 };
+class ModifyPrepayInstanceSpecRequestHaResourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> memoryGB{};
+
+  ModifyPrepayInstanceSpecRequestHaResourceSpec() {}
+
+  explicit ModifyPrepayInstanceSpecRequestHaResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memoryGB) {
+      res["MemoryGB"] = boost::any(*memoryGB);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
+      memoryGB = make_shared<long>(boost::any_cast<long>(m["MemoryGB"]));
+    }
+  }
+
+
+  virtual ~ModifyPrepayInstanceSpecRequestHaResourceSpec() = default;
+};
 class ModifyPrepayInstanceSpecRequestResourceSpec : public Darabonba::Model {
 public:
   shared_ptr<long> cpu{};
@@ -3054,6 +3507,10 @@ public:
 };
 class ModifyPrepayInstanceSpecRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> ha{};
+  shared_ptr<ModifyPrepayInstanceSpecRequestHaResourceSpec> haResourceSpec{};
+  shared_ptr<vector<string>> haVSwitchIds{};
+  shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> region{};
   shared_ptr<ModifyPrepayInstanceSpecRequestResourceSpec> resourceSpec{};
@@ -3068,6 +3525,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpec) {
+      res["HaResourceSpec"] = haResourceSpec ? boost::any(haResourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (haVSwitchIds) {
+      res["HaVSwitchIds"] = boost::any(*haVSwitchIds);
+    }
+    if (haZoneId) {
+      res["HaZoneId"] = boost::any(*haZoneId);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -3081,6 +3550,29 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HaResourceSpec"].type()) {
+        ModifyPrepayInstanceSpecRequestHaResourceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HaResourceSpec"]));
+        haResourceSpec = make_shared<ModifyPrepayInstanceSpecRequestHaResourceSpec>(model1);
+      }
+    }
+    if (m.find("HaVSwitchIds") != m.end() && !m["HaVSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HaVSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HaVSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      haVSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
+      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -3101,6 +3593,10 @@ public:
 };
 class ModifyPrepayInstanceSpecShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> ha{};
+  shared_ptr<string> haResourceSpecShrink{};
+  shared_ptr<string> haVSwitchIdsShrink{};
+  shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> region{};
   shared_ptr<string> resourceSpecShrink{};
@@ -3115,6 +3611,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpecShrink) {
+      res["HaResourceSpec"] = boost::any(*haResourceSpecShrink);
+    }
+    if (haVSwitchIdsShrink) {
+      res["HaVSwitchIds"] = boost::any(*haVSwitchIdsShrink);
+    }
+    if (haZoneId) {
+      res["HaZoneId"] = boost::any(*haZoneId);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -3128,6 +3636,18 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      haResourceSpecShrink = make_shared<string>(boost::any_cast<string>(m["HaResourceSpec"]));
+    }
+    if (m.find("HaVSwitchIds") != m.end() && !m["HaVSwitchIds"].empty()) {
+      haVSwitchIdsShrink = make_shared<string>(boost::any_cast<string>(m["HaVSwitchIds"]));
+    }
+    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
+      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -3974,6 +4494,42 @@ public:
 
   virtual ~QueryConvertInstancePriceResponse() = default;
 };
+class QueryCreateInstancePriceRequestHaResourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> memoryGB{};
+
+  QueryCreateInstancePriceRequestHaResourceSpec() {}
+
+  explicit QueryCreateInstancePriceRequestHaResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memoryGB) {
+      res["MemoryGB"] = boost::any(*memoryGB);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
+      memoryGB = make_shared<long>(boost::any_cast<long>(m["MemoryGB"]));
+    }
+  }
+
+
+  virtual ~QueryCreateInstancePriceRequestHaResourceSpec() = default;
+};
 class QueryCreateInstancePriceRequestResourceSpec : public Darabonba::Model {
 public:
   shared_ptr<long> cpu{};
@@ -4074,15 +4630,20 @@ public:
 };
 class QueryCreateInstancePriceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> architectureType{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<string> chargeType{};
   shared_ptr<long> duration{};
+  shared_ptr<string> extra{};
+  shared_ptr<bool> ha{};
+  shared_ptr<QueryCreateInstancePriceRequestHaResourceSpec> haResourceSpec{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> pricingCycle{};
   shared_ptr<string> promotionCode{};
   shared_ptr<string> region{};
   shared_ptr<QueryCreateInstancePriceRequestResourceSpec> resourceSpec{};
   shared_ptr<QueryCreateInstancePriceRequestStorage> storage{};
+  shared_ptr<bool> usePromotionCode{};
   shared_ptr<vector<string>> vSwitchIds{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
@@ -4097,6 +4658,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (architectureType) {
+      res["ArchitectureType"] = boost::any(*architectureType);
+    }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
     }
@@ -4105,6 +4669,15 @@ public:
     }
     if (duration) {
       res["Duration"] = boost::any(*duration);
+    }
+    if (extra) {
+      res["Extra"] = boost::any(*extra);
+    }
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpec) {
+      res["HaResourceSpec"] = haResourceSpec ? boost::any(haResourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
@@ -4124,6 +4697,9 @@ public:
     if (storage) {
       res["Storage"] = storage ? boost::any(storage->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (usePromotionCode) {
+      res["UsePromotionCode"] = boost::any(*usePromotionCode);
+    }
     if (vSwitchIds) {
       res["VSwitchIds"] = boost::any(*vSwitchIds);
     }
@@ -4137,6 +4713,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArchitectureType") != m.end() && !m["ArchitectureType"].empty()) {
+      architectureType = make_shared<string>(boost::any_cast<string>(m["ArchitectureType"]));
+    }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
     }
@@ -4145,6 +4724,19 @@ public:
     }
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      extra = make_shared<string>(boost::any_cast<string>(m["Extra"]));
+    }
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HaResourceSpec"].type()) {
+        QueryCreateInstancePriceRequestHaResourceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HaResourceSpec"]));
+        haResourceSpec = make_shared<QueryCreateInstancePriceRequestHaResourceSpec>(model1);
+      }
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
@@ -4172,6 +4764,9 @@ public:
         storage = make_shared<QueryCreateInstancePriceRequestStorage>(model1);
       }
     }
+    if (m.find("UsePromotionCode") != m.end() && !m["UsePromotionCode"].empty()) {
+      usePromotionCode = make_shared<bool>(boost::any_cast<bool>(m["UsePromotionCode"]));
+    }
     if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["VSwitchIds"].type()) {
@@ -4195,15 +4790,20 @@ public:
 };
 class QueryCreateInstancePriceShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> architectureType{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<string> chargeType{};
   shared_ptr<long> duration{};
+  shared_ptr<string> extra{};
+  shared_ptr<bool> ha{};
+  shared_ptr<string> haResourceSpecShrink{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> pricingCycle{};
   shared_ptr<string> promotionCode{};
   shared_ptr<string> region{};
   shared_ptr<string> resourceSpecShrink{};
   shared_ptr<string> storageShrink{};
+  shared_ptr<bool> usePromotionCode{};
   shared_ptr<string> vSwitchIdsShrink{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
@@ -4218,6 +4818,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (architectureType) {
+      res["ArchitectureType"] = boost::any(*architectureType);
+    }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
     }
@@ -4226,6 +4829,15 @@ public:
     }
     if (duration) {
       res["Duration"] = boost::any(*duration);
+    }
+    if (extra) {
+      res["Extra"] = boost::any(*extra);
+    }
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpecShrink) {
+      res["HaResourceSpec"] = boost::any(*haResourceSpecShrink);
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
@@ -4245,6 +4857,9 @@ public:
     if (storageShrink) {
       res["Storage"] = boost::any(*storageShrink);
     }
+    if (usePromotionCode) {
+      res["UsePromotionCode"] = boost::any(*usePromotionCode);
+    }
     if (vSwitchIdsShrink) {
       res["VSwitchIds"] = boost::any(*vSwitchIdsShrink);
     }
@@ -4258,6 +4873,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArchitectureType") != m.end() && !m["ArchitectureType"].empty()) {
+      architectureType = make_shared<string>(boost::any_cast<string>(m["ArchitectureType"]));
+    }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
     }
@@ -4266,6 +4884,15 @@ public:
     }
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("Extra") != m.end() && !m["Extra"].empty()) {
+      extra = make_shared<string>(boost::any_cast<string>(m["Extra"]));
+    }
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      haResourceSpecShrink = make_shared<string>(boost::any_cast<string>(m["HaResourceSpec"]));
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
@@ -4284,6 +4911,9 @@ public:
     }
     if (m.find("Storage") != m.end() && !m["Storage"].empty()) {
       storageShrink = make_shared<string>(boost::any_cast<string>(m["Storage"]));
+    }
+    if (m.find("UsePromotionCode") != m.end() && !m["UsePromotionCode"].empty()) {
+      usePromotionCode = make_shared<bool>(boost::any_cast<bool>(m["UsePromotionCode"]));
     }
     if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
       vSwitchIdsShrink = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
@@ -4590,6 +5220,42 @@ public:
 
   virtual ~QueryCreateInstancePriceResponse() = default;
 };
+class QueryModifyInstancePriceRequestHaResourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<long> memoryGB{};
+
+  QueryModifyInstancePriceRequestHaResourceSpec() {}
+
+  explicit QueryModifyInstancePriceRequestHaResourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memoryGB) {
+      res["MemoryGB"] = boost::any(*memoryGB);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("MemoryGB") != m.end() && !m["MemoryGB"].empty()) {
+      memoryGB = make_shared<long>(boost::any_cast<long>(m["MemoryGB"]));
+    }
+  }
+
+
+  virtual ~QueryModifyInstancePriceRequestHaResourceSpec() = default;
+};
 class QueryModifyInstancePriceRequestResourceSpec : public Darabonba::Model {
 public:
   shared_ptr<long> cpu{};
@@ -4628,6 +5294,10 @@ public:
 };
 class QueryModifyInstancePriceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> ha{};
+  shared_ptr<QueryModifyInstancePriceRequestHaResourceSpec> haResourceSpec{};
+  shared_ptr<vector<string>> haVSwitchIds{};
+  shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> region{};
   shared_ptr<QueryModifyInstancePriceRequestResourceSpec> resourceSpec{};
@@ -4642,6 +5312,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpec) {
+      res["HaResourceSpec"] = haResourceSpec ? boost::any(haResourceSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (haVSwitchIds) {
+      res["HaVSwitchIds"] = boost::any(*haVSwitchIds);
+    }
+    if (haZoneId) {
+      res["HaZoneId"] = boost::any(*haZoneId);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -4655,6 +5337,29 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HaResourceSpec"].type()) {
+        QueryModifyInstancePriceRequestHaResourceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HaResourceSpec"]));
+        haResourceSpec = make_shared<QueryModifyInstancePriceRequestHaResourceSpec>(model1);
+      }
+    }
+    if (m.find("HaVSwitchIds") != m.end() && !m["HaVSwitchIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HaVSwitchIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HaVSwitchIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      haVSwitchIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
+      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -4675,6 +5380,10 @@ public:
 };
 class QueryModifyInstancePriceShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> ha{};
+  shared_ptr<string> haResourceSpecShrink{};
+  shared_ptr<string> haVSwitchIdsShrink{};
+  shared_ptr<string> haZoneId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> region{};
   shared_ptr<string> resourceSpecShrink{};
@@ -4689,6 +5398,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ha) {
+      res["Ha"] = boost::any(*ha);
+    }
+    if (haResourceSpecShrink) {
+      res["HaResourceSpec"] = boost::any(*haResourceSpecShrink);
+    }
+    if (haVSwitchIdsShrink) {
+      res["HaVSwitchIds"] = boost::any(*haVSwitchIdsShrink);
+    }
+    if (haZoneId) {
+      res["HaZoneId"] = boost::any(*haZoneId);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -4702,6 +5423,18 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
+      ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
+    }
+    if (m.find("HaResourceSpec") != m.end() && !m["HaResourceSpec"].empty()) {
+      haResourceSpecShrink = make_shared<string>(boost::any_cast<string>(m["HaResourceSpec"]));
+    }
+    if (m.find("HaVSwitchIds") != m.end() && !m["HaVSwitchIds"].empty()) {
+      haVSwitchIdsShrink = make_shared<string>(boost::any_cast<string>(m["HaVSwitchIds"]));
+    }
+    if (m.find("HaZoneId") != m.end() && !m["HaZoneId"].empty()) {
+      haZoneId = make_shared<string>(boost::any_cast<string>(m["HaZoneId"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }

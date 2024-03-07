@@ -89,6 +89,12 @@ CreateInstanceResponse Alibabacloud_Foasconsole20211028::Client::createInstanceW
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateInstanceShrinkRequest> request = make_shared<CreateInstanceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateInstanceRequestHaResourceSpec>(tmpReq->haResourceSpec)) {
+    request->haResourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->haResourceSpec, make_shared<string>("HaResourceSpec"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->haVSwitchIds)) {
+    request->haVSwitchIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->haVSwitchIds, make_shared<string>("HaVSwitchIds"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<CreateInstanceRequestResourceSpec>(tmpReq->resourceSpec)) {
     request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceSpec, make_shared<string>("ResourceSpec"), make_shared<string>("json")));
   }
@@ -99,6 +105,9 @@ CreateInstanceResponse Alibabacloud_Foasconsole20211028::Client::createInstanceW
     request->vSwitchIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vSwitchIds, make_shared<string>("VSwitchIds"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->architectureType)) {
+    body->insert(pair<string, string>("ArchitectureType", *request->architectureType));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
     body->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
   }
@@ -108,8 +117,26 @@ CreateInstanceResponse Alibabacloud_Foasconsole20211028::Client::createInstanceW
   if (!Darabonba_Util::Client::isUnset<long>(request->duration)) {
     body->insert(pair<string, long>("Duration", *request->duration));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extra)) {
+    body->insert(pair<string, string>("Extra", *request->extra));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ha)) {
+    body->insert(pair<string, bool>("Ha", *request->ha));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->haResourceSpecShrink)) {
+    body->insert(pair<string, string>("HaResourceSpec", *request->haResourceSpecShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->haVSwitchIdsShrink)) {
+    body->insert(pair<string, string>("HaVSwitchIds", *request->haVSwitchIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->haZoneId)) {
+    body->insert(pair<string, string>("HaZoneId", *request->haZoneId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     body->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->monitorType)) {
+    body->insert(pair<string, string>("MonitorType", *request->monitorType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pricingCycle)) {
     body->insert(pair<string, string>("PricingCycle", *request->pricingCycle));
@@ -120,11 +147,17 @@ CreateInstanceResponse Alibabacloud_Foasconsole20211028::Client::createInstanceW
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     body->insert(pair<string, string>("Region", *request->region));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceSpecShrink)) {
     body->insert(pair<string, string>("ResourceSpec", *request->resourceSpecShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->storageShrink)) {
     body->insert(pair<string, string>("Storage", *request->storageShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->usePromotionCode)) {
+    body->insert(pair<string, bool>("UsePromotionCode", *request->usePromotionCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchIdsShrink)) {
     body->insert(pair<string, string>("VSwitchIds", *request->vSwitchIdsShrink));
@@ -165,6 +198,9 @@ CreateNamespaceResponse Alibabacloud_Foasconsole20211028::Client::createNamespac
     request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceSpec, make_shared<string>("ResourceSpec"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ha)) {
+    body->insert(pair<string, bool>("Ha", *request->ha));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     body->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -414,10 +450,28 @@ ModifyPrepayInstanceSpecResponse Alibabacloud_Foasconsole20211028::Client::modif
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ModifyPrepayInstanceSpecShrinkRequest> request = make_shared<ModifyPrepayInstanceSpecShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ModifyPrepayInstanceSpecRequestHaResourceSpec>(tmpReq->haResourceSpec)) {
+    request->haResourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->haResourceSpec, make_shared<string>("HaResourceSpec"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->haVSwitchIds)) {
+    request->haVSwitchIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->haVSwitchIds, make_shared<string>("HaVSwitchIds"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<ModifyPrepayInstanceSpecRequestResourceSpec>(tmpReq->resourceSpec)) {
     request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceSpec, make_shared<string>("ResourceSpec"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ha)) {
+    body->insert(pair<string, bool>("Ha", *request->ha));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->haResourceSpecShrink)) {
+    body->insert(pair<string, string>("HaResourceSpec", *request->haResourceSpecShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->haVSwitchIdsShrink)) {
+    body->insert(pair<string, string>("HaVSwitchIds", *request->haVSwitchIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->haZoneId)) {
+    body->insert(pair<string, string>("HaZoneId", *request->haZoneId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     body->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -543,6 +597,9 @@ QueryCreateInstancePriceResponse Alibabacloud_Foasconsole20211028::Client::query
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<QueryCreateInstancePriceShrinkRequest> request = make_shared<QueryCreateInstancePriceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<QueryCreateInstancePriceRequestHaResourceSpec>(tmpReq->haResourceSpec)) {
+    request->haResourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->haResourceSpec, make_shared<string>("HaResourceSpec"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<QueryCreateInstancePriceRequestResourceSpec>(tmpReq->resourceSpec)) {
     request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceSpec, make_shared<string>("ResourceSpec"), make_shared<string>("json")));
   }
@@ -553,6 +610,9 @@ QueryCreateInstancePriceResponse Alibabacloud_Foasconsole20211028::Client::query
     request->vSwitchIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vSwitchIds, make_shared<string>("VSwitchIds"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->architectureType)) {
+    body->insert(pair<string, string>("ArchitectureType", *request->architectureType));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
     body->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
   }
@@ -561,6 +621,15 @@ QueryCreateInstancePriceResponse Alibabacloud_Foasconsole20211028::Client::query
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->duration)) {
     body->insert(pair<string, long>("Duration", *request->duration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extra)) {
+    body->insert(pair<string, string>("Extra", *request->extra));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ha)) {
+    body->insert(pair<string, bool>("Ha", *request->ha));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->haResourceSpecShrink)) {
+    body->insert(pair<string, string>("HaResourceSpec", *request->haResourceSpecShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     body->insert(pair<string, string>("InstanceName", *request->instanceName));
@@ -579,6 +648,9 @@ QueryCreateInstancePriceResponse Alibabacloud_Foasconsole20211028::Client::query
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->storageShrink)) {
     body->insert(pair<string, string>("Storage", *request->storageShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->usePromotionCode)) {
+    body->insert(pair<string, bool>("UsePromotionCode", *request->usePromotionCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchIdsShrink)) {
     body->insert(pair<string, string>("VSwitchIds", *request->vSwitchIdsShrink));
@@ -615,10 +687,28 @@ QueryModifyInstancePriceResponse Alibabacloud_Foasconsole20211028::Client::query
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<QueryModifyInstancePriceShrinkRequest> request = make_shared<QueryModifyInstancePriceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<QueryModifyInstancePriceRequestHaResourceSpec>(tmpReq->haResourceSpec)) {
+    request->haResourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->haResourceSpec, make_shared<string>("HaResourceSpec"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->haVSwitchIds)) {
+    request->haVSwitchIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->haVSwitchIds, make_shared<string>("HaVSwitchIds"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<QueryModifyInstancePriceRequestResourceSpec>(tmpReq->resourceSpec)) {
     request->resourceSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceSpec, make_shared<string>("ResourceSpec"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ha)) {
+    body->insert(pair<string, bool>("Ha", *request->ha));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->haResourceSpecShrink)) {
+    body->insert(pair<string, string>("HaResourceSpec", *request->haResourceSpecShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->haVSwitchIdsShrink)) {
+    body->insert(pair<string, string>("HaVSwitchIds", *request->haVSwitchIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->haZoneId)) {
+    body->insert(pair<string, string>("HaZoneId", *request->haZoneId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     body->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
