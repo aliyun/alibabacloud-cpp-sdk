@@ -1860,6 +1860,72 @@ DiagnoseInstanceResponse Alibabacloud_Elasticsearch20170613::Client::diagnoseIns
   return diagnoseInstanceWithOptions(InstanceId, request, headers, runtime);
 }
 
+DisableKibanaPvlNetworkResponse Alibabacloud_Elasticsearch20170613::Client::disableKibanaPvlNetworkWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DisableKibanaPvlNetwork"))},
+    {"version", boost::any(string("2017-06-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(InstanceId)) + string("/actions/disable-kibana-private"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DisableKibanaPvlNetworkResponse(callApi(params, req, runtime));
+}
+
+DisableKibanaPvlNetworkResponse Alibabacloud_Elasticsearch20170613::Client::disableKibanaPvlNetwork(shared_ptr<string> InstanceId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return disableKibanaPvlNetworkWithOptions(InstanceId, headers, runtime);
+}
+
+EnableKibanaPvlNetworkResponse Alibabacloud_Elasticsearch20170613::Client::enableKibanaPvlNetworkWithOptions(shared_ptr<string> InstanceId,
+                                                                                                             shared_ptr<EnableKibanaPvlNetworkRequest> request,
+                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointName)) {
+    body->insert(pair<string, string>("endpointName", *request->endpointName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->securityGroups)) {
+    body->insert(pair<string, vector<string>>("securityGroups", *request->securityGroups));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<EnableKibanaPvlNetworkRequestVSwitchIdsZone>>(request->vSwitchIdsZone)) {
+    body->insert(pair<string, vector<EnableKibanaPvlNetworkRequestVSwitchIdsZone>>("vSwitchIdsZone", *request->vSwitchIdsZone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    body->insert(pair<string, string>("vpcId", *request->vpcId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EnableKibanaPvlNetwork"))},
+    {"version", boost::any(string("2017-06-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(InstanceId)) + string("/actions/enable-kibana-private"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EnableKibanaPvlNetworkResponse(callApi(params, req, runtime));
+}
+
+EnableKibanaPvlNetworkResponse Alibabacloud_Elasticsearch20170613::Client::enableKibanaPvlNetwork(shared_ptr<string> InstanceId, shared_ptr<EnableKibanaPvlNetworkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return enableKibanaPvlNetworkWithOptions(InstanceId, request, headers, runtime);
+}
+
 EstimatedLogstashRestartTimeResponse Alibabacloud_Elasticsearch20170613::Client::estimatedLogstashRestartTimeWithOptions(shared_ptr<string> InstanceId,
                                                                                                                          shared_ptr<EstimatedLogstashRestartTimeRequest> request,
                                                                                                                          shared_ptr<map<string, string>> headers,
@@ -3579,6 +3645,30 @@ ListKibanaPluginsResponse Alibabacloud_Elasticsearch20170613::Client::listKibana
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listKibanaPluginsWithOptions(InstanceId, request, headers, runtime);
+}
+
+ListKibanaPvlNetworkResponse Alibabacloud_Elasticsearch20170613::Client::listKibanaPvlNetworkWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListKibanaPvlNetwork"))},
+    {"version", boost::any(string("2017-06-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(InstanceId)) + string("/actions/get-kibana-private"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListKibanaPvlNetworkResponse(callApi(params, req, runtime));
+}
+
+ListKibanaPvlNetworkResponse Alibabacloud_Elasticsearch20170613::Client::listKibanaPvlNetwork(shared_ptr<string> InstanceId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listKibanaPvlNetworkWithOptions(InstanceId, headers, runtime);
 }
 
 ListLogstashResponse Alibabacloud_Elasticsearch20170613::Client::listLogstashWithOptions(shared_ptr<ListLogstashRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -6017,6 +6107,47 @@ UpdateInstanceSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updat
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateInstanceSettingsWithOptions(InstanceId, request, headers, runtime);
+}
+
+UpdateKibanaPvlNetworkResponse Alibabacloud_Elasticsearch20170613::Client::updateKibanaPvlNetworkWithOptions(shared_ptr<string> InstanceId,
+                                                                                                             shared_ptr<UpdateKibanaPvlNetworkRequest> request,
+                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->pvlId)) {
+    query->insert(pair<string, string>("pvlId", *request->pvlId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointName)) {
+    body->insert(pair<string, string>("endpointName", *request->endpointName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->securityGroups)) {
+    body->insert(pair<string, vector<string>>("securityGroups", *request->securityGroups));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateKibanaPvlNetwork"))},
+    {"version", boost::any(string("2017-06-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(InstanceId)) + string("/actions/update-kibana-private"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateKibanaPvlNetworkResponse(callApi(params, req, runtime));
+}
+
+UpdateKibanaPvlNetworkResponse Alibabacloud_Elasticsearch20170613::Client::updateKibanaPvlNetwork(shared_ptr<string> InstanceId, shared_ptr<UpdateKibanaPvlNetworkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateKibanaPvlNetworkWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateKibanaSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateKibanaSettingsWithOptions(shared_ptr<string> InstanceId,

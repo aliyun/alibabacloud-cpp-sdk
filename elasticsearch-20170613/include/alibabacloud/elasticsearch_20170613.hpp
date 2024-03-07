@@ -13498,6 +13498,289 @@ public:
 
   virtual ~DiagnoseInstanceResponse() = default;
 };
+class DisableKibanaPvlNetworkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> result{};
+
+  DisableKibanaPvlNetworkResponseBody() {}
+
+  explicit DisableKibanaPvlNetworkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
+    }
+  }
+
+
+  virtual ~DisableKibanaPvlNetworkResponseBody() = default;
+};
+class DisableKibanaPvlNetworkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DisableKibanaPvlNetworkResponseBody> body{};
+
+  DisableKibanaPvlNetworkResponse() {}
+
+  explicit DisableKibanaPvlNetworkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DisableKibanaPvlNetworkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DisableKibanaPvlNetworkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DisableKibanaPvlNetworkResponse() = default;
+};
+class EnableKibanaPvlNetworkRequestVSwitchIdsZone : public Darabonba::Model {
+public:
+  shared_ptr<string> vswitchId{};
+  shared_ptr<string> zoneId{};
+
+  EnableKibanaPvlNetworkRequestVSwitchIdsZone() {}
+
+  explicit EnableKibanaPvlNetworkRequestVSwitchIdsZone(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vswitchId) {
+      res["vswitchId"] = boost::any(*vswitchId);
+    }
+    if (zoneId) {
+      res["zoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("vswitchId") != m.end() && !m["vswitchId"].empty()) {
+      vswitchId = make_shared<string>(boost::any_cast<string>(m["vswitchId"]));
+    }
+    if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
+    }
+  }
+
+
+  virtual ~EnableKibanaPvlNetworkRequestVSwitchIdsZone() = default;
+};
+class EnableKibanaPvlNetworkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endpointName{};
+  shared_ptr<vector<string>> securityGroups{};
+  shared_ptr<vector<EnableKibanaPvlNetworkRequestVSwitchIdsZone>> vSwitchIdsZone{};
+  shared_ptr<string> vpcId{};
+
+  EnableKibanaPvlNetworkRequest() {}
+
+  explicit EnableKibanaPvlNetworkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpointName) {
+      res["endpointName"] = boost::any(*endpointName);
+    }
+    if (securityGroups) {
+      res["securityGroups"] = boost::any(*securityGroups);
+    }
+    if (vSwitchIdsZone) {
+      vector<boost::any> temp1;
+      for(auto item1:*vSwitchIdsZone){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["vSwitchIdsZone"] = boost::any(temp1);
+    }
+    if (vpcId) {
+      res["vpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("endpointName") != m.end() && !m["endpointName"].empty()) {
+      endpointName = make_shared<string>(boost::any_cast<string>(m["endpointName"]));
+    }
+    if (m.find("securityGroups") != m.end() && !m["securityGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["securityGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["securityGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("vSwitchIdsZone") != m.end() && !m["vSwitchIdsZone"].empty()) {
+      if (typeid(vector<boost::any>) == m["vSwitchIdsZone"].type()) {
+        vector<EnableKibanaPvlNetworkRequestVSwitchIdsZone> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["vSwitchIdsZone"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            EnableKibanaPvlNetworkRequestVSwitchIdsZone model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        vSwitchIdsZone = make_shared<vector<EnableKibanaPvlNetworkRequestVSwitchIdsZone>>(expect1);
+      }
+    }
+    if (m.find("vpcId") != m.end() && !m["vpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["vpcId"]));
+    }
+  }
+
+
+  virtual ~EnableKibanaPvlNetworkRequest() = default;
+};
+class EnableKibanaPvlNetworkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> result{};
+
+  EnableKibanaPvlNetworkResponseBody() {}
+
+  explicit EnableKibanaPvlNetworkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
+    }
+  }
+
+
+  virtual ~EnableKibanaPvlNetworkResponseBody() = default;
+};
+class EnableKibanaPvlNetworkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnableKibanaPvlNetworkResponseBody> body{};
+
+  EnableKibanaPvlNetworkResponse() {}
+
+  explicit EnableKibanaPvlNetworkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnableKibanaPvlNetworkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnableKibanaPvlNetworkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EnableKibanaPvlNetworkResponse() = default;
+};
 class EstimatedLogstashRestartTimeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> body{};
@@ -27152,6 +27435,243 @@ public:
 
   virtual ~ListKibanaPluginsResponse() = default;
 };
+class ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone : public Darabonba::Model {
+public:
+  shared_ptr<string> vswitchId{};
+  shared_ptr<string> zoneId{};
+
+  ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone() {}
+
+  explicit ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vswitchId) {
+      res["vswitchId"] = boost::any(*vswitchId);
+    }
+    if (zoneId) {
+      res["zoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("vswitchId") != m.end() && !m["vswitchId"].empty()) {
+      vswitchId = make_shared<string>(boost::any_cast<string>(m["vswitchId"]));
+    }
+    if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
+    }
+  }
+
+
+  virtual ~ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone() = default;
+};
+class ListKibanaPvlNetworkResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> endpointName{};
+  shared_ptr<string> endpointStatus{};
+  shared_ptr<string> pvlId{};
+  shared_ptr<vector<string>> securityGroups{};
+  shared_ptr<vector<ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone>> vSwitchIdsZone{};
+  shared_ptr<string> vpcId{};
+
+  ListKibanaPvlNetworkResponseBodyResult() {}
+
+  explicit ListKibanaPvlNetworkResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
+    }
+    if (endpointId) {
+      res["endpointId"] = boost::any(*endpointId);
+    }
+    if (endpointName) {
+      res["endpointName"] = boost::any(*endpointName);
+    }
+    if (endpointStatus) {
+      res["endpointStatus"] = boost::any(*endpointStatus);
+    }
+    if (pvlId) {
+      res["pvlId"] = boost::any(*pvlId);
+    }
+    if (securityGroups) {
+      res["securityGroups"] = boost::any(*securityGroups);
+    }
+    if (vSwitchIdsZone) {
+      vector<boost::any> temp1;
+      for(auto item1:*vSwitchIdsZone){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["vSwitchIdsZone"] = boost::any(temp1);
+    }
+    if (vpcId) {
+      res["vpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
+    }
+    if (m.find("endpointId") != m.end() && !m["endpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["endpointId"]));
+    }
+    if (m.find("endpointName") != m.end() && !m["endpointName"].empty()) {
+      endpointName = make_shared<string>(boost::any_cast<string>(m["endpointName"]));
+    }
+    if (m.find("endpointStatus") != m.end() && !m["endpointStatus"].empty()) {
+      endpointStatus = make_shared<string>(boost::any_cast<string>(m["endpointStatus"]));
+    }
+    if (m.find("pvlId") != m.end() && !m["pvlId"].empty()) {
+      pvlId = make_shared<string>(boost::any_cast<string>(m["pvlId"]));
+    }
+    if (m.find("securityGroups") != m.end() && !m["securityGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["securityGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["securityGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("vSwitchIdsZone") != m.end() && !m["vSwitchIdsZone"].empty()) {
+      if (typeid(vector<boost::any>) == m["vSwitchIdsZone"].type()) {
+        vector<ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["vSwitchIdsZone"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        vSwitchIdsZone = make_shared<vector<ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone>>(expect1);
+      }
+    }
+    if (m.find("vpcId") != m.end() && !m["vpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["vpcId"]));
+    }
+  }
+
+
+  virtual ~ListKibanaPvlNetworkResponseBodyResult() = default;
+};
+class ListKibanaPvlNetworkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListKibanaPvlNetworkResponseBodyResult>> result{};
+
+  ListKibanaPvlNetworkResponseBody() {}
+
+  explicit ListKibanaPvlNetworkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Result"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(vector<boost::any>) == m["Result"].type()) {
+        vector<ListKibanaPvlNetworkResponseBodyResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListKibanaPvlNetworkResponseBodyResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<ListKibanaPvlNetworkResponseBodyResult>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListKibanaPvlNetworkResponseBody() = default;
+};
+class ListKibanaPvlNetworkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListKibanaPvlNetworkResponseBody> body{};
+
+  ListKibanaPvlNetworkResponse() {}
+
+  explicit ListKibanaPvlNetworkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListKibanaPvlNetworkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListKibanaPvlNetworkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListKibanaPvlNetworkResponse() = default;
+};
 class ListLogstashRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -40174,6 +40694,144 @@ public:
 
   virtual ~UpdateInstanceSettingsResponse() = default;
 };
+class UpdateKibanaPvlNetworkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endpointName{};
+  shared_ptr<vector<string>> securityGroups{};
+  shared_ptr<string> pvlId{};
+
+  UpdateKibanaPvlNetworkRequest() {}
+
+  explicit UpdateKibanaPvlNetworkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpointName) {
+      res["endpointName"] = boost::any(*endpointName);
+    }
+    if (securityGroups) {
+      res["securityGroups"] = boost::any(*securityGroups);
+    }
+    if (pvlId) {
+      res["pvlId"] = boost::any(*pvlId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("endpointName") != m.end() && !m["endpointName"].empty()) {
+      endpointName = make_shared<string>(boost::any_cast<string>(m["endpointName"]));
+    }
+    if (m.find("securityGroups") != m.end() && !m["securityGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["securityGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["securityGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("pvlId") != m.end() && !m["pvlId"].empty()) {
+      pvlId = make_shared<string>(boost::any_cast<string>(m["pvlId"]));
+    }
+  }
+
+
+  virtual ~UpdateKibanaPvlNetworkRequest() = default;
+};
+class UpdateKibanaPvlNetworkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> result{};
+
+  UpdateKibanaPvlNetworkResponseBody() {}
+
+  explicit UpdateKibanaPvlNetworkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
+    }
+  }
+
+
+  virtual ~UpdateKibanaPvlNetworkResponseBody() = default;
+};
+class UpdateKibanaPvlNetworkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateKibanaPvlNetworkResponseBody> body{};
+
+  UpdateKibanaPvlNetworkResponse() {}
+
+  explicit UpdateKibanaPvlNetworkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateKibanaPvlNetworkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateKibanaPvlNetworkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateKibanaPvlNetworkResponse() = default;
+};
 class UpdateKibanaSettingsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> body{};
@@ -44554,6 +45212,13 @@ public:
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DiagnoseInstanceResponse diagnoseInstance(shared_ptr<string> InstanceId, shared_ptr<DiagnoseInstanceRequest> request);
+  DisableKibanaPvlNetworkResponse disableKibanaPvlNetworkWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DisableKibanaPvlNetworkResponse disableKibanaPvlNetwork(shared_ptr<string> InstanceId);
+  EnableKibanaPvlNetworkResponse enableKibanaPvlNetworkWithOptions(shared_ptr<string> InstanceId,
+                                                                   shared_ptr<EnableKibanaPvlNetworkRequest> request,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnableKibanaPvlNetworkResponse enableKibanaPvlNetwork(shared_ptr<string> InstanceId, shared_ptr<EnableKibanaPvlNetworkRequest> request);
   EstimatedLogstashRestartTimeResponse estimatedLogstashRestartTimeWithOptions(shared_ptr<string> InstanceId,
                                                                                shared_ptr<EstimatedLogstashRestartTimeRequest> request,
                                                                                shared_ptr<map<string, string>> headers,
@@ -44740,6 +45405,8 @@ public:
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListKibanaPluginsResponse listKibanaPlugins(shared_ptr<string> InstanceId, shared_ptr<ListKibanaPluginsRequest> request);
+  ListKibanaPvlNetworkResponse listKibanaPvlNetworkWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListKibanaPvlNetworkResponse listKibanaPvlNetwork(shared_ptr<string> InstanceId);
   ListLogstashResponse listLogstashWithOptions(shared_ptr<ListLogstashRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListLogstashResponse listLogstash(shared_ptr<ListLogstashRequest> request);
   ListLogstashLogResponse listLogstashLogWithOptions(shared_ptr<string> InstanceId,
@@ -45053,6 +45720,11 @@ public:
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateInstanceSettingsResponse updateInstanceSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceSettingsRequest> request);
+  UpdateKibanaPvlNetworkResponse updateKibanaPvlNetworkWithOptions(shared_ptr<string> InstanceId,
+                                                                   shared_ptr<UpdateKibanaPvlNetworkRequest> request,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateKibanaPvlNetworkResponse updateKibanaPvlNetwork(shared_ptr<string> InstanceId, shared_ptr<UpdateKibanaPvlNetworkRequest> request);
   UpdateKibanaSettingsResponse updateKibanaSettingsWithOptions(shared_ptr<string> InstanceId,
                                                                shared_ptr<UpdateKibanaSettingsRequest> request,
                                                                shared_ptr<map<string, string>> headers,
