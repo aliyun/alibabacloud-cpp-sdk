@@ -395,8 +395,10 @@ public:
 class QueryCarbonTrackRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
+  shared_ptr<long> filterRDAccount{};
   shared_ptr<string> group{};
   shared_ptr<string> startTime{};
+  shared_ptr<vector<string>> uids{};
 
   QueryCarbonTrackRequest() {}
 
@@ -411,11 +413,17 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (filterRDAccount) {
+      res["FilterRDAccount"] = boost::any(*filterRDAccount);
+    }
     if (group) {
       res["Group"] = boost::any(*group);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
+    }
+    if (uids) {
+      res["Uids"] = boost::any(*uids);
     }
     return res;
   }
@@ -424,16 +432,86 @@ public:
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
+    if (m.find("FilterRDAccount") != m.end() && !m["FilterRDAccount"].empty()) {
+      filterRDAccount = make_shared<long>(boost::any_cast<long>(m["FilterRDAccount"]));
+    }
     if (m.find("Group") != m.end() && !m["Group"].empty()) {
       group = make_shared<string>(boost::any_cast<string>(m["Group"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
+    if (m.find("Uids") != m.end() && !m["Uids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Uids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Uids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      uids = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~QueryCarbonTrackRequest() = default;
+};
+class QueryCarbonTrackShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<long> filterRDAccount{};
+  shared_ptr<string> group{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> uidsShrink{};
+
+  QueryCarbonTrackShrinkRequest() {}
+
+  explicit QueryCarbonTrackShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (filterRDAccount) {
+      res["FilterRDAccount"] = boost::any(*filterRDAccount);
+    }
+    if (group) {
+      res["Group"] = boost::any(*group);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (uidsShrink) {
+      res["Uids"] = boost::any(*uidsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("FilterRDAccount") != m.end() && !m["FilterRDAccount"].empty()) {
+      filterRDAccount = make_shared<long>(boost::any_cast<long>(m["FilterRDAccount"]));
+    }
+    if (m.find("Group") != m.end() && !m["Group"].empty()) {
+      group = make_shared<string>(boost::any_cast<string>(m["Group"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Uids") != m.end() && !m["Uids"].empty()) {
+      uidsShrink = make_shared<string>(boost::any_cast<string>(m["Uids"]));
+    }
+  }
+
+
+  virtual ~QueryCarbonTrackShrinkRequest() = default;
 };
 class QueryCarbonTrackResponseBodyData : public Darabonba::Model {
 public:
@@ -1023,7 +1101,7 @@ public:
   AllowResponse allow();
   GetSummaryDataResponse getSummaryDataWithOptions(shared_ptr<GetSummaryDataRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetSummaryDataResponse getSummaryData(shared_ptr<GetSummaryDataRequest> request);
-  QueryCarbonTrackResponse queryCarbonTrackWithOptions(shared_ptr<QueryCarbonTrackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryCarbonTrackResponse queryCarbonTrackWithOptions(shared_ptr<QueryCarbonTrackRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryCarbonTrackResponse queryCarbonTrack(shared_ptr<QueryCarbonTrackRequest> request);
   QueryMultiAccountCarbonTrackResponse queryMultiAccountCarbonTrackWithOptions(shared_ptr<QueryMultiAccountCarbonTrackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryMultiAccountCarbonTrackResponse queryMultiAccountCarbonTrack(shared_ptr<QueryMultiAccountCarbonTrackRequest> request);

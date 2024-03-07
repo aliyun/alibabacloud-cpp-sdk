@@ -100,17 +100,28 @@ GetSummaryDataResponse Alibabacloud_CarbonFootprint20230711::Client::getSummaryD
   return getSummaryDataWithOptions(request, runtime);
 }
 
-QueryCarbonTrackResponse Alibabacloud_CarbonFootprint20230711::Client::queryCarbonTrackWithOptions(shared_ptr<QueryCarbonTrackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+QueryCarbonTrackResponse Alibabacloud_CarbonFootprint20230711::Client::queryCarbonTrackWithOptions(shared_ptr<QueryCarbonTrackRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<QueryCarbonTrackShrinkRequest> request = make_shared<QueryCarbonTrackShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->uids)) {
+    request->uidsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->uids, make_shared<string>("Uids"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->filterRDAccount)) {
+    query->insert(pair<string, long>("FilterRDAccount", *request->filterRDAccount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->group)) {
     query->insert(pair<string, string>("Group", *request->group));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uidsShrink)) {
+    query->insert(pair<string, string>("Uids", *request->uidsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
