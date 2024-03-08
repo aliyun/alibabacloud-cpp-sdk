@@ -398,6 +398,7 @@ public:
   shared_ptr<long> filterRDAccount{};
   shared_ptr<string> group{};
   shared_ptr<string> startTime{};
+  shared_ptr<long> topNum{};
   shared_ptr<vector<string>> uids{};
 
   QueryCarbonTrackRequest() {}
@@ -422,6 +423,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (topNum) {
+      res["TopNum"] = boost::any(*topNum);
+    }
     if (uids) {
       res["Uids"] = boost::any(*uids);
     }
@@ -440,6 +444,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("TopNum") != m.end() && !m["TopNum"].empty()) {
+      topNum = make_shared<long>(boost::any_cast<long>(m["TopNum"]));
     }
     if (m.find("Uids") != m.end() && !m["Uids"].empty()) {
       vector<string> toVec1;
@@ -462,6 +469,7 @@ public:
   shared_ptr<long> filterRDAccount{};
   shared_ptr<string> group{};
   shared_ptr<string> startTime{};
+  shared_ptr<long> topNum{};
   shared_ptr<string> uidsShrink{};
 
   QueryCarbonTrackShrinkRequest() {}
@@ -486,6 +494,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (topNum) {
+      res["TopNum"] = boost::any(*topNum);
+    }
     if (uidsShrink) {
       res["Uids"] = boost::any(*uidsShrink);
     }
@@ -504,6 +515,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("TopNum") != m.end() && !m["TopNum"].empty()) {
+      topNum = make_shared<long>(boost::any_cast<long>(m["TopNum"]));
     }
     if (m.find("Uids") != m.end() && !m["Uids"].empty()) {
       uidsShrink = make_shared<string>(boost::any_cast<string>(m["Uids"]));

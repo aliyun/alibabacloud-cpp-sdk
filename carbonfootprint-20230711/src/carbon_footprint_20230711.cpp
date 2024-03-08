@@ -120,6 +120,9 @@ QueryCarbonTrackResponse Alibabacloud_CarbonFootprint20230711::Client::queryCarb
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->topNum)) {
+    query->insert(pair<string, long>("TopNum", *request->topNum));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->uidsShrink)) {
     query->insert(pair<string, string>("Uids", *request->uidsShrink));
   }
