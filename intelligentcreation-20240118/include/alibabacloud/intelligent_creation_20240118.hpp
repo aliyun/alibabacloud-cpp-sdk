@@ -113,6 +113,177 @@ public:
 
   virtual ~ActualDeductResourceResult() = default;
 };
+class DigitalHumanLiveBroadcastQACmdHistory : public Darabonba::Model {
+public:
+  shared_ptr<string> bot{};
+  shared_ptr<string> user{};
+
+  DigitalHumanLiveBroadcastQACmdHistory() {}
+
+  explicit DigitalHumanLiveBroadcastQACmdHistory(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bot) {
+      res["bot"] = boost::any(*bot);
+    }
+    if (user) {
+      res["user"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("bot") != m.end() && !m["bot"].empty()) {
+      bot = make_shared<string>(boost::any_cast<string>(m["bot"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["user"]));
+    }
+  }
+
+
+  virtual ~DigitalHumanLiveBroadcastQACmdHistory() = default;
+};
+class DigitalHumanLiveBroadcastQACmd : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<vector<DigitalHumanLiveBroadcastQACmdHistory>> history{};
+  shared_ptr<string> question{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<bool> stream{};
+  shared_ptr<string> subAccountId{};
+
+  DigitalHumanLiveBroadcastQACmd() {}
+
+  explicit DigitalHumanLiveBroadcastQACmd(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    if (history) {
+      vector<boost::any> temp1;
+      for(auto item1:*history){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["history"] = boost::any(temp1);
+    }
+    if (question) {
+      res["question"] = boost::any(*question);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    if (stream) {
+      res["stream"] = boost::any(*stream);
+    }
+    if (subAccountId) {
+      res["subAccountId"] = boost::any(*subAccountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+    if (m.find("history") != m.end() && !m["history"].empty()) {
+      if (typeid(vector<boost::any>) == m["history"].type()) {
+        vector<DigitalHumanLiveBroadcastQACmdHistory> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["history"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DigitalHumanLiveBroadcastQACmdHistory model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        history = make_shared<vector<DigitalHumanLiveBroadcastQACmdHistory>>(expect1);
+      }
+    }
+    if (m.find("question") != m.end() && !m["question"].empty()) {
+      question = make_shared<string>(boost::any_cast<string>(m["question"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("stream") != m.end() && !m["stream"].empty()) {
+      stream = make_shared<bool>(boost::any_cast<bool>(m["stream"]));
+    }
+    if (m.find("subAccountId") != m.end() && !m["subAccountId"].empty()) {
+      subAccountId = make_shared<string>(boost::any_cast<string>(m["subAccountId"]));
+    }
+  }
+
+
+  virtual ~DigitalHumanLiveBroadcastQACmd() = default;
+};
+class DigitalHumanLiveBroadcastQAResult : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<bool> success{};
+
+  DigitalHumanLiveBroadcastQAResult() {}
+
+  explicit DigitalHumanLiveBroadcastQAResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (sessionId) {
+      res["sessionId"] = boost::any(*sessionId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("sessionId") != m.end() && !m["sessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["sessionId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~DigitalHumanLiveBroadcastQAResult() = default;
+};
 class DirectDeductResourceCmd : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -368,6 +539,163 @@ public:
 
 
   virtual ~ExpectDeductResourceResult() = default;
+};
+class SubmitBulletQuestionsCmdQuestions : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> id{};
+  shared_ptr<long> time{};
+  shared_ptr<string> username{};
+
+  SubmitBulletQuestionsCmdQuestions() {}
+
+  explicit SubmitBulletQuestionsCmdQuestions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (time) {
+      res["time"] = boost::any(*time);
+    }
+    if (username) {
+      res["username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("time") != m.end() && !m["time"].empty()) {
+      time = make_shared<long>(boost::any_cast<long>(m["time"]));
+    }
+    if (m.find("username") != m.end() && !m["username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["username"]));
+    }
+  }
+
+
+  virtual ~SubmitBulletQuestionsCmdQuestions() = default;
+};
+class SubmitBulletQuestionsCmd : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<vector<SubmitBulletQuestionsCmdQuestions>> questions{};
+  shared_ptr<string> roomId{};
+  shared_ptr<string> subAccountId{};
+
+  SubmitBulletQuestionsCmd() {}
+
+  explicit SubmitBulletQuestionsCmd(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    if (questions) {
+      vector<boost::any> temp1;
+      for(auto item1:*questions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["questions"] = boost::any(temp1);
+    }
+    if (roomId) {
+      res["roomId"] = boost::any(*roomId);
+    }
+    if (subAccountId) {
+      res["subAccountId"] = boost::any(*subAccountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+    if (m.find("questions") != m.end() && !m["questions"].empty()) {
+      if (typeid(vector<boost::any>) == m["questions"].type()) {
+        vector<SubmitBulletQuestionsCmdQuestions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["questions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SubmitBulletQuestionsCmdQuestions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        questions = make_shared<vector<SubmitBulletQuestionsCmdQuestions>>(expect1);
+      }
+    }
+    if (m.find("roomId") != m.end() && !m["roomId"].empty()) {
+      roomId = make_shared<string>(boost::any_cast<string>(m["roomId"]));
+    }
+    if (m.find("subAccountId") != m.end() && !m["subAccountId"].empty()) {
+      subAccountId = make_shared<string>(boost::any_cast<string>(m["subAccountId"]));
+    }
+  }
+
+
+  virtual ~SubmitBulletQuestionsCmd() = default;
+};
+class SubmitBulletQuestionsQAResult : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<bool> success{};
+
+  SubmitBulletQuestionsQAResult() {}
+
+  explicit SubmitBulletQuestionsQAResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~SubmitBulletQuestionsQAResult() = default;
 };
 class ActualDeductResourceRequest : public Darabonba::Model {
 public:
@@ -879,6 +1207,91 @@ public:
 
 
   virtual ~CopywritingQAResponse() = default;
+};
+class CopywritingQAV1Request : public Darabonba::Model {
+public:
+  shared_ptr<DigitalHumanLiveBroadcastQACmd> body{};
+
+  CopywritingQAV1Request() {}
+
+  explicit CopywritingQAV1Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DigitalHumanLiveBroadcastQACmd model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DigitalHumanLiveBroadcastQACmd>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CopywritingQAV1Request() = default;
+};
+class CopywritingQAV1Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DigitalHumanLiveBroadcastQAResult> body{};
+
+  CopywritingQAV1Response() {}
+
+  explicit CopywritingQAV1Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DigitalHumanLiveBroadcastQAResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DigitalHumanLiveBroadcastQAResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CopywritingQAV1Response() = default;
 };
 class DirectDeductResourceRequest : public Darabonba::Model {
 public:
@@ -1631,6 +2044,91 @@ public:
 
   virtual ~SubmitBulletQuestionsResponse() = default;
 };
+class SubmitBulletQuestionsV1Request : public Darabonba::Model {
+public:
+  shared_ptr<SubmitBulletQuestionsCmd> body{};
+
+  SubmitBulletQuestionsV1Request() {}
+
+  explicit SubmitBulletQuestionsV1Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitBulletQuestionsCmd model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitBulletQuestionsCmd>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitBulletQuestionsV1Request() = default;
+};
+class SubmitBulletQuestionsV1Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitBulletQuestionsQAResult> body{};
+
+  SubmitBulletQuestionsV1Response() {}
+
+  explicit SubmitBulletQuestionsV1Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitBulletQuestionsQAResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitBulletQuestionsQAResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitBulletQuestionsV1Response() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -1647,6 +2145,8 @@ public:
   ActualDeductResourcesResponse actualDeductResources(shared_ptr<ActualDeductResourcesRequest> request);
   CopywritingQAResponse copywritingQAWithOptions(shared_ptr<CopywritingQARequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CopywritingQAResponse copywritingQA(shared_ptr<CopywritingQARequest> request);
+  CopywritingQAV1Response copywritingQAV1WithOptions(shared_ptr<CopywritingQAV1Request> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CopywritingQAV1Response copywritingQAV1(shared_ptr<CopywritingQAV1Request> request);
   DirectDeductResourceResponse directDeductResourceWithOptions(shared_ptr<DirectDeductResourceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DirectDeductResourceResponse directDeductResource(shared_ptr<DirectDeductResourceRequest> request);
   DirectDeductResourcesResponse directDeductResourcesWithOptions(shared_ptr<DirectDeductResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -1659,6 +2159,8 @@ public:
   GetRemainResourceResponse getRemainResource(shared_ptr<GetRemainResourceRequest> request);
   SubmitBulletQuestionsResponse submitBulletQuestionsWithOptions(shared_ptr<SubmitBulletQuestionsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitBulletQuestionsResponse submitBulletQuestions(shared_ptr<SubmitBulletQuestionsRequest> request);
+  SubmitBulletQuestionsV1Response submitBulletQuestionsV1WithOptions(shared_ptr<SubmitBulletQuestionsV1Request> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitBulletQuestionsV1Response submitBulletQuestionsV1(shared_ptr<SubmitBulletQuestionsV1Request> request);
 
   virtual ~Client() = default;
 };

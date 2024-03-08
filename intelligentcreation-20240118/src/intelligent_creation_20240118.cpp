@@ -145,6 +145,32 @@ CopywritingQAResponse Alibabacloud_IntelligentCreation20240118::Client::copywrit
   return copywritingQAWithOptions(request, headers, runtime);
 }
 
+CopywritingQAV1Response Alibabacloud_IntelligentCreation20240118::Client::copywritingQAV1WithOptions(shared_ptr<CopywritingQAV1Request> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CopywritingQAV1"))},
+    {"version", boost::any(string("2024-01-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/digitalHuman/commands/copywritingQAV1"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CopywritingQAV1Response(callApi(params, req, runtime));
+}
+
+CopywritingQAV1Response Alibabacloud_IntelligentCreation20240118::Client::copywritingQAV1(shared_ptr<CopywritingQAV1Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return copywritingQAV1WithOptions(request, headers, runtime);
+}
+
 DirectDeductResourceResponse Alibabacloud_IntelligentCreation20240118::Client::directDeductResourceWithOptions(shared_ptr<DirectDeductResourceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -327,5 +353,31 @@ SubmitBulletQuestionsResponse Alibabacloud_IntelligentCreation20240118::Client::
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return submitBulletQuestionsWithOptions(request, headers, runtime);
+}
+
+SubmitBulletQuestionsV1Response Alibabacloud_IntelligentCreation20240118::Client::submitBulletQuestionsV1WithOptions(shared_ptr<SubmitBulletQuestionsV1Request> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitBulletQuestionsV1"))},
+    {"version", boost::any(string("2024-01-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/digitalHuman/commands/submitBulletQuestionsV1"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitBulletQuestionsV1Response(callApi(params, req, runtime));
+}
+
+SubmitBulletQuestionsV1Response Alibabacloud_IntelligentCreation20240118::Client::submitBulletQuestionsV1(shared_ptr<SubmitBulletQuestionsV1Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return submitBulletQuestionsV1WithOptions(request, headers, runtime);
 }
 
