@@ -1,3 +1,6 @@
+2024-03-08 Version: 1.0.3
+- Generated cpp 2019-12-12 for amqp-open.
+
 2024-03-05 Version: 1.0.2
 - Generated cpp 2019-12-12 for amqp-open.
 

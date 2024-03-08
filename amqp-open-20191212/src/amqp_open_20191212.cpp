@@ -794,6 +794,70 @@ ListVirtualHostsResponse Alibabacloud_Amqp-open20191212::Client::listVirtualHost
   return listVirtualHostsWithOptions(request, runtime);
 }
 
+UpdateInstanceResponse Alibabacloud_Amqp-open20191212::Client::updateInstanceWithOptions(shared_ptr<UpdateInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
+    query->insert(pair<string, string>("InstanceType", *request->instanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxConnections)) {
+    query->insert(pair<string, long>("MaxConnections", *request->maxConnections));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxEipTps)) {
+    query->insert(pair<string, long>("MaxEipTps", *request->maxEipTps));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxPrivateTps)) {
+    query->insert(pair<string, long>("MaxPrivateTps", *request->maxPrivateTps));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modifyType)) {
+    query->insert(pair<string, string>("ModifyType", *request->modifyType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->queueCapacity)) {
+    query->insert(pair<string, long>("QueueCapacity", *request->queueCapacity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverlessChargeType)) {
+    query->insert(pair<string, string>("ServerlessChargeType", *request->serverlessChargeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->storageSize)) {
+    query->insert(pair<string, long>("StorageSize", *request->storageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->supportEip)) {
+    query->insert(pair<string, bool>("SupportEip", *request->supportEip));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->supportTracing)) {
+    query->insert(pair<string, bool>("SupportTracing", *request->supportTracing));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tracingStorageTime)) {
+    query->insert(pair<string, long>("TracingStorageTime", *request->tracingStorageTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateInstance"))},
+    {"version", boost::any(string("2019-12-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateInstanceResponse(callApi(params, req, runtime));
+}
+
+UpdateInstanceResponse Alibabacloud_Amqp-open20191212::Client::updateInstance(shared_ptr<UpdateInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateInstanceWithOptions(request, runtime);
+}
+
 UpdateInstanceNameResponse Alibabacloud_Amqp-open20191212::Client::updateInstanceNameWithOptions(shared_ptr<UpdateInstanceNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
