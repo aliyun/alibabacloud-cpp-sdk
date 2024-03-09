@@ -154,6 +154,45 @@ GetHpoTrialResponse Alibabacloud_PaiAutoML20220828::Client::getHpoTrial(shared_p
   return getHpoTrialWithOptions(ExperimentId, TrialId, headers, runtime);
 }
 
+ListHpoExperimentLogsResponse Alibabacloud_PaiAutoML20220828::Client::listHpoExperimentLogsWithOptions(shared_ptr<string> ExperimentId,
+                                                                                                       shared_ptr<ListHpoExperimentLogsRequest> request,
+                                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->logName)) {
+    query->insert(pair<string, string>("LogName", *request->logName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListHpoExperimentLogs"))},
+    {"version", boost::any(string("2022-08-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/automl/v1/hpo/experiment/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ExperimentId)) + string("/logs"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListHpoExperimentLogsResponse(callApi(params, req, runtime));
+}
+
+ListHpoExperimentLogsResponse Alibabacloud_PaiAutoML20220828::Client::listHpoExperimentLogs(shared_ptr<string> ExperimentId, shared_ptr<ListHpoExperimentLogsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listHpoExperimentLogsWithOptions(ExperimentId, request, headers, runtime);
+}
+
 ListHpoExperimentsResponse Alibabacloud_PaiAutoML20220828::Client::listHpoExperimentsWithOptions(shared_ptr<ListHpoExperimentsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -215,6 +254,60 @@ ListHpoExperimentsResponse Alibabacloud_PaiAutoML20220828::Client::listHpoExperi
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listHpoExperimentsWithOptions(request, headers, runtime);
+}
+
+ListHpoTrialCommandsResponse Alibabacloud_PaiAutoML20220828::Client::listHpoTrialCommandsWithOptions(shared_ptr<string> ExperimentId,
+                                                                                                     shared_ptr<string> TrialId,
+                                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListHpoTrialCommands"))},
+    {"version", boost::any(string("2022-08-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/automl/v1/hpo/experiment/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ExperimentId)) + string("/trial/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrialId)) + string("/commands"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListHpoTrialCommandsResponse(callApi(params, req, runtime));
+}
+
+ListHpoTrialCommandsResponse Alibabacloud_PaiAutoML20220828::Client::listHpoTrialCommands(shared_ptr<string> ExperimentId, shared_ptr<string> TrialId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listHpoTrialCommandsWithOptions(ExperimentId, TrialId, headers, runtime);
+}
+
+ListHpoTrialLogNamesResponse Alibabacloud_PaiAutoML20220828::Client::listHpoTrialLogNamesWithOptions(shared_ptr<string> ExperimentId,
+                                                                                                     shared_ptr<string> TrialId,
+                                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListHpoTrialLogNames"))},
+    {"version", boost::any(string("2022-08-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/automl/v1/hpo/experiment/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ExperimentId)) + string("/trial/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrialId)) + string("/lognames"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListHpoTrialLogNamesResponse(callApi(params, req, runtime));
+}
+
+ListHpoTrialLogNamesResponse Alibabacloud_PaiAutoML20220828::Client::listHpoTrialLogNames(shared_ptr<string> ExperimentId, shared_ptr<string> TrialId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listHpoTrialLogNamesWithOptions(ExperimentId, TrialId, headers, runtime);
 }
 
 ListHpoTrialLogsResponse Alibabacloud_PaiAutoML20220828::Client::listHpoTrialLogsWithOptions(shared_ptr<string> ExperimentId,
@@ -390,5 +483,50 @@ StopHpoTrialsResponse Alibabacloud_PaiAutoML20220828::Client::stopHpoTrials(shar
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return stopHpoTrialsWithOptions(ExperimentId, request, headers, runtime);
+}
+
+UpdateHpoExperimentResponse Alibabacloud_PaiAutoML20220828::Client::updateHpoExperimentWithOptions(shared_ptr<string> ExperimentId,
+                                                                                                   shared_ptr<UpdateHpoExperimentRequest> request,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
+    body->insert(pair<string, string>("Accessibility", *request->accessibility));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<HpoExperimentConfig>(request->hpoExperimentConfiguration)) {
+    body->insert(pair<string, HpoExperimentConfig>("HpoExperimentConfiguration", *request->hpoExperimentConfiguration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateHpoExperiment"))},
+    {"version", boost::any(string("2022-08-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/automl/v1/hpo/experiment/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ExperimentId)) + string("/update"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateHpoExperimentResponse(callApi(params, req, runtime));
+}
+
+UpdateHpoExperimentResponse Alibabacloud_PaiAutoML20220828::Client::updateHpoExperiment(shared_ptr<string> ExperimentId, shared_ptr<UpdateHpoExperimentRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateHpoExperimentWithOptions(ExperimentId, request, headers, runtime);
 }
 
