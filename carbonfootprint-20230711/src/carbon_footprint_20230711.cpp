@@ -126,6 +126,9 @@ QueryCarbonTrackResponse Alibabacloud_CarbonFootprint20230711::Client::queryCarb
   if (!Darabonba_Util::Client::isUnset<string>(request->uidsShrink)) {
     query->insert(pair<string, string>("Uids", *request->uidsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->useCode)) {
+    query->insert(pair<string, long>("UseCode", *request->useCode));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

@@ -400,6 +400,7 @@ public:
   shared_ptr<string> startTime{};
   shared_ptr<long> topNum{};
   shared_ptr<vector<string>> uids{};
+  shared_ptr<long> useCode{};
 
   QueryCarbonTrackRequest() {}
 
@@ -428,6 +429,9 @@ public:
     }
     if (uids) {
       res["Uids"] = boost::any(*uids);
+    }
+    if (useCode) {
+      res["UseCode"] = boost::any(*useCode);
     }
     return res;
   }
@@ -458,6 +462,9 @@ public:
       }
       uids = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("UseCode") != m.end() && !m["UseCode"].empty()) {
+      useCode = make_shared<long>(boost::any_cast<long>(m["UseCode"]));
+    }
   }
 
 
@@ -471,6 +478,7 @@ public:
   shared_ptr<string> startTime{};
   shared_ptr<long> topNum{};
   shared_ptr<string> uidsShrink{};
+  shared_ptr<long> useCode{};
 
   QueryCarbonTrackShrinkRequest() {}
 
@@ -500,6 +508,9 @@ public:
     if (uidsShrink) {
       res["Uids"] = boost::any(*uidsShrink);
     }
+    if (useCode) {
+      res["UseCode"] = boost::any(*useCode);
+    }
     return res;
   }
 
@@ -521,6 +532,9 @@ public:
     }
     if (m.find("Uids") != m.end() && !m["Uids"].empty()) {
       uidsShrink = make_shared<string>(boost::any_cast<string>(m["Uids"]));
+    }
+    if (m.find("UseCode") != m.end() && !m["UseCode"].empty()) {
+      useCode = make_shared<long>(boost::any_cast<long>(m["UseCode"]));
     }
   }
 

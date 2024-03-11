@@ -1,3 +1,6 @@
+2024-03-11 Version: 1.0.5
+- Generated cpp 2023-07-11 for CarbonFootprint.
+
 2024-03-08 Version: 1.0.4
 - Generated cpp 2023-07-11 for CarbonFootprint.
 
