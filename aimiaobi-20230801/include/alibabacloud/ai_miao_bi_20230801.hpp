@@ -166,6 +166,198 @@ public:
 
   virtual ~CancelAsyncTaskResponse() = default;
 };
+class ClearIntervenesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+
+  ClearIntervenesRequest() {}
+
+  explicit ClearIntervenesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+  }
+
+
+  virtual ~ClearIntervenesRequest() = default;
+};
+class ClearIntervenesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> failIdList{};
+  shared_ptr<string> taskId{};
+
+  ClearIntervenesResponseBodyData() {}
+
+  explicit ClearIntervenesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failIdList) {
+      res["FailIdList"] = boost::any(*failIdList);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailIdList") != m.end() && !m["FailIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FailIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FailIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      failIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~ClearIntervenesResponseBodyData() = default;
+};
+class ClearIntervenesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ClearIntervenesResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ClearIntervenesResponseBody() {}
+
+  explicit ClearIntervenesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ClearIntervenesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ClearIntervenesResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ClearIntervenesResponseBody() = default;
+};
+class ClearIntervenesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ClearIntervenesResponseBody> body{};
+
+  ClearIntervenesResponse() {}
+
+  explicit ClearIntervenesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ClearIntervenesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ClearIntervenesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ClearIntervenesResponse() = default;
+};
 class CreateGeneratedContentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
@@ -796,6 +988,205 @@ public:
 
   virtual ~DeleteGeneratedContentResponse() = default;
 };
+class DeleteInterveneRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<long> ruleId{};
+
+  DeleteInterveneRuleRequest() {}
+
+  explicit DeleteInterveneRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~DeleteInterveneRuleRequest() = default;
+};
+class DeleteInterveneRuleResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> failIdList{};
+  shared_ptr<string> taskId{};
+
+  DeleteInterveneRuleResponseBodyData() {}
+
+  explicit DeleteInterveneRuleResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failIdList) {
+      res["FailIdList"] = boost::any(*failIdList);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailIdList") != m.end() && !m["FailIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FailIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FailIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      failIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~DeleteInterveneRuleResponseBodyData() = default;
+};
+class DeleteInterveneRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<DeleteInterveneRuleResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteInterveneRuleResponseBody() {}
+
+  explicit DeleteInterveneRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DeleteInterveneRuleResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DeleteInterveneRuleResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteInterveneRuleResponseBody() = default;
+};
+class DeleteInterveneRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteInterveneRuleResponseBody> body{};
+
+  DeleteInterveneRuleResponse() {}
+
+  explicit DeleteInterveneRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteInterveneRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteInterveneRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteInterveneRuleResponse() = default;
+};
 class DeleteMaterialByIdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
@@ -1099,6 +1490,184 @@ public:
 
 
   virtual ~ExportGeneratedContentResponse() = default;
+};
+class ExportIntervenesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+
+  ExportIntervenesRequest() {}
+
+  explicit ExportIntervenesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+  }
+
+
+  virtual ~ExportIntervenesRequest() = default;
+};
+class ExportIntervenesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> fileUrl{};
+
+  ExportIntervenesResponseBodyData() {}
+
+  explicit ExportIntervenesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+  }
+
+
+  virtual ~ExportIntervenesResponseBodyData() = default;
+};
+class ExportIntervenesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ExportIntervenesResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ExportIntervenesResponseBody() {}
+
+  explicit ExportIntervenesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ExportIntervenesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ExportIntervenesResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ExportIntervenesResponseBody() = default;
+};
+class ExportIntervenesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExportIntervenesResponseBody> body{};
+
+  ExportIntervenesResponse() {}
+
+  explicit ExportIntervenesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExportIntervenesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExportIntervenesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExportIntervenesResponse() = default;
 };
 class FeedbackDialogueRequest : public Darabonba::Model {
 public:
@@ -3306,6 +3875,1022 @@ public:
 
   virtual ~GetGeneratedContentResponse() = default;
 };
+class GetInterveneGlobalReplyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+
+  GetInterveneGlobalReplyRequest() {}
+
+  explicit GetInterveneGlobalReplyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+  }
+
+
+  virtual ~GetInterveneGlobalReplyRequest() = default;
+};
+class GetInterveneGlobalReplyResponseBodyDataReplyMessagList : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> replyType{};
+
+  GetInterveneGlobalReplyResponseBodyDataReplyMessagList() {}
+
+  explicit GetInterveneGlobalReplyResponseBodyDataReplyMessagList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (replyType) {
+      res["ReplyType"] = boost::any(*replyType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("ReplyType") != m.end() && !m["ReplyType"].empty()) {
+      replyType = make_shared<string>(boost::any_cast<string>(m["ReplyType"]));
+    }
+  }
+
+
+  virtual ~GetInterveneGlobalReplyResponseBodyDataReplyMessagList() = default;
+};
+class GetInterveneGlobalReplyResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetInterveneGlobalReplyResponseBodyDataReplyMessagList>> replyMessagList{};
+
+  GetInterveneGlobalReplyResponseBodyData() {}
+
+  explicit GetInterveneGlobalReplyResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (replyMessagList) {
+      vector<boost::any> temp1;
+      for(auto item1:*replyMessagList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ReplyMessagList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReplyMessagList") != m.end() && !m["ReplyMessagList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ReplyMessagList"].type()) {
+        vector<GetInterveneGlobalReplyResponseBodyDataReplyMessagList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ReplyMessagList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetInterveneGlobalReplyResponseBodyDataReplyMessagList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        replyMessagList = make_shared<vector<GetInterveneGlobalReplyResponseBodyDataReplyMessagList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetInterveneGlobalReplyResponseBodyData() = default;
+};
+class GetInterveneGlobalReplyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetInterveneGlobalReplyResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetInterveneGlobalReplyResponseBody() {}
+
+  explicit GetInterveneGlobalReplyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetInterveneGlobalReplyResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetInterveneGlobalReplyResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetInterveneGlobalReplyResponseBody() = default;
+};
+class GetInterveneGlobalReplyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetInterveneGlobalReplyResponseBody> body{};
+
+  GetInterveneGlobalReplyResponse() {}
+
+  explicit GetInterveneGlobalReplyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetInterveneGlobalReplyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetInterveneGlobalReplyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetInterveneGlobalReplyResponse() = default;
+};
+class GetInterveneImportTaskInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> taskId{};
+
+  GetInterveneImportTaskInfoRequest() {}
+
+  explicit GetInterveneImportTaskInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~GetInterveneImportTaskInfoRequest() = default;
+};
+class GetInterveneImportTaskInfoResponseBodyDataStatus : public Darabonba::Model {
+public:
+  shared_ptr<string> msg{};
+  shared_ptr<long> percentage{};
+  shared_ptr<long> status{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskName{};
+
+  GetInterveneImportTaskInfoResponseBodyDataStatus() {}
+
+  explicit GetInterveneImportTaskInfoResponseBodyDataStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskName) {
+      res["TaskName"] = boost::any(*taskName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
+      taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
+    }
+  }
+
+
+  virtual ~GetInterveneImportTaskInfoResponseBodyDataStatus() = default;
+};
+class GetInterveneImportTaskInfoResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<GetInterveneImportTaskInfoResponseBodyDataStatus> status{};
+
+  GetInterveneImportTaskInfoResponseBodyData() {}
+
+  explicit GetInterveneImportTaskInfoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = status ? boost::any(status->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Status"].type()) {
+        GetInterveneImportTaskInfoResponseBodyDataStatus model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Status"]));
+        status = make_shared<GetInterveneImportTaskInfoResponseBodyDataStatus>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetInterveneImportTaskInfoResponseBodyData() = default;
+};
+class GetInterveneImportTaskInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetInterveneImportTaskInfoResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetInterveneImportTaskInfoResponseBody() {}
+
+  explicit GetInterveneImportTaskInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetInterveneImportTaskInfoResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetInterveneImportTaskInfoResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetInterveneImportTaskInfoResponseBody() = default;
+};
+class GetInterveneImportTaskInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetInterveneImportTaskInfoResponseBody> body{};
+
+  GetInterveneImportTaskInfoResponse() {}
+
+  explicit GetInterveneImportTaskInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetInterveneImportTaskInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetInterveneImportTaskInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetInterveneImportTaskInfoResponse() = default;
+};
+class GetInterveneRuleDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<long> ruleId{};
+
+  GetInterveneRuleDetailRequest() {}
+
+  explicit GetInterveneRuleDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~GetInterveneRuleDetailRequest() = default;
+};
+class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> answerType{};
+  shared_ptr<string> message{};
+  shared_ptr<string> namespace_{};
+
+  GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig() {}
+
+  explicit GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerType) {
+      res["AnswerType"] = boost::any(*answerType);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerType") != m.end() && !m["AnswerType"].empty()) {
+      answerType = make_shared<long>(boost::any_cast<long>(m["AnswerType"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig() = default;
+};
+class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> effectType{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> startTime{};
+
+  GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig() {}
+
+  explicit GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (effectType) {
+      res["EffectType"] = boost::any(*effectType);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EffectType") != m.end() && !m["EffectType"].empty()) {
+      effectType = make_shared<long>(boost::any_cast<long>(m["EffectType"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig() = default;
+};
+class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig>> answerConfig{};
+  shared_ptr<GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig> effectConfig{};
+  shared_ptr<long> interveneType{};
+  shared_ptr<vector<string>> namespaceList{};
+  shared_ptr<long> ruleId{};
+  shared_ptr<string> ruleName{};
+
+  GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail() {}
+
+  explicit GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerConfig) {
+      vector<boost::any> temp1;
+      for(auto item1:*answerConfig){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AnswerConfig"] = boost::any(temp1);
+    }
+    if (effectConfig) {
+      res["EffectConfig"] = effectConfig ? boost::any(effectConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (interveneType) {
+      res["InterveneType"] = boost::any(*interveneType);
+    }
+    if (namespaceList) {
+      res["NamespaceList"] = boost::any(*namespaceList);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerConfig") != m.end() && !m["AnswerConfig"].empty()) {
+      if (typeid(vector<boost::any>) == m["AnswerConfig"].type()) {
+        vector<GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AnswerConfig"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        answerConfig = make_shared<vector<GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig>>(expect1);
+      }
+    }
+    if (m.find("EffectConfig") != m.end() && !m["EffectConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EffectConfig"].type()) {
+        GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EffectConfig"]));
+        effectConfig = make_shared<GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig>(model1);
+      }
+    }
+    if (m.find("InterveneType") != m.end() && !m["InterveneType"].empty()) {
+      interveneType = make_shared<long>(boost::any_cast<long>(m["InterveneType"]));
+    }
+    if (m.find("NamespaceList") != m.end() && !m["NamespaceList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NamespaceList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NamespaceList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      namespaceList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail() = default;
+};
+class GetInterveneRuleDetailResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail> interveneRuleDetail{};
+
+  GetInterveneRuleDetailResponseBodyData() {}
+
+  explicit GetInterveneRuleDetailResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (interveneRuleDetail) {
+      res["InterveneRuleDetail"] = interveneRuleDetail ? boost::any(interveneRuleDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InterveneRuleDetail") != m.end() && !m["InterveneRuleDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InterveneRuleDetail"].type()) {
+        GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InterveneRuleDetail"]));
+        interveneRuleDetail = make_shared<GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetInterveneRuleDetailResponseBodyData() = default;
+};
+class GetInterveneRuleDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetInterveneRuleDetailResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetInterveneRuleDetailResponseBody() {}
+
+  explicit GetInterveneRuleDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetInterveneRuleDetailResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetInterveneRuleDetailResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetInterveneRuleDetailResponseBody() = default;
+};
+class GetInterveneRuleDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetInterveneRuleDetailResponseBody> body{};
+
+  GetInterveneRuleDetailResponse() {}
+
+  explicit GetInterveneRuleDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetInterveneRuleDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetInterveneRuleDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetInterveneRuleDetailResponse() = default;
+};
+class GetInterveneTemplateFileUrlRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+
+  GetInterveneTemplateFileUrlRequest() {}
+
+  explicit GetInterveneTemplateFileUrlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+  }
+
+
+  virtual ~GetInterveneTemplateFileUrlRequest() = default;
+};
+class GetInterveneTemplateFileUrlResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> fileUrl{};
+
+  GetInterveneTemplateFileUrlResponseBodyData() {}
+
+  explicit GetInterveneTemplateFileUrlResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+  }
+
+
+  virtual ~GetInterveneTemplateFileUrlResponseBodyData() = default;
+};
+class GetInterveneTemplateFileUrlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetInterveneTemplateFileUrlResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetInterveneTemplateFileUrlResponseBody() {}
+
+  explicit GetInterveneTemplateFileUrlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetInterveneTemplateFileUrlResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetInterveneTemplateFileUrlResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetInterveneTemplateFileUrlResponseBody() = default;
+};
+class GetInterveneTemplateFileUrlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetInterveneTemplateFileUrlResponseBody> body{};
+
+  GetInterveneTemplateFileUrlResponse() {}
+
+  explicit GetInterveneTemplateFileUrlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetInterveneTemplateFileUrlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetInterveneTemplateFileUrlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetInterveneTemplateFileUrlResponse() = default;
+};
 class GetMaterialByIdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
@@ -4343,6 +5928,1181 @@ public:
 
 
   virtual ~GetPropertiesResponse() = default;
+};
+class ImportInterveneFileRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> docName{};
+  shared_ptr<string> fileKey{};
+  shared_ptr<string> fileUrl{};
+
+  ImportInterveneFileRequest() {}
+
+  explicit ImportInterveneFileRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (docName) {
+      res["DocName"] = boost::any(*docName);
+    }
+    if (fileKey) {
+      res["FileKey"] = boost::any(*fileKey);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("DocName") != m.end() && !m["DocName"].empty()) {
+      docName = make_shared<string>(boost::any_cast<string>(m["DocName"]));
+    }
+    if (m.find("FileKey") != m.end() && !m["FileKey"].empty()) {
+      fileKey = make_shared<string>(boost::any_cast<string>(m["FileKey"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+  }
+
+
+  virtual ~ImportInterveneFileRequest() = default;
+};
+class ImportInterveneFileResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> failIdList{};
+  shared_ptr<string> taskId{};
+
+  ImportInterveneFileResponseBodyData() {}
+
+  explicit ImportInterveneFileResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failIdList) {
+      res["FailIdList"] = boost::any(*failIdList);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailIdList") != m.end() && !m["FailIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FailIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FailIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      failIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~ImportInterveneFileResponseBodyData() = default;
+};
+class ImportInterveneFileResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ImportInterveneFileResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ImportInterveneFileResponseBody() {}
+
+  explicit ImportInterveneFileResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ImportInterveneFileResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ImportInterveneFileResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ImportInterveneFileResponseBody() = default;
+};
+class ImportInterveneFileResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ImportInterveneFileResponseBody> body{};
+
+  ImportInterveneFileResponse() {}
+
+  explicit ImportInterveneFileResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ImportInterveneFileResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ImportInterveneFileResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ImportInterveneFileResponse() = default;
+};
+class ImportInterveneFileAsyncRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> docName{};
+  shared_ptr<string> fileKey{};
+  shared_ptr<string> fileUrl{};
+
+  ImportInterveneFileAsyncRequest() {}
+
+  explicit ImportInterveneFileAsyncRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (docName) {
+      res["DocName"] = boost::any(*docName);
+    }
+    if (fileKey) {
+      res["FileKey"] = boost::any(*fileKey);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("DocName") != m.end() && !m["DocName"].empty()) {
+      docName = make_shared<string>(boost::any_cast<string>(m["DocName"]));
+    }
+    if (m.find("FileKey") != m.end() && !m["FileKey"].empty()) {
+      fileKey = make_shared<string>(boost::any_cast<string>(m["FileKey"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+  }
+
+
+  virtual ~ImportInterveneFileAsyncRequest() = default;
+};
+class ImportInterveneFileAsyncResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> failIdList{};
+  shared_ptr<string> taskId{};
+
+  ImportInterveneFileAsyncResponseBodyData() {}
+
+  explicit ImportInterveneFileAsyncResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failIdList) {
+      res["FailIdList"] = boost::any(*failIdList);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailIdList") != m.end() && !m["FailIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FailIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FailIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      failIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~ImportInterveneFileAsyncResponseBodyData() = default;
+};
+class ImportInterveneFileAsyncResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ImportInterveneFileAsyncResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ImportInterveneFileAsyncResponseBody() {}
+
+  explicit ImportInterveneFileAsyncResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ImportInterveneFileAsyncResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ImportInterveneFileAsyncResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ImportInterveneFileAsyncResponseBody() = default;
+};
+class ImportInterveneFileAsyncResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ImportInterveneFileAsyncResponseBody> body{};
+
+  ImportInterveneFileAsyncResponse() {}
+
+  explicit ImportInterveneFileAsyncResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ImportInterveneFileAsyncResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ImportInterveneFileAsyncResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ImportInterveneFileAsyncResponse() = default;
+};
+class InsertInterveneGlobalReplyRequestReplyMessagList : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> replyType{};
+
+  InsertInterveneGlobalReplyRequestReplyMessagList() {}
+
+  explicit InsertInterveneGlobalReplyRequestReplyMessagList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (replyType) {
+      res["ReplyType"] = boost::any(*replyType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("ReplyType") != m.end() && !m["ReplyType"].empty()) {
+      replyType = make_shared<string>(boost::any_cast<string>(m["ReplyType"]));
+    }
+  }
+
+
+  virtual ~InsertInterveneGlobalReplyRequestReplyMessagList() = default;
+};
+class InsertInterveneGlobalReplyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<vector<InsertInterveneGlobalReplyRequestReplyMessagList>> replyMessagList{};
+
+  InsertInterveneGlobalReplyRequest() {}
+
+  explicit InsertInterveneGlobalReplyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (replyMessagList) {
+      vector<boost::any> temp1;
+      for(auto item1:*replyMessagList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ReplyMessagList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("ReplyMessagList") != m.end() && !m["ReplyMessagList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ReplyMessagList"].type()) {
+        vector<InsertInterveneGlobalReplyRequestReplyMessagList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ReplyMessagList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InsertInterveneGlobalReplyRequestReplyMessagList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        replyMessagList = make_shared<vector<InsertInterveneGlobalReplyRequestReplyMessagList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~InsertInterveneGlobalReplyRequest() = default;
+};
+class InsertInterveneGlobalReplyShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> replyMessagListShrink{};
+
+  InsertInterveneGlobalReplyShrinkRequest() {}
+
+  explicit InsertInterveneGlobalReplyShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (replyMessagListShrink) {
+      res["ReplyMessagList"] = boost::any(*replyMessagListShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("ReplyMessagList") != m.end() && !m["ReplyMessagList"].empty()) {
+      replyMessagListShrink = make_shared<string>(boost::any_cast<string>(m["ReplyMessagList"]));
+    }
+  }
+
+
+  virtual ~InsertInterveneGlobalReplyShrinkRequest() = default;
+};
+class InsertInterveneGlobalReplyResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> failIdList{};
+  shared_ptr<string> taskId{};
+
+  InsertInterveneGlobalReplyResponseBodyData() {}
+
+  explicit InsertInterveneGlobalReplyResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failIdList) {
+      res["FailIdList"] = boost::any(*failIdList);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailIdList") != m.end() && !m["FailIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FailIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FailIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      failIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~InsertInterveneGlobalReplyResponseBodyData() = default;
+};
+class InsertInterveneGlobalReplyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<InsertInterveneGlobalReplyResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  InsertInterveneGlobalReplyResponseBody() {}
+
+  explicit InsertInterveneGlobalReplyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        InsertInterveneGlobalReplyResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<InsertInterveneGlobalReplyResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~InsertInterveneGlobalReplyResponseBody() = default;
+};
+class InsertInterveneGlobalReplyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<InsertInterveneGlobalReplyResponseBody> body{};
+
+  InsertInterveneGlobalReplyResponse() {}
+
+  explicit InsertInterveneGlobalReplyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        InsertInterveneGlobalReplyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<InsertInterveneGlobalReplyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InsertInterveneGlobalReplyResponse() = default;
+};
+class InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> answerType{};
+  shared_ptr<string> message{};
+  shared_ptr<string> namespace_{};
+
+  InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig() {}
+
+  explicit InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerType) {
+      res["AnswerType"] = boost::any(*answerType);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerType") != m.end() && !m["AnswerType"].empty()) {
+      answerType = make_shared<long>(boost::any_cast<long>(m["AnswerType"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig() = default;
+};
+class InsertInterveneRuleRequestInterveneRuleConfigEffectConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> effectType{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> startTime{};
+
+  InsertInterveneRuleRequestInterveneRuleConfigEffectConfig() {}
+
+  explicit InsertInterveneRuleRequestInterveneRuleConfigEffectConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (effectType) {
+      res["EffectType"] = boost::any(*effectType);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EffectType") != m.end() && !m["EffectType"].empty()) {
+      effectType = make_shared<long>(boost::any_cast<long>(m["EffectType"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~InsertInterveneRuleRequestInterveneRuleConfigEffectConfig() = default;
+};
+class InsertInterveneRuleRequestInterveneRuleConfigInterveneConfigList : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<long> operationType{};
+  shared_ptr<string> query{};
+
+  InsertInterveneRuleRequestInterveneRuleConfigInterveneConfigList() {}
+
+  explicit InsertInterveneRuleRequestInterveneRuleConfigInterveneConfigList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (operationType) {
+      res["OperationType"] = boost::any(*operationType);
+    }
+    if (query) {
+      res["Query"] = boost::any(*query);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("OperationType") != m.end() && !m["OperationType"].empty()) {
+      operationType = make_shared<long>(boost::any_cast<long>(m["OperationType"]));
+    }
+    if (m.find("Query") != m.end() && !m["Query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
+  }
+
+
+  virtual ~InsertInterveneRuleRequestInterveneRuleConfigInterveneConfigList() = default;
+};
+class InsertInterveneRuleRequestInterveneRuleConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig>> answerConfig{};
+  shared_ptr<InsertInterveneRuleRequestInterveneRuleConfigEffectConfig> effectConfig{};
+  shared_ptr<vector<InsertInterveneRuleRequestInterveneRuleConfigInterveneConfigList>> interveneConfigList{};
+  shared_ptr<long> interveneType{};
+  shared_ptr<vector<string>> namespaceList{};
+  shared_ptr<long> ruleId{};
+  shared_ptr<string> ruleName{};
+
+  InsertInterveneRuleRequestInterveneRuleConfig() {}
+
+  explicit InsertInterveneRuleRequestInterveneRuleConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerConfig) {
+      vector<boost::any> temp1;
+      for(auto item1:*answerConfig){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AnswerConfig"] = boost::any(temp1);
+    }
+    if (effectConfig) {
+      res["EffectConfig"] = effectConfig ? boost::any(effectConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (interveneConfigList) {
+      vector<boost::any> temp1;
+      for(auto item1:*interveneConfigList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InterveneConfigList"] = boost::any(temp1);
+    }
+    if (interveneType) {
+      res["InterveneType"] = boost::any(*interveneType);
+    }
+    if (namespaceList) {
+      res["NamespaceList"] = boost::any(*namespaceList);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerConfig") != m.end() && !m["AnswerConfig"].empty()) {
+      if (typeid(vector<boost::any>) == m["AnswerConfig"].type()) {
+        vector<InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AnswerConfig"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        answerConfig = make_shared<vector<InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig>>(expect1);
+      }
+    }
+    if (m.find("EffectConfig") != m.end() && !m["EffectConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EffectConfig"].type()) {
+        InsertInterveneRuleRequestInterveneRuleConfigEffectConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EffectConfig"]));
+        effectConfig = make_shared<InsertInterveneRuleRequestInterveneRuleConfigEffectConfig>(model1);
+      }
+    }
+    if (m.find("InterveneConfigList") != m.end() && !m["InterveneConfigList"].empty()) {
+      if (typeid(vector<boost::any>) == m["InterveneConfigList"].type()) {
+        vector<InsertInterveneRuleRequestInterveneRuleConfigInterveneConfigList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InterveneConfigList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InsertInterveneRuleRequestInterveneRuleConfigInterveneConfigList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        interveneConfigList = make_shared<vector<InsertInterveneRuleRequestInterveneRuleConfigInterveneConfigList>>(expect1);
+      }
+    }
+    if (m.find("InterveneType") != m.end() && !m["InterveneType"].empty()) {
+      interveneType = make_shared<long>(boost::any_cast<long>(m["InterveneType"]));
+    }
+    if (m.find("NamespaceList") != m.end() && !m["NamespaceList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NamespaceList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NamespaceList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      namespaceList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~InsertInterveneRuleRequestInterveneRuleConfig() = default;
+};
+class InsertInterveneRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<InsertInterveneRuleRequestInterveneRuleConfig> interveneRuleConfig{};
+
+  InsertInterveneRuleRequest() {}
+
+  explicit InsertInterveneRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (interveneRuleConfig) {
+      res["InterveneRuleConfig"] = interveneRuleConfig ? boost::any(interveneRuleConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("InterveneRuleConfig") != m.end() && !m["InterveneRuleConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InterveneRuleConfig"].type()) {
+        InsertInterveneRuleRequestInterveneRuleConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InterveneRuleConfig"]));
+        interveneRuleConfig = make_shared<InsertInterveneRuleRequestInterveneRuleConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InsertInterveneRuleRequest() = default;
+};
+class InsertInterveneRuleShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> interveneRuleConfigShrink{};
+
+  InsertInterveneRuleShrinkRequest() {}
+
+  explicit InsertInterveneRuleShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (interveneRuleConfigShrink) {
+      res["InterveneRuleConfig"] = boost::any(*interveneRuleConfigShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("InterveneRuleConfig") != m.end() && !m["InterveneRuleConfig"].empty()) {
+      interveneRuleConfigShrink = make_shared<string>(boost::any_cast<string>(m["InterveneRuleConfig"]));
+    }
+  }
+
+
+  virtual ~InsertInterveneRuleShrinkRequest() = default;
+};
+class InsertInterveneRuleResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> ruleId{};
+
+  InsertInterveneRuleResponseBodyData() {}
+
+  explicit InsertInterveneRuleResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~InsertInterveneRuleResponseBodyData() = default;
+};
+class InsertInterveneRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<InsertInterveneRuleResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  InsertInterveneRuleResponseBody() {}
+
+  explicit InsertInterveneRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        InsertInterveneRuleResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<InsertInterveneRuleResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~InsertInterveneRuleResponseBody() = default;
+};
+class InsertInterveneRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<InsertInterveneRuleResponseBody> body{};
+
+  InsertInterveneRuleResponse() {}
+
+  explicit InsertInterveneRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        InsertInterveneRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<InsertInterveneRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InsertInterveneRuleResponse() = default;
 };
 class ListAsyncTasksRequest : public Darabonba::Model {
 public:
@@ -6260,6 +9020,1156 @@ public:
 
 
   virtual ~ListHotNewsWithTypeResponse() = default;
+};
+class ListInterveneCntRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<long> pageSize{};
+
+  ListInterveneCntRequest() {}
+
+  explicit ListInterveneCntRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListInterveneCntRequest() = default;
+};
+class ListInterveneCntResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<boost::any>> cntList{};
+  shared_ptr<long> pageCnt{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<long> pageSize{};
+
+  ListInterveneCntResponseBodyData() {}
+
+  explicit ListInterveneCntResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cntList) {
+      res["CntList"] = boost::any(*cntList);
+    }
+    if (pageCnt) {
+      res["PageCnt"] = boost::any(*pageCnt);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CntList") != m.end() && !m["CntList"].empty()) {
+      vector<boost::any> toVec1;
+      if (typeid(vector<boost::any>) == m["CntList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CntList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<boost::any>(item));
+        }
+      }
+      cntList = make_shared<vector<boost::any>>(toVec1);
+    }
+    if (m.find("PageCnt") != m.end() && !m["PageCnt"].empty()) {
+      pageCnt = make_shared<long>(boost::any_cast<long>(m["PageCnt"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListInterveneCntResponseBodyData() = default;
+};
+class ListInterveneCntResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ListInterveneCntResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListInterveneCntResponseBody() {}
+
+  explicit ListInterveneCntResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListInterveneCntResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListInterveneCntResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListInterveneCntResponseBody() = default;
+};
+class ListInterveneCntResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListInterveneCntResponseBody> body{};
+
+  ListInterveneCntResponse() {}
+
+  explicit ListInterveneCntResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListInterveneCntResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListInterveneCntResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListInterveneCntResponse() = default;
+};
+class ListInterveneImportTasksRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<long> pageSize{};
+
+  ListInterveneImportTasksRequest() {}
+
+  explicit ListInterveneImportTasksRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListInterveneImportTasksRequest() = default;
+};
+class ListInterveneImportTasksResponseBodyDataStatusList : public Darabonba::Model {
+public:
+  shared_ptr<string> msg{};
+  shared_ptr<long> percentage{};
+  shared_ptr<long> status{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskName{};
+
+  ListInterveneImportTasksResponseBodyDataStatusList() {}
+
+  explicit ListInterveneImportTasksResponseBodyDataStatusList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskName) {
+      res["TaskName"] = boost::any(*taskName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
+      taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
+    }
+  }
+
+
+  virtual ~ListInterveneImportTasksResponseBodyDataStatusList() = default;
+};
+class ListInterveneImportTasksResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> pageIndex{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<ListInterveneImportTasksResponseBodyDataStatusList>> statusList{};
+  shared_ptr<long> totalSize{};
+
+  ListInterveneImportTasksResponseBodyData() {}
+
+  explicit ListInterveneImportTasksResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (statusList) {
+      vector<boost::any> temp1;
+      for(auto item1:*statusList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["StatusList"] = boost::any(temp1);
+    }
+    if (totalSize) {
+      res["TotalSize"] = boost::any(*totalSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("StatusList") != m.end() && !m["StatusList"].empty()) {
+      if (typeid(vector<boost::any>) == m["StatusList"].type()) {
+        vector<ListInterveneImportTasksResponseBodyDataStatusList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["StatusList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListInterveneImportTasksResponseBodyDataStatusList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        statusList = make_shared<vector<ListInterveneImportTasksResponseBodyDataStatusList>>(expect1);
+      }
+    }
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
+    }
+  }
+
+
+  virtual ~ListInterveneImportTasksResponseBodyData() = default;
+};
+class ListInterveneImportTasksResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ListInterveneImportTasksResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListInterveneImportTasksResponseBody() {}
+
+  explicit ListInterveneImportTasksResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListInterveneImportTasksResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListInterveneImportTasksResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListInterveneImportTasksResponseBody() = default;
+};
+class ListInterveneImportTasksResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListInterveneImportTasksResponseBody> body{};
+
+  ListInterveneImportTasksResponse() {}
+
+  explicit ListInterveneImportTasksResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListInterveneImportTasksResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListInterveneImportTasksResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListInterveneImportTasksResponse() = default;
+};
+class ListInterveneRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<long> pageSize{};
+
+  ListInterveneRulesRequest() {}
+
+  explicit ListInterveneRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListInterveneRulesRequest() = default;
+};
+class ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> answerType{};
+  shared_ptr<string> message{};
+  shared_ptr<string> namespace_{};
+
+  ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig() {}
+
+  explicit ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerType) {
+      res["AnswerType"] = boost::any(*answerType);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerType") != m.end() && !m["AnswerType"].empty()) {
+      answerType = make_shared<long>(boost::any_cast<long>(m["AnswerType"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig() = default;
+};
+class ListInterveneRulesResponseBodyDataInterveneRuleList : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig>> answerConfig{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> effectTime{};
+  shared_ptr<long> interveneType{};
+  shared_ptr<vector<string>> namespaceList{};
+  shared_ptr<long> ruleId{};
+  shared_ptr<string> ruleName{};
+
+  ListInterveneRulesResponseBodyDataInterveneRuleList() {}
+
+  explicit ListInterveneRulesResponseBodyDataInterveneRuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerConfig) {
+      vector<boost::any> temp1;
+      for(auto item1:*answerConfig){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AnswerConfig"] = boost::any(temp1);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (effectTime) {
+      res["EffectTime"] = boost::any(*effectTime);
+    }
+    if (interveneType) {
+      res["InterveneType"] = boost::any(*interveneType);
+    }
+    if (namespaceList) {
+      res["NamespaceList"] = boost::any(*namespaceList);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerConfig") != m.end() && !m["AnswerConfig"].empty()) {
+      if (typeid(vector<boost::any>) == m["AnswerConfig"].type()) {
+        vector<ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AnswerConfig"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        answerConfig = make_shared<vector<ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig>>(expect1);
+      }
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("EffectTime") != m.end() && !m["EffectTime"].empty()) {
+      effectTime = make_shared<string>(boost::any_cast<string>(m["EffectTime"]));
+    }
+    if (m.find("InterveneType") != m.end() && !m["InterveneType"].empty()) {
+      interveneType = make_shared<long>(boost::any_cast<long>(m["InterveneType"]));
+    }
+    if (m.find("NamespaceList") != m.end() && !m["NamespaceList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NamespaceList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NamespaceList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      namespaceList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~ListInterveneRulesResponseBodyDataInterveneRuleList() = default;
+};
+class ListInterveneRulesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<vector<ListInterveneRulesResponseBodyDataInterveneRuleList>> interveneRuleList{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<long> pageSize{};
+
+  ListInterveneRulesResponseBodyData() {}
+
+  explicit ListInterveneRulesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (interveneRuleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*interveneRuleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InterveneRuleList"] = boost::any(temp1);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("InterveneRuleList") != m.end() && !m["InterveneRuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["InterveneRuleList"].type()) {
+        vector<ListInterveneRulesResponseBodyDataInterveneRuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InterveneRuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListInterveneRulesResponseBodyDataInterveneRuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        interveneRuleList = make_shared<vector<ListInterveneRulesResponseBodyDataInterveneRuleList>>(expect1);
+      }
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListInterveneRulesResponseBodyData() = default;
+};
+class ListInterveneRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ListInterveneRulesResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListInterveneRulesResponseBody() {}
+
+  explicit ListInterveneRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListInterveneRulesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListInterveneRulesResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListInterveneRulesResponseBody() = default;
+};
+class ListInterveneRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListInterveneRulesResponseBody> body{};
+
+  ListInterveneRulesResponse() {}
+
+  explicit ListInterveneRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListInterveneRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListInterveneRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListInterveneRulesResponse() = default;
+};
+class ListIntervenesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<long> interveneType{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> query{};
+  shared_ptr<long> ruleId{};
+
+  ListIntervenesRequest() {}
+
+  explicit ListIntervenesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (interveneType) {
+      res["InterveneType"] = boost::any(*interveneType);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (query) {
+      res["Query"] = boost::any(*query);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("InterveneType") != m.end() && !m["InterveneType"].empty()) {
+      interveneType = make_shared<long>(boost::any_cast<long>(m["InterveneType"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Query") != m.end() && !m["Query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~ListIntervenesRequest() = default;
+};
+class ListIntervenesResponseBodyDataInterveneList : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> query{};
+
+  ListIntervenesResponseBodyDataInterveneList() {}
+
+  explicit ListIntervenesResponseBodyDataInterveneList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (query) {
+      res["Query"] = boost::any(*query);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Query") != m.end() && !m["Query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
+  }
+
+
+  virtual ~ListIntervenesResponseBodyDataInterveneList() = default;
+};
+class ListIntervenesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListIntervenesResponseBodyDataInterveneList>> interveneList{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalSize{};
+
+  ListIntervenesResponseBodyData() {}
+
+  explicit ListIntervenesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (interveneList) {
+      vector<boost::any> temp1;
+      for(auto item1:*interveneList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InterveneList"] = boost::any(temp1);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalSize) {
+      res["TotalSize"] = boost::any(*totalSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InterveneList") != m.end() && !m["InterveneList"].empty()) {
+      if (typeid(vector<boost::any>) == m["InterveneList"].type()) {
+        vector<ListIntervenesResponseBodyDataInterveneList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InterveneList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIntervenesResponseBodyDataInterveneList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        interveneList = make_shared<vector<ListIntervenesResponseBodyDataInterveneList>>(expect1);
+      }
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
+    }
+  }
+
+
+  virtual ~ListIntervenesResponseBodyData() = default;
+};
+class ListIntervenesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ListIntervenesResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListIntervenesResponseBody() {}
+
+  explicit ListIntervenesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListIntervenesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListIntervenesResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListIntervenesResponseBody() = default;
+};
+class ListIntervenesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListIntervenesResponseBody> body{};
+
+  ListIntervenesResponse() {}
+
+  explicit ListIntervenesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListIntervenesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListIntervenesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListIntervenesResponse() = default;
 };
 class ListMaterialDocumentsRequest : public Darabonba::Model {
 public:
@@ -9320,16 +13230,22 @@ public:
                      shared_ptr<string> endpoint);
   CancelAsyncTaskResponse cancelAsyncTaskWithOptions(shared_ptr<CancelAsyncTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelAsyncTaskResponse cancelAsyncTask(shared_ptr<CancelAsyncTaskRequest> request);
+  ClearIntervenesResponse clearIntervenesWithOptions(shared_ptr<ClearIntervenesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ClearIntervenesResponse clearIntervenes(shared_ptr<ClearIntervenesRequest> request);
   CreateGeneratedContentResponse createGeneratedContentWithOptions(shared_ptr<CreateGeneratedContentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateGeneratedContentResponse createGeneratedContent(shared_ptr<CreateGeneratedContentRequest> request);
   CreateTokenResponse createTokenWithOptions(shared_ptr<CreateTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTokenResponse createToken(shared_ptr<CreateTokenRequest> request);
   DeleteGeneratedContentResponse deleteGeneratedContentWithOptions(shared_ptr<DeleteGeneratedContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteGeneratedContentResponse deleteGeneratedContent(shared_ptr<DeleteGeneratedContentRequest> request);
+  DeleteInterveneRuleResponse deleteInterveneRuleWithOptions(shared_ptr<DeleteInterveneRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteInterveneRuleResponse deleteInterveneRule(shared_ptr<DeleteInterveneRuleRequest> request);
   DeleteMaterialByIdResponse deleteMaterialByIdWithOptions(shared_ptr<DeleteMaterialByIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteMaterialByIdResponse deleteMaterialById(shared_ptr<DeleteMaterialByIdRequest> request);
   ExportGeneratedContentResponse exportGeneratedContentWithOptions(shared_ptr<ExportGeneratedContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExportGeneratedContentResponse exportGeneratedContent(shared_ptr<ExportGeneratedContentRequest> request);
+  ExportIntervenesResponse exportIntervenesWithOptions(shared_ptr<ExportIntervenesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExportIntervenesResponse exportIntervenes(shared_ptr<ExportIntervenesRequest> request);
   FeedbackDialogueResponse feedbackDialogueWithOptions(shared_ptr<FeedbackDialogueRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FeedbackDialogueResponse feedbackDialogue(shared_ptr<FeedbackDialogueRequest> request);
   FetchImageTaskResponse fetchImageTaskWithOptions(shared_ptr<FetchImageTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9346,10 +13262,26 @@ public:
   GetDataSourceOrderConfigResponse getDataSourceOrderConfig(shared_ptr<GetDataSourceOrderConfigRequest> request);
   GetGeneratedContentResponse getGeneratedContentWithOptions(shared_ptr<GetGeneratedContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetGeneratedContentResponse getGeneratedContent(shared_ptr<GetGeneratedContentRequest> request);
+  GetInterveneGlobalReplyResponse getInterveneGlobalReplyWithOptions(shared_ptr<GetInterveneGlobalReplyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetInterveneGlobalReplyResponse getInterveneGlobalReply(shared_ptr<GetInterveneGlobalReplyRequest> request);
+  GetInterveneImportTaskInfoResponse getInterveneImportTaskInfoWithOptions(shared_ptr<GetInterveneImportTaskInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetInterveneImportTaskInfoResponse getInterveneImportTaskInfo(shared_ptr<GetInterveneImportTaskInfoRequest> request);
+  GetInterveneRuleDetailResponse getInterveneRuleDetailWithOptions(shared_ptr<GetInterveneRuleDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetInterveneRuleDetailResponse getInterveneRuleDetail(shared_ptr<GetInterveneRuleDetailRequest> request);
+  GetInterveneTemplateFileUrlResponse getInterveneTemplateFileUrlWithOptions(shared_ptr<GetInterveneTemplateFileUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetInterveneTemplateFileUrlResponse getInterveneTemplateFileUrl(shared_ptr<GetInterveneTemplateFileUrlRequest> request);
   GetMaterialByIdResponse getMaterialByIdWithOptions(shared_ptr<GetMaterialByIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMaterialByIdResponse getMaterialById(shared_ptr<GetMaterialByIdRequest> request);
   GetPropertiesResponse getPropertiesWithOptions(shared_ptr<GetPropertiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPropertiesResponse getProperties(shared_ptr<GetPropertiesRequest> request);
+  ImportInterveneFileResponse importInterveneFileWithOptions(shared_ptr<ImportInterveneFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ImportInterveneFileResponse importInterveneFile(shared_ptr<ImportInterveneFileRequest> request);
+  ImportInterveneFileAsyncResponse importInterveneFileAsyncWithOptions(shared_ptr<ImportInterveneFileAsyncRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ImportInterveneFileAsyncResponse importInterveneFileAsync(shared_ptr<ImportInterveneFileAsyncRequest> request);
+  InsertInterveneGlobalReplyResponse insertInterveneGlobalReplyWithOptions(shared_ptr<InsertInterveneGlobalReplyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InsertInterveneGlobalReplyResponse insertInterveneGlobalReply(shared_ptr<InsertInterveneGlobalReplyRequest> request);
+  InsertInterveneRuleResponse insertInterveneRuleWithOptions(shared_ptr<InsertInterveneRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InsertInterveneRuleResponse insertInterveneRule(shared_ptr<InsertInterveneRuleRequest> request);
   ListAsyncTasksResponse listAsyncTasksWithOptions(shared_ptr<ListAsyncTasksRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAsyncTasksResponse listAsyncTasks(shared_ptr<ListAsyncTasksRequest> request);
   ListBuildConfigsResponse listBuildConfigsWithOptions(shared_ptr<ListBuildConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9360,6 +13292,14 @@ public:
   ListGeneratedContentsResponse listGeneratedContents(shared_ptr<ListGeneratedContentsRequest> request);
   ListHotNewsWithTypeResponse listHotNewsWithTypeWithOptions(shared_ptr<ListHotNewsWithTypeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListHotNewsWithTypeResponse listHotNewsWithType(shared_ptr<ListHotNewsWithTypeRequest> request);
+  ListInterveneCntResponse listInterveneCntWithOptions(shared_ptr<ListInterveneCntRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListInterveneCntResponse listInterveneCnt(shared_ptr<ListInterveneCntRequest> request);
+  ListInterveneImportTasksResponse listInterveneImportTasksWithOptions(shared_ptr<ListInterveneImportTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListInterveneImportTasksResponse listInterveneImportTasks(shared_ptr<ListInterveneImportTasksRequest> request);
+  ListInterveneRulesResponse listInterveneRulesWithOptions(shared_ptr<ListInterveneRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListInterveneRulesResponse listInterveneRules(shared_ptr<ListInterveneRulesRequest> request);
+  ListIntervenesResponse listIntervenesWithOptions(shared_ptr<ListIntervenesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListIntervenesResponse listIntervenes(shared_ptr<ListIntervenesRequest> request);
   ListMaterialDocumentsResponse listMaterialDocumentsWithOptions(shared_ptr<ListMaterialDocumentsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListMaterialDocumentsResponse listMaterialDocuments(shared_ptr<ListMaterialDocumentsRequest> request);
   ListVersionsResponse listVersionsWithOptions(shared_ptr<ListVersionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
