@@ -108573,6 +108573,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> targetServer{};
+  shared_ptr<string> username{};
 
   StartTerminalSessionRequest() {}
 
@@ -108611,6 +108612,9 @@ public:
     if (targetServer) {
       res["TargetServer"] = boost::any(*targetServer);
     }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
     return res;
   }
 
@@ -108648,6 +108652,9 @@ public:
     }
     if (m.find("TargetServer") != m.end() && !m["TargetServer"].empty()) {
       targetServer = make_shared<string>(boost::any_cast<string>(m["TargetServer"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
     }
   }
 
