@@ -525,6 +525,7 @@ public:
 };
 class CreateTaskResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> meetingJoinUrl{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskKey{};
 
@@ -538,6 +539,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (meetingJoinUrl) {
+      res["MeetingJoinUrl"] = boost::any(*meetingJoinUrl);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
@@ -548,6 +552,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MeetingJoinUrl") != m.end() && !m["MeetingJoinUrl"].empty()) {
+      meetingJoinUrl = make_shared<string>(boost::any_cast<string>(m["MeetingJoinUrl"]));
+    }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
