@@ -49565,6 +49565,526 @@ public:
 
   virtual ~ListSilencePoliciesResponse() = default;
 };
+class ListSyntheticDetailRequestAdvancedFilters : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> opType{};
+  shared_ptr<boost::any> value{};
+
+  ListSyntheticDetailRequestAdvancedFilters() {}
+
+  explicit ListSyntheticDetailRequestAdvancedFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (opType) {
+      res["OpType"] = boost::any(*opType);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("OpType") != m.end() && !m["OpType"].empty()) {
+      opType = make_shared<string>(boost::any_cast<string>(m["OpType"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<boost::any>(boost::any_cast<boost::any>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListSyntheticDetailRequestAdvancedFilters() = default;
+};
+class ListSyntheticDetailRequestExactFilters : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> opType{};
+  shared_ptr<boost::any> value{};
+
+  ListSyntheticDetailRequestExactFilters() {}
+
+  explicit ListSyntheticDetailRequestExactFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (opType) {
+      res["OpType"] = boost::any(*opType);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("OpType") != m.end() && !m["OpType"].empty()) {
+      opType = make_shared<string>(boost::any_cast<string>(m["OpType"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<boost::any>(boost::any_cast<boost::any>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListSyntheticDetailRequestExactFilters() = default;
+};
+class ListSyntheticDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListSyntheticDetailRequestAdvancedFilters>> advancedFilters{};
+  shared_ptr<string> category{};
+  shared_ptr<string> detail{};
+  shared_ptr<long> endTime{};
+  shared_ptr<vector<ListSyntheticDetailRequestExactFilters>> exactFilters{};
+  shared_ptr<map<string, string>> filters{};
+  shared_ptr<string> order{};
+  shared_ptr<string> orderBy{};
+  shared_ptr<long> page{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> syntheticType{};
+
+  ListSyntheticDetailRequest() {}
+
+  explicit ListSyntheticDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (advancedFilters) {
+      vector<boost::any> temp1;
+      for(auto item1:*advancedFilters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AdvancedFilters"] = boost::any(temp1);
+    }
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (detail) {
+      res["Detail"] = boost::any(*detail);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (exactFilters) {
+      vector<boost::any> temp1;
+      for(auto item1:*exactFilters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExactFilters"] = boost::any(temp1);
+    }
+    if (filters) {
+      res["Filters"] = boost::any(*filters);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
+    if (page) {
+      res["Page"] = boost::any(*page);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (syntheticType) {
+      res["SyntheticType"] = boost::any(*syntheticType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdvancedFilters") != m.end() && !m["AdvancedFilters"].empty()) {
+      if (typeid(vector<boost::any>) == m["AdvancedFilters"].type()) {
+        vector<ListSyntheticDetailRequestAdvancedFilters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AdvancedFilters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSyntheticDetailRequestAdvancedFilters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        advancedFilters = make_shared<vector<ListSyntheticDetailRequestAdvancedFilters>>(expect1);
+      }
+    }
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("Detail") != m.end() && !m["Detail"].empty()) {
+      detail = make_shared<string>(boost::any_cast<string>(m["Detail"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("ExactFilters") != m.end() && !m["ExactFilters"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExactFilters"].type()) {
+        vector<ListSyntheticDetailRequestExactFilters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExactFilters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSyntheticDetailRequestExactFilters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        exactFilters = make_shared<vector<ListSyntheticDetailRequestExactFilters>>(expect1);
+      }
+    }
+    if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Filters"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      filters = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
+    }
+    if (m.find("Page") != m.end() && !m["Page"].empty()) {
+      page = make_shared<long>(boost::any_cast<long>(m["Page"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("SyntheticType") != m.end() && !m["SyntheticType"].empty()) {
+      syntheticType = make_shared<long>(boost::any_cast<long>(m["SyntheticType"]));
+    }
+  }
+
+
+  virtual ~ListSyntheticDetailRequest() = default;
+};
+class ListSyntheticDetailShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> advancedFiltersShrink{};
+  shared_ptr<string> category{};
+  shared_ptr<string> detail{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> exactFiltersShrink{};
+  shared_ptr<string> filtersShrink{};
+  shared_ptr<string> order{};
+  shared_ptr<string> orderBy{};
+  shared_ptr<long> page{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> syntheticType{};
+
+  ListSyntheticDetailShrinkRequest() {}
+
+  explicit ListSyntheticDetailShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (advancedFiltersShrink) {
+      res["AdvancedFilters"] = boost::any(*advancedFiltersShrink);
+    }
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (detail) {
+      res["Detail"] = boost::any(*detail);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (exactFiltersShrink) {
+      res["ExactFilters"] = boost::any(*exactFiltersShrink);
+    }
+    if (filtersShrink) {
+      res["Filters"] = boost::any(*filtersShrink);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
+    if (page) {
+      res["Page"] = boost::any(*page);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (syntheticType) {
+      res["SyntheticType"] = boost::any(*syntheticType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdvancedFilters") != m.end() && !m["AdvancedFilters"].empty()) {
+      advancedFiltersShrink = make_shared<string>(boost::any_cast<string>(m["AdvancedFilters"]));
+    }
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("Detail") != m.end() && !m["Detail"].empty()) {
+      detail = make_shared<string>(boost::any_cast<string>(m["Detail"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("ExactFilters") != m.end() && !m["ExactFilters"].empty()) {
+      exactFiltersShrink = make_shared<string>(boost::any_cast<string>(m["ExactFilters"]));
+    }
+    if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
+      filtersShrink = make_shared<string>(boost::any_cast<string>(m["Filters"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
+    }
+    if (m.find("Page") != m.end() && !m["Page"].empty()) {
+      page = make_shared<long>(boost::any_cast<long>(m["Page"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("SyntheticType") != m.end() && !m["SyntheticType"].empty()) {
+      syntheticType = make_shared<long>(boost::any_cast<long>(m["SyntheticType"]));
+    }
+  }
+
+
+  virtual ~ListSyntheticDetailShrinkRequest() = default;
+};
+class ListSyntheticDetailResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<map<string, boost::any>>> items{};
+  shared_ptr<long> page{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> taskCreateTime{};
+  shared_ptr<long> total{};
+
+  ListSyntheticDetailResponseBodyData() {}
+
+  explicit ListSyntheticDetailResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (items) {
+      res["Items"] = boost::any(*items);
+    }
+    if (page) {
+      res["Page"] = boost::any(*page);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (taskCreateTime) {
+      res["TaskCreateTime"] = boost::any(*taskCreateTime);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Items"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      items = make_shared<vector<map<string, boost::any>>>(toVec1);
+    }
+    if (m.find("Page") != m.end() && !m["Page"].empty()) {
+      page = make_shared<long>(boost::any_cast<long>(m["Page"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TaskCreateTime") != m.end() && !m["TaskCreateTime"].empty()) {
+      taskCreateTime = make_shared<long>(boost::any_cast<long>(m["TaskCreateTime"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSyntheticDetailResponseBodyData() = default;
+};
+class ListSyntheticDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<ListSyntheticDetailResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  ListSyntheticDetailResponseBody() {}
+
+  explicit ListSyntheticDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListSyntheticDetailResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListSyntheticDetailResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListSyntheticDetailResponseBody() = default;
+};
+class ListSyntheticDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListSyntheticDetailResponseBody> body{};
+
+  ListSyntheticDetailResponse() {}
+
+  explicit ListSyntheticDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSyntheticDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSyntheticDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSyntheticDetailResponse() = default;
+};
 class ListTimingSyntheticTasksRequestSearch : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -65947,6 +66467,8 @@ public:
   ListScenarioResponse listScenario(shared_ptr<ListScenarioRequest> request);
   ListSilencePoliciesResponse listSilencePoliciesWithOptions(shared_ptr<ListSilencePoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSilencePoliciesResponse listSilencePolicies(shared_ptr<ListSilencePoliciesRequest> request);
+  ListSyntheticDetailResponse listSyntheticDetailWithOptions(shared_ptr<ListSyntheticDetailRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSyntheticDetailResponse listSyntheticDetail(shared_ptr<ListSyntheticDetailRequest> request);
   ListTimingSyntheticTasksResponse listTimingSyntheticTasksWithOptions(shared_ptr<ListTimingSyntheticTasksRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTimingSyntheticTasksResponse listTimingSyntheticTasks(shared_ptr<ListTimingSyntheticTasksRequest> request);
   ListTraceAppsResponse listTraceAppsWithOptions(shared_ptr<ListTraceAppsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
