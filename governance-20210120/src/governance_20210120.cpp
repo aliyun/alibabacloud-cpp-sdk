@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -47,6 +46,9 @@ EnrollAccountResponse Alibabacloud_Governance20210120::Client::enrollAccountWith
   if (!Darabonba_Util::Client::isUnset<long>(request->accountUid)) {
     query->insert(pair<string, long>("AccountUid", *request->accountUid));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->baselineId)) {
+    query->insert(pair<string, string>("BaselineId", *request->baselineId));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<EnrollAccountRequestBaselineItems>>(request->baselineItems)) {
     query->insert(pair<string, vector<EnrollAccountRequestBaselineItems>>("BaselineItems", *request->baselineItems));
   }
@@ -61,6 +63,9 @@ EnrollAccountResponse Alibabacloud_Governance20210120::Client::enrollAccountWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resellAccountType)) {
+    query->insert(pair<string, string>("ResellAccountType", *request->resellAccountType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -82,6 +87,37 @@ EnrollAccountResponse Alibabacloud_Governance20210120::Client::enrollAccountWith
 EnrollAccountResponse Alibabacloud_Governance20210120::Client::enrollAccount(shared_ptr<EnrollAccountRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return enrollAccountWithOptions(request, runtime);
+}
+
+GetAccountFactoryBaselineResponse Alibabacloud_Governance20210120::Client::getAccountFactoryBaselineWithOptions(shared_ptr<GetAccountFactoryBaselineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->baselineId)) {
+    query->insert(pair<string, string>("BaselineId", *request->baselineId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAccountFactoryBaseline"))},
+    {"version", boost::any(string("2021-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAccountFactoryBaselineResponse(callApi(params, req, runtime));
+}
+
+GetAccountFactoryBaselineResponse Alibabacloud_Governance20210120::Client::getAccountFactoryBaseline(shared_ptr<GetAccountFactoryBaselineRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getAccountFactoryBaselineWithOptions(request, runtime);
 }
 
 GetEnrolledAccountResponse Alibabacloud_Governance20210120::Client::getEnrolledAccountWithOptions(shared_ptr<GetEnrolledAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -113,6 +149,40 @@ GetEnrolledAccountResponse Alibabacloud_Governance20210120::Client::getEnrolledA
 GetEnrolledAccountResponse Alibabacloud_Governance20210120::Client::getEnrolledAccount(shared_ptr<GetEnrolledAccountRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getEnrolledAccountWithOptions(request, runtime);
+}
+
+ListAccountFactoryBaselinesResponse Alibabacloud_Governance20210120::Client::listAccountFactoryBaselinesWithOptions(shared_ptr<ListAccountFactoryBaselinesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListAccountFactoryBaselines"))},
+    {"version", boost::any(string("2021-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListAccountFactoryBaselinesResponse(callApi(params, req, runtime));
+}
+
+ListAccountFactoryBaselinesResponse Alibabacloud_Governance20210120::Client::listAccountFactoryBaselines(shared_ptr<ListAccountFactoryBaselinesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listAccountFactoryBaselinesWithOptions(request, runtime);
 }
 
 ListEnrolledAccountsResponse Alibabacloud_Governance20210120::Client::listEnrolledAccountsWithOptions(shared_ptr<ListEnrolledAccountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
