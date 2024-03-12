@@ -5402,7 +5402,10 @@ public:
 };
 class CreateCloudDriveServiceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoPay{};
+  shared_ptr<bool> autoRenew{};
   shared_ptr<long> bizType{};
+  shared_ptr<string> cdsChargeType{};
   shared_ptr<string> cenId{};
   shared_ptr<string> domainName{};
   shared_ptr<vector<string>> endUserId{};
@@ -5410,8 +5413,11 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> officeSiteId{};
   shared_ptr<string> officeSiteType{};
+  shared_ptr<long> period{};
+  shared_ptr<string> periodUnit{};
   shared_ptr<string> regionId{};
   shared_ptr<string> solutionId{};
+  shared_ptr<long> userCount{};
   shared_ptr<long> userMaxSize{};
 
   CreateCloudDriveServiceRequest() {}
@@ -5424,8 +5430,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
     if (bizType) {
       res["BizType"] = boost::any(*bizType);
+    }
+    if (cdsChargeType) {
+      res["CdsChargeType"] = boost::any(*cdsChargeType);
     }
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
@@ -5448,11 +5463,20 @@ public:
     if (officeSiteType) {
       res["OfficeSiteType"] = boost::any(*officeSiteType);
     }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (periodUnit) {
+      res["PeriodUnit"] = boost::any(*periodUnit);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
     if (solutionId) {
       res["SolutionId"] = boost::any(*solutionId);
+    }
+    if (userCount) {
+      res["UserCount"] = boost::any(*userCount);
     }
     if (userMaxSize) {
       res["UserMaxSize"] = boost::any(*userMaxSize);
@@ -5461,8 +5485,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
     if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
       bizType = make_shared<long>(boost::any_cast<long>(m["BizType"]));
+    }
+    if (m.find("CdsChargeType") != m.end() && !m["CdsChargeType"].empty()) {
+      cdsChargeType = make_shared<string>(boost::any_cast<string>(m["CdsChargeType"]));
     }
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
@@ -5492,11 +5525,20 @@ public:
     if (m.find("OfficeSiteType") != m.end() && !m["OfficeSiteType"].empty()) {
       officeSiteType = make_shared<string>(boost::any_cast<string>(m["OfficeSiteType"]));
     }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("PeriodUnit") != m.end() && !m["PeriodUnit"].empty()) {
+      periodUnit = make_shared<string>(boost::any_cast<string>(m["PeriodUnit"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("SolutionId") != m.end() && !m["SolutionId"].empty()) {
       solutionId = make_shared<string>(boost::any_cast<string>(m["SolutionId"]));
+    }
+    if (m.find("UserCount") != m.end() && !m["UserCount"].empty()) {
+      userCount = make_shared<long>(boost::any_cast<long>(m["UserCount"]));
     }
     if (m.find("UserMaxSize") != m.end() && !m["UserMaxSize"].empty()) {
       userMaxSize = make_shared<long>(boost::any_cast<long>(m["UserMaxSize"]));
@@ -5512,8 +5554,10 @@ public:
   shared_ptr<string> cdsName{};
   shared_ptr<string> cenId{};
   shared_ptr<string> domainName{};
+  shared_ptr<string> errorCode{};
   shared_ptr<string> maxSize{};
   shared_ptr<string> officeSiteType{};
+  shared_ptr<string> orderId{};
   shared_ptr<string> requestId{};
 
   CreateCloudDriveServiceResponseBody() {}
@@ -5538,11 +5582,17 @@ public:
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
     }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
     if (maxSize) {
       res["MaxSize"] = boost::any(*maxSize);
     }
     if (officeSiteType) {
       res["OfficeSiteType"] = boost::any(*officeSiteType);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -5563,11 +5613,17 @@ public:
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
     }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
     if (m.find("MaxSize") != m.end() && !m["MaxSize"].empty()) {
       maxSize = make_shared<string>(boost::any_cast<string>(m["MaxSize"]));
     }
     if (m.find("OfficeSiteType") != m.end() && !m["OfficeSiteType"].empty()) {
       officeSiteType = make_shared<string>(boost::any_cast<string>(m["OfficeSiteType"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));

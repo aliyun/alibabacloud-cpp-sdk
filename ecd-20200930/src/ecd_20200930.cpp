@@ -1330,8 +1330,17 @@ CreateCdsFileShareLinkResponse Alibabacloud_Ecd20200930::Client::createCdsFileSh
 CreateCloudDriveServiceResponse Alibabacloud_Ecd20200930::Client::createCloudDriveServiceWithOptions(shared_ptr<CreateCloudDriveServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
+    query->insert(pair<string, bool>("AutoPay", *request->autoPay));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
+    query->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->bizType)) {
     query->insert(pair<string, long>("BizType", *request->bizType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cdsChargeType)) {
+    query->insert(pair<string, string>("CdsChargeType", *request->cdsChargeType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->cenId)) {
     query->insert(pair<string, string>("CenId", *request->cenId));
@@ -1354,11 +1363,20 @@ CreateCloudDriveServiceResponse Alibabacloud_Ecd20200930::Client::createCloudDri
   if (!Darabonba_Util::Client::isUnset<string>(request->officeSiteType)) {
     query->insert(pair<string, string>("OfficeSiteType", *request->officeSiteType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
+    query->insert(pair<string, long>("Period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
+    query->insert(pair<string, string>("PeriodUnit", *request->periodUnit));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->solutionId)) {
     query->insert(pair<string, string>("SolutionId", *request->solutionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->userCount)) {
+    query->insert(pair<string, long>("UserCount", *request->userCount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->userMaxSize)) {
     query->insert(pair<string, long>("UserMaxSize", *request->userMaxSize));
