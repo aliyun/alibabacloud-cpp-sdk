@@ -9,7 +9,6 @@
 #include <alibabacloud/oss.hpp>
 #include <alibabacloud/ossutil.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/file_form.hpp>
 #include <darabonba/util.hpp>
@@ -1778,6 +1777,12 @@ MergeVideoModelFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoM
 QueryFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::queryFaceVideoTemplateWithOptions(shared_ptr<QueryFaceVideoTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
