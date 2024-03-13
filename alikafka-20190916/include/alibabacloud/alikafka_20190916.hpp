@@ -5133,6 +5133,8 @@ public:
   shared_ptr<string> name{};
   shared_ptr<long> paidType{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> reservedPublishCapacity{};
+  shared_ptr<long> reservedSubscribeCapacity{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> saslDomainEndpoint{};
   shared_ptr<string> securityGroup{};
@@ -5214,6 +5216,12 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (reservedPublishCapacity) {
+      res["ReservedPublishCapacity"] = boost::any(*reservedPublishCapacity);
+    }
+    if (reservedSubscribeCapacity) {
+      res["ReservedSubscribeCapacity"] = boost::any(*reservedSubscribeCapacity);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -5327,6 +5335,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ReservedPublishCapacity") != m.end() && !m["ReservedPublishCapacity"].empty()) {
+      reservedPublishCapacity = make_shared<long>(boost::any_cast<long>(m["ReservedPublishCapacity"]));
+    }
+    if (m.find("ReservedSubscribeCapacity") != m.end() && !m["ReservedSubscribeCapacity"].empty()) {
+      reservedSubscribeCapacity = make_shared<long>(boost::any_cast<long>(m["ReservedSubscribeCapacity"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
