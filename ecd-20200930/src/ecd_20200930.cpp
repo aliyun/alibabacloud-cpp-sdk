@@ -8141,6 +8141,9 @@ ResetDesktopsResponse Alibabacloud_Ecd20200930::Client::resetDesktopsWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->desktopGroupId)) {
     query->insert(pair<string, string>("DesktopGroupId", *request->desktopGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->desktopGroupIds)) {
+    query->insert(pair<string, vector<string>>("DesktopGroupIds", *request->desktopGroupIds));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->desktopId)) {
     query->insert(pair<string, vector<string>>("DesktopId", *request->desktopId));
   }
@@ -8152,6 +8155,9 @@ ResetDesktopsResponse Alibabacloud_Ecd20200930::Client::resetDesktopsWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resetScope)) {
+    query->insert(pair<string, string>("ResetScope", *request->resetScope));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resetType)) {
     query->insert(pair<string, string>("ResetType", *request->resetType));

@@ -41574,10 +41574,12 @@ public:
 class ResetDesktopsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> desktopGroupId{};
+  shared_ptr<vector<string>> desktopGroupIds{};
   shared_ptr<vector<string>> desktopId{};
   shared_ptr<string> imageId{};
   shared_ptr<string> payType{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resetScope{};
   shared_ptr<string> resetType{};
 
   ResetDesktopsRequest() {}
@@ -41593,6 +41595,9 @@ public:
     if (desktopGroupId) {
       res["DesktopGroupId"] = boost::any(*desktopGroupId);
     }
+    if (desktopGroupIds) {
+      res["DesktopGroupIds"] = boost::any(*desktopGroupIds);
+    }
     if (desktopId) {
       res["DesktopId"] = boost::any(*desktopId);
     }
@@ -41605,6 +41610,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resetScope) {
+      res["ResetScope"] = boost::any(*resetScope);
+    }
     if (resetType) {
       res["ResetType"] = boost::any(*resetType);
     }
@@ -41614,6 +41622,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DesktopGroupId") != m.end() && !m["DesktopGroupId"].empty()) {
       desktopGroupId = make_shared<string>(boost::any_cast<string>(m["DesktopGroupId"]));
+    }
+    if (m.find("DesktopGroupIds") != m.end() && !m["DesktopGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DesktopGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DesktopGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      desktopGroupIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("DesktopId") != m.end() && !m["DesktopId"].empty()) {
       vector<string> toVec1;
@@ -41633,6 +41651,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResetScope") != m.end() && !m["ResetScope"].empty()) {
+      resetScope = make_shared<string>(boost::any_cast<string>(m["ResetScope"]));
     }
     if (m.find("ResetType") != m.end() && !m["ResetType"].empty()) {
       resetType = make_shared<string>(boost::any_cast<string>(m["ResetType"]));
