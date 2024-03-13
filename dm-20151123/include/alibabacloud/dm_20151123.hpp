@@ -7302,6 +7302,7 @@ public:
   shared_ptr<string> lastUpdateTime{};
   shared_ptr<string> message{};
   shared_ptr<long> status{};
+  shared_ptr<string> subject{};
   shared_ptr<string> toAddress{};
   shared_ptr<string> utcLastUpdateTime{};
 
@@ -7327,6 +7328,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
     if (toAddress) {
       res["ToAddress"] = boost::any(*toAddress);
     }
@@ -7348,6 +7352,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
     }
     if (m.find("ToAddress") != m.end() && !m["ToAddress"].empty()) {
       toAddress = make_shared<string>(boost::any_cast<string>(m["ToAddress"]));
