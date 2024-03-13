@@ -10555,6 +10555,409 @@ public:
 
   virtual ~DescribePolicyPriorUsedResponse() = default;
 };
+class DescribePostpayTrafficDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> lang{};
+  shared_ptr<string> order{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> searchItem{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> trafficType{};
+
+  DescribePostpayTrafficDetailRequest() {}
+
+  explicit DescribePostpayTrafficDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (searchItem) {
+      res["SearchItem"] = boost::any(*searchItem);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (trafficType) {
+      res["TrafficType"] = boost::any(*trafficType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SearchItem") != m.end() && !m["SearchItem"].empty()) {
+      searchItem = make_shared<string>(boost::any_cast<string>(m["SearchItem"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("TrafficType") != m.end() && !m["TrafficType"].empty()) {
+      trafficType = make_shared<string>(boost::any_cast<string>(m["TrafficType"]));
+    }
+  }
+
+
+  virtual ~DescribePostpayTrafficDetailRequest() = default;
+};
+class DescribePostpayTrafficDetailResponseBodyTrafficList : public Darabonba::Model {
+public:
+  shared_ptr<long> inBytes{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<long> outBytes{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<long> totalBytes{};
+  shared_ptr<string> trafficDay{};
+  shared_ptr<string> trafficType{};
+
+  DescribePostpayTrafficDetailResponseBodyTrafficList() {}
+
+  explicit DescribePostpayTrafficDetailResponseBodyTrafficList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inBytes) {
+      res["InBytes"] = boost::any(*inBytes);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (outBytes) {
+      res["OutBytes"] = boost::any(*outBytes);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (totalBytes) {
+      res["TotalBytes"] = boost::any(*totalBytes);
+    }
+    if (trafficDay) {
+      res["TrafficDay"] = boost::any(*trafficDay);
+    }
+    if (trafficType) {
+      res["TrafficType"] = boost::any(*trafficType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InBytes") != m.end() && !m["InBytes"].empty()) {
+      inBytes = make_shared<long>(boost::any_cast<long>(m["InBytes"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("OutBytes") != m.end() && !m["OutBytes"].empty()) {
+      outBytes = make_shared<long>(boost::any_cast<long>(m["OutBytes"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("TotalBytes") != m.end() && !m["TotalBytes"].empty()) {
+      totalBytes = make_shared<long>(boost::any_cast<long>(m["TotalBytes"]));
+    }
+    if (m.find("TrafficDay") != m.end() && !m["TrafficDay"].empty()) {
+      trafficDay = make_shared<string>(boost::any_cast<string>(m["TrafficDay"]));
+    }
+    if (m.find("TrafficType") != m.end() && !m["TrafficType"].empty()) {
+      trafficType = make_shared<string>(boost::any_cast<string>(m["TrafficType"]));
+    }
+  }
+
+
+  virtual ~DescribePostpayTrafficDetailResponseBodyTrafficList() = default;
+};
+class DescribePostpayTrafficDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<vector<DescribePostpayTrafficDetailResponseBodyTrafficList>> trafficList{};
+
+  DescribePostpayTrafficDetailResponseBody() {}
+
+  explicit DescribePostpayTrafficDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (trafficList) {
+      vector<boost::any> temp1;
+      for(auto item1:*trafficList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TrafficList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("TrafficList") != m.end() && !m["TrafficList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TrafficList"].type()) {
+        vector<DescribePostpayTrafficDetailResponseBodyTrafficList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TrafficList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribePostpayTrafficDetailResponseBodyTrafficList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        trafficList = make_shared<vector<DescribePostpayTrafficDetailResponseBodyTrafficList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribePostpayTrafficDetailResponseBody() = default;
+};
+class DescribePostpayTrafficDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribePostpayTrafficDetailResponseBody> body{};
+
+  DescribePostpayTrafficDetailResponse() {}
+
+  explicit DescribePostpayTrafficDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribePostpayTrafficDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribePostpayTrafficDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribePostpayTrafficDetailResponse() = default;
+};
+class DescribePostpayTrafficTotalRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> lang{};
+
+  DescribePostpayTrafficTotalRequest() {}
+
+  explicit DescribePostpayTrafficTotalRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+  }
+
+
+  virtual ~DescribePostpayTrafficTotalRequest() = default;
+};
+class DescribePostpayTrafficTotalResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalAssets{};
+  shared_ptr<long> totalNatAssets{};
+  shared_ptr<long> totalNatTraffic{};
+  shared_ptr<long> totalTraffic{};
+
+  DescribePostpayTrafficTotalResponseBody() {}
+
+  explicit DescribePostpayTrafficTotalResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalAssets) {
+      res["TotalAssets"] = boost::any(*totalAssets);
+    }
+    if (totalNatAssets) {
+      res["TotalNatAssets"] = boost::any(*totalNatAssets);
+    }
+    if (totalNatTraffic) {
+      res["TotalNatTraffic"] = boost::any(*totalNatTraffic);
+    }
+    if (totalTraffic) {
+      res["TotalTraffic"] = boost::any(*totalTraffic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalAssets") != m.end() && !m["TotalAssets"].empty()) {
+      totalAssets = make_shared<long>(boost::any_cast<long>(m["TotalAssets"]));
+    }
+    if (m.find("TotalNatAssets") != m.end() && !m["TotalNatAssets"].empty()) {
+      totalNatAssets = make_shared<long>(boost::any_cast<long>(m["TotalNatAssets"]));
+    }
+    if (m.find("TotalNatTraffic") != m.end() && !m["TotalNatTraffic"].empty()) {
+      totalNatTraffic = make_shared<long>(boost::any_cast<long>(m["TotalNatTraffic"]));
+    }
+    if (m.find("TotalTraffic") != m.end() && !m["TotalTraffic"].empty()) {
+      totalTraffic = make_shared<long>(boost::any_cast<long>(m["TotalTraffic"]));
+    }
+  }
+
+
+  virtual ~DescribePostpayTrafficTotalResponseBody() = default;
+};
+class DescribePostpayTrafficTotalResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribePostpayTrafficTotalResponseBody> body{};
+
+  DescribePostpayTrafficTotalResponse() {}
+
+  explicit DescribePostpayTrafficTotalResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribePostpayTrafficTotalResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribePostpayTrafficTotalResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribePostpayTrafficTotalResponse() = default;
+};
 class DescribePrefixListsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionNo{};
@@ -23068,6 +23471,10 @@ public:
   DescribePolicyAdvancedConfigResponse describePolicyAdvancedConfig(shared_ptr<DescribePolicyAdvancedConfigRequest> request);
   DescribePolicyPriorUsedResponse describePolicyPriorUsedWithOptions(shared_ptr<DescribePolicyPriorUsedRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePolicyPriorUsedResponse describePolicyPriorUsed(shared_ptr<DescribePolicyPriorUsedRequest> request);
+  DescribePostpayTrafficDetailResponse describePostpayTrafficDetailWithOptions(shared_ptr<DescribePostpayTrafficDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribePostpayTrafficDetailResponse describePostpayTrafficDetail(shared_ptr<DescribePostpayTrafficDetailRequest> request);
+  DescribePostpayTrafficTotalResponse describePostpayTrafficTotalWithOptions(shared_ptr<DescribePostpayTrafficTotalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribePostpayTrafficTotalResponse describePostpayTrafficTotal(shared_ptr<DescribePostpayTrafficTotalRequest> request);
   DescribePrefixListsResponse describePrefixListsWithOptions(shared_ptr<DescribePrefixListsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePrefixListsResponse describePrefixLists(shared_ptr<DescribePrefixListsRequest> request);
   DescribeRiskEventGroupResponse describeRiskEventGroupWithOptions(shared_ptr<DescribeRiskEventGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
