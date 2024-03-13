@@ -70221,6 +70221,7 @@ public:
   shared_ptr<string> costCenterName{};
   shared_ptr<string> costCenterNumber{};
   shared_ptr<string> itineraryId{};
+  shared_ptr<long> occupantType{};
   shared_ptr<string> projectCode{};
   shared_ptr<long> projectId{};
   shared_ptr<string> projectTitle{};
@@ -70255,6 +70256,9 @@ public:
     }
     if (itineraryId) {
       res["itinerary_id"] = boost::any(*itineraryId);
+    }
+    if (occupantType) {
+      res["occupant_type"] = boost::any(*occupantType);
     }
     if (projectCode) {
       res["project_code"] = boost::any(*projectCode);
@@ -70301,6 +70305,9 @@ public:
     }
     if (m.find("itinerary_id") != m.end() && !m["itinerary_id"].empty()) {
       itineraryId = make_shared<string>(boost::any_cast<string>(m["itinerary_id"]));
+    }
+    if (m.find("occupant_type") != m.end() && !m["occupant_type"].empty()) {
+      occupantType = make_shared<long>(boost::any_cast<long>(m["occupant_type"]));
     }
     if (m.find("project_code") != m.end() && !m["project_code"].empty()) {
       projectCode = make_shared<string>(boost::any_cast<string>(m["project_code"]));
