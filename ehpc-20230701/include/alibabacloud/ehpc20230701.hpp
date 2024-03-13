@@ -1300,6 +1300,7 @@ class CreateJobRequestTasksTaskSpecTaskExecutorVM : public Darabonba::Model {
 public:
   shared_ptr<string> image{};
   shared_ptr<string> prologScript{};
+  shared_ptr<string> script{};
 
   CreateJobRequestTasksTaskSpecTaskExecutorVM() {}
 
@@ -1317,6 +1318,9 @@ public:
     if (prologScript) {
       res["PrologScript"] = boost::any(*prologScript);
     }
+    if (script) {
+      res["Script"] = boost::any(*script);
+    }
     return res;
   }
 
@@ -1326,6 +1330,9 @@ public:
     }
     if (m.find("PrologScript") != m.end() && !m["PrologScript"].empty()) {
       prologScript = make_shared<string>(boost::any_cast<string>(m["PrologScript"]));
+    }
+    if (m.find("Script") != m.end() && !m["Script"].empty()) {
+      script = make_shared<string>(boost::any_cast<string>(m["Script"]));
     }
   }
 
@@ -2653,6 +2660,7 @@ class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM : public Darabonba::M
 public:
   shared_ptr<string> image{};
   shared_ptr<string> prologScript{};
+  shared_ptr<string> script{};
 
   GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM() {}
 
@@ -2670,6 +2678,9 @@ public:
     if (prologScript) {
       res["PrologScript"] = boost::any(*prologScript);
     }
+    if (script) {
+      res["Script"] = boost::any(*script);
+    }
     return res;
   }
 
@@ -2679,6 +2690,9 @@ public:
     }
     if (m.find("PrologScript") != m.end() && !m["PrologScript"].empty()) {
       prologScript = make_shared<string>(boost::any_cast<string>(m["PrologScript"]));
+    }
+    if (m.find("Script") != m.end() && !m["Script"].empty()) {
+      script = make_shared<string>(boost::any_cast<string>(m["Script"]));
     }
   }
 
@@ -3839,6 +3853,7 @@ public:
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<long> taskCount{};
+  shared_ptr<bool> taskSustainable{};
 
   ListJobsResponseBodyJobList() {}
 
@@ -3880,6 +3895,9 @@ public:
     if (taskCount) {
       res["TaskCount"] = boost::any(*taskCount);
     }
+    if (taskSustainable) {
+      res["TaskSustainable"] = boost::any(*taskSustainable);
+    }
     return res;
   }
 
@@ -3913,6 +3931,9 @@ public:
     }
     if (m.find("TaskCount") != m.end() && !m["TaskCount"].empty()) {
       taskCount = make_shared<long>(boost::any_cast<long>(m["TaskCount"]));
+    }
+    if (m.find("TaskSustainable") != m.end() && !m["TaskSustainable"].empty()) {
+      taskSustainable = make_shared<bool>(boost::any_cast<bool>(m["TaskSustainable"]));
     }
   }
 
