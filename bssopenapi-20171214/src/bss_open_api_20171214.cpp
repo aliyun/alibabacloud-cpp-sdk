@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -3885,55 +3884,6 @@ RenewResourcePackageResponse Alibabacloud_BssOpenApi20171214::Client::renewResou
   return renewResourcePackageWithOptions(request, runtime);
 }
 
-SaveUserCreditResponse Alibabacloud_BssOpenApi20171214::Client::saveUserCreditWithOptions(shared_ptr<SaveUserCreditRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<bool>(request->avoidExpiration)) {
-    query->insert(pair<string, bool>("AvoidExpiration", *request->avoidExpiration));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->avoidNotification)) {
-    query->insert(pair<string, bool>("AvoidNotification", *request->avoidNotification));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->avoidPrepaidExpiration)) {
-    query->insert(pair<string, bool>("AvoidPrepaidExpiration", *request->avoidPrepaidExpiration));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->avoidPrepaidNotification)) {
-    query->insert(pair<string, bool>("AvoidPrepaidNotification", *request->avoidPrepaidNotification));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->creditType)) {
-    query->insert(pair<string, string>("CreditType", *request->creditType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->creditValue)) {
-    query->insert(pair<string, string>("CreditValue", *request->creditValue));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
-    query->insert(pair<string, string>("Description", *request->description));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->operator_)) {
-    query->insert(pair<string, string>("Operator_", *request->operator_));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("SaveUserCredit"))},
-    {"version", boost::any(string("2017-12-14"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return SaveUserCreditResponse(callApi(params, req, runtime));
-}
-
-SaveUserCreditResponse Alibabacloud_BssOpenApi20171214::Client::saveUserCredit(shared_ptr<SaveUserCreditRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return saveUserCreditWithOptions(request, runtime);
-}
-
 SetAllExpirationDayResponse Alibabacloud_BssOpenApi20171214::Client::setAllExpirationDayWithOptions(shared_ptr<SetAllExpirationDayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3963,82 +3913,6 @@ SetAllExpirationDayResponse Alibabacloud_BssOpenApi20171214::Client::setAllExpir
 SetAllExpirationDayResponse Alibabacloud_BssOpenApi20171214::Client::setAllExpirationDay(shared_ptr<SetAllExpirationDayRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return setAllExpirationDayWithOptions(request, runtime);
-}
-
-SetCreditLabelActionResponse Alibabacloud_BssOpenApi20171214::Client::setCreditLabelActionWithOptions(shared_ptr<SetCreditLabelActionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->actionType)) {
-    query->insert(pair<string, string>("ActionType", *request->actionType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->clearCycle)) {
-    query->insert(pair<string, string>("ClearCycle", *request->clearCycle));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->creditAmount)) {
-    query->insert(pair<string, string>("CreditAmount", *request->creditAmount));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->currencyCode)) {
-    query->insert(pair<string, string>("CurrencyCode", *request->currencyCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->dailyCycle)) {
-    query->insert(pair<string, string>("DailyCycle", *request->dailyCycle));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
-    query->insert(pair<string, string>("Description", *request->description));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->isNeedAddSettleLabel)) {
-    query->insert(pair<string, string>("IsNeedAddSettleLabel", *request->isNeedAddSettleLabel));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->isNeedAdjustCreditAccount)) {
-    query->insert(pair<string, string>("IsNeedAdjustCreditAccount", *request->isNeedAdjustCreditAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->isNeedSaveNotifyRule)) {
-    query->insert(pair<string, string>("IsNeedSaveNotifyRule", *request->isNeedSaveNotifyRule));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->isNeedSetCreditAmount)) {
-    query->insert(pair<string, string>("IsNeedSetCreditAmount", *request->isNeedSetCreditAmount));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->needNotice)) {
-    query->insert(pair<string, bool>("NeedNotice", *request->needNotice));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->newCreateMode)) {
-    query->insert(pair<string, bool>("NewCreateMode", *request->newCreateMode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->operator_)) {
-    query->insert(pair<string, string>("Operator_", *request->operator_));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
-    query->insert(pair<string, string>("RequestId", *request->requestId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->siteCode)) {
-    query->insert(pair<string, string>("SiteCode", *request->siteCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
-    query->insert(pair<string, string>("Source", *request->source));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->uid)) {
-    query->insert(pair<string, string>("Uid", *request->uid));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("SetCreditLabelAction"))},
-    {"version", boost::any(string("2017-12-14"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return SetCreditLabelActionResponse(callApi(params, req, runtime));
-}
-
-SetCreditLabelActionResponse Alibabacloud_BssOpenApi20171214::Client::setCreditLabelAction(shared_ptr<SetCreditLabelActionRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return setCreditLabelActionWithOptions(request, runtime);
 }
 
 SetRenewalResponse Alibabacloud_BssOpenApi20171214::Client::setRenewalWithOptions(shared_ptr<SetRenewalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
