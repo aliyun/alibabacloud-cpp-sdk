@@ -171,6 +171,39 @@ CopywritingQAV1Response Alibabacloud_IntelligentCreation20240118::Client::copywr
   return copywritingQAV1WithOptions(request, headers, runtime);
 }
 
+DeleteDigitalVideoResponse Alibabacloud_IntelligentCreation20240118::Client::deleteDigitalVideoWithOptions(shared_ptr<DeleteDigitalVideoRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    body->insert(pair<string, string>("accountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoId)) {
+    body->insert(pair<string, string>("videoId", *request->videoId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDigitalVideo"))},
+    {"version", boost::any(string("2024-01-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/yic/yic-console/openService/v1/digitalHuman/videos"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteDigitalVideoResponse(callApi(params, req, runtime));
+}
+
+DeleteDigitalVideoResponse Alibabacloud_IntelligentCreation20240118::Client::deleteDigitalVideo(shared_ptr<DeleteDigitalVideoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteDigitalVideoWithOptions(request, headers, runtime);
+}
+
 DirectDeductResourceResponse Alibabacloud_IntelligentCreation20240118::Client::directDeductResourceWithOptions(shared_ptr<DirectDeductResourceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
