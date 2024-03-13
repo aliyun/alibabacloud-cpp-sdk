@@ -24432,6 +24432,7 @@ public:
 class DescribePdnsAppKeyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appKeyId{};
+  shared_ptr<string> authCode{};
   shared_ptr<string> lang{};
 
   DescribePdnsAppKeyRequest() {}
@@ -24447,6 +24448,9 @@ public:
     if (appKeyId) {
       res["AppKeyId"] = boost::any(*appKeyId);
     }
+    if (authCode) {
+      res["AuthCode"] = boost::any(*authCode);
+    }
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
@@ -24456,6 +24460,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppKeyId") != m.end() && !m["AppKeyId"].empty()) {
       appKeyId = make_shared<string>(boost::any_cast<string>(m["AppKeyId"]));
+    }
+    if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
+      authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
@@ -24470,6 +24477,7 @@ public:
   shared_ptr<string> appKeyId{};
   shared_ptr<string> appKeySecret{};
   shared_ptr<string> createDate{};
+  shared_ptr<long> createTimestamp{};
   shared_ptr<string> state{};
 
   DescribePdnsAppKeyResponseBodyAppKey() {}
@@ -24491,6 +24499,9 @@ public:
     if (createDate) {
       res["CreateDate"] = boost::any(*createDate);
     }
+    if (createTimestamp) {
+      res["CreateTimestamp"] = boost::any(*createTimestamp);
+    }
     if (state) {
       res["State"] = boost::any(*state);
     }
@@ -24506,6 +24517,9 @@ public:
     }
     if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
       createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
+    }
+    if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
+      createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -24640,6 +24654,7 @@ class DescribePdnsAppKeysResponseBodyAppKeys : public Darabonba::Model {
 public:
   shared_ptr<string> appKeyId{};
   shared_ptr<string> createDate{};
+  shared_ptr<long> createTimestamp{};
   shared_ptr<string> state{};
 
   DescribePdnsAppKeysResponseBodyAppKeys() {}
@@ -24658,6 +24673,9 @@ public:
     if (createDate) {
       res["CreateDate"] = boost::any(*createDate);
     }
+    if (createTimestamp) {
+      res["CreateTimestamp"] = boost::any(*createTimestamp);
+    }
     if (state) {
       res["State"] = boost::any(*state);
     }
@@ -24670,6 +24688,9 @@ public:
     }
     if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
       createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
+    }
+    if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
+      createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));

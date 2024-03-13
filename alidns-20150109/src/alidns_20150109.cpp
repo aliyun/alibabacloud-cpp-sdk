@@ -3559,6 +3559,9 @@ DescribePdnsAppKeyResponse Alibabacloud_Alidns20150109::Client::describePdnsAppK
   if (!Darabonba_Util::Client::isUnset<string>(request->appKeyId)) {
     query->insert(pair<string, string>("AppKeyId", *request->appKeyId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
+    query->insert(pair<string, string>("AuthCode", *request->authCode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
