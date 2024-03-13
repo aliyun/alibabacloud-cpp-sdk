@@ -5728,6 +5728,9 @@ IntlFlightListingSearchResponse Alibabacloud_BtripOpen20220520::Client::intlFlig
   if (!Darabonba_Util::Client::isUnset<string>(request->isvName)) {
     query->insert(pair<string, string>("isv_name", *request->isvName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("language", *request->language));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->needShareFlight)) {
     query->insert(pair<string, bool>("need_share_flight", *request->needShareFlight));
   }
@@ -5801,6 +5804,9 @@ IntlFlightOtaItemDetailResponse Alibabacloud_BtripOpen20220520::Client::intlFlig
   if (!Darabonba_Util::Client::isUnset<string>(request->isvName)) {
     query->insert(pair<string, string>("isv_name", *request->isvName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("language", *request->language));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->supplierCode)) {
     query->insert(pair<string, string>("supplier_code", *request->supplierCode));
   }
@@ -5860,6 +5866,9 @@ IntlFlightOtaSearchResponse Alibabacloud_BtripOpen20220520::Client::intlFlightOt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->isvName)) {
     query->insert(pair<string, string>("isv_name", *request->isvName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("language", *request->language));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->needShareFlight)) {
     query->insert(pair<string, bool>("need_share_flight", *request->needShareFlight));

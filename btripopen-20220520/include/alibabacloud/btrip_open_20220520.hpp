@@ -80029,6 +80029,7 @@ public:
   shared_ptr<long> cabinType{};
   shared_ptr<bool> directOnly{};
   shared_ptr<string> isvName{};
+  shared_ptr<string> language{};
   shared_ptr<bool> needShareFlight{};
   shared_ptr<bool> outWheelSearch{};
   shared_ptr<string> queryRecordId{};
@@ -80063,6 +80064,9 @@ public:
     }
     if (isvName) {
       res["isv_name"] = boost::any(*isvName);
+    }
+    if (language) {
+      res["language"] = boost::any(*language);
     }
     if (needShareFlight) {
       res["need_share_flight"] = boost::any(*needShareFlight);
@@ -80117,6 +80121,9 @@ public:
     }
     if (m.find("isv_name") != m.end() && !m["isv_name"].empty()) {
       isvName = make_shared<string>(boost::any_cast<string>(m["isv_name"]));
+    }
+    if (m.find("language") != m.end() && !m["language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["language"]));
     }
     if (m.find("need_share_flight") != m.end() && !m["need_share_flight"].empty()) {
       needShareFlight = make_shared<bool>(boost::any_cast<bool>(m["need_share_flight"]));
@@ -80177,6 +80184,7 @@ public:
   shared_ptr<long> cabinType{};
   shared_ptr<bool> directOnly{};
   shared_ptr<string> isvName{};
+  shared_ptr<string> language{};
   shared_ptr<bool> needShareFlight{};
   shared_ptr<bool> outWheelSearch{};
   shared_ptr<string> queryRecordId{};
@@ -80211,6 +80219,9 @@ public:
     }
     if (isvName) {
       res["isv_name"] = boost::any(*isvName);
+    }
+    if (language) {
+      res["language"] = boost::any(*language);
     }
     if (needShareFlight) {
       res["need_share_flight"] = boost::any(*needShareFlight);
@@ -80257,6 +80268,9 @@ public:
     }
     if (m.find("isv_name") != m.end() && !m["isv_name"].empty()) {
       isvName = make_shared<string>(boost::any_cast<string>(m["isv_name"]));
+    }
+    if (m.find("language") != m.end() && !m["language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["language"]));
     }
     if (m.find("need_share_flight") != m.end() && !m["need_share_flight"].empty()) {
       needShareFlight = make_shared<bool>(boost::any_cast<bool>(m["need_share_flight"]));
@@ -81349,6 +81363,7 @@ public:
   shared_ptr<string> btripUserId{};
   shared_ptr<string> buyerName{};
   shared_ptr<string> isvName{};
+  shared_ptr<string> language{};
   shared_ptr<string> supplierCode{};
 
   IntlFlightOtaItemDetailRequest() {}
@@ -81370,6 +81385,9 @@ public:
     if (isvName) {
       res["isv_name"] = boost::any(*isvName);
     }
+    if (language) {
+      res["language"] = boost::any(*language);
+    }
     if (supplierCode) {
       res["supplier_code"] = boost::any(*supplierCode);
     }
@@ -81385,6 +81403,9 @@ public:
     }
     if (m.find("isv_name") != m.end() && !m["isv_name"].empty()) {
       isvName = make_shared<string>(boost::any_cast<string>(m["isv_name"]));
+    }
+    if (m.find("language") != m.end() && !m["language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["language"]));
     }
     if (m.find("supplier_code") != m.end() && !m["supplier_code"].empty()) {
       supplierCode = make_shared<string>(boost::any_cast<string>(m["supplier_code"]));
@@ -83211,6 +83232,7 @@ public:
   shared_ptr<long> cabinType{};
   shared_ptr<bool> directOnly{};
   shared_ptr<string> isvName{};
+  shared_ptr<string> language{};
   shared_ptr<bool> needShareFlight{};
   shared_ptr<vector<IntlFlightOtaSearchRequestSearchJourneys>> searchJourneys{};
   shared_ptr<vector<IntlFlightOtaSearchRequestSearchPassengerList>> searchPassengerList{};
@@ -83241,6 +83263,9 @@ public:
     }
     if (isvName) {
       res["isv_name"] = boost::any(*isvName);
+    }
+    if (language) {
+      res["language"] = boost::any(*language);
     }
     if (needShareFlight) {
       res["need_share_flight"] = boost::any(*needShareFlight);
@@ -83283,6 +83308,9 @@ public:
     }
     if (m.find("isv_name") != m.end() && !m["isv_name"].empty()) {
       isvName = make_shared<string>(boost::any_cast<string>(m["isv_name"]));
+    }
+    if (m.find("language") != m.end() && !m["language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["language"]));
     }
     if (m.find("need_share_flight") != m.end() && !m["need_share_flight"].empty()) {
       needShareFlight = make_shared<bool>(boost::any_cast<bool>(m["need_share_flight"]));
@@ -83331,6 +83359,7 @@ public:
   shared_ptr<long> cabinType{};
   shared_ptr<bool> directOnly{};
   shared_ptr<string> isvName{};
+  shared_ptr<string> language{};
   shared_ptr<bool> needShareFlight{};
   shared_ptr<string> searchJourneysShrink{};
   shared_ptr<string> searchPassengerListShrink{};
@@ -83361,6 +83390,9 @@ public:
     }
     if (isvName) {
       res["isv_name"] = boost::any(*isvName);
+    }
+    if (language) {
+      res["language"] = boost::any(*language);
     }
     if (needShareFlight) {
       res["need_share_flight"] = boost::any(*needShareFlight);
@@ -83395,6 +83427,9 @@ public:
     }
     if (m.find("isv_name") != m.end() && !m["isv_name"].empty()) {
       isvName = make_shared<string>(boost::any_cast<string>(m["isv_name"]));
+    }
+    if (m.find("language") != m.end() && !m["language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["language"]));
     }
     if (m.find("need_share_flight") != m.end() && !m["need_share_flight"].empty()) {
       needShareFlight = make_shared<bool>(boost::any_cast<bool>(m["need_share_flight"]));
