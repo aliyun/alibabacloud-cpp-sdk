@@ -181,6 +181,9 @@ AddClientUserDefineRuleResponse Alibabacloud_Sas20181203::Client::addClientUserD
   if (!Darabonba_Util::Client::isUnset<string>(request->cmdline)) {
     query->insert(pair<string, string>("Cmdline", *request->cmdline));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->filePath)) {
     query->insert(pair<string, string>("FilePath", *request->filePath));
   }
@@ -19715,6 +19718,9 @@ ModifyClientUserDefineRuleResponse Alibabacloud_Sas20181203::Client::modifyClien
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->cmdline)) {
     query->insert(pair<string, string>("Cmdline", *request->cmdline));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->filePath)) {
     query->insert(pair<string, string>("FilePath", *request->filePath));
