@@ -16161,8 +16161,52 @@ public:
 
   virtual ~DescribeScalingActivitiesRequest() = default;
 };
+class DescribeScalingActivitiesResponseBodyScalingActivitiesLifecycleHookContext : public Darabonba::Model {
+public:
+  shared_ptr<bool> disableLifecycleHook{};
+  shared_ptr<vector<string>> ignoredLifecycleHookIds{};
+
+  DescribeScalingActivitiesResponseBodyScalingActivitiesLifecycleHookContext() {}
+
+  explicit DescribeScalingActivitiesResponseBodyScalingActivitiesLifecycleHookContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disableLifecycleHook) {
+      res["DisableLifecycleHook"] = boost::any(*disableLifecycleHook);
+    }
+    if (ignoredLifecycleHookIds) {
+      res["IgnoredLifecycleHookIds"] = boost::any(*ignoredLifecycleHookIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisableLifecycleHook") != m.end() && !m["DisableLifecycleHook"].empty()) {
+      disableLifecycleHook = make_shared<bool>(boost::any_cast<bool>(m["DisableLifecycleHook"]));
+    }
+    if (m.find("IgnoredLifecycleHookIds") != m.end() && !m["IgnoredLifecycleHookIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IgnoredLifecycleHookIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IgnoredLifecycleHookIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ignoredLifecycleHookIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeScalingActivitiesResponseBodyScalingActivitiesLifecycleHookContext() = default;
+};
 class DescribeScalingActivitiesResponseBodyScalingActivities : public Darabonba::Model {
 public:
+  shared_ptr<string> activityMetadata{};
   shared_ptr<string> attachedCapacity{};
   shared_ptr<string> autoCreatedCapacity{};
   shared_ptr<string> cause{};
@@ -16175,6 +16219,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<DescribeScalingActivitiesResponseBodyScalingActivitiesLifecycleHookContext> lifecycleHookContext{};
   shared_ptr<long> progress{};
   shared_ptr<string> scalingActivityId{};
   shared_ptr<string> scalingGroupId{};
@@ -16187,6 +16232,8 @@ public:
   shared_ptr<long> stoppedCapacity{};
   shared_ptr<vector<string>> stoppedInstances{};
   shared_ptr<string> totalCapacity{};
+  shared_ptr<string> triggerSourceId{};
+  shared_ptr<string> triggerSourceType{};
 
   DescribeScalingActivitiesResponseBodyScalingActivities() {}
 
@@ -16198,6 +16245,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activityMetadata) {
+      res["ActivityMetadata"] = boost::any(*activityMetadata);
+    }
     if (attachedCapacity) {
       res["AttachedCapacity"] = boost::any(*attachedCapacity);
     }
@@ -16233,6 +16283,9 @@ public:
     }
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (lifecycleHookContext) {
+      res["LifecycleHookContext"] = lifecycleHookContext ? boost::any(lifecycleHookContext->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (progress) {
       res["Progress"] = boost::any(*progress);
@@ -16270,10 +16323,19 @@ public:
     if (totalCapacity) {
       res["TotalCapacity"] = boost::any(*totalCapacity);
     }
+    if (triggerSourceId) {
+      res["TriggerSourceId"] = boost::any(*triggerSourceId);
+    }
+    if (triggerSourceType) {
+      res["TriggerSourceType"] = boost::any(*triggerSourceType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityMetadata") != m.end() && !m["ActivityMetadata"].empty()) {
+      activityMetadata = make_shared<string>(boost::any_cast<string>(m["ActivityMetadata"]));
+    }
     if (m.find("AttachedCapacity") != m.end() && !m["AttachedCapacity"].empty()) {
       attachedCapacity = make_shared<string>(boost::any_cast<string>(m["AttachedCapacity"]));
     }
@@ -16324,6 +16386,13 @@ public:
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
+    if (m.find("LifecycleHookContext") != m.end() && !m["LifecycleHookContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LifecycleHookContext"].type()) {
+        DescribeScalingActivitiesResponseBodyScalingActivitiesLifecycleHookContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LifecycleHookContext"]));
+        lifecycleHookContext = make_shared<DescribeScalingActivitiesResponseBodyScalingActivitiesLifecycleHookContext>(model1);
+      }
+    }
     if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
       progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
     }
@@ -16373,6 +16442,12 @@ public:
     }
     if (m.find("TotalCapacity") != m.end() && !m["TotalCapacity"].empty()) {
       totalCapacity = make_shared<string>(boost::any_cast<string>(m["TotalCapacity"]));
+    }
+    if (m.find("TriggerSourceId") != m.end() && !m["TriggerSourceId"].empty()) {
+      triggerSourceId = make_shared<string>(boost::any_cast<string>(m["TriggerSourceId"]));
+    }
+    if (m.find("TriggerSourceType") != m.end() && !m["TriggerSourceType"].empty()) {
+      triggerSourceType = make_shared<string>(boost::any_cast<string>(m["TriggerSourceType"]));
     }
   }
 
@@ -31653,6 +31728,49 @@ public:
 
   virtual ~ResumeProcessesResponse() = default;
 };
+class ScaleWithAdjustmentRequestLifecycleHookContext : public Darabonba::Model {
+public:
+  shared_ptr<bool> disableLifecycleHook{};
+  shared_ptr<vector<string>> ignoredLifecycleHookIds{};
+
+  ScaleWithAdjustmentRequestLifecycleHookContext() {}
+
+  explicit ScaleWithAdjustmentRequestLifecycleHookContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disableLifecycleHook) {
+      res["DisableLifecycleHook"] = boost::any(*disableLifecycleHook);
+    }
+    if (ignoredLifecycleHookIds) {
+      res["IgnoredLifecycleHookIds"] = boost::any(*ignoredLifecycleHookIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisableLifecycleHook") != m.end() && !m["DisableLifecycleHook"].empty()) {
+      disableLifecycleHook = make_shared<bool>(boost::any_cast<bool>(m["DisableLifecycleHook"]));
+    }
+    if (m.find("IgnoredLifecycleHookIds") != m.end() && !m["IgnoredLifecycleHookIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IgnoredLifecycleHookIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IgnoredLifecycleHookIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ignoredLifecycleHookIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ScaleWithAdjustmentRequestLifecycleHookContext() = default;
+};
 class ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -31840,9 +31958,11 @@ public:
 };
 class ScaleWithAdjustmentRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> activityMetadata{};
   shared_ptr<string> adjustmentType{};
   shared_ptr<long> adjustmentValue{};
   shared_ptr<string> clientToken{};
+  shared_ptr<ScaleWithAdjustmentRequestLifecycleHookContext> lifecycleHookContext{};
   shared_ptr<long> minAdjustmentMagnitude{};
   shared_ptr<ScaleWithAdjustmentRequestOverrides> overrides{};
   shared_ptr<long> ownerId{};
@@ -31860,6 +31980,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activityMetadata) {
+      res["ActivityMetadata"] = boost::any(*activityMetadata);
+    }
     if (adjustmentType) {
       res["AdjustmentType"] = boost::any(*adjustmentType);
     }
@@ -31868,6 +31991,9 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (lifecycleHookContext) {
+      res["LifecycleHookContext"] = lifecycleHookContext ? boost::any(lifecycleHookContext->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (minAdjustmentMagnitude) {
       res["MinAdjustmentMagnitude"] = boost::any(*minAdjustmentMagnitude);
@@ -31891,6 +32017,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityMetadata") != m.end() && !m["ActivityMetadata"].empty()) {
+      activityMetadata = make_shared<string>(boost::any_cast<string>(m["ActivityMetadata"]));
+    }
     if (m.find("AdjustmentType") != m.end() && !m["AdjustmentType"].empty()) {
       adjustmentType = make_shared<string>(boost::any_cast<string>(m["AdjustmentType"]));
     }
@@ -31899,6 +32028,13 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("LifecycleHookContext") != m.end() && !m["LifecycleHookContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LifecycleHookContext"].type()) {
+        ScaleWithAdjustmentRequestLifecycleHookContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LifecycleHookContext"]));
+        lifecycleHookContext = make_shared<ScaleWithAdjustmentRequestLifecycleHookContext>(model1);
+      }
     }
     if (m.find("MinAdjustmentMagnitude") != m.end() && !m["MinAdjustmentMagnitude"].empty()) {
       minAdjustmentMagnitude = make_shared<long>(boost::any_cast<long>(m["MinAdjustmentMagnitude"]));
@@ -31929,9 +32065,11 @@ public:
 };
 class ScaleWithAdjustmentShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> activityMetadata{};
   shared_ptr<string> adjustmentType{};
   shared_ptr<long> adjustmentValue{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> lifecycleHookContextShrink{};
   shared_ptr<long> minAdjustmentMagnitude{};
   shared_ptr<string> overridesShrink{};
   shared_ptr<long> ownerId{};
@@ -31949,6 +32087,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activityMetadata) {
+      res["ActivityMetadata"] = boost::any(*activityMetadata);
+    }
     if (adjustmentType) {
       res["AdjustmentType"] = boost::any(*adjustmentType);
     }
@@ -31957,6 +32098,9 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (lifecycleHookContextShrink) {
+      res["LifecycleHookContext"] = boost::any(*lifecycleHookContextShrink);
     }
     if (minAdjustmentMagnitude) {
       res["MinAdjustmentMagnitude"] = boost::any(*minAdjustmentMagnitude);
@@ -31980,6 +32124,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityMetadata") != m.end() && !m["ActivityMetadata"].empty()) {
+      activityMetadata = make_shared<string>(boost::any_cast<string>(m["ActivityMetadata"]));
+    }
     if (m.find("AdjustmentType") != m.end() && !m["AdjustmentType"].empty()) {
       adjustmentType = make_shared<string>(boost::any_cast<string>(m["AdjustmentType"]));
     }
@@ -31988,6 +32135,9 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("LifecycleHookContext") != m.end() && !m["LifecycleHookContext"].empty()) {
+      lifecycleHookContextShrink = make_shared<string>(boost::any_cast<string>(m["LifecycleHookContext"]));
     }
     if (m.find("MinAdjustmentMagnitude") != m.end() && !m["MinAdjustmentMagnitude"].empty()) {
       minAdjustmentMagnitude = make_shared<long>(boost::any_cast<long>(m["MinAdjustmentMagnitude"]));

@@ -4419,10 +4419,16 @@ ScaleWithAdjustmentResponse Alibabacloud_Ess20220222::Client::scaleWithAdjustmen
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ScaleWithAdjustmentShrinkRequest> request = make_shared<ScaleWithAdjustmentShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ScaleWithAdjustmentRequestLifecycleHookContext>(tmpReq->lifecycleHookContext)) {
+    request->lifecycleHookContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->lifecycleHookContext, make_shared<string>("LifecycleHookContext"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<ScaleWithAdjustmentRequestOverrides>(tmpReq->overrides)) {
     request->overridesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->overrides, make_shared<string>("Overrides"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->activityMetadata)) {
+    query->insert(pair<string, string>("ActivityMetadata", *request->activityMetadata));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->adjustmentType)) {
     query->insert(pair<string, string>("AdjustmentType", *request->adjustmentType));
   }
@@ -4431,6 +4437,9 @@ ScaleWithAdjustmentResponse Alibabacloud_Ess20220222::Client::scaleWithAdjustmen
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lifecycleHookContextShrink)) {
+    query->insert(pair<string, string>("LifecycleHookContext", *request->lifecycleHookContextShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->minAdjustmentMagnitude)) {
     query->insert(pair<string, long>("MinAdjustmentMagnitude", *request->minAdjustmentMagnitude));
