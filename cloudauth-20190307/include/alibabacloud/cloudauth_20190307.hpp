@@ -86,6 +86,7 @@ public:
 };
 class AIGCFaceVerifyResponseBodyResultObject : public Darabonba::Model {
 public:
+  shared_ptr<string> certifyId{};
   shared_ptr<string> result{};
   shared_ptr<string> score{};
 
@@ -99,6 +100,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (certifyId) {
+      res["CertifyId"] = boost::any(*certifyId);
+    }
     if (result) {
       res["Result"] = boost::any(*result);
     }
@@ -109,6 +113,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertifyId") != m.end() && !m["CertifyId"].empty()) {
+      certifyId = make_shared<string>(boost::any_cast<string>(m["CertifyId"]));
+    }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       result = make_shared<string>(boost::any_cast<string>(m["Result"]));
     }
