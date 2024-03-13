@@ -14833,6 +14833,7 @@ public:
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> DBNodeId{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> interval{};
   shared_ptr<string> key{};
   shared_ptr<string> startTime{};
 
@@ -14855,6 +14856,9 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
     if (key) {
       res["Key"] = boost::any(*key);
     }
@@ -14873,6 +14877,9 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<string>(boost::any_cast<string>(m["Interval"]));
     }
     if (m.find("Key") != m.end() && !m["Key"].empty()) {
       key = make_shared<string>(boost::any_cast<string>(m["Key"]));
@@ -15529,6 +15536,7 @@ public:
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> DBEndpointId{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> interval{};
   shared_ptr<string> key{};
   shared_ptr<string> startTime{};
 
@@ -15551,6 +15559,9 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
     if (key) {
       res["Key"] = boost::any(*key);
     }
@@ -15569,6 +15580,9 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<string>(boost::any_cast<string>(m["Interval"]));
     }
     if (m.find("Key") != m.end() && !m["Key"].empty()) {
       key = make_shared<string>(boost::any_cast<string>(m["Key"]));
@@ -24453,6 +24467,7 @@ public:
   shared_ptr<string> newAccountPassword{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> passwordType{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
 
@@ -24481,6 +24496,9 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (passwordType) {
+      res["PasswordType"] = boost::any(*passwordType);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -24505,6 +24523,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PasswordType") != m.end() && !m["PasswordType"].empty()) {
+      passwordType = make_shared<string>(boost::any_cast<string>(m["PasswordType"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
