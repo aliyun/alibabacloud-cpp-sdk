@@ -14242,6 +14242,355 @@ public:
 
   virtual ~DescribeCustomizedListHeadersResponse() = default;
 };
+class DescribeDesktopGroupSessionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> endUserId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> ownType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> sessionStatus{};
+  shared_ptr<string> startTime{};
+
+  DescribeDesktopGroupSessionsRequest() {}
+
+  explicit DescribeDesktopGroupSessionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (endUserId) {
+      res["EndUserId"] = boost::any(*endUserId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (ownType) {
+      res["OwnType"] = boost::any(*ownType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sessionStatus) {
+      res["SessionStatus"] = boost::any(*sessionStatus);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
+      endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("OwnType") != m.end() && !m["OwnType"].empty()) {
+      ownType = make_shared<long>(boost::any_cast<long>(m["OwnType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SessionStatus") != m.end() && !m["SessionStatus"].empty()) {
+      sessionStatus = make_shared<string>(boost::any_cast<string>(m["SessionStatus"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeDesktopGroupSessionsRequest() = default;
+};
+class DescribeDesktopGroupSessionsResponseBodySessions : public Darabonba::Model {
+public:
+  shared_ptr<string> clientIp{};
+  shared_ptr<string> clientOS{};
+  shared_ptr<string> clientVersion{};
+  shared_ptr<string> desktopGroupId{};
+  shared_ptr<string> desktopGroupName{};
+  shared_ptr<string> desktopId{};
+  shared_ptr<long> endUserApplyCoordinateTime{};
+  shared_ptr<string> endUserId{};
+  shared_ptr<string> lastSessionEndTime{};
+  shared_ptr<string> lastSessionStartTime{};
+  shared_ptr<long> latestConnectionTime{};
+  shared_ptr<string> officeSiteId{};
+  shared_ptr<string> officeSiteName{};
+  shared_ptr<string> osType{};
+  shared_ptr<long> ownType{};
+  shared_ptr<string> protocolType{};
+  shared_ptr<long> sessionIdleTime{};
+  shared_ptr<string> sessionStatus{};
+  shared_ptr<long> totalConnectionDuration{};
+
+  DescribeDesktopGroupSessionsResponseBodySessions() {}
+
+  explicit DescribeDesktopGroupSessionsResponseBodySessions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientIp) {
+      res["ClientIp"] = boost::any(*clientIp);
+    }
+    if (clientOS) {
+      res["ClientOS"] = boost::any(*clientOS);
+    }
+    if (clientVersion) {
+      res["ClientVersion"] = boost::any(*clientVersion);
+    }
+    if (desktopGroupId) {
+      res["DesktopGroupId"] = boost::any(*desktopGroupId);
+    }
+    if (desktopGroupName) {
+      res["DesktopGroupName"] = boost::any(*desktopGroupName);
+    }
+    if (desktopId) {
+      res["DesktopId"] = boost::any(*desktopId);
+    }
+    if (endUserApplyCoordinateTime) {
+      res["EndUserApplyCoordinateTime"] = boost::any(*endUserApplyCoordinateTime);
+    }
+    if (endUserId) {
+      res["EndUserId"] = boost::any(*endUserId);
+    }
+    if (lastSessionEndTime) {
+      res["LastSessionEndTime"] = boost::any(*lastSessionEndTime);
+    }
+    if (lastSessionStartTime) {
+      res["LastSessionStartTime"] = boost::any(*lastSessionStartTime);
+    }
+    if (latestConnectionTime) {
+      res["LatestConnectionTime"] = boost::any(*latestConnectionTime);
+    }
+    if (officeSiteId) {
+      res["OfficeSiteId"] = boost::any(*officeSiteId);
+    }
+    if (officeSiteName) {
+      res["OfficeSiteName"] = boost::any(*officeSiteName);
+    }
+    if (osType) {
+      res["OsType"] = boost::any(*osType);
+    }
+    if (ownType) {
+      res["OwnType"] = boost::any(*ownType);
+    }
+    if (protocolType) {
+      res["ProtocolType"] = boost::any(*protocolType);
+    }
+    if (sessionIdleTime) {
+      res["SessionIdleTime"] = boost::any(*sessionIdleTime);
+    }
+    if (sessionStatus) {
+      res["SessionStatus"] = boost::any(*sessionStatus);
+    }
+    if (totalConnectionDuration) {
+      res["TotalConnectionDuration"] = boost::any(*totalConnectionDuration);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientIp") != m.end() && !m["ClientIp"].empty()) {
+      clientIp = make_shared<string>(boost::any_cast<string>(m["ClientIp"]));
+    }
+    if (m.find("ClientOS") != m.end() && !m["ClientOS"].empty()) {
+      clientOS = make_shared<string>(boost::any_cast<string>(m["ClientOS"]));
+    }
+    if (m.find("ClientVersion") != m.end() && !m["ClientVersion"].empty()) {
+      clientVersion = make_shared<string>(boost::any_cast<string>(m["ClientVersion"]));
+    }
+    if (m.find("DesktopGroupId") != m.end() && !m["DesktopGroupId"].empty()) {
+      desktopGroupId = make_shared<string>(boost::any_cast<string>(m["DesktopGroupId"]));
+    }
+    if (m.find("DesktopGroupName") != m.end() && !m["DesktopGroupName"].empty()) {
+      desktopGroupName = make_shared<string>(boost::any_cast<string>(m["DesktopGroupName"]));
+    }
+    if (m.find("DesktopId") != m.end() && !m["DesktopId"].empty()) {
+      desktopId = make_shared<string>(boost::any_cast<string>(m["DesktopId"]));
+    }
+    if (m.find("EndUserApplyCoordinateTime") != m.end() && !m["EndUserApplyCoordinateTime"].empty()) {
+      endUserApplyCoordinateTime = make_shared<long>(boost::any_cast<long>(m["EndUserApplyCoordinateTime"]));
+    }
+    if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
+      endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
+    }
+    if (m.find("LastSessionEndTime") != m.end() && !m["LastSessionEndTime"].empty()) {
+      lastSessionEndTime = make_shared<string>(boost::any_cast<string>(m["LastSessionEndTime"]));
+    }
+    if (m.find("LastSessionStartTime") != m.end() && !m["LastSessionStartTime"].empty()) {
+      lastSessionStartTime = make_shared<string>(boost::any_cast<string>(m["LastSessionStartTime"]));
+    }
+    if (m.find("LatestConnectionTime") != m.end() && !m["LatestConnectionTime"].empty()) {
+      latestConnectionTime = make_shared<long>(boost::any_cast<long>(m["LatestConnectionTime"]));
+    }
+    if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
+      officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
+    }
+    if (m.find("OfficeSiteName") != m.end() && !m["OfficeSiteName"].empty()) {
+      officeSiteName = make_shared<string>(boost::any_cast<string>(m["OfficeSiteName"]));
+    }
+    if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
+      osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
+    }
+    if (m.find("OwnType") != m.end() && !m["OwnType"].empty()) {
+      ownType = make_shared<long>(boost::any_cast<long>(m["OwnType"]));
+    }
+    if (m.find("ProtocolType") != m.end() && !m["ProtocolType"].empty()) {
+      protocolType = make_shared<string>(boost::any_cast<string>(m["ProtocolType"]));
+    }
+    if (m.find("SessionIdleTime") != m.end() && !m["SessionIdleTime"].empty()) {
+      sessionIdleTime = make_shared<long>(boost::any_cast<long>(m["SessionIdleTime"]));
+    }
+    if (m.find("SessionStatus") != m.end() && !m["SessionStatus"].empty()) {
+      sessionStatus = make_shared<string>(boost::any_cast<string>(m["SessionStatus"]));
+    }
+    if (m.find("TotalConnectionDuration") != m.end() && !m["TotalConnectionDuration"].empty()) {
+      totalConnectionDuration = make_shared<long>(boost::any_cast<long>(m["TotalConnectionDuration"]));
+    }
+  }
+
+
+  virtual ~DescribeDesktopGroupSessionsResponseBodySessions() = default;
+};
+class DescribeDesktopGroupSessionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeDesktopGroupSessionsResponseBodySessions>> sessions{};
+  shared_ptr<long> totalCount{};
+
+  DescribeDesktopGroupSessionsResponseBody() {}
+
+  explicit DescribeDesktopGroupSessionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sessions) {
+      vector<boost::any> temp1;
+      for(auto item1:*sessions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Sessions"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Sessions") != m.end() && !m["Sessions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Sessions"].type()) {
+        vector<DescribeDesktopGroupSessionsResponseBodySessions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Sessions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDesktopGroupSessionsResponseBodySessions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sessions = make_shared<vector<DescribeDesktopGroupSessionsResponseBodySessions>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeDesktopGroupSessionsResponseBody() = default;
+};
+class DescribeDesktopGroupSessionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDesktopGroupSessionsResponseBody> body{};
+
+  DescribeDesktopGroupSessionsResponse() {}
+
+  explicit DescribeDesktopGroupSessionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDesktopGroupSessionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDesktopGroupSessionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDesktopGroupSessionsResponse() = default;
+};
 class DescribeDesktopGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> bundleId{};
@@ -45429,6 +45778,8 @@ public:
   DescribeCloudDriveUsersResponse describeCloudDriveUsers(shared_ptr<DescribeCloudDriveUsersRequest> request);
   DescribeCustomizedListHeadersResponse describeCustomizedListHeadersWithOptions(shared_ptr<DescribeCustomizedListHeadersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCustomizedListHeadersResponse describeCustomizedListHeaders(shared_ptr<DescribeCustomizedListHeadersRequest> request);
+  DescribeDesktopGroupSessionsResponse describeDesktopGroupSessionsWithOptions(shared_ptr<DescribeDesktopGroupSessionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDesktopGroupSessionsResponse describeDesktopGroupSessions(shared_ptr<DescribeDesktopGroupSessionsRequest> request);
   DescribeDesktopGroupsResponse describeDesktopGroupsWithOptions(shared_ptr<DescribeDesktopGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDesktopGroupsResponse describeDesktopGroups(shared_ptr<DescribeDesktopGroupsRequest> request);
   DescribeDesktopInfoResponse describeDesktopInfoWithOptions(shared_ptr<DescribeDesktopInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
