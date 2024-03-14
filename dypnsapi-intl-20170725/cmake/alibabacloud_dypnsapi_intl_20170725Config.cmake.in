@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_dypnsapi_intl_20170725Targets.cmake")
+check_required_components("alibabacloud_dypnsapi_intl_20170725")
