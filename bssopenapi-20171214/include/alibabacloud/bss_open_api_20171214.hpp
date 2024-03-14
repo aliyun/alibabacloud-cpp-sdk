@@ -13986,6 +13986,7 @@ public:
   shared_ptr<string> config{};
   shared_ptr<string> createTime{};
   shared_ptr<string> currency{};
+  shared_ptr<map<string, string>> extendInfos{};
   shared_ptr<string> instanceIDs{};
   shared_ptr<string> operator_{};
   shared_ptr<string> orderId{};
@@ -14033,6 +14034,9 @@ public:
     }
     if (currency) {
       res["Currency"] = boost::any(*currency);
+    }
+    if (extendInfos) {
+      res["ExtendInfos"] = boost::any(*extendInfos);
     }
     if (instanceIDs) {
       res["InstanceIDs"] = boost::any(*instanceIDs);
@@ -14118,6 +14122,14 @@ public:
     }
     if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
       currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
+    }
+    if (m.find("ExtendInfos") != m.end() && !m["ExtendInfos"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["ExtendInfos"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      extendInfos = make_shared<map<string, string>>(toMap1);
     }
     if (m.find("InstanceIDs") != m.end() && !m["InstanceIDs"].empty()) {
       instanceIDs = make_shared<string>(boost::any_cast<string>(m["InstanceIDs"]));
