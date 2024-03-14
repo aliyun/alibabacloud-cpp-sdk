@@ -1220,6 +1220,7 @@ public:
 };
 class AddPublicIpAddressPoolCidrBlockResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> cidrBlock{};
   shared_ptr<string> requestId{};
 
   AddPublicIpAddressPoolCidrBlockResponseBody() {}
@@ -1232,6 +1233,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cidrBlock) {
+      res["CidrBlock"] = boost::any(*cidrBlock);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -1239,6 +1243,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrBlock") != m.end() && !m["CidrBlock"].empty()) {
+      cidrBlock = make_shared<string>(boost::any_cast<string>(m["CidrBlock"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -34984,6 +34991,7 @@ public:
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<bool> securityProtectionEnabled{};
   shared_ptr<string> segmentInstanceId{};
+  shared_ptr<bool> serviceManaged{};
   shared_ptr<string> status{};
   shared_ptr<vector<DescribeEipAddressesRequestTag>> tag{};
 
@@ -35066,6 +35074,9 @@ public:
     }
     if (segmentInstanceId) {
       res["SegmentInstanceId"] = boost::any(*segmentInstanceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -35156,6 +35167,9 @@ public:
     }
     if (m.find("SegmentInstanceId") != m.end() && !m["SegmentInstanceId"].empty()) {
       segmentInstanceId = make_shared<string>(boost::any_cast<string>(m["SegmentInstanceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -42803,6 +42817,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<bool> serviceManaged{};
   shared_ptr<vector<DescribeIpv6AddressesRequestTag>> tag{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -42864,6 +42879,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -42929,6 +42947,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -43140,6 +43161,7 @@ public:
   shared_ptr<string> networkType{};
   shared_ptr<long> realBandwidth{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<long> serviceManaged{};
   shared_ptr<string> status{};
   shared_ptr<DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags> tags{};
   shared_ptr<string> vSwitchId{};
@@ -43193,6 +43215,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -43252,6 +43277,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<long>(boost::any_cast<long>(m["ServiceManaged"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));

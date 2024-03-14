@@ -9234,6 +9234,9 @@ DescribeEipAddressesResponse Alibabacloud_Vpc20160428::Client::describeEipAddres
   if (!Darabonba_Util::Client::isUnset<string>(request->segmentInstanceId)) {
     query->insert(pair<string, string>("SegmentInstanceId", *request->segmentInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->serviceManaged)) {
+    query->insert(pair<string, bool>("ServiceManaged", *request->serviceManaged));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
   }
@@ -10365,6 +10368,9 @@ DescribeIpv6AddressesResponse Alibabacloud_Vpc20160428::Client::describeIpv6Addr
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->serviceManaged)) {
+    query->insert(pair<string, bool>("ServiceManaged", *request->serviceManaged));
   }
   if (!Darabonba_Util::Client::isUnset<vector<DescribeIpv6AddressesRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<DescribeIpv6AddressesRequestTag>>("Tag", *request->tag));
