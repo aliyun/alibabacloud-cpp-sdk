@@ -1007,6 +1007,7 @@ public:
   shared_ptr<string> creationTime{};
   shared_ptr<string> disk{};
   shared_ptr<string> enableHiveAccess{};
+  shared_ptr<bool> enableServerless{};
   shared_ptr<vector<GetInstanceResponseBodyInstanceEndpoints>> endpoints{};
   shared_ptr<string> expirationTime{};
   shared_ptr<long> gatewayCount{};
@@ -1061,6 +1062,9 @@ public:
     }
     if (enableHiveAccess) {
       res["EnableHiveAccess"] = boost::any(*enableHiveAccess);
+    }
+    if (enableServerless) {
+      res["EnableServerless"] = boost::any(*enableServerless);
     }
     if (endpoints) {
       vector<boost::any> temp1;
@@ -1157,6 +1161,9 @@ public:
     }
     if (m.find("EnableHiveAccess") != m.end() && !m["EnableHiveAccess"].empty()) {
       enableHiveAccess = make_shared<string>(boost::any_cast<string>(m["EnableHiveAccess"]));
+    }
+    if (m.find("EnableServerless") != m.end() && !m["EnableServerless"].empty()) {
+      enableServerless = make_shared<bool>(boost::any_cast<bool>(m["EnableServerless"]));
     }
     if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
       if (typeid(vector<boost::any>) == m["Endpoints"].type()) {
