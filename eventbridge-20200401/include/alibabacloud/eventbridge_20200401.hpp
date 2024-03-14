@@ -7984,7 +7984,7 @@ public:
 };
 class DeleteEventStreamingResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<bool> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -8016,7 +8016,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<bool>(boost::any_cast<bool>(m["Code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -20544,7 +20544,7 @@ public:
 };
 class PauseEventStreamingResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<bool> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -20576,7 +20576,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<bool>(boost::any_cast<bool>(m["Code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
