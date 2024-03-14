@@ -8480,6 +8480,7 @@ public:
   shared_ptr<AlgorithmSpec> algorithmSpec{};
   shared_ptr<string> algorithmVersion{};
   shared_ptr<GetTrainingJobResponseBodyComputeResource> computeResource{};
+  shared_ptr<long> duration{};
   shared_ptr<GetTrainingJobResponseBodyExperimentConfig> experimentConfig{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
@@ -8535,6 +8536,9 @@ public:
     }
     if (computeResource) {
       res["ComputeResource"] = computeResource ? boost::any(computeResource->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
     }
     if (experimentConfig) {
       res["ExperimentConfig"] = experimentConfig ? boost::any(experimentConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8674,6 +8678,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ComputeResource"]));
         computeResource = make_shared<GetTrainingJobResponseBodyComputeResource>(model1);
       }
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
     }
     if (m.find("ExperimentConfig") != m.end() && !m["ExperimentConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["ExperimentConfig"].type()) {
