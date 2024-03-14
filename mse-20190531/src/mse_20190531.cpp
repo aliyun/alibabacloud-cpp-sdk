@@ -1758,14 +1758,25 @@ CreateOrUpdateSwimmingLaneResponse Alibabacloud_Mse20190531::Client::createOrUpd
   return createOrUpdateSwimmingLaneWithOptions(request, runtime);
 }
 
-CreateOrUpdateSwimmingLaneGroupResponse Alibabacloud_Mse20190531::Client::createOrUpdateSwimmingLaneGroupWithOptions(shared_ptr<CreateOrUpdateSwimmingLaneGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateOrUpdateSwimmingLaneGroupResponse Alibabacloud_Mse20190531::Client::createOrUpdateSwimmingLaneGroupWithOptions(shared_ptr<CreateOrUpdateSwimmingLaneGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateOrUpdateSwimmingLaneGroupShrinkRequest> request = make_shared<CreateOrUpdateSwimmingLaneGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->paths)) {
+    request->pathsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->paths, make_shared<string>("Paths"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->routeIds)) {
+    request->routeIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->routeIds, make_shared<string>("RouteIds"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->appIds)) {
     query->insert(pair<string, string>("AppIds", *request->appIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->canaryModel)) {
+    query->insert(pair<string, long>("CanaryModel", *request->canaryModel));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dbGrayEnable)) {
     query->insert(pair<string, bool>("DbGrayEnable", *request->dbGrayEnable));
@@ -1788,11 +1799,17 @@ CreateOrUpdateSwimmingLaneGroupResponse Alibabacloud_Mse20190531::Client::create
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pathsShrink)) {
+    query->insert(pair<string, string>("Paths", *request->pathsShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->recordCanaryDetail)) {
     query->insert(pair<string, bool>("RecordCanaryDetail", *request->recordCanaryDetail));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeIdsShrink)) {
+    query->insert(pair<string, string>("RouteIds", *request->routeIdsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
     query->insert(pair<string, long>("Status", *request->status));
