@@ -10009,6 +10009,85 @@ public:
 
   virtual ~DescribeApiResponseBodySystemParameters() = default;
 };
+class DescribeApiResponseBodyTagListTag : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  DescribeApiResponseBodyTagListTag() {}
+
+  explicit DescribeApiResponseBodyTagListTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~DescribeApiResponseBodyTagListTag() = default;
+};
+class DescribeApiResponseBodyTagList : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeApiResponseBodyTagListTag>> tag{};
+
+  DescribeApiResponseBodyTagList() {}
+
+  explicit DescribeApiResponseBodyTagList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeApiResponseBodyTagListTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeApiResponseBodyTagListTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeApiResponseBodyTagListTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeApiResponseBodyTagList() = default;
+};
 class DescribeApiResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> allowSignatureMethod{};
@@ -10044,6 +10123,7 @@ public:
   shared_ptr<DescribeApiResponseBodyServiceParameters> serviceParameters{};
   shared_ptr<DescribeApiResponseBodyServiceParametersMap> serviceParametersMap{};
   shared_ptr<DescribeApiResponseBodySystemParameters> systemParameters{};
+  shared_ptr<DescribeApiResponseBodyTagList> tagList{};
   shared_ptr<string> visibility{};
   shared_ptr<string> webSocketApiType{};
 
@@ -10155,6 +10235,9 @@ public:
     }
     if (systemParameters) {
       res["SystemParameters"] = systemParameters ? boost::any(systemParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tagList) {
+      res["TagList"] = tagList ? boost::any(tagList->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (visibility) {
       res["Visibility"] = boost::any(*visibility);
@@ -10311,6 +10394,13 @@ public:
         DescribeApiResponseBodySystemParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SystemParameters"]));
         systemParameters = make_shared<DescribeApiResponseBodySystemParameters>(model1);
+      }
+    }
+    if (m.find("TagList") != m.end() && !m["TagList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TagList"].type()) {
+        DescribeApiResponseBodyTagList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TagList"]));
+        tagList = make_shared<DescribeApiResponseBodyTagList>(model1);
       }
     }
     if (m.find("Visibility") != m.end() && !m["Visibility"].empty()) {
