@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -475,6 +474,9 @@ DetachPolicyResponse Alibabacloud_Tag20180828::Client::detachPolicy(shared_ptr<D
 DisablePolicyTypeResponse Alibabacloud_Tag20180828::Client::disablePolicyTypeWithOptions(shared_ptr<DisablePolicyTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->openType)) {
+    query->insert(pair<string, string>("OpenType", *request->openType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -518,6 +520,9 @@ DisablePolicyTypeResponse Alibabacloud_Tag20180828::Client::disablePolicyType(sh
 EnablePolicyTypeResponse Alibabacloud_Tag20180828::Client::enablePolicyTypeWithOptions(shared_ptr<EnablePolicyTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->openType)) {
+    query->insert(pair<string, string>("OpenType", *request->openType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -736,6 +741,9 @@ GetPolicyResponse Alibabacloud_Tag20180828::Client::getPolicy(shared_ptr<GetPoli
 GetPolicyEnableStatusResponse Alibabacloud_Tag20180828::Client::getPolicyEnableStatusWithOptions(shared_ptr<GetPolicyEnableStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->openType)) {
+    query->insert(pair<string, string>("OpenType", *request->openType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
