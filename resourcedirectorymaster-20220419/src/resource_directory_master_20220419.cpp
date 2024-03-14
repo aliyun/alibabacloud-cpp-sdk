@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -427,6 +426,9 @@ CreateResourceAccountResponse Alibabacloud_ResourceDirectoryMaster20220419::Clie
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->displayName)) {
     query->insert(pair<string, string>("DisplayName", *request->displayName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->parentFolderId)) {
     query->insert(pair<string, string>("ParentFolderId", *request->parentFolderId));
@@ -2116,6 +2118,9 @@ UpdateAccountResponse Alibabacloud_ResourceDirectoryMaster20220419::Client::upda
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
     query->insert(pair<string, string>("AccountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->newAccountType)) {
     query->insert(pair<string, string>("NewAccountType", *request->newAccountType));
