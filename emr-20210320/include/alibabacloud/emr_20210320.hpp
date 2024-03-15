@@ -8936,6 +8936,7 @@ public:
   shared_ptr<string> adjustmentType{};
   shared_ptr<long> adjustmentValue{};
   shared_ptr<MetricsTrigger> metricsTrigger{};
+  shared_ptr<long> minAdjustmentValue{};
   shared_ptr<string> ruleName{};
   shared_ptr<TimeTrigger> timeTrigger{};
   shared_ptr<string> triggerType{};
@@ -8961,6 +8962,9 @@ public:
     }
     if (metricsTrigger) {
       res["MetricsTrigger"] = metricsTrigger ? boost::any(metricsTrigger->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (minAdjustmentValue) {
+      res["MinAdjustmentValue"] = boost::any(*minAdjustmentValue);
     }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
@@ -8990,6 +8994,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MetricsTrigger"]));
         metricsTrigger = make_shared<MetricsTrigger>(model1);
       }
+    }
+    if (m.find("MinAdjustmentValue") != m.end() && !m["MinAdjustmentValue"].empty()) {
+      minAdjustmentValue = make_shared<long>(boost::any_cast<long>(m["MinAdjustmentValue"]));
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
