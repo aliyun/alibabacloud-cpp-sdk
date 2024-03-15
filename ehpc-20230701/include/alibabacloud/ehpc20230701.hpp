@@ -1785,6 +1785,7 @@ public:
 };
 class DeleteJobsRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> executorIds{};
   shared_ptr<vector<DeleteJobsRequestJobSpec>> jobSpec{};
 
   DeleteJobsRequest() {}
@@ -1797,6 +1798,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (executorIds) {
+      res["ExecutorIds"] = boost::any(*executorIds);
+    }
     if (jobSpec) {
       vector<boost::any> temp1;
       for(auto item1:*jobSpec){
@@ -1808,6 +1812,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExecutorIds") != m.end() && !m["ExecutorIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExecutorIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExecutorIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      executorIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("JobSpec") != m.end() && !m["JobSpec"].empty()) {
       if (typeid(vector<boost::any>) == m["JobSpec"].type()) {
         vector<DeleteJobsRequestJobSpec> expect1;
@@ -1828,6 +1842,7 @@ public:
 };
 class DeleteJobsShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> executorIdsShrink{};
   shared_ptr<string> jobSpecShrink{};
 
   DeleteJobsShrinkRequest() {}
@@ -1840,6 +1855,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (executorIdsShrink) {
+      res["ExecutorIds"] = boost::any(*executorIdsShrink);
+    }
     if (jobSpecShrink) {
       res["JobSpec"] = boost::any(*jobSpecShrink);
     }
@@ -1847,6 +1865,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExecutorIds") != m.end() && !m["ExecutorIds"].empty()) {
+      executorIdsShrink = make_shared<string>(boost::any_cast<string>(m["ExecutorIds"]));
+    }
     if (m.find("JobSpec") != m.end() && !m["JobSpec"].empty()) {
       jobSpecShrink = make_shared<string>(boost::any_cast<string>(m["JobSpec"]));
     }
@@ -3060,6 +3081,417 @@ public:
 
   virtual ~GetJobResponse() = default;
 };
+class ListExecutorsRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> executorIds{};
+  shared_ptr<vector<string>> ipAddresses{};
+  shared_ptr<string> jobName{};
+  shared_ptr<long> timeCreatedAfter{};
+  shared_ptr<long> timeCreatedBefore{};
+
+  ListExecutorsRequestFilter() {}
+
+  explicit ListExecutorsRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (executorIds) {
+      res["ExecutorIds"] = boost::any(*executorIds);
+    }
+    if (ipAddresses) {
+      res["IpAddresses"] = boost::any(*ipAddresses);
+    }
+    if (jobName) {
+      res["JobName"] = boost::any(*jobName);
+    }
+    if (timeCreatedAfter) {
+      res["TimeCreatedAfter"] = boost::any(*timeCreatedAfter);
+    }
+    if (timeCreatedBefore) {
+      res["TimeCreatedBefore"] = boost::any(*timeCreatedBefore);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExecutorIds") != m.end() && !m["ExecutorIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExecutorIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExecutorIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      executorIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IpAddresses") != m.end() && !m["IpAddresses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IpAddresses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IpAddresses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipAddresses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
+      jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
+    }
+    if (m.find("TimeCreatedAfter") != m.end() && !m["TimeCreatedAfter"].empty()) {
+      timeCreatedAfter = make_shared<long>(boost::any_cast<long>(m["TimeCreatedAfter"]));
+    }
+    if (m.find("TimeCreatedBefore") != m.end() && !m["TimeCreatedBefore"].empty()) {
+      timeCreatedBefore = make_shared<long>(boost::any_cast<long>(m["TimeCreatedBefore"]));
+    }
+  }
+
+
+  virtual ~ListExecutorsRequestFilter() = default;
+};
+class ListExecutorsRequest : public Darabonba::Model {
+public:
+  shared_ptr<ListExecutorsRequestFilter> filter{};
+  shared_ptr<string> pageNumber{};
+  shared_ptr<string> pageSize{};
+
+  ListExecutorsRequest() {}
+
+  explicit ListExecutorsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filter) {
+      res["Filter"] = filter ? boost::any(filter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Filter"].type()) {
+        ListExecutorsRequestFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Filter"]));
+        filter = make_shared<ListExecutorsRequestFilter>(model1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListExecutorsRequest() = default;
+};
+class ListExecutorsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterShrink{};
+  shared_ptr<string> pageNumber{};
+  shared_ptr<string> pageSize{};
+
+  ListExecutorsShrinkRequest() {}
+
+  explicit ListExecutorsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterShrink) {
+      res["Filter"] = boost::any(*filterShrink);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filterShrink = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListExecutorsShrinkRequest() = default;
+};
+class ListExecutorsResponseBodyExecutors : public Darabonba::Model {
+public:
+  shared_ptr<long> arrayIndex{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> executorId{};
+  shared_ptr<vector<string>> hostName{};
+  shared_ptr<vector<string>> ipAddress{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> jobName{};
+  shared_ptr<string> status{};
+  shared_ptr<string> statusReason{};
+  shared_ptr<string> taskName{};
+
+  ListExecutorsResponseBodyExecutors() {}
+
+  explicit ListExecutorsResponseBodyExecutors(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arrayIndex) {
+      res["ArrayIndex"] = boost::any(*arrayIndex);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (executorId) {
+      res["ExecutorId"] = boost::any(*executorId);
+    }
+    if (hostName) {
+      res["HostName"] = boost::any(*hostName);
+    }
+    if (ipAddress) {
+      res["IpAddress"] = boost::any(*ipAddress);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (jobName) {
+      res["JobName"] = boost::any(*jobName);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (statusReason) {
+      res["StatusReason"] = boost::any(*statusReason);
+    }
+    if (taskName) {
+      res["TaskName"] = boost::any(*taskName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArrayIndex") != m.end() && !m["ArrayIndex"].empty()) {
+      arrayIndex = make_shared<long>(boost::any_cast<long>(m["ArrayIndex"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("ExecutorId") != m.end() && !m["ExecutorId"].empty()) {
+      executorId = make_shared<string>(boost::any_cast<string>(m["ExecutorId"]));
+    }
+    if (m.find("HostName") != m.end() && !m["HostName"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HostName"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HostName"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      hostName = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IpAddress") != m.end() && !m["IpAddress"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IpAddress"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IpAddress"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipAddress = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
+      jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StatusReason") != m.end() && !m["StatusReason"].empty()) {
+      statusReason = make_shared<string>(boost::any_cast<string>(m["StatusReason"]));
+    }
+    if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
+      taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
+    }
+  }
+
+
+  virtual ~ListExecutorsResponseBodyExecutors() = default;
+};
+class ListExecutorsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListExecutorsResponseBodyExecutors>> executors{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> pageNumber{};
+  shared_ptr<string> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskName{};
+  shared_ptr<string> totalCount{};
+
+  ListExecutorsResponseBody() {}
+
+  explicit ListExecutorsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (executors) {
+      vector<boost::any> temp1;
+      for(auto item1:*executors){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Executors"] = boost::any(temp1);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskName) {
+      res["TaskName"] = boost::any(*taskName);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Executors") != m.end() && !m["Executors"].empty()) {
+      if (typeid(vector<boost::any>) == m["Executors"].type()) {
+        vector<ListExecutorsResponseBodyExecutors> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Executors"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListExecutorsResponseBodyExecutors model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        executors = make_shared<vector<ListExecutorsResponseBodyExecutors>>(expect1);
+      }
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
+      taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<string>(boost::any_cast<string>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListExecutorsResponseBody() = default;
+};
+class ListExecutorsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListExecutorsResponseBody> body{};
+
+  ListExecutorsResponse() {}
+
+  explicit ListExecutorsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListExecutorsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListExecutorsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListExecutorsResponse() = default;
+};
 class ListImagesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> imageIds{};
@@ -4200,6 +4632,8 @@ public:
   GetImageResponse getImage(shared_ptr<GetImageRequest> request);
   GetJobResponse getJobWithOptions(shared_ptr<GetJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetJobResponse getJob(shared_ptr<GetJobRequest> request);
+  ListExecutorsResponse listExecutorsWithOptions(shared_ptr<ListExecutorsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListExecutorsResponse listExecutors(shared_ptr<ListExecutorsRequest> request);
   ListImagesResponse listImagesWithOptions(shared_ptr<ListImagesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListImagesResponse listImages(shared_ptr<ListImagesRequest> request);
   ListJobExecutorsResponse listJobExecutorsWithOptions(shared_ptr<ListJobExecutorsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

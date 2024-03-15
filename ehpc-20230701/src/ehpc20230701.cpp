@@ -134,10 +134,16 @@ DeleteJobsResponse Alibabacloud_EHPC20230701::Client::deleteJobsWithOptions(shar
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<DeleteJobsShrinkRequest> request = make_shared<DeleteJobsShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->executorIds)) {
+    request->executorIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->executorIds, make_shared<string>("ExecutorIds"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<DeleteJobsRequestJobSpec>>(tmpReq->jobSpec)) {
     request->jobSpecShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->jobSpec, make_shared<string>("JobSpec"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->executorIdsShrink)) {
+    query->insert(pair<string, string>("ExecutorIds", *request->executorIdsShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobSpecShrink)) {
     query->insert(pair<string, string>("JobSpec", *request->jobSpecShrink));
   }
@@ -217,6 +223,45 @@ GetJobResponse Alibabacloud_EHPC20230701::Client::getJobWithOptions(shared_ptr<G
 GetJobResponse Alibabacloud_EHPC20230701::Client::getJob(shared_ptr<GetJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getJobWithOptions(request, runtime);
+}
+
+ListExecutorsResponse Alibabacloud_EHPC20230701::Client::listExecutorsWithOptions(shared_ptr<ListExecutorsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListExecutorsShrinkRequest> request = make_shared<ListExecutorsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ListExecutorsRequestFilter>(tmpReq->filter)) {
+    request->filterShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filter, make_shared<string>("Filter"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterShrink)) {
+    query->insert(pair<string, string>("Filter", *request->filterShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageNumber)) {
+    query->insert(pair<string, string>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListExecutors"))},
+    {"version", boost::any(string("2023-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListExecutorsResponse(callApi(params, req, runtime));
+}
+
+ListExecutorsResponse Alibabacloud_EHPC20230701::Client::listExecutors(shared_ptr<ListExecutorsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listExecutorsWithOptions(request, runtime);
 }
 
 ListImagesResponse Alibabacloud_EHPC20230701::Client::listImagesWithOptions(shared_ptr<ListImagesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
