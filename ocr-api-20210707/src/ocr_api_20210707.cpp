@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -2517,6 +2516,9 @@ VerifyVATInvoiceResponse Alibabacloud_Ocr-api20210707::Client::verifyVATInvoiceW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->invoiceDate)) {
     query->insert(pair<string, string>("InvoiceDate", *request->invoiceDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->invoiceKind)) {
+    query->insert(pair<string, long>("InvoiceKind", *request->invoiceKind));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->invoiceNo)) {
     query->insert(pair<string, string>("InvoiceNo", *request->invoiceNo));
