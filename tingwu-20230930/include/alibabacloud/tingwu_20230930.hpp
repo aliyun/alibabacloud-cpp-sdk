@@ -17,6 +17,7 @@ class CreateTaskRequestInput : public Darabonba::Model {
 public:
   shared_ptr<string> fileUrl{};
   shared_ptr<string> format{};
+  shared_ptr<bool> multipleStreamsEnabled{};
   shared_ptr<bool> progressiveCallbacksEnabled{};
   shared_ptr<long> sampleRate{};
   shared_ptr<string> sourceLanguage{};
@@ -38,6 +39,9 @@ public:
     }
     if (format) {
       res["Format"] = boost::any(*format);
+    }
+    if (multipleStreamsEnabled) {
+      res["MultipleStreamsEnabled"] = boost::any(*multipleStreamsEnabled);
     }
     if (progressiveCallbacksEnabled) {
       res["ProgressiveCallbacksEnabled"] = boost::any(*progressiveCallbacksEnabled);
@@ -63,6 +67,9 @@ public:
     }
     if (m.find("Format") != m.end() && !m["Format"].empty()) {
       format = make_shared<string>(boost::any_cast<string>(m["Format"]));
+    }
+    if (m.find("MultipleStreamsEnabled") != m.end() && !m["MultipleStreamsEnabled"].empty()) {
+      multipleStreamsEnabled = make_shared<bool>(boost::any_cast<bool>(m["MultipleStreamsEnabled"]));
     }
     if (m.find("ProgressiveCallbacksEnabled") != m.end() && !m["ProgressiveCallbacksEnabled"].empty()) {
       progressiveCallbacksEnabled = make_shared<bool>(boost::any_cast<bool>(m["ProgressiveCallbacksEnabled"]));
@@ -237,6 +244,7 @@ public:
 };
 class CreateTaskRequestParametersTranscription : public Darabonba::Model {
 public:
+  shared_ptr<long> additionalStreamOutputLevel{};
   shared_ptr<bool> audioEventDetectionEnabled{};
   shared_ptr<CreateTaskRequestParametersTranscriptionDiarization> diarization{};
   shared_ptr<bool> diarizationEnabled{};
@@ -253,6 +261,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (additionalStreamOutputLevel) {
+      res["AdditionalStreamOutputLevel"] = boost::any(*additionalStreamOutputLevel);
+    }
     if (audioEventDetectionEnabled) {
       res["AudioEventDetectionEnabled"] = boost::any(*audioEventDetectionEnabled);
     }
@@ -272,6 +283,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalStreamOutputLevel") != m.end() && !m["AdditionalStreamOutputLevel"].empty()) {
+      additionalStreamOutputLevel = make_shared<long>(boost::any_cast<long>(m["AdditionalStreamOutputLevel"]));
+    }
     if (m.find("AudioEventDetectionEnabled") != m.end() && !m["AudioEventDetectionEnabled"].empty()) {
       audioEventDetectionEnabled = make_shared<bool>(boost::any_cast<bool>(m["AudioEventDetectionEnabled"]));
     }
@@ -298,6 +312,7 @@ public:
 };
 class CreateTaskRequestParametersTranslation : public Darabonba::Model {
 public:
+  shared_ptr<long> additionalStreamOutputLevel{};
   shared_ptr<long> outputLevel{};
   shared_ptr<vector<string>> targetLanguages{};
 
@@ -311,6 +326,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (additionalStreamOutputLevel) {
+      res["AdditionalStreamOutputLevel"] = boost::any(*additionalStreamOutputLevel);
+    }
     if (outputLevel) {
       res["OutputLevel"] = boost::any(*outputLevel);
     }
@@ -321,6 +339,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalStreamOutputLevel") != m.end() && !m["AdditionalStreamOutputLevel"].empty()) {
+      additionalStreamOutputLevel = make_shared<long>(boost::any_cast<long>(m["AdditionalStreamOutputLevel"]));
+    }
     if (m.find("OutputLevel") != m.end() && !m["OutputLevel"].empty()) {
       outputLevel = make_shared<long>(boost::any_cast<long>(m["OutputLevel"]));
     }
