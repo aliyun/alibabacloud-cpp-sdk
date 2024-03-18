@@ -91,6 +91,35 @@ public:
 
   virtual ~CreateTaskRequestInput() = default;
 };
+class CreateTaskRequestParametersExtraParams : public Darabonba::Model {
+public:
+  shared_ptr<bool> nfixEnabled{};
+
+  CreateTaskRequestParametersExtraParams() {}
+
+  explicit CreateTaskRequestParametersExtraParams(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nfixEnabled) {
+      res["NfixEnabled"] = boost::any(*nfixEnabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NfixEnabled") != m.end() && !m["NfixEnabled"].empty()) {
+      nfixEnabled = make_shared<bool>(boost::any_cast<bool>(m["NfixEnabled"]));
+    }
+  }
+
+
+  virtual ~CreateTaskRequestParametersExtraParams() = default;
+};
 class CreateTaskRequestParametersMeetingAssistance : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> types{};
@@ -363,6 +392,7 @@ public:
 class CreateTaskRequestParameters : public Darabonba::Model {
 public:
   shared_ptr<bool> autoChaptersEnabled{};
+  shared_ptr<CreateTaskRequestParametersExtraParams> extraParams{};
   shared_ptr<CreateTaskRequestParametersMeetingAssistance> meetingAssistance{};
   shared_ptr<bool> meetingAssistanceEnabled{};
   shared_ptr<bool> pptExtractionEnabled{};
@@ -386,6 +416,9 @@ public:
     map<string, boost::any> res;
     if (autoChaptersEnabled) {
       res["AutoChaptersEnabled"] = boost::any(*autoChaptersEnabled);
+    }
+    if (extraParams) {
+      res["ExtraParams"] = extraParams ? boost::any(extraParams->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (meetingAssistance) {
       res["MeetingAssistance"] = meetingAssistance ? boost::any(meetingAssistance->toMap()) : boost::any(map<string,boost::any>({}));
@@ -423,6 +456,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoChaptersEnabled") != m.end() && !m["AutoChaptersEnabled"].empty()) {
       autoChaptersEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoChaptersEnabled"]));
+    }
+    if (m.find("ExtraParams") != m.end() && !m["ExtraParams"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ExtraParams"].type()) {
+        CreateTaskRequestParametersExtraParams model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ExtraParams"]));
+        extraParams = make_shared<CreateTaskRequestParametersExtraParams>(model1);
+      }
     }
     if (m.find("MeetingAssistance") != m.end() && !m["MeetingAssistance"].empty()) {
       if (typeid(map<string, boost::any>) == m["MeetingAssistance"].type()) {
@@ -549,6 +589,7 @@ public:
   shared_ptr<string> meetingJoinUrl{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskKey{};
+  shared_ptr<string> taskStatus{};
 
   CreateTaskResponseBodyData() {}
 
@@ -569,6 +610,9 @@ public:
     if (taskKey) {
       res["TaskKey"] = boost::any(*taskKey);
     }
+    if (taskStatus) {
+      res["TaskStatus"] = boost::any(*taskStatus);
+    }
     return res;
   }
 
@@ -581,6 +625,9 @@ public:
     }
     if (m.find("TaskKey") != m.end() && !m["TaskKey"].empty()) {
       taskKey = make_shared<string>(boost::any_cast<string>(m["TaskKey"]));
+    }
+    if (m.find("TaskStatus") != m.end() && !m["TaskStatus"].empty()) {
+      taskStatus = make_shared<string>(boost::any_cast<string>(m["TaskStatus"]));
     }
   }
 
