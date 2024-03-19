@@ -6980,6 +6980,7 @@ public:
   shared_ptr<string> environmentName{};
   shared_ptr<string> environmentSubType{};
   shared_ptr<string> environmentType{};
+  shared_ptr<string> feePackage{};
   shared_ptr<string> managedType{};
   shared_ptr<string> prometheusInstanceId{};
   shared_ptr<string> regionId{};
@@ -7010,6 +7011,9 @@ public:
     }
     if (environmentType) {
       res["EnvironmentType"] = boost::any(*environmentType);
+    }
+    if (feePackage) {
+      res["FeePackage"] = boost::any(*feePackage);
     }
     if (managedType) {
       res["ManagedType"] = boost::any(*managedType);
@@ -7048,6 +7052,9 @@ public:
     }
     if (m.find("EnvironmentType") != m.end() && !m["EnvironmentType"].empty()) {
       environmentType = make_shared<string>(boost::any_cast<string>(m["EnvironmentType"]));
+    }
+    if (m.find("FeePackage") != m.end() && !m["FeePackage"].empty()) {
+      feePackage = make_shared<string>(boost::any_cast<string>(m["FeePackage"]));
     }
     if (m.find("ManagedType") != m.end() && !m["ManagedType"].empty()) {
       managedType = make_shared<string>(boost::any_cast<string>(m["ManagedType"]));
@@ -14134,6 +14141,7 @@ public:
   shared_ptr<bool> checkCert{};
   shared_ptr<long> connectTimeout{};
   shared_ptr<string> method{};
+  shared_ptr<long> protocolAlpnProtocol{};
   shared_ptr<CreateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody> requestBody{};
   shared_ptr<map<string, string>> requestHeaders{};
   shared_ptr<string> targetUrl{};
@@ -14157,6 +14165,9 @@ public:
     }
     if (method) {
       res["Method"] = boost::any(*method);
+    }
+    if (protocolAlpnProtocol) {
+      res["ProtocolAlpnProtocol"] = boost::any(*protocolAlpnProtocol);
     }
     if (requestBody) {
       res["RequestBody"] = requestBody ? boost::any(requestBody->toMap()) : boost::any(map<string,boost::any>({}));
@@ -14182,6 +14193,9 @@ public:
     }
     if (m.find("Method") != m.end() && !m["Method"].empty()) {
       method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("ProtocolAlpnProtocol") != m.end() && !m["ProtocolAlpnProtocol"].empty()) {
+      protocolAlpnProtocol = make_shared<long>(boost::any_cast<long>(m["ProtocolAlpnProtocol"]));
     }
     if (m.find("RequestBody") != m.end() && !m["RequestBody"].empty()) {
       if (typeid(map<string, boost::any>) == m["RequestBody"].type()) {
@@ -23002,6 +23016,7 @@ public:
   shared_ptr<string> environmentName{};
   shared_ptr<string> environmentSubType{};
   shared_ptr<string> environmentType{};
+  shared_ptr<string> feePackage{};
   shared_ptr<string> grafaDataSourceName{};
   shared_ptr<string> grafanaDatasourceUid{};
   shared_ptr<string> grafanaFolderTitle{};
@@ -23058,6 +23073,9 @@ public:
     }
     if (environmentType) {
       res["EnvironmentType"] = boost::any(*environmentType);
+    }
+    if (feePackage) {
+      res["FeePackage"] = boost::any(*feePackage);
     }
     if (grafaDataSourceName) {
       res["GrafaDataSourceName"] = boost::any(*grafaDataSourceName);
@@ -23138,6 +23156,9 @@ public:
     }
     if (m.find("EnvironmentType") != m.end() && !m["EnvironmentType"].empty()) {
       environmentType = make_shared<string>(boost::any_cast<string>(m["EnvironmentType"]));
+    }
+    if (m.find("FeePackage") != m.end() && !m["FeePackage"].empty()) {
+      feePackage = make_shared<string>(boost::any_cast<string>(m["FeePackage"]));
     }
     if (m.find("GrafaDataSourceName") != m.end() && !m["GrafaDataSourceName"].empty()) {
       grafaDataSourceName = make_shared<string>(boost::any_cast<string>(m["GrafaDataSourceName"]));
@@ -34587,6 +34608,7 @@ public:
   shared_ptr<bool> checkCert{};
   shared_ptr<long> connectTimeout{};
   shared_ptr<string> method{};
+  shared_ptr<long> protocolAlpnProtocol{};
   shared_ptr<GetTimingSyntheticTaskResponseBodyDataMonitorConfApiHTTPRequestBody> requestBody{};
   shared_ptr<map<string, string>> requestHeaders{};
   shared_ptr<string> targetUrl{};
@@ -34610,6 +34632,9 @@ public:
     }
     if (method) {
       res["Method"] = boost::any(*method);
+    }
+    if (protocolAlpnProtocol) {
+      res["ProtocolAlpnProtocol"] = boost::any(*protocolAlpnProtocol);
     }
     if (requestBody) {
       res["RequestBody"] = requestBody ? boost::any(requestBody->toMap()) : boost::any(map<string,boost::any>({}));
@@ -34635,6 +34660,9 @@ public:
     }
     if (m.find("Method") != m.end() && !m["Method"].empty()) {
       method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("ProtocolAlpnProtocol") != m.end() && !m["ProtocolAlpnProtocol"].empty()) {
+      protocolAlpnProtocol = make_shared<long>(boost::any_cast<long>(m["ProtocolAlpnProtocol"]));
     }
     if (m.find("RequestBody") != m.end() && !m["RequestBody"].empty()) {
       if (typeid(map<string, boost::any>) == m["RequestBody"].type()) {
@@ -61334,6 +61362,7 @@ public:
   shared_ptr<string> aliyunLang{};
   shared_ptr<string> environmentId{};
   shared_ptr<string> environmentName{};
+  shared_ptr<string> feePackage{};
   shared_ptr<string> regionId{};
 
   UpdateEnvironmentRequest() {}
@@ -61355,6 +61384,9 @@ public:
     if (environmentName) {
       res["EnvironmentName"] = boost::any(*environmentName);
     }
+    if (feePackage) {
+      res["FeePackage"] = boost::any(*feePackage);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -61370,6 +61402,9 @@ public:
     }
     if (m.find("EnvironmentName") != m.end() && !m["EnvironmentName"].empty()) {
       environmentName = make_shared<string>(boost::any_cast<string>(m["EnvironmentName"]));
+    }
+    if (m.find("FeePackage") != m.end() && !m["FeePackage"].empty()) {
+      feePackage = make_shared<string>(boost::any_cast<string>(m["FeePackage"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -64140,6 +64175,7 @@ public:
   shared_ptr<bool> checkCert{};
   shared_ptr<long> connectTimeout{};
   shared_ptr<string> method{};
+  shared_ptr<long> protocolAlpnProtocol{};
   shared_ptr<UpdateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody> requestBody{};
   shared_ptr<map<string, string>> requestHeaders{};
   shared_ptr<string> targetUrl{};
@@ -64163,6 +64199,9 @@ public:
     }
     if (method) {
       res["Method"] = boost::any(*method);
+    }
+    if (protocolAlpnProtocol) {
+      res["ProtocolAlpnProtocol"] = boost::any(*protocolAlpnProtocol);
     }
     if (requestBody) {
       res["RequestBody"] = requestBody ? boost::any(requestBody->toMap()) : boost::any(map<string,boost::any>({}));
@@ -64188,6 +64227,9 @@ public:
     }
     if (m.find("Method") != m.end() && !m["Method"].empty()) {
       method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("ProtocolAlpnProtocol") != m.end() && !m["ProtocolAlpnProtocol"].empty()) {
+      protocolAlpnProtocol = make_shared<long>(boost::any_cast<long>(m["ProtocolAlpnProtocol"]));
     }
     if (m.find("RequestBody") != m.end() && !m["RequestBody"].empty()) {
       if (typeid(map<string, boost::any>) == m["RequestBody"].type()) {

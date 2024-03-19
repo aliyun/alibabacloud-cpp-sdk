@@ -1107,6 +1107,9 @@ CreateEnvironmentResponse Alibabacloud_ARMS20190808::Client::createEnvironmentWi
   if (!Darabonba_Util::Client::isUnset<string>(request->environmentType)) {
     query->insert(pair<string, string>("EnvironmentType", *request->environmentType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->feePackage)) {
+    query->insert(pair<string, string>("FeePackage", *request->feePackage));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->managedType)) {
     query->insert(pair<string, string>("ManagedType", *request->managedType));
   }
@@ -8392,6 +8395,9 @@ UpdateEnvironmentResponse Alibabacloud_ARMS20190808::Client::updateEnvironmentWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->environmentName)) {
     query->insert(pair<string, string>("EnvironmentName", *request->environmentName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->feePackage)) {
+    query->insert(pair<string, string>("FeePackage", *request->feePackage));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
