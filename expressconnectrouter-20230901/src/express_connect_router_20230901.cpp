@@ -872,40 +872,6 @@ ForceDeleteExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter2023090
   return forceDeleteExpressConnectRouterWithOptions(request, runtime);
 }
 
-GetExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::getExpressConnectRouterWithOptions(shared_ptr<GetExpressConnectRouterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
-    body->insert(pair<string, string>("ClientToken", *request->clientToken));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
-    body->insert(pair<string, bool>("DryRun", *request->dryRun));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ecrId)) {
-    body->insert(pair<string, string>("EcrId", *request->ecrId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetExpressConnectRouter"))},
-    {"version", boost::any(string("2023-09-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetExpressConnectRouterResponse(callApi(params, req, runtime));
-}
-
-GetExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::getExpressConnectRouter(shared_ptr<GetExpressConnectRouterRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getExpressConnectRouterWithOptions(request, runtime);
-}
-
 GrantInstanceToExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Client::grantInstanceToExpressConnectRouterWithOptions(shared_ptr<GrantInstanceToExpressConnectRouterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
