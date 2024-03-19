@@ -309,6 +309,9 @@ RecognizeBankCardResponse Alibabacloud_Ocr-api20210707::Client::recognizeBankCar
 RecognizeBasicResponse Alibabacloud_Ocr-api20210707::Client::recognizeBasicWithOptions(shared_ptr<RecognizeBasicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->needRotate)) {
+    query->insert(pair<string, bool>("NeedRotate", *request->needRotate));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
     query->insert(pair<string, string>("Url", *request->url));
   }
