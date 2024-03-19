@@ -930,9 +930,20 @@ CreateTriggerResponse Alibabacloud_CS20151215::Client::createTrigger(shared_ptr<
   return createTriggerWithOptions(clusterId, request, headers, runtime);
 }
 
-DeleteAlertContactResponse Alibabacloud_CS20151215::Client::deleteAlertContactWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+DeleteAlertContactResponse Alibabacloud_CS20151215::Client::deleteAlertContactWithOptions(shared_ptr<DeleteAlertContactRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteAlertContactShrinkRequest> request = make_shared<DeleteAlertContactShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->contactIds)) {
+    request->contactIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->contactIds, make_shared<string>("contact_ids"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->contactIdsShrink)) {
+    query->insert(pair<string, string>("contact_ids", *request->contactIdsShrink));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteAlertContact"))},
@@ -943,20 +954,31 @@ DeleteAlertContactResponse Alibabacloud_CS20151215::Client::deleteAlertContactWi
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
+    {"bodyType", boost::any(string("array"))}
   }));
   return DeleteAlertContactResponse(callApi(params, req, runtime));
 }
 
-DeleteAlertContactResponse Alibabacloud_CS20151215::Client::deleteAlertContact() {
+DeleteAlertContactResponse Alibabacloud_CS20151215::Client::deleteAlertContact(shared_ptr<DeleteAlertContactRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteAlertContactWithOptions(headers, runtime);
+  return deleteAlertContactWithOptions(request, headers, runtime);
 }
 
-DeleteAlertContactGroupResponse Alibabacloud_CS20151215::Client::deleteAlertContactGroupWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+DeleteAlertContactGroupResponse Alibabacloud_CS20151215::Client::deleteAlertContactGroupWithOptions(shared_ptr<DeleteAlertContactGroupRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteAlertContactGroupShrinkRequest> request = make_shared<DeleteAlertContactGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->contactGroupIds)) {
+    request->contactGroupIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->contactGroupIds, make_shared<string>("contact_group_ids"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->contactGroupIdsShrink)) {
+    query->insert(pair<string, string>("contact_group_ids", *request->contactGroupIdsShrink));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteAlertContactGroup"))},
@@ -967,15 +989,15 @@ DeleteAlertContactGroupResponse Alibabacloud_CS20151215::Client::deleteAlertCont
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
+    {"bodyType", boost::any(string("array"))}
   }));
   return DeleteAlertContactGroupResponse(callApi(params, req, runtime));
 }
 
-DeleteAlertContactGroupResponse Alibabacloud_CS20151215::Client::deleteAlertContactGroup() {
+DeleteAlertContactGroupResponse Alibabacloud_CS20151215::Client::deleteAlertContactGroup(shared_ptr<DeleteAlertContactGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteAlertContactGroupWithOptions(headers, runtime);
+  return deleteAlertContactGroupWithOptions(request, headers, runtime);
 }
 
 DeleteClusterResponse Alibabacloud_CS20151215::Client::deleteClusterWithOptions(shared_ptr<string> ClusterId,
@@ -1769,9 +1791,18 @@ DescribeClusterNodesResponse Alibabacloud_CS20151215::Client::describeClusterNod
   return describeClusterNodesWithOptions(ClusterId, request, headers, runtime);
 }
 
-DescribeClusterResourcesResponse Alibabacloud_CS20151215::Client::describeClusterResourcesWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+DescribeClusterResourcesResponse Alibabacloud_CS20151215::Client::describeClusterResourcesWithOptions(shared_ptr<string> ClusterId,
+                                                                                                      shared_ptr<DescribeClusterResourcesRequest> request,
+                                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->withAddonResources)) {
+    query->insert(pair<string, bool>("with_addon_resources", *request->withAddonResources));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeClusterResources"))},
@@ -1787,10 +1818,10 @@ DescribeClusterResourcesResponse Alibabacloud_CS20151215::Client::describeCluste
   return DescribeClusterResourcesResponse(callApi(params, req, runtime));
 }
 
-DescribeClusterResourcesResponse Alibabacloud_CS20151215::Client::describeClusterResources(shared_ptr<string> ClusterId) {
+DescribeClusterResourcesResponse Alibabacloud_CS20151215::Client::describeClusterResources(shared_ptr<string> ClusterId, shared_ptr<DescribeClusterResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeClusterResourcesWithOptions(ClusterId, headers, runtime);
+  return describeClusterResourcesWithOptions(ClusterId, request, headers, runtime);
 }
 
 DescribeClusterTasksResponse Alibabacloud_CS20151215::Client::describeClusterTasksWithOptions(shared_ptr<string> clusterId,
@@ -3013,6 +3044,9 @@ ListClusterChecksResponse Alibabacloud_CS20151215::Client::listClusterChecksWith
                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->target)) {
+    query->insert(pair<string, string>("target", *request->target));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("type", *request->type));
   }
@@ -3802,6 +3836,9 @@ RunClusterCheckResponse Alibabacloud_CS20151215::Client::runClusterCheckWithOpti
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(request->options)) {
     body->insert(pair<string, map<string, string>>("options", *request->options));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->target)) {
+    body->insert(pair<string, string>("target", *request->target));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     body->insert(pair<string, string>("type", *request->type));
   }
@@ -4067,9 +4104,21 @@ ScanClusterVulsResponse Alibabacloud_CS20151215::Client::scanClusterVuls(shared_
   return scanClusterVulsWithOptions(clusterId, headers, runtime);
 }
 
-StartAlertResponse Alibabacloud_CS20151215::Client::startAlertWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+StartAlertResponse Alibabacloud_CS20151215::Client::startAlertWithOptions(shared_ptr<string> ClusterId,
+                                                                          shared_ptr<StartAlertRequest> request,
+                                                                          shared_ptr<map<string, string>> headers,
+                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertRuleGroupName)) {
+    body->insert(pair<string, string>("alert_rule_group_name", *request->alertRuleGroupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertRuleName)) {
+    body->insert(pair<string, string>("alert_rule_name", *request->alertRuleName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("StartAlert"))},
@@ -4085,10 +4134,10 @@ StartAlertResponse Alibabacloud_CS20151215::Client::startAlertWithOptions(shared
   return StartAlertResponse(callApi(params, req, runtime));
 }
 
-StartAlertResponse Alibabacloud_CS20151215::Client::startAlert(shared_ptr<string> ClusterId) {
+StartAlertResponse Alibabacloud_CS20151215::Client::startAlert(shared_ptr<string> ClusterId, shared_ptr<StartAlertRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return startAlertWithOptions(ClusterId, headers, runtime);
+  return startAlertWithOptions(ClusterId, request, headers, runtime);
 }
 
 StartWorkflowResponse Alibabacloud_CS20151215::Client::startWorkflowWithOptions(shared_ptr<StartWorkflowRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4175,9 +4224,21 @@ StartWorkflowResponse Alibabacloud_CS20151215::Client::startWorkflow(shared_ptr<
   return startWorkflowWithOptions(request, headers, runtime);
 }
 
-StopAlertResponse Alibabacloud_CS20151215::Client::stopAlertWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+StopAlertResponse Alibabacloud_CS20151215::Client::stopAlertWithOptions(shared_ptr<string> ClusterId,
+                                                                        shared_ptr<StopAlertRequest> request,
+                                                                        shared_ptr<map<string, string>> headers,
+                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertRuleGroupName)) {
+    body->insert(pair<string, string>("alert_rule_group_name", *request->alertRuleGroupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertRuleName)) {
+    body->insert(pair<string, string>("alert_rule_name", *request->alertRuleName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("StopAlert"))},
@@ -4193,10 +4254,10 @@ StopAlertResponse Alibabacloud_CS20151215::Client::stopAlertWithOptions(shared_p
   return StopAlertResponse(callApi(params, req, runtime));
 }
 
-StopAlertResponse Alibabacloud_CS20151215::Client::stopAlert(shared_ptr<string> ClusterId) {
+StopAlertResponse Alibabacloud_CS20151215::Client::stopAlert(shared_ptr<string> ClusterId, shared_ptr<StopAlertRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return stopAlertWithOptions(ClusterId, headers, runtime);
+  return stopAlertWithOptions(ClusterId, request, headers, runtime);
 }
 
 SyncClusterNodePoolResponse Alibabacloud_CS20151215::Client::syncClusterNodePoolWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4488,6 +4549,40 @@ UpdateTemplateResponse Alibabacloud_CS20151215::Client::updateTemplate(shared_pt
   return updateTemplateWithOptions(TemplateId, request, headers, runtime);
 }
 
+UpdateUserPermissionsResponse Alibabacloud_CS20151215::Client::updateUserPermissionsWithOptions(shared_ptr<string> uid,
+                                                                                                shared_ptr<UpdateUserPermissionsRequest> request,
+                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->mode)) {
+    query->insert(pair<string, string>("mode", *request->mode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Darabonba_Util::Client::toArray<vector<UpdateUserPermissionsRequestBody>>(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateUserPermissions"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/permissions/users/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(uid)) + string("/update"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return UpdateUserPermissionsResponse(callApi(params, req, runtime));
+}
+
+UpdateUserPermissionsResponse Alibabacloud_CS20151215::Client::updateUserPermissions(shared_ptr<string> uid, shared_ptr<UpdateUserPermissionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateUserPermissionsWithOptions(uid, request, headers, runtime);
+}
+
 UpgradeClusterResponse Alibabacloud_CS20151215::Client::upgradeClusterWithOptions(shared_ptr<string> ClusterId,
                                                                                   shared_ptr<UpgradeClusterRequest> request,
                                                                                   shared_ptr<map<string, string>> headers,
@@ -4571,6 +4666,12 @@ UpgradeClusterNodepoolResponse Alibabacloud_CS20151215::Client::upgradeClusterNo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->kubernetesVersion)) {
     body->insert(pair<string, string>("kubernetes_version", *request->kubernetesVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->nodeNames)) {
+    body->insert(pair<string, vector<string>>("node_names", *request->nodeNames));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpgradeClusterNodepoolRequestRollingPolicy>(request->rollingPolicy)) {
+    body->insert(pair<string, UpgradeClusterNodepoolRequestRollingPolicy>("rolling_policy", *request->rollingPolicy));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->runtimeType)) {
     body->insert(pair<string, string>("runtime_type", *request->runtimeType));
