@@ -2149,6 +2149,7 @@ public:
 };
 class DataIngestionStatistic : public Darabonba::Model {
 public:
+  shared_ptr<long> skipFiles{};
   shared_ptr<long> submitFailure{};
   shared_ptr<long> submitSuccess{};
 
@@ -2162,6 +2163,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (skipFiles) {
+      res["SkipFiles"] = boost::any(*skipFiles);
+    }
     if (submitFailure) {
       res["SubmitFailure"] = boost::any(*submitFailure);
     }
@@ -2172,6 +2176,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SkipFiles") != m.end() && !m["SkipFiles"].empty()) {
+      skipFiles = make_shared<long>(boost::any_cast<long>(m["SkipFiles"]));
+    }
     if (m.find("SubmitFailure") != m.end() && !m["SubmitFailure"].empty()) {
       submitFailure = make_shared<long>(boost::any_cast<long>(m["SubmitFailure"]));
     }
@@ -2276,6 +2283,7 @@ public:
   shared_ptr<string> marker{};
   shared_ptr<DataIngestionNotification> notification{};
   shared_ptr<string> phase{};
+  shared_ptr<string> serviceRole{};
   shared_ptr<string> state{};
   shared_ptr<DataIngestionStatistic> statistic{};
   shared_ptr<map<string, boost::any>> tags{};
@@ -2318,6 +2326,9 @@ public:
     }
     if (phase) {
       res["Phase"] = boost::any(*phase);
+    }
+    if (serviceRole) {
+      res["ServiceRole"] = boost::any(*serviceRole);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -2376,6 +2387,9 @@ public:
     }
     if (m.find("Phase") != m.end() && !m["Phase"].empty()) {
       phase = make_shared<string>(boost::any_cast<string>(m["Phase"]));
+    }
+    if (m.find("ServiceRole") != m.end() && !m["ServiceRole"].empty()) {
+      serviceRole = make_shared<string>(boost::any_cast<string>(m["ServiceRole"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
