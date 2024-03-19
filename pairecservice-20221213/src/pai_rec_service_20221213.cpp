@@ -3745,3 +3745,41 @@ UpdateTableMetaResponse Alibabacloud_PaiRecService20221213::Client::updateTableM
   return updateTableMetaWithOptions(TableMetaId, request, headers, runtime);
 }
 
+UploadRecommendationDataResponse Alibabacloud_PaiRecService20221213::Client::uploadRecommendationDataWithOptions(shared_ptr<UploadRecommendationDataRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<UploadRecommendationDataRequestContent>>(request->content)) {
+    body->insert(pair<string, vector<UploadRecommendationDataRequestContent>>("Content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataType)) {
+    body->insert(pair<string, string>("DataType", *request->dataType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UploadRecommendationData"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/recommendationdata/action/upload"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UploadRecommendationDataResponse(callApi(params, req, runtime));
+}
+
+UploadRecommendationDataResponse Alibabacloud_PaiRecService20221213::Client::uploadRecommendationData(shared_ptr<UploadRecommendationDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return uploadRecommendationDataWithOptions(request, headers, runtime);
+}
+

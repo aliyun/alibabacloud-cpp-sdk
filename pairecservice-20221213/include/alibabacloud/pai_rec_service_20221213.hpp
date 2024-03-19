@@ -16606,6 +16606,187 @@ public:
 
   virtual ~UpdateTableMetaResponse() = default;
 };
+class UploadRecommendationDataRequestContent : public Darabonba::Model {
+public:
+  shared_ptr<string> fields{};
+  shared_ptr<string> operationType{};
+
+  UploadRecommendationDataRequestContent() {}
+
+  explicit UploadRecommendationDataRequestContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fields) {
+      res["Fields"] = boost::any(*fields);
+    }
+    if (operationType) {
+      res["OperationType"] = boost::any(*operationType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Fields") != m.end() && !m["Fields"].empty()) {
+      fields = make_shared<string>(boost::any_cast<string>(m["Fields"]));
+    }
+    if (m.find("OperationType") != m.end() && !m["OperationType"].empty()) {
+      operationType = make_shared<string>(boost::any_cast<string>(m["OperationType"]));
+    }
+  }
+
+
+  virtual ~UploadRecommendationDataRequestContent() = default;
+};
+class UploadRecommendationDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<UploadRecommendationDataRequestContent>> content{};
+  shared_ptr<string> dataType{};
+
+  UploadRecommendationDataRequest() {}
+
+  explicit UploadRecommendationDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (content) {
+      vector<boost::any> temp1;
+      for(auto item1:*content){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Content"] = boost::any(temp1);
+    }
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      if (typeid(vector<boost::any>) == m["Content"].type()) {
+        vector<UploadRecommendationDataRequestContent> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Content"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UploadRecommendationDataRequestContent model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        content = make_shared<vector<UploadRecommendationDataRequestContent>>(expect1);
+      }
+    }
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
+    }
+  }
+
+
+  virtual ~UploadRecommendationDataRequest() = default;
+};
+class UploadRecommendationDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  UploadRecommendationDataResponseBody() {}
+
+  explicit UploadRecommendationDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UploadRecommendationDataResponseBody() = default;
+};
+class UploadRecommendationDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UploadRecommendationDataResponseBody> body{};
+
+  UploadRecommendationDataResponse() {}
+
+  explicit UploadRecommendationDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UploadRecommendationDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UploadRecommendationDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UploadRecommendationDataResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -16975,6 +17156,8 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateTableMetaResponse updateTableMeta(shared_ptr<string> TableMetaId, shared_ptr<UpdateTableMetaRequest> request);
+  UploadRecommendationDataResponse uploadRecommendationDataWithOptions(shared_ptr<UploadRecommendationDataRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UploadRecommendationDataResponse uploadRecommendationData(shared_ptr<UploadRecommendationDataRequest> request);
 
   virtual ~Client() = default;
 };
