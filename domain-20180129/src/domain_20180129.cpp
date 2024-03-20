@@ -1431,6 +1431,9 @@ QueryDomainGroupListResponse Alibabacloud_Domain20180129::Client::queryDomainGro
 QueryDomainListResponse Alibabacloud_Domain20180129::Client::queryDomainListWithOptions(shared_ptr<QueryDomainListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ccompany)) {
+    query->insert(pair<string, string>("Ccompany", *request->ccompany));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->domainGroupId)) {
     query->insert(pair<string, string>("DomainGroupId", *request->domainGroupId));
   }

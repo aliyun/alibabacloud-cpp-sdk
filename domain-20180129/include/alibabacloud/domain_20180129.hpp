@@ -8834,6 +8834,7 @@ public:
 };
 class QueryDomainListRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> ccompany{};
   shared_ptr<string> domainGroupId{};
   shared_ptr<string> domainName{};
   shared_ptr<long> endExpirationDate{};
@@ -8861,6 +8862,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ccompany) {
+      res["Ccompany"] = boost::any(*ccompany);
+    }
     if (domainGroupId) {
       res["DomainGroupId"] = boost::any(*domainGroupId);
     }
@@ -8917,6 +8921,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ccompany") != m.end() && !m["Ccompany"].empty()) {
+      ccompany = make_shared<string>(boost::any_cast<string>(m["Ccompany"]));
+    }
     if (m.find("DomainGroupId") != m.end() && !m["DomainGroupId"].empty()) {
       domainGroupId = make_shared<string>(boost::any_cast<string>(m["DomainGroupId"]));
     }
@@ -9061,6 +9068,7 @@ public:
 };
 class QueryDomainListResponseBodyDataDomain : public Darabonba::Model {
 public:
+  shared_ptr<string> ccompany{};
   shared_ptr<string> domainAuditStatus{};
   shared_ptr<string> domainGroupId{};
   shared_ptr<string> domainGroupName{};
@@ -9091,6 +9099,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ccompany) {
+      res["Ccompany"] = boost::any(*ccompany);
+    }
     if (domainAuditStatus) {
       res["DomainAuditStatus"] = boost::any(*domainAuditStatus);
     }
@@ -9152,6 +9163,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ccompany") != m.end() && !m["Ccompany"].empty()) {
+      ccompany = make_shared<string>(boost::any_cast<string>(m["Ccompany"]));
+    }
     if (m.find("DomainAuditStatus") != m.end() && !m["DomainAuditStatus"].empty()) {
       domainAuditStatus = make_shared<string>(boost::any_cast<string>(m["DomainAuditStatus"]));
     }
