@@ -1654,6 +1654,42 @@ ModifyDiskReplicaPairResponse Alibabacloud_Ebs20210730::Client::modifyDiskReplic
   return modifyDiskReplicaPairWithOptions(request, runtime);
 }
 
+QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse Alibabacloud_Ebs20210730::Client::queryDedicatedBlockStorageClusterDiskThroughputStatusWithOptions(shared_ptr<QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->qosRequestId)) {
+    body->insert(pair<string, string>("QosRequestId", *request->qosRequestId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryDedicatedBlockStorageClusterDiskThroughputStatus"))},
+    {"version", boost::any(string("2021-07-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse(callApi(params, req, runtime));
+}
+
+QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse Alibabacloud_Ebs20210730::Client::queryDedicatedBlockStorageClusterDiskThroughputStatus(shared_ptr<QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryDedicatedBlockStorageClusterDiskThroughputStatusWithOptions(request, runtime);
+}
+
 QueryDedicatedBlockStorageClusterInventoryDataResponse Alibabacloud_Ebs20210730::Client::queryDedicatedBlockStorageClusterInventoryDataWithOptions(shared_ptr<QueryDedicatedBlockStorageClusterInventoryDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1808,6 +1844,45 @@ ReprotectDiskReplicaPairResponse Alibabacloud_Ebs20210730::Client::reprotectDisk
 ReprotectDiskReplicaPairResponse Alibabacloud_Ebs20210730::Client::reprotectDiskReplicaPair(shared_ptr<ReprotectDiskReplicaPairRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return reprotectDiskReplicaPairWithOptions(request, runtime);
+}
+
+SetDedicatedBlockStorageClusterDiskThroughputResponse Alibabacloud_Ebs20210730::Client::setDedicatedBlockStorageClusterDiskThroughputWithOptions(shared_ptr<SetDedicatedBlockStorageClusterDiskThroughputRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->bps)) {
+    body->insert(pair<string, long>("Bps", *request->bps));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->diskId)) {
+    body->insert(pair<string, string>("DiskId", *request->diskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetDedicatedBlockStorageClusterDiskThroughput"))},
+    {"version", boost::any(string("2021-07-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetDedicatedBlockStorageClusterDiskThroughputResponse(callApi(params, req, runtime));
+}
+
+SetDedicatedBlockStorageClusterDiskThroughputResponse Alibabacloud_Ebs20210730::Client::setDedicatedBlockStorageClusterDiskThroughput(shared_ptr<SetDedicatedBlockStorageClusterDiskThroughputRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setDedicatedBlockStorageClusterDiskThroughputWithOptions(request, runtime);
 }
 
 StartDiskReplicaGroupResponse Alibabacloud_Ebs20210730::Client::startDiskReplicaGroupWithOptions(shared_ptr<StartDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
