@@ -985,6 +985,9 @@ CreateScalingConfigurationResponse Alibabacloud_Ess20220222::Client::createScali
   if (!Darabonba_Util::Client::isUnset<long>(request->memory)) {
     query->insert(pair<string, long>("Memory", *request->memory));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateScalingConfigurationShrinkRequestNetworkInterfaces>>(request->networkInterfaces)) {
+    query->insert(pair<string, vector<CreateScalingConfigurationShrinkRequestNetworkInterfaces>>("NetworkInterfaces", *request->networkInterfaces));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -3833,6 +3836,9 @@ ModifyScalingConfigurationResponse Alibabacloud_Ess20220222::Client::modifyScali
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->memory)) {
     query->insert(pair<string, long>("Memory", *request->memory));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyScalingConfigurationShrinkRequestNetworkInterfaces>>(request->networkInterfaces)) {
+    query->insert(pair<string, vector<ModifyScalingConfigurationShrinkRequestNetworkInterfaces>>("NetworkInterfaces", *request->networkInterfaces));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->override)) {
     query->insert(pair<string, bool>("Override", *request->override));

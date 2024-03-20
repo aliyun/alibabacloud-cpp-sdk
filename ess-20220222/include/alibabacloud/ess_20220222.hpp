@@ -5582,6 +5582,63 @@ public:
 
   virtual ~CreateScalingConfigurationRequestInstanceTypeOverrides() = default;
 };
+class CreateScalingConfigurationRequestNetworkInterfaces : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceType{};
+  shared_ptr<long> ipv6AddressCount{};
+  shared_ptr<string> networkInterfaceTrafficMode{};
+  shared_ptr<vector<string>> securityGroupIds{};
+
+  CreateScalingConfigurationRequestNetworkInterfaces() {}
+
+  explicit CreateScalingConfigurationRequestNetworkInterfaces(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (ipv6AddressCount) {
+      res["Ipv6AddressCount"] = boost::any(*ipv6AddressCount);
+    }
+    if (networkInterfaceTrafficMode) {
+      res["NetworkInterfaceTrafficMode"] = boost::any(*networkInterfaceTrafficMode);
+    }
+    if (securityGroupIds) {
+      res["SecurityGroupIds"] = boost::any(*securityGroupIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Ipv6AddressCount") != m.end() && !m["Ipv6AddressCount"].empty()) {
+      ipv6AddressCount = make_shared<long>(boost::any_cast<long>(m["Ipv6AddressCount"]));
+    }
+    if (m.find("NetworkInterfaceTrafficMode") != m.end() && !m["NetworkInterfaceTrafficMode"].empty()) {
+      networkInterfaceTrafficMode = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceTrafficMode"]));
+    }
+    if (m.find("SecurityGroupIds") != m.end() && !m["SecurityGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateScalingConfigurationRequestNetworkInterfaces() = default;
+};
 class CreateScalingConfigurationRequestSpotPriceLimits : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -5651,6 +5708,7 @@ public:
   shared_ptr<string> keyPairName{};
   shared_ptr<long> loadBalancerWeight{};
   shared_ptr<long> memory{};
+  shared_ptr<vector<CreateScalingConfigurationRequestNetworkInterfaces>> networkInterfaces{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> password{};
@@ -5794,6 +5852,13 @@ public:
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
+    }
+    if (networkInterfaces) {
+      vector<boost::any> temp1;
+      for(auto item1:*networkInterfaces){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetworkInterfaces"] = boost::any(temp1);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -6026,6 +6091,19 @@ public:
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("NetworkInterfaces") != m.end() && !m["NetworkInterfaces"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetworkInterfaces"].type()) {
+        vector<CreateScalingConfigurationRequestNetworkInterfaces> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetworkInterfaces"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateScalingConfigurationRequestNetworkInterfaces model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networkInterfaces = make_shared<vector<CreateScalingConfigurationRequestNetworkInterfaces>>(expect1);
+      }
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -6581,6 +6659,63 @@ public:
 
   virtual ~CreateScalingConfigurationShrinkRequestInstanceTypeOverrides() = default;
 };
+class CreateScalingConfigurationShrinkRequestNetworkInterfaces : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceType{};
+  shared_ptr<long> ipv6AddressCount{};
+  shared_ptr<string> networkInterfaceTrafficMode{};
+  shared_ptr<vector<string>> securityGroupIds{};
+
+  CreateScalingConfigurationShrinkRequestNetworkInterfaces() {}
+
+  explicit CreateScalingConfigurationShrinkRequestNetworkInterfaces(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (ipv6AddressCount) {
+      res["Ipv6AddressCount"] = boost::any(*ipv6AddressCount);
+    }
+    if (networkInterfaceTrafficMode) {
+      res["NetworkInterfaceTrafficMode"] = boost::any(*networkInterfaceTrafficMode);
+    }
+    if (securityGroupIds) {
+      res["SecurityGroupIds"] = boost::any(*securityGroupIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Ipv6AddressCount") != m.end() && !m["Ipv6AddressCount"].empty()) {
+      ipv6AddressCount = make_shared<long>(boost::any_cast<long>(m["Ipv6AddressCount"]));
+    }
+    if (m.find("NetworkInterfaceTrafficMode") != m.end() && !m["NetworkInterfaceTrafficMode"].empty()) {
+      networkInterfaceTrafficMode = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceTrafficMode"]));
+    }
+    if (m.find("SecurityGroupIds") != m.end() && !m["SecurityGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateScalingConfigurationShrinkRequestNetworkInterfaces() = default;
+};
 class CreateScalingConfigurationShrinkRequestSpotPriceLimits : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -6650,6 +6785,7 @@ public:
   shared_ptr<string> keyPairName{};
   shared_ptr<long> loadBalancerWeight{};
   shared_ptr<long> memory{};
+  shared_ptr<vector<CreateScalingConfigurationShrinkRequestNetworkInterfaces>> networkInterfaces{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> password{};
@@ -6793,6 +6929,13 @@ public:
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
+    }
+    if (networkInterfaces) {
+      vector<boost::any> temp1;
+      for(auto item1:*networkInterfaces){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetworkInterfaces"] = boost::any(temp1);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -7025,6 +7168,19 @@ public:
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("NetworkInterfaces") != m.end() && !m["NetworkInterfaces"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetworkInterfaces"].type()) {
+        vector<CreateScalingConfigurationShrinkRequestNetworkInterfaces> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetworkInterfaces"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateScalingConfigurationShrinkRequestNetworkInterfaces model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networkInterfaces = make_shared<vector<CreateScalingConfigurationShrinkRequestNetworkInterfaces>>(expect1);
+      }
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -17076,6 +17232,63 @@ public:
 
   virtual ~DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstancePatternInfos() = default;
 };
+class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceType{};
+  shared_ptr<long> ipv6AddressCount{};
+  shared_ptr<string> networkInterfaceTrafficMode{};
+  shared_ptr<vector<string>> securityGroupIds{};
+
+  DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces() {}
+
+  explicit DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (ipv6AddressCount) {
+      res["Ipv6AddressCount"] = boost::any(*ipv6AddressCount);
+    }
+    if (networkInterfaceTrafficMode) {
+      res["NetworkInterfaceTrafficMode"] = boost::any(*networkInterfaceTrafficMode);
+    }
+    if (securityGroupIds) {
+      res["SecurityGroupIds"] = boost::any(*securityGroupIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Ipv6AddressCount") != m.end() && !m["Ipv6AddressCount"].empty()) {
+      ipv6AddressCount = make_shared<long>(boost::any_cast<long>(m["Ipv6AddressCount"]));
+    }
+    if (m.find("NetworkInterfaceTrafficMode") != m.end() && !m["NetworkInterfaceTrafficMode"].empty()) {
+      networkInterfaceTrafficMode = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceTrafficMode"]));
+    }
+    if (m.find("SecurityGroupIds") != m.end() && !m["SecurityGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces() = default;
+};
 class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSchedulerOptions : public Darabonba::Model {
 public:
   shared_ptr<string> managedPrivateSpaceId{};
@@ -17210,6 +17423,7 @@ public:
   shared_ptr<string> lifecycleState{};
   shared_ptr<long> loadBalancerWeight{};
   shared_ptr<long> memory{};
+  shared_ptr<vector<DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces>> networkInterfaces{};
   shared_ptr<bool> passwordInherit{};
   shared_ptr<string> privatePoolOptions_id{};
   shared_ptr<string> privatePoolOptions_matchCriteria{};
@@ -17360,6 +17574,13 @@ public:
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
+    }
+    if (networkInterfaces) {
+      vector<boost::any> temp1;
+      for(auto item1:*networkInterfaces){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetworkInterfaces"] = boost::any(temp1);
     }
     if (passwordInherit) {
       res["PasswordInherit"] = boost::any(*passwordInherit);
@@ -17607,6 +17828,19 @@ public:
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("NetworkInterfaces") != m.end() && !m["NetworkInterfaces"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetworkInterfaces"].type()) {
+        vector<DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetworkInterfaces"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networkInterfaces = make_shared<vector<DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces>>(expect1);
+      }
     }
     if (m.find("PasswordInherit") != m.end() && !m["PasswordInherit"].empty()) {
       passwordInherit = make_shared<bool>(boost::any_cast<bool>(m["PasswordInherit"]));
@@ -28510,6 +28744,63 @@ public:
 
   virtual ~ModifyScalingConfigurationRequestInstanceTypeOverrides() = default;
 };
+class ModifyScalingConfigurationRequestNetworkInterfaces : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceType{};
+  shared_ptr<long> ipv6AddressCount{};
+  shared_ptr<string> networkInterfaceTrafficMode{};
+  shared_ptr<vector<string>> securityGroupIds{};
+
+  ModifyScalingConfigurationRequestNetworkInterfaces() {}
+
+  explicit ModifyScalingConfigurationRequestNetworkInterfaces(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (ipv6AddressCount) {
+      res["Ipv6AddressCount"] = boost::any(*ipv6AddressCount);
+    }
+    if (networkInterfaceTrafficMode) {
+      res["NetworkInterfaceTrafficMode"] = boost::any(*networkInterfaceTrafficMode);
+    }
+    if (securityGroupIds) {
+      res["SecurityGroupIds"] = boost::any(*securityGroupIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Ipv6AddressCount") != m.end() && !m["Ipv6AddressCount"].empty()) {
+      ipv6AddressCount = make_shared<long>(boost::any_cast<long>(m["Ipv6AddressCount"]));
+    }
+    if (m.find("NetworkInterfaceTrafficMode") != m.end() && !m["NetworkInterfaceTrafficMode"].empty()) {
+      networkInterfaceTrafficMode = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceTrafficMode"]));
+    }
+    if (m.find("SecurityGroupIds") != m.end() && !m["SecurityGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ModifyScalingConfigurationRequestNetworkInterfaces() = default;
+};
 class ModifyScalingConfigurationRequestSpotPriceLimits : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -28576,6 +28867,7 @@ public:
   shared_ptr<string> keyPairName{};
   shared_ptr<long> loadBalancerWeight{};
   shared_ptr<long> memory{};
+  shared_ptr<vector<ModifyScalingConfigurationRequestNetworkInterfaces>> networkInterfaces{};
   shared_ptr<bool> override{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -28709,6 +29001,13 @@ public:
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
+    }
+    if (networkInterfaces) {
+      vector<boost::any> temp1;
+      for(auto item1:*networkInterfaces){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetworkInterfaces"] = boost::any(temp1);
     }
     if (override) {
       res["Override"] = boost::any(*override);
@@ -28929,6 +29228,19 @@ public:
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("NetworkInterfaces") != m.end() && !m["NetworkInterfaces"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetworkInterfaces"].type()) {
+        vector<ModifyScalingConfigurationRequestNetworkInterfaces> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetworkInterfaces"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyScalingConfigurationRequestNetworkInterfaces model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networkInterfaces = make_shared<vector<ModifyScalingConfigurationRequestNetworkInterfaces>>(expect1);
+      }
     }
     if (m.find("Override") != m.end() && !m["Override"].empty()) {
       override = make_shared<bool>(boost::any_cast<bool>(m["Override"]));
@@ -29481,6 +29793,63 @@ public:
 
   virtual ~ModifyScalingConfigurationShrinkRequestInstanceTypeOverrides() = default;
 };
+class ModifyScalingConfigurationShrinkRequestNetworkInterfaces : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceType{};
+  shared_ptr<long> ipv6AddressCount{};
+  shared_ptr<string> networkInterfaceTrafficMode{};
+  shared_ptr<vector<string>> securityGroupIds{};
+
+  ModifyScalingConfigurationShrinkRequestNetworkInterfaces() {}
+
+  explicit ModifyScalingConfigurationShrinkRequestNetworkInterfaces(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (ipv6AddressCount) {
+      res["Ipv6AddressCount"] = boost::any(*ipv6AddressCount);
+    }
+    if (networkInterfaceTrafficMode) {
+      res["NetworkInterfaceTrafficMode"] = boost::any(*networkInterfaceTrafficMode);
+    }
+    if (securityGroupIds) {
+      res["SecurityGroupIds"] = boost::any(*securityGroupIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Ipv6AddressCount") != m.end() && !m["Ipv6AddressCount"].empty()) {
+      ipv6AddressCount = make_shared<long>(boost::any_cast<long>(m["Ipv6AddressCount"]));
+    }
+    if (m.find("NetworkInterfaceTrafficMode") != m.end() && !m["NetworkInterfaceTrafficMode"].empty()) {
+      networkInterfaceTrafficMode = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceTrafficMode"]));
+    }
+    if (m.find("SecurityGroupIds") != m.end() && !m["SecurityGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ModifyScalingConfigurationShrinkRequestNetworkInterfaces() = default;
+};
 class ModifyScalingConfigurationShrinkRequestSpotPriceLimits : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -29547,6 +29916,7 @@ public:
   shared_ptr<string> keyPairName{};
   shared_ptr<long> loadBalancerWeight{};
   shared_ptr<long> memory{};
+  shared_ptr<vector<ModifyScalingConfigurationShrinkRequestNetworkInterfaces>> networkInterfaces{};
   shared_ptr<bool> override{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -29680,6 +30050,13 @@ public:
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
+    }
+    if (networkInterfaces) {
+      vector<boost::any> temp1;
+      for(auto item1:*networkInterfaces){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NetworkInterfaces"] = boost::any(temp1);
     }
     if (override) {
       res["Override"] = boost::any(*override);
@@ -29900,6 +30277,19 @@ public:
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("NetworkInterfaces") != m.end() && !m["NetworkInterfaces"].empty()) {
+      if (typeid(vector<boost::any>) == m["NetworkInterfaces"].type()) {
+        vector<ModifyScalingConfigurationShrinkRequestNetworkInterfaces> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NetworkInterfaces"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyScalingConfigurationShrinkRequestNetworkInterfaces model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        networkInterfaces = make_shared<vector<ModifyScalingConfigurationShrinkRequestNetworkInterfaces>>(expect1);
+      }
     }
     if (m.find("Override") != m.end() && !m["Override"].empty()) {
       override = make_shared<bool>(boost::any_cast<bool>(m["Override"]));
