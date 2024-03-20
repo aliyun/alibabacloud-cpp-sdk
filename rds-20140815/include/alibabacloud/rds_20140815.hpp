@@ -38781,8 +38781,59 @@ public:
 
   virtual ~DescribeKmsAssociateResourcesRequest() = default;
 };
+class DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceName{};
+  shared_ptr<string> engine{};
+  shared_ptr<string> keyUsedBy{};
+  shared_ptr<string> status{};
+
+  DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances() {}
+
+  explicit DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceName) {
+      res["DBInstanceName"] = boost::any(*DBInstanceName);
+    }
+    if (engine) {
+      res["Engine"] = boost::any(*engine);
+    }
+    if (keyUsedBy) {
+      res["KeyUsedBy"] = boost::any(*keyUsedBy);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
+      DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
+    }
+    if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
+      engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("KeyUsedBy") != m.end() && !m["KeyUsedBy"].empty()) {
+      keyUsedBy = make_shared<string>(boost::any_cast<string>(m["KeyUsedBy"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances() = default;
+};
 class DescribeKmsAssociateResourcesResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<vector<DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances>> associateDBInstances{};
   shared_ptr<bool> associateStatus{};
   shared_ptr<string> requestId{};
 
@@ -38796,6 +38847,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (associateDBInstances) {
+      vector<boost::any> temp1;
+      for(auto item1:*associateDBInstances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AssociateDBInstances"] = boost::any(temp1);
+    }
     if (associateStatus) {
       res["AssociateStatus"] = boost::any(*associateStatus);
     }
@@ -38806,6 +38864,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssociateDBInstances") != m.end() && !m["AssociateDBInstances"].empty()) {
+      if (typeid(vector<boost::any>) == m["AssociateDBInstances"].type()) {
+        vector<DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AssociateDBInstances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        associateDBInstances = make_shared<vector<DescribeKmsAssociateResourcesResponseBodyAssociateDBInstances>>(expect1);
+      }
+    }
     if (m.find("AssociateStatus") != m.end() && !m["AssociateStatus"].empty()) {
       associateStatus = make_shared<bool>(boost::any_cast<bool>(m["AssociateStatus"]));
     }
