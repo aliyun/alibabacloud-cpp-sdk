@@ -848,12 +848,17 @@ class EcsSpec : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorType{};
   shared_ptr<long> cpu{};
+  shared_ptr<string> defaultGPUDriver{};
   shared_ptr<long> gpu{};
   shared_ptr<string> gpuType{};
   shared_ptr<string> instanceType{};
   shared_ptr<bool> isAvailable{};
   shared_ptr<long> memory{};
+  shared_ptr<double> nonProtectSpotDiscount{};
+  shared_ptr<vector<string>> paymentTypes{};
   shared_ptr<string> resourceType{};
+  shared_ptr<string> spotStockStatus{};
+  shared_ptr<vector<string>> supportedGPUDrivers{};
 
   EcsSpec() {}
 
@@ -871,6 +876,9 @@ public:
     if (cpu) {
       res["Cpu"] = boost::any(*cpu);
     }
+    if (defaultGPUDriver) {
+      res["DefaultGPUDriver"] = boost::any(*defaultGPUDriver);
+    }
     if (gpu) {
       res["Gpu"] = boost::any(*gpu);
     }
@@ -886,8 +894,20 @@ public:
     if (memory) {
       res["Memory"] = boost::any(*memory);
     }
+    if (nonProtectSpotDiscount) {
+      res["NonProtectSpotDiscount"] = boost::any(*nonProtectSpotDiscount);
+    }
+    if (paymentTypes) {
+      res["PaymentTypes"] = boost::any(*paymentTypes);
+    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (spotStockStatus) {
+      res["SpotStockStatus"] = boost::any(*spotStockStatus);
+    }
+    if (supportedGPUDrivers) {
+      res["SupportedGPUDrivers"] = boost::any(*supportedGPUDrivers);
     }
     return res;
   }
@@ -898,6 +918,9 @@ public:
     }
     if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
       cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("DefaultGPUDriver") != m.end() && !m["DefaultGPUDriver"].empty()) {
+      defaultGPUDriver = make_shared<string>(boost::any_cast<string>(m["DefaultGPUDriver"]));
     }
     if (m.find("Gpu") != m.end() && !m["Gpu"].empty()) {
       gpu = make_shared<long>(boost::any_cast<long>(m["Gpu"]));
@@ -914,8 +937,34 @@ public:
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
     }
+    if (m.find("NonProtectSpotDiscount") != m.end() && !m["NonProtectSpotDiscount"].empty()) {
+      nonProtectSpotDiscount = make_shared<double>(boost::any_cast<double>(m["NonProtectSpotDiscount"]));
+    }
+    if (m.find("PaymentTypes") != m.end() && !m["PaymentTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PaymentTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PaymentTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      paymentTypes = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("SpotStockStatus") != m.end() && !m["SpotStockStatus"].empty()) {
+      spotStockStatus = make_shared<string>(boost::any_cast<string>(m["SpotStockStatus"]));
+    }
+    if (m.find("SupportedGPUDrivers") != m.end() && !m["SupportedGPUDrivers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SupportedGPUDrivers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SupportedGPUDrivers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      supportedGPUDrivers = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -1757,6 +1806,42 @@ public:
 
   virtual ~ResourceConfig() = default;
 };
+class SpotSpec : public Darabonba::Model {
+public:
+  shared_ptr<double> spotDiscountLimit{};
+  shared_ptr<string> spotStrategy{};
+
+  SpotSpec() {}
+
+  explicit SpotSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (spotDiscountLimit) {
+      res["SpotDiscountLimit"] = boost::any(*spotDiscountLimit);
+    }
+    if (spotStrategy) {
+      res["SpotStrategy"] = boost::any(*spotStrategy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SpotDiscountLimit") != m.end() && !m["SpotDiscountLimit"].empty()) {
+      spotDiscountLimit = make_shared<double>(boost::any_cast<double>(m["SpotDiscountLimit"]));
+    }
+    if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
+      spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
+    }
+  }
+
+
+  virtual ~SpotSpec() = default;
+};
 class JobSpec : public Darabonba::Model {
 public:
   shared_ptr<string> ecsSpec{};
@@ -1765,6 +1850,7 @@ public:
   shared_ptr<ImageConfig> imageConfig{};
   shared_ptr<long> podCount{};
   shared_ptr<ResourceConfig> resourceConfig{};
+  shared_ptr<SpotSpec> spotSpec{};
   shared_ptr<string> type{};
   shared_ptr<bool> useSpotInstance{};
 
@@ -1795,6 +1881,9 @@ public:
     }
     if (resourceConfig) {
       res["ResourceConfig"] = resourceConfig ? boost::any(resourceConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (spotSpec) {
+      res["SpotSpec"] = spotSpec ? boost::any(spotSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -1834,6 +1923,13 @@ public:
         ResourceConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceConfig"]));
         resourceConfig = make_shared<ResourceConfig>(model1);
+      }
+    }
+    if (m.find("SpotSpec") != m.end() && !m["SpotSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SpotSpec"].type()) {
+        SpotSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SpotSpec"]));
+        spotSpec = make_shared<SpotSpec>(model1);
       }
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
