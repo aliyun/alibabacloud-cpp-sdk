@@ -438,78 +438,6 @@ CreateOmsMysqlDataSourceResponse Alibabacloud_OceanBasePro20190901::Client::crea
   return createOmsMysqlDataSourceWithOptions(request, runtime);
 }
 
-CreateOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::createOmsOpenAPIProjectWithOptions(shared_ptr<CreateOmsOpenAPIProjectRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<CreateOmsOpenAPIProjectShrinkRequest> request = make_shared<CreateOmsOpenAPIProjectShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<CreateOmsOpenAPIProjectRequestDestConfig>(tmpReq->destConfig)) {
-    request->destConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->destConfig, make_shared<string>("DestConfig"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->labelIds)) {
-    request->labelIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->labelIds, make_shared<string>("LabelIds"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<CreateOmsOpenAPIProjectRequestSourceConfig>(tmpReq->sourceConfig)) {
-    request->sourceConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sourceConfig, make_shared<string>("SourceConfig"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<CreateOmsOpenAPIProjectRequestTransferMapping>(tmpReq->transferMapping)) {
-    request->transferMappingShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->transferMapping, make_shared<string>("TransferMapping"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<CreateOmsOpenAPIProjectRequestTransferStepConfig>(tmpReq->transferStepConfig)) {
-    request->transferStepConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->transferStepConfig, make_shared<string>("TransferStepConfig"), make_shared<string>("json")));
-  }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->businessName)) {
-    body->insert(pair<string, string>("BusinessName", *request->businessName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->destConfigShrink)) {
-    body->insert(pair<string, string>("DestConfig", *request->destConfigShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->labelIdsShrink)) {
-    body->insert(pair<string, string>("LabelIds", *request->labelIdsShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    body->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
-    body->insert(pair<string, string>("ProjectName", *request->projectName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sourceConfigShrink)) {
-    body->insert(pair<string, string>("SourceConfig", *request->sourceConfigShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->transferMappingShrink)) {
-    body->insert(pair<string, string>("TransferMapping", *request->transferMappingShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->transferStepConfigShrink)) {
-    body->insert(pair<string, string>("TransferStepConfig", *request->transferStepConfigShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->workerGradeId)) {
-    body->insert(pair<string, string>("WorkerGradeId", *request->workerGradeId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateOmsOpenAPIProject"))},
-    {"version", boost::any(string("2019-09-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateOmsOpenAPIProjectResponse(callApi(params, req, runtime));
-}
-
-CreateOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::createOmsOpenAPIProject(shared_ptr<CreateOmsOpenAPIProjectRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createOmsOpenAPIProjectWithOptions(request, runtime);
-}
-
 CreateProjectResponse Alibabacloud_OceanBasePro20190901::Client::createProjectWithOptions(shared_ptr<CreateProjectRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateProjectShrinkRequest> request = make_shared<CreateProjectShrinkRequest>();
@@ -553,6 +481,9 @@ CreateProjectResponse Alibabacloud_OceanBasePro20190901::Client::createProjectWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fullTransferConfigShrink)) {
     body->insert(pair<string, string>("FullTransferConfig", *request->fullTransferConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
+    body->insert(pair<string, string>("Id", *request->id));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->incrTransferConfigShrink)) {
     body->insert(pair<string, string>("IncrTransferConfig", *request->incrTransferConfigShrink));
@@ -1009,43 +940,6 @@ DeleteInstancesResponse Alibabacloud_OceanBasePro20190901::Client::deleteInstanc
 DeleteInstancesResponse Alibabacloud_OceanBasePro20190901::Client::deleteInstances(shared_ptr<DeleteInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteInstancesWithOptions(request, runtime);
-}
-
-DeleteOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::deleteOmsOpenAPIProjectWithOptions(shared_ptr<DeleteOmsOpenAPIProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    body->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->workerGradeId)) {
-    body->insert(pair<string, string>("WorkerGradeId", *request->workerGradeId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DeleteOmsOpenAPIProject"))},
-    {"version", boost::any(string("2019-09-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DeleteOmsOpenAPIProjectResponse(callApi(params, req, runtime));
-}
-
-DeleteOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::deleteOmsOpenAPIProject(shared_ptr<DeleteOmsOpenAPIProjectRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return deleteOmsOpenAPIProjectWithOptions(request, runtime);
 }
 
 DeleteProjectResponse Alibabacloud_OceanBasePro20190901::Client::deleteProjectWithOptions(shared_ptr<DeleteProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2316,80 +2210,6 @@ DescribeOasTopSQLListResponse Alibabacloud_OceanBasePro20190901::Client::describ
 DescribeOasTopSQLListResponse Alibabacloud_OceanBasePro20190901::Client::describeOasTopSQLList(shared_ptr<DescribeOasTopSQLListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeOasTopSQLListWithOptions(request, runtime);
-}
-
-DescribeOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::describeOmsOpenAPIProjectWithOptions(shared_ptr<DescribeOmsOpenAPIProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    body->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->workerGradeId)) {
-    body->insert(pair<string, string>("WorkerGradeId", *request->workerGradeId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeOmsOpenAPIProject"))},
-    {"version", boost::any(string("2019-09-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeOmsOpenAPIProjectResponse(callApi(params, req, runtime));
-}
-
-DescribeOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::describeOmsOpenAPIProject(shared_ptr<DescribeOmsOpenAPIProjectRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeOmsOpenAPIProjectWithOptions(request, runtime);
-}
-
-DescribeOmsOpenAPIProjectStepsResponse Alibabacloud_OceanBasePro20190901::Client::describeOmsOpenAPIProjectStepsWithOptions(shared_ptr<DescribeOmsOpenAPIProjectStepsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    body->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->workerGradeId)) {
-    body->insert(pair<string, string>("WorkerGradeId", *request->workerGradeId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeOmsOpenAPIProjectSteps"))},
-    {"version", boost::any(string("2019-09-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeOmsOpenAPIProjectStepsResponse(callApi(params, req, runtime));
-}
-
-DescribeOmsOpenAPIProjectStepsResponse Alibabacloud_OceanBasePro20190901::Client::describeOmsOpenAPIProjectSteps(shared_ptr<DescribeOmsOpenAPIProjectStepsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeOmsOpenAPIProjectStepsWithOptions(request, runtime);
 }
 
 DescribeOutlineBindingResponse Alibabacloud_OceanBasePro20190901::Client::describeOutlineBindingWithOptions(shared_ptr<DescribeOutlineBindingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3774,6 +3594,9 @@ ListProjectsResponse Alibabacloud_OceanBasePro20190901::Client::listProjectsWith
   if (!Darabonba_Util::Client::isUnset<string>(request->labelIdsShrink)) {
     body->insert(pair<string, string>("LabelIds", *request->labelIdsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->needRelatedInfo)) {
+    body->insert(pair<string, bool>("NeedRelatedInfo", *request->needRelatedInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
     body->insert(pair<string, string>("Order", *request->order));
   }
@@ -4552,43 +4375,6 @@ ModifyTenantUserStatusResponse Alibabacloud_OceanBasePro20190901::Client::modify
   return modifyTenantUserStatusWithOptions(request, runtime);
 }
 
-ReleaseOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::releaseOmsOpenAPIProjectWithOptions(shared_ptr<ReleaseOmsOpenAPIProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    body->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->workerGradeId)) {
-    body->insert(pair<string, string>("WorkerGradeId", *request->workerGradeId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ReleaseOmsOpenAPIProject"))},
-    {"version", boost::any(string("2019-09-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ReleaseOmsOpenAPIProjectResponse(callApi(params, req, runtime));
-}
-
-ReleaseOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::releaseOmsOpenAPIProject(shared_ptr<ReleaseOmsOpenAPIProjectRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return releaseOmsOpenAPIProjectWithOptions(request, runtime);
-}
-
 ReleaseProjectResponse Alibabacloud_OceanBasePro20190901::Client::releaseProjectWithOptions(shared_ptr<ReleaseProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4643,80 +4429,6 @@ ReleaseWorkerInstanceResponse Alibabacloud_OceanBasePro20190901::Client::release
 ReleaseWorkerInstanceResponse Alibabacloud_OceanBasePro20190901::Client::releaseWorkerInstance(shared_ptr<ReleaseWorkerInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return releaseWorkerInstanceWithOptions(request, runtime);
-}
-
-ResetOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::resetOmsOpenAPIProjectWithOptions(shared_ptr<ResetOmsOpenAPIProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    body->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->workerGradeId)) {
-    body->insert(pair<string, string>("WorkerGradeId", *request->workerGradeId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ResetOmsOpenAPIProject"))},
-    {"version", boost::any(string("2019-09-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ResetOmsOpenAPIProjectResponse(callApi(params, req, runtime));
-}
-
-ResetOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::resetOmsOpenAPIProject(shared_ptr<ResetOmsOpenAPIProjectRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return resetOmsOpenAPIProjectWithOptions(request, runtime);
-}
-
-ResumeOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::resumeOmsOpenAPIProjectWithOptions(shared_ptr<ResumeOmsOpenAPIProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    body->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->workerGradeId)) {
-    body->insert(pair<string, string>("WorkerGradeId", *request->workerGradeId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ResumeOmsOpenAPIProject"))},
-    {"version", boost::any(string("2019-09-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ResumeOmsOpenAPIProjectResponse(callApi(params, req, runtime));
-}
-
-ResumeOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::resumeOmsOpenAPIProject(shared_ptr<ResumeOmsOpenAPIProjectRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return resumeOmsOpenAPIProjectWithOptions(request, runtime);
 }
 
 ResumeProjectResponse Alibabacloud_OceanBasePro20190901::Client::resumeProjectWithOptions(shared_ptr<ResumeProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4775,155 +4487,6 @@ RetryProjectModifyRecordsResponse Alibabacloud_OceanBasePro20190901::Client::ret
   return retryProjectModifyRecordsWithOptions(request, runtime);
 }
 
-SearchOmsOpenAPIMonitorMetricResponse Alibabacloud_OceanBasePro20190901::Client::searchOmsOpenAPIMonitorMetricWithOptions(shared_ptr<SearchOmsOpenAPIMonitorMetricRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->beginTime)) {
-    body->insert(pair<string, long>("BeginTime", *request->beginTime));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
-    body->insert(pair<string, long>("EndTime", *request->endTime));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->maxPointNum)) {
-    body->insert(pair<string, long>("MaxPointNum", *request->maxPointNum));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->metric)) {
-    body->insert(pair<string, string>("Metric", *request->metric));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    body->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->workerGradeId)) {
-    body->insert(pair<string, string>("WorkerGradeId", *request->workerGradeId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("SearchOmsOpenAPIMonitorMetric"))},
-    {"version", boost::any(string("2019-09-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return SearchOmsOpenAPIMonitorMetricResponse(callApi(params, req, runtime));
-}
-
-SearchOmsOpenAPIMonitorMetricResponse Alibabacloud_OceanBasePro20190901::Client::searchOmsOpenAPIMonitorMetric(shared_ptr<SearchOmsOpenAPIMonitorMetricRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return searchOmsOpenAPIMonitorMetricWithOptions(request, runtime);
-}
-
-SearchOmsOpenAPIProjectsResponse Alibabacloud_OceanBasePro20190901::Client::searchOmsOpenAPIProjectsWithOptions(shared_ptr<SearchOmsOpenAPIProjectsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<SearchOmsOpenAPIProjectsShrinkRequest> request = make_shared<SearchOmsOpenAPIProjectsShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->destDbTypes)) {
-    request->destDbTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->destDbTypes, make_shared<string>("DestDbTypes"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->labelIds)) {
-    request->labelIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->labelIds, make_shared<string>("LabelIds"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->sourceDbTypes)) {
-    request->sourceDbTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sourceDbTypes, make_shared<string>("SourceDbTypes"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->statusList)) {
-    request->statusListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->statusList, make_shared<string>("StatusList"), make_shared<string>("json")));
-  }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->destDbTypesShrink)) {
-    body->insert(pair<string, string>("DestDbTypes", *request->destDbTypesShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->labelIdsShrink)) {
-    body->insert(pair<string, string>("LabelIds", *request->labelIdsShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    body->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->searchKey)) {
-    body->insert(pair<string, string>("SearchKey", *request->searchKey));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sourceDbTypesShrink)) {
-    body->insert(pair<string, string>("SourceDbTypes", *request->sourceDbTypesShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->statusListShrink)) {
-    body->insert(pair<string, string>("StatusList", *request->statusListShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->workerGradeId)) {
-    body->insert(pair<string, string>("WorkerGradeId", *request->workerGradeId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("SearchOmsOpenAPIProjects"))},
-    {"version", boost::any(string("2019-09-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return SearchOmsOpenAPIProjectsResponse(callApi(params, req, runtime));
-}
-
-SearchOmsOpenAPIProjectsResponse Alibabacloud_OceanBasePro20190901::Client::searchOmsOpenAPIProjects(shared_ptr<SearchOmsOpenAPIProjectsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return searchOmsOpenAPIProjectsWithOptions(request, runtime);
-}
-
-StartOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::startOmsOpenAPIProjectWithOptions(shared_ptr<StartOmsOpenAPIProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    body->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->workerGradeId)) {
-    body->insert(pair<string, string>("WorkerGradeId", *request->workerGradeId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("StartOmsOpenAPIProject"))},
-    {"version", boost::any(string("2019-09-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return StartOmsOpenAPIProjectResponse(callApi(params, req, runtime));
-}
-
-StartOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::startOmsOpenAPIProject(shared_ptr<StartOmsOpenAPIProjectRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return startOmsOpenAPIProjectWithOptions(request, runtime);
-}
-
 StartProjectResponse Alibabacloud_OceanBasePro20190901::Client::startProjectWithOptions(shared_ptr<StartProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4978,43 +4541,6 @@ StartProjectsByLabelResponse Alibabacloud_OceanBasePro20190901::Client::startPro
 StartProjectsByLabelResponse Alibabacloud_OceanBasePro20190901::Client::startProjectsByLabel(shared_ptr<StartProjectsByLabelRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return startProjectsByLabelWithOptions(request, runtime);
-}
-
-StopOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::stopOmsOpenAPIProjectWithOptions(shared_ptr<StopOmsOpenAPIProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    body->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    body->insert(pair<string, string>("ProjectId", *request->projectId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->workerGradeId)) {
-    body->insert(pair<string, string>("WorkerGradeId", *request->workerGradeId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("StopOmsOpenAPIProject"))},
-    {"version", boost::any(string("2019-09-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return StopOmsOpenAPIProjectResponse(callApi(params, req, runtime));
-}
-
-StopOmsOpenAPIProjectResponse Alibabacloud_OceanBasePro20190901::Client::stopOmsOpenAPIProject(shared_ptr<StopOmsOpenAPIProjectRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return stopOmsOpenAPIProjectWithOptions(request, runtime);
 }
 
 StopProjectResponse Alibabacloud_OceanBasePro20190901::Client::stopProjectWithOptions(shared_ptr<StopProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
