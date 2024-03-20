@@ -532,6 +532,9 @@ CreateExperimentGroupResponse Alibabacloud_PaiRecService20221213::Client::create
   if (!Darabonba_Util::Client::isUnset<string>(request->crowdId)) {
     body->insert(pair<string, string>("CrowdId", *request->crowdId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->crowdTargetType)) {
+    body->insert(pair<string, string>("CrowdTargetType", *request->crowdTargetType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->debugCrowdId)) {
     body->insert(pair<string, string>("DebugCrowdId", *request->debugCrowdId));
   }
@@ -561,6 +564,9 @@ CreateExperimentGroupResponse Alibabacloud_PaiRecService20221213::Client::create
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->needAA)) {
     body->insert(pair<string, bool>("NeedAA", *request->needAA));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->randomFlow)) {
+    body->insert(pair<string, long>("RandomFlow", *request->randomFlow));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->reservedBuckets)) {
     body->insert(pair<string, string>("ReservedBuckets", *request->reservedBuckets));
@@ -2143,6 +2149,9 @@ ListExperimentGroupsResponse Alibabacloud_PaiRecService20221213::Client::listExp
   if (!Darabonba_Util::Client::isUnset<string>(request->layerId)) {
     query->insert(pair<string, string>("LayerId", *request->layerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
   }
@@ -3294,6 +3303,9 @@ UpdateExperimentGroupResponse Alibabacloud_PaiRecService20221213::Client::update
   if (!Darabonba_Util::Client::isUnset<string>(request->crowdId)) {
     body->insert(pair<string, string>("CrowdId", *request->crowdId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->crowdTargetType)) {
+    body->insert(pair<string, string>("CrowdTargetType", *request->crowdTargetType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->debugCrowdId)) {
     body->insert(pair<string, string>("DebugCrowdId", *request->debugCrowdId));
   }
@@ -3323,6 +3335,9 @@ UpdateExperimentGroupResponse Alibabacloud_PaiRecService20221213::Client::update
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->needAA)) {
     body->insert(pair<string, bool>("NeedAA", *request->needAA));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->randomFlow)) {
+    body->insert(pair<string, long>("RandomFlow", *request->randomFlow));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->reservcedBuckets)) {
     body->insert(pair<string, string>("ReservcedBuckets", *request->reservcedBuckets));

@@ -1737,6 +1737,7 @@ class CreateExperimentGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> config{};
   shared_ptr<string> crowdId{};
+  shared_ptr<string> crowdTargetType{};
   shared_ptr<string> debugCrowdId{};
   shared_ptr<string> debugUsers{};
   shared_ptr<string> description{};
@@ -1747,6 +1748,7 @@ public:
   shared_ptr<string> layerId{};
   shared_ptr<string> name{};
   shared_ptr<bool> needAA{};
+  shared_ptr<long> randomFlow{};
   shared_ptr<string> reservedBuckets{};
 
   CreateExperimentGroupRequest() {}
@@ -1764,6 +1766,9 @@ public:
     }
     if (crowdId) {
       res["CrowdId"] = boost::any(*crowdId);
+    }
+    if (crowdTargetType) {
+      res["CrowdTargetType"] = boost::any(*crowdTargetType);
     }
     if (debugCrowdId) {
       res["DebugCrowdId"] = boost::any(*debugCrowdId);
@@ -1795,6 +1800,9 @@ public:
     if (needAA) {
       res["NeedAA"] = boost::any(*needAA);
     }
+    if (randomFlow) {
+      res["RandomFlow"] = boost::any(*randomFlow);
+    }
     if (reservedBuckets) {
       res["ReservedBuckets"] = boost::any(*reservedBuckets);
     }
@@ -1807,6 +1815,9 @@ public:
     }
     if (m.find("CrowdId") != m.end() && !m["CrowdId"].empty()) {
       crowdId = make_shared<string>(boost::any_cast<string>(m["CrowdId"]));
+    }
+    if (m.find("CrowdTargetType") != m.end() && !m["CrowdTargetType"].empty()) {
+      crowdTargetType = make_shared<string>(boost::any_cast<string>(m["CrowdTargetType"]));
     }
     if (m.find("DebugCrowdId") != m.end() && !m["DebugCrowdId"].empty()) {
       debugCrowdId = make_shared<string>(boost::any_cast<string>(m["DebugCrowdId"]));
@@ -1837,6 +1848,9 @@ public:
     }
     if (m.find("NeedAA") != m.end() && !m["NeedAA"].empty()) {
       needAA = make_shared<bool>(boost::any_cast<bool>(m["NeedAA"]));
+    }
+    if (m.find("RandomFlow") != m.end() && !m["RandomFlow"].empty()) {
+      randomFlow = make_shared<long>(boost::any_cast<long>(m["RandomFlow"]));
     }
     if (m.find("ReservedBuckets") != m.end() && !m["ReservedBuckets"].empty()) {
       reservedBuckets = make_shared<string>(boost::any_cast<string>(m["ReservedBuckets"]));
@@ -5663,17 +5677,20 @@ class GetExperimentGroupResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> config{};
   shared_ptr<string> crowdId{};
+  shared_ptr<string> crowdTargetType{};
   shared_ptr<string> debugCrowdId{};
   shared_ptr<string> debugUsers{};
   shared_ptr<string> description{};
   shared_ptr<long> distributionTimeDuration{};
   shared_ptr<string> distributionType{};
   shared_ptr<string> filter{};
+  shared_ptr<string> holdingBuckets{};
   shared_ptr<string> laboratoryId{};
   shared_ptr<string> layerId{};
   shared_ptr<string> name{};
   shared_ptr<bool> needAA{};
   shared_ptr<string> owner{};
+  shared_ptr<long> randomFlow{};
   shared_ptr<string> requestId{};
   shared_ptr<string> reservedBuckets{};
   shared_ptr<string> sceneId{};
@@ -5695,6 +5712,9 @@ public:
     if (crowdId) {
       res["CrowdId"] = boost::any(*crowdId);
     }
+    if (crowdTargetType) {
+      res["CrowdTargetType"] = boost::any(*crowdTargetType);
+    }
     if (debugCrowdId) {
       res["DebugCrowdId"] = boost::any(*debugCrowdId);
     }
@@ -5713,6 +5733,9 @@ public:
     if (filter) {
       res["Filter"] = boost::any(*filter);
     }
+    if (holdingBuckets) {
+      res["HoldingBuckets"] = boost::any(*holdingBuckets);
+    }
     if (laboratoryId) {
       res["LaboratoryId"] = boost::any(*laboratoryId);
     }
@@ -5727,6 +5750,9 @@ public:
     }
     if (owner) {
       res["Owner"] = boost::any(*owner);
+    }
+    if (randomFlow) {
+      res["RandomFlow"] = boost::any(*randomFlow);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -5750,6 +5776,9 @@ public:
     if (m.find("CrowdId") != m.end() && !m["CrowdId"].empty()) {
       crowdId = make_shared<string>(boost::any_cast<string>(m["CrowdId"]));
     }
+    if (m.find("CrowdTargetType") != m.end() && !m["CrowdTargetType"].empty()) {
+      crowdTargetType = make_shared<string>(boost::any_cast<string>(m["CrowdTargetType"]));
+    }
     if (m.find("DebugCrowdId") != m.end() && !m["DebugCrowdId"].empty()) {
       debugCrowdId = make_shared<string>(boost::any_cast<string>(m["DebugCrowdId"]));
     }
@@ -5768,6 +5797,9 @@ public:
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
+    if (m.find("HoldingBuckets") != m.end() && !m["HoldingBuckets"].empty()) {
+      holdingBuckets = make_shared<string>(boost::any_cast<string>(m["HoldingBuckets"]));
+    }
     if (m.find("LaboratoryId") != m.end() && !m["LaboratoryId"].empty()) {
       laboratoryId = make_shared<string>(boost::any_cast<string>(m["LaboratoryId"]));
     }
@@ -5782,6 +5814,9 @@ public:
     }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("RandomFlow") != m.end() && !m["RandomFlow"].empty()) {
+      randomFlow = make_shared<long>(boost::any_cast<long>(m["RandomFlow"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -7335,9 +7370,11 @@ public:
 class GetLayerResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> laboratoryId{};
   shared_ptr<string> name{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> residualFlow{};
   shared_ptr<string> sceneId{};
 
   GetLayerResponseBody() {}
@@ -7353,6 +7390,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
     if (laboratoryId) {
       res["LaboratoryId"] = boost::any(*laboratoryId);
     }
@@ -7361,6 +7401,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (residualFlow) {
+      res["ResidualFlow"] = boost::any(*residualFlow);
     }
     if (sceneId) {
       res["SceneId"] = boost::any(*sceneId);
@@ -7372,6 +7415,9 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
     if (m.find("LaboratoryId") != m.end() && !m["LaboratoryId"].empty()) {
       laboratoryId = make_shared<string>(boost::any_cast<string>(m["LaboratoryId"]));
     }
@@ -7380,6 +7426,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResidualFlow") != m.end() && !m["ResidualFlow"].empty()) {
+      residualFlow = make_shared<long>(boost::any_cast<long>(m["ResidualFlow"]));
     }
     if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
       sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
@@ -9206,6 +9255,7 @@ class ListExperimentGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> layerId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> status{};
 
   ListExperimentGroupsRequest() {}
@@ -9224,6 +9274,9 @@ public:
     if (layerId) {
       res["LayerId"] = boost::any(*layerId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -9237,6 +9290,9 @@ public:
     if (m.find("LayerId") != m.end() && !m["LayerId"].empty()) {
       layerId = make_shared<string>(boost::any_cast<string>(m["LayerId"]));
     }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
@@ -9249,6 +9305,7 @@ class ListExperimentGroupsResponseBodyExperimentGroups : public Darabonba::Model
 public:
   shared_ptr<string> config{};
   shared_ptr<string> crowdId{};
+  shared_ptr<string> crowdTargetType{};
   shared_ptr<string> debugCrowdId{};
   shared_ptr<string> debugUsers{};
   shared_ptr<string> description{};
@@ -9256,11 +9313,13 @@ public:
   shared_ptr<string> distributionType{};
   shared_ptr<string> experimentGroupId{};
   shared_ptr<string> filter{};
+  shared_ptr<string> holdingBuckets{};
   shared_ptr<string> laboratoryId{};
   shared_ptr<string> layerId{};
   shared_ptr<string> name{};
   shared_ptr<bool> needAA{};
   shared_ptr<string> owner{};
+  shared_ptr<long> randomFlow{};
   shared_ptr<string> reservedBuckets{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> status{};
@@ -9280,6 +9339,9 @@ public:
     }
     if (crowdId) {
       res["CrowdId"] = boost::any(*crowdId);
+    }
+    if (crowdTargetType) {
+      res["CrowdTargetType"] = boost::any(*crowdTargetType);
     }
     if (debugCrowdId) {
       res["DebugCrowdId"] = boost::any(*debugCrowdId);
@@ -9302,6 +9364,9 @@ public:
     if (filter) {
       res["Filter"] = boost::any(*filter);
     }
+    if (holdingBuckets) {
+      res["HoldingBuckets"] = boost::any(*holdingBuckets);
+    }
     if (laboratoryId) {
       res["LaboratoryId"] = boost::any(*laboratoryId);
     }
@@ -9316,6 +9381,9 @@ public:
     }
     if (owner) {
       res["Owner"] = boost::any(*owner);
+    }
+    if (randomFlow) {
+      res["RandomFlow"] = boost::any(*randomFlow);
     }
     if (reservedBuckets) {
       res["ReservedBuckets"] = boost::any(*reservedBuckets);
@@ -9335,6 +9403,9 @@ public:
     }
     if (m.find("CrowdId") != m.end() && !m["CrowdId"].empty()) {
       crowdId = make_shared<string>(boost::any_cast<string>(m["CrowdId"]));
+    }
+    if (m.find("CrowdTargetType") != m.end() && !m["CrowdTargetType"].empty()) {
+      crowdTargetType = make_shared<string>(boost::any_cast<string>(m["CrowdTargetType"]));
     }
     if (m.find("DebugCrowdId") != m.end() && !m["DebugCrowdId"].empty()) {
       debugCrowdId = make_shared<string>(boost::any_cast<string>(m["DebugCrowdId"]));
@@ -9357,6 +9428,9 @@ public:
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
+    if (m.find("HoldingBuckets") != m.end() && !m["HoldingBuckets"].empty()) {
+      holdingBuckets = make_shared<string>(boost::any_cast<string>(m["HoldingBuckets"]));
+    }
     if (m.find("LaboratoryId") != m.end() && !m["LaboratoryId"].empty()) {
       laboratoryId = make_shared<string>(boost::any_cast<string>(m["LaboratoryId"]));
     }
@@ -9371,6 +9445,9 @@ public:
     }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("RandomFlow") != m.end() && !m["RandomFlow"].empty()) {
+      randomFlow = make_shared<long>(boost::any_cast<long>(m["RandomFlow"]));
     }
     if (m.find("ReservedBuckets") != m.end() && !m["ReservedBuckets"].empty()) {
       reservedBuckets = make_shared<string>(boost::any_cast<string>(m["ReservedBuckets"]));
@@ -12063,9 +12140,11 @@ public:
 class ListLayersResponseBodyLayers : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> laboratoryId{};
   shared_ptr<string> layerId{};
   shared_ptr<string> name{};
+  shared_ptr<long> residualFlow{};
   shared_ptr<string> sceneId{};
 
   ListLayersResponseBodyLayers() {}
@@ -12081,6 +12160,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
     if (laboratoryId) {
       res["LaboratoryId"] = boost::any(*laboratoryId);
     }
@@ -12089,6 +12171,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (residualFlow) {
+      res["ResidualFlow"] = boost::any(*residualFlow);
     }
     if (sceneId) {
       res["SceneId"] = boost::any(*sceneId);
@@ -12100,6 +12185,9 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
     if (m.find("LaboratoryId") != m.end() && !m["LaboratoryId"].empty()) {
       laboratoryId = make_shared<string>(boost::any_cast<string>(m["LaboratoryId"]));
     }
@@ -12108,6 +12196,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ResidualFlow") != m.end() && !m["ResidualFlow"].empty()) {
+      residualFlow = make_shared<long>(boost::any_cast<long>(m["ResidualFlow"]));
     }
     if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
       sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
@@ -15140,6 +15231,7 @@ class UpdateExperimentGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> config{};
   shared_ptr<string> crowdId{};
+  shared_ptr<string> crowdTargetType{};
   shared_ptr<string> debugCrowdId{};
   shared_ptr<string> debugUsers{};
   shared_ptr<string> description{};
@@ -15150,6 +15242,7 @@ public:
   shared_ptr<string> layerId{};
   shared_ptr<string> name{};
   shared_ptr<bool> needAA{};
+  shared_ptr<long> randomFlow{};
   shared_ptr<string> reservcedBuckets{};
 
   UpdateExperimentGroupRequest() {}
@@ -15167,6 +15260,9 @@ public:
     }
     if (crowdId) {
       res["CrowdId"] = boost::any(*crowdId);
+    }
+    if (crowdTargetType) {
+      res["CrowdTargetType"] = boost::any(*crowdTargetType);
     }
     if (debugCrowdId) {
       res["DebugCrowdId"] = boost::any(*debugCrowdId);
@@ -15198,6 +15294,9 @@ public:
     if (needAA) {
       res["NeedAA"] = boost::any(*needAA);
     }
+    if (randomFlow) {
+      res["RandomFlow"] = boost::any(*randomFlow);
+    }
     if (reservcedBuckets) {
       res["ReservcedBuckets"] = boost::any(*reservcedBuckets);
     }
@@ -15210,6 +15309,9 @@ public:
     }
     if (m.find("CrowdId") != m.end() && !m["CrowdId"].empty()) {
       crowdId = make_shared<string>(boost::any_cast<string>(m["CrowdId"]));
+    }
+    if (m.find("CrowdTargetType") != m.end() && !m["CrowdTargetType"].empty()) {
+      crowdTargetType = make_shared<string>(boost::any_cast<string>(m["CrowdTargetType"]));
     }
     if (m.find("DebugCrowdId") != m.end() && !m["DebugCrowdId"].empty()) {
       debugCrowdId = make_shared<string>(boost::any_cast<string>(m["DebugCrowdId"]));
@@ -15240,6 +15342,9 @@ public:
     }
     if (m.find("NeedAA") != m.end() && !m["NeedAA"].empty()) {
       needAA = make_shared<bool>(boost::any_cast<bool>(m["NeedAA"]));
+    }
+    if (m.find("RandomFlow") != m.end() && !m["RandomFlow"].empty()) {
+      randomFlow = make_shared<long>(boost::any_cast<long>(m["RandomFlow"]));
     }
     if (m.find("ReservcedBuckets") != m.end() && !m["ReservcedBuckets"].empty()) {
       reservcedBuckets = make_shared<string>(boost::any_cast<string>(m["ReservcedBuckets"]));
