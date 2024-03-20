@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -542,6 +541,46 @@ ListDeviceCertificateByCaSnResponse Alibabacloud_OnsMqtt20200420::Client::listDe
 ListDeviceCertificateByCaSnResponse Alibabacloud_OnsMqtt20200420::Client::listDeviceCertificateByCaSn(shared_ptr<ListDeviceCertificateByCaSnRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listDeviceCertificateByCaSnWithOptions(request, runtime);
+}
+
+ListDeviceCredentialClientIdResponse Alibabacloud_OnsMqtt20200420::Client::listDeviceCredentialClientIdWithOptions(shared_ptr<ListDeviceCredentialClientIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageNo)) {
+    query->insert(pair<string, string>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDeviceCredentialClientId"))},
+    {"version", boost::any(string("2020-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDeviceCredentialClientIdResponse(callApi(params, req, runtime));
+}
+
+ListDeviceCredentialClientIdResponse Alibabacloud_OnsMqtt20200420::Client::listDeviceCredentialClientId(shared_ptr<ListDeviceCredentialClientIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDeviceCredentialClientIdWithOptions(request, runtime);
 }
 
 ListGroupIdResponse Alibabacloud_OnsMqtt20200420::Client::listGroupIdWithOptions(shared_ptr<ListGroupIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
