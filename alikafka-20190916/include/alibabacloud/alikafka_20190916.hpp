@@ -1155,9 +1155,11 @@ public:
   shared_ptr<long> deployType{};
   shared_ptr<long> diskSize{};
   shared_ptr<string> diskType{};
+  shared_ptr<long> duration{};
   shared_ptr<long> eipMax{};
   shared_ptr<long> ioMax{};
   shared_ptr<string> ioMaxSpec{};
+  shared_ptr<long> paidType{};
   shared_ptr<long> partitionNum{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -1187,6 +1189,9 @@ public:
     if (diskType) {
       res["DiskType"] = boost::any(*diskType);
     }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
     if (eipMax) {
       res["EipMax"] = boost::any(*eipMax);
     }
@@ -1195,6 +1200,9 @@ public:
     }
     if (ioMaxSpec) {
       res["IoMaxSpec"] = boost::any(*ioMaxSpec);
+    }
+    if (paidType) {
+      res["PaidType"] = boost::any(*paidType);
     }
     if (partitionNum) {
       res["PartitionNum"] = boost::any(*partitionNum);
@@ -1238,6 +1246,9 @@ public:
     if (m.find("DiskType") != m.end() && !m["DiskType"].empty()) {
       diskType = make_shared<string>(boost::any_cast<string>(m["DiskType"]));
     }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
     if (m.find("EipMax") != m.end() && !m["EipMax"].empty()) {
       eipMax = make_shared<long>(boost::any_cast<long>(m["EipMax"]));
     }
@@ -1246,6 +1257,9 @@ public:
     }
     if (m.find("IoMaxSpec") != m.end() && !m["IoMaxSpec"].empty()) {
       ioMaxSpec = make_shared<string>(boost::any_cast<string>(m["IoMaxSpec"]));
+    }
+    if (m.find("PaidType") != m.end() && !m["PaidType"].empty()) {
+      paidType = make_shared<long>(boost::any_cast<long>(m["PaidType"]));
     }
     if (m.find("PartitionNum") != m.end() && !m["PartitionNum"].empty()) {
       partitionNum = make_shared<long>(boost::any_cast<long>(m["PartitionNum"]));
@@ -1322,9 +1336,11 @@ public:
   shared_ptr<long> deployType{};
   shared_ptr<long> diskSize{};
   shared_ptr<string> diskType{};
+  shared_ptr<long> duration{};
   shared_ptr<long> eipMax{};
   shared_ptr<long> ioMax{};
   shared_ptr<string> ioMaxSpec{};
+  shared_ptr<long> paidType{};
   shared_ptr<long> partitionNum{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -1354,6 +1370,9 @@ public:
     if (diskType) {
       res["DiskType"] = boost::any(*diskType);
     }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
     if (eipMax) {
       res["EipMax"] = boost::any(*eipMax);
     }
@@ -1362,6 +1381,9 @@ public:
     }
     if (ioMaxSpec) {
       res["IoMaxSpec"] = boost::any(*ioMaxSpec);
+    }
+    if (paidType) {
+      res["PaidType"] = boost::any(*paidType);
     }
     if (partitionNum) {
       res["PartitionNum"] = boost::any(*partitionNum);
@@ -1401,6 +1423,9 @@ public:
     if (m.find("DiskType") != m.end() && !m["DiskType"].empty()) {
       diskType = make_shared<string>(boost::any_cast<string>(m["DiskType"]));
     }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
     if (m.find("EipMax") != m.end() && !m["EipMax"].empty()) {
       eipMax = make_shared<long>(boost::any_cast<long>(m["EipMax"]));
     }
@@ -1409,6 +1434,9 @@ public:
     }
     if (m.find("IoMaxSpec") != m.end() && !m["IoMaxSpec"].empty()) {
       ioMaxSpec = make_shared<string>(boost::any_cast<string>(m["IoMaxSpec"]));
+    }
+    if (m.find("PaidType") != m.end() && !m["PaidType"].empty()) {
+      paidType = make_shared<long>(boost::any_cast<long>(m["PaidType"]));
     }
     if (m.find("PartitionNum") != m.end() && !m["PartitionNum"].empty()) {
       partitionNum = make_shared<long>(boost::any_cast<long>(m["PartitionNum"]));
@@ -4007,7 +4035,9 @@ public:
 class GetConsumerListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> consumerId{};
+  shared_ptr<long> currentPage{};
   shared_ptr<string> instanceId{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
 
   GetConsumerListRequest() {}
@@ -4023,8 +4053,14 @@ public:
     if (consumerId) {
       res["ConsumerId"] = boost::any(*consumerId);
     }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -4036,8 +4072,14 @@ public:
     if (m.find("ConsumerId") != m.end() && !m["ConsumerId"].empty()) {
       consumerId = make_shared<string>(boost::any_cast<string>(m["ConsumerId"]));
     }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -4241,9 +4283,12 @@ class GetConsumerListResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> code{};
   shared_ptr<GetConsumerListResponseBodyConsumerList> consumerList{};
+  shared_ptr<long> currentPage{};
   shared_ptr<string> message{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
+  shared_ptr<long> total{};
 
   GetConsumerListResponseBody() {}
 
@@ -4261,14 +4306,23 @@ public:
     if (consumerList) {
       res["ConsumerList"] = consumerList ? boost::any(consumerList->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
     if (success) {
       res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
     }
     return res;
   }
@@ -4284,14 +4338,23 @@ public:
         consumerList = make_shared<GetConsumerListResponseBodyConsumerList>(model1);
       }
     }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
     }
   }
 

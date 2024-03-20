@@ -272,6 +272,9 @@ CreatePrePayOrderResponse Alibabacloud_Alikafka20190916::Client::createPrePayOrd
   if (!Darabonba_Util::Client::isUnset<string>(request->diskType)) {
     query->insert(pair<string, string>("DiskType", *request->diskType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->duration)) {
+    query->insert(pair<string, long>("Duration", *request->duration));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->eipMax)) {
     query->insert(pair<string, long>("EipMax", *request->eipMax));
   }
@@ -280,6 +283,9 @@ CreatePrePayOrderResponse Alibabacloud_Alikafka20190916::Client::createPrePayOrd
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ioMaxSpec)) {
     query->insert(pair<string, string>("IoMaxSpec", *request->ioMaxSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->paidType)) {
+    query->insert(pair<string, long>("PaidType", *request->paidType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->partitionNum)) {
     query->insert(pair<string, long>("PartitionNum", *request->partitionNum));
@@ -811,8 +817,14 @@ GetConsumerListResponse Alibabacloud_Alikafka20190916::Client::getConsumerListWi
   if (!Darabonba_Util::Client::isUnset<string>(request->consumerId)) {
     query->insert(pair<string, string>("ConsumerId", *request->consumerId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
