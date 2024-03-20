@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1601,6 +1600,9 @@ ModifyNodeConfigResponse Alibabacloud_Searchengine20211025::Client::modifyNodeCo
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->dataFragmentNumber)) {
     body->insert(pair<string, long>("dataFragmentNumber", *request->dataFragmentNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->flowRatio)) {
+    body->insert(pair<string, long>("flowRatio", *request->flowRatio));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->minServicePercent)) {
     body->insert(pair<string, long>("minServicePercent", *request->minServicePercent));
