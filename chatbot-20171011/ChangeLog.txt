@@ -2,6 +2,10 @@
 - Update API Chat: update response param.
 
 
+2024-03-21 Version: 2.0.8
+- Update API Chat: update response param.
+
+
 2023-12-15 Version: 2.0.7
 - Generated cpp 2017-10-11 for Chatbot.
 
