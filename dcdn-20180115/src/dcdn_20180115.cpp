@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -717,6 +716,55 @@ CommitStagingRoutineCodeResponse Alibabacloud_Dcdn20180115::Client::commitStagin
 CommitStagingRoutineCodeResponse Alibabacloud_Dcdn20180115::Client::commitStagingRoutineCode(shared_ptr<CommitStagingRoutineCodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return commitStagingRoutineCodeWithOptions(request, runtime);
+}
+
+CreateDcdnCertificateSigningRequestResponse Alibabacloud_Dcdn20180115::Client::createDcdnCertificateSigningRequestWithOptions(shared_ptr<CreateDcdnCertificateSigningRequestRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->city)) {
+    query->insert(pair<string, string>("City", *request->city));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->commonName)) {
+    query->insert(pair<string, string>("CommonName", *request->commonName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->country)) {
+    query->insert(pair<string, string>("Country", *request->country));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->email)) {
+    query->insert(pair<string, string>("Email", *request->email));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organization)) {
+    query->insert(pair<string, string>("Organization", *request->organization));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationUnit)) {
+    query->insert(pair<string, string>("OrganizationUnit", *request->organizationUnit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->SANs)) {
+    query->insert(pair<string, string>("SANs", *request->SANs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
+    query->insert(pair<string, string>("State", *request->state));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDcdnCertificateSigningRequest"))},
+    {"version", boost::any(string("2018-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDcdnCertificateSigningRequestResponse(callApi(params, req, runtime));
+}
+
+CreateDcdnCertificateSigningRequestResponse Alibabacloud_Dcdn20180115::Client::createDcdnCertificateSigningRequest(shared_ptr<CreateDcdnCertificateSigningRequestRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDcdnCertificateSigningRequestWithOptions(request, runtime);
 }
 
 CreateDcdnDeliverTaskResponse Alibabacloud_Dcdn20180115::Client::createDcdnDeliverTaskWithOptions(shared_ptr<CreateDcdnDeliverTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -6827,6 +6875,37 @@ RollbackDcdnStagingConfigResponse Alibabacloud_Dcdn20180115::Client::rollbackDcd
 RollbackDcdnStagingConfigResponse Alibabacloud_Dcdn20180115::Client::rollbackDcdnStagingConfig(shared_ptr<RollbackDcdnStagingConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return rollbackDcdnStagingConfigWithOptions(request, runtime);
+}
+
+SetDcdnDomainCSRCertificateResponse Alibabacloud_Dcdn20180115::Client::setDcdnDomainCSRCertificateWithOptions(shared_ptr<SetDcdnDomainCSRCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
+    query->insert(pair<string, string>("DomainName", *request->domainName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverCertificate)) {
+    query->insert(pair<string, string>("ServerCertificate", *request->serverCertificate));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetDcdnDomainCSRCertificate"))},
+    {"version", boost::any(string("2018-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetDcdnDomainCSRCertificateResponse(callApi(params, req, runtime));
+}
+
+SetDcdnDomainCSRCertificateResponse Alibabacloud_Dcdn20180115::Client::setDcdnDomainCSRCertificate(shared_ptr<SetDcdnDomainCSRCertificateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setDcdnDomainCSRCertificateWithOptions(request, runtime);
 }
 
 SetDcdnDomainCertificateResponse Alibabacloud_Dcdn20180115::Client::setDcdnDomainCertificateWithOptions(shared_ptr<SetDcdnDomainCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
