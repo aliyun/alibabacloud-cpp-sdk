@@ -11164,6 +11164,7 @@ public:
 };
 class DescribeApiGroupResponseBodyCustomDomainsDomainItem : public Darabonba::Model {
 public:
+  shared_ptr<string> bindStageAlias{};
   shared_ptr<string> bindStageName{};
   shared_ptr<string> certificateId{};
   shared_ptr<string> certificateName{};
@@ -11189,6 +11190,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bindStageAlias) {
+      res["BindStageAlias"] = boost::any(*bindStageAlias);
+    }
     if (bindStageName) {
       res["BindStageName"] = boost::any(*bindStageName);
     }
@@ -11235,6 +11239,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BindStageAlias") != m.end() && !m["BindStageAlias"].empty()) {
+      bindStageAlias = make_shared<string>(boost::any_cast<string>(m["BindStageAlias"]));
+    }
     if (m.find("BindStageName") != m.end() && !m["BindStageName"].empty()) {
       bindStageName = make_shared<string>(boost::any_cast<string>(m["BindStageName"]));
     }
@@ -17706,6 +17713,7 @@ public:
   shared_ptr<string> operator_{};
   shared_ptr<string> path{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> stageAlias{};
   shared_ptr<string> stageName{};
 
   DescribeApisByAppResponseBodyAppApiRelationInfosAppApiRelationInfo() {}
@@ -17754,6 +17762,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (stageAlias) {
+      res["StageAlias"] = boost::any(*stageAlias);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -17796,6 +17807,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StageAlias") != m.end() && !m["StageAlias"].empty()) {
+      stageAlias = make_shared<string>(boost::any_cast<string>(m["StageAlias"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -21229,6 +21243,7 @@ public:
   shared_ptr<string> authorizedTime{};
   shared_ptr<string> description{};
   shared_ptr<string> operator_{};
+  shared_ptr<string> stageAlias{};
   shared_ptr<string> stageName{};
 
   DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp() {}
@@ -21262,6 +21277,9 @@ public:
     if (operator_) {
       res["Operator"] = boost::any(*operator_);
     }
+    if (stageAlias) {
+      res["StageAlias"] = boost::any(*stageAlias);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -21289,6 +21307,9 @@ public:
     }
     if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
       operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
+    }
+    if (m.find("StageAlias") != m.end() && !m["StageAlias"].empty()) {
+      stageAlias = make_shared<string>(boost::any_cast<string>(m["StageAlias"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -27139,6 +27160,7 @@ public:
   shared_ptr<string> groupName{};
   shared_ptr<string> historyVersion{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> stageAlias{};
   shared_ptr<string> stageName{};
   shared_ptr<string> status{};
 
@@ -27176,6 +27198,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (stageAlias) {
+      res["StageAlias"] = boost::any(*stageAlias);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -27209,6 +27234,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StageAlias") != m.end() && !m["StageAlias"].empty()) {
+      stageAlias = make_shared<string>(boost::any_cast<string>(m["StageAlias"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -30110,6 +30138,42 @@ public:
 
   virtual ~DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes() = default;
 };
+class DescribeInstancesResponseBodyInstancesInstanceAttributePrivateDnsList : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> privateDns{};
+
+  DescribeInstancesResponseBodyInstancesInstanceAttributePrivateDnsList() {}
+
+  explicit DescribeInstancesResponseBodyInstancesInstanceAttributePrivateDnsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (privateDns) {
+      res["PrivateDns"] = boost::any(*privateDns);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PrivateDns") != m.end() && !m["PrivateDns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrivateDns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrivateDns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      privateDns = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeInstancesResponseBodyInstancesInstanceAttributePrivateDnsList() = default;
+};
 class DescribeInstancesResponseBodyInstancesInstanceAttribute : public Darabonba::Model {
 public:
   shared_ptr<string> aclId{};
@@ -30142,6 +30206,7 @@ public:
   shared_ptr<string> maintainEndTime{};
   shared_ptr<string> maintainStartTime{};
   shared_ptr<DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes> networkInterfaceAttributes{};
+  shared_ptr<DescribeInstancesResponseBodyInstancesInstanceAttributePrivateDnsList> privateDnsList{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
   shared_ptr<bool> supportIpv6{};
@@ -30253,6 +30318,9 @@ public:
     }
     if (networkInterfaceAttributes) {
       res["NetworkInterfaceAttributes"] = networkInterfaceAttributes ? boost::any(networkInterfaceAttributes->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (privateDnsList) {
+      res["PrivateDnsList"] = privateDnsList ? boost::any(privateDnsList->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -30387,6 +30455,13 @@ public:
         DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetworkInterfaceAttributes"]));
         networkInterfaceAttributes = make_shared<DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes>(model1);
+      }
+    }
+    if (m.find("PrivateDnsList") != m.end() && !m["PrivateDnsList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PrivateDnsList"].type()) {
+        DescribeInstancesResponseBodyInstancesInstanceAttributePrivateDnsList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PrivateDnsList"]));
+        privateDnsList = make_shared<DescribeInstancesResponseBodyInstancesInstanceAttributePrivateDnsList>(model1);
       }
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
@@ -32029,6 +32104,7 @@ public:
   shared_ptr<string> method{};
   shared_ptr<string> path{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> stageAlias{};
   shared_ptr<string> stageName{};
 
   DescribePluginApisResponseBodyApiSummarysApiPluginSummary() {}
@@ -32065,6 +32141,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (stageAlias) {
+      res["StageAlias"] = boost::any(*stageAlias);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -32095,6 +32174,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StageAlias") != m.end() && !m["StageAlias"].empty()) {
+      stageAlias = make_shared<string>(boost::any_cast<string>(m["StageAlias"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
