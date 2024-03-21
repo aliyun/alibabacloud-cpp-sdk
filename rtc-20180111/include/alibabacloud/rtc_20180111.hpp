@@ -17726,7 +17726,6 @@ public:
 class StartStreamingOutRequestPanes : public Darabonba::Model {
 public:
   shared_ptr<string> paneId{};
-  shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
 
   StartStreamingOutRequestPanes() {}
@@ -17742,9 +17741,6 @@ public:
     if (paneId) {
       res["PaneId"] = boost::any(*paneId);
     }
-    if (source) {
-      res["Source"] = boost::any(*source);
-    }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
     }
@@ -17754,9 +17750,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("PaneId") != m.end() && !m["PaneId"].empty()) {
       paneId = make_shared<string>(boost::any_cast<string>(m["PaneId"]));
-    }
-    if (m.find("Source") != m.end() && !m["Source"].empty()) {
-      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
