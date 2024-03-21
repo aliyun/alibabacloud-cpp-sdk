@@ -2683,6 +2683,7 @@ public:
   shared_ptr<map<string, boost::any>> detail{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
+  shared_ptr<string> ownerUserId{};
   shared_ptr<string> pattern{};
   shared_ptr<string> product{};
   shared_ptr<string> resource{};
@@ -2724,6 +2725,9 @@ public:
     }
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (ownerUserId) {
+      res["OwnerUserId"] = boost::any(*ownerUserId);
     }
     if (pattern) {
       res["Pattern"] = boost::any(*pattern);
@@ -2785,6 +2789,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
+    }
+    if (m.find("OwnerUserId") != m.end() && !m["OwnerUserId"].empty()) {
+      ownerUserId = make_shared<string>(boost::any_cast<string>(m["OwnerUserId"]));
     }
     if (m.find("Pattern") != m.end() && !m["Pattern"].empty()) {
       pattern = make_shared<string>(boost::any_cast<string>(m["Pattern"]));
