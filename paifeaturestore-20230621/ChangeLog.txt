@@ -1,3 +1,6 @@
+2024-03-21 Version: 3.0.7
+- Generated cpp 2023-06-21 for PaiFeatureStore.
+
 2024-03-20 Version: 3.0.6
 - Generated cpp 2023-06-21 for PaiFeatureStore.
 
