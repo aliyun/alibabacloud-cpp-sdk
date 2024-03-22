@@ -387,8 +387,8 @@ DescribeExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::
 DescribeExpressConnectRouterAllowedPrefixHistoryResponse Alibabacloud_ExpressConnectRouter20230901::Client::describeExpressConnectRouterAllowedPrefixHistoryWithOptions(shared_ptr<DescribeExpressConnectRouterAllowedPrefixHistoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->associatonId)) {
-    body->insert(pair<string, string>("AssociatonId", *request->associatonId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->associationId)) {
+    body->insert(pair<string, string>("AssociationId", *request->associationId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));

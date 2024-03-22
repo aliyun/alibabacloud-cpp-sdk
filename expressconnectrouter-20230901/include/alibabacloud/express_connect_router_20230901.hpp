@@ -2019,7 +2019,7 @@ public:
 };
 class DescribeExpressConnectRouterAllowedPrefixHistoryRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> associatonId{};
+  shared_ptr<string> associationId{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ecrId{};
@@ -2036,8 +2036,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (associatonId) {
-      res["AssociatonId"] = boost::any(*associatonId);
+    if (associationId) {
+      res["AssociationId"] = boost::any(*associationId);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -2058,8 +2058,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AssociatonId") != m.end() && !m["AssociatonId"].empty()) {
-      associatonId = make_shared<string>(boost::any_cast<string>(m["AssociatonId"]));
+    if (m.find("AssociationId") != m.end() && !m["AssociationId"].empty()) {
+      associationId = make_shared<string>(boost::any_cast<string>(m["AssociationId"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
