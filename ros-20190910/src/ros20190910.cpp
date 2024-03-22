@@ -283,6 +283,9 @@ CreateDiagnosticResponse Alibabacloud_ROS20190910::Client::createDiagnosticWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->diagnosticType)) {
     query->insert(pair<string, string>("DiagnosticType", *request->diagnosticType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->product)) {
     query->insert(pair<string, string>("Product", *request->product));
   }

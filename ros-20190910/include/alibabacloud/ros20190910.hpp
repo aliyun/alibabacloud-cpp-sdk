@@ -1026,6 +1026,7 @@ class CreateDiagnosticRequest : public Darabonba::Model {
 public:
   shared_ptr<string> diagnosticKey{};
   shared_ptr<string> diagnosticType{};
+  shared_ptr<string> lang{};
   shared_ptr<string> product{};
 
   CreateDiagnosticRequest() {}
@@ -1044,6 +1045,9 @@ public:
     if (diagnosticType) {
       res["DiagnosticType"] = boost::any(*diagnosticType);
     }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
     if (product) {
       res["Product"] = boost::any(*product);
     }
@@ -1056,6 +1060,9 @@ public:
     }
     if (m.find("DiagnosticType") != m.end() && !m["DiagnosticType"].empty()) {
       diagnosticType = make_shared<string>(boost::any_cast<string>(m["DiagnosticType"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
     }
     if (m.find("Product") != m.end() && !m["Product"].empty()) {
       product = make_shared<string>(boost::any_cast<string>(m["Product"]));
