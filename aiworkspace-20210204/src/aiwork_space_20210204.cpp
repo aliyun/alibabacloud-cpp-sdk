@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -230,6 +229,9 @@ CreateDatasetResponse Alibabacloud_AIWorkSpace20210204::Client::createDatasetWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->property)) {
     body->insert(pair<string, string>("Property", *request->property));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->provider)) {
+    body->insert(pair<string, string>("Provider", *request->provider));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->providerType)) {
     body->insert(pair<string, string>("ProviderType", *request->providerType));
@@ -1164,6 +1166,9 @@ GetPermissionResponse Alibabacloud_AIWorkSpace20210204::Client::getPermissionWit
   if (!Darabonba_Util::Client::isUnset<string>(request->creator)) {
     query->insert(pair<string, string>("Creator", *request->creator));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resource)) {
+    query->insert(pair<string, string>("Resource", *request->resource));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1316,6 +1321,9 @@ ListDatasetsResponse Alibabacloud_AIWorkSpace20210204::Client::listDatasetsWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->properties)) {
     query->insert(pair<string, string>("Properties", *request->properties));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->provider)) {
+    query->insert(pair<string, string>("Provider", *request->provider));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceId)) {
     query->insert(pair<string, string>("SourceId", *request->sourceId));
