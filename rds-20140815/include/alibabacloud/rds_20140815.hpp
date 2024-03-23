@@ -6269,6 +6269,7 @@ public:
 class CreateDBNodesRequestDBNode : public Darabonba::Model {
 public:
   shared_ptr<string> classCode{};
+  shared_ptr<string> vswId{};
   shared_ptr<string> zoneId{};
 
   CreateDBNodesRequestDBNode() {}
@@ -6284,6 +6285,9 @@ public:
     if (classCode) {
       res["classCode"] = boost::any(*classCode);
     }
+    if (vswId) {
+      res["vswId"] = boost::any(*vswId);
+    }
     if (zoneId) {
       res["zoneId"] = boost::any(*zoneId);
     }
@@ -6293,6 +6297,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("classCode") != m.end() && !m["classCode"].empty()) {
       classCode = make_shared<string>(boost::any_cast<string>(m["classCode"]));
+    }
+    if (m.find("vswId") != m.end() && !m["vswId"].empty()) {
+      vswId = make_shared<string>(boost::any_cast<string>(m["vswId"]));
     }
     if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
@@ -8527,6 +8534,7 @@ public:
 class CreateOrderForCreateDBNodesRequestDBNode : public Darabonba::Model {
 public:
   shared_ptr<string> classCode{};
+  shared_ptr<string> vswId{};
   shared_ptr<string> zoneId{};
 
   CreateOrderForCreateDBNodesRequestDBNode() {}
@@ -8542,6 +8550,9 @@ public:
     if (classCode) {
       res["classCode"] = boost::any(*classCode);
     }
+    if (vswId) {
+      res["vswId"] = boost::any(*vswId);
+    }
     if (zoneId) {
       res["zoneId"] = boost::any(*zoneId);
     }
@@ -8551,6 +8562,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("classCode") != m.end() && !m["classCode"].empty()) {
       classCode = make_shared<string>(boost::any_cast<string>(m["classCode"]));
+    }
+    if (m.find("vswId") != m.end() && !m["vswId"].empty()) {
+      vswId = make_shared<string>(boost::any_cast<string>(m["vswId"]));
     }
     if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
@@ -66906,6 +66920,7 @@ public:
 class PreCheckCreateOrderForCreateDBNodesRequestDBNode : public Darabonba::Model {
 public:
   shared_ptr<string> classCode{};
+  shared_ptr<string> vswId{};
   shared_ptr<string> zoneId{};
 
   PreCheckCreateOrderForCreateDBNodesRequestDBNode() {}
@@ -66921,6 +66936,9 @@ public:
     if (classCode) {
       res["classCode"] = boost::any(*classCode);
     }
+    if (vswId) {
+      res["vswId"] = boost::any(*vswId);
+    }
     if (zoneId) {
       res["zoneId"] = boost::any(*zoneId);
     }
@@ -66930,6 +66948,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("classCode") != m.end() && !m["classCode"].empty()) {
       classCode = make_shared<string>(boost::any_cast<string>(m["classCode"]));
+    }
+    if (m.find("vswId") != m.end() && !m["vswId"].empty()) {
+      vswId = make_shared<string>(boost::any_cast<string>(m["vswId"]));
     }
     if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
