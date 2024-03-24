@@ -5188,6 +5188,40 @@ PushObjectCacheResponse Alibabacloud_Cdn20180510::Client::pushObjectCache(shared
   return pushObjectCacheWithOptions(request, runtime);
 }
 
+RefreshObjectCacheByCacheTagResponse Alibabacloud_Cdn20180510::Client::refreshObjectCacheByCacheTagWithOptions(shared_ptr<RefreshObjectCacheByCacheTagRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cacheTag)) {
+    query->insert(pair<string, string>("CacheTag", *request->cacheTag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
+    query->insert(pair<string, string>("DomainName", *request->domainName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("Force", *request->force));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RefreshObjectCacheByCacheTag"))},
+    {"version", boost::any(string("2018-05-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RefreshObjectCacheByCacheTagResponse(callApi(params, req, runtime));
+}
+
+RefreshObjectCacheByCacheTagResponse Alibabacloud_Cdn20180510::Client::refreshObjectCacheByCacheTag(shared_ptr<RefreshObjectCacheByCacheTagRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return refreshObjectCacheByCacheTagWithOptions(request, runtime);
+}
+
 RefreshObjectCachesResponse Alibabacloud_Cdn20180510::Client::refreshObjectCachesWithOptions(shared_ptr<RefreshObjectCachesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
