@@ -5213,6 +5213,7 @@ public:
   shared_ptr<long> usedPartitionCount{};
   shared_ptr<long> usedTopicCount{};
   shared_ptr<string> vSwitchId{};
+  shared_ptr<long> viewInstanceStatusCode{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
 
@@ -5330,6 +5331,9 @@ public:
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (viewInstanceStatusCode) {
+      res["ViewInstanceStatusCode"] = boost::any(*viewInstanceStatusCode);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -5457,6 +5461,9 @@ public:
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("ViewInstanceStatusCode") != m.end() && !m["ViewInstanceStatusCode"].empty()) {
+      viewInstanceStatusCode = make_shared<long>(boost::any_cast<long>(m["ViewInstanceStatusCode"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
