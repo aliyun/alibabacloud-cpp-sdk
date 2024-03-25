@@ -1636,6 +1636,247 @@ public:
 
   virtual ~CreateAccessGroupResponse() = default;
 };
+class CreateAccessPointRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessGroup{};
+  shared_ptr<string> accessPointName{};
+  shared_ptr<bool> enabledRam{};
+  shared_ptr<string> fileSystemId{};
+  shared_ptr<long> ownerGroupId{};
+  shared_ptr<long> ownerUserId{};
+  shared_ptr<string> permission{};
+  shared_ptr<long> posixGroupId{};
+  shared_ptr<string> posixSecondaryGroupIds{};
+  shared_ptr<long> posixUserId{};
+  shared_ptr<string> rootDirectory{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<string> vswId{};
+
+  CreateAccessPointRequest() {}
+
+  explicit CreateAccessPointRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessGroup) {
+      res["AccessGroup"] = boost::any(*accessGroup);
+    }
+    if (accessPointName) {
+      res["AccessPointName"] = boost::any(*accessPointName);
+    }
+    if (enabledRam) {
+      res["EnabledRam"] = boost::any(*enabledRam);
+    }
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    if (ownerGroupId) {
+      res["OwnerGroupId"] = boost::any(*ownerGroupId);
+    }
+    if (ownerUserId) {
+      res["OwnerUserId"] = boost::any(*ownerUserId);
+    }
+    if (permission) {
+      res["Permission"] = boost::any(*permission);
+    }
+    if (posixGroupId) {
+      res["PosixGroupId"] = boost::any(*posixGroupId);
+    }
+    if (posixSecondaryGroupIds) {
+      res["PosixSecondaryGroupIds"] = boost::any(*posixSecondaryGroupIds);
+    }
+    if (posixUserId) {
+      res["PosixUserId"] = boost::any(*posixUserId);
+    }
+    if (rootDirectory) {
+      res["RootDirectory"] = boost::any(*rootDirectory);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    if (vswId) {
+      res["VswId"] = boost::any(*vswId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessGroup") != m.end() && !m["AccessGroup"].empty()) {
+      accessGroup = make_shared<string>(boost::any_cast<string>(m["AccessGroup"]));
+    }
+    if (m.find("AccessPointName") != m.end() && !m["AccessPointName"].empty()) {
+      accessPointName = make_shared<string>(boost::any_cast<string>(m["AccessPointName"]));
+    }
+    if (m.find("EnabledRam") != m.end() && !m["EnabledRam"].empty()) {
+      enabledRam = make_shared<bool>(boost::any_cast<bool>(m["EnabledRam"]));
+    }
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("OwnerGroupId") != m.end() && !m["OwnerGroupId"].empty()) {
+      ownerGroupId = make_shared<long>(boost::any_cast<long>(m["OwnerGroupId"]));
+    }
+    if (m.find("OwnerUserId") != m.end() && !m["OwnerUserId"].empty()) {
+      ownerUserId = make_shared<long>(boost::any_cast<long>(m["OwnerUserId"]));
+    }
+    if (m.find("Permission") != m.end() && !m["Permission"].empty()) {
+      permission = make_shared<string>(boost::any_cast<string>(m["Permission"]));
+    }
+    if (m.find("PosixGroupId") != m.end() && !m["PosixGroupId"].empty()) {
+      posixGroupId = make_shared<long>(boost::any_cast<long>(m["PosixGroupId"]));
+    }
+    if (m.find("PosixSecondaryGroupIds") != m.end() && !m["PosixSecondaryGroupIds"].empty()) {
+      posixSecondaryGroupIds = make_shared<string>(boost::any_cast<string>(m["PosixSecondaryGroupIds"]));
+    }
+    if (m.find("PosixUserId") != m.end() && !m["PosixUserId"].empty()) {
+      posixUserId = make_shared<long>(boost::any_cast<long>(m["PosixUserId"]));
+    }
+    if (m.find("RootDirectory") != m.end() && !m["RootDirectory"].empty()) {
+      rootDirectory = make_shared<string>(boost::any_cast<string>(m["RootDirectory"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("VswId") != m.end() && !m["VswId"].empty()) {
+      vswId = make_shared<string>(boost::any_cast<string>(m["VswId"]));
+    }
+  }
+
+
+  virtual ~CreateAccessPointRequest() = default;
+};
+class CreateAccessPointResponseBodyAccessPoint : public Darabonba::Model {
+public:
+  shared_ptr<string> accessPointDomain{};
+  shared_ptr<string> accessPointId{};
+
+  CreateAccessPointResponseBodyAccessPoint() {}
+
+  explicit CreateAccessPointResponseBodyAccessPoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessPointDomain) {
+      res["AccessPointDomain"] = boost::any(*accessPointDomain);
+    }
+    if (accessPointId) {
+      res["AccessPointId"] = boost::any(*accessPointId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessPointDomain") != m.end() && !m["AccessPointDomain"].empty()) {
+      accessPointDomain = make_shared<string>(boost::any_cast<string>(m["AccessPointDomain"]));
+    }
+    if (m.find("AccessPointId") != m.end() && !m["AccessPointId"].empty()) {
+      accessPointId = make_shared<string>(boost::any_cast<string>(m["AccessPointId"]));
+    }
+  }
+
+
+  virtual ~CreateAccessPointResponseBodyAccessPoint() = default;
+};
+class CreateAccessPointResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CreateAccessPointResponseBodyAccessPoint> accessPoint{};
+  shared_ptr<string> requestId{};
+
+  CreateAccessPointResponseBody() {}
+
+  explicit CreateAccessPointResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessPoint) {
+      res["AccessPoint"] = accessPoint ? boost::any(accessPoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessPoint") != m.end() && !m["AccessPoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccessPoint"].type()) {
+        CreateAccessPointResponseBodyAccessPoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessPoint"]));
+        accessPoint = make_shared<CreateAccessPointResponseBodyAccessPoint>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateAccessPointResponseBody() = default;
+};
+class CreateAccessPointResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateAccessPointResponseBody> body{};
+
+  CreateAccessPointResponse() {}
+
+  explicit CreateAccessPointResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateAccessPointResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAccessPointResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAccessPointResponse() = default;
+};
 class CreateAccessRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessGroupName{};
@@ -2363,6 +2604,151 @@ public:
 
 
   virtual ~CreateDataFlowTaskResponse() = default;
+};
+class CreateDirRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> fileSystemId{};
+  shared_ptr<long> ownerGroupId{};
+  shared_ptr<long> ownerUserId{};
+  shared_ptr<string> permission{};
+  shared_ptr<bool> recursion{};
+  shared_ptr<string> rootDirectory{};
+
+  CreateDirRequest() {}
+
+  explicit CreateDirRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    if (ownerGroupId) {
+      res["OwnerGroupId"] = boost::any(*ownerGroupId);
+    }
+    if (ownerUserId) {
+      res["OwnerUserId"] = boost::any(*ownerUserId);
+    }
+    if (permission) {
+      res["Permission"] = boost::any(*permission);
+    }
+    if (recursion) {
+      res["Recursion"] = boost::any(*recursion);
+    }
+    if (rootDirectory) {
+      res["RootDirectory"] = boost::any(*rootDirectory);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("OwnerGroupId") != m.end() && !m["OwnerGroupId"].empty()) {
+      ownerGroupId = make_shared<long>(boost::any_cast<long>(m["OwnerGroupId"]));
+    }
+    if (m.find("OwnerUserId") != m.end() && !m["OwnerUserId"].empty()) {
+      ownerUserId = make_shared<long>(boost::any_cast<long>(m["OwnerUserId"]));
+    }
+    if (m.find("Permission") != m.end() && !m["Permission"].empty()) {
+      permission = make_shared<string>(boost::any_cast<string>(m["Permission"]));
+    }
+    if (m.find("Recursion") != m.end() && !m["Recursion"].empty()) {
+      recursion = make_shared<bool>(boost::any_cast<bool>(m["Recursion"]));
+    }
+    if (m.find("RootDirectory") != m.end() && !m["RootDirectory"].empty()) {
+      rootDirectory = make_shared<string>(boost::any_cast<string>(m["RootDirectory"]));
+    }
+  }
+
+
+  virtual ~CreateDirRequest() = default;
+};
+class CreateDirResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateDirResponseBody() {}
+
+  explicit CreateDirResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateDirResponseBody() = default;
+};
+class CreateDirResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDirResponseBody> body{};
+
+  CreateDirResponse() {}
+
+  explicit CreateDirResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDirResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDirResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDirResponse() = default;
 };
 class CreateFileRequest : public Darabonba::Model {
 public:
@@ -3170,6 +3556,7 @@ class CreateLifecycleRetrieveJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileSystemId{};
   shared_ptr<vector<string>> paths{};
+  shared_ptr<string> storageType{};
 
   CreateLifecycleRetrieveJobRequest() {}
 
@@ -3187,6 +3574,9 @@ public:
     if (paths) {
       res["Paths"] = boost::any(*paths);
     }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
+    }
     return res;
   }
 
@@ -3203,6 +3593,9 @@ public:
         }
       }
       paths = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
     }
   }
 
@@ -4496,6 +4889,123 @@ public:
 
 
   virtual ~DeleteAccessGroupResponse() = default;
+};
+class DeleteAccessPointRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessPointId{};
+  shared_ptr<string> fileSystemId{};
+
+  DeleteAccessPointRequest() {}
+
+  explicit DeleteAccessPointRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessPointId) {
+      res["AccessPointId"] = boost::any(*accessPointId);
+    }
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessPointId") != m.end() && !m["AccessPointId"].empty()) {
+      accessPointId = make_shared<string>(boost::any_cast<string>(m["AccessPointId"]));
+    }
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+  }
+
+
+  virtual ~DeleteAccessPointRequest() = default;
+};
+class DeleteAccessPointResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteAccessPointResponseBody() {}
+
+  explicit DeleteAccessPointResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteAccessPointResponseBody() = default;
+};
+class DeleteAccessPointResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAccessPointResponseBody> body{};
+
+  DeleteAccessPointResponse() {}
+
+  explicit DeleteAccessPointResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAccessPointResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAccessPointResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAccessPointResponse() = default;
 };
 class DeleteAccessRuleRequest : public Darabonba::Model {
 public:
@@ -6240,6 +6750,777 @@ public:
 
 
   virtual ~DescribeAccessGroupsResponse() = default;
+};
+class DescribeAccessPointRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessPointId{};
+  shared_ptr<string> fileSystemId{};
+
+  DescribeAccessPointRequest() {}
+
+  explicit DescribeAccessPointRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessPointId) {
+      res["AccessPointId"] = boost::any(*accessPointId);
+    }
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessPointId") != m.end() && !m["AccessPointId"].empty()) {
+      accessPointId = make_shared<string>(boost::any_cast<string>(m["AccessPointId"]));
+    }
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessPointRequest() = default;
+};
+class DescribeAccessPointResponseBodyAccessPointPosixUser : public Darabonba::Model {
+public:
+  shared_ptr<long> posixGroupId{};
+  shared_ptr<vector<long>> posixSecondaryGroupIds{};
+  shared_ptr<long> posixUserId{};
+
+  DescribeAccessPointResponseBodyAccessPointPosixUser() {}
+
+  explicit DescribeAccessPointResponseBodyAccessPointPosixUser(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (posixGroupId) {
+      res["PosixGroupId"] = boost::any(*posixGroupId);
+    }
+    if (posixSecondaryGroupIds) {
+      res["PosixSecondaryGroupIds"] = boost::any(*posixSecondaryGroupIds);
+    }
+    if (posixUserId) {
+      res["PosixUserId"] = boost::any(*posixUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PosixGroupId") != m.end() && !m["PosixGroupId"].empty()) {
+      posixGroupId = make_shared<long>(boost::any_cast<long>(m["PosixGroupId"]));
+    }
+    if (m.find("PosixSecondaryGroupIds") != m.end() && !m["PosixSecondaryGroupIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["PosixSecondaryGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PosixSecondaryGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      posixSecondaryGroupIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("PosixUserId") != m.end() && !m["PosixUserId"].empty()) {
+      posixUserId = make_shared<long>(boost::any_cast<long>(m["PosixUserId"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessPointResponseBodyAccessPointPosixUser() = default;
+};
+class DescribeAccessPointResponseBodyAccessPointRootPathPermission : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerGroupId{};
+  shared_ptr<long> ownerUserId{};
+  shared_ptr<string> permission{};
+
+  DescribeAccessPointResponseBodyAccessPointRootPathPermission() {}
+
+  explicit DescribeAccessPointResponseBodyAccessPointRootPathPermission(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerGroupId) {
+      res["OwnerGroupId"] = boost::any(*ownerGroupId);
+    }
+    if (ownerUserId) {
+      res["OwnerUserId"] = boost::any(*ownerUserId);
+    }
+    if (permission) {
+      res["Permission"] = boost::any(*permission);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerGroupId") != m.end() && !m["OwnerGroupId"].empty()) {
+      ownerGroupId = make_shared<long>(boost::any_cast<long>(m["OwnerGroupId"]));
+    }
+    if (m.find("OwnerUserId") != m.end() && !m["OwnerUserId"].empty()) {
+      ownerUserId = make_shared<long>(boost::any_cast<long>(m["OwnerUserId"]));
+    }
+    if (m.find("Permission") != m.end() && !m["Permission"].empty()) {
+      permission = make_shared<string>(boost::any_cast<string>(m["Permission"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessPointResponseBodyAccessPointRootPathPermission() = default;
+};
+class DescribeAccessPointResponseBodyAccessPoint : public Darabonba::Model {
+public:
+  shared_ptr<string> ARN{};
+  shared_ptr<string> accessGroup{};
+  shared_ptr<string> accessPointId{};
+  shared_ptr<string> accessPointName{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> domainName{};
+  shared_ptr<bool> enabledRam{};
+  shared_ptr<string> fileSystemId{};
+  shared_ptr<string> modifyTime{};
+  shared_ptr<DescribeAccessPointResponseBodyAccessPointPosixUser> posixUser{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> rootPath{};
+  shared_ptr<DescribeAccessPointResponseBodyAccessPointRootPathPermission> rootPathPermission{};
+  shared_ptr<string> rootPathStatus{};
+  shared_ptr<string> status{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+
+  DescribeAccessPointResponseBodyAccessPoint() {}
+
+  explicit DescribeAccessPointResponseBodyAccessPoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ARN) {
+      res["ARN"] = boost::any(*ARN);
+    }
+    if (accessGroup) {
+      res["AccessGroup"] = boost::any(*accessGroup);
+    }
+    if (accessPointId) {
+      res["AccessPointId"] = boost::any(*accessPointId);
+    }
+    if (accessPointName) {
+      res["AccessPointName"] = boost::any(*accessPointName);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (enabledRam) {
+      res["EnabledRam"] = boost::any(*enabledRam);
+    }
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
+    }
+    if (posixUser) {
+      res["PosixUser"] = posixUser ? boost::any(posixUser->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (rootPath) {
+      res["RootPath"] = boost::any(*rootPath);
+    }
+    if (rootPathPermission) {
+      res["RootPathPermission"] = rootPathPermission ? boost::any(rootPathPermission->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rootPathStatus) {
+      res["RootPathStatus"] = boost::any(*rootPathStatus);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ARN") != m.end() && !m["ARN"].empty()) {
+      ARN = make_shared<string>(boost::any_cast<string>(m["ARN"]));
+    }
+    if (m.find("AccessGroup") != m.end() && !m["AccessGroup"].empty()) {
+      accessGroup = make_shared<string>(boost::any_cast<string>(m["AccessGroup"]));
+    }
+    if (m.find("AccessPointId") != m.end() && !m["AccessPointId"].empty()) {
+      accessPointId = make_shared<string>(boost::any_cast<string>(m["AccessPointId"]));
+    }
+    if (m.find("AccessPointName") != m.end() && !m["AccessPointName"].empty()) {
+      accessPointName = make_shared<string>(boost::any_cast<string>(m["AccessPointName"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("EnabledRam") != m.end() && !m["EnabledRam"].empty()) {
+      enabledRam = make_shared<bool>(boost::any_cast<bool>(m["EnabledRam"]));
+    }
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
+    }
+    if (m.find("PosixUser") != m.end() && !m["PosixUser"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PosixUser"].type()) {
+        DescribeAccessPointResponseBodyAccessPointPosixUser model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PosixUser"]));
+        posixUser = make_shared<DescribeAccessPointResponseBodyAccessPointPosixUser>(model1);
+      }
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RootPath") != m.end() && !m["RootPath"].empty()) {
+      rootPath = make_shared<string>(boost::any_cast<string>(m["RootPath"]));
+    }
+    if (m.find("RootPathPermission") != m.end() && !m["RootPathPermission"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RootPathPermission"].type()) {
+        DescribeAccessPointResponseBodyAccessPointRootPathPermission model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RootPathPermission"]));
+        rootPathPermission = make_shared<DescribeAccessPointResponseBodyAccessPointRootPathPermission>(model1);
+      }
+    }
+    if (m.find("RootPathStatus") != m.end() && !m["RootPathStatus"].empty()) {
+      rootPathStatus = make_shared<string>(boost::any_cast<string>(m["RootPathStatus"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessPointResponseBodyAccessPoint() = default;
+};
+class DescribeAccessPointResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeAccessPointResponseBodyAccessPoint> accessPoint{};
+  shared_ptr<string> requestId{};
+
+  DescribeAccessPointResponseBody() {}
+
+  explicit DescribeAccessPointResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessPoint) {
+      res["AccessPoint"] = accessPoint ? boost::any(accessPoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessPoint") != m.end() && !m["AccessPoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccessPoint"].type()) {
+        DescribeAccessPointResponseBodyAccessPoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessPoint"]));
+        accessPoint = make_shared<DescribeAccessPointResponseBodyAccessPoint>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessPointResponseBody() = default;
+};
+class DescribeAccessPointResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeAccessPointResponseBody> body{};
+
+  DescribeAccessPointResponse() {}
+
+  explicit DescribeAccessPointResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAccessPointResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAccessPointResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAccessPointResponse() = default;
+};
+class DescribeAccessPointsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessGroup{};
+  shared_ptr<string> fileSystemId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+
+  DescribeAccessPointsRequest() {}
+
+  explicit DescribeAccessPointsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessGroup) {
+      res["AccessGroup"] = boost::any(*accessGroup);
+    }
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessGroup") != m.end() && !m["AccessGroup"].empty()) {
+      accessGroup = make_shared<string>(boost::any_cast<string>(m["AccessGroup"]));
+    }
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessPointsRequest() = default;
+};
+class DescribeAccessPointsResponseBodyAccessPointsPosixUser : public Darabonba::Model {
+public:
+  shared_ptr<long> posixGroupId{};
+  shared_ptr<vector<long>> posixSecondaryGroupIds{};
+  shared_ptr<long> posixUserId{};
+
+  DescribeAccessPointsResponseBodyAccessPointsPosixUser() {}
+
+  explicit DescribeAccessPointsResponseBodyAccessPointsPosixUser(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (posixGroupId) {
+      res["PosixGroupId"] = boost::any(*posixGroupId);
+    }
+    if (posixSecondaryGroupIds) {
+      res["PosixSecondaryGroupIds"] = boost::any(*posixSecondaryGroupIds);
+    }
+    if (posixUserId) {
+      res["PosixUserId"] = boost::any(*posixUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PosixGroupId") != m.end() && !m["PosixGroupId"].empty()) {
+      posixGroupId = make_shared<long>(boost::any_cast<long>(m["PosixGroupId"]));
+    }
+    if (m.find("PosixSecondaryGroupIds") != m.end() && !m["PosixSecondaryGroupIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["PosixSecondaryGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PosixSecondaryGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      posixSecondaryGroupIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("PosixUserId") != m.end() && !m["PosixUserId"].empty()) {
+      posixUserId = make_shared<long>(boost::any_cast<long>(m["PosixUserId"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessPointsResponseBodyAccessPointsPosixUser() = default;
+};
+class DescribeAccessPointsResponseBodyAccessPointsRootPathPermission : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerGroupId{};
+  shared_ptr<long> ownerUserId{};
+  shared_ptr<string> permission{};
+
+  DescribeAccessPointsResponseBodyAccessPointsRootPathPermission() {}
+
+  explicit DescribeAccessPointsResponseBodyAccessPointsRootPathPermission(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerGroupId) {
+      res["OwnerGroupId"] = boost::any(*ownerGroupId);
+    }
+    if (ownerUserId) {
+      res["OwnerUserId"] = boost::any(*ownerUserId);
+    }
+    if (permission) {
+      res["Permission"] = boost::any(*permission);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerGroupId") != m.end() && !m["OwnerGroupId"].empty()) {
+      ownerGroupId = make_shared<long>(boost::any_cast<long>(m["OwnerGroupId"]));
+    }
+    if (m.find("OwnerUserId") != m.end() && !m["OwnerUserId"].empty()) {
+      ownerUserId = make_shared<long>(boost::any_cast<long>(m["OwnerUserId"]));
+    }
+    if (m.find("Permission") != m.end() && !m["Permission"].empty()) {
+      permission = make_shared<string>(boost::any_cast<string>(m["Permission"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessPointsResponseBodyAccessPointsRootPathPermission() = default;
+};
+class DescribeAccessPointsResponseBodyAccessPoints : public Darabonba::Model {
+public:
+  shared_ptr<string> ARN{};
+  shared_ptr<string> accessGroup{};
+  shared_ptr<string> accessPointId{};
+  shared_ptr<string> accessPointName{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> domainName{};
+  shared_ptr<bool> enabledRam{};
+  shared_ptr<string> fileSystemId{};
+  shared_ptr<string> modifyTime{};
+  shared_ptr<DescribeAccessPointsResponseBodyAccessPointsPosixUser> posixUser{};
+  shared_ptr<string> rootPath{};
+  shared_ptr<DescribeAccessPointsResponseBodyAccessPointsRootPathPermission> rootPathPermission{};
+  shared_ptr<string> rootPathStatus{};
+  shared_ptr<string> status{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+
+  DescribeAccessPointsResponseBodyAccessPoints() {}
+
+  explicit DescribeAccessPointsResponseBodyAccessPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ARN) {
+      res["ARN"] = boost::any(*ARN);
+    }
+    if (accessGroup) {
+      res["AccessGroup"] = boost::any(*accessGroup);
+    }
+    if (accessPointId) {
+      res["AccessPointId"] = boost::any(*accessPointId);
+    }
+    if (accessPointName) {
+      res["AccessPointName"] = boost::any(*accessPointName);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (enabledRam) {
+      res["EnabledRam"] = boost::any(*enabledRam);
+    }
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
+    }
+    if (posixUser) {
+      res["PosixUser"] = posixUser ? boost::any(posixUser->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rootPath) {
+      res["RootPath"] = boost::any(*rootPath);
+    }
+    if (rootPathPermission) {
+      res["RootPathPermission"] = rootPathPermission ? boost::any(rootPathPermission->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rootPathStatus) {
+      res["RootPathStatus"] = boost::any(*rootPathStatus);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ARN") != m.end() && !m["ARN"].empty()) {
+      ARN = make_shared<string>(boost::any_cast<string>(m["ARN"]));
+    }
+    if (m.find("AccessGroup") != m.end() && !m["AccessGroup"].empty()) {
+      accessGroup = make_shared<string>(boost::any_cast<string>(m["AccessGroup"]));
+    }
+    if (m.find("AccessPointId") != m.end() && !m["AccessPointId"].empty()) {
+      accessPointId = make_shared<string>(boost::any_cast<string>(m["AccessPointId"]));
+    }
+    if (m.find("AccessPointName") != m.end() && !m["AccessPointName"].empty()) {
+      accessPointName = make_shared<string>(boost::any_cast<string>(m["AccessPointName"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("EnabledRam") != m.end() && !m["EnabledRam"].empty()) {
+      enabledRam = make_shared<bool>(boost::any_cast<bool>(m["EnabledRam"]));
+    }
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
+    }
+    if (m.find("PosixUser") != m.end() && !m["PosixUser"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PosixUser"].type()) {
+        DescribeAccessPointsResponseBodyAccessPointsPosixUser model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PosixUser"]));
+        posixUser = make_shared<DescribeAccessPointsResponseBodyAccessPointsPosixUser>(model1);
+      }
+    }
+    if (m.find("RootPath") != m.end() && !m["RootPath"].empty()) {
+      rootPath = make_shared<string>(boost::any_cast<string>(m["RootPath"]));
+    }
+    if (m.find("RootPathPermission") != m.end() && !m["RootPathPermission"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RootPathPermission"].type()) {
+        DescribeAccessPointsResponseBodyAccessPointsRootPathPermission model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RootPathPermission"]));
+        rootPathPermission = make_shared<DescribeAccessPointsResponseBodyAccessPointsRootPathPermission>(model1);
+      }
+    }
+    if (m.find("RootPathStatus") != m.end() && !m["RootPathStatus"].empty()) {
+      rootPathStatus = make_shared<string>(boost::any_cast<string>(m["RootPathStatus"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessPointsResponseBodyAccessPoints() = default;
+};
+class DescribeAccessPointsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeAccessPointsResponseBodyAccessPoints>> accessPoints{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeAccessPointsResponseBody() {}
+
+  explicit DescribeAccessPointsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*accessPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AccessPoints"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessPoints") != m.end() && !m["AccessPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["AccessPoints"].type()) {
+        vector<DescribeAccessPointsResponseBodyAccessPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AccessPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAccessPointsResponseBodyAccessPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        accessPoints = make_shared<vector<DescribeAccessPointsResponseBodyAccessPoints>>(expect1);
+      }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessPointsResponseBody() = default;
+};
+class DescribeAccessPointsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeAccessPointsResponseBody> body{};
+
+  DescribeAccessPointsResponse() {}
+
+  explicit DescribeAccessPointsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAccessPointsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAccessPointsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAccessPointsResponse() = default;
 };
 class DescribeAccessRulesRequest : public Darabonba::Model {
 public:
@@ -9581,6 +10862,7 @@ public:
   shared_ptr<string> fileSystemType{};
   shared_ptr<string> KMSKeyId{};
   shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap> ldap{};
+  shared_ptr<long> meteredArchiveSize{};
   shared_ptr<long> meteredIASize{};
   shared_ptr<long> meteredSize{};
   shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets> mountTargets{};
@@ -9640,6 +10922,9 @@ public:
     }
     if (ldap) {
       res["Ldap"] = ldap ? boost::any(ldap->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (meteredArchiveSize) {
+      res["MeteredArchiveSize"] = boost::any(*meteredArchiveSize);
     }
     if (meteredIASize) {
       res["MeteredIASize"] = boost::any(*meteredIASize);
@@ -9723,6 +11008,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Ldap"]));
         ldap = make_shared<DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap>(model1);
       }
+    }
+    if (m.find("MeteredArchiveSize") != m.end() && !m["MeteredArchiveSize"].empty()) {
+      meteredArchiveSize = make_shared<long>(boost::any_cast<long>(m["MeteredArchiveSize"]));
     }
     if (m.find("MeteredIASize") != m.end() && !m["MeteredIASize"].empty()) {
       meteredIASize = make_shared<long>(boost::any_cast<long>(m["MeteredIASize"]));
@@ -10259,6 +11547,7 @@ public:
   shared_ptr<string> lifecyclePolicyName{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> storageType{};
 
   DescribeLifecyclePoliciesRequest() {}
 
@@ -10282,6 +11571,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
+    }
     return res;
   }
 
@@ -10297,6 +11589,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
     }
   }
 
@@ -14351,6 +15646,7 @@ class GetDirectoryOrFilePropertiesResponseBodyEntry : public Darabonba::Model {
 public:
   shared_ptr<string> ATime{};
   shared_ptr<string> CTime{};
+  shared_ptr<bool> hasArchiveFile{};
   shared_ptr<bool> hasInfrequentAccessFile{};
   shared_ptr<string> inode{};
   shared_ptr<string> MTime{};
@@ -14375,6 +15671,9 @@ public:
     }
     if (CTime) {
       res["CTime"] = boost::any(*CTime);
+    }
+    if (hasArchiveFile) {
+      res["HasArchiveFile"] = boost::any(*hasArchiveFile);
     }
     if (hasInfrequentAccessFile) {
       res["HasInfrequentAccessFile"] = boost::any(*hasInfrequentAccessFile);
@@ -14409,6 +15708,9 @@ public:
     }
     if (m.find("CTime") != m.end() && !m["CTime"].empty()) {
       CTime = make_shared<string>(boost::any_cast<string>(m["CTime"]));
+    }
+    if (m.find("HasArchiveFile") != m.end() && !m["HasArchiveFile"].empty()) {
+      hasArchiveFile = make_shared<bool>(boost::any_cast<bool>(m["HasArchiveFile"]));
     }
     if (m.find("HasInfrequentAccessFile") != m.end() && !m["HasInfrequentAccessFile"].empty()) {
       hasInfrequentAccessFile = make_shared<bool>(boost::any_cast<bool>(m["HasInfrequentAccessFile"]));
@@ -14778,6 +16080,7 @@ public:
   shared_ptr<string> atime{};
   shared_ptr<string> ctime{};
   shared_ptr<string> fileId{};
+  shared_ptr<string> hasArchiveFile{};
   shared_ptr<bool> hasInfrequentAccessFile{};
   shared_ptr<string> inode{};
   shared_ptr<string> mtime{};
@@ -14806,6 +16109,9 @@ public:
     }
     if (fileId) {
       res["FileId"] = boost::any(*fileId);
+    }
+    if (hasArchiveFile) {
+      res["HasArchiveFile"] = boost::any(*hasArchiveFile);
     }
     if (hasInfrequentAccessFile) {
       res["HasInfrequentAccessFile"] = boost::any(*hasInfrequentAccessFile);
@@ -14846,6 +16152,9 @@ public:
     }
     if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
       fileId = make_shared<string>(boost::any_cast<string>(m["FileId"]));
+    }
+    if (m.find("HasArchiveFile") != m.end() && !m["HasArchiveFile"].empty()) {
+      hasArchiveFile = make_shared<string>(boost::any_cast<string>(m["HasArchiveFile"]));
     }
     if (m.find("HasInfrequentAccessFile") != m.end() && !m["HasInfrequentAccessFile"].empty()) {
       hasInfrequentAccessFile = make_shared<bool>(boost::any_cast<bool>(m["HasInfrequentAccessFile"]));
@@ -14994,6 +16303,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> status{};
+  shared_ptr<string> storageType{};
 
   ListLifecycleRetrieveJobsRequest() {}
 
@@ -15017,6 +16327,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
+    }
     return res;
   }
 
@@ -15033,6 +16346,9 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
+    }
   }
 
 
@@ -15047,6 +16363,7 @@ public:
   shared_ptr<vector<string>> paths{};
   shared_ptr<long> retrievedFileCount{};
   shared_ptr<string> status{};
+  shared_ptr<string> storageType{};
   shared_ptr<string> updateTime{};
 
   ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs() {}
@@ -15079,6 +16396,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
@@ -15114,6 +16434,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
@@ -16379,6 +17702,144 @@ public:
 
 
   virtual ~ModifyAccessGroupResponse() = default;
+};
+class ModifyAccessPointRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessGroup{};
+  shared_ptr<string> accessPointId{};
+  shared_ptr<string> accessPointName{};
+  shared_ptr<bool> enabledRam{};
+  shared_ptr<string> fileSystemId{};
+
+  ModifyAccessPointRequest() {}
+
+  explicit ModifyAccessPointRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessGroup) {
+      res["AccessGroup"] = boost::any(*accessGroup);
+    }
+    if (accessPointId) {
+      res["AccessPointId"] = boost::any(*accessPointId);
+    }
+    if (accessPointName) {
+      res["AccessPointName"] = boost::any(*accessPointName);
+    }
+    if (enabledRam) {
+      res["EnabledRam"] = boost::any(*enabledRam);
+    }
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessGroup") != m.end() && !m["AccessGroup"].empty()) {
+      accessGroup = make_shared<string>(boost::any_cast<string>(m["AccessGroup"]));
+    }
+    if (m.find("AccessPointId") != m.end() && !m["AccessPointId"].empty()) {
+      accessPointId = make_shared<string>(boost::any_cast<string>(m["AccessPointId"]));
+    }
+    if (m.find("AccessPointName") != m.end() && !m["AccessPointName"].empty()) {
+      accessPointName = make_shared<string>(boost::any_cast<string>(m["AccessPointName"]));
+    }
+    if (m.find("EnabledRam") != m.end() && !m["EnabledRam"].empty()) {
+      enabledRam = make_shared<bool>(boost::any_cast<bool>(m["EnabledRam"]));
+    }
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+  }
+
+
+  virtual ~ModifyAccessPointRequest() = default;
+};
+class ModifyAccessPointResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyAccessPointResponseBody() {}
+
+  explicit ModifyAccessPointResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyAccessPointResponseBody() = default;
+};
+class ModifyAccessPointResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyAccessPointResponseBody> body{};
+
+  ModifyAccessPointResponse() {}
+
+  explicit ModifyAccessPointResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyAccessPointResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyAccessPointResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyAccessPointResponse() = default;
 };
 class ModifyAccessRuleRequest : public Darabonba::Model {
 public:
@@ -19720,6 +21181,8 @@ public:
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
   CreateAccessGroupResponse createAccessGroupWithOptions(shared_ptr<CreateAccessGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAccessGroupResponse createAccessGroup(shared_ptr<CreateAccessGroupRequest> request);
+  CreateAccessPointResponse createAccessPointWithOptions(shared_ptr<CreateAccessPointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAccessPointResponse createAccessPoint(shared_ptr<CreateAccessPointRequest> request);
   CreateAccessRuleResponse createAccessRuleWithOptions(shared_ptr<CreateAccessRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAccessRuleResponse createAccessRule(shared_ptr<CreateAccessRuleRequest> request);
   CreateAutoSnapshotPolicyResponse createAutoSnapshotPolicyWithOptions(shared_ptr<CreateAutoSnapshotPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19728,6 +21191,8 @@ public:
   CreateDataFlowResponse createDataFlow(shared_ptr<CreateDataFlowRequest> request);
   CreateDataFlowTaskResponse createDataFlowTaskWithOptions(shared_ptr<CreateDataFlowTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDataFlowTaskResponse createDataFlowTask(shared_ptr<CreateDataFlowTaskRequest> request);
+  CreateDirResponse createDirWithOptions(shared_ptr<CreateDirRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDirResponse createDir(shared_ptr<CreateDirRequest> request);
   CreateFileResponse createFileWithOptions(shared_ptr<CreateFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateFileResponse createFile(shared_ptr<CreateFileRequest> request);
   CreateFileSystemResponse createFileSystemWithOptions(shared_ptr<CreateFileSystemRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19756,6 +21221,8 @@ public:
   CreateSnapshotResponse createSnapshot(shared_ptr<CreateSnapshotRequest> request);
   DeleteAccessGroupResponse deleteAccessGroupWithOptions(shared_ptr<DeleteAccessGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAccessGroupResponse deleteAccessGroup(shared_ptr<DeleteAccessGroupRequest> request);
+  DeleteAccessPointResponse deleteAccessPointWithOptions(shared_ptr<DeleteAccessPointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAccessPointResponse deleteAccessPoint(shared_ptr<DeleteAccessPointRequest> request);
   DeleteAccessRuleResponse deleteAccessRuleWithOptions(shared_ptr<DeleteAccessRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAccessRuleResponse deleteAccessRule(shared_ptr<DeleteAccessRuleRequest> request);
   DeleteAutoSnapshotPolicyResponse deleteAutoSnapshotPolicyWithOptions(shared_ptr<DeleteAutoSnapshotPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19782,6 +21249,10 @@ public:
   DeleteSnapshotResponse deleteSnapshot(shared_ptr<DeleteSnapshotRequest> request);
   DescribeAccessGroupsResponse describeAccessGroupsWithOptions(shared_ptr<DescribeAccessGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAccessGroupsResponse describeAccessGroups(shared_ptr<DescribeAccessGroupsRequest> request);
+  DescribeAccessPointResponse describeAccessPointWithOptions(shared_ptr<DescribeAccessPointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAccessPointResponse describeAccessPoint(shared_ptr<DescribeAccessPointRequest> request);
+  DescribeAccessPointsResponse describeAccessPointsWithOptions(shared_ptr<DescribeAccessPointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAccessPointsResponse describeAccessPoints(shared_ptr<DescribeAccessPointsRequest> request);
   DescribeAccessRulesResponse describeAccessRulesWithOptions(shared_ptr<DescribeAccessRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAccessRulesResponse describeAccessRules(shared_ptr<DescribeAccessRulesRequest> request);
   DescribeAutoSnapshotPoliciesResponse describeAutoSnapshotPoliciesWithOptions(shared_ptr<DescribeAutoSnapshotPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19856,6 +21327,8 @@ public:
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   ModifyAccessGroupResponse modifyAccessGroupWithOptions(shared_ptr<ModifyAccessGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyAccessGroupResponse modifyAccessGroup(shared_ptr<ModifyAccessGroupRequest> request);
+  ModifyAccessPointResponse modifyAccessPointWithOptions(shared_ptr<ModifyAccessPointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyAccessPointResponse modifyAccessPoint(shared_ptr<ModifyAccessPointRequest> request);
   ModifyAccessRuleResponse modifyAccessRuleWithOptions(shared_ptr<ModifyAccessRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyAccessRuleResponse modifyAccessRule(shared_ptr<ModifyAccessRuleRequest> request);
   ModifyAutoSnapshotPolicyResponse modifyAutoSnapshotPolicyWithOptions(shared_ptr<ModifyAutoSnapshotPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
