@@ -268,6 +268,476 @@ public:
 
   virtual ~ActiveDeviceCertificateResponse() = default;
 };
+class AddCustomAuthConnectBlackRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientId{};
+  shared_ptr<string> instanceId{};
+
+  AddCustomAuthConnectBlackRequest() {}
+
+  explicit AddCustomAuthConnectBlackRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~AddCustomAuthConnectBlackRequest() = default;
+};
+class AddCustomAuthConnectBlackResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AddCustomAuthConnectBlackResponseBody() {}
+
+  explicit AddCustomAuthConnectBlackResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AddCustomAuthConnectBlackResponseBody() = default;
+};
+class AddCustomAuthConnectBlackResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddCustomAuthConnectBlackResponseBody> body{};
+
+  AddCustomAuthConnectBlackResponse() {}
+
+  explicit AddCustomAuthConnectBlackResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddCustomAuthConnectBlackResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddCustomAuthConnectBlackResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddCustomAuthConnectBlackResponse() = default;
+};
+class AddCustomAuthIdentityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientId{};
+  shared_ptr<string> identityType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> secret{};
+  shared_ptr<string> signMode{};
+  shared_ptr<string> username{};
+
+  AddCustomAuthIdentityRequest() {}
+
+  explicit AddCustomAuthIdentityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (identityType) {
+      res["IdentityType"] = boost::any(*identityType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (secret) {
+      res["Secret"] = boost::any(*secret);
+    }
+    if (signMode) {
+      res["SignMode"] = boost::any(*signMode);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("IdentityType") != m.end() && !m["IdentityType"].empty()) {
+      identityType = make_shared<string>(boost::any_cast<string>(m["IdentityType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Secret") != m.end() && !m["Secret"].empty()) {
+      secret = make_shared<string>(boost::any_cast<string>(m["Secret"]));
+    }
+    if (m.find("SignMode") != m.end() && !m["SignMode"].empty()) {
+      signMode = make_shared<string>(boost::any_cast<string>(m["SignMode"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+  }
+
+
+  virtual ~AddCustomAuthIdentityRequest() = default;
+};
+class AddCustomAuthIdentityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AddCustomAuthIdentityResponseBody() {}
+
+  explicit AddCustomAuthIdentityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AddCustomAuthIdentityResponseBody() = default;
+};
+class AddCustomAuthIdentityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddCustomAuthIdentityResponseBody> body{};
+
+  AddCustomAuthIdentityResponse() {}
+
+  explicit AddCustomAuthIdentityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddCustomAuthIdentityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddCustomAuthIdentityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddCustomAuthIdentityResponse() = default;
+};
+class AddCustomAuthPermissionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> effect{};
+  shared_ptr<string> identity{};
+  shared_ptr<string> identityType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> permitAction{};
+  shared_ptr<string> topic{};
+
+  AddCustomAuthPermissionRequest() {}
+
+  explicit AddCustomAuthPermissionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (effect) {
+      res["Effect"] = boost::any(*effect);
+    }
+    if (identity) {
+      res["Identity"] = boost::any(*identity);
+    }
+    if (identityType) {
+      res["IdentityType"] = boost::any(*identityType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (permitAction) {
+      res["PermitAction"] = boost::any(*permitAction);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Effect") != m.end() && !m["Effect"].empty()) {
+      effect = make_shared<string>(boost::any_cast<string>(m["Effect"]));
+    }
+    if (m.find("Identity") != m.end() && !m["Identity"].empty()) {
+      identity = make_shared<string>(boost::any_cast<string>(m["Identity"]));
+    }
+    if (m.find("IdentityType") != m.end() && !m["IdentityType"].empty()) {
+      identityType = make_shared<string>(boost::any_cast<string>(m["IdentityType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PermitAction") != m.end() && !m["PermitAction"].empty()) {
+      permitAction = make_shared<string>(boost::any_cast<string>(m["PermitAction"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+  }
+
+
+  virtual ~AddCustomAuthPermissionRequest() = default;
+};
+class AddCustomAuthPermissionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AddCustomAuthPermissionResponseBody() {}
+
+  explicit AddCustomAuthPermissionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AddCustomAuthPermissionResponseBody() = default;
+};
+class AddCustomAuthPermissionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddCustomAuthPermissionResponseBody> body{};
+
+  AddCustomAuthPermissionResponse() {}
+
+  explicit AddCustomAuthPermissionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddCustomAuthPermissionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddCustomAuthPermissionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddCustomAuthPermissionResponse() = default;
+};
 class ApplyTokenRequest : public Darabonba::Model {
 public:
   shared_ptr<string> actions{};
@@ -827,6 +1297,448 @@ public:
 
 
   virtual ~DeleteCaCertificateResponse() = default;
+};
+class DeleteCustomAuthConnectBlackRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientId{};
+  shared_ptr<string> instanceId{};
+
+  DeleteCustomAuthConnectBlackRequest() {}
+
+  explicit DeleteCustomAuthConnectBlackRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomAuthConnectBlackRequest() = default;
+};
+class DeleteCustomAuthConnectBlackResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteCustomAuthConnectBlackResponseBody() {}
+
+  explicit DeleteCustomAuthConnectBlackResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomAuthConnectBlackResponseBody() = default;
+};
+class DeleteCustomAuthConnectBlackResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteCustomAuthConnectBlackResponseBody> body{};
+
+  DeleteCustomAuthConnectBlackResponse() {}
+
+  explicit DeleteCustomAuthConnectBlackResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteCustomAuthConnectBlackResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteCustomAuthConnectBlackResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteCustomAuthConnectBlackResponse() = default;
+};
+class DeleteCustomAuthIdentityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientId{};
+  shared_ptr<string> identityType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> username{};
+
+  DeleteCustomAuthIdentityRequest() {}
+
+  explicit DeleteCustomAuthIdentityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (identityType) {
+      res["IdentityType"] = boost::any(*identityType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("IdentityType") != m.end() && !m["IdentityType"].empty()) {
+      identityType = make_shared<string>(boost::any_cast<string>(m["IdentityType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomAuthIdentityRequest() = default;
+};
+class DeleteCustomAuthIdentityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteCustomAuthIdentityResponseBody() {}
+
+  explicit DeleteCustomAuthIdentityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomAuthIdentityResponseBody() = default;
+};
+class DeleteCustomAuthIdentityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteCustomAuthIdentityResponseBody> body{};
+
+  DeleteCustomAuthIdentityResponse() {}
+
+  explicit DeleteCustomAuthIdentityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteCustomAuthIdentityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteCustomAuthIdentityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteCustomAuthIdentityResponse() = default;
+};
+class DeleteCustomAuthPermissionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identity{};
+  shared_ptr<string> identityType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> topic{};
+
+  DeleteCustomAuthPermissionRequest() {}
+
+  explicit DeleteCustomAuthPermissionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identity) {
+      res["Identity"] = boost::any(*identity);
+    }
+    if (identityType) {
+      res["IdentityType"] = boost::any(*identityType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Identity") != m.end() && !m["Identity"].empty()) {
+      identity = make_shared<string>(boost::any_cast<string>(m["Identity"]));
+    }
+    if (m.find("IdentityType") != m.end() && !m["IdentityType"].empty()) {
+      identityType = make_shared<string>(boost::any_cast<string>(m["IdentityType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomAuthPermissionRequest() = default;
+};
+class DeleteCustomAuthPermissionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteCustomAuthPermissionResponseBody() {}
+
+  explicit DeleteCustomAuthPermissionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomAuthPermissionResponseBody() = default;
+};
+class DeleteCustomAuthPermissionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteCustomAuthPermissionResponseBody> body{};
+
+  DeleteCustomAuthPermissionResponse() {}
+
+  explicit DeleteCustomAuthPermissionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteCustomAuthPermissionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteCustomAuthPermissionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteCustomAuthPermissionResponse() = default;
 };
 class DeleteDeviceCertificateRequest : public Darabonba::Model {
 public:
@@ -3277,6 +4189,830 @@ public:
 
   virtual ~ListGroupIdResponse() = default;
 };
+class QueryCustomAuthConnectBlackRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> size{};
+
+  QueryCustomAuthConnectBlackRequest() {}
+
+  explicit QueryCustomAuthConnectBlackRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+  }
+
+
+  virtual ~QueryCustomAuthConnectBlackRequest() = default;
+};
+class QueryCustomAuthConnectBlackResponseBodyDataResults : public Darabonba::Model {
+public:
+  shared_ptr<string> clientId{};
+  shared_ptr<string> effect{};
+  shared_ptr<string> permitAction{};
+
+  QueryCustomAuthConnectBlackResponseBodyDataResults() {}
+
+  explicit QueryCustomAuthConnectBlackResponseBodyDataResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (effect) {
+      res["Effect"] = boost::any(*effect);
+    }
+    if (permitAction) {
+      res["PermitAction"] = boost::any(*permitAction);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("Effect") != m.end() && !m["Effect"].empty()) {
+      effect = make_shared<string>(boost::any_cast<string>(m["Effect"]));
+    }
+    if (m.find("PermitAction") != m.end() && !m["PermitAction"].empty()) {
+      permitAction = make_shared<string>(boost::any_cast<string>(m["PermitAction"]));
+    }
+  }
+
+
+  virtual ~QueryCustomAuthConnectBlackResponseBodyDataResults() = default;
+};
+class QueryCustomAuthConnectBlackResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<QueryCustomAuthConnectBlackResponseBodyDataResults>> results{};
+
+  QueryCustomAuthConnectBlackResponseBodyData() {}
+
+  explicit QueryCustomAuthConnectBlackResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (results) {
+      vector<boost::any> temp1;
+      for(auto item1:*results){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Results"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Results") != m.end() && !m["Results"].empty()) {
+      if (typeid(vector<boost::any>) == m["Results"].type()) {
+        vector<QueryCustomAuthConnectBlackResponseBodyDataResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Results"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryCustomAuthConnectBlackResponseBodyDataResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        results = make_shared<vector<QueryCustomAuthConnectBlackResponseBodyDataResults>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryCustomAuthConnectBlackResponseBodyData() = default;
+};
+class QueryCustomAuthConnectBlackResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<QueryCustomAuthConnectBlackResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QueryCustomAuthConnectBlackResponseBody() {}
+
+  explicit QueryCustomAuthConnectBlackResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QueryCustomAuthConnectBlackResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QueryCustomAuthConnectBlackResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryCustomAuthConnectBlackResponseBody() = default;
+};
+class QueryCustomAuthConnectBlackResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryCustomAuthConnectBlackResponseBody> body{};
+
+  QueryCustomAuthConnectBlackResponse() {}
+
+  explicit QueryCustomAuthConnectBlackResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryCustomAuthConnectBlackResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryCustomAuthConnectBlackResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryCustomAuthConnectBlackResponse() = default;
+};
+class QueryCustomAuthIdentityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientId{};
+  shared_ptr<string> identityType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> size{};
+  shared_ptr<string> username{};
+
+  QueryCustomAuthIdentityRequest() {}
+
+  explicit QueryCustomAuthIdentityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (identityType) {
+      res["IdentityType"] = boost::any(*identityType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("IdentityType") != m.end() && !m["IdentityType"].empty()) {
+      identityType = make_shared<string>(boost::any_cast<string>(m["IdentityType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+  }
+
+
+  virtual ~QueryCustomAuthIdentityRequest() = default;
+};
+class QueryCustomAuthIdentityResponseBodyDataResults : public Darabonba::Model {
+public:
+  shared_ptr<string> clientId{};
+  shared_ptr<string> identityType{};
+  shared_ptr<string> secret{};
+  shared_ptr<string> signMode{};
+  shared_ptr<string> username{};
+
+  QueryCustomAuthIdentityResponseBodyDataResults() {}
+
+  explicit QueryCustomAuthIdentityResponseBodyDataResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (identityType) {
+      res["IdentityType"] = boost::any(*identityType);
+    }
+    if (secret) {
+      res["Secret"] = boost::any(*secret);
+    }
+    if (signMode) {
+      res["SignMode"] = boost::any(*signMode);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("IdentityType") != m.end() && !m["IdentityType"].empty()) {
+      identityType = make_shared<string>(boost::any_cast<string>(m["IdentityType"]));
+    }
+    if (m.find("Secret") != m.end() && !m["Secret"].empty()) {
+      secret = make_shared<string>(boost::any_cast<string>(m["Secret"]));
+    }
+    if (m.find("SignMode") != m.end() && !m["SignMode"].empty()) {
+      signMode = make_shared<string>(boost::any_cast<string>(m["SignMode"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+  }
+
+
+  virtual ~QueryCustomAuthIdentityResponseBodyDataResults() = default;
+};
+class QueryCustomAuthIdentityResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<QueryCustomAuthIdentityResponseBodyDataResults>> results{};
+
+  QueryCustomAuthIdentityResponseBodyData() {}
+
+  explicit QueryCustomAuthIdentityResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (results) {
+      vector<boost::any> temp1;
+      for(auto item1:*results){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Results"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Results") != m.end() && !m["Results"].empty()) {
+      if (typeid(vector<boost::any>) == m["Results"].type()) {
+        vector<QueryCustomAuthIdentityResponseBodyDataResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Results"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryCustomAuthIdentityResponseBodyDataResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        results = make_shared<vector<QueryCustomAuthIdentityResponseBodyDataResults>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryCustomAuthIdentityResponseBodyData() = default;
+};
+class QueryCustomAuthIdentityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<QueryCustomAuthIdentityResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QueryCustomAuthIdentityResponseBody() {}
+
+  explicit QueryCustomAuthIdentityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QueryCustomAuthIdentityResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QueryCustomAuthIdentityResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryCustomAuthIdentityResponseBody() = default;
+};
+class QueryCustomAuthIdentityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryCustomAuthIdentityResponseBody> body{};
+
+  QueryCustomAuthIdentityResponse() {}
+
+  explicit QueryCustomAuthIdentityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryCustomAuthIdentityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryCustomAuthIdentityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryCustomAuthIdentityResponse() = default;
+};
+class QueryCustomAuthPermissionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identity{};
+  shared_ptr<string> identityType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> size{};
+  shared_ptr<string> topic{};
+
+  QueryCustomAuthPermissionRequest() {}
+
+  explicit QueryCustomAuthPermissionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identity) {
+      res["Identity"] = boost::any(*identity);
+    }
+    if (identityType) {
+      res["IdentityType"] = boost::any(*identityType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Identity") != m.end() && !m["Identity"].empty()) {
+      identity = make_shared<string>(boost::any_cast<string>(m["Identity"]));
+    }
+    if (m.find("IdentityType") != m.end() && !m["IdentityType"].empty()) {
+      identityType = make_shared<string>(boost::any_cast<string>(m["IdentityType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+  }
+
+
+  virtual ~QueryCustomAuthPermissionRequest() = default;
+};
+class QueryCustomAuthPermissionResponseBodyDataResults : public Darabonba::Model {
+public:
+  shared_ptr<string> effect{};
+  shared_ptr<string> identity{};
+  shared_ptr<string> identityType{};
+  shared_ptr<string> permitAction{};
+  shared_ptr<string> topic{};
+
+  QueryCustomAuthPermissionResponseBodyDataResults() {}
+
+  explicit QueryCustomAuthPermissionResponseBodyDataResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (effect) {
+      res["Effect"] = boost::any(*effect);
+    }
+    if (identity) {
+      res["Identity"] = boost::any(*identity);
+    }
+    if (identityType) {
+      res["IdentityType"] = boost::any(*identityType);
+    }
+    if (permitAction) {
+      res["PermitAction"] = boost::any(*permitAction);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Effect") != m.end() && !m["Effect"].empty()) {
+      effect = make_shared<string>(boost::any_cast<string>(m["Effect"]));
+    }
+    if (m.find("Identity") != m.end() && !m["Identity"].empty()) {
+      identity = make_shared<string>(boost::any_cast<string>(m["Identity"]));
+    }
+    if (m.find("IdentityType") != m.end() && !m["IdentityType"].empty()) {
+      identityType = make_shared<string>(boost::any_cast<string>(m["IdentityType"]));
+    }
+    if (m.find("PermitAction") != m.end() && !m["PermitAction"].empty()) {
+      permitAction = make_shared<string>(boost::any_cast<string>(m["PermitAction"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+  }
+
+
+  virtual ~QueryCustomAuthPermissionResponseBodyDataResults() = default;
+};
+class QueryCustomAuthPermissionResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<QueryCustomAuthPermissionResponseBodyDataResults>> results{};
+
+  QueryCustomAuthPermissionResponseBodyData() {}
+
+  explicit QueryCustomAuthPermissionResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (results) {
+      vector<boost::any> temp1;
+      for(auto item1:*results){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Results"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Results") != m.end() && !m["Results"].empty()) {
+      if (typeid(vector<boost::any>) == m["Results"].type()) {
+        vector<QueryCustomAuthPermissionResponseBodyDataResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Results"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryCustomAuthPermissionResponseBodyDataResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        results = make_shared<vector<QueryCustomAuthPermissionResponseBodyDataResults>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryCustomAuthPermissionResponseBodyData() = default;
+};
+class QueryCustomAuthPermissionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<QueryCustomAuthPermissionResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QueryCustomAuthPermissionResponseBody() {}
+
+  explicit QueryCustomAuthPermissionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QueryCustomAuthPermissionResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QueryCustomAuthPermissionResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryCustomAuthPermissionResponseBody() = default;
+};
+class QueryCustomAuthPermissionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryCustomAuthPermissionResponseBody> body{};
+
+  QueryCustomAuthPermissionResponse() {}
+
+  explicit QueryCustomAuthPermissionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryCustomAuthPermissionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryCustomAuthPermissionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryCustomAuthPermissionResponse() = default;
+};
 class QueryMqttTraceDeviceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> beginTime{};
@@ -5430,6 +7166,338 @@ public:
 
   virtual ~UnRegisterDeviceCredentialResponse() = default;
 };
+class UpdateCustomAuthIdentityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientId{};
+  shared_ptr<string> identityType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> secret{};
+  shared_ptr<string> signMode{};
+  shared_ptr<string> username{};
+
+  UpdateCustomAuthIdentityRequest() {}
+
+  explicit UpdateCustomAuthIdentityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (identityType) {
+      res["IdentityType"] = boost::any(*identityType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (secret) {
+      res["Secret"] = boost::any(*secret);
+    }
+    if (signMode) {
+      res["SignMode"] = boost::any(*signMode);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("IdentityType") != m.end() && !m["IdentityType"].empty()) {
+      identityType = make_shared<string>(boost::any_cast<string>(m["IdentityType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Secret") != m.end() && !m["Secret"].empty()) {
+      secret = make_shared<string>(boost::any_cast<string>(m["Secret"]));
+    }
+    if (m.find("SignMode") != m.end() && !m["SignMode"].empty()) {
+      signMode = make_shared<string>(boost::any_cast<string>(m["SignMode"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomAuthIdentityRequest() = default;
+};
+class UpdateCustomAuthIdentityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateCustomAuthIdentityResponseBody() {}
+
+  explicit UpdateCustomAuthIdentityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomAuthIdentityResponseBody() = default;
+};
+class UpdateCustomAuthIdentityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateCustomAuthIdentityResponseBody> body{};
+
+  UpdateCustomAuthIdentityResponse() {}
+
+  explicit UpdateCustomAuthIdentityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateCustomAuthIdentityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateCustomAuthIdentityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateCustomAuthIdentityResponse() = default;
+};
+class UpdateCustomAuthPermissionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> effect{};
+  shared_ptr<string> identity{};
+  shared_ptr<string> identityType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> permitAction{};
+  shared_ptr<string> topic{};
+
+  UpdateCustomAuthPermissionRequest() {}
+
+  explicit UpdateCustomAuthPermissionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (effect) {
+      res["Effect"] = boost::any(*effect);
+    }
+    if (identity) {
+      res["Identity"] = boost::any(*identity);
+    }
+    if (identityType) {
+      res["IdentityType"] = boost::any(*identityType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (permitAction) {
+      res["PermitAction"] = boost::any(*permitAction);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Effect") != m.end() && !m["Effect"].empty()) {
+      effect = make_shared<string>(boost::any_cast<string>(m["Effect"]));
+    }
+    if (m.find("Identity") != m.end() && !m["Identity"].empty()) {
+      identity = make_shared<string>(boost::any_cast<string>(m["Identity"]));
+    }
+    if (m.find("IdentityType") != m.end() && !m["IdentityType"].empty()) {
+      identityType = make_shared<string>(boost::any_cast<string>(m["IdentityType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PermitAction") != m.end() && !m["PermitAction"].empty()) {
+      permitAction = make_shared<string>(boost::any_cast<string>(m["PermitAction"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomAuthPermissionRequest() = default;
+};
+class UpdateCustomAuthPermissionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateCustomAuthPermissionResponseBody() {}
+
+  explicit UpdateCustomAuthPermissionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomAuthPermissionResponseBody() = default;
+};
+class UpdateCustomAuthPermissionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateCustomAuthPermissionResponseBody> body{};
+
+  UpdateCustomAuthPermissionResponse() {}
+
+  explicit UpdateCustomAuthPermissionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateCustomAuthPermissionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateCustomAuthPermissionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateCustomAuthPermissionResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -5444,6 +7512,12 @@ public:
   ActiveCaCertificateResponse activeCaCertificate(shared_ptr<ActiveCaCertificateRequest> request);
   ActiveDeviceCertificateResponse activeDeviceCertificateWithOptions(shared_ptr<ActiveDeviceCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ActiveDeviceCertificateResponse activeDeviceCertificate(shared_ptr<ActiveDeviceCertificateRequest> request);
+  AddCustomAuthConnectBlackResponse addCustomAuthConnectBlackWithOptions(shared_ptr<AddCustomAuthConnectBlackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddCustomAuthConnectBlackResponse addCustomAuthConnectBlack(shared_ptr<AddCustomAuthConnectBlackRequest> request);
+  AddCustomAuthIdentityResponse addCustomAuthIdentityWithOptions(shared_ptr<AddCustomAuthIdentityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddCustomAuthIdentityResponse addCustomAuthIdentity(shared_ptr<AddCustomAuthIdentityRequest> request);
+  AddCustomAuthPermissionResponse addCustomAuthPermissionWithOptions(shared_ptr<AddCustomAuthPermissionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddCustomAuthPermissionResponse addCustomAuthPermission(shared_ptr<AddCustomAuthPermissionRequest> request);
   ApplyTokenResponse applyTokenWithOptions(shared_ptr<ApplyTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApplyTokenResponse applyToken(shared_ptr<ApplyTokenRequest> request);
   BatchQuerySessionByClientIdsResponse batchQuerySessionByClientIdsWithOptions(shared_ptr<BatchQuerySessionByClientIdsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -5452,6 +7526,12 @@ public:
   CreateGroupIdResponse createGroupId(shared_ptr<CreateGroupIdRequest> request);
   DeleteCaCertificateResponse deleteCaCertificateWithOptions(shared_ptr<DeleteCaCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteCaCertificateResponse deleteCaCertificate(shared_ptr<DeleteCaCertificateRequest> request);
+  DeleteCustomAuthConnectBlackResponse deleteCustomAuthConnectBlackWithOptions(shared_ptr<DeleteCustomAuthConnectBlackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteCustomAuthConnectBlackResponse deleteCustomAuthConnectBlack(shared_ptr<DeleteCustomAuthConnectBlackRequest> request);
+  DeleteCustomAuthIdentityResponse deleteCustomAuthIdentityWithOptions(shared_ptr<DeleteCustomAuthIdentityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteCustomAuthIdentityResponse deleteCustomAuthIdentity(shared_ptr<DeleteCustomAuthIdentityRequest> request);
+  DeleteCustomAuthPermissionResponse deleteCustomAuthPermissionWithOptions(shared_ptr<DeleteCustomAuthPermissionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteCustomAuthPermissionResponse deleteCustomAuthPermission(shared_ptr<DeleteCustomAuthPermissionRequest> request);
   DeleteDeviceCertificateResponse deleteDeviceCertificateWithOptions(shared_ptr<DeleteDeviceCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDeviceCertificateResponse deleteDeviceCertificate(shared_ptr<DeleteDeviceCertificateRequest> request);
   DeleteGroupIdResponse deleteGroupIdWithOptions(shared_ptr<DeleteGroupIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -5478,6 +7558,12 @@ public:
   ListDeviceCredentialClientIdResponse listDeviceCredentialClientId(shared_ptr<ListDeviceCredentialClientIdRequest> request);
   ListGroupIdResponse listGroupIdWithOptions(shared_ptr<ListGroupIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListGroupIdResponse listGroupId(shared_ptr<ListGroupIdRequest> request);
+  QueryCustomAuthConnectBlackResponse queryCustomAuthConnectBlackWithOptions(shared_ptr<QueryCustomAuthConnectBlackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryCustomAuthConnectBlackResponse queryCustomAuthConnectBlack(shared_ptr<QueryCustomAuthConnectBlackRequest> request);
+  QueryCustomAuthIdentityResponse queryCustomAuthIdentityWithOptions(shared_ptr<QueryCustomAuthIdentityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryCustomAuthIdentityResponse queryCustomAuthIdentity(shared_ptr<QueryCustomAuthIdentityRequest> request);
+  QueryCustomAuthPermissionResponse queryCustomAuthPermissionWithOptions(shared_ptr<QueryCustomAuthPermissionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryCustomAuthPermissionResponse queryCustomAuthPermission(shared_ptr<QueryCustomAuthPermissionRequest> request);
   QueryMqttTraceDeviceResponse queryMqttTraceDeviceWithOptions(shared_ptr<QueryMqttTraceDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryMqttTraceDeviceResponse queryMqttTraceDevice(shared_ptr<QueryMqttTraceDeviceRequest> request);
   QueryMqttTraceMessageOfClientResponse queryMqttTraceMessageOfClientWithOptions(shared_ptr<QueryMqttTraceMessageOfClientRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -5502,6 +7588,10 @@ public:
   SendMessageResponse sendMessage(shared_ptr<SendMessageRequest> request);
   UnRegisterDeviceCredentialResponse unRegisterDeviceCredentialWithOptions(shared_ptr<UnRegisterDeviceCredentialRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UnRegisterDeviceCredentialResponse unRegisterDeviceCredential(shared_ptr<UnRegisterDeviceCredentialRequest> request);
+  UpdateCustomAuthIdentityResponse updateCustomAuthIdentityWithOptions(shared_ptr<UpdateCustomAuthIdentityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateCustomAuthIdentityResponse updateCustomAuthIdentity(shared_ptr<UpdateCustomAuthIdentityRequest> request);
+  UpdateCustomAuthPermissionResponse updateCustomAuthPermissionWithOptions(shared_ptr<UpdateCustomAuthPermissionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateCustomAuthPermissionResponse updateCustomAuthPermission(shared_ptr<UpdateCustomAuthPermissionRequest> request);
 
   virtual ~Client() = default;
 };

@@ -102,6 +102,123 @@ ActiveDeviceCertificateResponse Alibabacloud_OnsMqtt20200420::Client::activeDevi
   return activeDeviceCertificateWithOptions(request, runtime);
 }
 
+AddCustomAuthConnectBlackResponse Alibabacloud_OnsMqtt20200420::Client::addCustomAuthConnectBlackWithOptions(shared_ptr<AddCustomAuthConnectBlackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
+    body->insert(pair<string, string>("ClientId", *request->clientId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddCustomAuthConnectBlack"))},
+    {"version", boost::any(string("2020-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddCustomAuthConnectBlackResponse(callApi(params, req, runtime));
+}
+
+AddCustomAuthConnectBlackResponse Alibabacloud_OnsMqtt20200420::Client::addCustomAuthConnectBlack(shared_ptr<AddCustomAuthConnectBlackRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addCustomAuthConnectBlackWithOptions(request, runtime);
+}
+
+AddCustomAuthIdentityResponse Alibabacloud_OnsMqtt20200420::Client::addCustomAuthIdentityWithOptions(shared_ptr<AddCustomAuthIdentityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
+    body->insert(pair<string, string>("ClientId", *request->clientId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityType)) {
+    body->insert(pair<string, string>("IdentityType", *request->identityType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->secret)) {
+    body->insert(pair<string, string>("Secret", *request->secret));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signMode)) {
+    body->insert(pair<string, string>("SignMode", *request->signMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
+    body->insert(pair<string, string>("Username", *request->username));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddCustomAuthIdentity"))},
+    {"version", boost::any(string("2020-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddCustomAuthIdentityResponse(callApi(params, req, runtime));
+}
+
+AddCustomAuthIdentityResponse Alibabacloud_OnsMqtt20200420::Client::addCustomAuthIdentity(shared_ptr<AddCustomAuthIdentityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addCustomAuthIdentityWithOptions(request, runtime);
+}
+
+AddCustomAuthPermissionResponse Alibabacloud_OnsMqtt20200420::Client::addCustomAuthPermissionWithOptions(shared_ptr<AddCustomAuthPermissionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->effect)) {
+    body->insert(pair<string, string>("Effect", *request->effect));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identity)) {
+    body->insert(pair<string, string>("Identity", *request->identity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityType)) {
+    body->insert(pair<string, string>("IdentityType", *request->identityType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->permitAction)) {
+    body->insert(pair<string, string>("PermitAction", *request->permitAction));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topic)) {
+    body->insert(pair<string, string>("Topic", *request->topic));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddCustomAuthPermission"))},
+    {"version", boost::any(string("2020-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddCustomAuthPermissionResponse(callApi(params, req, runtime));
+}
+
+AddCustomAuthPermissionResponse Alibabacloud_OnsMqtt20200420::Client::addCustomAuthPermission(shared_ptr<AddCustomAuthPermissionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addCustomAuthPermissionWithOptions(request, runtime);
+}
+
 ApplyTokenResponse Alibabacloud_OnsMqtt20200420::Client::applyTokenWithOptions(shared_ptr<ApplyTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -230,6 +347,111 @@ DeleteCaCertificateResponse Alibabacloud_OnsMqtt20200420::Client::deleteCaCertif
 DeleteCaCertificateResponse Alibabacloud_OnsMqtt20200420::Client::deleteCaCertificate(shared_ptr<DeleteCaCertificateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteCaCertificateWithOptions(request, runtime);
+}
+
+DeleteCustomAuthConnectBlackResponse Alibabacloud_OnsMqtt20200420::Client::deleteCustomAuthConnectBlackWithOptions(shared_ptr<DeleteCustomAuthConnectBlackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
+    body->insert(pair<string, string>("ClientId", *request->clientId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCustomAuthConnectBlack"))},
+    {"version", boost::any(string("2020-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCustomAuthConnectBlackResponse(callApi(params, req, runtime));
+}
+
+DeleteCustomAuthConnectBlackResponse Alibabacloud_OnsMqtt20200420::Client::deleteCustomAuthConnectBlack(shared_ptr<DeleteCustomAuthConnectBlackRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCustomAuthConnectBlackWithOptions(request, runtime);
+}
+
+DeleteCustomAuthIdentityResponse Alibabacloud_OnsMqtt20200420::Client::deleteCustomAuthIdentityWithOptions(shared_ptr<DeleteCustomAuthIdentityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
+    body->insert(pair<string, string>("ClientId", *request->clientId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityType)) {
+    body->insert(pair<string, string>("IdentityType", *request->identityType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
+    body->insert(pair<string, string>("Username", *request->username));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCustomAuthIdentity"))},
+    {"version", boost::any(string("2020-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCustomAuthIdentityResponse(callApi(params, req, runtime));
+}
+
+DeleteCustomAuthIdentityResponse Alibabacloud_OnsMqtt20200420::Client::deleteCustomAuthIdentity(shared_ptr<DeleteCustomAuthIdentityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCustomAuthIdentityWithOptions(request, runtime);
+}
+
+DeleteCustomAuthPermissionResponse Alibabacloud_OnsMqtt20200420::Client::deleteCustomAuthPermissionWithOptions(shared_ptr<DeleteCustomAuthPermissionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->identity)) {
+    body->insert(pair<string, string>("Identity", *request->identity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityType)) {
+    body->insert(pair<string, string>("IdentityType", *request->identityType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topic)) {
+    body->insert(pair<string, string>("Topic", *request->topic));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCustomAuthPermission"))},
+    {"version", boost::any(string("2020-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCustomAuthPermissionResponse(callApi(params, req, runtime));
+}
+
+DeleteCustomAuthPermissionResponse Alibabacloud_OnsMqtt20200420::Client::deleteCustomAuthPermission(shared_ptr<DeleteCustomAuthPermissionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCustomAuthPermissionWithOptions(request, runtime);
 }
 
 DeleteDeviceCertificateResponse Alibabacloud_OnsMqtt20200420::Client::deleteDeviceCertificateWithOptions(shared_ptr<DeleteDeviceCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -609,6 +831,81 @@ ListGroupIdResponse Alibabacloud_OnsMqtt20200420::Client::listGroupIdWithOptions
 ListGroupIdResponse Alibabacloud_OnsMqtt20200420::Client::listGroupId(shared_ptr<ListGroupIdRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listGroupIdWithOptions(request, runtime);
+}
+
+QueryCustomAuthConnectBlackResponse Alibabacloud_OnsMqtt20200420::Client::queryCustomAuthConnectBlackWithOptions(shared_ptr<QueryCustomAuthConnectBlackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryCustomAuthConnectBlack"))},
+    {"version", boost::any(string("2020-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryCustomAuthConnectBlackResponse(callApi(params, req, runtime));
+}
+
+QueryCustomAuthConnectBlackResponse Alibabacloud_OnsMqtt20200420::Client::queryCustomAuthConnectBlack(shared_ptr<QueryCustomAuthConnectBlackRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryCustomAuthConnectBlackWithOptions(request, runtime);
+}
+
+QueryCustomAuthIdentityResponse Alibabacloud_OnsMqtt20200420::Client::queryCustomAuthIdentityWithOptions(shared_ptr<QueryCustomAuthIdentityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryCustomAuthIdentity"))},
+    {"version", boost::any(string("2020-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryCustomAuthIdentityResponse(callApi(params, req, runtime));
+}
+
+QueryCustomAuthIdentityResponse Alibabacloud_OnsMqtt20200420::Client::queryCustomAuthIdentity(shared_ptr<QueryCustomAuthIdentityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryCustomAuthIdentityWithOptions(request, runtime);
+}
+
+QueryCustomAuthPermissionResponse Alibabacloud_OnsMqtt20200420::Client::queryCustomAuthPermissionWithOptions(shared_ptr<QueryCustomAuthPermissionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryCustomAuthPermission"))},
+    {"version", boost::any(string("2020-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryCustomAuthPermissionResponse(callApi(params, req, runtime));
+}
+
+QueryCustomAuthPermissionResponse Alibabacloud_OnsMqtt20200420::Client::queryCustomAuthPermission(shared_ptr<QueryCustomAuthPermissionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryCustomAuthPermissionWithOptions(request, runtime);
 }
 
 QueryMqttTraceDeviceResponse Alibabacloud_OnsMqtt20200420::Client::queryMqttTraceDeviceWithOptions(shared_ptr<QueryMqttTraceDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1056,5 +1353,91 @@ UnRegisterDeviceCredentialResponse Alibabacloud_OnsMqtt20200420::Client::unRegis
 UnRegisterDeviceCredentialResponse Alibabacloud_OnsMqtt20200420::Client::unRegisterDeviceCredential(shared_ptr<UnRegisterDeviceCredentialRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return unRegisterDeviceCredentialWithOptions(request, runtime);
+}
+
+UpdateCustomAuthIdentityResponse Alibabacloud_OnsMqtt20200420::Client::updateCustomAuthIdentityWithOptions(shared_ptr<UpdateCustomAuthIdentityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
+    body->insert(pair<string, string>("ClientId", *request->clientId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityType)) {
+    body->insert(pair<string, string>("IdentityType", *request->identityType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->secret)) {
+    body->insert(pair<string, string>("Secret", *request->secret));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signMode)) {
+    body->insert(pair<string, string>("SignMode", *request->signMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
+    body->insert(pair<string, string>("Username", *request->username));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCustomAuthIdentity"))},
+    {"version", boost::any(string("2020-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCustomAuthIdentityResponse(callApi(params, req, runtime));
+}
+
+UpdateCustomAuthIdentityResponse Alibabacloud_OnsMqtt20200420::Client::updateCustomAuthIdentity(shared_ptr<UpdateCustomAuthIdentityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCustomAuthIdentityWithOptions(request, runtime);
+}
+
+UpdateCustomAuthPermissionResponse Alibabacloud_OnsMqtt20200420::Client::updateCustomAuthPermissionWithOptions(shared_ptr<UpdateCustomAuthPermissionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->effect)) {
+    body->insert(pair<string, string>("Effect", *request->effect));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identity)) {
+    body->insert(pair<string, string>("Identity", *request->identity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identityType)) {
+    body->insert(pair<string, string>("IdentityType", *request->identityType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->permitAction)) {
+    body->insert(pair<string, string>("PermitAction", *request->permitAction));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topic)) {
+    body->insert(pair<string, string>("Topic", *request->topic));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCustomAuthPermission"))},
+    {"version", boost::any(string("2020-04-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCustomAuthPermissionResponse(callApi(params, req, runtime));
+}
+
+UpdateCustomAuthPermissionResponse Alibabacloud_OnsMqtt20200420::Client::updateCustomAuthPermission(shared_ptr<UpdateCustomAuthPermissionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCustomAuthPermissionWithOptions(request, runtime);
 }
 
