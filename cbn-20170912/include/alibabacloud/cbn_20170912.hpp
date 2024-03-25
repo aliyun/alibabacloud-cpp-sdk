@@ -4660,6 +4660,264 @@ public:
 
   virtual ~CreateTransitRouterCidrResponse() = default;
 };
+class CreateTransitRouterEcrAttachmentRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateTransitRouterEcrAttachmentRequestTag() {}
+
+  explicit CreateTransitRouterEcrAttachmentRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateTransitRouterEcrAttachmentRequestTag() = default;
+};
+class CreateTransitRouterEcrAttachmentRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cenId{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ecrId{};
+  shared_ptr<long> ecrOwnerId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<CreateTransitRouterEcrAttachmentRequestTag>> tag{};
+  shared_ptr<string> transitRouterAttachmentDescription{};
+  shared_ptr<string> transitRouterAttachmentName{};
+  shared_ptr<string> transitRouterId{};
+
+  CreateTransitRouterEcrAttachmentRequest() {}
+
+  explicit CreateTransitRouterEcrAttachmentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cenId) {
+      res["CenId"] = boost::any(*cenId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ecrId) {
+      res["EcrId"] = boost::any(*ecrId);
+    }
+    if (ecrOwnerId) {
+      res["EcrOwnerId"] = boost::any(*ecrOwnerId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    if (transitRouterAttachmentDescription) {
+      res["TransitRouterAttachmentDescription"] = boost::any(*transitRouterAttachmentDescription);
+    }
+    if (transitRouterAttachmentName) {
+      res["TransitRouterAttachmentName"] = boost::any(*transitRouterAttachmentName);
+    }
+    if (transitRouterId) {
+      res["TransitRouterId"] = boost::any(*transitRouterId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
+      cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
+      ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
+    }
+    if (m.find("EcrOwnerId") != m.end() && !m["EcrOwnerId"].empty()) {
+      ecrOwnerId = make_shared<long>(boost::any_cast<long>(m["EcrOwnerId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateTransitRouterEcrAttachmentRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateTransitRouterEcrAttachmentRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateTransitRouterEcrAttachmentRequestTag>>(expect1);
+      }
+    }
+    if (m.find("TransitRouterAttachmentDescription") != m.end() && !m["TransitRouterAttachmentDescription"].empty()) {
+      transitRouterAttachmentDescription = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentDescription"]));
+    }
+    if (m.find("TransitRouterAttachmentName") != m.end() && !m["TransitRouterAttachmentName"].empty()) {
+      transitRouterAttachmentName = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentName"]));
+    }
+    if (m.find("TransitRouterId") != m.end() && !m["TransitRouterId"].empty()) {
+      transitRouterId = make_shared<string>(boost::any_cast<string>(m["TransitRouterId"]));
+    }
+  }
+
+
+  virtual ~CreateTransitRouterEcrAttachmentRequest() = default;
+};
+class CreateTransitRouterEcrAttachmentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> transitRouterAttachmentId{};
+
+  CreateTransitRouterEcrAttachmentResponseBody() {}
+
+  explicit CreateTransitRouterEcrAttachmentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (transitRouterAttachmentId) {
+      res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
+      transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
+    }
+  }
+
+
+  virtual ~CreateTransitRouterEcrAttachmentResponseBody() = default;
+};
+class CreateTransitRouterEcrAttachmentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateTransitRouterEcrAttachmentResponseBody> body{};
+
+  CreateTransitRouterEcrAttachmentResponse() {}
+
+  explicit CreateTransitRouterEcrAttachmentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateTransitRouterEcrAttachmentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateTransitRouterEcrAttachmentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateTransitRouterEcrAttachmentResponse() = default;
+};
 class CreateTransitRouterMulticastDomainRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -8982,6 +9240,165 @@ public:
 
 
   virtual ~DeleteTransitRouterCidrResponse() = default;
+};
+class DeleteTransitRouterEcrAttachmentRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<bool> force{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> transitRouterAttachmentId{};
+
+  DeleteTransitRouterEcrAttachmentRequest() {}
+
+  explicit DeleteTransitRouterEcrAttachmentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (transitRouterAttachmentId) {
+      res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
+      transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
+    }
+  }
+
+
+  virtual ~DeleteTransitRouterEcrAttachmentRequest() = default;
+};
+class DeleteTransitRouterEcrAttachmentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteTransitRouterEcrAttachmentResponseBody() {}
+
+  explicit DeleteTransitRouterEcrAttachmentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteTransitRouterEcrAttachmentResponseBody() = default;
+};
+class DeleteTransitRouterEcrAttachmentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteTransitRouterEcrAttachmentResponseBody> body{};
+
+  DeleteTransitRouterEcrAttachmentResponse() {}
+
+  explicit DeleteTransitRouterEcrAttachmentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteTransitRouterEcrAttachmentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteTransitRouterEcrAttachmentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteTransitRouterEcrAttachmentResponse() = default;
 };
 class DeleteTransitRouterMulticastDomainRequest : public Darabonba::Model {
 public:
@@ -24007,6 +24424,448 @@ public:
 
   virtual ~ListTransitRouterCidrAllocationResponse() = default;
 };
+class ListTransitRouterEcrAttachmentsRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListTransitRouterEcrAttachmentsRequestTag() {}
+
+  explicit ListTransitRouterEcrAttachmentsRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListTransitRouterEcrAttachmentsRequestTag() = default;
+};
+class ListTransitRouterEcrAttachmentsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cenId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<ListTransitRouterEcrAttachmentsRequestTag>> tag{};
+  shared_ptr<string> transitRouterAttachmentId{};
+  shared_ptr<string> transitRouterId{};
+
+  ListTransitRouterEcrAttachmentsRequest() {}
+
+  explicit ListTransitRouterEcrAttachmentsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cenId) {
+      res["CenId"] = boost::any(*cenId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    if (transitRouterAttachmentId) {
+      res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
+    }
+    if (transitRouterId) {
+      res["TransitRouterId"] = boost::any(*transitRouterId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
+      cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListTransitRouterEcrAttachmentsRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTransitRouterEcrAttachmentsRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListTransitRouterEcrAttachmentsRequestTag>>(expect1);
+      }
+    }
+    if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
+      transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
+    }
+    if (m.find("TransitRouterId") != m.end() && !m["TransitRouterId"].empty()) {
+      transitRouterId = make_shared<string>(boost::any_cast<string>(m["TransitRouterId"]));
+    }
+  }
+
+
+  virtual ~ListTransitRouterEcrAttachmentsRequest() = default;
+};
+class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachmentsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachmentsTags() {}
+
+  explicit ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachmentsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachmentsTags() = default;
+};
+class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoPublishRouteEnabled{};
+  shared_ptr<string> cenId{};
+  shared_ptr<string> creationTime{};
+  shared_ptr<string> ecrId{};
+  shared_ptr<long> ecrOwnerId{};
+  shared_ptr<string> orderType{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> status{};
+  shared_ptr<vector<ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachmentsTags>> tags{};
+  shared_ptr<string> transitRouterAttachmentDescription{};
+  shared_ptr<string> transitRouterAttachmentId{};
+  shared_ptr<string> transitRouterAttachmentName{};
+  shared_ptr<string> transitRouterId{};
+  shared_ptr<string> transitRouterRegionId{};
+
+  ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments() {}
+
+  explicit ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoPublishRouteEnabled) {
+      res["AutoPublishRouteEnabled"] = boost::any(*autoPublishRouteEnabled);
+    }
+    if (cenId) {
+      res["CenId"] = boost::any(*cenId);
+    }
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (ecrId) {
+      res["EcrId"] = boost::any(*ecrId);
+    }
+    if (ecrOwnerId) {
+      res["EcrOwnerId"] = boost::any(*ecrOwnerId);
+    }
+    if (orderType) {
+      res["OrderType"] = boost::any(*orderType);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    if (transitRouterAttachmentDescription) {
+      res["TransitRouterAttachmentDescription"] = boost::any(*transitRouterAttachmentDescription);
+    }
+    if (transitRouterAttachmentId) {
+      res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
+    }
+    if (transitRouterAttachmentName) {
+      res["TransitRouterAttachmentName"] = boost::any(*transitRouterAttachmentName);
+    }
+    if (transitRouterId) {
+      res["TransitRouterId"] = boost::any(*transitRouterId);
+    }
+    if (transitRouterRegionId) {
+      res["TransitRouterRegionId"] = boost::any(*transitRouterRegionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPublishRouteEnabled") != m.end() && !m["AutoPublishRouteEnabled"].empty()) {
+      autoPublishRouteEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoPublishRouteEnabled"]));
+    }
+    if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
+      cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
+      ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
+    }
+    if (m.find("EcrOwnerId") != m.end() && !m["EcrOwnerId"].empty()) {
+      ecrOwnerId = make_shared<long>(boost::any_cast<long>(m["EcrOwnerId"]));
+    }
+    if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
+      orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachmentsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachmentsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachmentsTags>>(expect1);
+      }
+    }
+    if (m.find("TransitRouterAttachmentDescription") != m.end() && !m["TransitRouterAttachmentDescription"].empty()) {
+      transitRouterAttachmentDescription = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentDescription"]));
+    }
+    if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
+      transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
+    }
+    if (m.find("TransitRouterAttachmentName") != m.end() && !m["TransitRouterAttachmentName"].empty()) {
+      transitRouterAttachmentName = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentName"]));
+    }
+    if (m.find("TransitRouterId") != m.end() && !m["TransitRouterId"].empty()) {
+      transitRouterId = make_shared<string>(boost::any_cast<string>(m["TransitRouterId"]));
+    }
+    if (m.find("TransitRouterRegionId") != m.end() && !m["TransitRouterRegionId"].empty()) {
+      transitRouterRegionId = make_shared<string>(boost::any_cast<string>(m["TransitRouterRegionId"]));
+    }
+  }
+
+
+  virtual ~ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments() = default;
+};
+class ListTransitRouterEcrAttachmentsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<vector<ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments>> transitRouterAttachments{};
+
+  ListTransitRouterEcrAttachmentsResponseBody() {}
+
+  explicit ListTransitRouterEcrAttachmentsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (transitRouterAttachments) {
+      vector<boost::any> temp1;
+      for(auto item1:*transitRouterAttachments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TransitRouterAttachments"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("TransitRouterAttachments") != m.end() && !m["TransitRouterAttachments"].empty()) {
+      if (typeid(vector<boost::any>) == m["TransitRouterAttachments"].type()) {
+        vector<ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TransitRouterAttachments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        transitRouterAttachments = make_shared<vector<ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListTransitRouterEcrAttachmentsResponseBody() = default;
+};
+class ListTransitRouterEcrAttachmentsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListTransitRouterEcrAttachmentsResponseBody> body{};
+
+  ListTransitRouterEcrAttachmentsResponse() {}
+
+  explicit ListTransitRouterEcrAttachmentsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListTransitRouterEcrAttachmentsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListTransitRouterEcrAttachmentsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListTransitRouterEcrAttachmentsResponse() = default;
+};
 class ListTransitRouterMulticastDomainAssociationsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -35157,6 +36016,172 @@ public:
 
   virtual ~UpdateTransitRouterResponse() = default;
 };
+class UpdateTransitRouterEcrAttachmentAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> transitRouterAttachmentDescription{};
+  shared_ptr<string> transitRouterAttachmentId{};
+  shared_ptr<string> transitRouterAttachmentName{};
+
+  UpdateTransitRouterEcrAttachmentAttributeRequest() {}
+
+  explicit UpdateTransitRouterEcrAttachmentAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (transitRouterAttachmentDescription) {
+      res["TransitRouterAttachmentDescription"] = boost::any(*transitRouterAttachmentDescription);
+    }
+    if (transitRouterAttachmentId) {
+      res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
+    }
+    if (transitRouterAttachmentName) {
+      res["TransitRouterAttachmentName"] = boost::any(*transitRouterAttachmentName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TransitRouterAttachmentDescription") != m.end() && !m["TransitRouterAttachmentDescription"].empty()) {
+      transitRouterAttachmentDescription = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentDescription"]));
+    }
+    if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
+      transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
+    }
+    if (m.find("TransitRouterAttachmentName") != m.end() && !m["TransitRouterAttachmentName"].empty()) {
+      transitRouterAttachmentName = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentName"]));
+    }
+  }
+
+
+  virtual ~UpdateTransitRouterEcrAttachmentAttributeRequest() = default;
+};
+class UpdateTransitRouterEcrAttachmentAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateTransitRouterEcrAttachmentAttributeResponseBody() {}
+
+  explicit UpdateTransitRouterEcrAttachmentAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateTransitRouterEcrAttachmentAttributeResponseBody() = default;
+};
+class UpdateTransitRouterEcrAttachmentAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateTransitRouterEcrAttachmentAttributeResponseBody> body{};
+
+  UpdateTransitRouterEcrAttachmentAttributeResponse() {}
+
+  explicit UpdateTransitRouterEcrAttachmentAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateTransitRouterEcrAttachmentAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateTransitRouterEcrAttachmentAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateTransitRouterEcrAttachmentAttributeResponse() = default;
+};
 class UpdateTransitRouterPeerAttachmentAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPublishRouteEnabled{};
@@ -36724,6 +37749,8 @@ public:
   CreateTransitRouterResponse createTransitRouter(shared_ptr<CreateTransitRouterRequest> request);
   CreateTransitRouterCidrResponse createTransitRouterCidrWithOptions(shared_ptr<CreateTransitRouterCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTransitRouterCidrResponse createTransitRouterCidr(shared_ptr<CreateTransitRouterCidrRequest> request);
+  CreateTransitRouterEcrAttachmentResponse createTransitRouterEcrAttachmentWithOptions(shared_ptr<CreateTransitRouterEcrAttachmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateTransitRouterEcrAttachmentResponse createTransitRouterEcrAttachment(shared_ptr<CreateTransitRouterEcrAttachmentRequest> request);
   CreateTransitRouterMulticastDomainResponse createTransitRouterMulticastDomainWithOptions(shared_ptr<CreateTransitRouterMulticastDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTransitRouterMulticastDomainResponse createTransitRouterMulticastDomain(shared_ptr<CreateTransitRouterMulticastDomainRequest> request);
   CreateTransitRouterPeerAttachmentResponse createTransitRouterPeerAttachmentWithOptions(shared_ptr<CreateTransitRouterPeerAttachmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -36768,6 +37795,8 @@ public:
   DeleteTransitRouterResponse deleteTransitRouter(shared_ptr<DeleteTransitRouterRequest> request);
   DeleteTransitRouterCidrResponse deleteTransitRouterCidrWithOptions(shared_ptr<DeleteTransitRouterCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteTransitRouterCidrResponse deleteTransitRouterCidr(shared_ptr<DeleteTransitRouterCidrRequest> request);
+  DeleteTransitRouterEcrAttachmentResponse deleteTransitRouterEcrAttachmentWithOptions(shared_ptr<DeleteTransitRouterEcrAttachmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteTransitRouterEcrAttachmentResponse deleteTransitRouterEcrAttachment(shared_ptr<DeleteTransitRouterEcrAttachmentRequest> request);
   DeleteTransitRouterMulticastDomainResponse deleteTransitRouterMulticastDomainWithOptions(shared_ptr<DeleteTransitRouterMulticastDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteTransitRouterMulticastDomainResponse deleteTransitRouterMulticastDomain(shared_ptr<DeleteTransitRouterMulticastDomainRequest> request);
   DeleteTransitRouterPeerAttachmentResponse deleteTransitRouterPeerAttachmentWithOptions(shared_ptr<DeleteTransitRouterPeerAttachmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -36868,6 +37897,8 @@ public:
   ListTransitRouterCidrResponse listTransitRouterCidr(shared_ptr<ListTransitRouterCidrRequest> request);
   ListTransitRouterCidrAllocationResponse listTransitRouterCidrAllocationWithOptions(shared_ptr<ListTransitRouterCidrAllocationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTransitRouterCidrAllocationResponse listTransitRouterCidrAllocation(shared_ptr<ListTransitRouterCidrAllocationRequest> request);
+  ListTransitRouterEcrAttachmentsResponse listTransitRouterEcrAttachmentsWithOptions(shared_ptr<ListTransitRouterEcrAttachmentsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListTransitRouterEcrAttachmentsResponse listTransitRouterEcrAttachments(shared_ptr<ListTransitRouterEcrAttachmentsRequest> request);
   ListTransitRouterMulticastDomainAssociationsResponse listTransitRouterMulticastDomainAssociationsWithOptions(shared_ptr<ListTransitRouterMulticastDomainAssociationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTransitRouterMulticastDomainAssociationsResponse listTransitRouterMulticastDomainAssociations(shared_ptr<ListTransitRouterMulticastDomainAssociationsRequest> request);
   ListTransitRouterMulticastDomainVSwitchesResponse listTransitRouterMulticastDomainVSwitchesWithOptions(shared_ptr<ListTransitRouterMulticastDomainVSwitchesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -36954,6 +37985,8 @@ public:
   UpdateTrafficMarkingPolicyAttributeResponse updateTrafficMarkingPolicyAttribute(shared_ptr<UpdateTrafficMarkingPolicyAttributeRequest> request);
   UpdateTransitRouterResponse updateTransitRouterWithOptions(shared_ptr<UpdateTransitRouterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateTransitRouterResponse updateTransitRouter(shared_ptr<UpdateTransitRouterRequest> request);
+  UpdateTransitRouterEcrAttachmentAttributeResponse updateTransitRouterEcrAttachmentAttributeWithOptions(shared_ptr<UpdateTransitRouterEcrAttachmentAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateTransitRouterEcrAttachmentAttributeResponse updateTransitRouterEcrAttachmentAttribute(shared_ptr<UpdateTransitRouterEcrAttachmentAttributeRequest> request);
   UpdateTransitRouterPeerAttachmentAttributeResponse updateTransitRouterPeerAttachmentAttributeWithOptions(shared_ptr<UpdateTransitRouterPeerAttachmentAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateTransitRouterPeerAttachmentAttributeResponse updateTransitRouterPeerAttachmentAttribute(shared_ptr<UpdateTransitRouterPeerAttachmentAttributeRequest> request);
   UpdateTransitRouterRouteEntryResponse updateTransitRouterRouteEntryWithOptions(shared_ptr<UpdateTransitRouterRouteEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
