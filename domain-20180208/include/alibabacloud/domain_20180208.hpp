@@ -3129,6 +3129,7 @@ public:
   shared_ptr<string> demandDomain{};
   shared_ptr<double> demandPrice{};
   shared_ptr<string> description{};
+  shared_ptr<string> email{};
   shared_ptr<string> mobile{};
   shared_ptr<long> orderType{};
   shared_ptr<string> partnerDomain{};
@@ -3171,6 +3172,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (email) {
+      res["Email"] = boost::any(*email);
     }
     if (mobile) {
       res["Mobile"] = boost::any(*mobile);
@@ -3229,6 +3233,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Email") != m.end() && !m["Email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["Email"]));
     }
     if (m.find("Mobile") != m.end() && !m["Mobile"].empty()) {
       mobile = make_shared<string>(boost::any_cast<string>(m["Mobile"]));
