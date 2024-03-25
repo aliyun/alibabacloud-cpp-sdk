@@ -9793,6 +9793,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> sceneName{};
+  shared_ptr<string> status{};
 
   ListPtsSceneResponseBodySceneViewList() {}
 
@@ -9813,6 +9814,9 @@ public:
     if (sceneName) {
       res["SceneName"] = boost::any(*sceneName);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     return res;
   }
 
@@ -9825,6 +9829,9 @@ public:
     }
     if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
       sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
   }
 
