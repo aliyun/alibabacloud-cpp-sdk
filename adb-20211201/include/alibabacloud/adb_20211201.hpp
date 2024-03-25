@@ -3478,6 +3478,49 @@ public:
 
   virtual ~CreateDBClusterResponse() = default;
 };
+class CreateDBResourceGroupRequestRules : public Darabonba::Model {
+public:
+  shared_ptr<string> groupName{};
+  shared_ptr<string> queryTime{};
+  shared_ptr<string> targetGroupName{};
+
+  CreateDBResourceGroupRequestRules() {}
+
+  explicit CreateDBResourceGroupRequestRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (queryTime) {
+      res["QueryTime"] = boost::any(*queryTime);
+    }
+    if (targetGroupName) {
+      res["TargetGroupName"] = boost::any(*targetGroupName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("QueryTime") != m.end() && !m["QueryTime"].empty()) {
+      queryTime = make_shared<string>(boost::any_cast<string>(m["QueryTime"]));
+    }
+    if (m.find("TargetGroupName") != m.end() && !m["TargetGroupName"].empty()) {
+      targetGroupName = make_shared<string>(boost::any_cast<string>(m["TargetGroupName"]));
+    }
+  }
+
+
+  virtual ~CreateDBResourceGroupRequestRules() = default;
+};
 class CreateDBResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterMode{};
@@ -3491,6 +3534,7 @@ public:
   shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
   shared_ptr<string> regionId{};
+  shared_ptr<vector<CreateDBResourceGroupRequestRules>> rules{};
 
   CreateDBResourceGroupRequest() {}
 
@@ -3535,6 +3579,13 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (rules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Rules"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -3572,10 +3623,129 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(vector<boost::any>) == m["Rules"].type()) {
+        vector<CreateDBResourceGroupRequestRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Rules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateDBResourceGroupRequestRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rules = make_shared<vector<CreateDBResourceGroupRequestRules>>(expect1);
+      }
+    }
   }
 
 
   virtual ~CreateDBResourceGroupRequest() = default;
+};
+class CreateDBResourceGroupShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterMode{};
+  shared_ptr<string> clusterSizeResource{};
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<bool> enableSpot{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> groupType{};
+  shared_ptr<long> maxClusterCount{};
+  shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> minClusterCount{};
+  shared_ptr<string> minComputeResource{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> rulesShrink{};
+
+  CreateDBResourceGroupShrinkRequest() {}
+
+  explicit CreateDBResourceGroupShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterMode) {
+      res["ClusterMode"] = boost::any(*clusterMode);
+    }
+    if (clusterSizeResource) {
+      res["ClusterSizeResource"] = boost::any(*clusterSizeResource);
+    }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (enableSpot) {
+      res["EnableSpot"] = boost::any(*enableSpot);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (groupType) {
+      res["GroupType"] = boost::any(*groupType);
+    }
+    if (maxClusterCount) {
+      res["MaxClusterCount"] = boost::any(*maxClusterCount);
+    }
+    if (maxComputeResource) {
+      res["MaxComputeResource"] = boost::any(*maxComputeResource);
+    }
+    if (minClusterCount) {
+      res["MinClusterCount"] = boost::any(*minClusterCount);
+    }
+    if (minComputeResource) {
+      res["MinComputeResource"] = boost::any(*minComputeResource);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (rulesShrink) {
+      res["Rules"] = boost::any(*rulesShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
+      clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
+    }
+    if (m.find("ClusterSizeResource") != m.end() && !m["ClusterSizeResource"].empty()) {
+      clusterSizeResource = make_shared<string>(boost::any_cast<string>(m["ClusterSizeResource"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("EnableSpot") != m.end() && !m["EnableSpot"].empty()) {
+      enableSpot = make_shared<bool>(boost::any_cast<bool>(m["EnableSpot"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("GroupType") != m.end() && !m["GroupType"].empty()) {
+      groupType = make_shared<string>(boost::any_cast<string>(m["GroupType"]));
+    }
+    if (m.find("MaxClusterCount") != m.end() && !m["MaxClusterCount"].empty()) {
+      maxClusterCount = make_shared<long>(boost::any_cast<long>(m["MaxClusterCount"]));
+    }
+    if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
+      maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
+    }
+    if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
+      minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
+    }
+    if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
+      minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      rulesShrink = make_shared<string>(boost::any_cast<string>(m["Rules"]));
+    }
+  }
+
+
+  virtual ~CreateDBResourceGroupShrinkRequest() = default;
 };
 class CreateDBResourceGroupResponseBody : public Darabonba::Model {
 public:
@@ -12456,6 +12626,49 @@ public:
 
   virtual ~DescribeDBResourceGroupRequest() = default;
 };
+class DescribeDBResourceGroupResponseBodyGroupsInfoRules : public Darabonba::Model {
+public:
+  shared_ptr<string> groupName{};
+  shared_ptr<string> queryTime{};
+  shared_ptr<string> targetGroupName{};
+
+  DescribeDBResourceGroupResponseBodyGroupsInfoRules() {}
+
+  explicit DescribeDBResourceGroupResponseBodyGroupsInfoRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (queryTime) {
+      res["QueryTime"] = boost::any(*queryTime);
+    }
+    if (targetGroupName) {
+      res["TargetGroupName"] = boost::any(*targetGroupName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("QueryTime") != m.end() && !m["QueryTime"].empty()) {
+      queryTime = make_shared<string>(boost::any_cast<string>(m["QueryTime"]));
+    }
+    if (m.find("TargetGroupName") != m.end() && !m["TargetGroupName"].empty()) {
+      targetGroupName = make_shared<string>(boost::any_cast<string>(m["TargetGroupName"]));
+    }
+  }
+
+
+  virtual ~DescribeDBResourceGroupResponseBodyGroupsInfoRules() = default;
+};
 class DescribeDBResourceGroupResponseBodyGroupsInfo : public Darabonba::Model {
 public:
   shared_ptr<string> clusterMode{};
@@ -12470,6 +12683,7 @@ public:
   shared_ptr<string> maxComputeResource{};
   shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
+  shared_ptr<vector<DescribeDBResourceGroupResponseBodyGroupsInfoRules>> rules{};
   shared_ptr<long> runningClusterCount{};
   shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
@@ -12520,6 +12734,13 @@ public:
     if (minComputeResource) {
       res["MinComputeResource"] = boost::any(*minComputeResource);
     }
+    if (rules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Rules"] = boost::any(temp1);
+    }
     if (runningClusterCount) {
       res["RunningClusterCount"] = boost::any(*runningClusterCount);
     }
@@ -12568,6 +12789,19 @@ public:
     }
     if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
       minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
+    }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(vector<boost::any>) == m["Rules"].type()) {
+        vector<DescribeDBResourceGroupResponseBodyGroupsInfoRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Rules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDBResourceGroupResponseBodyGroupsInfoRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rules = make_shared<vector<DescribeDBResourceGroupResponseBodyGroupsInfoRules>>(expect1);
+      }
     }
     if (m.find("RunningClusterCount") != m.end() && !m["RunningClusterCount"].empty()) {
       runningClusterCount = make_shared<long>(boost::any_cast<long>(m["RunningClusterCount"]));
@@ -25124,6 +25358,49 @@ public:
 
   virtual ~ModifyDBClusterMaintainTimeResponse() = default;
 };
+class ModifyDBResourceGroupRequestRules : public Darabonba::Model {
+public:
+  shared_ptr<string> groupName{};
+  shared_ptr<string> queryTime{};
+  shared_ptr<string> targetGroupName{};
+
+  ModifyDBResourceGroupRequestRules() {}
+
+  explicit ModifyDBResourceGroupRequestRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (queryTime) {
+      res["QueryTime"] = boost::any(*queryTime);
+    }
+    if (targetGroupName) {
+      res["TargetGroupName"] = boost::any(*targetGroupName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("QueryTime") != m.end() && !m["QueryTime"].empty()) {
+      queryTime = make_shared<string>(boost::any_cast<string>(m["QueryTime"]));
+    }
+    if (m.find("TargetGroupName") != m.end() && !m["TargetGroupName"].empty()) {
+      targetGroupName = make_shared<string>(boost::any_cast<string>(m["TargetGroupName"]));
+    }
+  }
+
+
+  virtual ~ModifyDBResourceGroupRequestRules() = default;
+};
 class ModifyDBResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterMode{};
@@ -25137,6 +25414,7 @@ public:
   shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
   shared_ptr<string> regionId{};
+  shared_ptr<vector<ModifyDBResourceGroupRequestRules>> rules{};
 
   ModifyDBResourceGroupRequest() {}
 
@@ -25181,6 +25459,13 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (rules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Rules"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -25218,10 +25503,129 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(vector<boost::any>) == m["Rules"].type()) {
+        vector<ModifyDBResourceGroupRequestRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Rules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyDBResourceGroupRequestRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rules = make_shared<vector<ModifyDBResourceGroupRequestRules>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ModifyDBResourceGroupRequest() = default;
+};
+class ModifyDBResourceGroupShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterMode{};
+  shared_ptr<string> clusterSizeResource{};
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<bool> enableSpot{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> groupType{};
+  shared_ptr<long> maxClusterCount{};
+  shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> minClusterCount{};
+  shared_ptr<string> minComputeResource{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> rulesShrink{};
+
+  ModifyDBResourceGroupShrinkRequest() {}
+
+  explicit ModifyDBResourceGroupShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterMode) {
+      res["ClusterMode"] = boost::any(*clusterMode);
+    }
+    if (clusterSizeResource) {
+      res["ClusterSizeResource"] = boost::any(*clusterSizeResource);
+    }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (enableSpot) {
+      res["EnableSpot"] = boost::any(*enableSpot);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (groupType) {
+      res["GroupType"] = boost::any(*groupType);
+    }
+    if (maxClusterCount) {
+      res["MaxClusterCount"] = boost::any(*maxClusterCount);
+    }
+    if (maxComputeResource) {
+      res["MaxComputeResource"] = boost::any(*maxComputeResource);
+    }
+    if (minClusterCount) {
+      res["MinClusterCount"] = boost::any(*minClusterCount);
+    }
+    if (minComputeResource) {
+      res["MinComputeResource"] = boost::any(*minComputeResource);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (rulesShrink) {
+      res["Rules"] = boost::any(*rulesShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
+      clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
+    }
+    if (m.find("ClusterSizeResource") != m.end() && !m["ClusterSizeResource"].empty()) {
+      clusterSizeResource = make_shared<string>(boost::any_cast<string>(m["ClusterSizeResource"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("EnableSpot") != m.end() && !m["EnableSpot"].empty()) {
+      enableSpot = make_shared<bool>(boost::any_cast<bool>(m["EnableSpot"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("GroupType") != m.end() && !m["GroupType"].empty()) {
+      groupType = make_shared<string>(boost::any_cast<string>(m["GroupType"]));
+    }
+    if (m.find("MaxClusterCount") != m.end() && !m["MaxClusterCount"].empty()) {
+      maxClusterCount = make_shared<long>(boost::any_cast<long>(m["MaxClusterCount"]));
+    }
+    if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
+      maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
+    }
+    if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
+      minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
+    }
+    if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
+      minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      rulesShrink = make_shared<string>(boost::any_cast<string>(m["Rules"]));
+    }
+  }
+
+
+  virtual ~ModifyDBResourceGroupShrinkRequest() = default;
 };
 class ModifyDBResourceGroupResponseBody : public Darabonba::Model {
 public:
@@ -27256,7 +27660,7 @@ public:
   CreateAccountResponse createAccount(shared_ptr<CreateAccountRequest> request);
   CreateDBClusterResponse createDBClusterWithOptions(shared_ptr<CreateDBClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDBClusterResponse createDBCluster(shared_ptr<CreateDBClusterRequest> request);
-  CreateDBResourceGroupResponse createDBResourceGroupWithOptions(shared_ptr<CreateDBResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDBResourceGroupResponse createDBResourceGroupWithOptions(shared_ptr<CreateDBResourceGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDBResourceGroupResponse createDBResourceGroup(shared_ptr<CreateDBResourceGroupRequest> request);
   CreateElasticPlanResponse createElasticPlanWithOptions(shared_ptr<CreateElasticPlanRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateElasticPlanResponse createElasticPlan(shared_ptr<CreateElasticPlanRequest> request);
@@ -27458,7 +27862,7 @@ public:
   ModifyDBClusterDescriptionResponse modifyDBClusterDescription(shared_ptr<ModifyDBClusterDescriptionRequest> request);
   ModifyDBClusterMaintainTimeResponse modifyDBClusterMaintainTimeWithOptions(shared_ptr<ModifyDBClusterMaintainTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBClusterMaintainTimeResponse modifyDBClusterMaintainTime(shared_ptr<ModifyDBClusterMaintainTimeRequest> request);
-  ModifyDBResourceGroupResponse modifyDBResourceGroupWithOptions(shared_ptr<ModifyDBResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyDBResourceGroupResponse modifyDBResourceGroupWithOptions(shared_ptr<ModifyDBResourceGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBResourceGroupResponse modifyDBResourceGroup(shared_ptr<ModifyDBResourceGroupRequest> request);
   ModifyElasticPlanResponse modifyElasticPlanWithOptions(shared_ptr<ModifyElasticPlanRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyElasticPlanResponse modifyElasticPlan(shared_ptr<ModifyElasticPlanRequest> request);

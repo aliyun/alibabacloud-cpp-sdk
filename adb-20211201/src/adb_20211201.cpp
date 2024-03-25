@@ -392,8 +392,13 @@ CreateDBClusterResponse Alibabacloud_Adb20211201::Client::createDBCluster(shared
   return createDBClusterWithOptions(request, runtime);
 }
 
-CreateDBResourceGroupResponse Alibabacloud_Adb20211201::Client::createDBResourceGroupWithOptions(shared_ptr<CreateDBResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateDBResourceGroupResponse Alibabacloud_Adb20211201::Client::createDBResourceGroupWithOptions(shared_ptr<CreateDBResourceGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDBResourceGroupShrinkRequest> request = make_shared<CreateDBResourceGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateDBResourceGroupRequestRules>>(tmpReq->rules)) {
+    request->rulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->rules, make_shared<string>("Rules"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterMode)) {
     query->insert(pair<string, string>("ClusterMode", *request->clusterMode));
@@ -427,6 +432,9 @@ CreateDBResourceGroupResponse Alibabacloud_Adb20211201::Client::createDBResource
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rulesShrink)) {
+    query->insert(pair<string, string>("Rules", *request->rulesShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4220,8 +4228,13 @@ ModifyDBClusterMaintainTimeResponse Alibabacloud_Adb20211201::Client::modifyDBCl
   return modifyDBClusterMaintainTimeWithOptions(request, runtime);
 }
 
-ModifyDBResourceGroupResponse Alibabacloud_Adb20211201::Client::modifyDBResourceGroupWithOptions(shared_ptr<ModifyDBResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ModifyDBResourceGroupResponse Alibabacloud_Adb20211201::Client::modifyDBResourceGroupWithOptions(shared_ptr<ModifyDBResourceGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ModifyDBResourceGroupShrinkRequest> request = make_shared<ModifyDBResourceGroupShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyDBResourceGroupRequestRules>>(tmpReq->rules)) {
+    request->rulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->rules, make_shared<string>("Rules"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterMode)) {
     query->insert(pair<string, string>("ClusterMode", *request->clusterMode));
@@ -4255,6 +4268,9 @@ ModifyDBResourceGroupResponse Alibabacloud_Adb20211201::Client::modifyDBResource
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rulesShrink)) {
+    query->insert(pair<string, string>("Rules", *request->rulesShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
