@@ -709,6 +709,7 @@ public:
   shared_ptr<vector<string>> tags{};
   shared_ptr<string> type{};
   shared_ptr<string> writeMethod{};
+  shared_ptr<bool> writeToFeatureDB{};
 
   CreateFeatureViewRequest() {}
 
@@ -759,6 +760,9 @@ public:
     }
     if (writeMethod) {
       res["WriteMethod"] = boost::any(*writeMethod);
+    }
+    if (writeToFeatureDB) {
+      res["WriteToFeatureDB"] = boost::any(*writeToFeatureDB);
     }
     return res;
   }
@@ -816,6 +820,9 @@ public:
     }
     if (m.find("WriteMethod") != m.end() && !m["WriteMethod"].empty()) {
       writeMethod = make_shared<string>(boost::any_cast<string>(m["WriteMethod"]));
+    }
+    if (m.find("WriteToFeatureDB") != m.end() && !m["WriteToFeatureDB"].empty()) {
+      writeToFeatureDB = make_shared<bool>(boost::any_cast<bool>(m["WriteToFeatureDB"]));
     }
   }
 
@@ -3208,6 +3215,7 @@ public:
   shared_ptr<vector<string>> tags{};
   shared_ptr<string> type{};
   shared_ptr<string> writeMethod{};
+  shared_ptr<bool> writeToFeatureDB{};
 
   GetFeatureViewResponseBody() {}
 
@@ -3291,6 +3299,9 @@ public:
     }
     if (writeMethod) {
       res["WriteMethod"] = boost::any(*writeMethod);
+    }
+    if (writeToFeatureDB) {
+      res["WriteToFeatureDB"] = boost::any(*writeToFeatureDB);
     }
     return res;
   }
@@ -3381,6 +3392,9 @@ public:
     }
     if (m.find("WriteMethod") != m.end() && !m["WriteMethod"].empty()) {
       writeMethod = make_shared<string>(boost::any_cast<string>(m["WriteMethod"]));
+    }
+    if (m.find("WriteToFeatureDB") != m.end() && !m["WriteToFeatureDB"].empty()) {
+      writeToFeatureDB = make_shared<bool>(boost::any_cast<bool>(m["WriteToFeatureDB"]));
     }
   }
 
@@ -7252,6 +7266,7 @@ public:
   shared_ptr<string> registerTable{};
   shared_ptr<long> TTL{};
   shared_ptr<string> type{};
+  shared_ptr<bool> writeToFeatureDB{};
 
   ListFeatureViewsResponseBodyFeatureViews() {}
 
@@ -7302,6 +7317,9 @@ public:
     if (type) {
       res["Type"] = boost::any(*type);
     }
+    if (writeToFeatureDB) {
+      res["WriteToFeatureDB"] = boost::any(*writeToFeatureDB);
+    }
     return res;
   }
 
@@ -7344,6 +7362,9 @@ public:
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("WriteToFeatureDB") != m.end() && !m["WriteToFeatureDB"].empty()) {
+      writeToFeatureDB = make_shared<bool>(boost::any_cast<bool>(m["WriteToFeatureDB"]));
     }
   }
 
