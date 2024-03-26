@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_reseller_trade_20191227Targets.cmake")
+check_required_components("alibabacloud_reseller_trade_20191227")
