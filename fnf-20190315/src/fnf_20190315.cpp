@@ -141,12 +141,12 @@ CreateScheduleResponse Alibabacloud_Fnf20190315::Client::createSchedule(shared_p
 
 DeleteFlowResponse Alibabacloud_Fnf20190315::Client::deleteFlowWithOptions(shared_ptr<DeleteFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
-    query->insert(pair<string, string>("Name", *request->name));
+    body->insert(pair<string, string>("Name", *request->name));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteFlow"))},
@@ -169,15 +169,15 @@ DeleteFlowResponse Alibabacloud_Fnf20190315::Client::deleteFlow(shared_ptr<Delet
 
 DeleteScheduleResponse Alibabacloud_Fnf20190315::Client::deleteScheduleWithOptions(shared_ptr<DeleteScheduleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->flowName)) {
-    query->insert(pair<string, string>("FlowName", *request->flowName));
+    body->insert(pair<string, string>("FlowName", *request->flowName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scheduleName)) {
-    query->insert(pair<string, string>("ScheduleName", *request->scheduleName));
+    body->insert(pair<string, string>("ScheduleName", *request->scheduleName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteSchedule"))},
