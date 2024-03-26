@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -48,10 +47,6 @@ string Alibabacloud_Fnf20190315::Client::getEndpoint(shared_ptr<string> productI
 
 CreateFlowResponse Alibabacloud_Fnf20190315::Client::createFlowWithOptions(shared_ptr<CreateFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
-    query->insert(pair<string, string>("RequestId", *request->requestId));
-  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->definition)) {
     body->insert(pair<string, string>("Definition", *request->definition));
@@ -75,7 +70,6 @@ CreateFlowResponse Alibabacloud_Fnf20190315::Client::createFlowWithOptions(share
     body->insert(pair<string, string>("Type", *request->type));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -100,8 +94,8 @@ CreateFlowResponse Alibabacloud_Fnf20190315::Client::createFlow(shared_ptr<Creat
 CreateScheduleResponse Alibabacloud_Fnf20190315::Client::createScheduleWithOptions(shared_ptr<CreateScheduleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
-    query->insert(pair<string, string>("RequestId", *request->requestId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->signatureVersion)) {
+    query->insert(pair<string, string>("SignatureVersion", *request->signatureVersion));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->cronExpression)) {
@@ -147,7 +141,10 @@ CreateScheduleResponse Alibabacloud_Fnf20190315::Client::createSchedule(shared_p
 
 DeleteFlowResponse Alibabacloud_Fnf20190315::Client::deleteFlowWithOptions(shared_ptr<DeleteFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -156,7 +153,7 @@ DeleteFlowResponse Alibabacloud_Fnf20190315::Client::deleteFlowWithOptions(share
     {"version", boost::any(string("2019-03-15"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
@@ -172,7 +169,13 @@ DeleteFlowResponse Alibabacloud_Fnf20190315::Client::deleteFlow(shared_ptr<Delet
 
 DeleteScheduleResponse Alibabacloud_Fnf20190315::Client::deleteScheduleWithOptions(shared_ptr<DeleteScheduleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowName)) {
+    query->insert(pair<string, string>("FlowName", *request->flowName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleName)) {
+    query->insert(pair<string, string>("ScheduleName", *request->scheduleName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -181,7 +184,7 @@ DeleteScheduleResponse Alibabacloud_Fnf20190315::Client::deleteScheduleWithOptio
     {"version", boost::any(string("2019-03-15"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
@@ -373,9 +376,6 @@ ListSchedulesResponse Alibabacloud_Fnf20190315::Client::listSchedules(shared_ptr
 ReportTaskFailedResponse Alibabacloud_Fnf20190315::Client::reportTaskFailedWithOptions(shared_ptr<ReportTaskFailedRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
-    query->insert(pair<string, string>("RequestId", *request->requestId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskToken)) {
     query->insert(pair<string, string>("TaskToken", *request->taskToken));
   }
@@ -412,9 +412,6 @@ ReportTaskFailedResponse Alibabacloud_Fnf20190315::Client::reportTaskFailed(shar
 ReportTaskSucceededResponse Alibabacloud_Fnf20190315::Client::reportTaskSucceededWithOptions(shared_ptr<ReportTaskSucceededRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
-    query->insert(pair<string, string>("RequestId", *request->requestId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskToken)) {
     query->insert(pair<string, string>("TaskToken", *request->taskToken));
   }
@@ -447,10 +444,6 @@ ReportTaskSucceededResponse Alibabacloud_Fnf20190315::Client::reportTaskSucceede
 
 StartExecutionResponse Alibabacloud_Fnf20190315::Client::startExecutionWithOptions(shared_ptr<StartExecutionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
-    query->insert(pair<string, string>("RequestId", *request->requestId));
-  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->callbackFnFTaskToken)) {
     body->insert(pair<string, string>("CallbackFnFTaskToken", *request->callbackFnFTaskToken));
@@ -465,7 +458,6 @@ StartExecutionResponse Alibabacloud_Fnf20190315::Client::startExecutionWithOptio
     body->insert(pair<string, string>("Input", *request->input));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -489,10 +481,6 @@ StartExecutionResponse Alibabacloud_Fnf20190315::Client::startExecution(shared_p
 
 StartSyncExecutionResponse Alibabacloud_Fnf20190315::Client::startSyncExecutionWithOptions(shared_ptr<StartSyncExecutionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
-    query->insert(pair<string, string>("RequestId", *request->requestId));
-  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->executionName)) {
     body->insert(pair<string, string>("ExecutionName", *request->executionName));
@@ -504,7 +492,6 @@ StartSyncExecutionResponse Alibabacloud_Fnf20190315::Client::startSyncExecutionW
     body->insert(pair<string, string>("Input", *request->input));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -528,10 +515,6 @@ StartSyncExecutionResponse Alibabacloud_Fnf20190315::Client::startSyncExecution(
 
 StopExecutionResponse Alibabacloud_Fnf20190315::Client::stopExecutionWithOptions(shared_ptr<StopExecutionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
-    query->insert(pair<string, string>("RequestId", *request->requestId));
-  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->cause)) {
     body->insert(pair<string, string>("Cause", *request->cause));
@@ -546,7 +529,6 @@ StopExecutionResponse Alibabacloud_Fnf20190315::Client::stopExecutionWithOptions
     body->insert(pair<string, string>("FlowName", *request->flowName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -570,10 +552,6 @@ StopExecutionResponse Alibabacloud_Fnf20190315::Client::stopExecution(shared_ptr
 
 UpdateFlowResponse Alibabacloud_Fnf20190315::Client::updateFlowWithOptions(shared_ptr<UpdateFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
-    query->insert(pair<string, string>("RequestId", *request->requestId));
-  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->definition)) {
     body->insert(pair<string, string>("Definition", *request->definition));
@@ -591,7 +569,6 @@ UpdateFlowResponse Alibabacloud_Fnf20190315::Client::updateFlowWithOptions(share
     body->insert(pair<string, string>("Type", *request->type));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -615,10 +592,6 @@ UpdateFlowResponse Alibabacloud_Fnf20190315::Client::updateFlow(shared_ptr<Updat
 
 UpdateScheduleResponse Alibabacloud_Fnf20190315::Client::updateScheduleWithOptions(shared_ptr<UpdateScheduleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
-    query->insert(pair<string, string>("RequestId", *request->requestId));
-  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->cronExpression)) {
     body->insert(pair<string, string>("CronExpression", *request->cronExpression));
@@ -639,7 +612,6 @@ UpdateScheduleResponse Alibabacloud_Fnf20190315::Client::updateScheduleWithOptio
     body->insert(pair<string, string>("ScheduleName", *request->scheduleName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({

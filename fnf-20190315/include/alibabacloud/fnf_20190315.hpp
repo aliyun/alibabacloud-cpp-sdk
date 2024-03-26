@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_FNF20190315_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -21,7 +20,6 @@ public:
   shared_ptr<string> executionMode{};
   shared_ptr<string> externalStorageLocation{};
   shared_ptr<string> name{};
-  shared_ptr<string> requestId{};
   shared_ptr<string> roleArn{};
   shared_ptr<string> type{};
 
@@ -50,9 +48,6 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (roleArn) {
       res["RoleArn"] = boost::any(*roleArn);
     }
@@ -77,9 +72,6 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("RoleArn") != m.end() && !m["RoleArn"].empty()) {
       roleArn = make_shared<string>(boost::any_cast<string>(m["RoleArn"]));
@@ -196,17 +188,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -253,8 +235,8 @@ public:
   shared_ptr<bool> enable{};
   shared_ptr<string> flowName{};
   shared_ptr<string> payload{};
-  shared_ptr<string> requestId{};
   shared_ptr<string> scheduleName{};
+  shared_ptr<string> signatureVersion{};
 
   CreateScheduleRequest() {}
 
@@ -281,11 +263,11 @@ public:
     if (payload) {
       res["Payload"] = boost::any(*payload);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (scheduleName) {
       res["ScheduleName"] = boost::any(*scheduleName);
+    }
+    if (signatureVersion) {
+      res["SignatureVersion"] = boost::any(*signatureVersion);
     }
     return res;
   }
@@ -306,11 +288,11 @@ public:
     if (m.find("Payload") != m.end() && !m["Payload"].empty()) {
       payload = make_shared<string>(boost::any_cast<string>(m["Payload"]));
     }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
     if (m.find("ScheduleName") != m.end() && !m["ScheduleName"].empty()) {
       scheduleName = make_shared<string>(boost::any_cast<string>(m["ScheduleName"]));
+    }
+    if (m.find("SignatureVersion") != m.end() && !m["SignatureVersion"].empty()) {
+      signatureVersion = make_shared<string>(boost::any_cast<string>(m["SignatureVersion"]));
     }
   }
 
@@ -414,17 +396,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -467,7 +439,6 @@ public:
 class DeleteFlowRequest : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
-  shared_ptr<string> requestId{};
 
   DeleteFlowRequest() {}
 
@@ -482,18 +453,12 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -541,17 +506,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -594,7 +549,6 @@ public:
 class DeleteScheduleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> flowName{};
-  shared_ptr<string> requestId{};
   shared_ptr<string> scheduleName{};
 
   DeleteScheduleRequest() {}
@@ -610,9 +564,6 @@ public:
     if (flowName) {
       res["FlowName"] = boost::any(*flowName);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (scheduleName) {
       res["ScheduleName"] = boost::any(*scheduleName);
     }
@@ -622,9 +573,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("FlowName") != m.end() && !m["FlowName"].empty()) {
       flowName = make_shared<string>(boost::any_cast<string>(m["FlowName"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("ScheduleName") != m.end() && !m["ScheduleName"].empty()) {
       scheduleName = make_shared<string>(boost::any_cast<string>(m["ScheduleName"]));
@@ -675,17 +623,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -729,7 +667,6 @@ class DescribeExecutionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> executionName{};
   shared_ptr<string> flowName{};
-  shared_ptr<string> requestId{};
   shared_ptr<long> waitTimeSeconds{};
 
   DescribeExecutionRequest() {}
@@ -748,9 +685,6 @@ public:
     if (flowName) {
       res["FlowName"] = boost::any(*flowName);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (waitTimeSeconds) {
       res["WaitTimeSeconds"] = boost::any(*waitTimeSeconds);
     }
@@ -763,9 +697,6 @@ public:
     }
     if (m.find("FlowName") != m.end() && !m["FlowName"].empty()) {
       flowName = make_shared<string>(boost::any_cast<string>(m["FlowName"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("WaitTimeSeconds") != m.end() && !m["WaitTimeSeconds"].empty()) {
       waitTimeSeconds = make_shared<long>(boost::any_cast<long>(m["WaitTimeSeconds"]));
@@ -872,17 +803,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -925,7 +846,6 @@ public:
 class DescribeFlowRequest : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
-  shared_ptr<string> requestId{};
 
   DescribeFlowRequest() {}
 
@@ -940,18 +860,12 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -1062,17 +976,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1115,7 +1019,6 @@ public:
 class DescribeScheduleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> flowName{};
-  shared_ptr<string> requestId{};
   shared_ptr<string> scheduleName{};
 
   DescribeScheduleRequest() {}
@@ -1131,9 +1034,6 @@ public:
     if (flowName) {
       res["FlowName"] = boost::any(*flowName);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (scheduleName) {
       res["ScheduleName"] = boost::any(*scheduleName);
     }
@@ -1143,9 +1043,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("FlowName") != m.end() && !m["FlowName"].empty()) {
       flowName = make_shared<string>(boost::any_cast<string>(m["FlowName"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("ScheduleName") != m.end() && !m["ScheduleName"].empty()) {
       scheduleName = make_shared<string>(boost::any_cast<string>(m["ScheduleName"]));
@@ -1252,17 +1149,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1308,7 +1195,6 @@ public:
   shared_ptr<string> flowName{};
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
-  shared_ptr<string> requestId{};
 
   GetExecutionHistoryRequest() {}
 
@@ -1332,9 +1218,6 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     return res;
   }
 
@@ -1350,9 +1233,6 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -1492,17 +1372,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1548,7 +1418,6 @@ public:
   shared_ptr<string> flowName{};
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
-  shared_ptr<string> requestId{};
   shared_ptr<string> startedTimeBegin{};
   shared_ptr<string> startedTimeEnd{};
   shared_ptr<string> status{};
@@ -1575,9 +1444,6 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (startedTimeBegin) {
       res["StartedTimeBegin"] = boost::any(*startedTimeBegin);
     }
@@ -1602,9 +1468,6 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("StartedTimeBegin") != m.end() && !m["StartedTimeBegin"].empty()) {
       startedTimeBegin = make_shared<string>(boost::any_cast<string>(m["StartedTimeBegin"]));
@@ -1767,17 +1630,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1821,7 +1674,6 @@ class ListFlowsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
-  shared_ptr<string> requestId{};
 
   ListFlowsRequest() {}
 
@@ -1839,9 +1691,6 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     return res;
   }
 
@@ -1851,9 +1700,6 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -2014,17 +1860,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2069,7 +1905,6 @@ public:
   shared_ptr<string> flowName{};
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
-  shared_ptr<string> requestId{};
 
   ListSchedulesRequest() {}
 
@@ -2090,9 +1925,6 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     return res;
   }
 
@@ -2105,9 +1937,6 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -2261,17 +2090,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2315,7 +2134,6 @@ class ReportTaskFailedRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cause{};
   shared_ptr<string> error{};
-  shared_ptr<string> requestId{};
   shared_ptr<string> taskToken{};
 
   ReportTaskFailedRequest() {}
@@ -2334,9 +2152,6 @@ public:
     if (error) {
       res["Error"] = boost::any(*error);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (taskToken) {
       res["TaskToken"] = boost::any(*taskToken);
     }
@@ -2349,9 +2164,6 @@ public:
     }
     if (m.find("Error") != m.end() && !m["Error"].empty()) {
       error = make_shared<string>(boost::any_cast<string>(m["Error"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("TaskToken") != m.end() && !m["TaskToken"].empty()) {
       taskToken = make_shared<string>(boost::any_cast<string>(m["TaskToken"]));
@@ -2409,17 +2221,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2462,7 +2264,6 @@ public:
 class ReportTaskSucceededRequest : public Darabonba::Model {
 public:
   shared_ptr<string> output{};
-  shared_ptr<string> requestId{};
   shared_ptr<string> taskToken{};
 
   ReportTaskSucceededRequest() {}
@@ -2478,9 +2279,6 @@ public:
     if (output) {
       res["Output"] = boost::any(*output);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (taskToken) {
       res["TaskToken"] = boost::any(*taskToken);
     }
@@ -2490,9 +2288,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("TaskToken") != m.end() && !m["TaskToken"].empty()) {
       taskToken = make_shared<string>(boost::any_cast<string>(m["TaskToken"]));
@@ -2550,17 +2345,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2606,7 +2391,6 @@ public:
   shared_ptr<string> executionName{};
   shared_ptr<string> flowName{};
   shared_ptr<string> input{};
-  shared_ptr<string> requestId{};
 
   StartExecutionRequest() {}
 
@@ -2630,9 +2414,6 @@ public:
     if (input) {
       res["Input"] = boost::any(*input);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     return res;
   }
 
@@ -2648,9 +2429,6 @@ public:
     }
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       input = make_shared<string>(boost::any_cast<string>(m["Input"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -2754,17 +2532,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2809,7 +2577,6 @@ public:
   shared_ptr<string> executionName{};
   shared_ptr<string> flowName{};
   shared_ptr<string> input{};
-  shared_ptr<string> requestId{};
 
   StartSyncExecutionRequest() {}
 
@@ -2830,9 +2597,6 @@ public:
     if (input) {
       res["Input"] = boost::any(*input);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     return res;
   }
 
@@ -2845,9 +2609,6 @@ public:
     }
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       input = make_shared<string>(boost::any_cast<string>(m["Input"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -2951,17 +2712,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3007,7 +2758,6 @@ public:
   shared_ptr<string> error{};
   shared_ptr<string> executionName{};
   shared_ptr<string> flowName{};
-  shared_ptr<string> requestId{};
 
   StopExecutionRequest() {}
 
@@ -3031,9 +2781,6 @@ public:
     if (flowName) {
       res["FlowName"] = boost::any(*flowName);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     return res;
   }
 
@@ -3049,9 +2796,6 @@ public:
     }
     if (m.find("FlowName") != m.end() && !m["FlowName"].empty()) {
       flowName = make_shared<string>(boost::any_cast<string>(m["FlowName"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -3155,17 +2899,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3210,7 +2944,6 @@ public:
   shared_ptr<string> definition{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
-  shared_ptr<string> requestId{};
   shared_ptr<string> roleArn{};
   shared_ptr<string> type{};
 
@@ -3233,9 +2966,6 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (roleArn) {
       res["RoleArn"] = boost::any(*roleArn);
     }
@@ -3254,9 +2984,6 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("RoleArn") != m.end() && !m["RoleArn"].empty()) {
       roleArn = make_shared<string>(boost::any_cast<string>(m["RoleArn"]));
@@ -3373,17 +3100,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3430,7 +3147,6 @@ public:
   shared_ptr<bool> enable{};
   shared_ptr<string> flowName{};
   shared_ptr<string> payload{};
-  shared_ptr<string> requestId{};
   shared_ptr<string> scheduleName{};
 
   UpdateScheduleRequest() {}
@@ -3458,9 +3174,6 @@ public:
     if (payload) {
       res["Payload"] = boost::any(*payload);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (scheduleName) {
       res["ScheduleName"] = boost::any(*scheduleName);
     }
@@ -3482,9 +3195,6 @@ public:
     }
     if (m.find("Payload") != m.end() && !m["Payload"].empty()) {
       payload = make_shared<string>(boost::any_cast<string>(m["Payload"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("ScheduleName") != m.end() && !m["ScheduleName"].empty()) {
       scheduleName = make_shared<string>(boost::any_cast<string>(m["ScheduleName"]));
@@ -3591,17 +3301,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
