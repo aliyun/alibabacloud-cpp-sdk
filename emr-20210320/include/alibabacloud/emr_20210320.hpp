@@ -1431,6 +1431,96 @@ public:
 
   virtual ~AutoScalingConstraints() = default;
 };
+class AutoScalingPolicyConstraints : public Darabonba::Model {
+public:
+  shared_ptr<long> maxCapacity{};
+  shared_ptr<long> minCapacity{};
+
+  AutoScalingPolicyConstraints() {}
+
+  explicit AutoScalingPolicyConstraints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxCapacity) {
+      res["maxCapacity"] = boost::any(*maxCapacity);
+    }
+    if (minCapacity) {
+      res["minCapacity"] = boost::any(*minCapacity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("maxCapacity") != m.end() && !m["maxCapacity"].empty()) {
+      maxCapacity = make_shared<long>(boost::any_cast<long>(m["maxCapacity"]));
+    }
+    if (m.find("minCapacity") != m.end() && !m["minCapacity"].empty()) {
+      minCapacity = make_shared<long>(boost::any_cast<long>(m["minCapacity"]));
+    }
+  }
+
+
+  virtual ~AutoScalingPolicyConstraints() = default;
+};
+class AutoScalingPolicy : public Darabonba::Model {
+public:
+  shared_ptr<AutoScalingPolicyConstraints> constraints{};
+  shared_ptr<vector<ScalingRule>> scalingRules{};
+
+  AutoScalingPolicy() {}
+
+  explicit AutoScalingPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (constraints) {
+      res["constraints"] = constraints ? boost::any(constraints->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (scalingRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*scalingRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["scalingRules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("constraints") != m.end() && !m["constraints"].empty()) {
+      if (typeid(map<string, boost::any>) == m["constraints"].type()) {
+        AutoScalingPolicyConstraints model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["constraints"]));
+        constraints = make_shared<AutoScalingPolicyConstraints>(model1);
+      }
+    }
+    if (m.find("scalingRules") != m.end() && !m["scalingRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["scalingRules"].type()) {
+        vector<ScalingRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["scalingRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ScalingRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        scalingRules = make_shared<vector<ScalingRule>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~AutoScalingPolicy() = default;
+};
 class ByLoadScalingRule : public Darabonba::Model {
 public:
   shared_ptr<string> comparisonOperator{};
@@ -4681,6 +4771,7 @@ public:
 class NodeGroupConfig : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> additionalSecurityGroupIds{};
+  shared_ptr<vector<string>> componentTags{};
   shared_ptr<CostOptimizedConfig> costOptimizedConfig{};
   shared_ptr<vector<DataDisk>> dataDisks{};
   shared_ptr<string> deploymentSetStrategy{};
@@ -4711,6 +4802,9 @@ public:
     map<string, boost::any> res;
     if (additionalSecurityGroupIds) {
       res["AdditionalSecurityGroupIds"] = boost::any(*additionalSecurityGroupIds);
+    }
+    if (componentTags) {
+      res["ComponentTags"] = boost::any(*componentTags);
     }
     if (costOptimizedConfig) {
       res["CostOptimizedConfig"] = costOptimizedConfig ? boost::any(costOptimizedConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -4784,6 +4878,16 @@ public:
         }
       }
       additionalSecurityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ComponentTags") != m.end() && !m["ComponentTags"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ComponentTags"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ComponentTags"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      componentTags = make_shared<vector<string>>(toVec1);
     }
     if (m.find("CostOptimizedConfig") != m.end() && !m["CostOptimizedConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["CostOptimizedConfig"].type()) {
