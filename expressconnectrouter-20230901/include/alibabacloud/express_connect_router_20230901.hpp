@@ -2765,6 +2765,7 @@ public:
   shared_ptr<long> childInstanceOwnerId{};
   shared_ptr<string> childInstanceRegionId{};
   shared_ptr<string> childInstanceType{};
+  shared_ptr<string> ecrId{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<long> ownerId{};
@@ -2795,6 +2796,9 @@ public:
     }
     if (childInstanceType) {
       res["ChildInstanceType"] = boost::any(*childInstanceType);
+    }
+    if (ecrId) {
+      res["EcrId"] = boost::any(*ecrId);
     }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
@@ -2829,6 +2833,9 @@ public:
     }
     if (m.find("ChildInstanceType") != m.end() && !m["ChildInstanceType"].empty()) {
       childInstanceType = make_shared<string>(boost::any_cast<string>(m["ChildInstanceType"]));
+    }
+    if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
+      ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
     }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
