@@ -2897,6 +2897,7 @@ public:
 };
 class VideoModerationResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> dataId{};
   shared_ptr<string> taskId{};
 
   VideoModerationResponseBodyData() {}
@@ -2909,6 +2910,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dataId) {
+      res["DataId"] = boost::any(*dataId);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
@@ -2916,6 +2920,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
+      dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
+    }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
@@ -3432,6 +3439,71 @@ public:
 
   virtual ~VideoModerationResultResponseBodyDataFrameResultFrameSummarys() = default;
 };
+class VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage : public Darabonba::Model {
+public:
+  shared_ptr<string> imageId{};
+  shared_ptr<string> libId{};
+
+  VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage() {}
+
+  explicit VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+  }
+
+
+  virtual ~VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage() = default;
+};
+class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure : public Darabonba::Model {
+public:
+  shared_ptr<string> figureId{};
+
+  VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure() {}
+
+  explicit VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (figureId) {
+      res["FigureId"] = boost::any(*figureId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FigureId") != m.end() && !m["FigureId"].empty()) {
+      figureId = make_shared<string>(boost::any_cast<string>(m["FigureId"]));
+    }
+  }
+
+
+  virtual ~VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure() = default;
+};
 class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult : public Darabonba::Model {
 public:
   shared_ptr<double> confidence{};
@@ -3470,8 +3542,11 @@ public:
 };
 class VideoModerationResultResponseBodyDataFrameResultFramesResults : public Darabonba::Model {
 public:
+  shared_ptr<vector<VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage>> customImage{};
+  shared_ptr<vector<VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure>> publicFigure{};
   shared_ptr<vector<VideoModerationResultResponseBodyDataFrameResultFramesResultsResult>> result{};
   shared_ptr<string> service{};
+  shared_ptr<map<string, boost::any>> textInImage{};
 
   VideoModerationResultResponseBodyDataFrameResultFramesResults() {}
 
@@ -3483,6 +3558,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (customImage) {
+      vector<boost::any> temp1;
+      for(auto item1:*customImage){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomImage"] = boost::any(temp1);
+    }
+    if (publicFigure) {
+      vector<boost::any> temp1;
+      for(auto item1:*publicFigure){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PublicFigure"] = boost::any(temp1);
+    }
     if (result) {
       vector<boost::any> temp1;
       for(auto item1:*result){
@@ -3493,10 +3582,39 @@ public:
     if (service) {
       res["Service"] = boost::any(*service);
     }
+    if (textInImage) {
+      res["TextInImage"] = boost::any(*textInImage);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomImage") != m.end() && !m["CustomImage"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomImage"].type()) {
+        vector<VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomImage"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customImage = make_shared<vector<VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage>>(expect1);
+      }
+    }
+    if (m.find("PublicFigure") != m.end() && !m["PublicFigure"].empty()) {
+      if (typeid(vector<boost::any>) == m["PublicFigure"].type()) {
+        vector<VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PublicFigure"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        publicFigure = make_shared<vector<VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure>>(expect1);
+      }
+    }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(vector<boost::any>) == m["Result"].type()) {
         vector<VideoModerationResultResponseBodyDataFrameResultFramesResultsResult> expect1;
@@ -3512,6 +3630,14 @@ public:
     }
     if (m.find("Service") != m.end() && !m["Service"].empty()) {
       service = make_shared<string>(boost::any_cast<string>(m["Service"]));
+    }
+    if (m.find("TextInImage") != m.end() && !m["TextInImage"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["TextInImage"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      textInImage = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
@@ -3659,6 +3785,7 @@ public:
   shared_ptr<string> dataId{};
   shared_ptr<VideoModerationResultResponseBodyDataFrameResult> frameResult{};
   shared_ptr<string> liveId{};
+  shared_ptr<string> taskId{};
 
   VideoModerationResultResponseBodyData() {}
 
@@ -3681,6 +3808,9 @@ public:
     }
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
     }
     return res;
   }
@@ -3705,6 +3835,9 @@ public:
     }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
   }
 
@@ -3855,6 +3988,7 @@ public:
 };
 class VoiceModerationResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> dataId{};
   shared_ptr<string> taskId{};
 
   VoiceModerationResponseBodyData() {}
@@ -3867,6 +4001,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dataId) {
+      res["DataId"] = boost::any(*dataId);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
@@ -3874,6 +4011,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
+      dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
+    }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
@@ -4268,6 +4408,7 @@ public:
 };
 class VoiceModerationResultResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> dataId{};
   shared_ptr<string> liveId{};
   shared_ptr<vector<VoiceModerationResultResponseBodyDataSliceDetails>> sliceDetails{};
   shared_ptr<string> taskId{};
@@ -4283,6 +4424,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dataId) {
+      res["DataId"] = boost::any(*dataId);
+    }
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
@@ -4303,6 +4447,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
+      dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
+    }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
     }
