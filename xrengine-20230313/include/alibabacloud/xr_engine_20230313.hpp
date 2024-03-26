@@ -982,6 +982,7 @@ public:
   shared_ptr<string> audioId{};
   shared_ptr<string> audioUrl{};
   shared_ptr<string> content{};
+  shared_ptr<string> customParams{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> intro{};
@@ -1012,6 +1013,9 @@ public:
     }
     if (content) {
       res["Content"] = boost::any(*content);
+    }
+    if (customParams) {
+      res["CustomParams"] = boost::any(*customParams);
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
@@ -1058,6 +1062,9 @@ public:
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("CustomParams") != m.end() && !m["CustomParams"].empty()) {
+      customParams = make_shared<string>(boost::any_cast<string>(m["CustomParams"]));
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));

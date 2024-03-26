@@ -291,6 +291,9 @@ CreateLivePortraitProjectResponse Alibabacloud_XrEngine20230313::Client::createL
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     body->insert(pair<string, string>("Content", *request->content));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customParams)) {
+    body->insert(pair<string, string>("CustomParams", *request->customParams));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     body->insert(pair<string, string>("ImageId", *request->imageId));
   }
