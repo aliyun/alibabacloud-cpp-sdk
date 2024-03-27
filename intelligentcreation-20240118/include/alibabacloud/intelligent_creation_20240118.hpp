@@ -284,6 +284,56 @@ public:
 
   virtual ~DigitalHumanLiveBroadcastQAResult() = default;
 };
+class DigitalVideoCommonResult : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DigitalVideoCommonResult() {}
+
+  explicit DigitalVideoCommonResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~DigitalVideoCommonResult() = default;
+};
 class DirectDeductResourceCmd : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -703,6 +753,91 @@ public:
 
 
   virtual ~SubmitBulletQuestionsQAResult() = default;
+};
+class SyncDigitalHumanVideoCmd : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<string> actionType{};
+  shared_ptr<string> idempotentId{};
+  shared_ptr<string> imageScale{};
+  shared_ptr<string> imageUrl{};
+  shared_ptr<long> videoDuration{};
+  shared_ptr<string> videoId{};
+  shared_ptr<string> videoTitle{};
+  shared_ptr<string> videoUrl{};
+
+  SyncDigitalHumanVideoCmd() {}
+
+  explicit SyncDigitalHumanVideoCmd(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    if (actionType) {
+      res["actionType"] = boost::any(*actionType);
+    }
+    if (idempotentId) {
+      res["idempotentId"] = boost::any(*idempotentId);
+    }
+    if (imageScale) {
+      res["imageScale"] = boost::any(*imageScale);
+    }
+    if (imageUrl) {
+      res["imageUrl"] = boost::any(*imageUrl);
+    }
+    if (videoDuration) {
+      res["videoDuration"] = boost::any(*videoDuration);
+    }
+    if (videoId) {
+      res["videoId"] = boost::any(*videoId);
+    }
+    if (videoTitle) {
+      res["videoTitle"] = boost::any(*videoTitle);
+    }
+    if (videoUrl) {
+      res["videoUrl"] = boost::any(*videoUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+    if (m.find("actionType") != m.end() && !m["actionType"].empty()) {
+      actionType = make_shared<string>(boost::any_cast<string>(m["actionType"]));
+    }
+    if (m.find("idempotentId") != m.end() && !m["idempotentId"].empty()) {
+      idempotentId = make_shared<string>(boost::any_cast<string>(m["idempotentId"]));
+    }
+    if (m.find("imageScale") != m.end() && !m["imageScale"].empty()) {
+      imageScale = make_shared<string>(boost::any_cast<string>(m["imageScale"]));
+    }
+    if (m.find("imageUrl") != m.end() && !m["imageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["imageUrl"]));
+    }
+    if (m.find("videoDuration") != m.end() && !m["videoDuration"].empty()) {
+      videoDuration = make_shared<long>(boost::any_cast<long>(m["videoDuration"]));
+    }
+    if (m.find("videoId") != m.end() && !m["videoId"].empty()) {
+      videoId = make_shared<string>(boost::any_cast<string>(m["videoId"]));
+    }
+    if (m.find("videoTitle") != m.end() && !m["videoTitle"].empty()) {
+      videoTitle = make_shared<string>(boost::any_cast<string>(m["videoTitle"]));
+    }
+    if (m.find("videoUrl") != m.end() && !m["videoUrl"].empty()) {
+      videoUrl = make_shared<string>(boost::any_cast<string>(m["videoUrl"]));
+    }
+  }
+
+
+  virtual ~SyncDigitalHumanVideoCmd() = default;
 };
 class ActualDeductResourceRequest : public Darabonba::Model {
 public:
@@ -2274,6 +2409,91 @@ public:
 
   virtual ~SubmitBulletQuestionsV1Response() = default;
 };
+class SyncDigitalVideoRequest : public Darabonba::Model {
+public:
+  shared_ptr<SyncDigitalHumanVideoCmd> body{};
+
+  SyncDigitalVideoRequest() {}
+
+  explicit SyncDigitalVideoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SyncDigitalHumanVideoCmd model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SyncDigitalHumanVideoCmd>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SyncDigitalVideoRequest() = default;
+};
+class SyncDigitalVideoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DigitalVideoCommonResult> body{};
+
+  SyncDigitalVideoResponse() {}
+
+  explicit SyncDigitalVideoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DigitalVideoCommonResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DigitalVideoCommonResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SyncDigitalVideoResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -2308,6 +2528,8 @@ public:
   SubmitBulletQuestionsResponse submitBulletQuestions(shared_ptr<SubmitBulletQuestionsRequest> request);
   SubmitBulletQuestionsV1Response submitBulletQuestionsV1WithOptions(shared_ptr<SubmitBulletQuestionsV1Request> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitBulletQuestionsV1Response submitBulletQuestionsV1(shared_ptr<SubmitBulletQuestionsV1Request> request);
+  SyncDigitalVideoResponse syncDigitalVideoWithOptions(shared_ptr<SyncDigitalVideoRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SyncDigitalVideoResponse syncDigitalVideo(shared_ptr<SyncDigitalVideoRequest> request);
 
   virtual ~Client() = default;
 };
