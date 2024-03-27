@@ -1976,6 +1976,45 @@ ImportServiceDataResponse Alibabacloud_Alinlp20200629::Client::importServiceData
   return importServiceDataWithOptions(request, runtime);
 }
 
+ImportServiceDataV2Response Alibabacloud_Alinlp20200629::Client::importServiceDataV2WithOptions(shared_ptr<ImportServiceDataV2Request> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ImportServiceDataV2ShrinkRequest> request = make_shared<ImportServiceDataV2ShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ImportServiceDataV2RequestDocuments>>(tmpReq->documents)) {
+    request->documentsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->documents, make_shared<string>("Documents"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataType)) {
+    body->insert(pair<string, string>("DataType", *request->dataType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->documentsShrink)) {
+    body->insert(pair<string, string>("Documents", *request->documentsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->serviceId)) {
+    body->insert(pair<string, long>("ServiceId", *request->serviceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ImportServiceDataV2"))},
+    {"version", boost::any(string("2020-06-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ImportServiceDataV2Response(callApi(params, req, runtime));
+}
+
+ImportServiceDataV2Response Alibabacloud_Alinlp20200629::Client::importServiceDataV2(shared_ptr<ImportServiceDataV2Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return importServiceDataV2WithOptions(request, runtime);
+}
+
 InsertCustomResponse Alibabacloud_Alinlp20200629::Client::insertCustomWithOptions(shared_ptr<InsertCustomRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
