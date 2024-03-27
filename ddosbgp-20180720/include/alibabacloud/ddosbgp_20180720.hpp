@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_DDOSBGP20180720_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -2100,6 +2101,444 @@ public:
 
 
   virtual ~DescribeDdosEventResponse() = default;
+};
+class DescribeDdosOriginInstanceBillRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<bool> isShowList{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> type{};
+
+  DescribeDdosOriginInstanceBillRequest() {}
+
+  explicit DescribeDdosOriginInstanceBillRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (isShowList) {
+      res["IsShowList"] = boost::any(*isShowList);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("IsShowList") != m.end() && !m["IsShowList"].empty()) {
+      isShowList = make_shared<bool>(boost::any_cast<bool>(m["IsShowList"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeDdosOriginInstanceBillRequest() = default;
+};
+class DescribeDdosOriginInstanceBillResponseBodyFlowList : public Darabonba::Model {
+public:
+  shared_ptr<string> memberFlow{};
+  shared_ptr<string> regionFlow{};
+  shared_ptr<long> time{};
+  shared_ptr<long> totalFlow{};
+
+  DescribeDdosOriginInstanceBillResponseBodyFlowList() {}
+
+  explicit DescribeDdosOriginInstanceBillResponseBodyFlowList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (memberFlow) {
+      res["MemberFlow"] = boost::any(*memberFlow);
+    }
+    if (regionFlow) {
+      res["RegionFlow"] = boost::any(*regionFlow);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    if (totalFlow) {
+      res["TotalFlow"] = boost::any(*totalFlow);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MemberFlow") != m.end() && !m["MemberFlow"].empty()) {
+      memberFlow = make_shared<string>(boost::any_cast<string>(m["MemberFlow"]));
+    }
+    if (m.find("RegionFlow") != m.end() && !m["RegionFlow"].empty()) {
+      regionFlow = make_shared<string>(boost::any_cast<string>(m["RegionFlow"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<long>(boost::any_cast<long>(m["Time"]));
+    }
+    if (m.find("TotalFlow") != m.end() && !m["TotalFlow"].empty()) {
+      totalFlow = make_shared<long>(boost::any_cast<long>(m["TotalFlow"]));
+    }
+  }
+
+
+  virtual ~DescribeDdosOriginInstanceBillResponseBodyFlowList() = default;
+};
+class DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList : public Darabonba::Model {
+public:
+  shared_ptr<string> coverage{};
+  shared_ptr<long> ipCntCn{};
+  shared_ptr<long> ipCntOv{};
+  shared_ptr<string> memberIpCnt{};
+  shared_ptr<long> time{};
+
+  DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList() {}
+
+  explicit DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (coverage) {
+      res["Coverage"] = boost::any(*coverage);
+    }
+    if (ipCntCn) {
+      res["IpCntCn"] = boost::any(*ipCntCn);
+    }
+    if (ipCntOv) {
+      res["IpCntOv"] = boost::any(*ipCntOv);
+    }
+    if (memberIpCnt) {
+      res["MemberIpCnt"] = boost::any(*memberIpCnt);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Coverage") != m.end() && !m["Coverage"].empty()) {
+      coverage = make_shared<string>(boost::any_cast<string>(m["Coverage"]));
+    }
+    if (m.find("IpCntCn") != m.end() && !m["IpCntCn"].empty()) {
+      ipCntCn = make_shared<long>(boost::any_cast<long>(m["IpCntCn"]));
+    }
+    if (m.find("IpCntOv") != m.end() && !m["IpCntOv"].empty()) {
+      ipCntOv = make_shared<long>(boost::any_cast<long>(m["IpCntOv"]));
+    }
+    if (m.find("MemberIpCnt") != m.end() && !m["MemberIpCnt"].empty()) {
+      memberIpCnt = make_shared<string>(boost::any_cast<string>(m["MemberIpCnt"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<long>(boost::any_cast<long>(m["Time"]));
+    }
+  }
+
+
+  virtual ~DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList() = default;
+};
+class DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList : public Darabonba::Model {
+public:
+  shared_ptr<string> memberFlow{};
+  shared_ptr<string> regionFlow{};
+  shared_ptr<long> time{};
+  shared_ptr<long> totalFlow{};
+
+  DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList() {}
+
+  explicit DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (memberFlow) {
+      res["MemberFlow"] = boost::any(*memberFlow);
+    }
+    if (regionFlow) {
+      res["RegionFlow"] = boost::any(*regionFlow);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    if (totalFlow) {
+      res["TotalFlow"] = boost::any(*totalFlow);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MemberFlow") != m.end() && !m["MemberFlow"].empty()) {
+      memberFlow = make_shared<string>(boost::any_cast<string>(m["MemberFlow"]));
+    }
+    if (m.find("RegionFlow") != m.end() && !m["RegionFlow"].empty()) {
+      regionFlow = make_shared<string>(boost::any_cast<string>(m["RegionFlow"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<long>(boost::any_cast<long>(m["Time"]));
+    }
+    if (m.find("TotalFlow") != m.end() && !m["TotalFlow"].empty()) {
+      totalFlow = make_shared<long>(boost::any_cast<long>(m["TotalFlow"]));
+    }
+  }
+
+
+  virtual ~DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList() = default;
+};
+class DescribeDdosOriginInstanceBillResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> debtStatus{};
+  shared_ptr<vector<DescribeDdosOriginInstanceBillResponseBodyFlowList>> flowList{};
+  shared_ptr<map<string, boost::any>> flowRegion{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> ipCount{};
+  shared_ptr<vector<DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList>> ipCountOrFunctionList{};
+  shared_ptr<string> ipInfo{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList>> standardAssetsFlowList{};
+  shared_ptr<map<string, boost::any>> standardAssetsFlowRegion{};
+  shared_ptr<long> standardAssetsTotalFlowCn{};
+  shared_ptr<long> standardAssetsTotalFlowOv{};
+  shared_ptr<long> status{};
+  shared_ptr<long> totalFlowCn{};
+  shared_ptr<long> totalFlowOv{};
+
+  DescribeDdosOriginInstanceBillResponseBody() {}
+
+  explicit DescribeDdosOriginInstanceBillResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (debtStatus) {
+      res["DebtStatus"] = boost::any(*debtStatus);
+    }
+    if (flowList) {
+      vector<boost::any> temp1;
+      for(auto item1:*flowList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FlowList"] = boost::any(temp1);
+    }
+    if (flowRegion) {
+      res["FlowRegion"] = boost::any(*flowRegion);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ipCount) {
+      res["IpCount"] = boost::any(*ipCount);
+    }
+    if (ipCountOrFunctionList) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipCountOrFunctionList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IpCountOrFunctionList"] = boost::any(temp1);
+    }
+    if (ipInfo) {
+      res["IpInfo"] = boost::any(*ipInfo);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (standardAssetsFlowList) {
+      vector<boost::any> temp1;
+      for(auto item1:*standardAssetsFlowList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["StandardAssetsFlowList"] = boost::any(temp1);
+    }
+    if (standardAssetsFlowRegion) {
+      res["StandardAssetsFlowRegion"] = boost::any(*standardAssetsFlowRegion);
+    }
+    if (standardAssetsTotalFlowCn) {
+      res["StandardAssetsTotalFlowCn"] = boost::any(*standardAssetsTotalFlowCn);
+    }
+    if (standardAssetsTotalFlowOv) {
+      res["StandardAssetsTotalFlowOv"] = boost::any(*standardAssetsTotalFlowOv);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (totalFlowCn) {
+      res["TotalFlowCn"] = boost::any(*totalFlowCn);
+    }
+    if (totalFlowOv) {
+      res["TotalFlowOv"] = boost::any(*totalFlowOv);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DebtStatus") != m.end() && !m["DebtStatus"].empty()) {
+      debtStatus = make_shared<long>(boost::any_cast<long>(m["DebtStatus"]));
+    }
+    if (m.find("FlowList") != m.end() && !m["FlowList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FlowList"].type()) {
+        vector<DescribeDdosOriginInstanceBillResponseBodyFlowList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FlowList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDdosOriginInstanceBillResponseBodyFlowList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        flowList = make_shared<vector<DescribeDdosOriginInstanceBillResponseBodyFlowList>>(expect1);
+      }
+    }
+    if (m.find("FlowRegion") != m.end() && !m["FlowRegion"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["FlowRegion"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      flowRegion = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IpCount") != m.end() && !m["IpCount"].empty()) {
+      ipCount = make_shared<long>(boost::any_cast<long>(m["IpCount"]));
+    }
+    if (m.find("IpCountOrFunctionList") != m.end() && !m["IpCountOrFunctionList"].empty()) {
+      if (typeid(vector<boost::any>) == m["IpCountOrFunctionList"].type()) {
+        vector<DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IpCountOrFunctionList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipCountOrFunctionList = make_shared<vector<DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList>>(expect1);
+      }
+    }
+    if (m.find("IpInfo") != m.end() && !m["IpInfo"].empty()) {
+      ipInfo = make_shared<string>(boost::any_cast<string>(m["IpInfo"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StandardAssetsFlowList") != m.end() && !m["StandardAssetsFlowList"].empty()) {
+      if (typeid(vector<boost::any>) == m["StandardAssetsFlowList"].type()) {
+        vector<DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["StandardAssetsFlowList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        standardAssetsFlowList = make_shared<vector<DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList>>(expect1);
+      }
+    }
+    if (m.find("StandardAssetsFlowRegion") != m.end() && !m["StandardAssetsFlowRegion"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["StandardAssetsFlowRegion"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      standardAssetsFlowRegion = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("StandardAssetsTotalFlowCn") != m.end() && !m["StandardAssetsTotalFlowCn"].empty()) {
+      standardAssetsTotalFlowCn = make_shared<long>(boost::any_cast<long>(m["StandardAssetsTotalFlowCn"]));
+    }
+    if (m.find("StandardAssetsTotalFlowOv") != m.end() && !m["StandardAssetsTotalFlowOv"].empty()) {
+      standardAssetsTotalFlowOv = make_shared<long>(boost::any_cast<long>(m["StandardAssetsTotalFlowOv"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TotalFlowCn") != m.end() && !m["TotalFlowCn"].empty()) {
+      totalFlowCn = make_shared<long>(boost::any_cast<long>(m["TotalFlowCn"]));
+    }
+    if (m.find("TotalFlowOv") != m.end() && !m["TotalFlowOv"].empty()) {
+      totalFlowOv = make_shared<long>(boost::any_cast<long>(m["TotalFlowOv"]));
+    }
+  }
+
+
+  virtual ~DescribeDdosOriginInstanceBillResponseBody() = default;
+};
+class DescribeDdosOriginInstanceBillResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDdosOriginInstanceBillResponseBody> body{};
+
+  DescribeDdosOriginInstanceBillResponse() {}
+
+  explicit DescribeDdosOriginInstanceBillResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDdosOriginInstanceBillResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDdosOriginInstanceBillResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDdosOriginInstanceBillResponse() = default;
 };
 class DescribeExcpetionCountRequest : public Darabonba::Model {
 public:
@@ -5930,6 +6369,116 @@ public:
 
   virtual ~QuerySchedruleOnDemandResponse() = default;
 };
+class ReleaseDdosOriginInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  ReleaseDdosOriginInstanceRequest() {}
+
+  explicit ReleaseDdosOriginInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~ReleaseDdosOriginInstanceRequest() = default;
+};
+class ReleaseDdosOriginInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ReleaseDdosOriginInstanceResponseBody() {}
+
+  explicit ReleaseDdosOriginInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ReleaseDdosOriginInstanceResponseBody() = default;
+};
+class ReleaseDdosOriginInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ReleaseDdosOriginInstanceResponseBody> body{};
+
+  ReleaseDdosOriginInstanceResponse() {}
+
+  explicit ReleaseDdosOriginInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ReleaseDdosOriginInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ReleaseDdosOriginInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ReleaseDdosOriginInstanceResponse() = default;
+};
 class SetInstanceModeOnDemandRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> instanceIdList{};
@@ -6449,6 +6998,8 @@ public:
   DescribeAssetGroupToInstanceResponse describeAssetGroupToInstance(shared_ptr<DescribeAssetGroupToInstanceRequest> request);
   DescribeDdosEventResponse describeDdosEventWithOptions(shared_ptr<DescribeDdosEventRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDdosEventResponse describeDdosEvent(shared_ptr<DescribeDdosEventRequest> request);
+  DescribeDdosOriginInstanceBillResponse describeDdosOriginInstanceBillWithOptions(shared_ptr<DescribeDdosOriginInstanceBillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDdosOriginInstanceBillResponse describeDdosOriginInstanceBill(shared_ptr<DescribeDdosOriginInstanceBillRequest> request);
   DescribeExcpetionCountResponse describeExcpetionCountWithOptions(shared_ptr<DescribeExcpetionCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeExcpetionCountResponse describeExcpetionCount(shared_ptr<DescribeExcpetionCountRequest> request);
   DescribeInstanceListResponse describeInstanceListWithOptions(shared_ptr<DescribeInstanceListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6481,6 +7032,8 @@ public:
   ModifyRemarkResponse modifyRemark(shared_ptr<ModifyRemarkRequest> request);
   QuerySchedruleOnDemandResponse querySchedruleOnDemandWithOptions(shared_ptr<QuerySchedruleOnDemandRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QuerySchedruleOnDemandResponse querySchedruleOnDemand(shared_ptr<QuerySchedruleOnDemandRequest> request);
+  ReleaseDdosOriginInstanceResponse releaseDdosOriginInstanceWithOptions(shared_ptr<ReleaseDdosOriginInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ReleaseDdosOriginInstanceResponse releaseDdosOriginInstance(shared_ptr<ReleaseDdosOriginInstanceRequest> request);
   SetInstanceModeOnDemandResponse setInstanceModeOnDemandWithOptions(shared_ptr<SetInstanceModeOnDemandRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetInstanceModeOnDemandResponse setInstanceModeOnDemand(shared_ptr<SetInstanceModeOnDemandRequest> request);
   TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

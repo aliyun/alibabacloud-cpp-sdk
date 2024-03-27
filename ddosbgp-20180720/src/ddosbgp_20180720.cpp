@@ -560,6 +560,43 @@ DescribeDdosEventResponse Alibabacloud_Ddosbgp20180720::Client::describeDdosEven
   return describeDdosEventWithOptions(request, runtime);
 }
 
+DescribeDdosOriginInstanceBillResponse Alibabacloud_Ddosbgp20180720::Client::describeDdosOriginInstanceBillWithOptions(shared_ptr<DescribeDdosOriginInstanceBillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isShowList)) {
+    query->insert(pair<string, bool>("IsShowList", *request->isShowList));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDdosOriginInstanceBill"))},
+    {"version", boost::any(string("2018-07-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDdosOriginInstanceBillResponse(callApi(params, req, runtime));
+}
+
+DescribeDdosOriginInstanceBillResponse Alibabacloud_Ddosbgp20180720::Client::describeDdosOriginInstanceBill(shared_ptr<DescribeDdosOriginInstanceBillRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDdosOriginInstanceBillWithOptions(request, runtime);
+}
+
 DescribeExcpetionCountResponse Alibabacloud_Ddosbgp20180720::Client::describeExcpetionCountWithOptions(shared_ptr<DescribeExcpetionCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1209,6 +1246,34 @@ QuerySchedruleOnDemandResponse Alibabacloud_Ddosbgp20180720::Client::querySchedr
 QuerySchedruleOnDemandResponse Alibabacloud_Ddosbgp20180720::Client::querySchedruleOnDemand(shared_ptr<QuerySchedruleOnDemandRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return querySchedruleOnDemandWithOptions(request, runtime);
+}
+
+ReleaseDdosOriginInstanceResponse Alibabacloud_Ddosbgp20180720::Client::releaseDdosOriginInstanceWithOptions(shared_ptr<ReleaseDdosOriginInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ReleaseDdosOriginInstance"))},
+    {"version", boost::any(string("2018-07-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ReleaseDdosOriginInstanceResponse(callApi(params, req, runtime));
+}
+
+ReleaseDdosOriginInstanceResponse Alibabacloud_Ddosbgp20180720::Client::releaseDdosOriginInstance(shared_ptr<ReleaseDdosOriginInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return releaseDdosOriginInstanceWithOptions(request, runtime);
 }
 
 SetInstanceModeOnDemandResponse Alibabacloud_Ddosbgp20180720::Client::setInstanceModeOnDemandWithOptions(shared_ptr<SetInstanceModeOnDemandRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

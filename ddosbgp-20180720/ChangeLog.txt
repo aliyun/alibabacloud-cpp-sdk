@@ -1,3 +1,15 @@
+2024-03-27 Version: 1.3.0
+- Support API AttachAssetGroupToInstance.
+- Support API DescribeAssetGroup.
+- Support API DescribeAssetGroupToInstance.
+- Support API DescribeDdosOriginInstanceBill.
+- Support API DettachAssetGroupToInstance.
+- Support API ReleaseDdosOriginInstance.
+- Update API DescribeInstanceList: update response param.
+- Update API DescribeInstanceSpecs: update response param.
+- Update API DescribePackIpList: update response param.
+
+
 2024-02-28 Version: 1.2.0
 - Support API AttachAssetGroupToInstance.
 - Support API DescribeAssetGroup.
