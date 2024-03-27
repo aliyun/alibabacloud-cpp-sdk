@@ -4779,6 +4779,30 @@ ListHostGroupsResponse Alibabacloud_Devops20210625::Client::listHostGroups(share
   return listHostGroupsWithOptions(organizationId, request, headers, runtime);
 }
 
+ListJoinedOrganizationsResponse Alibabacloud_Devops20210625::Client::listJoinedOrganizationsWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListJoinedOrganizations"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/users/joinedOrgs"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListJoinedOrganizationsResponse(callApi(params, req, runtime));
+}
+
+ListJoinedOrganizationsResponse Alibabacloud_Devops20210625::Client::listJoinedOrganizations() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listJoinedOrganizationsWithOptions(headers, runtime);
+}
+
 ListMergeRequestCommentsResponse Alibabacloud_Devops20210625::Client::listMergeRequestCommentsWithOptions(shared_ptr<ListMergeRequestCommentsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
