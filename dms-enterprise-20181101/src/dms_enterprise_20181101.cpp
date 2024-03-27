@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -168,6 +167,9 @@ AddInstanceResponse Alibabacloud_Dms-enterprise20181101::Client::addInstanceWith
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->useDsql)) {
     query->insert(pair<string, long>("UseDsql", *request->useDsql));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->useSsl)) {
+    query->insert(pair<string, long>("UseSsl", *request->useSsl));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
     query->insert(pair<string, string>("VpcId", *request->vpcId));
@@ -6634,6 +6636,9 @@ ModifyInstanceResponse Alibabacloud_Dms-enterprise20181101::Client::modifyInstan
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->useDsql)) {
     query->insert(pair<string, long>("UseDsql", *request->useDsql));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->useSsl)) {
+    query->insert(pair<string, long>("UseSsl", *request->useSsl));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
     query->insert(pair<string, string>("VpcId", *request->vpcId));
