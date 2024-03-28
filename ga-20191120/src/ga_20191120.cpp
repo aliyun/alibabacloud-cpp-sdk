@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1456,6 +1455,9 @@ CreateListenerResponse Alibabacloud_Ga20191120::Client::createListenerWithOption
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateListenerRequestEndpointGroupConfigurations>>(request->endpointGroupConfigurations)) {
     query->insert(pair<string, vector<CreateListenerRequestEndpointGroupConfigurations>>("EndpointGroupConfigurations", *request->endpointGroupConfigurations));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpVersion)) {
+    query->insert(pair<string, string>("HttpVersion", *request->httpVersion));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->idleTimeout)) {
     query->insert(pair<string, long>("IdleTimeout", *request->idleTimeout));
@@ -6170,6 +6172,9 @@ UpdateListenerResponse Alibabacloud_Ga20191120::Client::updateListenerWithOption
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpVersion)) {
+    query->insert(pair<string, string>("HttpVersion", *request->httpVersion));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->idleTimeout)) {
     query->insert(pair<string, long>("IdleTimeout", *request->idleTimeout));
