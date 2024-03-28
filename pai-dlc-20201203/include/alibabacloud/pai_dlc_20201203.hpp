@@ -3275,6 +3275,134 @@ public:
 
   virtual ~StatusTransitionItem() = default;
 };
+class TensorboardDataSourceSpec : public Darabonba::Model {
+public:
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<string> directoryName{};
+  shared_ptr<string> fullSummaryPath{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> summaryPath{};
+  shared_ptr<string> uri{};
+
+  TensorboardDataSourceSpec() {}
+
+  explicit TensorboardDataSourceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (directoryName) {
+      res["DirectoryName"] = boost::any(*directoryName);
+    }
+    if (fullSummaryPath) {
+      res["FullSummaryPath"] = boost::any(*fullSummaryPath);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (summaryPath) {
+      res["SummaryPath"] = boost::any(*summaryPath);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+    if (m.find("DirectoryName") != m.end() && !m["DirectoryName"].empty()) {
+      directoryName = make_shared<string>(boost::any_cast<string>(m["DirectoryName"]));
+    }
+    if (m.find("FullSummaryPath") != m.end() && !m["FullSummaryPath"].empty()) {
+      fullSummaryPath = make_shared<string>(boost::any_cast<string>(m["FullSummaryPath"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("SummaryPath") != m.end() && !m["SummaryPath"].empty()) {
+      summaryPath = make_shared<string>(boost::any_cast<string>(m["SummaryPath"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~TensorboardDataSourceSpec() = default;
+};
+class TensorboardSpec : public Darabonba::Model {
+public:
+  shared_ptr<string> ecsType{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> switchId{};
+  shared_ptr<string> vpcId{};
+
+  TensorboardSpec() {}
+
+  explicit TensorboardSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ecsType) {
+      res["EcsType"] = boost::any(*ecsType);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (switchId) {
+      res["SwitchId"] = boost::any(*switchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EcsType") != m.end() && !m["EcsType"].empty()) {
+      ecsType = make_shared<string>(boost::any_cast<string>(m["EcsType"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("SwitchId") != m.end() && !m["SwitchId"].empty()) {
+      switchId = make_shared<string>(boost::any_cast<string>(m["SwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~TensorboardSpec() = default;
+};
 class Tensorboard : public Darabonba::Model {
 public:
   shared_ptr<string> dataSourceId{};
@@ -3288,7 +3416,9 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
   shared_ptr<string> summaryPath{};
+  shared_ptr<vector<TensorboardDataSourceSpec>> tensorboardDataSources{};
   shared_ptr<string> tensorboardId{};
+  shared_ptr<TensorboardSpec> tensorboardSpec{};
   shared_ptr<string> tensorboardUrl{};
   shared_ptr<string> userId{};
 
@@ -3335,8 +3465,18 @@ public:
     if (summaryPath) {
       res["SummaryPath"] = boost::any(*summaryPath);
     }
+    if (tensorboardDataSources) {
+      vector<boost::any> temp1;
+      for(auto item1:*tensorboardDataSources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TensorboardDataSources"] = boost::any(temp1);
+    }
     if (tensorboardId) {
       res["TensorboardId"] = boost::any(*tensorboardId);
+    }
+    if (tensorboardSpec) {
+      res["TensorboardSpec"] = tensorboardSpec ? boost::any(tensorboardSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (tensorboardUrl) {
       res["TensorboardUrl"] = boost::any(*tensorboardUrl);
@@ -3381,8 +3521,28 @@ public:
     if (m.find("SummaryPath") != m.end() && !m["SummaryPath"].empty()) {
       summaryPath = make_shared<string>(boost::any_cast<string>(m["SummaryPath"]));
     }
+    if (m.find("TensorboardDataSources") != m.end() && !m["TensorboardDataSources"].empty()) {
+      if (typeid(vector<boost::any>) == m["TensorboardDataSources"].type()) {
+        vector<TensorboardDataSourceSpec> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TensorboardDataSources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TensorboardDataSourceSpec model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tensorboardDataSources = make_shared<vector<TensorboardDataSourceSpec>>(expect1);
+      }
+    }
     if (m.find("TensorboardId") != m.end() && !m["TensorboardId"].empty()) {
       tensorboardId = make_shared<string>(boost::any_cast<string>(m["TensorboardId"]));
+    }
+    if (m.find("TensorboardSpec") != m.end() && !m["TensorboardSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TensorboardSpec"].type()) {
+        TensorboardSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TensorboardSpec"]));
+        tensorboardSpec = make_shared<TensorboardSpec>(model1);
+      }
     }
     if (m.find("TensorboardUrl") != m.end() && !m["TensorboardUrl"].empty()) {
       tensorboardUrl = make_shared<string>(boost::any_cast<string>(m["TensorboardUrl"]));
@@ -3997,6 +4157,8 @@ public:
   shared_ptr<string> sourceType{};
   shared_ptr<string> summaryPath{};
   shared_ptr<string> summaryRelativePath{};
+  shared_ptr<vector<TensorboardDataSourceSpec>> tensorboardDataSources{};
+  shared_ptr<TensorboardSpec> tensorboardSpec{};
   shared_ptr<string> uri{};
   shared_ptr<string> workspaceId{};
 
@@ -4052,6 +4214,16 @@ public:
     }
     if (summaryRelativePath) {
       res["SummaryRelativePath"] = boost::any(*summaryRelativePath);
+    }
+    if (tensorboardDataSources) {
+      vector<boost::any> temp1;
+      for(auto item1:*tensorboardDataSources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TensorboardDataSources"] = boost::any(temp1);
+    }
+    if (tensorboardSpec) {
+      res["TensorboardSpec"] = tensorboardSpec ? boost::any(tensorboardSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (uri) {
       res["Uri"] = boost::any(*uri);
@@ -4111,6 +4283,26 @@ public:
     }
     if (m.find("SummaryRelativePath") != m.end() && !m["SummaryRelativePath"].empty()) {
       summaryRelativePath = make_shared<string>(boost::any_cast<string>(m["SummaryRelativePath"]));
+    }
+    if (m.find("TensorboardDataSources") != m.end() && !m["TensorboardDataSources"].empty()) {
+      if (typeid(vector<boost::any>) == m["TensorboardDataSources"].type()) {
+        vector<TensorboardDataSourceSpec> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TensorboardDataSources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TensorboardDataSourceSpec model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tensorboardDataSources = make_shared<vector<TensorboardDataSourceSpec>>(expect1);
+      }
+    }
+    if (m.find("TensorboardSpec") != m.end() && !m["TensorboardSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TensorboardSpec"].type()) {
+        TensorboardSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TensorboardSpec"]));
+        tensorboardSpec = make_shared<TensorboardSpec>(model1);
+      }
     }
     if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
       uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
@@ -7220,6 +7412,7 @@ public:
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> paymentType{};
   shared_ptr<bool> showOwn{};
   shared_ptr<string> sortBy{};
   shared_ptr<string> sourceId{};
@@ -7257,6 +7450,9 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (paymentType) {
+      res["PaymentType"] = boost::any(*paymentType);
     }
     if (showOwn) {
       res["ShowOwn"] = boost::any(*showOwn);
@@ -7306,6 +7502,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
     }
     if (m.find("ShowOwn") != m.end() && !m["ShowOwn"].empty()) {
       showOwn = make_shared<bool>(boost::any_cast<bool>(m["ShowOwn"]));

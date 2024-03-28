@@ -216,6 +216,12 @@ CreateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::createTensorboar
   if (!Darabonba_Util::Client::isUnset<string>(request->summaryRelativePath)) {
     body->insert(pair<string, string>("SummaryRelativePath", *request->summaryRelativePath));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<TensorboardDataSourceSpec>>(request->tensorboardDataSources)) {
+    body->insert(pair<string, vector<TensorboardDataSourceSpec>>("TensorboardDataSources", *request->tensorboardDataSources));
+  }
+  if (!Darabonba_Util::Client::isUnset<TensorboardSpec>(request->tensorboardSpec)) {
+    body->insert(pair<string, TensorboardSpec>("TensorboardSpec", *request->tensorboardSpec));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->uri)) {
     body->insert(pair<string, string>("Uri", *request->uri));
   }
@@ -886,6 +892,9 @@ ListTensorboardsResponse Alibabacloud_Pai-dlc20201203::Client::listTensorboardsW
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paymentType)) {
+    query->insert(pair<string, string>("PaymentType", *request->paymentType));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->showOwn)) {
     query->insert(pair<string, bool>("ShowOwn", *request->showOwn));
