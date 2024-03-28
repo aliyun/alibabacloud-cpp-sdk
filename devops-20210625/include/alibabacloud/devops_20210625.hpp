@@ -2467,6 +2467,495 @@ public:
 
   virtual ~CreateCheckRunResponse() = default;
 };
+class CreateCommentRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessToken{};
+  shared_ptr<string> commentType{};
+  shared_ptr<string> content{};
+  shared_ptr<bool> draft{};
+  shared_ptr<string> filePath{};
+  shared_ptr<long> lineNumber{};
+  shared_ptr<string> parentCommentBizId{};
+  shared_ptr<string> patchSetBizId{};
+  shared_ptr<bool> resolved{};
+  shared_ptr<long> localId{};
+  shared_ptr<string> organizationId{};
+  shared_ptr<string> repositoryIdentity{};
+
+  CreateCommentRequest() {}
+
+  explicit CreateCommentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessToken) {
+      res["accessToken"] = boost::any(*accessToken);
+    }
+    if (commentType) {
+      res["commentType"] = boost::any(*commentType);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (draft) {
+      res["draft"] = boost::any(*draft);
+    }
+    if (filePath) {
+      res["filePath"] = boost::any(*filePath);
+    }
+    if (lineNumber) {
+      res["lineNumber"] = boost::any(*lineNumber);
+    }
+    if (parentCommentBizId) {
+      res["parentCommentBizId"] = boost::any(*parentCommentBizId);
+    }
+    if (patchSetBizId) {
+      res["patchSetBizId"] = boost::any(*patchSetBizId);
+    }
+    if (resolved) {
+      res["resolved"] = boost::any(*resolved);
+    }
+    if (localId) {
+      res["localId"] = boost::any(*localId);
+    }
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    if (repositoryIdentity) {
+      res["repositoryIdentity"] = boost::any(*repositoryIdentity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessToken") != m.end() && !m["accessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["accessToken"]));
+    }
+    if (m.find("commentType") != m.end() && !m["commentType"].empty()) {
+      commentType = make_shared<string>(boost::any_cast<string>(m["commentType"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("draft") != m.end() && !m["draft"].empty()) {
+      draft = make_shared<bool>(boost::any_cast<bool>(m["draft"]));
+    }
+    if (m.find("filePath") != m.end() && !m["filePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["filePath"]));
+    }
+    if (m.find("lineNumber") != m.end() && !m["lineNumber"].empty()) {
+      lineNumber = make_shared<long>(boost::any_cast<long>(m["lineNumber"]));
+    }
+    if (m.find("parentCommentBizId") != m.end() && !m["parentCommentBizId"].empty()) {
+      parentCommentBizId = make_shared<string>(boost::any_cast<string>(m["parentCommentBizId"]));
+    }
+    if (m.find("patchSetBizId") != m.end() && !m["patchSetBizId"].empty()) {
+      patchSetBizId = make_shared<string>(boost::any_cast<string>(m["patchSetBizId"]));
+    }
+    if (m.find("resolved") != m.end() && !m["resolved"].empty()) {
+      resolved = make_shared<bool>(boost::any_cast<bool>(m["resolved"]));
+    }
+    if (m.find("localId") != m.end() && !m["localId"].empty()) {
+      localId = make_shared<long>(boost::any_cast<long>(m["localId"]));
+    }
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+    if (m.find("repositoryIdentity") != m.end() && !m["repositoryIdentity"].empty()) {
+      repositoryIdentity = make_shared<string>(boost::any_cast<string>(m["repositoryIdentity"]));
+    }
+  }
+
+
+  virtual ~CreateCommentRequest() = default;
+};
+class CreateCommentResponseBodyResultAuthor : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunPk{};
+  shared_ptr<string> avatarUrl{};
+  shared_ptr<string> email{};
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> state{};
+  shared_ptr<string> username{};
+
+  CreateCommentResponseBodyResultAuthor() {}
+
+  explicit CreateCommentResponseBodyResultAuthor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunPk) {
+      res["aliyunPk"] = boost::any(*aliyunPk);
+    }
+    if (avatarUrl) {
+      res["avatarUrl"] = boost::any(*avatarUrl);
+    }
+    if (email) {
+      res["email"] = boost::any(*email);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    if (username) {
+      res["username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aliyunPk") != m.end() && !m["aliyunPk"].empty()) {
+      aliyunPk = make_shared<string>(boost::any_cast<string>(m["aliyunPk"]));
+    }
+    if (m.find("avatarUrl") != m.end() && !m["avatarUrl"].empty()) {
+      avatarUrl = make_shared<string>(boost::any_cast<string>(m["avatarUrl"]));
+    }
+    if (m.find("email") != m.end() && !m["email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["email"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("username") != m.end() && !m["username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["username"]));
+    }
+  }
+
+
+  virtual ~CreateCommentResponseBodyResultAuthor() = default;
+};
+class CreateCommentResponseBodyResultRelatedPatchSet : public Darabonba::Model {
+public:
+  shared_ptr<string> commitId{};
+  shared_ptr<string> createdAt{};
+  shared_ptr<string> patchSetBizId{};
+  shared_ptr<string> patchSetName{};
+  shared_ptr<string> patchSetNo{};
+  shared_ptr<string> relatedMergeItemType{};
+  shared_ptr<string> shortId{};
+
+  CreateCommentResponseBodyResultRelatedPatchSet() {}
+
+  explicit CreateCommentResponseBodyResultRelatedPatchSet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commitId) {
+      res["commitId"] = boost::any(*commitId);
+    }
+    if (createdAt) {
+      res["createdAt"] = boost::any(*createdAt);
+    }
+    if (patchSetBizId) {
+      res["patchSetBizId"] = boost::any(*patchSetBizId);
+    }
+    if (patchSetName) {
+      res["patchSetName"] = boost::any(*patchSetName);
+    }
+    if (patchSetNo) {
+      res["patchSetNo"] = boost::any(*patchSetNo);
+    }
+    if (relatedMergeItemType) {
+      res["relatedMergeItemType"] = boost::any(*relatedMergeItemType);
+    }
+    if (shortId) {
+      res["shortId"] = boost::any(*shortId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commitId") != m.end() && !m["commitId"].empty()) {
+      commitId = make_shared<string>(boost::any_cast<string>(m["commitId"]));
+    }
+    if (m.find("createdAt") != m.end() && !m["createdAt"].empty()) {
+      createdAt = make_shared<string>(boost::any_cast<string>(m["createdAt"]));
+    }
+    if (m.find("patchSetBizId") != m.end() && !m["patchSetBizId"].empty()) {
+      patchSetBizId = make_shared<string>(boost::any_cast<string>(m["patchSetBizId"]));
+    }
+    if (m.find("patchSetName") != m.end() && !m["patchSetName"].empty()) {
+      patchSetName = make_shared<string>(boost::any_cast<string>(m["patchSetName"]));
+    }
+    if (m.find("patchSetNo") != m.end() && !m["patchSetNo"].empty()) {
+      patchSetNo = make_shared<string>(boost::any_cast<string>(m["patchSetNo"]));
+    }
+    if (m.find("relatedMergeItemType") != m.end() && !m["relatedMergeItemType"].empty()) {
+      relatedMergeItemType = make_shared<string>(boost::any_cast<string>(m["relatedMergeItemType"]));
+    }
+    if (m.find("shortId") != m.end() && !m["shortId"].empty()) {
+      shortId = make_shared<string>(boost::any_cast<string>(m["shortId"]));
+    }
+  }
+
+
+  virtual ~CreateCommentResponseBodyResultRelatedPatchSet() = default;
+};
+class CreateCommentResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<CreateCommentResponseBodyResultAuthor> author{};
+  shared_ptr<string> commentBizId{};
+  shared_ptr<string> commentTime{};
+  shared_ptr<string> commentType{};
+  shared_ptr<string> content{};
+  shared_ptr<bool> deleted{};
+  shared_ptr<string> filePath{};
+  shared_ptr<string> lastEditTime{};
+  shared_ptr<string> lineNumber{};
+  shared_ptr<string> parentCommentBizId{};
+  shared_ptr<CreateCommentResponseBodyResultRelatedPatchSet> relatedPatchSet{};
+  shared_ptr<bool> resolved{};
+  shared_ptr<string> rootCommentBizId{};
+  shared_ptr<string> state{};
+
+  CreateCommentResponseBodyResult() {}
+
+  explicit CreateCommentResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (author) {
+      res["author"] = author ? boost::any(author->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (commentBizId) {
+      res["commentBizId"] = boost::any(*commentBizId);
+    }
+    if (commentTime) {
+      res["commentTime"] = boost::any(*commentTime);
+    }
+    if (commentType) {
+      res["commentType"] = boost::any(*commentType);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (deleted) {
+      res["deleted"] = boost::any(*deleted);
+    }
+    if (filePath) {
+      res["filePath"] = boost::any(*filePath);
+    }
+    if (lastEditTime) {
+      res["lastEditTime"] = boost::any(*lastEditTime);
+    }
+    if (lineNumber) {
+      res["lineNumber"] = boost::any(*lineNumber);
+    }
+    if (parentCommentBizId) {
+      res["parentCommentBizId"] = boost::any(*parentCommentBizId);
+    }
+    if (relatedPatchSet) {
+      res["relatedPatchSet"] = relatedPatchSet ? boost::any(relatedPatchSet->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resolved) {
+      res["resolved"] = boost::any(*resolved);
+    }
+    if (rootCommentBizId) {
+      res["rootCommentBizId"] = boost::any(*rootCommentBizId);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("author") != m.end() && !m["author"].empty()) {
+      if (typeid(map<string, boost::any>) == m["author"].type()) {
+        CreateCommentResponseBodyResultAuthor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["author"]));
+        author = make_shared<CreateCommentResponseBodyResultAuthor>(model1);
+      }
+    }
+    if (m.find("commentBizId") != m.end() && !m["commentBizId"].empty()) {
+      commentBizId = make_shared<string>(boost::any_cast<string>(m["commentBizId"]));
+    }
+    if (m.find("commentTime") != m.end() && !m["commentTime"].empty()) {
+      commentTime = make_shared<string>(boost::any_cast<string>(m["commentTime"]));
+    }
+    if (m.find("commentType") != m.end() && !m["commentType"].empty()) {
+      commentType = make_shared<string>(boost::any_cast<string>(m["commentType"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("deleted") != m.end() && !m["deleted"].empty()) {
+      deleted = make_shared<bool>(boost::any_cast<bool>(m["deleted"]));
+    }
+    if (m.find("filePath") != m.end() && !m["filePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["filePath"]));
+    }
+    if (m.find("lastEditTime") != m.end() && !m["lastEditTime"].empty()) {
+      lastEditTime = make_shared<string>(boost::any_cast<string>(m["lastEditTime"]));
+    }
+    if (m.find("lineNumber") != m.end() && !m["lineNumber"].empty()) {
+      lineNumber = make_shared<string>(boost::any_cast<string>(m["lineNumber"]));
+    }
+    if (m.find("parentCommentBizId") != m.end() && !m["parentCommentBizId"].empty()) {
+      parentCommentBizId = make_shared<string>(boost::any_cast<string>(m["parentCommentBizId"]));
+    }
+    if (m.find("relatedPatchSet") != m.end() && !m["relatedPatchSet"].empty()) {
+      if (typeid(map<string, boost::any>) == m["relatedPatchSet"].type()) {
+        CreateCommentResponseBodyResultRelatedPatchSet model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["relatedPatchSet"]));
+        relatedPatchSet = make_shared<CreateCommentResponseBodyResultRelatedPatchSet>(model1);
+      }
+    }
+    if (m.find("resolved") != m.end() && !m["resolved"].empty()) {
+      resolved = make_shared<bool>(boost::any_cast<bool>(m["resolved"]));
+    }
+    if (m.find("rootCommentBizId") != m.end() && !m["rootCommentBizId"].empty()) {
+      rootCommentBizId = make_shared<string>(boost::any_cast<string>(m["rootCommentBizId"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+  }
+
+
+  virtual ~CreateCommentResponseBodyResult() = default;
+};
+class CreateCommentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<CreateCommentResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+
+  CreateCommentResponseBody() {}
+
+  explicit CreateCommentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["result"].type()) {
+        CreateCommentResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["result"]));
+        result = make_shared<CreateCommentResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~CreateCommentResponseBody() = default;
+};
+class CreateCommentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateCommentResponseBody> body{};
+
+  CreateCommentResponse() {}
+
+  explicit CreateCommentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateCommentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateCommentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCommentResponse() = default;
+};
 class CreateCommitStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessToken{};
@@ -2782,6 +3271,538 @@ public:
 
 
   virtual ~CreateCommitStatusResponse() = default;
+};
+class CreateCommitWithMultipleFilesRequestActions : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> content{};
+  shared_ptr<string> filePath{};
+  shared_ptr<string> previousPath{};
+
+  CreateCommitWithMultipleFilesRequestActions() {}
+
+  explicit CreateCommitWithMultipleFilesRequestActions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["action"] = boost::any(*action);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (filePath) {
+      res["filePath"] = boost::any(*filePath);
+    }
+    if (previousPath) {
+      res["previousPath"] = boost::any(*previousPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("action") != m.end() && !m["action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["action"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("filePath") != m.end() && !m["filePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["filePath"]));
+    }
+    if (m.find("previousPath") != m.end() && !m["previousPath"].empty()) {
+      previousPath = make_shared<string>(boost::any_cast<string>(m["previousPath"]));
+    }
+  }
+
+
+  virtual ~CreateCommitWithMultipleFilesRequestActions() = default;
+};
+class CreateCommitWithMultipleFilesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessToken{};
+  shared_ptr<vector<CreateCommitWithMultipleFilesRequestActions>> actions{};
+  shared_ptr<string> branch{};
+  shared_ptr<string> commitMessage{};
+  shared_ptr<string> organizationId{};
+  shared_ptr<string> repositoryIdentity{};
+
+  CreateCommitWithMultipleFilesRequest() {}
+
+  explicit CreateCommitWithMultipleFilesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessToken) {
+      res["accessToken"] = boost::any(*accessToken);
+    }
+    if (actions) {
+      vector<boost::any> temp1;
+      for(auto item1:*actions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["actions"] = boost::any(temp1);
+    }
+    if (branch) {
+      res["branch"] = boost::any(*branch);
+    }
+    if (commitMessage) {
+      res["commitMessage"] = boost::any(*commitMessage);
+    }
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    if (repositoryIdentity) {
+      res["repositoryIdentity"] = boost::any(*repositoryIdentity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessToken") != m.end() && !m["accessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["accessToken"]));
+    }
+    if (m.find("actions") != m.end() && !m["actions"].empty()) {
+      if (typeid(vector<boost::any>) == m["actions"].type()) {
+        vector<CreateCommitWithMultipleFilesRequestActions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["actions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCommitWithMultipleFilesRequestActions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        actions = make_shared<vector<CreateCommitWithMultipleFilesRequestActions>>(expect1);
+      }
+    }
+    if (m.find("branch") != m.end() && !m["branch"].empty()) {
+      branch = make_shared<string>(boost::any_cast<string>(m["branch"]));
+    }
+    if (m.find("commitMessage") != m.end() && !m["commitMessage"].empty()) {
+      commitMessage = make_shared<string>(boost::any_cast<string>(m["commitMessage"]));
+    }
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+    if (m.find("repositoryIdentity") != m.end() && !m["repositoryIdentity"].empty()) {
+      repositoryIdentity = make_shared<string>(boost::any_cast<string>(m["repositoryIdentity"]));
+    }
+  }
+
+
+  virtual ~CreateCommitWithMultipleFilesRequest() = default;
+};
+class CreateCommitWithMultipleFilesResponseBodyResultAuthor : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunPk{};
+  shared_ptr<string> avatarUrl{};
+  shared_ptr<string> email{};
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> state{};
+  shared_ptr<string> username{};
+  shared_ptr<string> websiteUrl{};
+
+  CreateCommitWithMultipleFilesResponseBodyResultAuthor() {}
+
+  explicit CreateCommitWithMultipleFilesResponseBodyResultAuthor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunPk) {
+      res["aliyunPk"] = boost::any(*aliyunPk);
+    }
+    if (avatarUrl) {
+      res["avatarUrl"] = boost::any(*avatarUrl);
+    }
+    if (email) {
+      res["email"] = boost::any(*email);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    if (username) {
+      res["username"] = boost::any(*username);
+    }
+    if (websiteUrl) {
+      res["websiteUrl"] = boost::any(*websiteUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aliyunPk") != m.end() && !m["aliyunPk"].empty()) {
+      aliyunPk = make_shared<string>(boost::any_cast<string>(m["aliyunPk"]));
+    }
+    if (m.find("avatarUrl") != m.end() && !m["avatarUrl"].empty()) {
+      avatarUrl = make_shared<string>(boost::any_cast<string>(m["avatarUrl"]));
+    }
+    if (m.find("email") != m.end() && !m["email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["email"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("username") != m.end() && !m["username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["username"]));
+    }
+    if (m.find("websiteUrl") != m.end() && !m["websiteUrl"].empty()) {
+      websiteUrl = make_shared<string>(boost::any_cast<string>(m["websiteUrl"]));
+    }
+  }
+
+
+  virtual ~CreateCommitWithMultipleFilesResponseBodyResultAuthor() = default;
+};
+class CreateCommitWithMultipleFilesResponseBodyResultCommitter : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunPk{};
+  shared_ptr<string> avatarUrl{};
+  shared_ptr<string> email{};
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> state{};
+  shared_ptr<string> username{};
+  shared_ptr<string> websiteUrl{};
+
+  CreateCommitWithMultipleFilesResponseBodyResultCommitter() {}
+
+  explicit CreateCommitWithMultipleFilesResponseBodyResultCommitter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunPk) {
+      res["aliyunPk"] = boost::any(*aliyunPk);
+    }
+    if (avatarUrl) {
+      res["avatarUrl"] = boost::any(*avatarUrl);
+    }
+    if (email) {
+      res["email"] = boost::any(*email);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    if (username) {
+      res["username"] = boost::any(*username);
+    }
+    if (websiteUrl) {
+      res["websiteUrl"] = boost::any(*websiteUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aliyunPk") != m.end() && !m["aliyunPk"].empty()) {
+      aliyunPk = make_shared<string>(boost::any_cast<string>(m["aliyunPk"]));
+    }
+    if (m.find("avatarUrl") != m.end() && !m["avatarUrl"].empty()) {
+      avatarUrl = make_shared<string>(boost::any_cast<string>(m["avatarUrl"]));
+    }
+    if (m.find("email") != m.end() && !m["email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["email"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("username") != m.end() && !m["username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["username"]));
+    }
+    if (m.find("websiteUrl") != m.end() && !m["websiteUrl"].empty()) {
+      websiteUrl = make_shared<string>(boost::any_cast<string>(m["websiteUrl"]));
+    }
+  }
+
+
+  virtual ~CreateCommitWithMultipleFilesResponseBodyResultCommitter() = default;
+};
+class CreateCommitWithMultipleFilesResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<CreateCommitWithMultipleFilesResponseBodyResultAuthor> author{};
+  shared_ptr<string> authorEmail{};
+  shared_ptr<string> authorName{};
+  shared_ptr<string> authoredDate{};
+  shared_ptr<string> committedDate{};
+  shared_ptr<CreateCommitWithMultipleFilesResponseBodyResultCommitter> committer{};
+  shared_ptr<string> committerEmail{};
+  shared_ptr<string> committerName{};
+  shared_ptr<string> createdAt{};
+  shared_ptr<string> id{};
+  shared_ptr<string> message{};
+  shared_ptr<vector<string>> parentIds{};
+  shared_ptr<string> shortId{};
+  shared_ptr<string> title{};
+
+  CreateCommitWithMultipleFilesResponseBodyResult() {}
+
+  explicit CreateCommitWithMultipleFilesResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (author) {
+      res["author"] = author ? boost::any(author->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (authorEmail) {
+      res["authorEmail"] = boost::any(*authorEmail);
+    }
+    if (authorName) {
+      res["authorName"] = boost::any(*authorName);
+    }
+    if (authoredDate) {
+      res["authoredDate"] = boost::any(*authoredDate);
+    }
+    if (committedDate) {
+      res["committedDate"] = boost::any(*committedDate);
+    }
+    if (committer) {
+      res["committer"] = committer ? boost::any(committer->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (committerEmail) {
+      res["committerEmail"] = boost::any(*committerEmail);
+    }
+    if (committerName) {
+      res["committerName"] = boost::any(*committerName);
+    }
+    if (createdAt) {
+      res["createdAt"] = boost::any(*createdAt);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (parentIds) {
+      res["parentIds"] = boost::any(*parentIds);
+    }
+    if (shortId) {
+      res["shortId"] = boost::any(*shortId);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("author") != m.end() && !m["author"].empty()) {
+      if (typeid(map<string, boost::any>) == m["author"].type()) {
+        CreateCommitWithMultipleFilesResponseBodyResultAuthor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["author"]));
+        author = make_shared<CreateCommitWithMultipleFilesResponseBodyResultAuthor>(model1);
+      }
+    }
+    if (m.find("authorEmail") != m.end() && !m["authorEmail"].empty()) {
+      authorEmail = make_shared<string>(boost::any_cast<string>(m["authorEmail"]));
+    }
+    if (m.find("authorName") != m.end() && !m["authorName"].empty()) {
+      authorName = make_shared<string>(boost::any_cast<string>(m["authorName"]));
+    }
+    if (m.find("authoredDate") != m.end() && !m["authoredDate"].empty()) {
+      authoredDate = make_shared<string>(boost::any_cast<string>(m["authoredDate"]));
+    }
+    if (m.find("committedDate") != m.end() && !m["committedDate"].empty()) {
+      committedDate = make_shared<string>(boost::any_cast<string>(m["committedDate"]));
+    }
+    if (m.find("committer") != m.end() && !m["committer"].empty()) {
+      if (typeid(map<string, boost::any>) == m["committer"].type()) {
+        CreateCommitWithMultipleFilesResponseBodyResultCommitter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["committer"]));
+        committer = make_shared<CreateCommitWithMultipleFilesResponseBodyResultCommitter>(model1);
+      }
+    }
+    if (m.find("committerEmail") != m.end() && !m["committerEmail"].empty()) {
+      committerEmail = make_shared<string>(boost::any_cast<string>(m["committerEmail"]));
+    }
+    if (m.find("committerName") != m.end() && !m["committerName"].empty()) {
+      committerName = make_shared<string>(boost::any_cast<string>(m["committerName"]));
+    }
+    if (m.find("createdAt") != m.end() && !m["createdAt"].empty()) {
+      createdAt = make_shared<string>(boost::any_cast<string>(m["createdAt"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("parentIds") != m.end() && !m["parentIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["parentIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["parentIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parentIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("shortId") != m.end() && !m["shortId"].empty()) {
+      shortId = make_shared<string>(boost::any_cast<string>(m["shortId"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~CreateCommitWithMultipleFilesResponseBodyResult() = default;
+};
+class CreateCommitWithMultipleFilesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<string> requestId{};
+  shared_ptr<CreateCommitWithMultipleFilesResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+
+  CreateCommitWithMultipleFilesResponseBody() {}
+
+  explicit CreateCommitWithMultipleFilesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["result"].type()) {
+        CreateCommitWithMultipleFilesResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["result"]));
+        result = make_shared<CreateCommitWithMultipleFilesResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~CreateCommitWithMultipleFilesResponseBody() = default;
+};
+class CreateCommitWithMultipleFilesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateCommitWithMultipleFilesResponseBody> body{};
+
+  CreateCommitWithMultipleFilesResponse() {}
+
+  explicit CreateCommitWithMultipleFilesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateCommitWithMultipleFilesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateCommitWithMultipleFilesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCommitWithMultipleFilesResponse() = default;
 };
 class CreateDeployKeyRequest : public Darabonba::Model {
 public:
@@ -37025,6 +38046,8 @@ class ListOrganizationsResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<long> accessLevel{};
   shared_ptr<long> id{};
+  shared_ptr<string> namespaceId{};
+  shared_ptr<string> organizationAlias{};
   shared_ptr<string> organizationId{};
   shared_ptr<string> organizationName{};
   shared_ptr<string> organizationRole{};
@@ -37045,6 +38068,12 @@ public:
     if (id) {
       res["id"] = boost::any(*id);
     }
+    if (namespaceId) {
+      res["namespaceId"] = boost::any(*namespaceId);
+    }
+    if (organizationAlias) {
+      res["organizationAlias"] = boost::any(*organizationAlias);
+    }
     if (organizationId) {
       res["organizationId"] = boost::any(*organizationId);
     }
@@ -37063,6 +38092,12 @@ public:
     }
     if (m.find("id") != m.end() && !m["id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("namespaceId") != m.end() && !m["namespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["namespaceId"]));
+    }
+    if (m.find("organizationAlias") != m.end() && !m["organizationAlias"].empty()) {
+      organizationAlias = make_shared<string>(boost::any_cast<string>(m["organizationAlias"]));
     }
     if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
       organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
@@ -41597,6 +42632,7 @@ class ListRepositoriesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessToken{};
   shared_ptr<bool> archived{};
+  shared_ptr<long> minAccessLevel{};
   shared_ptr<string> orderBy{};
   shared_ptr<string> organizationId{};
   shared_ptr<long> page{};
@@ -41619,6 +42655,9 @@ public:
     }
     if (archived) {
       res["archived"] = boost::any(*archived);
+    }
+    if (minAccessLevel) {
+      res["minAccessLevel"] = boost::any(*minAccessLevel);
     }
     if (orderBy) {
       res["orderBy"] = boost::any(*orderBy);
@@ -41647,6 +42686,9 @@ public:
     }
     if (m.find("archived") != m.end() && !m["archived"].empty()) {
       archived = make_shared<bool>(boost::any_cast<bool>(m["archived"]));
+    }
+    if (m.find("minAccessLevel") != m.end() && !m["minAccessLevel"].empty()) {
+      minAccessLevel = make_shared<long>(boost::any_cast<long>(m["minAccessLevel"]));
     }
     if (m.find("orderBy") != m.end() && !m["orderBy"].empty()) {
       orderBy = make_shared<string>(boost::any_cast<string>(m["orderBy"]));
@@ -63331,8 +64373,12 @@ public:
   CreateBranchResponse createBranch(shared_ptr<string> repositoryId, shared_ptr<CreateBranchRequest> request);
   CreateCheckRunResponse createCheckRunWithOptions(shared_ptr<CreateCheckRunRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCheckRunResponse createCheckRun(shared_ptr<CreateCheckRunRequest> request);
+  CreateCommentResponse createCommentWithOptions(shared_ptr<CreateCommentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateCommentResponse createComment(shared_ptr<CreateCommentRequest> request);
   CreateCommitStatusResponse createCommitStatusWithOptions(shared_ptr<CreateCommitStatusRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCommitStatusResponse createCommitStatus(shared_ptr<CreateCommitStatusRequest> request);
+  CreateCommitWithMultipleFilesResponse createCommitWithMultipleFilesWithOptions(shared_ptr<CreateCommitWithMultipleFilesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateCommitWithMultipleFilesResponse createCommitWithMultipleFiles(shared_ptr<CreateCommitWithMultipleFilesRequest> request);
   CreateDeployKeyResponse createDeployKeyWithOptions(shared_ptr<string> repositoryId,
                                                      shared_ptr<CreateDeployKeyRequest> request,
                                                      shared_ptr<map<string, string>> headers,

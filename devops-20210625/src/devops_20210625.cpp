@@ -414,6 +414,71 @@ CreateCheckRunResponse Alibabacloud_Devops20210625::Client::createCheckRun(share
   return createCheckRunWithOptions(request, headers, runtime);
 }
 
+CreateCommentResponse Alibabacloud_Devops20210625::Client::createCommentWithOptions(shared_ptr<CreateCommentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
+    query->insert(pair<string, string>("accessToken", *request->accessToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->localId)) {
+    query->insert(pair<string, long>("localId", *request->localId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repositoryIdentity)) {
+    query->insert(pair<string, string>("repositoryIdentity", *request->repositoryIdentity));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->commentType)) {
+    body->insert(pair<string, string>("commentType", *request->commentType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    body->insert(pair<string, string>("content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->draft)) {
+    body->insert(pair<string, bool>("draft", *request->draft));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filePath)) {
+    body->insert(pair<string, string>("filePath", *request->filePath));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->lineNumber)) {
+    body->insert(pair<string, long>("lineNumber", *request->lineNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentCommentBizId)) {
+    body->insert(pair<string, string>("parentCommentBizId", *request->parentCommentBizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->patchSetBizId)) {
+    body->insert(pair<string, string>("patchSetBizId", *request->patchSetBizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->resolved)) {
+    body->insert(pair<string, bool>("resolved", *request->resolved));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateComment"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v4/projects/code_reviews/comments/create_comment"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCommentResponse(callApi(params, req, runtime));
+}
+
+CreateCommentResponse Alibabacloud_Devops20210625::Client::createComment(shared_ptr<CreateCommentRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createCommentWithOptions(request, headers, runtime);
+}
+
 CreateCommitStatusResponse Alibabacloud_Devops20210625::Client::createCommitStatusWithOptions(shared_ptr<CreateCommitStatusRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -465,6 +530,53 @@ CreateCommitStatusResponse Alibabacloud_Devops20210625::Client::createCommitStat
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return createCommitStatusWithOptions(request, headers, runtime);
+}
+
+CreateCommitWithMultipleFilesResponse Alibabacloud_Devops20210625::Client::createCommitWithMultipleFilesWithOptions(shared_ptr<CreateCommitWithMultipleFilesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
+    query->insert(pair<string, string>("accessToken", *request->accessToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repositoryIdentity)) {
+    query->insert(pair<string, string>("repositoryIdentity", *request->repositoryIdentity));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCommitWithMultipleFilesRequestActions>>(request->actions)) {
+    body->insert(pair<string, vector<CreateCommitWithMultipleFilesRequestActions>>("actions", *request->actions));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->branch)) {
+    body->insert(pair<string, string>("branch", *request->branch));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->commitMessage)) {
+    body->insert(pair<string, string>("commitMessage", *request->commitMessage));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCommitWithMultipleFiles"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v4/projects/repository/commits/files"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCommitWithMultipleFilesResponse(callApi(params, req, runtime));
+}
+
+CreateCommitWithMultipleFilesResponse Alibabacloud_Devops20210625::Client::createCommitWithMultipleFiles(shared_ptr<CreateCommitWithMultipleFilesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createCommitWithMultipleFilesWithOptions(request, headers, runtime);
 }
 
 CreateDeployKeyResponse Alibabacloud_Devops20210625::Client::createDeployKeyWithOptions(shared_ptr<string> repositoryId,
@@ -5744,6 +5856,9 @@ ListRepositoriesResponse Alibabacloud_Devops20210625::Client::listRepositoriesWi
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->archived)) {
     query->insert(pair<string, bool>("archived", *request->archived));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minAccessLevel)) {
+    query->insert(pair<string, long>("minAccessLevel", *request->minAccessLevel));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
     query->insert(pair<string, string>("orderBy", *request->orderBy));
