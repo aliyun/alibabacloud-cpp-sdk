@@ -656,6 +656,52 @@ DescribeAccountDelegatedStatusResponse Alibabacloud_Waf-openapi20211001::Client:
   return describeAccountDelegatedStatusWithOptions(request, runtime);
 }
 
+DescribeCertsResponse Alibabacloud_Waf-openapi20211001::Client::describeCertsWithOptions(shared_ptr<DescribeCertsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->algorithm)) {
+    query->insert(pair<string, string>("Algorithm", *request->algorithm));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
+    query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCerts"))},
+    {"version", boost::any(string("2021-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCertsResponse(callApi(params, req, runtime));
+}
+
+DescribeCertsResponse Alibabacloud_Waf-openapi20211001::Client::describeCerts(shared_ptr<DescribeCertsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCertsWithOptions(request, runtime);
+}
+
 DescribeDefenseResourceGroupResponse Alibabacloud_Waf-openapi20211001::Client::describeDefenseResourceGroupWithOptions(shared_ptr<DescribeDefenseResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -964,6 +1010,43 @@ DescribeDefenseTemplatesResponse Alibabacloud_Waf-openapi20211001::Client::descr
 DescribeDefenseTemplatesResponse Alibabacloud_Waf-openapi20211001::Client::describeDefenseTemplates(shared_ptr<DescribeDefenseTemplatesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeDefenseTemplatesWithOptions(request, runtime);
+}
+
+DescribeDomainDNSRecordResponse Alibabacloud_Waf-openapi20211001::Client::describeDomainDNSRecordWithOptions(shared_ptr<DescribeDomainDNSRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
+    query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDomainDNSRecord"))},
+    {"version", boost::any(string("2021-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDomainDNSRecordResponse(callApi(params, req, runtime));
+}
+
+DescribeDomainDNSRecordResponse Alibabacloud_Waf-openapi20211001::Client::describeDomainDNSRecord(shared_ptr<DescribeDomainDNSRecordRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDomainDNSRecordWithOptions(request, runtime);
 }
 
 DescribeDomainDetailResponse Alibabacloud_Waf-openapi20211001::Client::describeDomainDetailWithOptions(shared_ptr<DescribeDomainDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1597,6 +1680,74 @@ DescribeResourcePortResponse Alibabacloud_Waf-openapi20211001::Client::describeR
 DescribeResourcePortResponse Alibabacloud_Waf-openapi20211001::Client::describeResourcePort(shared_ptr<DescribeResourcePortRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeResourcePortWithOptions(request, runtime);
+}
+
+DescribeResourceRegionIdResponse Alibabacloud_Waf-openapi20211001::Client::describeResourceRegionIdWithOptions(shared_ptr<DescribeResourceRegionIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
+    query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeResourceRegionId"))},
+    {"version", boost::any(string("2021-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeResourceRegionIdResponse(callApi(params, req, runtime));
+}
+
+DescribeResourceRegionIdResponse Alibabacloud_Waf-openapi20211001::Client::describeResourceRegionId(shared_ptr<DescribeResourceRegionIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeResourceRegionIdWithOptions(request, runtime);
+}
+
+DescribeResourceSupportRegionsResponse Alibabacloud_Waf-openapi20211001::Client::describeResourceSupportRegionsWithOptions(shared_ptr<DescribeResourceSupportRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
+    query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeResourceSupportRegions"))},
+    {"version", boost::any(string("2021-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeResourceSupportRegionsResponse(callApi(params, req, runtime));
+}
+
+DescribeResourceSupportRegionsResponse Alibabacloud_Waf-openapi20211001::Client::describeResourceSupportRegions(shared_ptr<DescribeResourceSupportRegionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeResourceSupportRegionsWithOptions(request, runtime);
 }
 
 DescribeResponseCodeTrendGraphResponse Alibabacloud_Waf-openapi20211001::Client::describeResponseCodeTrendGraphWithOptions(shared_ptr<DescribeResponseCodeTrendGraphRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2334,6 +2485,58 @@ ModifyDefenseResourceGroupResponse Alibabacloud_Waf-openapi20211001::Client::mod
   return modifyDefenseResourceGroupWithOptions(request, runtime);
 }
 
+ModifyDefenseResourceXffResponse Alibabacloud_Waf-openapi20211001::Client::modifyDefenseResourceXffWithOptions(shared_ptr<ModifyDefenseResourceXffRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->acwCookieStatus)) {
+    query->insert(pair<string, long>("AcwCookieStatus", *request->acwCookieStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->acwSecureStatus)) {
+    query->insert(pair<string, long>("AcwSecureStatus", *request->acwSecureStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->acwV3SecureStatus)) {
+    query->insert(pair<string, long>("AcwV3SecureStatus", *request->acwV3SecureStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->customHeaders)) {
+    query->insert(pair<string, vector<string>>("CustomHeaders", *request->customHeaders));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resource)) {
+    query->insert(pair<string, string>("Resource", *request->resource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
+    query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->xffStatus)) {
+    query->insert(pair<string, long>("XffStatus", *request->xffStatus));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyDefenseResourceXff"))},
+    {"version", boost::any(string("2021-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyDefenseResourceXffResponse(callApi(params, req, runtime));
+}
+
+ModifyDefenseResourceXffResponse Alibabacloud_Waf-openapi20211001::Client::modifyDefenseResourceXff(shared_ptr<ModifyDefenseResourceXffRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyDefenseResourceXffWithOptions(request, runtime);
+}
+
 ModifyDefenseRuleResponse Alibabacloud_Waf-openapi20211001::Client::modifyDefenseRuleWithOptions(shared_ptr<ModifyDefenseRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2375,6 +2578,46 @@ ModifyDefenseRuleResponse Alibabacloud_Waf-openapi20211001::Client::modifyDefens
 ModifyDefenseRuleResponse Alibabacloud_Waf-openapi20211001::Client::modifyDefenseRule(shared_ptr<ModifyDefenseRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyDefenseRuleWithOptions(request, runtime);
+}
+
+ModifyDefenseRuleCacheResponse Alibabacloud_Waf-openapi20211001::Client::modifyDefenseRuleCacheWithOptions(shared_ptr<ModifyDefenseRuleCacheRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
+    query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ruleId)) {
+    query->insert(pair<string, long>("RuleId", *request->ruleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->templateId)) {
+    query->insert(pair<string, long>("TemplateId", *request->templateId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyDefenseRuleCache"))},
+    {"version", boost::any(string("2021-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyDefenseRuleCacheResponse(callApi(params, req, runtime));
+}
+
+ModifyDefenseRuleCacheResponse Alibabacloud_Waf-openapi20211001::Client::modifyDefenseRuleCache(shared_ptr<ModifyDefenseRuleCacheRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyDefenseRuleCacheWithOptions(request, runtime);
 }
 
 ModifyDefenseRuleStatusResponse Alibabacloud_Waf-openapi20211001::Client::modifyDefenseRuleStatusWithOptions(shared_ptr<ModifyDefenseRuleStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
