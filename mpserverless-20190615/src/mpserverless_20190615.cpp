@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1385,37 +1384,6 @@ GetWebHostingUploadCredentialResponse Alibabacloud_MPServerless20190615::Client:
   return getWebHostingUploadCredentialWithOptions(request, runtime);
 }
 
-ListAvailableCertificatesResponse Alibabacloud_MPServerless20190615::Client::listAvailableCertificatesWithOptions(shared_ptr<ListAvailableCertificatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
-    body->insert(pair<string, string>("Domain", *request->domain));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->spaceId)) {
-    body->insert(pair<string, string>("SpaceId", *request->spaceId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListAvailableCertificates"))},
-    {"version", boost::any(string("2019-06-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListAvailableCertificatesResponse(callApi(params, req, runtime));
-}
-
-ListAvailableCertificatesResponse Alibabacloud_MPServerless20190615::Client::listAvailableCertificates(shared_ptr<ListAvailableCertificatesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listAvailableCertificatesWithOptions(request, runtime);
-}
-
 ListCorsDomainsResponse Alibabacloud_MPServerless20190615::Client::listCorsDomainsWithOptions(shared_ptr<ListCorsDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1824,11 +1792,11 @@ ModifyWebHostingConfigResponse Alibabacloud_MPServerless20190615::Client::modify
   if (!Darabonba_Util::Client::isUnset<string>(request->allowedIps)) {
     body->insert(pair<string, string>("AllowedIps", *request->allowedIps));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->errorHttpStatus)) {
+    body->insert(pair<string, string>("ErrorHttpStatus", *request->errorHttpStatus));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->errorPath)) {
     body->insert(pair<string, string>("ErrorPath", *request->errorPath));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->historyModePath)) {
-    body->insert(pair<string, string>("HistoryModePath", *request->historyModePath));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->indexPath)) {
     body->insert(pair<string, string>("IndexPath", *request->indexPath));
