@@ -566,6 +566,7 @@ public:
 };
 class SendMessageToGlobeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> channelId{};
   shared_ptr<string> from{};
   shared_ptr<string> message{};
   shared_ptr<string> taskId{};
@@ -582,6 +583,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
     if (from) {
       res["From"] = boost::any(*from);
     }
@@ -601,6 +605,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
     if (m.find("From") != m.end() && !m["From"].empty()) {
       from = make_shared<string>(boost::any_cast<string>(m["From"]));
     }
@@ -800,6 +807,7 @@ public:
 };
 class SendMessageWithTemplateRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> channelId{};
   shared_ptr<string> from{};
   shared_ptr<string> smsUpExtendCode{};
   shared_ptr<string> templateCode{};
@@ -817,6 +825,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
     if (from) {
       res["From"] = boost::any(*from);
     }
@@ -839,6 +850,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
     if (m.find("From") != m.end() && !m["From"].empty()) {
       from = make_shared<string>(boost::any_cast<string>(m["From"]));
     }
