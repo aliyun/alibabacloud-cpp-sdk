@@ -5,7 +5,6 @@
 
 #include <alibabacloud/open_api.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -60,17 +59,18 @@ public:
 class Body : public Darabonba::Model {
 public:
   shared_ptr<string> activity{};
+  shared_ptr<long> addBadge{};
   shared_ptr<string> afterOpen{};
-  shared_ptr<long> badge{};
   shared_ptr<long> builderId{};
   shared_ptr<string> custom{};
   shared_ptr<string> expandImage{};
   shared_ptr<string> icon{};
   shared_ptr<string> img{};
-  shared_ptr<string> largeIcon{};
   shared_ptr<bool> playLights{};
   shared_ptr<bool> playSound{};
   shared_ptr<bool> playVibrate{};
+  shared_ptr<long> rePop{};
+  shared_ptr<long> setBadge{};
   shared_ptr<string> sound{};
   shared_ptr<string> text{};
   shared_ptr<string> title{};
@@ -89,11 +89,11 @@ public:
     if (activity) {
       res["activity"] = boost::any(*activity);
     }
+    if (addBadge) {
+      res["addBadge"] = boost::any(*addBadge);
+    }
     if (afterOpen) {
       res["afterOpen"] = boost::any(*afterOpen);
-    }
-    if (badge) {
-      res["badge"] = boost::any(*badge);
     }
     if (builderId) {
       res["builderId"] = boost::any(*builderId);
@@ -110,9 +110,6 @@ public:
     if (img) {
       res["img"] = boost::any(*img);
     }
-    if (largeIcon) {
-      res["largeIcon"] = boost::any(*largeIcon);
-    }
     if (playLights) {
       res["playLights"] = boost::any(*playLights);
     }
@@ -121,6 +118,12 @@ public:
     }
     if (playVibrate) {
       res["playVibrate"] = boost::any(*playVibrate);
+    }
+    if (rePop) {
+      res["rePop"] = boost::any(*rePop);
+    }
+    if (setBadge) {
+      res["setBadge"] = boost::any(*setBadge);
     }
     if (sound) {
       res["sound"] = boost::any(*sound);
@@ -141,11 +144,11 @@ public:
     if (m.find("activity") != m.end() && !m["activity"].empty()) {
       activity = make_shared<string>(boost::any_cast<string>(m["activity"]));
     }
+    if (m.find("addBadge") != m.end() && !m["addBadge"].empty()) {
+      addBadge = make_shared<long>(boost::any_cast<long>(m["addBadge"]));
+    }
     if (m.find("afterOpen") != m.end() && !m["afterOpen"].empty()) {
       afterOpen = make_shared<string>(boost::any_cast<string>(m["afterOpen"]));
-    }
-    if (m.find("badge") != m.end() && !m["badge"].empty()) {
-      badge = make_shared<long>(boost::any_cast<long>(m["badge"]));
     }
     if (m.find("builderId") != m.end() && !m["builderId"].empty()) {
       builderId = make_shared<long>(boost::any_cast<long>(m["builderId"]));
@@ -162,9 +165,6 @@ public:
     if (m.find("img") != m.end() && !m["img"].empty()) {
       img = make_shared<string>(boost::any_cast<string>(m["img"]));
     }
-    if (m.find("largeIcon") != m.end() && !m["largeIcon"].empty()) {
-      largeIcon = make_shared<string>(boost::any_cast<string>(m["largeIcon"]));
-    }
     if (m.find("playLights") != m.end() && !m["playLights"].empty()) {
       playLights = make_shared<bool>(boost::any_cast<bool>(m["playLights"]));
     }
@@ -173,6 +173,12 @@ public:
     }
     if (m.find("playVibrate") != m.end() && !m["playVibrate"].empty()) {
       playVibrate = make_shared<bool>(boost::any_cast<bool>(m["playVibrate"]));
+    }
+    if (m.find("rePop") != m.end() && !m["rePop"].empty()) {
+      rePop = make_shared<long>(boost::any_cast<long>(m["rePop"]));
+    }
+    if (m.find("setBadge") != m.end() && !m["setBadge"].empty()) {
+      setBadge = make_shared<long>(boost::any_cast<long>(m["setBadge"]));
     }
     if (m.find("sound") != m.end() && !m["sound"].empty()) {
       sound = make_shared<string>(boost::any_cast<string>(m["sound"]));
@@ -246,11 +252,12 @@ public:
 class Aps : public Darabonba::Model {
 public:
   shared_ptr<Alert> alert{};
-  shared_ptr<long> badge{};
+  shared_ptr<string> badge{};
   shared_ptr<string> category{};
   shared_ptr<long> contentAvailable{};
   shared_ptr<string> interruptionLevel{};
   shared_ptr<string> sound{};
+  shared_ptr<string> threadID{};
 
   Aps() {}
 
@@ -280,6 +287,9 @@ public:
     if (sound) {
       res["sound"] = boost::any(*sound);
     }
+    if (threadID) {
+      res["threadID"] = boost::any(*threadID);
+    }
     return res;
   }
 
@@ -292,7 +302,7 @@ public:
       }
     }
     if (m.find("badge") != m.end() && !m["badge"].empty()) {
-      badge = make_shared<long>(boost::any_cast<long>(m["badge"]));
+      badge = make_shared<string>(boost::any_cast<string>(m["badge"]));
     }
     if (m.find("category") != m.end() && !m["category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["category"]));
@@ -306,6 +316,9 @@ public:
     if (m.find("sound") != m.end() && !m["sound"].empty()) {
       sound = make_shared<string>(boost::any_cast<string>(m["sound"]));
     }
+    if (m.find("threadID") != m.end() && !m["threadID"].empty()) {
+      threadID = make_shared<string>(boost::any_cast<string>(m["threadID"]));
+    }
   }
 
 
@@ -314,9 +327,12 @@ public:
 class ChannelProperties : public Darabonba::Model {
 public:
   shared_ptr<string> channelActivity{};
+  shared_ptr<string> channelFcm{};
+  shared_ptr<string> huaweiChannelCategory{};
+  shared_ptr<string> huaweiChannelImportance{};
   shared_ptr<string> mainActivity{};
   shared_ptr<string> oppoChannelId{};
-  shared_ptr<string> vivoClassification{};
+  shared_ptr<string> vivoCategory{};
   shared_ptr<string> xiaomiChannelId{};
 
   ChannelProperties() {}
@@ -332,14 +348,23 @@ public:
     if (channelActivity) {
       res["channelActivity"] = boost::any(*channelActivity);
     }
+    if (channelFcm) {
+      res["channelFcm"] = boost::any(*channelFcm);
+    }
+    if (huaweiChannelCategory) {
+      res["huaweiChannelCategory"] = boost::any(*huaweiChannelCategory);
+    }
+    if (huaweiChannelImportance) {
+      res["huaweiChannelImportance"] = boost::any(*huaweiChannelImportance);
+    }
     if (mainActivity) {
       res["mainActivity"] = boost::any(*mainActivity);
     }
     if (oppoChannelId) {
       res["oppoChannelId"] = boost::any(*oppoChannelId);
     }
-    if (vivoClassification) {
-      res["vivoClassification"] = boost::any(*vivoClassification);
+    if (vivoCategory) {
+      res["vivoCategory"] = boost::any(*vivoCategory);
     }
     if (xiaomiChannelId) {
       res["xiaomiChannelId"] = boost::any(*xiaomiChannelId);
@@ -351,14 +376,23 @@ public:
     if (m.find("channelActivity") != m.end() && !m["channelActivity"].empty()) {
       channelActivity = make_shared<string>(boost::any_cast<string>(m["channelActivity"]));
     }
+    if (m.find("channelFcm") != m.end() && !m["channelFcm"].empty()) {
+      channelFcm = make_shared<string>(boost::any_cast<string>(m["channelFcm"]));
+    }
+    if (m.find("huaweiChannelCategory") != m.end() && !m["huaweiChannelCategory"].empty()) {
+      huaweiChannelCategory = make_shared<string>(boost::any_cast<string>(m["huaweiChannelCategory"]));
+    }
+    if (m.find("huaweiChannelImportance") != m.end() && !m["huaweiChannelImportance"].empty()) {
+      huaweiChannelImportance = make_shared<string>(boost::any_cast<string>(m["huaweiChannelImportance"]));
+    }
     if (m.find("mainActivity") != m.end() && !m["mainActivity"].empty()) {
       mainActivity = make_shared<string>(boost::any_cast<string>(m["mainActivity"]));
     }
     if (m.find("oppoChannelId") != m.end() && !m["oppoChannelId"].empty()) {
       oppoChannelId = make_shared<string>(boost::any_cast<string>(m["oppoChannelId"]));
     }
-    if (m.find("vivoClassification") != m.end() && !m["vivoClassification"].empty()) {
-      vivoClassification = make_shared<string>(boost::any_cast<string>(m["vivoClassification"]));
+    if (m.find("vivoCategory") != m.end() && !m["vivoCategory"].empty()) {
+      vivoCategory = make_shared<string>(boost::any_cast<string>(m["vivoCategory"]));
     }
     if (m.find("xiaomiChannelId") != m.end() && !m["xiaomiChannelId"].empty()) {
       xiaomiChannelId = make_shared<string>(boost::any_cast<string>(m["xiaomiChannelId"]));
@@ -601,17 +635,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -838,17 +862,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -900,6 +914,7 @@ public:
   shared_ptr<bool> productionMode{};
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
+  shared_ptr<string> thirdPartyId{};
 
   SendByAliasRequest() {}
 
@@ -940,6 +955,9 @@ public:
     }
     if (receiptUrl) {
       res["ReceiptUrl"] = boost::any(*receiptUrl);
+    }
+    if (thirdPartyId) {
+      res["ThirdPartyId"] = boost::any(*thirdPartyId);
     }
     return res;
   }
@@ -991,6 +1009,9 @@ public:
     if (m.find("ReceiptUrl") != m.end() && !m["ReceiptUrl"].empty()) {
       receiptUrl = make_shared<string>(boost::any_cast<string>(m["ReceiptUrl"]));
     }
+    if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
+      thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
+    }
   }
 
 
@@ -1008,6 +1029,7 @@ public:
   shared_ptr<bool> productionMode{};
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
+  shared_ptr<string> thirdPartyId{};
 
   SendByAliasShrinkRequest() {}
 
@@ -1049,6 +1071,9 @@ public:
     if (receiptUrl) {
       res["ReceiptUrl"] = boost::any(*receiptUrl);
     }
+    if (thirdPartyId) {
+      res["ThirdPartyId"] = boost::any(*thirdPartyId);
+    }
     return res;
   }
 
@@ -1082,6 +1107,9 @@ public:
     }
     if (m.find("ReceiptUrl") != m.end() && !m["ReceiptUrl"].empty()) {
       receiptUrl = make_shared<string>(boost::any_cast<string>(m["ReceiptUrl"]));
+    }
+    if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
+      thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
     }
   }
 
@@ -1197,17 +1225,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1556,17 +1574,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1887,17 +1895,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1948,6 +1946,7 @@ public:
   shared_ptr<bool> productionMode{};
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
+  shared_ptr<string> thirdPartyId{};
 
   SendByDeviceRequest() {}
 
@@ -1985,6 +1984,9 @@ public:
     }
     if (receiptUrl) {
       res["ReceiptUrl"] = boost::any(*receiptUrl);
+    }
+    if (thirdPartyId) {
+      res["ThirdPartyId"] = boost::any(*thirdPartyId);
     }
     return res;
   }
@@ -2033,6 +2035,9 @@ public:
     if (m.find("ReceiptUrl") != m.end() && !m["ReceiptUrl"].empty()) {
       receiptUrl = make_shared<string>(boost::any_cast<string>(m["ReceiptUrl"]));
     }
+    if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
+      thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
+    }
   }
 
 
@@ -2049,6 +2054,7 @@ public:
   shared_ptr<bool> productionMode{};
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
+  shared_ptr<string> thirdPartyId{};
 
   SendByDeviceShrinkRequest() {}
 
@@ -2087,6 +2093,9 @@ public:
     if (receiptUrl) {
       res["ReceiptUrl"] = boost::any(*receiptUrl);
     }
+    if (thirdPartyId) {
+      res["ThirdPartyId"] = boost::any(*thirdPartyId);
+    }
     return res;
   }
 
@@ -2117,6 +2126,9 @@ public:
     }
     if (m.find("ReceiptUrl") != m.end() && !m["ReceiptUrl"].empty()) {
       receiptUrl = make_shared<string>(boost::any_cast<string>(m["ReceiptUrl"]));
+    }
+    if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
+      thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
     }
   }
 
@@ -2232,17 +2244,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2577,17 +2579,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2922,17 +2914,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3110,17 +3092,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3170,24 +3142,24 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  CancelByMsgIdResponse cancelByMsgId(shared_ptr<CancelByMsgIdRequest> request);
   CancelByMsgIdResponse cancelByMsgIdWithOptions(shared_ptr<CancelByMsgIdRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  QueryMsgStatResponse queryMsgStat(shared_ptr<QueryMsgStatRequest> request);
+  CancelByMsgIdResponse cancelByMsgId(shared_ptr<CancelByMsgIdRequest> request);
   QueryMsgStatResponse queryMsgStatWithOptions(shared_ptr<QueryMsgStatRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SendByAliasResponse sendByAlias(shared_ptr<SendByAliasRequest> request);
+  QueryMsgStatResponse queryMsgStat(shared_ptr<QueryMsgStatRequest> request);
   SendByAliasResponse sendByAliasWithOptions(shared_ptr<SendByAliasRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SendByAliasFileIdResponse sendByAliasFileId(shared_ptr<SendByAliasFileIdRequest> request);
+  SendByAliasResponse sendByAlias(shared_ptr<SendByAliasRequest> request);
   SendByAliasFileIdResponse sendByAliasFileIdWithOptions(shared_ptr<SendByAliasFileIdRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SendByAppResponse sendByApp(shared_ptr<SendByAppRequest> request);
+  SendByAliasFileIdResponse sendByAliasFileId(shared_ptr<SendByAliasFileIdRequest> request);
   SendByAppResponse sendByAppWithOptions(shared_ptr<SendByAppRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SendByDeviceResponse sendByDevice(shared_ptr<SendByDeviceRequest> request);
+  SendByAppResponse sendByApp(shared_ptr<SendByAppRequest> request);
   SendByDeviceResponse sendByDeviceWithOptions(shared_ptr<SendByDeviceRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SendByDeviceFileIdResponse sendByDeviceFileId(shared_ptr<SendByDeviceFileIdRequest> request);
+  SendByDeviceResponse sendByDevice(shared_ptr<SendByDeviceRequest> request);
   SendByDeviceFileIdResponse sendByDeviceFileIdWithOptions(shared_ptr<SendByDeviceFileIdRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SendByFilterResponse sendByFilter(shared_ptr<SendByFilterRequest> request);
+  SendByDeviceFileIdResponse sendByDeviceFileId(shared_ptr<SendByDeviceFileIdRequest> request);
   SendByFilterResponse sendByFilterWithOptions(shared_ptr<SendByFilterRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UploadDeviceResponse uploadDevice(shared_ptr<UploadDeviceRequest> request);
+  SendByFilterResponse sendByFilter(shared_ptr<SendByFilterRequest> request);
   UploadDeviceResponse uploadDeviceWithOptions(shared_ptr<UploadDeviceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UploadDeviceResponse uploadDevice(shared_ptr<UploadDeviceRequest> request);
 
   virtual ~Client() = default;
 };

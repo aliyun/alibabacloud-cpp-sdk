@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -37,12 +36,6 @@ string Alibabacloud_Umeng-push20220225::Client::getEndpoint(shared_ptr<string> p
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-CancelByMsgIdResponse Alibabacloud_Umeng-push20220225::Client::cancelByMsgId(shared_ptr<CancelByMsgIdRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return cancelByMsgIdWithOptions(request, headers, runtime);
-}
-
 CancelByMsgIdResponse Alibabacloud_Umeng-push20220225::Client::cancelByMsgIdWithOptions(shared_ptr<CancelByMsgIdRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -67,10 +60,10 @@ CancelByMsgIdResponse Alibabacloud_Umeng-push20220225::Client::cancelByMsgIdWith
   return CancelByMsgIdResponse(callApi(params, req, runtime));
 }
 
-QueryMsgStatResponse Alibabacloud_Umeng-push20220225::Client::queryMsgStat(shared_ptr<QueryMsgStatRequest> request) {
+CancelByMsgIdResponse Alibabacloud_Umeng-push20220225::Client::cancelByMsgId(shared_ptr<CancelByMsgIdRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return queryMsgStatWithOptions(request, headers, runtime);
+  return cancelByMsgIdWithOptions(request, headers, runtime);
 }
 
 QueryMsgStatResponse Alibabacloud_Umeng-push20220225::Client::queryMsgStatWithOptions(shared_ptr<QueryMsgStatRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -97,10 +90,10 @@ QueryMsgStatResponse Alibabacloud_Umeng-push20220225::Client::queryMsgStatWithOp
   return QueryMsgStatResponse(callApi(params, req, runtime));
 }
 
-SendByAliasResponse Alibabacloud_Umeng-push20220225::Client::sendByAlias(shared_ptr<SendByAliasRequest> request) {
+QueryMsgStatResponse Alibabacloud_Umeng-push20220225::Client::queryMsgStat(shared_ptr<QueryMsgStatRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return sendByAliasWithOptions(request, headers, runtime);
+  return queryMsgStatWithOptions(request, headers, runtime);
 }
 
 SendByAliasResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasWithOptions(shared_ptr<SendByAliasRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -108,16 +101,16 @@ SendByAliasResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasWithOpti
   shared_ptr<SendByAliasShrinkRequest> request = make_shared<SendByAliasShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<AndroidPayload>(tmpReq->androidPayload)) {
-    request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->androidPayload->toMap()), make_shared<string>("AndroidPayload"), make_shared<string>("json")));
+    request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidPayload, make_shared<string>("AndroidPayload"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
-    request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->channelProperties->toMap()), make_shared<string>("ChannelProperties"), make_shared<string>("json")));
+    request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<IosPayload>(tmpReq->iosPayload)) {
-    request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->iosPayload->toMap()), make_shared<string>("IosPayload"), make_shared<string>("json")));
+    request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->iosPayload, make_shared<string>("IosPayload"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<Policy>(tmpReq->policy)) {
-    request->policyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->policy->toMap()), make_shared<string>("Policy"), make_shared<string>("json")));
+    request->policyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->policy, make_shared<string>("Policy"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->alias)) {
@@ -150,6 +143,9 @@ SendByAliasResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasWithOpti
   if (!Darabonba_Util::Client::isUnset<string>(request->receiptUrl)) {
     body->insert(pair<string, string>("ReceiptUrl", *request->receiptUrl));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->thirdPartyId)) {
+    body->insert(pair<string, string>("ThirdPartyId", *request->thirdPartyId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -168,10 +164,10 @@ SendByAliasResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasWithOpti
   return SendByAliasResponse(callApi(params, req, runtime));
 }
 
-SendByAliasFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasFileId(shared_ptr<SendByAliasFileIdRequest> request) {
+SendByAliasResponse Alibabacloud_Umeng-push20220225::Client::sendByAlias(shared_ptr<SendByAliasRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return sendByAliasFileIdWithOptions(request, headers, runtime);
+  return sendByAliasWithOptions(request, headers, runtime);
 }
 
 SendByAliasFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasFileIdWithOptions(shared_ptr<SendByAliasFileIdRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -179,16 +175,16 @@ SendByAliasFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasFi
   shared_ptr<SendByAliasFileIdShrinkRequest> request = make_shared<SendByAliasFileIdShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<AndroidPayload>(tmpReq->androidPayload)) {
-    request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->androidPayload->toMap()), make_shared<string>("AndroidPayload"), make_shared<string>("json")));
+    request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidPayload, make_shared<string>("AndroidPayload"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
-    request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->channelProperties->toMap()), make_shared<string>("ChannelProperties"), make_shared<string>("json")));
+    request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<IosPayload>(tmpReq->iosPayload)) {
-    request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->iosPayload->toMap()), make_shared<string>("IosPayload"), make_shared<string>("json")));
+    request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->iosPayload, make_shared<string>("IosPayload"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<Policy>(tmpReq->policy)) {
-    request->policyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->policy->toMap()), make_shared<string>("Policy"), make_shared<string>("json")));
+    request->policyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->policy, make_shared<string>("Policy"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aliasType)) {
@@ -239,10 +235,10 @@ SendByAliasFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasFi
   return SendByAliasFileIdResponse(callApi(params, req, runtime));
 }
 
-SendByAppResponse Alibabacloud_Umeng-push20220225::Client::sendByApp(shared_ptr<SendByAppRequest> request) {
+SendByAliasFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByAliasFileId(shared_ptr<SendByAliasFileIdRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return sendByAppWithOptions(request, headers, runtime);
+  return sendByAliasFileIdWithOptions(request, headers, runtime);
 }
 
 SendByAppResponse Alibabacloud_Umeng-push20220225::Client::sendByAppWithOptions(shared_ptr<SendByAppRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -250,16 +246,16 @@ SendByAppResponse Alibabacloud_Umeng-push20220225::Client::sendByAppWithOptions(
   shared_ptr<SendByAppShrinkRequest> request = make_shared<SendByAppShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<AndroidPayload>(tmpReq->androidPayload)) {
-    request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->androidPayload->toMap()), make_shared<string>("AndroidPayload"), make_shared<string>("json")));
+    request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidPayload, make_shared<string>("AndroidPayload"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
-    request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->channelProperties->toMap()), make_shared<string>("ChannelProperties"), make_shared<string>("json")));
+    request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<IosPayload>(tmpReq->iosPayload)) {
-    request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->iosPayload->toMap()), make_shared<string>("IosPayload"), make_shared<string>("json")));
+    request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->iosPayload, make_shared<string>("IosPayload"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<Policy>(tmpReq->policy)) {
-    request->policyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->policy->toMap()), make_shared<string>("Policy"), make_shared<string>("json")));
+    request->policyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->policy, make_shared<string>("Policy"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->androidPayloadShrink)) {
@@ -304,10 +300,10 @@ SendByAppResponse Alibabacloud_Umeng-push20220225::Client::sendByAppWithOptions(
   return SendByAppResponse(callApi(params, req, runtime));
 }
 
-SendByDeviceResponse Alibabacloud_Umeng-push20220225::Client::sendByDevice(shared_ptr<SendByDeviceRequest> request) {
+SendByAppResponse Alibabacloud_Umeng-push20220225::Client::sendByApp(shared_ptr<SendByAppRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return sendByDeviceWithOptions(request, headers, runtime);
+  return sendByAppWithOptions(request, headers, runtime);
 }
 
 SendByDeviceResponse Alibabacloud_Umeng-push20220225::Client::sendByDeviceWithOptions(shared_ptr<SendByDeviceRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -315,16 +311,16 @@ SendByDeviceResponse Alibabacloud_Umeng-push20220225::Client::sendByDeviceWithOp
   shared_ptr<SendByDeviceShrinkRequest> request = make_shared<SendByDeviceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<AndroidPayload>(tmpReq->androidPayload)) {
-    request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->androidPayload->toMap()), make_shared<string>("AndroidPayload"), make_shared<string>("json")));
+    request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidPayload, make_shared<string>("AndroidPayload"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
-    request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->channelProperties->toMap()), make_shared<string>("ChannelProperties"), make_shared<string>("json")));
+    request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<IosPayload>(tmpReq->iosPayload)) {
-    request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->iosPayload->toMap()), make_shared<string>("IosPayload"), make_shared<string>("json")));
+    request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->iosPayload, make_shared<string>("IosPayload"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<Policy>(tmpReq->policy)) {
-    request->policyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->policy->toMap()), make_shared<string>("Policy"), make_shared<string>("json")));
+    request->policyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->policy, make_shared<string>("Policy"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->androidPayloadShrink)) {
@@ -354,6 +350,9 @@ SendByDeviceResponse Alibabacloud_Umeng-push20220225::Client::sendByDeviceWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->receiptUrl)) {
     body->insert(pair<string, string>("ReceiptUrl", *request->receiptUrl));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->thirdPartyId)) {
+    body->insert(pair<string, string>("ThirdPartyId", *request->thirdPartyId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -372,10 +371,10 @@ SendByDeviceResponse Alibabacloud_Umeng-push20220225::Client::sendByDeviceWithOp
   return SendByDeviceResponse(callApi(params, req, runtime));
 }
 
-SendByDeviceFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByDeviceFileId(shared_ptr<SendByDeviceFileIdRequest> request) {
+SendByDeviceResponse Alibabacloud_Umeng-push20220225::Client::sendByDevice(shared_ptr<SendByDeviceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return sendByDeviceFileIdWithOptions(request, headers, runtime);
+  return sendByDeviceWithOptions(request, headers, runtime);
 }
 
 SendByDeviceFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByDeviceFileIdWithOptions(shared_ptr<SendByDeviceFileIdRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -383,16 +382,16 @@ SendByDeviceFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByDevice
   shared_ptr<SendByDeviceFileIdShrinkRequest> request = make_shared<SendByDeviceFileIdShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<AndroidPayload>(tmpReq->androidPayload)) {
-    request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->androidPayload->toMap()), make_shared<string>("AndroidPayload"), make_shared<string>("json")));
+    request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidPayload, make_shared<string>("AndroidPayload"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
-    request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->channelProperties->toMap()), make_shared<string>("ChannelProperties"), make_shared<string>("json")));
+    request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<IosPayload>(tmpReq->iosPayload)) {
-    request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->iosPayload->toMap()), make_shared<string>("IosPayload"), make_shared<string>("json")));
+    request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->iosPayload, make_shared<string>("IosPayload"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<Policy>(tmpReq->policy)) {
-    request->policyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->policy->toMap()), make_shared<string>("Policy"), make_shared<string>("json")));
+    request->policyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->policy, make_shared<string>("Policy"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->androidPayloadShrink)) {
@@ -440,10 +439,10 @@ SendByDeviceFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByDevice
   return SendByDeviceFileIdResponse(callApi(params, req, runtime));
 }
 
-SendByFilterResponse Alibabacloud_Umeng-push20220225::Client::sendByFilter(shared_ptr<SendByFilterRequest> request) {
+SendByDeviceFileIdResponse Alibabacloud_Umeng-push20220225::Client::sendByDeviceFileId(shared_ptr<SendByDeviceFileIdRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return sendByFilterWithOptions(request, headers, runtime);
+  return sendByDeviceFileIdWithOptions(request, headers, runtime);
 }
 
 SendByFilterResponse Alibabacloud_Umeng-push20220225::Client::sendByFilterWithOptions(shared_ptr<SendByFilterRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -451,16 +450,16 @@ SendByFilterResponse Alibabacloud_Umeng-push20220225::Client::sendByFilterWithOp
   shared_ptr<SendByFilterShrinkRequest> request = make_shared<SendByFilterShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<AndroidPayload>(tmpReq->androidPayload)) {
-    request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->androidPayload->toMap()), make_shared<string>("AndroidPayload"), make_shared<string>("json")));
+    request->androidPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->androidPayload, make_shared<string>("AndroidPayload"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<ChannelProperties>(tmpReq->channelProperties)) {
-    request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->channelProperties->toMap()), make_shared<string>("ChannelProperties"), make_shared<string>("json")));
+    request->channelPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->channelProperties, make_shared<string>("ChannelProperties"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<IosPayload>(tmpReq->iosPayload)) {
-    request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->iosPayload->toMap()), make_shared<string>("IosPayload"), make_shared<string>("json")));
+    request->iosPayloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->iosPayload, make_shared<string>("IosPayload"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<Policy>(tmpReq->policy)) {
-    request->policyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->policy->toMap()), make_shared<string>("Policy"), make_shared<string>("json")));
+    request->policyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->policy, make_shared<string>("Policy"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->androidPayloadShrink)) {
@@ -508,10 +507,10 @@ SendByFilterResponse Alibabacloud_Umeng-push20220225::Client::sendByFilterWithOp
   return SendByFilterResponse(callApi(params, req, runtime));
 }
 
-UploadDeviceResponse Alibabacloud_Umeng-push20220225::Client::uploadDevice(shared_ptr<UploadDeviceRequest> request) {
+SendByFilterResponse Alibabacloud_Umeng-push20220225::Client::sendByFilter(shared_ptr<SendByFilterRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return uploadDeviceWithOptions(request, headers, runtime);
+  return sendByFilterWithOptions(request, headers, runtime);
 }
 
 UploadDeviceResponse Alibabacloud_Umeng-push20220225::Client::uploadDeviceWithOptions(shared_ptr<UploadDeviceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -536,5 +535,11 @@ UploadDeviceResponse Alibabacloud_Umeng-push20220225::Client::uploadDeviceWithOp
     {"bodyType", boost::any(string("json"))}
   }));
   return UploadDeviceResponse(callApi(params, req, runtime));
+}
+
+UploadDeviceResponse Alibabacloud_Umeng-push20220225::Client::uploadDevice(shared_ptr<UploadDeviceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return uploadDeviceWithOptions(request, headers, runtime);
 }
 
