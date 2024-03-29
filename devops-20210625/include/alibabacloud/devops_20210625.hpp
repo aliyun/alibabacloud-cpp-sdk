@@ -34779,6 +34779,7 @@ public:
 class ListJoinedOrganizationsResponseBodyOrganizations : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
+  shared_ptr<bool> isOrgAdmin{};
   shared_ptr<string> name{};
 
   ListJoinedOrganizationsResponseBodyOrganizations() {}
@@ -34794,6 +34795,9 @@ public:
     if (id) {
       res["id"] = boost::any(*id);
     }
+    if (isOrgAdmin) {
+      res["isOrgAdmin"] = boost::any(*isOrgAdmin);
+    }
     if (name) {
       res["name"] = boost::any(*name);
     }
@@ -34803,6 +34807,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("id") != m.end() && !m["id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("isOrgAdmin") != m.end() && !m["isOrgAdmin"].empty()) {
+      isOrgAdmin = make_shared<bool>(boost::any_cast<bool>(m["isOrgAdmin"]));
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
