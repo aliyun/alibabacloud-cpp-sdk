@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -36,6 +35,97 @@ string Alibabacloud_DFS20180620::Client::getEndpoint(shared_ptr<string> productI
     return (*endpointMap)[regionId];
   }
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
+}
+
+AttachVscMountPointResponse Alibabacloud_DFS20180620::Client::attachVscMountPointWithOptions(shared_ptr<AttachVscMountPointRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AttachVscMountPointShrinkRequest> request = make_shared<AttachVscMountPointShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->instanceIds)) {
+    request->instanceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceIds, make_shared<string>("InstanceIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->vscIds)) {
+    request->vscIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vscIds, make_shared<string>("VscIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
+    query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputRegionId)) {
+    query->insert(pair<string, string>("InputRegionId", *request->inputRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceIdsShrink)) {
+    query->insert(pair<string, string>("InstanceIds", *request->instanceIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mountPointId)) {
+    query->insert(pair<string, string>("MountPointId", *request->mountPointId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vscIdsShrink)) {
+    query->insert(pair<string, string>("VscIds", *request->vscIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vscType)) {
+    query->insert(pair<string, string>("VscType", *request->vscType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AttachVscMountPoint"))},
+    {"version", boost::any(string("2018-06-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AttachVscMountPointResponse(callApi(params, req, runtime));
+}
+
+AttachVscMountPointResponse Alibabacloud_DFS20180620::Client::attachVscMountPoint(shared_ptr<AttachVscMountPointRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return attachVscMountPointWithOptions(request, runtime);
+}
+
+BindVscMountPointAliasResponse Alibabacloud_DFS20180620::Client::bindVscMountPointAliasWithOptions(shared_ptr<BindVscMountPointAliasRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliasPrefix)) {
+    query->insert(pair<string, string>("AliasPrefix", *request->aliasPrefix));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
+    query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputRegionId)) {
+    query->insert(pair<string, string>("InputRegionId", *request->inputRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mountPointId)) {
+    query->insert(pair<string, string>("MountPointId", *request->mountPointId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BindVscMountPointAlias"))},
+    {"version", boost::any(string("2018-06-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BindVscMountPointAliasResponse(callApi(params, req, runtime));
+}
+
+BindVscMountPointAliasResponse Alibabacloud_DFS20180620::Client::bindVscMountPointAlias(shared_ptr<BindVscMountPointAliasRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return bindVscMountPointAliasWithOptions(request, runtime);
 }
 
 CreateAccessGroupResponse Alibabacloud_DFS20180620::Client::createAccessGroupWithOptions(shared_ptr<CreateAccessGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -229,7 +319,7 @@ CreateUserGroupsMappingResponse Alibabacloud_DFS20180620::Client::createUserGrou
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateUserGroupsMappingShrinkRequest> request = make_shared<CreateUserGroupsMappingShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->groupNames)) {
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->groupNames)) {
     request->groupNamesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->groupNames, make_shared<string>("GroupNames"), make_shared<string>("json")));
   }
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -253,6 +343,48 @@ CreateUserGroupsMappingResponse Alibabacloud_DFS20180620::Client::createUserGrou
 CreateUserGroupsMappingResponse Alibabacloud_DFS20180620::Client::createUserGroupsMapping(shared_ptr<CreateUserGroupsMappingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createUserGroupsMappingWithOptions(request, runtime);
+}
+
+CreateVscMountPointResponse Alibabacloud_DFS20180620::Client::createVscMountPointWithOptions(shared_ptr<CreateVscMountPointRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateVscMountPointShrinkRequest> request = make_shared<CreateVscMountPointShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->instanceIds)) {
+    request->instanceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceIds, make_shared<string>("InstanceIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
+    query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputRegionId)) {
+    query->insert(pair<string, string>("InputRegionId", *request->inputRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceIdsShrink)) {
+    query->insert(pair<string, string>("InstanceIds", *request->instanceIdsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateVscMountPoint"))},
+    {"version", boost::any(string("2018-06-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateVscMountPointResponse(callApi(params, req, runtime));
+}
+
+CreateVscMountPointResponse Alibabacloud_DFS20180620::Client::createVscMountPoint(shared_ptr<CreateVscMountPointRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createVscMountPointWithOptions(request, runtime);
 }
 
 DeleteAccessGroupResponse Alibabacloud_DFS20180620::Client::deleteAccessGroupWithOptions(shared_ptr<DeleteAccessGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -415,6 +547,40 @@ DeleteUserGroupsMappingResponse Alibabacloud_DFS20180620::Client::deleteUserGrou
   return deleteUserGroupsMappingWithOptions(request, runtime);
 }
 
+DeleteVscMountPointResponse Alibabacloud_DFS20180620::Client::deleteVscMountPointWithOptions(shared_ptr<DeleteVscMountPointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
+    query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputRegionId)) {
+    query->insert(pair<string, string>("InputRegionId", *request->inputRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mountPointId)) {
+    query->insert(pair<string, string>("MountPointId", *request->mountPointId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteVscMountPoint"))},
+    {"version", boost::any(string("2018-06-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteVscMountPointResponse(callApi(params, req, runtime));
+}
+
+DeleteVscMountPointResponse Alibabacloud_DFS20180620::Client::deleteVscMountPoint(shared_ptr<DeleteVscMountPointRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteVscMountPointWithOptions(request, runtime);
+}
+
 DescribeRegionsResponse Alibabacloud_DFS20180620::Client::describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -444,6 +610,100 @@ DescribeRegionsResponse Alibabacloud_DFS20180620::Client::describeRegionsWithOpt
 DescribeRegionsResponse Alibabacloud_DFS20180620::Client::describeRegions(shared_ptr<DescribeRegionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeRegionsWithOptions(request, runtime);
+}
+
+DescribeVscMountPointsResponse Alibabacloud_DFS20180620::Client::describeVscMountPointsWithOptions(shared_ptr<DescribeVscMountPointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
+    query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputRegionId)) {
+    query->insert(pair<string, string>("InputRegionId", *request->inputRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mountPointId)) {
+    query->insert(pair<string, string>("MountPointId", *request->mountPointId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vscId)) {
+    query->insert(pair<string, string>("VscId", *request->vscId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeVscMountPoints"))},
+    {"version", boost::any(string("2018-06-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeVscMountPointsResponse(callApi(params, req, runtime));
+}
+
+DescribeVscMountPointsResponse Alibabacloud_DFS20180620::Client::describeVscMountPoints(shared_ptr<DescribeVscMountPointsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeVscMountPointsWithOptions(request, runtime);
+}
+
+DetachVscMountPointResponse Alibabacloud_DFS20180620::Client::detachVscMountPointWithOptions(shared_ptr<DetachVscMountPointRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DetachVscMountPointShrinkRequest> request = make_shared<DetachVscMountPointShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->instanceIds)) {
+    request->instanceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceIds, make_shared<string>("InstanceIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->vscIds)) {
+    request->vscIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vscIds, make_shared<string>("VscIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
+    query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputRegionId)) {
+    query->insert(pair<string, string>("InputRegionId", *request->inputRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceIdsShrink)) {
+    query->insert(pair<string, string>("InstanceIds", *request->instanceIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mountPointId)) {
+    query->insert(pair<string, string>("MountPointId", *request->mountPointId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vscIdsShrink)) {
+    query->insert(pair<string, string>("VscIds", *request->vscIdsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DetachVscMountPoint"))},
+    {"version", boost::any(string("2018-06-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DetachVscMountPointResponse(callApi(params, req, runtime));
+}
+
+DetachVscMountPointResponse Alibabacloud_DFS20180620::Client::detachVscMountPoint(shared_ptr<DetachVscMountPointRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return detachVscMountPointWithOptions(request, runtime);
 }
 
 GetAccessGroupResponse Alibabacloud_DFS20180620::Client::getAccessGroupWithOptions(shared_ptr<GetAccessGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
