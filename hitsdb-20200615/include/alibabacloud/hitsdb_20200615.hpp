@@ -3605,7 +3605,10 @@ public:
   shared_ptr<long> createMilliseconds{};
   shared_ptr<string> createTime{};
   shared_ptr<bool> enableCompute{};
+  shared_ptr<bool> enableLts{};
+  shared_ptr<bool> enableMessage{};
   shared_ptr<bool> enableStream{};
+  shared_ptr<bool> enableVector{};
   shared_ptr<string> engineType{};
   shared_ptr<string> expireTime{};
   shared_ptr<long> expiredMilliseconds{};
@@ -3644,8 +3647,17 @@ public:
     if (enableCompute) {
       res["EnableCompute"] = boost::any(*enableCompute);
     }
+    if (enableLts) {
+      res["EnableLts"] = boost::any(*enableLts);
+    }
+    if (enableMessage) {
+      res["EnableMessage"] = boost::any(*enableMessage);
+    }
     if (enableStream) {
       res["EnableStream"] = boost::any(*enableStream);
+    }
+    if (enableVector) {
+      res["EnableVector"] = boost::any(*enableVector);
     }
     if (engineType) {
       res["EngineType"] = boost::any(*engineType);
@@ -3712,8 +3724,17 @@ public:
     if (m.find("EnableCompute") != m.end() && !m["EnableCompute"].empty()) {
       enableCompute = make_shared<bool>(boost::any_cast<bool>(m["EnableCompute"]));
     }
+    if (m.find("EnableLts") != m.end() && !m["EnableLts"].empty()) {
+      enableLts = make_shared<bool>(boost::any_cast<bool>(m["EnableLts"]));
+    }
+    if (m.find("EnableMessage") != m.end() && !m["EnableMessage"].empty()) {
+      enableMessage = make_shared<bool>(boost::any_cast<bool>(m["EnableMessage"]));
+    }
     if (m.find("EnableStream") != m.end() && !m["EnableStream"].empty()) {
       enableStream = make_shared<bool>(boost::any_cast<bool>(m["EnableStream"]));
+    }
+    if (m.find("EnableVector") != m.end() && !m["EnableVector"].empty()) {
+      enableVector = make_shared<bool>(boost::any_cast<bool>(m["EnableVector"]));
     }
     if (m.find("EngineType") != m.end() && !m["EngineType"].empty()) {
       engineType = make_shared<string>(boost::any_cast<string>(m["EngineType"]));
