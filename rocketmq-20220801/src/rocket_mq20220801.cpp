@@ -727,6 +727,9 @@ UpdateInstanceResponse Alibabacloud_RocketMQ20220801::Client::updateInstanceWith
                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<UpdateInstanceRequestAclInfo>(request->aclInfo)) {
+    body->insert(pair<string, UpdateInstanceRequestAclInfo>("aclInfo", *request->aclInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     body->insert(pair<string, string>("instanceName", *request->instanceName));
   }

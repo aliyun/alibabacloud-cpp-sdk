@@ -1741,6 +1741,8 @@ public:
 class GetInstanceResponseBodyDataAclInfo : public Darabonba::Model {
 public:
   shared_ptr<string> aclType{};
+  shared_ptr<vector<string>> aclTypes{};
+  shared_ptr<bool> defaultVpcAuthFree{};
 
   GetInstanceResponseBodyDataAclInfo() {}
 
@@ -1755,12 +1757,31 @@ public:
     if (aclType) {
       res["aclType"] = boost::any(*aclType);
     }
+    if (aclTypes) {
+      res["aclTypes"] = boost::any(*aclTypes);
+    }
+    if (defaultVpcAuthFree) {
+      res["defaultVpcAuthFree"] = boost::any(*defaultVpcAuthFree);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("aclType") != m.end() && !m["aclType"].empty()) {
       aclType = make_shared<string>(boost::any_cast<string>(m["aclType"]));
+    }
+    if (m.find("aclTypes") != m.end() && !m["aclTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["aclTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["aclTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      aclTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("defaultVpcAuthFree") != m.end() && !m["defaultVpcAuthFree"].empty()) {
+      defaultVpcAuthFree = make_shared<bool>(boost::any_cast<bool>(m["defaultVpcAuthFree"]));
     }
   }
 
@@ -5601,6 +5622,49 @@ public:
 
   virtual ~UpdateConsumerGroupResponse() = default;
 };
+class UpdateInstanceRequestAclInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> aclTypes{};
+  shared_ptr<bool> defaultVpcAuthFree{};
+
+  UpdateInstanceRequestAclInfo() {}
+
+  explicit UpdateInstanceRequestAclInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclTypes) {
+      res["aclTypes"] = boost::any(*aclTypes);
+    }
+    if (defaultVpcAuthFree) {
+      res["defaultVpcAuthFree"] = boost::any(*defaultVpcAuthFree);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aclTypes") != m.end() && !m["aclTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["aclTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["aclTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      aclTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("defaultVpcAuthFree") != m.end() && !m["defaultVpcAuthFree"].empty()) {
+      defaultVpcAuthFree = make_shared<bool>(boost::any_cast<bool>(m["defaultVpcAuthFree"]));
+    }
+  }
+
+
+  virtual ~UpdateInstanceRequestAclInfo() = default;
+};
 class UpdateInstanceRequestNetworkInfoInternetInfo : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> ipWhitelist{};
@@ -5722,6 +5786,7 @@ public:
 };
 class UpdateInstanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<UpdateInstanceRequestAclInfo> aclInfo{};
   shared_ptr<string> instanceName{};
   shared_ptr<UpdateInstanceRequestNetworkInfo> networkInfo{};
   shared_ptr<UpdateInstanceRequestProductInfo> productInfo{};
@@ -5737,6 +5802,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aclInfo) {
+      res["aclInfo"] = aclInfo ? boost::any(aclInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (instanceName) {
       res["instanceName"] = boost::any(*instanceName);
     }
@@ -5753,6 +5821,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("aclInfo") != m.end() && !m["aclInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["aclInfo"].type()) {
+        UpdateInstanceRequestAclInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["aclInfo"]));
+        aclInfo = make_shared<UpdateInstanceRequestAclInfo>(model1);
+      }
+    }
     if (m.find("instanceName") != m.end() && !m["instanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["instanceName"]));
     }
