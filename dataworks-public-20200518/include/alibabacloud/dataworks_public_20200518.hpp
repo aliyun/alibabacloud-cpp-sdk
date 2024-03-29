@@ -7104,6 +7104,328 @@ public:
 
   virtual ~CreatePermissionApplyOrderResponse() = default;
 };
+class CreateProjectRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateProjectRequestTags() {}
+
+  explicit CreateProjectRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateProjectRequestTags() = default;
+};
+class CreateProjectRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> disableDevelopment{};
+  shared_ptr<long> isAllowDownload{};
+  shared_ptr<string> projectDescription{};
+  shared_ptr<string> projectIdentifier{};
+  shared_ptr<long> projectMode{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<vector<CreateProjectRequestTags>> tags{};
+
+  CreateProjectRequest() {}
+
+  explicit CreateProjectRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (disableDevelopment) {
+      res["DisableDevelopment"] = boost::any(*disableDevelopment);
+    }
+    if (isAllowDownload) {
+      res["IsAllowDownload"] = boost::any(*isAllowDownload);
+    }
+    if (projectDescription) {
+      res["ProjectDescription"] = boost::any(*projectDescription);
+    }
+    if (projectIdentifier) {
+      res["ProjectIdentifier"] = boost::any(*projectIdentifier);
+    }
+    if (projectMode) {
+      res["ProjectMode"] = boost::any(*projectMode);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DisableDevelopment") != m.end() && !m["DisableDevelopment"].empty()) {
+      disableDevelopment = make_shared<bool>(boost::any_cast<bool>(m["DisableDevelopment"]));
+    }
+    if (m.find("IsAllowDownload") != m.end() && !m["IsAllowDownload"].empty()) {
+      isAllowDownload = make_shared<long>(boost::any_cast<long>(m["IsAllowDownload"]));
+    }
+    if (m.find("ProjectDescription") != m.end() && !m["ProjectDescription"].empty()) {
+      projectDescription = make_shared<string>(boost::any_cast<string>(m["ProjectDescription"]));
+    }
+    if (m.find("ProjectIdentifier") != m.end() && !m["ProjectIdentifier"].empty()) {
+      projectIdentifier = make_shared<string>(boost::any_cast<string>(m["ProjectIdentifier"]));
+    }
+    if (m.find("ProjectMode") != m.end() && !m["ProjectMode"].empty()) {
+      projectMode = make_shared<long>(boost::any_cast<long>(m["ProjectMode"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateProjectRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateProjectRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateProjectRequestTags>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateProjectRequest() = default;
+};
+class CreateProjectShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> disableDevelopment{};
+  shared_ptr<long> isAllowDownload{};
+  shared_ptr<string> projectDescription{};
+  shared_ptr<string> projectIdentifier{};
+  shared_ptr<long> projectMode{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<string> tagsShrink{};
+
+  CreateProjectShrinkRequest() {}
+
+  explicit CreateProjectShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (disableDevelopment) {
+      res["DisableDevelopment"] = boost::any(*disableDevelopment);
+    }
+    if (isAllowDownload) {
+      res["IsAllowDownload"] = boost::any(*isAllowDownload);
+    }
+    if (projectDescription) {
+      res["ProjectDescription"] = boost::any(*projectDescription);
+    }
+    if (projectIdentifier) {
+      res["ProjectIdentifier"] = boost::any(*projectIdentifier);
+    }
+    if (projectMode) {
+      res["ProjectMode"] = boost::any(*projectMode);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DisableDevelopment") != m.end() && !m["DisableDevelopment"].empty()) {
+      disableDevelopment = make_shared<bool>(boost::any_cast<bool>(m["DisableDevelopment"]));
+    }
+    if (m.find("IsAllowDownload") != m.end() && !m["IsAllowDownload"].empty()) {
+      isAllowDownload = make_shared<long>(boost::any_cast<long>(m["IsAllowDownload"]));
+    }
+    if (m.find("ProjectDescription") != m.end() && !m["ProjectDescription"].empty()) {
+      projectDescription = make_shared<string>(boost::any_cast<string>(m["ProjectDescription"]));
+    }
+    if (m.find("ProjectIdentifier") != m.end() && !m["ProjectIdentifier"].empty()) {
+      projectIdentifier = make_shared<string>(boost::any_cast<string>(m["ProjectIdentifier"]));
+    }
+    if (m.find("ProjectMode") != m.end() && !m["ProjectMode"].empty()) {
+      projectMode = make_shared<long>(boost::any_cast<long>(m["ProjectMode"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+  }
+
+
+  virtual ~CreateProjectShrinkRequest() = default;
+};
+class CreateProjectResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateProjectResponseBody() {}
+
+  explicit CreateProjectResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateProjectResponseBody() = default;
+};
+class CreateProjectResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateProjectResponseBody> body{};
+
+  CreateProjectResponse() {}
+
+  explicit CreateProjectResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateProjectResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateProjectResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateProjectResponse() = default;
+};
 class CreateProjectMemberRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -75625,6 +75947,8 @@ public:
   CreateMetaCollectionResponse createMetaCollection(shared_ptr<CreateMetaCollectionRequest> request);
   CreatePermissionApplyOrderResponse createPermissionApplyOrderWithOptions(shared_ptr<CreatePermissionApplyOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePermissionApplyOrderResponse createPermissionApplyOrder(shared_ptr<CreatePermissionApplyOrderRequest> request);
+  CreateProjectResponse createProjectWithOptions(shared_ptr<CreateProjectRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateProjectResponse createProject(shared_ptr<CreateProjectRequest> request);
   CreateProjectMemberResponse createProjectMemberWithOptions(shared_ptr<CreateProjectMemberRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateProjectMemberResponse createProjectMember(shared_ptr<CreateProjectMemberRequest> request);
   CreateQualityEntityResponse createQualityEntityWithOptions(shared_ptr<CreateQualityEntityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
