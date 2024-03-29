@@ -9590,6 +9590,284 @@ public:
 
   virtual ~PostMSSearchEnhanceResponse() = default;
 };
+class PostMSServiceDataImportRequestDocuments : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> bizParams{};
+  shared_ptr<string> docId{};
+  shared_ptr<string> fileExtension{};
+  shared_ptr<string> fileName{};
+  shared_ptr<string> filePath{};
+  shared_ptr<string> version{};
+
+  PostMSServiceDataImportRequestDocuments() {}
+
+  explicit PostMSServiceDataImportRequestDocuments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizParams) {
+      res["BizParams"] = boost::any(*bizParams);
+    }
+    if (docId) {
+      res["DocId"] = boost::any(*docId);
+    }
+    if (fileExtension) {
+      res["FileExtension"] = boost::any(*fileExtension);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (filePath) {
+      res["FilePath"] = boost::any(*filePath);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizParams") != m.end() && !m["BizParams"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["BizParams"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      bizParams = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("DocId") != m.end() && !m["DocId"].empty()) {
+      docId = make_shared<string>(boost::any_cast<string>(m["DocId"]));
+    }
+    if (m.find("FileExtension") != m.end() && !m["FileExtension"].empty()) {
+      fileExtension = make_shared<string>(boost::any_cast<string>(m["FileExtension"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FilePath") != m.end() && !m["FilePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["FilePath"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~PostMSServiceDataImportRequestDocuments() = default;
+};
+class PostMSServiceDataImportRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataType{};
+  shared_ptr<vector<PostMSServiceDataImportRequestDocuments>> documents{};
+  shared_ptr<long> serviceId{};
+
+  PostMSServiceDataImportRequest() {}
+
+  explicit PostMSServiceDataImportRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
+    }
+    if (documents) {
+      vector<boost::any> temp1;
+      for(auto item1:*documents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Documents"] = boost::any(temp1);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
+    }
+    if (m.find("Documents") != m.end() && !m["Documents"].empty()) {
+      if (typeid(vector<boost::any>) == m["Documents"].type()) {
+        vector<PostMSServiceDataImportRequestDocuments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Documents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PostMSServiceDataImportRequestDocuments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        documents = make_shared<vector<PostMSServiceDataImportRequestDocuments>>(expect1);
+      }
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
+    }
+  }
+
+
+  virtual ~PostMSServiceDataImportRequest() = default;
+};
+class PostMSServiceDataImportShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataType{};
+  shared_ptr<string> documentsShrink{};
+  shared_ptr<long> serviceId{};
+
+  PostMSServiceDataImportShrinkRequest() {}
+
+  explicit PostMSServiceDataImportShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
+    }
+    if (documentsShrink) {
+      res["Documents"] = boost::any(*documentsShrink);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
+    }
+    if (m.find("Documents") != m.end() && !m["Documents"].empty()) {
+      documentsShrink = make_shared<string>(boost::any_cast<string>(m["Documents"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
+    }
+  }
+
+
+  virtual ~PostMSServiceDataImportShrinkRequest() = default;
+};
+class PostMSServiceDataImportResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<long> data{};
+  shared_ptr<string> msg{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  PostMSServiceDataImportResponseBody() {}
+
+  explicit PostMSServiceDataImportResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["Data"]));
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~PostMSServiceDataImportResponseBody() = default;
+};
+class PostMSServiceDataImportResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PostMSServiceDataImportResponseBody> body{};
+
+  PostMSServiceDataImportResponse() {}
+
+  explicit PostMSServiceDataImportResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PostMSServiceDataImportResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PostMSServiceDataImportResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PostMSServiceDataImportResponse() = default;
+};
 class RequestTableQARequest : public Darabonba::Model {
 public:
   shared_ptr<string> params{};
@@ -10176,6 +10454,8 @@ public:
   PostMSDataProcessingCountResponse postMSDataProcessingCount(shared_ptr<PostMSDataProcessingCountRequest> request);
   PostMSSearchEnhanceResponse postMSSearchEnhanceWithOptions(shared_ptr<PostMSSearchEnhanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PostMSSearchEnhanceResponse postMSSearchEnhance(shared_ptr<PostMSSearchEnhanceRequest> request);
+  PostMSServiceDataImportResponse postMSServiceDataImportWithOptions(shared_ptr<PostMSServiceDataImportRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PostMSServiceDataImportResponse postMSServiceDataImport(shared_ptr<PostMSServiceDataImportRequest> request);
   RequestTableQAResponse requestTableQAWithOptions(shared_ptr<RequestTableQARequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RequestTableQAResponse requestTableQA(shared_ptr<RequestTableQARequest> request);
   RequestTableQAOnlineResponse requestTableQAOnlineWithOptions(shared_ptr<RequestTableQAOnlineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
