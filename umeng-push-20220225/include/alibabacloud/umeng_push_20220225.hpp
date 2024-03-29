@@ -1277,6 +1277,7 @@ public:
   shared_ptr<bool> productionMode{};
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
+  shared_ptr<string> thirdPartyId{};
 
   SendByAliasFileIdRequest() {}
 
@@ -1317,6 +1318,9 @@ public:
     }
     if (receiptUrl) {
       res["ReceiptUrl"] = boost::any(*receiptUrl);
+    }
+    if (thirdPartyId) {
+      res["ThirdPartyId"] = boost::any(*thirdPartyId);
     }
     return res;
   }
@@ -1368,6 +1372,9 @@ public:
     if (m.find("ReceiptUrl") != m.end() && !m["ReceiptUrl"].empty()) {
       receiptUrl = make_shared<string>(boost::any_cast<string>(m["ReceiptUrl"]));
     }
+    if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
+      thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
+    }
   }
 
 
@@ -1385,6 +1392,7 @@ public:
   shared_ptr<bool> productionMode{};
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
+  shared_ptr<string> thirdPartyId{};
 
   SendByAliasFileIdShrinkRequest() {}
 
@@ -1426,6 +1434,9 @@ public:
     if (receiptUrl) {
       res["ReceiptUrl"] = boost::any(*receiptUrl);
     }
+    if (thirdPartyId) {
+      res["ThirdPartyId"] = boost::any(*thirdPartyId);
+    }
     return res;
   }
 
@@ -1459,6 +1470,9 @@ public:
     }
     if (m.find("ReceiptUrl") != m.end() && !m["ReceiptUrl"].empty()) {
       receiptUrl = make_shared<string>(boost::any_cast<string>(m["ReceiptUrl"]));
+    }
+    if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
+      thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
     }
   }
 
@@ -1624,6 +1638,7 @@ public:
   shared_ptr<bool> productionMode{};
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
+  shared_ptr<string> thirdPartyId{};
 
   SendByAppRequest() {}
 
@@ -1658,6 +1673,9 @@ public:
     }
     if (receiptUrl) {
       res["ReceiptUrl"] = boost::any(*receiptUrl);
+    }
+    if (thirdPartyId) {
+      res["ThirdPartyId"] = boost::any(*thirdPartyId);
     }
     return res;
   }
@@ -1703,6 +1721,9 @@ public:
     if (m.find("ReceiptUrl") != m.end() && !m["ReceiptUrl"].empty()) {
       receiptUrl = make_shared<string>(boost::any_cast<string>(m["ReceiptUrl"]));
     }
+    if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
+      thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
+    }
   }
 
 
@@ -1718,6 +1739,7 @@ public:
   shared_ptr<bool> productionMode{};
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
+  shared_ptr<string> thirdPartyId{};
 
   SendByAppShrinkRequest() {}
 
@@ -1753,6 +1775,9 @@ public:
     if (receiptUrl) {
       res["ReceiptUrl"] = boost::any(*receiptUrl);
     }
+    if (thirdPartyId) {
+      res["ThirdPartyId"] = boost::any(*thirdPartyId);
+    }
     return res;
   }
 
@@ -1780,6 +1805,9 @@ public:
     }
     if (m.find("ReceiptUrl") != m.end() && !m["ReceiptUrl"].empty()) {
       receiptUrl = make_shared<string>(boost::any_cast<string>(m["ReceiptUrl"]));
+    }
+    if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
+      thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
     }
   }
 
@@ -2295,6 +2323,7 @@ public:
   shared_ptr<bool> productionMode{};
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
+  shared_ptr<string> thirdPartyId{};
 
   SendByDeviceFileIdRequest() {}
 
@@ -2332,6 +2361,9 @@ public:
     }
     if (receiptUrl) {
       res["ReceiptUrl"] = boost::any(*receiptUrl);
+    }
+    if (thirdPartyId) {
+      res["ThirdPartyId"] = boost::any(*thirdPartyId);
     }
     return res;
   }
@@ -2380,6 +2412,9 @@ public:
     if (m.find("ReceiptUrl") != m.end() && !m["ReceiptUrl"].empty()) {
       receiptUrl = make_shared<string>(boost::any_cast<string>(m["ReceiptUrl"]));
     }
+    if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
+      thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
+    }
   }
 
 
@@ -2396,6 +2431,7 @@ public:
   shared_ptr<bool> productionMode{};
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
+  shared_ptr<string> thirdPartyId{};
 
   SendByDeviceFileIdShrinkRequest() {}
 
@@ -2434,6 +2470,9 @@ public:
     if (receiptUrl) {
       res["ReceiptUrl"] = boost::any(*receiptUrl);
     }
+    if (thirdPartyId) {
+      res["ThirdPartyId"] = boost::any(*thirdPartyId);
+    }
     return res;
   }
 
@@ -2464,6 +2503,9 @@ public:
     }
     if (m.find("ReceiptUrl") != m.end() && !m["ReceiptUrl"].empty()) {
       receiptUrl = make_shared<string>(boost::any_cast<string>(m["ReceiptUrl"]));
+    }
+    if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
+      thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
     }
   }
 
@@ -2630,6 +2672,7 @@ public:
   shared_ptr<bool> productionMode{};
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
+  shared_ptr<string> thirdPartyId{};
 
   SendByFilterRequest() {}
 
@@ -2667,6 +2710,9 @@ public:
     }
     if (receiptUrl) {
       res["ReceiptUrl"] = boost::any(*receiptUrl);
+    }
+    if (thirdPartyId) {
+      res["ThirdPartyId"] = boost::any(*thirdPartyId);
     }
     return res;
   }
@@ -2715,6 +2761,9 @@ public:
     if (m.find("ReceiptUrl") != m.end() && !m["ReceiptUrl"].empty()) {
       receiptUrl = make_shared<string>(boost::any_cast<string>(m["ReceiptUrl"]));
     }
+    if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
+      thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
+    }
   }
 
 
@@ -2731,6 +2780,7 @@ public:
   shared_ptr<bool> productionMode{};
   shared_ptr<long> receiptType{};
   shared_ptr<string> receiptUrl{};
+  shared_ptr<string> thirdPartyId{};
 
   SendByFilterShrinkRequest() {}
 
@@ -2769,6 +2819,9 @@ public:
     if (receiptUrl) {
       res["ReceiptUrl"] = boost::any(*receiptUrl);
     }
+    if (thirdPartyId) {
+      res["ThirdPartyId"] = boost::any(*thirdPartyId);
+    }
     return res;
   }
 
@@ -2799,6 +2852,9 @@ public:
     }
     if (m.find("ReceiptUrl") != m.end() && !m["ReceiptUrl"].empty()) {
       receiptUrl = make_shared<string>(boost::any_cast<string>(m["ReceiptUrl"]));
+    }
+    if (m.find("ThirdPartyId") != m.end() && !m["ThirdPartyId"].empty()) {
+      thirdPartyId = make_shared<string>(boost::any_cast<string>(m["ThirdPartyId"]));
     }
   }
 
