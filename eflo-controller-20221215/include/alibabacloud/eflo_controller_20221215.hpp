@@ -854,6 +854,7 @@ public:
   shared_ptr<vector<CreateClusterRequestNetworksIpAllocationPolicy>> ipAllocationPolicy{};
   shared_ptr<CreateClusterRequestNetworksNewVpdInfo> newVpdInfo{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<string> tailIpVersion{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vSwitchZoneId{};
   shared_ptr<string> vpcId{};
@@ -881,6 +882,9 @@ public:
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (tailIpVersion) {
+      res["TailIpVersion"] = boost::any(*tailIpVersion);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -920,6 +924,9 @@ public:
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("TailIpVersion") != m.end() && !m["TailIpVersion"].empty()) {
+      tailIpVersion = make_shared<string>(boost::any_cast<string>(m["TailIpVersion"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
