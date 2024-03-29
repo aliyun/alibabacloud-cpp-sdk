@@ -207,6 +207,9 @@ ConfigureDtsJobResponse Alibabacloud_Dts20200101::Client::configureDtsJobWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceEndpointDatabaseName)) {
     query->insert(pair<string, string>("SourceEndpointDatabaseName", *request->sourceEndpointDatabaseName));
   }
@@ -383,6 +386,9 @@ ConfigureMigrationJobResponse Alibabacloud_Dts20200101::Client::configureMigrati
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<ConfigureMigrationJobRequestDestinationEndpoint>(request->destinationEndpoint)) {
     query->insert(pair<string, ConfigureMigrationJobRequestDestinationEndpoint>("DestinationEndpoint", *request->destinationEndpoint));
   }
@@ -448,6 +454,9 @@ ConfigureMigrationJobAlertResponse Alibabacloud_Dts20200101::Client::configureMi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -521,6 +530,9 @@ ConfigureSubscriptionResponse Alibabacloud_Dts20200101::Client::configureSubscri
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->reserve)) {
     query->insert(pair<string, string>("Reserve", *request->reserve));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceEndpointDatabaseName)) {
     query->insert(pair<string, string>("SourceEndpointDatabaseName", *request->sourceEndpointDatabaseName));
@@ -607,6 +619,9 @@ ConfigureSubscriptionInstanceResponse Alibabacloud_Dts20200101::Client::configur
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionInstanceId)) {
     query->insert(pair<string, string>("SubscriptionInstanceId", *request->subscriptionInstanceId));
   }
@@ -679,6 +694,9 @@ ConfigureSubscriptionInstanceAlertResponse Alibabacloud_Dts20200101::Client::con
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionInstanceId)) {
     query->insert(pair<string, string>("SubscriptionInstanceId", *request->subscriptionInstanceId));
   }
@@ -724,6 +742,9 @@ ConfigureSynchronizationJobResponse Alibabacloud_Dts20200101::Client::configureS
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->structureInitialization)) {
     query->insert(pair<string, bool>("StructureInitialization", *request->structureInitialization));
@@ -800,6 +821,9 @@ ConfigureSynchronizationJobAlertResponse Alibabacloud_Dts20200101::Client::confi
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
   }
@@ -842,6 +866,9 @@ ConfigureSynchronizationJobReplicatorCompareResponse Alibabacloud_Dts20200101::C
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
@@ -895,6 +922,9 @@ CountJobByConditionResponse Alibabacloud_Dts20200101::Client::countJobByConditio
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->srcDbType)) {
     query->insert(pair<string, string>("SrcDbType", *request->srcDbType));
   }
@@ -947,6 +977,9 @@ CreateConsumerChannelResponse Alibabacloud_Dts20200101::Client::createConsumerCh
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -989,6 +1022,9 @@ CreateConsumerGroupResponse Alibabacloud_Dts20200101::Client::createConsumerGrou
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionInstanceId)) {
     query->insert(pair<string, string>("SubscriptionInstanceId", *request->subscriptionInstanceId));
@@ -1047,6 +1083,9 @@ CreateDedicatedClusterMonitorRuleResponse Alibabacloud_Dts20200101::Client::crea
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1182,6 +1221,9 @@ CreateJobMonitorRuleResponse Alibabacloud_Dts20200101::Client::createJobMonitorR
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
     query->insert(pair<string, string>("State", *request->state));
   }
@@ -1234,6 +1276,9 @@ CreateMigrationJobResponse Alibabacloud_Dts20200101::Client::createMigrationJobW
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1261,6 +1306,9 @@ CreateReverseDtsJobResponse Alibabacloud_Dts20200101::Client::createReverseDtsJo
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->dtsJobId)) {
     query->insert(pair<string, string>("DtsJobId", *request->dtsJobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1307,6 +1355,9 @@ CreateSubscriptionInstanceResponse Alibabacloud_Dts20200101::Client::createSubsc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->usedTime)) {
     query->insert(pair<string, long>("UsedTime", *request->usedTime));
@@ -1362,6 +1413,9 @@ CreateSynchronizationJobResponse Alibabacloud_Dts20200101::Client::createSynchro
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceRegion)) {
     query->insert(pair<string, string>("SourceRegion", *request->sourceRegion));
@@ -1421,6 +1475,9 @@ DeleteConsumerChannelResponse Alibabacloud_Dts20200101::Client::deleteConsumerCh
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1457,6 +1514,9 @@ DeleteConsumerGroupResponse Alibabacloud_Dts20200101::Client::deleteConsumerGrou
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionInstanceId)) {
     query->insert(pair<string, string>("SubscriptionInstanceId", *request->subscriptionInstanceId));
@@ -1498,8 +1558,14 @@ DeleteDtsJobResponse Alibabacloud_Dts20200101::Client::deleteDtsJobWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1531,6 +1597,12 @@ DeleteDtsJobsResponse Alibabacloud_Dts20200101::Client::deleteDtsJobsWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1569,6 +1641,9 @@ DeleteMigrationJobResponse Alibabacloud_Dts20200101::Client::deleteMigrationJobW
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1602,6 +1677,9 @@ DeleteSubscriptionInstanceResponse Alibabacloud_Dts20200101::Client::deleteSubsc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionInstanceId)) {
     query->insert(pair<string, string>("SubscriptionInstanceId", *request->subscriptionInstanceId));
@@ -1639,6 +1717,9 @@ DeleteSynchronizationJobResponse Alibabacloud_Dts20200101::Client::deleteSynchro
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationJobId)) {
     query->insert(pair<string, string>("SynchronizationJobId", *request->synchronizationJobId));
@@ -1729,6 +1810,9 @@ DescribeCheckJobsResponse Alibabacloud_Dts20200101::Client::describeCheckJobsWit
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1753,6 +1837,10 @@ DescribeCheckJobsResponse Alibabacloud_Dts20200101::Client::describeCheckJobs(sh
 
 DescribeClusterOperateLogsResponse Alibabacloud_Dts20200101::Client::describeClusterOperateLogsWithOptions(shared_ptr<DescribeClusterOperateLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
     body->insert(pair<string, string>("AccountId", *request->accountId));
@@ -1782,6 +1870,7 @@ DescribeClusterOperateLogsResponse Alibabacloud_Dts20200101::Client::describeClu
     body->insert(pair<string, long>("StartTime", *request->startTime));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -1805,6 +1894,10 @@ DescribeClusterOperateLogsResponse Alibabacloud_Dts20200101::Client::describeClu
 
 DescribeClusterUsedUtilizationResponse Alibabacloud_Dts20200101::Client::describeClusterUsedUtilizationWithOptions(shared_ptr<DescribeClusterUsedUtilizationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
     body->insert(pair<string, string>("AccountId", *request->accountId));
@@ -1834,6 +1927,7 @@ DescribeClusterUsedUtilizationResponse Alibabacloud_Dts20200101::Client::describ
     body->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -1893,6 +1987,9 @@ DescribeConnectionStatusResponse Alibabacloud_Dts20200101::Client::describeConne
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceEndpointArchitecture)) {
     query->insert(pair<string, string>("SourceEndpointArchitecture", *request->sourceEndpointArchitecture));
@@ -1970,6 +2067,9 @@ DescribeConsumerChannelResponse Alibabacloud_Dts20200101::Client::describeConsum
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2010,6 +2110,9 @@ DescribeConsumerGroupResponse Alibabacloud_Dts20200101::Client::describeConsumer
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionInstanceId)) {
     query->insert(pair<string, string>("SubscriptionInstanceId", *request->subscriptionInstanceId));
   }
@@ -2043,6 +2146,9 @@ DescribeDTSIPResponse Alibabacloud_Dts20200101::Client::describeDTSIPWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceEndpointRegion)) {
     query->insert(pair<string, string>("SourceEndpointRegion", *request->sourceEndpointRegion));
@@ -2080,6 +2186,9 @@ DescribeDataCheckReportUrlResponse Alibabacloud_Dts20200101::Client::describeDat
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->dtsJobId)) {
     query->insert(pair<string, string>("DtsJobId", *request->dtsJobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tbName)) {
     query->insert(pair<string, string>("TbName", *request->tbName));
@@ -2120,6 +2229,9 @@ DescribeDataCheckTableDetailsResponse Alibabacloud_Dts20200101::Client::describe
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->schemaName)) {
     query->insert(pair<string, string>("SchemaName", *request->schemaName));
@@ -2170,6 +2282,9 @@ DescribeDataCheckTableDiffDetailsResponse Alibabacloud_Dts20200101::Client::desc
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tbName)) {
     query->insert(pair<string, string>("TbName", *request->tbName));
   }
@@ -2207,6 +2322,9 @@ DescribeDedicatedClusterResponse Alibabacloud_Dts20200101::Client::describeDedic
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2240,6 +2358,9 @@ DescribeDedicatedClusterMonitorRuleResponse Alibabacloud_Dts20200101::Client::de
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2281,6 +2402,9 @@ DescribeDtsEtlJobVersionInfoResponse Alibabacloud_Dts20200101::Client::describeD
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2315,11 +2439,17 @@ DescribeDtsJobDetailResponse Alibabacloud_Dts20200101::Client::describeDtsJobDet
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->syncSubJobHistory)) {
     query->insert(pair<string, bool>("SyncSubJobHistory", *request->syncSubJobHistory));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2360,6 +2490,12 @@ DescribeDtsJobsResponse Alibabacloud_Dts20200101::Client::describeDtsJobsWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
+    query->insert(pair<string, string>("InstanceType", *request->instanceType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobType)) {
     query->insert(pair<string, string>("JobType", *request->jobType));
@@ -2402,6 +2538,9 @@ DescribeDtsJobsResponse Alibabacloud_Dts20200101::Client::describeDtsJobsWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->withoutDbList)) {
     query->insert(pair<string, bool>("WithoutDbList", *request->withoutDbList));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2446,6 +2585,9 @@ DescribeDtsServiceLogResponse Alibabacloud_Dts20200101::Client::describeDtsServi
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
   }
@@ -2454,6 +2596,9 @@ DescribeDtsServiceLogResponse Alibabacloud_Dts20200101::Client::describeDtsServi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subJobType)) {
     query->insert(pair<string, string>("SubJobType", *request->subJobType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2492,6 +2637,9 @@ DescribeEndpointSwitchStatusResponse Alibabacloud_Dts20200101::Client::describeE
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("TaskId", *request->taskId));
   }
@@ -2525,6 +2673,9 @@ DescribeEtlJobLogsResponse Alibabacloud_Dts20200101::Client::describeEtlJobLogsW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2566,6 +2717,9 @@ DescribeInitializationStatusResponse Alibabacloud_Dts20200101::Client::describeI
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationJobId)) {
     query->insert(pair<string, string>("SynchronizationJobId", *request->synchronizationJobId));
   }
@@ -2600,6 +2754,9 @@ DescribeJobMonitorRuleResponse Alibabacloud_Dts20200101::Client::describeJobMoni
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2624,6 +2781,10 @@ DescribeJobMonitorRuleResponse Alibabacloud_Dts20200101::Client::describeJobMoni
 
 DescribeMetricListResponse Alibabacloud_Dts20200101::Client::describeMetricListWithOptions(shared_ptr<DescribeMetricListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
     body->insert(pair<string, string>("AccountId", *request->accountId));
@@ -2659,6 +2820,7 @@ DescribeMetricListResponse Alibabacloud_Dts20200101::Client::describeMetricListW
     body->insert(pair<string, long>("StartTime", *request->startTime));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -2697,6 +2859,9 @@ DescribeMigrationJobAlertResponse Alibabacloud_Dts20200101::Client::describeMigr
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2744,6 +2909,9 @@ DescribeMigrationJobDetailResponse Alibabacloud_Dts20200101::Client::describeMig
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<DescribeMigrationJobDetailRequestMigrationMode>(request->migrationMode)) {
     query->insert(pair<string, DescribeMigrationJobDetailRequestMigrationMode>("MigrationMode", *request->migrationMode));
   }
@@ -2787,6 +2955,9 @@ DescribeMigrationJobStatusResponse Alibabacloud_Dts20200101::Client::describeMig
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2829,6 +3000,9 @@ DescribeMigrationJobsResponse Alibabacloud_Dts20200101::Client::describeMigratio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<DescribeMigrationJobsRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<DescribeMigrationJobsRequestTag>>("Tag", *request->tag));
@@ -2876,11 +3050,17 @@ DescribePreCheckStatusResponse Alibabacloud_Dts20200101::Client::describePreChec
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->structPhase)) {
     query->insert(pair<string, string>("StructPhase", *request->structPhase));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->structType)) {
     query->insert(pair<string, string>("StructType", *request->structType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2919,6 +3099,9 @@ DescribeSubscriptionInstanceAlertResponse Alibabacloud_Dts20200101::Client::desc
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionInstanceId)) {
     query->insert(pair<string, string>("SubscriptionInstanceId", *request->subscriptionInstanceId));
   }
@@ -2955,6 +3138,9 @@ DescribeSubscriptionInstanceStatusResponse Alibabacloud_Dts20200101::Client::des
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionInstanceId)) {
     query->insert(pair<string, string>("SubscriptionInstanceId", *request->subscriptionInstanceId));
@@ -3002,6 +3188,9 @@ DescribeSubscriptionInstancesResponse Alibabacloud_Dts20200101::Client::describe
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionInstanceName)) {
     query->insert(pair<string, string>("SubscriptionInstanceName", *request->subscriptionInstanceName));
   }
@@ -3046,6 +3235,9 @@ DescribeSubscriptionMetaResponse Alibabacloud_Dts20200101::Client::describeSubsc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sid)) {
     query->insert(pair<string, string>("Sid", *request->sid));
@@ -3093,6 +3285,9 @@ DescribeSynchronizationJobAlertResponse Alibabacloud_Dts20200101::Client::descri
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
   }
@@ -3135,6 +3330,9 @@ DescribeSynchronizationJobReplicatorCompareResponse Alibabacloud_Dts20200101::Cl
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
@@ -3179,6 +3377,9 @@ DescribeSynchronizationJobStatusResponse Alibabacloud_Dts20200101::Client::descr
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
   }
@@ -3221,6 +3422,9 @@ DescribeSynchronizationJobStatusListResponse Alibabacloud_Dts20200101::Client::d
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationJobIdListJsonStr)) {
     query->insert(pair<string, string>("SynchronizationJobIdListJsonStr", *request->synchronizationJobIdListJsonStr));
@@ -3268,6 +3472,9 @@ DescribeSynchronizationJobsResponse Alibabacloud_Dts20200101::Client::describeSy
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationJobName)) {
     query->insert(pair<string, string>("SynchronizationJobName", *request->synchronizationJobName));
   }
@@ -3311,6 +3518,9 @@ DescribeSynchronizationObjectModifyStatusResponse Alibabacloud_Dts20200101::Clie
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("TaskId", *request->taskId));
   }
@@ -3350,6 +3560,9 @@ DescribeTagKeysResponse Alibabacloud_Dts20200101::Client::describeTagKeysWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
     query->insert(pair<string, string>("ResourceId", *request->resourceId));
@@ -3396,6 +3609,9 @@ DescribeTagValuesResponse Alibabacloud_Dts20200101::Client::describeTagValuesWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
     query->insert(pair<string, string>("ResourceId", *request->resourceId));
@@ -3446,6 +3662,9 @@ InitDtsRdsInstanceResponse Alibabacloud_Dts20200101::Client::initDtsRdsInstanceW
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3492,6 +3711,9 @@ ListDedicatedClusterResponse Alibabacloud_Dts20200101::Client::listDedicatedClus
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
     query->insert(pair<string, string>("State", *request->state));
   }
@@ -3528,6 +3750,9 @@ ListTagResourcesResponse Alibabacloud_Dts20200101::Client::listTagResourcesWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceId)) {
     query->insert(pair<string, vector<string>>("ResourceId", *request->resourceId));
@@ -3584,6 +3809,9 @@ ModifyConsumerChannelResponse Alibabacloud_Dts20200101::Client::modifyConsumerCh
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3630,6 +3858,9 @@ ModifyConsumerGroupPasswordResponse Alibabacloud_Dts20200101::Client::modifyCons
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionInstanceId)) {
     query->insert(pair<string, string>("SubscriptionInstanceId", *request->subscriptionInstanceId));
   }
@@ -3672,6 +3903,9 @@ ModifyConsumptionTimestampResponse Alibabacloud_Dts20200101::Client::modifyConsu
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionInstanceId)) {
     query->insert(pair<string, string>("SubscriptionInstanceId", *request->subscriptionInstanceId));
@@ -3718,6 +3952,9 @@ ModifyDedicatedClusterResponse Alibabacloud_Dts20200101::Client::modifyDedicated
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3770,11 +4007,17 @@ ModifyDtsJobResponse Alibabacloud_Dts20200101::Client::modifyDtsJobWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->structureInitialization)) {
     query->insert(pair<string, bool>("StructureInitialization", *request->structureInitialization));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->dbListShrink)) {
@@ -3901,6 +4144,9 @@ ModifyDtsJobConfigResponse Alibabacloud_Dts20200101::Client::modifyDtsJobConfigW
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3938,6 +4184,9 @@ ModifyDtsJobDedicatedClusterResponse Alibabacloud_Dts20200101::Client::modifyDts
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3974,6 +4223,9 @@ ModifyDtsJobDuLimitResponse Alibabacloud_Dts20200101::Client::modifyDtsJobDuLimi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4036,6 +4288,9 @@ ModifyDtsJobEndpointResponse Alibabacloud_Dts20200101::Client::modifyDtsJobEndpo
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->roleName)) {
     query->insert(pair<string, string>("RoleName", *request->roleName));
   }
@@ -4085,6 +4340,12 @@ ModifyDtsJobNameResponse Alibabacloud_Dts20200101::Client::modifyDtsJobNameWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4122,8 +4383,14 @@ ModifyDtsJobPasswordResponse Alibabacloud_Dts20200101::Client::modifyDtsJobPassw
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
     query->insert(pair<string, string>("UserName", *request->userName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4165,6 +4432,9 @@ ModifyDynamicConfigResponse Alibabacloud_Dts20200101::Client::modifyDynamicConfi
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4201,6 +4471,9 @@ ModifySubscriptionResponse Alibabacloud_Dts20200101::Client::modifySubscriptionW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->subscriptionDataTypeDDL)) {
     query->insert(pair<string, bool>("SubscriptionDataTypeDDL", *request->subscriptionDataTypeDDL));
@@ -4242,6 +4515,9 @@ ModifySubscriptionObjectResponse Alibabacloud_Dts20200101::Client::modifySubscri
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionInstanceId)) {
     query->insert(pair<string, string>("SubscriptionInstanceId", *request->subscriptionInstanceId));
   }
@@ -4281,6 +4557,9 @@ ModifySynchronizationObjectResponse Alibabacloud_Dts20200101::Client::modifySync
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
@@ -4333,6 +4612,9 @@ RenewInstanceResponse Alibabacloud_Dts20200101::Client::renewInstanceWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4366,6 +4648,9 @@ ResetDtsJobResponse Alibabacloud_Dts20200101::Client::resetDtsJobWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
@@ -4403,6 +4688,9 @@ ResetSynchronizationJobResponse Alibabacloud_Dts20200101::Client::resetSynchroni
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
@@ -4444,6 +4732,9 @@ ReverseTwoWayDirectionResponse Alibabacloud_Dts20200101::Client::reverseTwoWayDi
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4478,6 +4769,9 @@ ShieldPrecheckResponse Alibabacloud_Dts20200101::Client::shieldPrecheckWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4511,6 +4805,9 @@ SkipPreCheckResponse Alibabacloud_Dts20200101::Client::skipPreCheckWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->skip)) {
     query->insert(pair<string, bool>("Skip", *request->skip));
@@ -4555,8 +4852,14 @@ StartDtsJobResponse Alibabacloud_Dts20200101::Client::startDtsJobWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4588,6 +4891,12 @@ StartDtsJobsResponse Alibabacloud_Dts20200101::Client::startDtsJobsWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4626,6 +4935,9 @@ StartMigrationJobResponse Alibabacloud_Dts20200101::Client::startMigrationJobWit
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4656,6 +4968,9 @@ StartReverseWriterResponse Alibabacloud_Dts20200101::Client::startReverseWriterW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->dtsJobId)) {
     query->insert(pair<string, string>("DtsJobId", *request->dtsJobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4690,6 +5005,9 @@ StartSubscriptionInstanceResponse Alibabacloud_Dts20200101::Client::startSubscri
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionInstanceId)) {
     query->insert(pair<string, string>("SubscriptionInstanceId", *request->subscriptionInstanceId));
@@ -4727,6 +5045,9 @@ StartSynchronizationJobResponse Alibabacloud_Dts20200101::Client::startSynchroni
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
@@ -4774,6 +5095,9 @@ StopDedicatedClusterResponse Alibabacloud_Dts20200101::Client::stopDedicatedClus
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4808,8 +5132,14 @@ StopDtsJobResponse Alibabacloud_Dts20200101::Client::stopDtsJobWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4841,6 +5171,12 @@ StopDtsJobsResponse Alibabacloud_Dts20200101::Client::stopDtsJobsWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4882,6 +5218,9 @@ StopMigrationJobResponse Alibabacloud_Dts20200101::Client::stopMigrationJobWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4919,11 +5258,17 @@ SummaryJobDetailResponse Alibabacloud_Dts20200101::Client::summaryJobDetailWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->structType)) {
     query->insert(pair<string, string>("StructType", *request->structType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4959,8 +5304,14 @@ SuspendDtsJobResponse Alibabacloud_Dts20200101::Client::suspendDtsJobWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4992,6 +5343,12 @@ SuspendDtsJobsResponse Alibabacloud_Dts20200101::Client::suspendDtsJobsWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5033,6 +5390,9 @@ SuspendMigrationJobResponse Alibabacloud_Dts20200101::Client::suspendMigrationJo
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5066,6 +5426,9 @@ SuspendSynchronizationJobResponse Alibabacloud_Dts20200101::Client::suspendSynch
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
@@ -5107,6 +5470,9 @@ SwitchPhysicalDtsJobToCloudResponse Alibabacloud_Dts20200101::Client::switchPhys
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
   }
@@ -5143,6 +5509,9 @@ SwitchSynchronizationEndpointResponse Alibabacloud_Dts20200101::Client::switchSy
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
     query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
@@ -5183,6 +5552,9 @@ TagResourcesResponse Alibabacloud_Dts20200101::Client::tagResourcesWithOptions(s
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceId)) {
     query->insert(pair<string, vector<string>>("ResourceId", *request->resourceId));
@@ -5230,6 +5602,9 @@ TransferInstanceClassResponse Alibabacloud_Dts20200101::Client::transferInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5270,6 +5645,9 @@ TransferPayTypeResponse Alibabacloud_Dts20200101::Client::transferPayTypeWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5300,6 +5678,9 @@ UntagResourcesResponse Alibabacloud_Dts20200101::Client::untagResourcesWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceId)) {
     query->insert(pair<string, vector<string>>("ResourceId", *request->resourceId));
@@ -5344,6 +5725,9 @@ UpgradeTwoWayResponse Alibabacloud_Dts20200101::Client::upgradeTwoWayWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5378,8 +5762,14 @@ WhiteIpListResponse Alibabacloud_Dts20200101::Client::whiteIpListWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("Type", *request->type));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->zeroEtlJob)) {
+    query->insert(pair<string, bool>("ZeroEtlJob", *request->zeroEtlJob));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

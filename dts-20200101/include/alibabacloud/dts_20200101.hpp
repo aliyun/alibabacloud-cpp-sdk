@@ -53,6 +53,7 @@ public:
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> reserve{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sourceEndpointDatabaseName{};
   shared_ptr<string> sourceEndpointEngineName{};
   shared_ptr<string> sourceEndpointIP{};
@@ -191,6 +192,9 @@ public:
     }
     if (reserve) {
       res["Reserve"] = boost::any(*reserve);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sourceEndpointDatabaseName) {
       res["SourceEndpointDatabaseName"] = boost::any(*sourceEndpointDatabaseName);
@@ -358,6 +362,9 @@ public:
     if (m.find("Reserve") != m.end() && !m["Reserve"].empty()) {
       reserve = make_shared<string>(boost::any_cast<string>(m["Reserve"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("SourceEndpointDatabaseName") != m.end() && !m["SourceEndpointDatabaseName"].empty()) {
       sourceEndpointDatabaseName = make_shared<string>(boost::any_cast<string>(m["SourceEndpointDatabaseName"]));
     }
@@ -453,6 +460,7 @@ public:
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> reserve{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sourceEndpointDatabaseName{};
   shared_ptr<string> sourceEndpointEngineName{};
   shared_ptr<string> sourceEndpointIP{};
@@ -591,6 +599,9 @@ public:
     }
     if (reserve) {
       res["Reserve"] = boost::any(*reserve);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sourceEndpointDatabaseName) {
       res["SourceEndpointDatabaseName"] = boost::any(*sourceEndpointDatabaseName);
@@ -757,6 +768,9 @@ public:
     }
     if (m.find("Reserve") != m.end() && !m["Reserve"].empty()) {
       reserve = make_shared<string>(boost::any_cast<string>(m["Reserve"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SourceEndpointDatabaseName") != m.end() && !m["SourceEndpointDatabaseName"].empty()) {
       sourceEndpointDatabaseName = make_shared<string>(boost::any_cast<string>(m["SourceEndpointDatabaseName"]));
@@ -1191,6 +1205,7 @@ public:
   shared_ptr<string> migrationReserved{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   ConfigureMigrationJobRequest() {}
 
@@ -1234,6 +1249,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     return res;
   }
@@ -1283,6 +1301,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -1402,6 +1423,7 @@ public:
   shared_ptr<string> migrationJobId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   ConfigureMigrationJobAlertRequest() {}
 
@@ -1440,6 +1462,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -1470,6 +1495,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -1596,6 +1624,7 @@ public:
   shared_ptr<double> minDu{};
   shared_ptr<string> regionId{};
   shared_ptr<string> reserve{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sourceEndpointDatabaseName{};
   shared_ptr<string> sourceEndpointEngineName{};
   shared_ptr<string> sourceEndpointIP{};
@@ -1671,6 +1700,9 @@ public:
     }
     if (reserve) {
       res["Reserve"] = boost::any(*reserve);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sourceEndpointDatabaseName) {
       res["SourceEndpointDatabaseName"] = boost::any(*sourceEndpointDatabaseName);
@@ -1774,6 +1806,9 @@ public:
     }
     if (m.find("Reserve") != m.end() && !m["Reserve"].empty()) {
       reserve = make_shared<string>(boost::any_cast<string>(m["Reserve"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SourceEndpointDatabaseName") != m.end() && !m["SourceEndpointDatabaseName"].empty()) {
       sourceEndpointDatabaseName = make_shared<string>(boost::any_cast<string>(m["SourceEndpointDatabaseName"]));
@@ -2126,6 +2161,7 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subscriptionInstanceId{};
   shared_ptr<string> subscriptionInstanceName{};
   shared_ptr<string> subscriptionInstanceNetworkType{};
@@ -2158,6 +2194,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (subscriptionInstanceId) {
       res["SubscriptionInstanceId"] = boost::any(*subscriptionInstanceId);
@@ -2204,6 +2243,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionInstanceId") != m.end() && !m["SubscriptionInstanceId"].empty()) {
       subscriptionInstanceId = make_shared<string>(boost::any_cast<string>(m["SubscriptionInstanceId"]));
@@ -2334,6 +2376,7 @@ public:
   shared_ptr<string> errorAlertStatus{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subscriptionInstanceId{};
 
   ConfigureSubscriptionInstanceAlertRequest() {}
@@ -2370,6 +2413,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (subscriptionInstanceId) {
       res["SubscriptionInstanceId"] = boost::any(*subscriptionInstanceId);
     }
@@ -2400,6 +2446,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionInstanceId") != m.end() && !m["SubscriptionInstanceId"].empty()) {
       subscriptionInstanceId = make_shared<string>(boost::any_cast<string>(m["SubscriptionInstanceId"]));
@@ -2735,6 +2784,7 @@ public:
   shared_ptr<string> migrationReserved{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<bool> structureInitialization{};
   shared_ptr<string> synchronizationDirection{};
   shared_ptr<string> synchronizationJobId{};
@@ -2777,6 +2827,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (structureInitialization) {
       res["StructureInitialization"] = boost::any(*structureInitialization);
@@ -2835,6 +2888,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("StructureInitialization") != m.end() && !m["StructureInitialization"].empty()) {
       structureInitialization = make_shared<bool>(boost::any_cast<bool>(m["StructureInitialization"]));
@@ -2968,6 +3024,7 @@ public:
   shared_ptr<string> errorAlertStatus{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
   shared_ptr<string> synchronizationJobId{};
 
@@ -3005,6 +3062,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
     }
@@ -3038,6 +3098,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
@@ -3158,6 +3221,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
   shared_ptr<string> synchronizationJobId{};
   shared_ptr<bool> synchronizationReplicatorCompareEnable{};
@@ -3184,6 +3248,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
     }
@@ -3208,6 +3275,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
@@ -3333,6 +3403,7 @@ public:
   shared_ptr<string> params{};
   shared_ptr<string> region{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> srcDbType{};
   shared_ptr<string> status{};
   shared_ptr<string> type{};
@@ -3365,6 +3436,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (srcDbType) {
       res["SrcDbType"] = boost::any(*srcDbType);
     }
@@ -3395,6 +3469,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SrcDbType") != m.end() && !m["SrcDbType"].empty()) {
       srcDbType = make_shared<string>(boost::any_cast<string>(m["SrcDbType"]));
@@ -3548,6 +3625,7 @@ public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   CreateConsumerChannelRequest() {}
 
@@ -3577,6 +3655,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -3598,6 +3679,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -3728,6 +3812,7 @@ public:
   shared_ptr<string> consumerGroupUserName{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subscriptionInstanceId{};
 
   CreateConsumerGroupRequest() {}
@@ -3758,6 +3843,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (subscriptionInstanceId) {
       res["SubscriptionInstanceId"] = boost::any(*subscriptionInstanceId);
     }
@@ -3782,6 +3870,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionInstanceId") != m.end() && !m["SubscriptionInstanceId"].empty()) {
       subscriptionInstanceId = make_shared<string>(boost::any_cast<string>(m["SubscriptionInstanceId"]));
@@ -3912,6 +4003,7 @@ public:
   shared_ptr<string> ownerId{};
   shared_ptr<string> phones{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   CreateDedicatedClusterMonitorRuleRequest() {}
 
@@ -3953,6 +4045,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -3986,6 +4081,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -4401,6 +4499,7 @@ public:
   shared_ptr<long> period{};
   shared_ptr<string> phone{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> state{};
   shared_ptr<long> times{};
   shared_ptr<string> type{};
@@ -4433,6 +4532,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (state) {
       res["State"] = boost::any(*state);
     }
@@ -4463,6 +4565,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -4616,6 +4721,7 @@ public:
   shared_ptr<string> ownerId{};
   shared_ptr<string> region{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   CreateMigrationJobRequest() {}
 
@@ -4645,6 +4751,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -4666,6 +4775,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -4784,6 +4896,7 @@ public:
 class CreateReverseDtsJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dtsJobId{};
+  shared_ptr<string> resourceGroupId{};
 
   CreateReverseDtsJobRequest() {}
 
@@ -4798,12 +4911,18 @@ public:
     if (dtsJobId) {
       res["DtsJobId"] = boost::any(*dtsJobId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
       dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -4972,6 +5091,7 @@ public:
   shared_ptr<string> period{};
   shared_ptr<string> region{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<long> usedTime{};
 
   CreateSubscriptionInstanceRequest() {}
@@ -5008,6 +5128,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (usedTime) {
       res["UsedTime"] = boost::any(*usedTime);
     }
@@ -5042,6 +5165,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("UsedTime") != m.end() && !m["UsedTime"].empty()) {
       usedTime = make_shared<long>(boost::any_cast<long>(m["UsedTime"]));
@@ -5230,6 +5356,7 @@ public:
   shared_ptr<string> payType{};
   shared_ptr<string> period{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sourceRegion{};
   shared_ptr<string> synchronizationJobClass{};
   shared_ptr<string> topology{};
@@ -5275,6 +5402,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sourceRegion) {
       res["SourceRegion"] = boost::any(*sourceRegion);
@@ -5332,6 +5462,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SourceRegion") != m.end() && !m["SourceRegion"].empty()) {
       sourceRegion = make_shared<string>(boost::any_cast<string>(m["SourceRegion"]));
@@ -5468,6 +5601,7 @@ public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   DeleteConsumerChannelRequest() {}
 
@@ -5491,6 +5625,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -5506,6 +5643,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -5627,6 +5767,7 @@ public:
   shared_ptr<string> consumerGroupID{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subscriptionInstanceId{};
 
   DeleteConsumerGroupRequest() {}
@@ -5651,6 +5792,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (subscriptionInstanceId) {
       res["SubscriptionInstanceId"] = boost::any(*subscriptionInstanceId);
     }
@@ -5669,6 +5813,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionInstanceId") != m.end() && !m["SubscriptionInstanceId"].empty()) {
       subscriptionInstanceId = make_shared<string>(boost::any_cast<string>(m["SubscriptionInstanceId"]));
@@ -5786,7 +5933,9 @@ public:
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> jobType{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
+  shared_ptr<bool> zeroEtlJob{};
 
   DeleteDtsJobRequest() {}
 
@@ -5810,8 +5959,14 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
     }
     return res;
   }
@@ -5829,8 +5984,14 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -5964,6 +6125,8 @@ class DeleteDtsJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dtsJobIds{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<bool> zeroEtlJob{};
 
   DeleteDtsJobsRequest() {}
 
@@ -5981,6 +6144,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
+    }
     return res;
   }
 
@@ -5990,6 +6159,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -6125,6 +6300,7 @@ public:
   shared_ptr<string> migrationJobId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   DeleteMigrationJobRequest() {}
 
@@ -6148,6 +6324,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -6163,6 +6342,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -6276,6 +6458,7 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subscriptionInstanceId{};
 
   DeleteSubscriptionInstanceRequest() {}
@@ -6297,6 +6480,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (subscriptionInstanceId) {
       res["SubscriptionInstanceId"] = boost::any(*subscriptionInstanceId);
     }
@@ -6312,6 +6498,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionInstanceId") != m.end() && !m["SubscriptionInstanceId"].empty()) {
       subscriptionInstanceId = make_shared<string>(boost::any_cast<string>(m["SubscriptionInstanceId"]));
@@ -6428,6 +6617,7 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationJobId{};
 
   DeleteSynchronizationJobRequest() {}
@@ -6449,6 +6639,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationJobId) {
       res["SynchronizationJobId"] = boost::any(*synchronizationJobId);
     }
@@ -6464,6 +6657,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationJobId") != m.end() && !m["SynchronizationJobId"].empty()) {
       synchronizationJobId = make_shared<string>(boost::any_cast<string>(m["SynchronizationJobId"]));
@@ -6790,6 +6986,7 @@ public:
   shared_ptr<string> jobName{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceGroupId{};
 
   DescribeCheckJobsRequest() {}
 
@@ -6816,6 +7013,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -6834,6 +7034,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -7149,6 +7352,7 @@ public:
   shared_ptr<string> ownerID{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<long> startTime{};
 
   DescribeClusterOperateLogsRequest() {}
@@ -7185,6 +7389,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -7215,6 +7422,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -7477,6 +7687,7 @@ public:
   shared_ptr<string> metricType{};
   shared_ptr<string> ownerID{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityToken{};
 
   DescribeClusterUsedUtilizationRequest() {}
@@ -7513,6 +7724,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
@@ -7543,6 +7757,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
@@ -7759,6 +7976,7 @@ public:
   shared_ptr<string> destinationEndpointRegion{};
   shared_ptr<string> destinationEndpointUserName{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sourceEndpointArchitecture{};
   shared_ptr<string> sourceEndpointDatabaseName{};
   shared_ptr<string> sourceEndpointEngineName{};
@@ -7816,6 +8034,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sourceEndpointArchitecture) {
       res["SourceEndpointArchitecture"] = boost::any(*sourceEndpointArchitecture);
@@ -7889,6 +8110,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SourceEndpointArchitecture") != m.end() && !m["SourceEndpointArchitecture"].empty()) {
       sourceEndpointArchitecture = make_shared<string>(boost::any_cast<string>(m["SourceEndpointArchitecture"]));
@@ -8062,6 +8286,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> parentChannelId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   DescribeConsumerChannelRequest() {}
 
@@ -8091,6 +8316,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -8112,6 +8340,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -8340,6 +8571,7 @@ public:
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subscriptionInstanceId{};
 
   DescribeConsumerGroupRequest() {}
@@ -8367,6 +8599,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (subscriptionInstanceId) {
       res["SubscriptionInstanceId"] = boost::any(*subscriptionInstanceId);
     }
@@ -8388,6 +8623,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionInstanceId") != m.end() && !m["SubscriptionInstanceId"].empty()) {
       subscriptionInstanceId = make_shared<string>(boost::any_cast<string>(m["SubscriptionInstanceId"]));
@@ -8642,6 +8880,7 @@ class DescribeDTSIPRequest : public Darabonba::Model {
 public:
   shared_ptr<string> destinationEndpointRegion{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sourceEndpointRegion{};
 
   DescribeDTSIPRequest() {}
@@ -8660,6 +8899,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (sourceEndpointRegion) {
       res["SourceEndpointRegion"] = boost::any(*sourceEndpointRegion);
     }
@@ -8672,6 +8914,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SourceEndpointRegion") != m.end() && !m["SourceEndpointRegion"].empty()) {
       sourceEndpointRegion = make_shared<string>(boost::any_cast<string>(m["SourceEndpointRegion"]));
@@ -8802,6 +9047,7 @@ public:
   shared_ptr<long> checkType{};
   shared_ptr<string> dbName{};
   shared_ptr<string> dtsJobId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> tbName{};
 
   DescribeDataCheckReportUrlRequest() {}
@@ -8823,6 +9069,9 @@ public:
     if (dtsJobId) {
       res["DtsJobId"] = boost::any(*dtsJobId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (tbName) {
       res["TbName"] = boost::any(*tbName);
     }
@@ -8838,6 +9087,9 @@ public:
     }
     if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
       dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("TbName") != m.end() && !m["TbName"].empty()) {
       tbName = make_shared<string>(boost::any_cast<string>(m["TbName"]));
@@ -8969,6 +9221,7 @@ public:
   shared_ptr<string> dtsJobId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> schemaName{};
   shared_ptr<string> status{};
   shared_ptr<string> tableName{};
@@ -8995,6 +9248,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (schemaName) {
       res["SchemaName"] = boost::any(*schemaName);
     }
@@ -9019,6 +9275,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SchemaName") != m.end() && !m["SchemaName"].empty()) {
       schemaName = make_shared<string>(boost::any_cast<string>(m["SchemaName"]));
@@ -9312,6 +9571,7 @@ public:
   shared_ptr<string> dtsJobId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> tbName{};
 
   DescribeDataCheckTableDiffDetailsRequest() {}
@@ -9339,6 +9599,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (tbName) {
       res["TbName"] = boost::any(*tbName);
     }
@@ -9360,6 +9623,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("TbName") != m.end() && !m["TbName"].empty()) {
       tbName = make_shared<string>(boost::any_cast<string>(m["TbName"]));
@@ -9582,6 +9848,7 @@ public:
   shared_ptr<string> dedicatedClusterId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   DescribeDedicatedClusterRequest() {}
 
@@ -9602,6 +9869,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -9614,6 +9884,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -9881,6 +10154,7 @@ public:
   shared_ptr<string> dedicatedClusterId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   DescribeDedicatedClusterMonitorRuleRequest() {}
 
@@ -9901,6 +10175,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -9913,6 +10190,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -10084,6 +10364,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   DescribeDtsEtlJobVersionInfoRequest() {}
 
@@ -10110,6 +10391,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -10128,6 +10412,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -10396,8 +10683,10 @@ public:
   shared_ptr<string> dtsInstanceID{};
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<bool> syncSubJobHistory{};
   shared_ptr<string> synchronizationDirection{};
+  shared_ptr<bool> zeroEtlJob{};
 
   DescribeDtsJobDetailRequest() {}
 
@@ -10418,11 +10707,17 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (syncSubJobHistory) {
       res["SyncSubJobHistory"] = boost::any(*syncSubJobHistory);
     }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
     }
     return res;
   }
@@ -10437,11 +10732,17 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("SyncSubJobHistory") != m.end() && !m["SyncSubJobHistory"].empty()) {
       syncSubJobHistory = make_shared<bool>(boost::any_cast<bool>(m["SyncSubJobHistory"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -16835,6 +17136,8 @@ public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
   shared_ptr<string> jobType{};
   shared_ptr<string> orderColumn{};
   shared_ptr<string> orderDirection{};
@@ -16849,6 +17152,7 @@ public:
   shared_ptr<string> tags{};
   shared_ptr<string> type{};
   shared_ptr<bool> withoutDbList{};
+  shared_ptr<bool> zeroEtlJob{};
 
   DescribeDtsJobsRequest() {}
 
@@ -16874,6 +17178,12 @@ public:
     }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
     }
     if (jobType) {
       res["JobType"] = boost::any(*jobType);
@@ -16917,6 +17227,9 @@ public:
     if (withoutDbList) {
       res["WithoutDbList"] = boost::any(*withoutDbList);
     }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
+    }
     return res;
   }
 
@@ -16935,6 +17248,12 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
     if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
       jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
@@ -16977,6 +17296,9 @@ public:
     }
     if (m.find("WithoutDbList") != m.end() && !m["WithoutDbList"].empty()) {
       withoutDbList = make_shared<bool>(boost::any_cast<bool>(m["WithoutDbList"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -21392,9 +21714,11 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<long> startTime{};
   shared_ptr<string> status{};
   shared_ptr<string> subJobType{};
+  shared_ptr<bool> zeroEtlJob{};
 
   DescribeDtsServiceLogRequest() {}
 
@@ -21424,6 +21748,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -21432,6 +21759,9 @@ public:
     }
     if (subJobType) {
       res["SubJobType"] = boost::any(*subJobType);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
     }
     return res;
   }
@@ -21455,6 +21785,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
@@ -21463,6 +21796,9 @@ public:
     }
     if (m.find("SubJobType") != m.end() && !m["SubJobType"].empty()) {
       subJobType = make_shared<string>(boost::any_cast<string>(m["SubJobType"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -21683,6 +22019,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> taskId{};
 
   DescribeEndpointSwitchStatusRequest() {}
@@ -21707,6 +22044,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
@@ -21725,6 +22065,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
@@ -21854,6 +22197,7 @@ class DescribeEtlJobLogsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   DescribeEtlJobLogsRequest() {}
 
@@ -21871,6 +22215,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -21880,6 +22227,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -22101,6 +22451,7 @@ public:
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationJobId{};
 
   DescribeInitializationStatusRequest() {}
@@ -22128,6 +22479,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationJobId) {
       res["SynchronizationJobId"] = boost::any(*synchronizationJobId);
     }
@@ -22149,6 +22503,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationJobId") != m.end() && !m["SynchronizationJobId"].empty()) {
       synchronizationJobId = make_shared<string>(boost::any_cast<string>(m["SynchronizationJobId"]));
@@ -22625,6 +22982,7 @@ class DescribeJobMonitorRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   DescribeJobMonitorRuleRequest() {}
 
@@ -22642,6 +23000,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -22651,6 +23012,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -22919,6 +23283,7 @@ public:
   shared_ptr<string> ownerID{};
   shared_ptr<string> param{};
   shared_ptr<long> period{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<long> startTime{};
 
   DescribeMetricListRequest() {}
@@ -22961,6 +23326,9 @@ public:
     if (period) {
       res["Period"] = boost::any(*period);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -22997,6 +23365,9 @@ public:
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -23221,6 +23592,7 @@ public:
   shared_ptr<string> migrationJobId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   DescribeMigrationJobAlertRequest() {}
 
@@ -23247,6 +23619,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -23265,6 +23640,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -23475,6 +23853,7 @@ public:
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   DescribeMigrationJobDetailRequest() {}
 
@@ -23510,6 +23889,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -23541,6 +23923,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -24170,6 +24555,7 @@ public:
   shared_ptr<string> migrationJobId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   DescribeMigrationJobStatusRequest() {}
 
@@ -24196,6 +24582,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -24214,6 +24603,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -24988,6 +25380,7 @@ public:
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<DescribeMigrationJobsRequestTag>> tag{};
 
   DescribeMigrationJobsRequest() {}
@@ -25018,6 +25411,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (tag) {
       vector<boost::any> temp1;
       for(auto item1:*tag){
@@ -25046,6 +25442,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -26010,8 +26409,10 @@ public:
   shared_ptr<string> pageNo{};
   shared_ptr<string> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> structPhase{};
   shared_ptr<string> structType{};
+  shared_ptr<bool> zeroEtlJob{};
 
   DescribePreCheckStatusRequest() {}
 
@@ -26041,11 +26442,17 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (structPhase) {
       res["StructPhase"] = boost::any(*structPhase);
     }
     if (structType) {
       res["StructType"] = boost::any(*structType);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
     }
     return res;
   }
@@ -26069,11 +26476,17 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("StructPhase") != m.end() && !m["StructPhase"].empty()) {
       structPhase = make_shared<string>(boost::any_cast<string>(m["StructPhase"]));
     }
     if (m.find("StructType") != m.end() && !m["StructType"].empty()) {
       structType = make_shared<string>(boost::any_cast<string>(m["StructType"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -27716,6 +28129,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subscriptionInstanceId{};
 
   DescribeSubscriptionInstanceAlertRequest() {}
@@ -27740,6 +28154,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (subscriptionInstanceId) {
       res["SubscriptionInstanceId"] = boost::any(*subscriptionInstanceId);
     }
@@ -27758,6 +28175,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionInstanceId") != m.end() && !m["SubscriptionInstanceId"].empty()) {
       subscriptionInstanceId = make_shared<string>(boost::any_cast<string>(m["SubscriptionInstanceId"]));
@@ -27923,6 +28343,7 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subscriptionInstanceId{};
 
   DescribeSubscriptionInstanceStatusRequest() {}
@@ -27944,6 +28365,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (subscriptionInstanceId) {
       res["SubscriptionInstanceId"] = boost::any(*subscriptionInstanceId);
     }
@@ -27959,6 +28383,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionInstanceId") != m.end() && !m["SubscriptionInstanceId"].empty()) {
       subscriptionInstanceId = make_shared<string>(boost::any_cast<string>(m["SubscriptionInstanceId"]));
@@ -28476,6 +28903,7 @@ public:
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subscriptionInstanceName{};
   shared_ptr<vector<DescribeSubscriptionInstancesRequestTag>> tag{};
 
@@ -28506,6 +28934,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (subscriptionInstanceName) {
       res["SubscriptionInstanceName"] = boost::any(*subscriptionInstanceName);
@@ -28538,6 +28969,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionInstanceName") != m.end() && !m["SubscriptionInstanceName"].empty()) {
       subscriptionInstanceName = make_shared<string>(boost::any_cast<string>(m["SubscriptionInstanceName"]));
@@ -29222,6 +29656,7 @@ class DescribeSubscriptionMetaRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sid{};
   shared_ptr<map<string, boost::any>> subMigrationJobIds{};
   shared_ptr<map<string, boost::any>> topics{};
@@ -29242,6 +29677,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (sid) {
       res["Sid"] = boost::any(*sid);
     }
@@ -29260,6 +29698,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Sid") != m.end() && !m["Sid"].empty()) {
       sid = make_shared<string>(boost::any_cast<string>(m["Sid"]));
@@ -29289,6 +29730,7 @@ class DescribeSubscriptionMetaShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sid{};
   shared_ptr<string> subMigrationJobIdsShrink{};
   shared_ptr<string> topicsShrink{};
@@ -29309,6 +29751,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (sid) {
       res["Sid"] = boost::any(*sid);
     }
@@ -29327,6 +29772,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Sid") != m.end() && !m["Sid"].empty()) {
       sid = make_shared<string>(boost::any_cast<string>(m["Sid"]));
@@ -29535,6 +29983,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
   shared_ptr<string> synchronizationJobId{};
 
@@ -29560,6 +30009,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
     }
@@ -29581,6 +30033,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
@@ -29757,6 +30212,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
   shared_ptr<string> synchronizationJobId{};
 
@@ -29782,6 +30238,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
     }
@@ -29803,6 +30262,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
@@ -29930,6 +30392,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
   shared_ptr<string> synchronizationJobId{};
 
@@ -29955,6 +30418,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
     }
@@ -29976,6 +30442,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
@@ -30863,6 +31332,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationJobIdListJsonStr{};
 
   DescribeSynchronizationJobStatusListRequest() {}
@@ -30887,6 +31357,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationJobIdListJsonStr) {
       res["SynchronizationJobIdListJsonStr"] = boost::any(*synchronizationJobIdListJsonStr);
     }
@@ -30905,6 +31378,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationJobIdListJsonStr") != m.end() && !m["SynchronizationJobIdListJsonStr"].empty()) {
       synchronizationJobIdListJsonStr = make_shared<string>(boost::any_cast<string>(m["SynchronizationJobIdListJsonStr"]));
@@ -31195,6 +31671,7 @@ public:
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationJobName{};
   shared_ptr<vector<DescribeSynchronizationJobsRequestTag>> tag{};
 
@@ -31225,6 +31702,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (synchronizationJobName) {
       res["SynchronizationJobName"] = boost::any(*synchronizationJobName);
@@ -31257,6 +31737,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationJobName") != m.end() && !m["SynchronizationJobName"].empty()) {
       synchronizationJobName = make_shared<string>(boost::any_cast<string>(m["SynchronizationJobName"]));
@@ -32240,6 +32723,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> taskId{};
 
   DescribeSynchronizationObjectModifyStatusRequest() {}
@@ -32264,6 +32748,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
@@ -32282,6 +32769,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
@@ -32714,6 +33204,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceType{};
 
@@ -32739,6 +33230,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
     }
@@ -32760,6 +33254,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
@@ -32902,6 +33399,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceType{};
 
@@ -32930,6 +33428,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
     }
@@ -32954,6 +33455,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
@@ -33097,6 +33601,7 @@ public:
   shared_ptr<string> endpointInstanceType{};
   shared_ptr<string> endpointRegion{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   InitDtsRdsInstanceRequest() {}
 
@@ -33126,6 +33631,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -33147,6 +33655,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -33285,6 +33796,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> params{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> state{};
   shared_ptr<string> type{};
 
@@ -33319,6 +33831,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (state) {
       res["State"] = boost::any(*state);
     }
@@ -33349,6 +33864,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -33747,6 +34265,7 @@ class ListTagResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<string>> resourceId{};
   shared_ptr<string> resourceType{};
   shared_ptr<vector<ListTagResourcesRequestTag>> tag{};
@@ -33766,6 +34285,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
@@ -33789,6 +34311,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       vector<string> toVec1;
@@ -34043,6 +34568,7 @@ public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   ModifyConsumerChannelRequest() {}
 
@@ -34075,6 +34601,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -34099,6 +34628,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -34223,6 +34755,7 @@ public:
   shared_ptr<string> consumerGroupUserName{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subscriptionInstanceId{};
   shared_ptr<string> consumerGroupNewPassword{};
 
@@ -34257,6 +34790,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (subscriptionInstanceId) {
       res["SubscriptionInstanceId"] = boost::any(*subscriptionInstanceId);
     }
@@ -34287,6 +34823,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionInstanceId") != m.end() && !m["SubscriptionInstanceId"].empty()) {
       subscriptionInstanceId = make_shared<string>(boost::any_cast<string>(m["SubscriptionInstanceId"]));
@@ -34407,6 +34946,7 @@ public:
   shared_ptr<string> consumptionTimestamp{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subscriptionInstanceId{};
 
   ModifyConsumptionTimestampRequest() {}
@@ -34431,6 +34971,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (subscriptionInstanceId) {
       res["SubscriptionInstanceId"] = boost::any(*subscriptionInstanceId);
     }
@@ -34449,6 +34992,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionInstanceId") != m.end() && !m["SubscriptionInstanceId"].empty()) {
       subscriptionInstanceId = make_shared<string>(boost::any_cast<string>(m["SubscriptionInstanceId"]));
@@ -34568,6 +35114,7 @@ public:
   shared_ptr<long> oversoldRatio{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   ModifyDedicatedClusterRequest() {}
 
@@ -34597,6 +35144,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -34618,6 +35168,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -34754,8 +35307,10 @@ public:
   shared_ptr<string> modifyTypeEnum{};
   shared_ptr<string> regionId{};
   shared_ptr<string> reserved{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<bool> structureInitialization{};
   shared_ptr<string> synchronizationDirection{};
+  shared_ptr<bool> zeroEtlJob{};
 
   ModifyDtsJobRequest() {}
 
@@ -34803,11 +35358,17 @@ public:
     if (reserved) {
       res["Reserved"] = boost::any(*reserved);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (structureInitialization) {
       res["StructureInitialization"] = boost::any(*structureInitialization);
     }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
     }
     return res;
   }
@@ -34854,11 +35415,17 @@ public:
     if (m.find("Reserved") != m.end() && !m["Reserved"].empty()) {
       reserved = make_shared<string>(boost::any_cast<string>(m["Reserved"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("StructureInitialization") != m.end() && !m["StructureInitialization"].empty()) {
       structureInitialization = make_shared<bool>(boost::any_cast<bool>(m["StructureInitialization"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -34879,8 +35446,10 @@ public:
   shared_ptr<string> modifyTypeEnum{};
   shared_ptr<string> regionId{};
   shared_ptr<string> reserved{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<bool> structureInitialization{};
   shared_ptr<string> synchronizationDirection{};
+  shared_ptr<bool> zeroEtlJob{};
 
   ModifyDtsJobAdvanceRequest() {}
 
@@ -34928,11 +35497,17 @@ public:
     if (reserved) {
       res["Reserved"] = boost::any(*reserved);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (structureInitialization) {
       res["StructureInitialization"] = boost::any(*structureInitialization);
     }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
     }
     return res;
   }
@@ -34979,11 +35554,17 @@ public:
     if (m.find("Reserved") != m.end() && !m["Reserved"].empty()) {
       reserved = make_shared<string>(boost::any_cast<string>(m["Reserved"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("StructureInitialization") != m.end() && !m["StructureInitialization"].empty()) {
       structureInitialization = make_shared<bool>(boost::any_cast<bool>(m["StructureInitialization"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -35004,8 +35585,10 @@ public:
   shared_ptr<string> modifyTypeEnum{};
   shared_ptr<string> regionId{};
   shared_ptr<string> reserved{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<bool> structureInitialization{};
   shared_ptr<string> synchronizationDirection{};
+  shared_ptr<bool> zeroEtlJob{};
 
   ModifyDtsJobShrinkRequest() {}
 
@@ -35053,11 +35636,17 @@ public:
     if (reserved) {
       res["Reserved"] = boost::any(*reserved);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (structureInitialization) {
       res["StructureInitialization"] = boost::any(*structureInitialization);
     }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
     }
     return res;
   }
@@ -35099,11 +35688,17 @@ public:
     if (m.find("Reserved") != m.end() && !m["Reserved"].empty()) {
       reserved = make_shared<string>(boost::any_cast<string>(m["Reserved"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("StructureInitialization") != m.end() && !m["StructureInitialization"].empty()) {
       structureInitialization = make_shared<bool>(boost::any_cast<bool>(m["StructureInitialization"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -35232,6 +35827,7 @@ public:
   shared_ptr<string> ownerId{};
   shared_ptr<string> parameters{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   ModifyDtsJobConfigRequest() {}
 
@@ -35255,6 +35851,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -35270,6 +35869,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -35363,6 +35965,7 @@ public:
   shared_ptr<string> dtsJobIds{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   ModifyDtsJobDedicatedClusterRequest() {}
 
@@ -35386,6 +35989,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -35401,6 +36007,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -35536,6 +36145,7 @@ public:
   shared_ptr<long> duLimit{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   ModifyDtsJobDuLimitRequest() {}
 
@@ -35559,6 +36169,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -35574,6 +36187,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -35717,6 +36333,7 @@ public:
   shared_ptr<string> endpointPort{};
   shared_ptr<string> password{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> roleName{};
   shared_ptr<string> shardPassword{};
   shared_ptr<string> shardUsername{};
@@ -35768,6 +36385,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (roleName) {
       res["RoleName"] = boost::any(*roleName);
@@ -35823,6 +36443,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
       roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
@@ -35958,6 +36581,8 @@ public:
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> dtsJobName{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<bool> zeroEtlJob{};
 
   ModifyDtsJobNameRequest() {}
 
@@ -35978,6 +36603,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
+    }
     return res;
   }
 
@@ -35990,6 +36621,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -36125,7 +36762,9 @@ public:
   shared_ptr<string> endpoint{};
   shared_ptr<string> password{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> userName{};
+  shared_ptr<bool> zeroEtlJob{};
 
   ModifyDtsJobPasswordRequest() {}
 
@@ -36149,8 +36788,14 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (userName) {
       res["UserName"] = boost::any(*userName);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
     }
     return res;
   }
@@ -36168,8 +36813,14 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
       userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -36306,6 +36957,7 @@ public:
   shared_ptr<bool> enableLimit{};
   shared_ptr<string> jobCode{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   ModifyDynamicConfigRequest() {}
 
@@ -36332,6 +36984,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -36350,6 +37005,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -36485,6 +37143,7 @@ public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<bool> subscriptionDataTypeDDL{};
   shared_ptr<bool> subscriptionDataTypeDML{};
 
@@ -36510,6 +37169,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (subscriptionDataTypeDDL) {
       res["SubscriptionDataTypeDDL"] = boost::any(*subscriptionDataTypeDDL);
     }
@@ -36531,6 +37193,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionDataTypeDDL") != m.end() && !m["SubscriptionDataTypeDDL"].empty()) {
       subscriptionDataTypeDDL = make_shared<bool>(boost::any_cast<bool>(m["SubscriptionDataTypeDDL"]));
@@ -36657,6 +37322,7 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subscriptionInstanceId{};
   shared_ptr<string> subscriptionObject{};
 
@@ -36679,6 +37345,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (subscriptionInstanceId) {
       res["SubscriptionInstanceId"] = boost::any(*subscriptionInstanceId);
     }
@@ -36697,6 +37366,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionInstanceId") != m.end() && !m["SubscriptionInstanceId"].empty()) {
       subscriptionInstanceId = make_shared<string>(boost::any_cast<string>(m["SubscriptionInstanceId"]));
@@ -36816,6 +37488,7 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
   shared_ptr<string> synchronizationJobId{};
   shared_ptr<string> synchronizationObjects{};
@@ -36839,6 +37512,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
     }
@@ -36860,6 +37536,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
@@ -36991,6 +37670,7 @@ public:
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> period{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   RenewInstanceRequest() {}
 
@@ -37017,6 +37697,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -37035,6 +37718,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -37197,6 +37883,7 @@ public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
 
   ResetDtsJobRequest() {}
@@ -37218,6 +37905,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
     }
@@ -37233,6 +37923,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
@@ -37370,6 +38063,7 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
   shared_ptr<string> synchronizationJobId{};
 
@@ -37392,6 +38086,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
     }
@@ -37410,6 +38107,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
@@ -37529,6 +38229,7 @@ public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<bool> ignoreErrorSubJob{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   ReverseTwoWayDirectionRequest() {}
 
@@ -37549,6 +38250,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -37561,6 +38265,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -37695,6 +38402,7 @@ public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> precheckItems{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   ShieldPrecheckRequest() {}
 
@@ -37715,6 +38423,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -37727,6 +38438,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -37840,6 +38554,7 @@ public:
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> jobId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<bool> skip{};
   shared_ptr<string> skipPreCheckItems{};
   shared_ptr<string> skipPreCheckNames{};
@@ -37863,6 +38578,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (skip) {
       res["Skip"] = boost::any(*skip);
     }
@@ -37884,6 +38602,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Skip") != m.end() && !m["Skip"].empty()) {
       skip = make_shared<bool>(boost::any_cast<bool>(m["Skip"]));
@@ -38055,7 +38776,9 @@ public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
+  shared_ptr<bool> zeroEtlJob{};
 
   StartDtsJobRequest() {}
 
@@ -38076,8 +38799,14 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
     }
     return res;
   }
@@ -38092,8 +38821,14 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -38227,6 +38962,8 @@ class StartDtsJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dtsJobIds{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<bool> zeroEtlJob{};
 
   StartDtsJobsRequest() {}
 
@@ -38244,6 +38981,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
+    }
     return res;
   }
 
@@ -38253,6 +38996,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -38388,6 +39137,7 @@ public:
   shared_ptr<string> migrationJobId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   StartMigrationJobRequest() {}
 
@@ -38411,6 +39161,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -38426,6 +39179,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -38538,6 +39294,7 @@ class StartReverseWriterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> checkPoint{};
   shared_ptr<string> dtsJobId{};
+  shared_ptr<string> resourceGroupId{};
 
   StartReverseWriterRequest() {}
 
@@ -38555,6 +39312,9 @@ public:
     if (dtsJobId) {
       res["DtsJobId"] = boost::any(*dtsJobId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -38564,6 +39324,9 @@ public:
     }
     if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
       dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -38677,6 +39440,7 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subscriptionInstanceId{};
 
   StartSubscriptionInstanceRequest() {}
@@ -38698,6 +39462,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (subscriptionInstanceId) {
       res["SubscriptionInstanceId"] = boost::any(*subscriptionInstanceId);
     }
@@ -38713,6 +39480,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SubscriptionInstanceId") != m.end() && !m["SubscriptionInstanceId"].empty()) {
       subscriptionInstanceId = make_shared<string>(boost::any_cast<string>(m["SubscriptionInstanceId"]));
@@ -38836,6 +39606,7 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
   shared_ptr<string> synchronizationJobId{};
 
@@ -38858,6 +39629,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
     }
@@ -38876,6 +39650,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
@@ -38997,6 +39774,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   StopDedicatedClusterRequest() {}
 
@@ -39023,6 +39801,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -39041,6 +39822,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -39161,7 +39945,9 @@ public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
+  shared_ptr<bool> zeroEtlJob{};
 
   StopDtsJobRequest() {}
 
@@ -39182,8 +39968,14 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
     }
     return res;
   }
@@ -39198,8 +39990,14 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -39333,6 +40131,8 @@ class StopDtsJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dtsJobIds{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<bool> zeroEtlJob{};
 
   StopDtsJobsRequest() {}
 
@@ -39350,6 +40150,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
+    }
     return res;
   }
 
@@ -39359,6 +40165,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -39495,6 +40307,7 @@ public:
   shared_ptr<string> migrationJobId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   StopMigrationJobRequest() {}
 
@@ -39521,6 +40334,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -39539,6 +40355,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -39653,8 +40472,10 @@ public:
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> jobCode{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> structType{};
   shared_ptr<string> synchronizationDirection{};
+  shared_ptr<bool> zeroEtlJob{};
 
   SummaryJobDetailRequest() {}
 
@@ -39678,11 +40499,17 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (structType) {
       res["StructType"] = boost::any(*structType);
     }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
     }
     return res;
   }
@@ -39700,11 +40527,17 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("StructType") != m.end() && !m["StructType"].empty()) {
       structType = make_shared<string>(boost::any_cast<string>(m["StructType"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -39889,7 +40722,9 @@ public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
+  shared_ptr<bool> zeroEtlJob{};
 
   SuspendDtsJobRequest() {}
 
@@ -39910,8 +40745,14 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
     }
     return res;
   }
@@ -39926,8 +40767,14 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -40061,6 +40908,8 @@ class SuspendDtsJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dtsJobIds{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<bool> zeroEtlJob{};
 
   SuspendDtsJobsRequest() {}
 
@@ -40078,6 +40927,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
+    }
     return res;
   }
 
@@ -40087,6 +40942,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
@@ -40223,6 +41084,7 @@ public:
   shared_ptr<string> migrationJobId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   SuspendMigrationJobRequest() {}
 
@@ -40249,6 +41111,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -40267,6 +41132,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -40380,6 +41248,7 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
   shared_ptr<string> synchronizationJobId{};
 
@@ -40402,6 +41271,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
     }
@@ -40420,6 +41292,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
@@ -40539,6 +41414,7 @@ public:
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
 
   SwitchPhysicalDtsJobToCloudRequest() {}
@@ -40560,6 +41436,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
     }
@@ -40575,6 +41454,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
@@ -40807,6 +41689,7 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> synchronizationDirection{};
   shared_ptr<string> synchronizationJobId{};
 
@@ -40834,6 +41717,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (synchronizationDirection) {
       res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
@@ -40867,6 +41753,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
       synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
@@ -41027,6 +41916,7 @@ public:
 class TagResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<string>> resourceId{};
   shared_ptr<string> resourceType{};
   shared_ptr<vector<TagResourcesRequestTag>> tag{};
@@ -41043,6 +41933,9 @@ public:
     map<string, boost::any> res;
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
@@ -41063,6 +41956,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       vector<string> toVec1;
@@ -41203,6 +42099,7 @@ public:
   shared_ptr<string> instanceClass{};
   shared_ptr<string> orderType{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   TransferInstanceClassRequest() {}
 
@@ -41226,6 +42123,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -41241,6 +42141,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -41405,6 +42308,7 @@ public:
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> period{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   TransferPayTypeRequest() {}
 
@@ -41431,6 +42335,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -41449,6 +42356,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -41610,6 +42520,7 @@ class UntagResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> all{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<string>> resourceId{};
   shared_ptr<string> resourceType{};
   shared_ptr<vector<string>> tagKey{};
@@ -41630,6 +42541,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
     }
@@ -41648,6 +42562,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       vector<string> toVec1;
@@ -41784,6 +42701,7 @@ public:
   shared_ptr<string> instanceClass{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   UpgradeTwoWayRequest() {}
 
@@ -41804,6 +42722,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -41816,6 +42737,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -41950,7 +42874,9 @@ public:
   shared_ptr<string> destinationRegion{};
   shared_ptr<string> region{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> type{};
+  shared_ptr<bool> zeroEtlJob{};
 
   WhiteIpListRequest() {}
 
@@ -41971,8 +42897,14 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
+    }
+    if (zeroEtlJob) {
+      res["ZeroEtlJob"] = boost::any(*zeroEtlJob);
     }
     return res;
   }
@@ -41987,8 +42919,14 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("ZeroEtlJob") != m.end() && !m["ZeroEtlJob"].empty()) {
+      zeroEtlJob = make_shared<bool>(boost::any_cast<bool>(m["ZeroEtlJob"]));
     }
   }
 
