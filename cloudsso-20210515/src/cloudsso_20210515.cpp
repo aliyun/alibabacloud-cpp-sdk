@@ -1279,6 +1279,42 @@ GetUserResponse Alibabacloud_Cloudsso20210515::Client::getUser(shared_ptr<GetUse
   return getUserWithOptions(request, runtime);
 }
 
+GetUserIdResponse Alibabacloud_Cloudsso20210515::Client::getUserIdWithOptions(shared_ptr<GetUserIdRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetUserIdShrinkRequest> request = make_shared<GetUserIdShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<GetUserIdRequestExternalId>(tmpReq->externalId)) {
+    request->externalIdShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->externalId, make_shared<string>("ExternalId"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->directoryId)) {
+    query->insert(pair<string, string>("DirectoryId", *request->directoryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->externalIdShrink)) {
+    query->insert(pair<string, string>("ExternalId", *request->externalIdShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetUserId"))},
+    {"version", boost::any(string("2021-05-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetUserIdResponse(callApi(params, req, runtime));
+}
+
+GetUserIdResponse Alibabacloud_Cloudsso20210515::Client::getUserId(shared_ptr<GetUserIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getUserIdWithOptions(request, runtime);
+}
+
 GetUserMFAAuthenticationSettingsResponse Alibabacloud_Cloudsso20210515::Client::getUserMFAAuthenticationSettingsWithOptions(shared_ptr<GetUserMFAAuthenticationSettingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
