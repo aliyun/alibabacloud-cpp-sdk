@@ -4859,6 +4859,9 @@ ModifyInstanceSpecResponse Alibabacloud_R-kvstore20150101::Client::modifyInstanc
   if (!Darabonba_Util::Client::isUnset<string>(request->majorVersion)) {
     query->insert(pair<string, string>("MajorVersion", *request->majorVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeType)) {
+    query->insert(pair<string, string>("NodeType", *request->nodeType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderType)) {
     query->insert(pair<string, string>("OrderType", *request->orderType));
   }

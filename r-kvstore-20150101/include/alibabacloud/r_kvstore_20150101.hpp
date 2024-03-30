@@ -16647,10 +16647,122 @@ public:
 
   virtual ~DescribePriceResponseBodyOrderCoupons() = default;
 };
+class DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> optionId{};
+
+  DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds() {}
+
+  explicit DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (optionId) {
+      res["OptionId"] = boost::any(*optionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OptionId") != m.end() && !m["OptionId"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["OptionId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OptionId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      optionId = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds() = default;
+};
+class DescribePriceResponseBodyOrderDepreciateInfoContractActivity : public Darabonba::Model {
+public:
+  shared_ptr<long> activityId{};
+  shared_ptr<string> activityName{};
+  shared_ptr<double> finalFee{};
+  shared_ptr<double> finalPromFee{};
+  shared_ptr<string> optionCode{};
+  shared_ptr<DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds> optionIds{};
+  shared_ptr<double> prodFee{};
+
+  DescribePriceResponseBodyOrderDepreciateInfoContractActivity() {}
+
+  explicit DescribePriceResponseBodyOrderDepreciateInfoContractActivity(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (activityId) {
+      res["ActivityId"] = boost::any(*activityId);
+    }
+    if (activityName) {
+      res["ActivityName"] = boost::any(*activityName);
+    }
+    if (finalFee) {
+      res["FinalFee"] = boost::any(*finalFee);
+    }
+    if (finalPromFee) {
+      res["FinalPromFee"] = boost::any(*finalPromFee);
+    }
+    if (optionCode) {
+      res["OptionCode"] = boost::any(*optionCode);
+    }
+    if (optionIds) {
+      res["OptionIds"] = optionIds ? boost::any(optionIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (prodFee) {
+      res["ProdFee"] = boost::any(*prodFee);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityId") != m.end() && !m["ActivityId"].empty()) {
+      activityId = make_shared<long>(boost::any_cast<long>(m["ActivityId"]));
+    }
+    if (m.find("ActivityName") != m.end() && !m["ActivityName"].empty()) {
+      activityName = make_shared<string>(boost::any_cast<string>(m["ActivityName"]));
+    }
+    if (m.find("FinalFee") != m.end() && !m["FinalFee"].empty()) {
+      finalFee = make_shared<double>(boost::any_cast<double>(m["FinalFee"]));
+    }
+    if (m.find("FinalPromFee") != m.end() && !m["FinalPromFee"].empty()) {
+      finalPromFee = make_shared<double>(boost::any_cast<double>(m["FinalPromFee"]));
+    }
+    if (m.find("OptionCode") != m.end() && !m["OptionCode"].empty()) {
+      optionCode = make_shared<string>(boost::any_cast<string>(m["OptionCode"]));
+    }
+    if (m.find("OptionIds") != m.end() && !m["OptionIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OptionIds"].type()) {
+        DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OptionIds"]));
+        optionIds = make_shared<DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds>(model1);
+      }
+    }
+    if (m.find("ProdFee") != m.end() && !m["ProdFee"].empty()) {
+      prodFee = make_shared<double>(boost::any_cast<double>(m["ProdFee"]));
+    }
+  }
+
+
+  virtual ~DescribePriceResponseBodyOrderDepreciateInfoContractActivity() = default;
+};
 class DescribePriceResponseBodyOrderDepreciateInfo : public Darabonba::Model {
 public:
   shared_ptr<long> cheapRate{};
   shared_ptr<long> cheapStandAmount{};
+  shared_ptr<DescribePriceResponseBodyOrderDepreciateInfoContractActivity> contractActivity{};
   shared_ptr<long> differential{};
   shared_ptr<string> differentialName{};
   shared_ptr<bool> isContractActivity{};
@@ -16674,6 +16786,9 @@ public:
     }
     if (cheapStandAmount) {
       res["CheapStandAmount"] = boost::any(*cheapStandAmount);
+    }
+    if (contractActivity) {
+      res["ContractActivity"] = contractActivity ? boost::any(contractActivity->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (differential) {
       res["Differential"] = boost::any(*differential);
@@ -16705,6 +16820,13 @@ public:
     }
     if (m.find("CheapStandAmount") != m.end() && !m["CheapStandAmount"].empty()) {
       cheapStandAmount = make_shared<long>(boost::any_cast<long>(m["CheapStandAmount"]));
+    }
+    if (m.find("ContractActivity") != m.end() && !m["ContractActivity"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ContractActivity"].type()) {
+        DescribePriceResponseBodyOrderDepreciateInfoContractActivity model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ContractActivity"]));
+        contractActivity = make_shared<DescribePriceResponseBodyOrderDepreciateInfoContractActivity>(model1);
+      }
     }
     if (m.find("Differential") != m.end() && !m["Differential"].empty()) {
       differential = make_shared<long>(boost::any_cast<long>(m["Differential"]));
@@ -16986,10 +17108,122 @@ public:
 
   virtual ~DescribePriceResponseBodyRules() = default;
 };
+class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> optionId{};
+
+  DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds() {}
+
+  explicit DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (optionId) {
+      res["OptionId"] = boost::any(*optionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OptionId") != m.end() && !m["OptionId"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["OptionId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OptionId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      optionId = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds() = default;
+};
+class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity : public Darabonba::Model {
+public:
+  shared_ptr<long> activityId{};
+  shared_ptr<string> activityName{};
+  shared_ptr<double> finalFee{};
+  shared_ptr<double> finalPromFee{};
+  shared_ptr<string> optionCode{};
+  shared_ptr<DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds> optionIds{};
+  shared_ptr<double> prodFee{};
+
+  DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity() {}
+
+  explicit DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (activityId) {
+      res["ActivityId"] = boost::any(*activityId);
+    }
+    if (activityName) {
+      res["ActivityName"] = boost::any(*activityName);
+    }
+    if (finalFee) {
+      res["FinalFee"] = boost::any(*finalFee);
+    }
+    if (finalPromFee) {
+      res["FinalPromFee"] = boost::any(*finalPromFee);
+    }
+    if (optionCode) {
+      res["OptionCode"] = boost::any(*optionCode);
+    }
+    if (optionIds) {
+      res["OptionIds"] = optionIds ? boost::any(optionIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (prodFee) {
+      res["ProdFee"] = boost::any(*prodFee);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityId") != m.end() && !m["ActivityId"].empty()) {
+      activityId = make_shared<long>(boost::any_cast<long>(m["ActivityId"]));
+    }
+    if (m.find("ActivityName") != m.end() && !m["ActivityName"].empty()) {
+      activityName = make_shared<string>(boost::any_cast<string>(m["ActivityName"]));
+    }
+    if (m.find("FinalFee") != m.end() && !m["FinalFee"].empty()) {
+      finalFee = make_shared<double>(boost::any_cast<double>(m["FinalFee"]));
+    }
+    if (m.find("FinalPromFee") != m.end() && !m["FinalPromFee"].empty()) {
+      finalPromFee = make_shared<double>(boost::any_cast<double>(m["FinalPromFee"]));
+    }
+    if (m.find("OptionCode") != m.end() && !m["OptionCode"].empty()) {
+      optionCode = make_shared<string>(boost::any_cast<string>(m["OptionCode"]));
+    }
+    if (m.find("OptionIds") != m.end() && !m["OptionIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OptionIds"].type()) {
+        DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OptionIds"]));
+        optionIds = make_shared<DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds>(model1);
+      }
+    }
+    if (m.find("ProdFee") != m.end() && !m["ProdFee"].empty()) {
+      prodFee = make_shared<double>(boost::any_cast<double>(m["ProdFee"]));
+    }
+  }
+
+
+  virtual ~DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity() = default;
+};
 class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo : public Darabonba::Model {
 public:
   shared_ptr<long> cheapRate{};
   shared_ptr<long> cheapStandAmount{};
+  shared_ptr<DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity> contractActivity{};
   shared_ptr<long> differential{};
   shared_ptr<string> differentialName{};
   shared_ptr<bool> isContractActivity{};
@@ -17012,6 +17246,9 @@ public:
     }
     if (cheapStandAmount) {
       res["CheapStandAmount"] = boost::any(*cheapStandAmount);
+    }
+    if (contractActivity) {
+      res["ContractActivity"] = contractActivity ? boost::any(contractActivity->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (differential) {
       res["Differential"] = boost::any(*differential);
@@ -17040,6 +17277,13 @@ public:
     }
     if (m.find("CheapStandAmount") != m.end() && !m["CheapStandAmount"].empty()) {
       cheapStandAmount = make_shared<long>(boost::any_cast<long>(m["CheapStandAmount"]));
+    }
+    if (m.find("ContractActivity") != m.end() && !m["ContractActivity"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ContractActivity"].type()) {
+        DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ContractActivity"]));
+        contractActivity = make_shared<DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity>(model1);
+      }
     }
     if (m.find("Differential") != m.end() && !m["Differential"].empty()) {
       differential = make_shared<long>(boost::any_cast<long>(m["Differential"]));
@@ -17159,6 +17403,7 @@ public:
 };
 class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstance : public Darabonba::Model {
 public:
+  shared_ptr<bool> contractActivity{};
   shared_ptr<double> discountFee{};
   shared_ptr<DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrs> moduleAttrs{};
   shared_ptr<string> moduleCode{};
@@ -17180,6 +17425,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (contractActivity) {
+      res["ContractActivity"] = boost::any(*contractActivity);
+    }
     if (discountFee) {
       res["DiscountFee"] = boost::any(*discountFee);
     }
@@ -17214,6 +17462,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContractActivity") != m.end() && !m["ContractActivity"].empty()) {
+      contractActivity = make_shared<bool>(boost::any_cast<bool>(m["ContractActivity"]));
+    }
     if (m.find("DiscountFee") != m.end() && !m["DiscountFee"].empty()) {
       discountFee = make_shared<double>(boost::any_cast<double>(m["DiscountFee"]));
     }
@@ -17438,9 +17689,12 @@ public:
 };
 class DescribePriceResponseBodySubOrdersSubOrderPromDetailListPromDetail : public Darabonba::Model {
 public:
+  shared_ptr<map<string, boost::any>> activityExtInfo{};
+  shared_ptr<string> derivedPromType{};
   shared_ptr<double> finalPromFee{};
   shared_ptr<string> optionCode{};
   shared_ptr<string> promType{};
+  shared_ptr<string> promotionCode{};
   shared_ptr<long> promotionId{};
   shared_ptr<string> promotionName{};
 
@@ -17454,6 +17708,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activityExtInfo) {
+      res["ActivityExtInfo"] = boost::any(*activityExtInfo);
+    }
+    if (derivedPromType) {
+      res["DerivedPromType"] = boost::any(*derivedPromType);
+    }
     if (finalPromFee) {
       res["FinalPromFee"] = boost::any(*finalPromFee);
     }
@@ -17462,6 +17722,9 @@ public:
     }
     if (promType) {
       res["PromType"] = boost::any(*promType);
+    }
+    if (promotionCode) {
+      res["PromotionCode"] = boost::any(*promotionCode);
     }
     if (promotionId) {
       res["PromotionId"] = boost::any(*promotionId);
@@ -17473,6 +17736,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityExtInfo") != m.end() && !m["ActivityExtInfo"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ActivityExtInfo"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      activityExtInfo = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("DerivedPromType") != m.end() && !m["DerivedPromType"].empty()) {
+      derivedPromType = make_shared<string>(boost::any_cast<string>(m["DerivedPromType"]));
+    }
     if (m.find("FinalPromFee") != m.end() && !m["FinalPromFee"].empty()) {
       finalPromFee = make_shared<double>(boost::any_cast<double>(m["FinalPromFee"]));
     }
@@ -17481,6 +17755,9 @@ public:
     }
     if (m.find("PromType") != m.end() && !m["PromType"].empty()) {
       promType = make_shared<string>(boost::any_cast<string>(m["PromType"]));
+    }
+    if (m.find("PromotionCode") != m.end() && !m["PromotionCode"].empty()) {
+      promotionCode = make_shared<string>(boost::any_cast<string>(m["PromotionCode"]));
     }
     if (m.find("PromotionId") != m.end() && !m["PromotionId"].empty()) {
       promotionId = make_shared<long>(boost::any_cast<long>(m["PromotionId"]));
@@ -17574,6 +17851,7 @@ public:
 };
 class DescribePriceResponseBodySubOrdersSubOrder : public Darabonba::Model {
 public:
+  shared_ptr<bool> contractActivity{};
   shared_ptr<DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo> depreciateInfo{};
   shared_ptr<string> discountAmount{};
   shared_ptr<string> instanceId{};
@@ -17597,6 +17875,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (contractActivity) {
+      res["ContractActivity"] = boost::any(*contractActivity);
+    }
     if (depreciateInfo) {
       res["DepreciateInfo"] = depreciateInfo ? boost::any(depreciateInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -17637,6 +17918,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContractActivity") != m.end() && !m["ContractActivity"].empty()) {
+      contractActivity = make_shared<bool>(boost::any_cast<bool>(m["ContractActivity"]));
+    }
     if (m.find("DepreciateInfo") != m.end() && !m["DepreciateInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["DepreciateInfo"].type()) {
         DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo model1;
@@ -25082,6 +25366,7 @@ public:
   shared_ptr<string> instanceClass{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> majorVersion{};
+  shared_ptr<string> nodeType{};
   shared_ptr<string> orderType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -25133,6 +25418,9 @@ public:
     }
     if (majorVersion) {
       res["MajorVersion"] = boost::any(*majorVersion);
+    }
+    if (nodeType) {
+      res["NodeType"] = boost::any(*nodeType);
     }
     if (orderType) {
       res["OrderType"] = boost::any(*orderType);
@@ -25200,6 +25488,9 @@ public:
     }
     if (m.find("MajorVersion") != m.end() && !m["MajorVersion"].empty()) {
       majorVersion = make_shared<string>(boost::any_cast<string>(m["MajorVersion"]));
+    }
+    if (m.find("NodeType") != m.end() && !m["NodeType"].empty()) {
+      nodeType = make_shared<string>(boost::any_cast<string>(m["NodeType"]));
     }
     if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
       orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
