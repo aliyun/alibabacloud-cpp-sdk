@@ -558,11 +558,23 @@ BlindTransferResponse Alibabacloud_CCC20200701::Client::blindTransferWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
     query->insert(pair<string, string>("JobId", *request->jobId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->queuingOverflowThreshold)) {
+    query->insert(pair<string, long>("QueuingOverflowThreshold", *request->queuingOverflowThreshold));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->queuingTimeoutSeconds)) {
+    query->insert(pair<string, long>("QueuingTimeoutSeconds", *request->queuingTimeoutSeconds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routingType)) {
+    query->insert(pair<string, string>("RoutingType", *request->routingType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->strategyName)) {
     query->insert(pair<string, string>("StrategyName", *request->strategyName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->strategyParams)) {
     query->insert(pair<string, string>("StrategyParams", *request->strategyParams));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tags)) {
+    query->insert(pair<string, string>("Tags", *request->tags));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->timeoutSeconds)) {
     query->insert(pair<string, long>("TimeoutSeconds", *request->timeoutSeconds));
@@ -2617,17 +2629,32 @@ InitiateAttendedTransferResponse Alibabacloud_CCC20200701::Client::initiateAtten
   if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
     query->insert(pair<string, string>("JobId", *request->jobId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->queuingOverflowThreshold)) {
+    query->insert(pair<string, long>("QueuingOverflowThreshold", *request->queuingOverflowThreshold));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->queuingTimeoutSeconds)) {
+    query->insert(pair<string, long>("QueuingTimeoutSeconds", *request->queuingTimeoutSeconds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routingType)) {
+    query->insert(pair<string, string>("RoutingType", *request->routingType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->strategyName)) {
     query->insert(pair<string, string>("StrategyName", *request->strategyName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->strategyParams)) {
     query->insert(pair<string, string>("StrategyParams", *request->strategyParams));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tags)) {
+    query->insert(pair<string, string>("Tags", *request->tags));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->timeoutSeconds)) {
     query->insert(pair<string, long>("TimeoutSeconds", *request->timeoutSeconds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transferee)) {
     query->insert(pair<string, string>("Transferee", *request->transferee));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transfereeType)) {
+    query->insert(pair<string, string>("TransfereeType", *request->transfereeType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transferor)) {
     query->insert(pair<string, string>("Transferor", *request->transferor));
@@ -2963,6 +2990,37 @@ ListAudioFilesResponse Alibabacloud_CCC20200701::Client::listAudioFilesWithOptio
 ListAudioFilesResponse Alibabacloud_CCC20200701::Client::listAudioFiles(shared_ptr<ListAudioFilesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listAudioFilesWithOptions(request, runtime);
+}
+
+ListBlacklistCallTaggingsResponse Alibabacloud_CCC20200701::Client::listBlacklistCallTaggingsWithOptions(shared_ptr<ListBlacklistCallTaggingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->numberList)) {
+    query->insert(pair<string, string>("NumberList", *request->numberList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListBlacklistCallTaggings"))},
+    {"version", boost::any(string("2020-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListBlacklistCallTaggingsResponse(callApi(params, req, runtime));
+}
+
+ListBlacklistCallTaggingsResponse Alibabacloud_CCC20200701::Client::listBlacklistCallTaggings(shared_ptr<ListBlacklistCallTaggingsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listBlacklistCallTaggingsWithOptions(request, runtime);
 }
 
 ListBriefSkillGroupsResponse Alibabacloud_CCC20200701::Client::listBriefSkillGroupsWithOptions(shared_ptr<ListBriefSkillGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
