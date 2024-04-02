@@ -28257,8 +28257,10 @@ public:
   shared_ptr<string> connectionString{};
   shared_ptr<string> createTime{};
   shared_ptr<string> DBInstanceClass{};
+  shared_ptr<string> DBInstanceCpuCores{};
   shared_ptr<string> DBInstanceDescription{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> DBInstanceMemory{};
   shared_ptr<string> DBInstanceNetType{};
   shared_ptr<string> DBInstanceStatus{};
   shared_ptr<string> DBInstanceStorageType{};
@@ -28335,11 +28337,17 @@ public:
     if (DBInstanceClass) {
       res["DBInstanceClass"] = boost::any(*DBInstanceClass);
     }
+    if (DBInstanceCpuCores) {
+      res["DBInstanceCpuCores"] = boost::any(*DBInstanceCpuCores);
+    }
     if (DBInstanceDescription) {
       res["DBInstanceDescription"] = boost::any(*DBInstanceDescription);
     }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (DBInstanceMemory) {
+      res["DBInstanceMemory"] = boost::any(*DBInstanceMemory);
     }
     if (DBInstanceNetType) {
       res["DBInstanceNetType"] = boost::any(*DBInstanceNetType);
@@ -28492,11 +28500,17 @@ public:
     if (m.find("DBInstanceClass") != m.end() && !m["DBInstanceClass"].empty()) {
       DBInstanceClass = make_shared<string>(boost::any_cast<string>(m["DBInstanceClass"]));
     }
+    if (m.find("DBInstanceCpuCores") != m.end() && !m["DBInstanceCpuCores"].empty()) {
+      DBInstanceCpuCores = make_shared<string>(boost::any_cast<string>(m["DBInstanceCpuCores"]));
+    }
     if (m.find("DBInstanceDescription") != m.end() && !m["DBInstanceDescription"].empty()) {
       DBInstanceDescription = make_shared<string>(boost::any_cast<string>(m["DBInstanceDescription"]));
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DBInstanceMemory") != m.end() && !m["DBInstanceMemory"].empty()) {
+      DBInstanceMemory = make_shared<string>(boost::any_cast<string>(m["DBInstanceMemory"]));
     }
     if (m.find("DBInstanceNetType") != m.end() && !m["DBInstanceNetType"].empty()) {
       DBInstanceNetType = make_shared<string>(boost::any_cast<string>(m["DBInstanceNetType"]));
@@ -54537,165 +54551,6 @@ public:
 
   virtual ~GrantOperatorPermissionResponse() = default;
 };
-class ImportDatabaseBetweenInstancesRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> DBInfo{};
-  shared_ptr<string> DBInstanceId{};
-  shared_ptr<string> ownerAccount{};
-  shared_ptr<long> ownerId{};
-  shared_ptr<string> resourceOwnerAccount{};
-  shared_ptr<long> resourceOwnerId{};
-  shared_ptr<string> sourceDBInstanceId{};
-
-  ImportDatabaseBetweenInstancesRequest() {}
-
-  explicit ImportDatabaseBetweenInstancesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (DBInfo) {
-      res["DBInfo"] = boost::any(*DBInfo);
-    }
-    if (DBInstanceId) {
-      res["DBInstanceId"] = boost::any(*DBInstanceId);
-    }
-    if (ownerAccount) {
-      res["OwnerAccount"] = boost::any(*ownerAccount);
-    }
-    if (ownerId) {
-      res["OwnerId"] = boost::any(*ownerId);
-    }
-    if (resourceOwnerAccount) {
-      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
-    }
-    if (resourceOwnerId) {
-      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
-    }
-    if (sourceDBInstanceId) {
-      res["SourceDBInstanceId"] = boost::any(*sourceDBInstanceId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("DBInfo") != m.end() && !m["DBInfo"].empty()) {
-      DBInfo = make_shared<string>(boost::any_cast<string>(m["DBInfo"]));
-    }
-    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
-      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
-    }
-    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
-      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
-    }
-    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
-      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
-    }
-    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
-      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
-    }
-    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
-      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
-    }
-    if (m.find("SourceDBInstanceId") != m.end() && !m["SourceDBInstanceId"].empty()) {
-      sourceDBInstanceId = make_shared<string>(boost::any_cast<string>(m["SourceDBInstanceId"]));
-    }
-  }
-
-
-  virtual ~ImportDatabaseBetweenInstancesRequest() = default;
-};
-class ImportDatabaseBetweenInstancesResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> importId{};
-  shared_ptr<string> requestId{};
-
-  ImportDatabaseBetweenInstancesResponseBody() {}
-
-  explicit ImportDatabaseBetweenInstancesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (importId) {
-      res["ImportId"] = boost::any(*importId);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImportId") != m.end() && !m["ImportId"].empty()) {
-      importId = make_shared<string>(boost::any_cast<string>(m["ImportId"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~ImportDatabaseBetweenInstancesResponseBody() = default;
-};
-class ImportDatabaseBetweenInstancesResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<ImportDatabaseBetweenInstancesResponseBody> body{};
-
-  ImportDatabaseBetweenInstancesResponse() {}
-
-  explicit ImportDatabaseBetweenInstancesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ImportDatabaseBetweenInstancesResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ImportDatabaseBetweenInstancesResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ImportDatabaseBetweenInstancesResponse() = default;
-};
 class ImportUserBackupFileRequest : public Darabonba::Model {
 public:
   shared_ptr<string> backupFile{};
@@ -74465,8 +74320,6 @@ public:
   GrantAccountPrivilegeResponse grantAccountPrivilege(shared_ptr<GrantAccountPrivilegeRequest> request);
   GrantOperatorPermissionResponse grantOperatorPermissionWithOptions(shared_ptr<GrantOperatorPermissionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GrantOperatorPermissionResponse grantOperatorPermission(shared_ptr<GrantOperatorPermissionRequest> request);
-  ImportDatabaseBetweenInstancesResponse importDatabaseBetweenInstancesWithOptions(shared_ptr<ImportDatabaseBetweenInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ImportDatabaseBetweenInstancesResponse importDatabaseBetweenInstances(shared_ptr<ImportDatabaseBetweenInstancesRequest> request);
   ImportUserBackupFileResponse importUserBackupFileWithOptions(shared_ptr<ImportUserBackupFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportUserBackupFileResponse importUserBackupFile(shared_ptr<ImportUserBackupFileRequest> request);
   ListClassesResponse listClassesWithOptions(shared_ptr<ListClassesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

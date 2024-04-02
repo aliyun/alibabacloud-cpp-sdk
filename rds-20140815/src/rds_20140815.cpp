@@ -9648,52 +9648,6 @@ GrantOperatorPermissionResponse Alibabacloud_Rds20140815::Client::grantOperatorP
   return grantOperatorPermissionWithOptions(request, runtime);
 }
 
-ImportDatabaseBetweenInstancesResponse Alibabacloud_Rds20140815::Client::importDatabaseBetweenInstancesWithOptions(shared_ptr<ImportDatabaseBetweenInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->DBInfo)) {
-    query->insert(pair<string, string>("DBInfo", *request->DBInfo));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
-    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
-    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
-    query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
-    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
-    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sourceDBInstanceId)) {
-    query->insert(pair<string, string>("SourceDBInstanceId", *request->sourceDBInstanceId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ImportDatabaseBetweenInstances"))},
-    {"version", boost::any(string("2014-08-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ImportDatabaseBetweenInstancesResponse(callApi(params, req, runtime));
-}
-
-ImportDatabaseBetweenInstancesResponse Alibabacloud_Rds20140815::Client::importDatabaseBetweenInstances(shared_ptr<ImportDatabaseBetweenInstancesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return importDatabaseBetweenInstancesWithOptions(request, runtime);
-}
-
 ImportUserBackupFileResponse Alibabacloud_Rds20140815::Client::importUserBackupFileWithOptions(shared_ptr<ImportUserBackupFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
