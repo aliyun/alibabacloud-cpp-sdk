@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -38,14 +37,31 @@ string Alibabacloud_Cddc20200320::Client::getEndpoint(shared_ptr<string> product
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-CreateDedicatedHostResponse Alibabacloud_Cddc20200320::Client::createDedicatedHostWithOptions(shared_ptr<CreateDedicatedHostRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateDedicatedHostResponse Alibabacloud_Cddc20200320::Client::createDedicatedHostWithOptions(shared_ptr<CreateDedicatedHostRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDedicatedHostShrinkRequest> request = make_shared<CreateDedicatedHostShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->clusterServices)) {
+    request->clusterServicesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->clusterServices, make_shared<string>("ClusterServices"), make_shared<string>("simple")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateDedicatedHostRequestMyBaseEcsClass>(tmpReq->myBaseEcsClass)) {
+    request->myBaseEcsClassShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->myBaseEcsClass, make_shared<string>("MyBaseEcsClass"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->autoRenew)) {
     query->insert(pair<string, string>("AutoRenew", *request->autoRenew));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterAlias)) {
+    query->insert(pair<string, string>("ClusterAlias", *request->clusterAlias));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterServicesShrink)) {
+    query->insert(pair<string, string>("ClusterServices", *request->clusterServicesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
+    query->insert(pair<string, string>("ClusterType", *request->clusterType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->dedicatedHostGroupId)) {
     query->insert(pair<string, string>("DedicatedHostGroupId", *request->dedicatedHostGroupId));
@@ -61,6 +77,9 @@ CreateDedicatedHostResponse Alibabacloud_Cddc20200320::Client::createDedicatedHo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageCategory)) {
     query->insert(pair<string, string>("ImageCategory", *request->imageCategory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->myBaseEcsClassShrink)) {
+    query->insert(pair<string, string>("MyBaseEcsClass", *request->myBaseEcsClassShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->osPassword)) {
     query->insert(pair<string, string>("OsPassword", *request->osPassword));
@@ -88,6 +107,9 @@ CreateDedicatedHostResponse Alibabacloud_Cddc20200320::Client::createDedicatedHo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcID)) {
+    query->insert(pair<string, string>("VpcID", *request->vpcID));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
     query->insert(pair<string, string>("ZoneId", *request->zoneId));

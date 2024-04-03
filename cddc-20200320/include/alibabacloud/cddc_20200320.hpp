@@ -5,7 +5,6 @@
 
 #include <alibabacloud/open_api.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -15,15 +14,181 @@
 using namespace std;
 
 namespace Alibabacloud_Cddc20200320 {
+class CreateDedicatedHostRequestMyBaseEcsClass : public Darabonba::Model {
+public:
+  shared_ptr<long> amount{};
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<string> chargeType{};
+  shared_ptr<string> dataDiskCategory{};
+  shared_ptr<long> dataDiskCount{};
+  shared_ptr<long> dataDiskSize{};
+  shared_ptr<string> depolymentSetId{};
+  shared_ptr<string> ecsClassCode{};
+  shared_ptr<string> internetChargeType{};
+  shared_ptr<long> internetMaxBandwidthOut{};
+  shared_ptr<string> keyPairName{};
+  shared_ptr<string> password{};
+  shared_ptr<long> period{};
+  shared_ptr<string> periodType{};
+  shared_ptr<vector<string>> securityGroupIds{};
+  shared_ptr<string> systemDiskCategory{};
+  shared_ptr<long> systemDiskSize{};
+  shared_ptr<vector<string>> tags{};
+
+  CreateDedicatedHostRequestMyBaseEcsClass() {}
+
+  explicit CreateDedicatedHostRequestMyBaseEcsClass(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (amount) {
+      res["Amount"] = boost::any(*amount);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (chargeType) {
+      res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (dataDiskCategory) {
+      res["DataDiskCategory"] = boost::any(*dataDiskCategory);
+    }
+    if (dataDiskCount) {
+      res["DataDiskCount"] = boost::any(*dataDiskCount);
+    }
+    if (dataDiskSize) {
+      res["DataDiskSize"] = boost::any(*dataDiskSize);
+    }
+    if (depolymentSetId) {
+      res["DepolymentSetId"] = boost::any(*depolymentSetId);
+    }
+    if (ecsClassCode) {
+      res["EcsClassCode"] = boost::any(*ecsClassCode);
+    }
+    if (internetChargeType) {
+      res["InternetChargeType"] = boost::any(*internetChargeType);
+    }
+    if (internetMaxBandwidthOut) {
+      res["InternetMaxBandwidthOut"] = boost::any(*internetMaxBandwidthOut);
+    }
+    if (keyPairName) {
+      res["KeyPairName"] = boost::any(*keyPairName);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (periodType) {
+      res["PeriodType"] = boost::any(*periodType);
+    }
+    if (securityGroupIds) {
+      res["SecurityGroupIds"] = boost::any(*securityGroupIds);
+    }
+    if (systemDiskCategory) {
+      res["SystemDiskCategory"] = boost::any(*systemDiskCategory);
+    }
+    if (systemDiskSize) {
+      res["SystemDiskSize"] = boost::any(*systemDiskSize);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
+      amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("DataDiskCategory") != m.end() && !m["DataDiskCategory"].empty()) {
+      dataDiskCategory = make_shared<string>(boost::any_cast<string>(m["DataDiskCategory"]));
+    }
+    if (m.find("DataDiskCount") != m.end() && !m["DataDiskCount"].empty()) {
+      dataDiskCount = make_shared<long>(boost::any_cast<long>(m["DataDiskCount"]));
+    }
+    if (m.find("DataDiskSize") != m.end() && !m["DataDiskSize"].empty()) {
+      dataDiskSize = make_shared<long>(boost::any_cast<long>(m["DataDiskSize"]));
+    }
+    if (m.find("DepolymentSetId") != m.end() && !m["DepolymentSetId"].empty()) {
+      depolymentSetId = make_shared<string>(boost::any_cast<string>(m["DepolymentSetId"]));
+    }
+    if (m.find("EcsClassCode") != m.end() && !m["EcsClassCode"].empty()) {
+      ecsClassCode = make_shared<string>(boost::any_cast<string>(m["EcsClassCode"]));
+    }
+    if (m.find("InternetChargeType") != m.end() && !m["InternetChargeType"].empty()) {
+      internetChargeType = make_shared<string>(boost::any_cast<string>(m["InternetChargeType"]));
+    }
+    if (m.find("InternetMaxBandwidthOut") != m.end() && !m["InternetMaxBandwidthOut"].empty()) {
+      internetMaxBandwidthOut = make_shared<long>(boost::any_cast<long>(m["InternetMaxBandwidthOut"]));
+    }
+    if (m.find("KeyPairName") != m.end() && !m["KeyPairName"].empty()) {
+      keyPairName = make_shared<string>(boost::any_cast<string>(m["KeyPairName"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("PeriodType") != m.end() && !m["PeriodType"].empty()) {
+      periodType = make_shared<string>(boost::any_cast<string>(m["PeriodType"]));
+    }
+    if (m.find("SecurityGroupIds") != m.end() && !m["SecurityGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SystemDiskCategory") != m.end() && !m["SystemDiskCategory"].empty()) {
+      systemDiskCategory = make_shared<string>(boost::any_cast<string>(m["SystemDiskCategory"]));
+    }
+    if (m.find("SystemDiskSize") != m.end() && !m["SystemDiskSize"].empty()) {
+      systemDiskSize = make_shared<long>(boost::any_cast<long>(m["SystemDiskSize"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Tags"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tags = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateDedicatedHostRequestMyBaseEcsClass() = default;
+};
 class CreateDedicatedHostRequest : public Darabonba::Model {
 public:
   shared_ptr<string> autoRenew{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> clusterAlias{};
+  shared_ptr<vector<string>> clusterServices{};
+  shared_ptr<string> clusterType{};
   shared_ptr<string> dedicatedHostGroupId{};
   shared_ptr<string> hostClass{};
   shared_ptr<string> hostStorage{};
   shared_ptr<string> hostStorageType{};
   shared_ptr<string> imageCategory{};
+  shared_ptr<CreateDedicatedHostRequestMyBaseEcsClass> myBaseEcsClass{};
   shared_ptr<string> osPassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> payType{};
@@ -33,6 +198,7 @@ public:
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> usedTime{};
   shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcID{};
   shared_ptr<string> zoneId{};
 
   CreateDedicatedHostRequest() {}
@@ -51,6 +217,15 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (clusterAlias) {
+      res["ClusterAlias"] = boost::any(*clusterAlias);
+    }
+    if (clusterServices) {
+      res["ClusterServices"] = boost::any(*clusterServices);
+    }
+    if (clusterType) {
+      res["ClusterType"] = boost::any(*clusterType);
+    }
     if (dedicatedHostGroupId) {
       res["DedicatedHostGroupId"] = boost::any(*dedicatedHostGroupId);
     }
@@ -65,6 +240,9 @@ public:
     }
     if (imageCategory) {
       res["ImageCategory"] = boost::any(*imageCategory);
+    }
+    if (myBaseEcsClass) {
+      res["MyBaseEcsClass"] = myBaseEcsClass ? boost::any(myBaseEcsClass->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (osPassword) {
       res["OsPassword"] = boost::any(*osPassword);
@@ -93,6 +271,9 @@ public:
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
+    if (vpcID) {
+      res["VpcID"] = boost::any(*vpcID);
+    }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
@@ -105,6 +286,22 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ClusterAlias") != m.end() && !m["ClusterAlias"].empty()) {
+      clusterAlias = make_shared<string>(boost::any_cast<string>(m["ClusterAlias"]));
+    }
+    if (m.find("ClusterServices") != m.end() && !m["ClusterServices"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ClusterServices"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ClusterServices"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      clusterServices = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
+      clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
     }
     if (m.find("DedicatedHostGroupId") != m.end() && !m["DedicatedHostGroupId"].empty()) {
       dedicatedHostGroupId = make_shared<string>(boost::any_cast<string>(m["DedicatedHostGroupId"]));
@@ -120,6 +317,13 @@ public:
     }
     if (m.find("ImageCategory") != m.end() && !m["ImageCategory"].empty()) {
       imageCategory = make_shared<string>(boost::any_cast<string>(m["ImageCategory"]));
+    }
+    if (m.find("MyBaseEcsClass") != m.end() && !m["MyBaseEcsClass"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MyBaseEcsClass"].type()) {
+        CreateDedicatedHostRequestMyBaseEcsClass model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MyBaseEcsClass"]));
+        myBaseEcsClass = make_shared<CreateDedicatedHostRequestMyBaseEcsClass>(model1);
+      }
     }
     if (m.find("OsPassword") != m.end() && !m["OsPassword"].empty()) {
       osPassword = make_shared<string>(boost::any_cast<string>(m["OsPassword"]));
@@ -148,6 +352,9 @@ public:
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
+    if (m.find("VpcID") != m.end() && !m["VpcID"].empty()) {
+      vpcID = make_shared<string>(boost::any_cast<string>(m["VpcID"]));
+    }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
     }
@@ -155,6 +362,182 @@ public:
 
 
   virtual ~CreateDedicatedHostRequest() = default;
+};
+class CreateDedicatedHostShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> autoRenew{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> clusterAlias{};
+  shared_ptr<string> clusterServicesShrink{};
+  shared_ptr<string> clusterType{};
+  shared_ptr<string> dedicatedHostGroupId{};
+  shared_ptr<string> hostClass{};
+  shared_ptr<string> hostStorage{};
+  shared_ptr<string> hostStorageType{};
+  shared_ptr<string> imageCategory{};
+  shared_ptr<string> myBaseEcsClassShrink{};
+  shared_ptr<string> osPassword{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> payType{};
+  shared_ptr<string> period{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> usedTime{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcID{};
+  shared_ptr<string> zoneId{};
+
+  CreateDedicatedHostShrinkRequest() {}
+
+  explicit CreateDedicatedHostShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (clusterAlias) {
+      res["ClusterAlias"] = boost::any(*clusterAlias);
+    }
+    if (clusterServicesShrink) {
+      res["ClusterServices"] = boost::any(*clusterServicesShrink);
+    }
+    if (clusterType) {
+      res["ClusterType"] = boost::any(*clusterType);
+    }
+    if (dedicatedHostGroupId) {
+      res["DedicatedHostGroupId"] = boost::any(*dedicatedHostGroupId);
+    }
+    if (hostClass) {
+      res["HostClass"] = boost::any(*hostClass);
+    }
+    if (hostStorage) {
+      res["HostStorage"] = boost::any(*hostStorage);
+    }
+    if (hostStorageType) {
+      res["HostStorageType"] = boost::any(*hostStorageType);
+    }
+    if (imageCategory) {
+      res["ImageCategory"] = boost::any(*imageCategory);
+    }
+    if (myBaseEcsClassShrink) {
+      res["MyBaseEcsClass"] = boost::any(*myBaseEcsClassShrink);
+    }
+    if (osPassword) {
+      res["OsPassword"] = boost::any(*osPassword);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (payType) {
+      res["PayType"] = boost::any(*payType);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (usedTime) {
+      res["UsedTime"] = boost::any(*usedTime);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcID) {
+      res["VpcID"] = boost::any(*vpcID);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<string>(boost::any_cast<string>(m["AutoRenew"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ClusterAlias") != m.end() && !m["ClusterAlias"].empty()) {
+      clusterAlias = make_shared<string>(boost::any_cast<string>(m["ClusterAlias"]));
+    }
+    if (m.find("ClusterServices") != m.end() && !m["ClusterServices"].empty()) {
+      clusterServicesShrink = make_shared<string>(boost::any_cast<string>(m["ClusterServices"]));
+    }
+    if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
+      clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
+    }
+    if (m.find("DedicatedHostGroupId") != m.end() && !m["DedicatedHostGroupId"].empty()) {
+      dedicatedHostGroupId = make_shared<string>(boost::any_cast<string>(m["DedicatedHostGroupId"]));
+    }
+    if (m.find("HostClass") != m.end() && !m["HostClass"].empty()) {
+      hostClass = make_shared<string>(boost::any_cast<string>(m["HostClass"]));
+    }
+    if (m.find("HostStorage") != m.end() && !m["HostStorage"].empty()) {
+      hostStorage = make_shared<string>(boost::any_cast<string>(m["HostStorage"]));
+    }
+    if (m.find("HostStorageType") != m.end() && !m["HostStorageType"].empty()) {
+      hostStorageType = make_shared<string>(boost::any_cast<string>(m["HostStorageType"]));
+    }
+    if (m.find("ImageCategory") != m.end() && !m["ImageCategory"].empty()) {
+      imageCategory = make_shared<string>(boost::any_cast<string>(m["ImageCategory"]));
+    }
+    if (m.find("MyBaseEcsClass") != m.end() && !m["MyBaseEcsClass"].empty()) {
+      myBaseEcsClassShrink = make_shared<string>(boost::any_cast<string>(m["MyBaseEcsClass"]));
+    }
+    if (m.find("OsPassword") != m.end() && !m["OsPassword"].empty()) {
+      osPassword = make_shared<string>(boost::any_cast<string>(m["OsPassword"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
+      payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<string>(boost::any_cast<string>(m["Period"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("UsedTime") != m.end() && !m["UsedTime"].empty()) {
+      usedTime = make_shared<string>(boost::any_cast<string>(m["UsedTime"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcID") != m.end() && !m["VpcID"].empty()) {
+      vpcID = make_shared<string>(boost::any_cast<string>(m["VpcID"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~CreateDedicatedHostShrinkRequest() = default;
 };
 class CreateDedicatedHostResponseBodyDedicateHostListDedicateHostList : public Darabonba::Model {
 public:
@@ -230,6 +613,7 @@ public:
 };
 class CreateDedicatedHostResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterName{};
   shared_ptr<CreateDedicatedHostResponseBodyDedicateHostList> dedicateHostList{};
   shared_ptr<long> orderId{};
   shared_ptr<string> requestId{};
@@ -244,6 +628,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
     if (dedicateHostList) {
       res["DedicateHostList"] = dedicateHostList ? boost::any(dedicateHostList->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -257,6 +644,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
     if (m.find("DedicateHostList") != m.end() && !m["DedicateHostList"].empty()) {
       if (typeid(map<string, boost::any>) == m["DedicateHostList"].type()) {
         CreateDedicatedHostResponseBodyDedicateHostList model1;
@@ -287,17 +677,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -470,17 +850,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -688,17 +1058,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1566,17 +1926,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1721,17 +2071,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1869,17 +2209,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2269,17 +2599,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2551,17 +2871,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3037,17 +3347,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3618,17 +3918,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3978,17 +4268,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4140,17 +4420,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4350,17 +4620,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4640,17 +4900,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4802,17 +5052,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4964,17 +5204,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5147,17 +5377,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5344,17 +5564,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5506,17 +5716,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5767,17 +5967,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6124,17 +6314,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6293,17 +6473,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6469,17 +6639,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6688,17 +6848,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6871,17 +7021,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6931,7 +7071,7 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  CreateDedicatedHostResponse createDedicatedHostWithOptions(shared_ptr<CreateDedicatedHostRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDedicatedHostResponse createDedicatedHostWithOptions(shared_ptr<CreateDedicatedHostRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDedicatedHostResponse createDedicatedHost(shared_ptr<CreateDedicatedHostRequest> request);
   CreateDedicatedHostAccountResponse createDedicatedHostAccountWithOptions(shared_ptr<CreateDedicatedHostAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDedicatedHostAccountResponse createDedicatedHostAccount(shared_ptr<CreateDedicatedHostAccountRequest> request);
