@@ -36758,6 +36758,7 @@ public:
 class InitEnvironmentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aliyunLang{};
+  shared_ptr<bool> createAuthToken{};
   shared_ptr<string> environmentId{};
   shared_ptr<string> managedType{};
   shared_ptr<string> regionId{};
@@ -36775,6 +36776,9 @@ public:
     if (aliyunLang) {
       res["AliyunLang"] = boost::any(*aliyunLang);
     }
+    if (createAuthToken) {
+      res["CreateAuthToken"] = boost::any(*createAuthToken);
+    }
     if (environmentId) {
       res["EnvironmentId"] = boost::any(*environmentId);
     }
@@ -36790,6 +36794,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliyunLang") != m.end() && !m["AliyunLang"].empty()) {
       aliyunLang = make_shared<string>(boost::any_cast<string>(m["AliyunLang"]));
+    }
+    if (m.find("CreateAuthToken") != m.end() && !m["CreateAuthToken"].empty()) {
+      createAuthToken = make_shared<bool>(boost::any_cast<bool>(m["CreateAuthToken"]));
     }
     if (m.find("EnvironmentId") != m.end() && !m["EnvironmentId"].empty()) {
       environmentId = make_shared<string>(boost::any_cast<string>(m["EnvironmentId"]));
@@ -41314,6 +41321,7 @@ class ListDashboardsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<ListDashboardsResponseBodyDashboardVos>> dashboardVos{};
   shared_ptr<string> environmentId{};
+  shared_ptr<string> grafanaServiceOpened{};
   shared_ptr<string> prometheusServiceOpened{};
   shared_ptr<string> requestId{};
 
@@ -41336,6 +41344,9 @@ public:
     }
     if (environmentId) {
       res["EnvironmentId"] = boost::any(*environmentId);
+    }
+    if (grafanaServiceOpened) {
+      res["GrafanaServiceOpened"] = boost::any(*grafanaServiceOpened);
     }
     if (prometheusServiceOpened) {
       res["PrometheusServiceOpened"] = boost::any(*prometheusServiceOpened);
@@ -41362,6 +41373,9 @@ public:
     }
     if (m.find("EnvironmentId") != m.end() && !m["EnvironmentId"].empty()) {
       environmentId = make_shared<string>(boost::any_cast<string>(m["EnvironmentId"]));
+    }
+    if (m.find("GrafanaServiceOpened") != m.end() && !m["GrafanaServiceOpened"].empty()) {
+      grafanaServiceOpened = make_shared<string>(boost::any_cast<string>(m["GrafanaServiceOpened"]));
     }
     if (m.find("PrometheusServiceOpened") != m.end() && !m["PrometheusServiceOpened"].empty()) {
       prometheusServiceOpened = make_shared<string>(boost::any_cast<string>(m["PrometheusServiceOpened"]));

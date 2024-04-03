@@ -4992,6 +4992,9 @@ InitEnvironmentResponse Alibabacloud_ARMS20190808::Client::initEnvironmentWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->aliyunLang)) {
     query->insert(pair<string, string>("AliyunLang", *request->aliyunLang));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->createAuthToken)) {
+    query->insert(pair<string, bool>("CreateAuthToken", *request->createAuthToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->environmentId)) {
     query->insert(pair<string, string>("EnvironmentId", *request->environmentId));
   }
