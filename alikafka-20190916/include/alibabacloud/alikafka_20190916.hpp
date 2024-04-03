@@ -321,9 +321,12 @@ public:
 class CreateAclRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aclOperationType{};
+  shared_ptr<string> aclOperationTypes{};
+  shared_ptr<string> aclPermissionType{};
   shared_ptr<string> aclResourceName{};
   shared_ptr<string> aclResourcePatternType{};
   shared_ptr<string> aclResourceType{};
+  shared_ptr<string> host{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> username{};
@@ -341,6 +344,12 @@ public:
     if (aclOperationType) {
       res["AclOperationType"] = boost::any(*aclOperationType);
     }
+    if (aclOperationTypes) {
+      res["AclOperationTypes"] = boost::any(*aclOperationTypes);
+    }
+    if (aclPermissionType) {
+      res["AclPermissionType"] = boost::any(*aclPermissionType);
+    }
     if (aclResourceName) {
       res["AclResourceName"] = boost::any(*aclResourceName);
     }
@@ -349,6 +358,9 @@ public:
     }
     if (aclResourceType) {
       res["AclResourceType"] = boost::any(*aclResourceType);
+    }
+    if (host) {
+      res["Host"] = boost::any(*host);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -366,6 +378,12 @@ public:
     if (m.find("AclOperationType") != m.end() && !m["AclOperationType"].empty()) {
       aclOperationType = make_shared<string>(boost::any_cast<string>(m["AclOperationType"]));
     }
+    if (m.find("AclOperationTypes") != m.end() && !m["AclOperationTypes"].empty()) {
+      aclOperationTypes = make_shared<string>(boost::any_cast<string>(m["AclOperationTypes"]));
+    }
+    if (m.find("AclPermissionType") != m.end() && !m["AclPermissionType"].empty()) {
+      aclPermissionType = make_shared<string>(boost::any_cast<string>(m["AclPermissionType"]));
+    }
     if (m.find("AclResourceName") != m.end() && !m["AclResourceName"].empty()) {
       aclResourceName = make_shared<string>(boost::any_cast<string>(m["AclResourceName"]));
     }
@@ -374,6 +392,9 @@ public:
     }
     if (m.find("AclResourceType") != m.end() && !m["AclResourceType"].empty()) {
       aclResourceType = make_shared<string>(boost::any_cast<string>(m["AclResourceType"]));
+    }
+    if (m.find("Host") != m.end() && !m["Host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -1583,6 +1604,7 @@ public:
 class CreateSaslUserRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mechanism{};
   shared_ptr<string> password{};
   shared_ptr<string> regionId{};
   shared_ptr<string> type{};
@@ -1600,6 +1622,9 @@ public:
     map<string, boost::any> res;
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (mechanism) {
+      res["Mechanism"] = boost::any(*mechanism);
     }
     if (password) {
       res["Password"] = boost::any(*password);
@@ -1619,6 +1644,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Mechanism") != m.end() && !m["Mechanism"].empty()) {
+      mechanism = make_shared<string>(boost::any_cast<string>(m["Mechanism"]));
     }
     if (m.find("Password") != m.end() && !m["Password"].empty()) {
       password = make_shared<string>(boost::any_cast<string>(m["Password"]));
@@ -1993,9 +2021,12 @@ public:
 class DeleteAclRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aclOperationType{};
+  shared_ptr<string> aclOperationTypes{};
+  shared_ptr<string> aclPermissionType{};
   shared_ptr<string> aclResourceName{};
   shared_ptr<string> aclResourcePatternType{};
   shared_ptr<string> aclResourceType{};
+  shared_ptr<string> host{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> username{};
@@ -2013,6 +2044,12 @@ public:
     if (aclOperationType) {
       res["AclOperationType"] = boost::any(*aclOperationType);
     }
+    if (aclOperationTypes) {
+      res["AclOperationTypes"] = boost::any(*aclOperationTypes);
+    }
+    if (aclPermissionType) {
+      res["AclPermissionType"] = boost::any(*aclPermissionType);
+    }
     if (aclResourceName) {
       res["AclResourceName"] = boost::any(*aclResourceName);
     }
@@ -2021,6 +2058,9 @@ public:
     }
     if (aclResourceType) {
       res["AclResourceType"] = boost::any(*aclResourceType);
+    }
+    if (host) {
+      res["Host"] = boost::any(*host);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -2038,6 +2078,12 @@ public:
     if (m.find("AclOperationType") != m.end() && !m["AclOperationType"].empty()) {
       aclOperationType = make_shared<string>(boost::any_cast<string>(m["AclOperationType"]));
     }
+    if (m.find("AclOperationTypes") != m.end() && !m["AclOperationTypes"].empty()) {
+      aclOperationTypes = make_shared<string>(boost::any_cast<string>(m["AclOperationTypes"]));
+    }
+    if (m.find("AclPermissionType") != m.end() && !m["AclPermissionType"].empty()) {
+      aclPermissionType = make_shared<string>(boost::any_cast<string>(m["AclPermissionType"]));
+    }
     if (m.find("AclResourceName") != m.end() && !m["AclResourceName"].empty()) {
       aclResourceName = make_shared<string>(boost::any_cast<string>(m["AclResourceName"]));
     }
@@ -2046,6 +2092,9 @@ public:
     }
     if (m.find("AclResourceType") != m.end() && !m["AclResourceType"].empty()) {
       aclResourceType = make_shared<string>(boost::any_cast<string>(m["AclResourceType"]));
+    }
+    if (m.find("Host") != m.end() && !m["Host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -2449,6 +2498,7 @@ public:
 class DeleteSaslUserRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mechanism{};
   shared_ptr<string> regionId{};
   shared_ptr<string> type{};
   shared_ptr<string> username{};
@@ -2466,6 +2516,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (mechanism) {
+      res["Mechanism"] = boost::any(*mechanism);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -2481,6 +2534,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Mechanism") != m.end() && !m["Mechanism"].empty()) {
+      mechanism = make_shared<string>(boost::any_cast<string>(m["Mechanism"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -2745,9 +2801,12 @@ public:
 };
 class DescribeAclsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> aclOperationType{};
+  shared_ptr<string> aclPermissionType{};
   shared_ptr<string> aclResourceName{};
   shared_ptr<string> aclResourcePatternType{};
   shared_ptr<string> aclResourceType{};
+  shared_ptr<string> host{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> username{};
@@ -2762,6 +2821,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aclOperationType) {
+      res["AclOperationType"] = boost::any(*aclOperationType);
+    }
+    if (aclPermissionType) {
+      res["AclPermissionType"] = boost::any(*aclPermissionType);
+    }
     if (aclResourceName) {
       res["AclResourceName"] = boost::any(*aclResourceName);
     }
@@ -2770,6 +2835,9 @@ public:
     }
     if (aclResourceType) {
       res["AclResourceType"] = boost::any(*aclResourceType);
+    }
+    if (host) {
+      res["Host"] = boost::any(*host);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -2784,6 +2852,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclOperationType") != m.end() && !m["AclOperationType"].empty()) {
+      aclOperationType = make_shared<string>(boost::any_cast<string>(m["AclOperationType"]));
+    }
+    if (m.find("AclPermissionType") != m.end() && !m["AclPermissionType"].empty()) {
+      aclPermissionType = make_shared<string>(boost::any_cast<string>(m["AclPermissionType"]));
+    }
     if (m.find("AclResourceName") != m.end() && !m["AclResourceName"].empty()) {
       aclResourceName = make_shared<string>(boost::any_cast<string>(m["AclResourceName"]));
     }
@@ -2792,6 +2866,9 @@ public:
     }
     if (m.find("AclResourceType") != m.end() && !m["AclResourceType"].empty()) {
       aclResourceType = make_shared<string>(boost::any_cast<string>(m["AclResourceType"]));
+    }
+    if (m.find("Host") != m.end() && !m["Host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -2810,6 +2887,7 @@ public:
 class DescribeAclsResponseBodyKafkaAclListKafkaAclVO : public Darabonba::Model {
 public:
   shared_ptr<string> aclOperationType{};
+  shared_ptr<string> aclPermissionType{};
   shared_ptr<string> aclResourceName{};
   shared_ptr<string> aclResourcePatternType{};
   shared_ptr<string> aclResourceType{};
@@ -2828,6 +2906,9 @@ public:
     map<string, boost::any> res;
     if (aclOperationType) {
       res["AclOperationType"] = boost::any(*aclOperationType);
+    }
+    if (aclPermissionType) {
+      res["AclPermissionType"] = boost::any(*aclPermissionType);
     }
     if (aclResourceName) {
       res["AclResourceName"] = boost::any(*aclResourceName);
@@ -2850,6 +2931,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AclOperationType") != m.end() && !m["AclOperationType"].empty()) {
       aclOperationType = make_shared<string>(boost::any_cast<string>(m["AclOperationType"]));
+    }
+    if (m.find("AclPermissionType") != m.end() && !m["AclPermissionType"].empty()) {
+      aclPermissionType = make_shared<string>(boost::any_cast<string>(m["AclPermissionType"]));
     }
     if (m.find("AclResourceName") != m.end() && !m["AclResourceName"].empty()) {
       aclResourceName = make_shared<string>(boost::any_cast<string>(m["AclResourceName"]));
@@ -3065,6 +3149,7 @@ public:
 };
 class DescribeSaslUsersResponseBodySaslUserListSaslUserVO : public Darabonba::Model {
 public:
+  shared_ptr<string> mechanism{};
   shared_ptr<string> password{};
   shared_ptr<string> type{};
   shared_ptr<string> username{};
@@ -3079,6 +3164,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (mechanism) {
+      res["Mechanism"] = boost::any(*mechanism);
+    }
     if (password) {
       res["Password"] = boost::any(*password);
     }
@@ -3092,6 +3180,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mechanism") != m.end() && !m["Mechanism"].empty()) {
+      mechanism = make_shared<string>(boost::any_cast<string>(m["Mechanism"]));
+    }
     if (m.find("Password") != m.end() && !m["Password"].empty()) {
       password = make_shared<string>(boost::any_cast<string>(m["Password"]));
     }
@@ -4456,6 +4547,113 @@ public:
 
   virtual ~GetConsumerProgressRequest() = default;
 };
+class GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoListRebalanceInfoList : public Darabonba::Model {
+public:
+  shared_ptr<long> generation{};
+  shared_ptr<string> groupId{};
+  shared_ptr<long> lastRebalanceTimestamp{};
+  shared_ptr<string> reason{};
+  shared_ptr<bool> rebalanceSuccess{};
+  shared_ptr<long> rebalanceTimeConsuming{};
+
+  GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoListRebalanceInfoList() {}
+
+  explicit GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoListRebalanceInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (generation) {
+      res["Generation"] = boost::any(*generation);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (lastRebalanceTimestamp) {
+      res["LastRebalanceTimestamp"] = boost::any(*lastRebalanceTimestamp);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    if (rebalanceSuccess) {
+      res["RebalanceSuccess"] = boost::any(*rebalanceSuccess);
+    }
+    if (rebalanceTimeConsuming) {
+      res["RebalanceTimeConsuming"] = boost::any(*rebalanceTimeConsuming);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Generation") != m.end() && !m["Generation"].empty()) {
+      generation = make_shared<long>(boost::any_cast<long>(m["Generation"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("LastRebalanceTimestamp") != m.end() && !m["LastRebalanceTimestamp"].empty()) {
+      lastRebalanceTimestamp = make_shared<long>(boost::any_cast<long>(m["LastRebalanceTimestamp"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+    if (m.find("RebalanceSuccess") != m.end() && !m["RebalanceSuccess"].empty()) {
+      rebalanceSuccess = make_shared<bool>(boost::any_cast<bool>(m["RebalanceSuccess"]));
+    }
+    if (m.find("RebalanceTimeConsuming") != m.end() && !m["RebalanceTimeConsuming"].empty()) {
+      rebalanceTimeConsuming = make_shared<long>(boost::any_cast<long>(m["RebalanceTimeConsuming"]));
+    }
+  }
+
+
+  virtual ~GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoListRebalanceInfoList() = default;
+};
+class GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoListRebalanceInfoList>> rebalanceInfoList{};
+
+  GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList() {}
+
+  explicit GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rebalanceInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*rebalanceInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RebalanceInfoList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RebalanceInfoList") != m.end() && !m["RebalanceInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RebalanceInfoList"].type()) {
+        vector<GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoListRebalanceInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RebalanceInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoListRebalanceInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rebalanceInfoList = make_shared<vector<GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoListRebalanceInfoList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList() = default;
+};
 class GetConsumerProgressResponseBodyConsumerProgressTopicListTopicListOffsetListOffsetList : public Darabonba::Model {
 public:
   shared_ptr<long> brokerOffset{};
@@ -4649,6 +4847,7 @@ public:
 class GetConsumerProgressResponseBodyConsumerProgress : public Darabonba::Model {
 public:
   shared_ptr<long> lastTimestamp{};
+  shared_ptr<GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList> rebalanceInfoList{};
   shared_ptr<GetConsumerProgressResponseBodyConsumerProgressTopicList> topicList{};
   shared_ptr<long> totalDiff{};
 
@@ -4665,6 +4864,9 @@ public:
     if (lastTimestamp) {
       res["LastTimestamp"] = boost::any(*lastTimestamp);
     }
+    if (rebalanceInfoList) {
+      res["RebalanceInfoList"] = rebalanceInfoList ? boost::any(rebalanceInfoList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (topicList) {
       res["TopicList"] = topicList ? boost::any(topicList->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -4677,6 +4879,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("LastTimestamp") != m.end() && !m["LastTimestamp"].empty()) {
       lastTimestamp = make_shared<long>(boost::any_cast<long>(m["LastTimestamp"]));
+    }
+    if (m.find("RebalanceInfoList") != m.end() && !m["RebalanceInfoList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RebalanceInfoList"].type()) {
+        GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RebalanceInfoList"]));
+        rebalanceInfoList = make_shared<GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList>(model1);
+      }
     }
     if (m.find("TopicList") != m.end() && !m["TopicList"].empty()) {
       if (typeid(map<string, boost::any>) == m["TopicList"].type()) {

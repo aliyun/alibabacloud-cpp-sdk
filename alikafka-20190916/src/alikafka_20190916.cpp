@@ -111,6 +111,12 @@ CreateAclResponse Alibabacloud_Alikafka20190916::Client::createAclWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->aclOperationType)) {
     query->insert(pair<string, string>("AclOperationType", *request->aclOperationType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->aclOperationTypes)) {
+    query->insert(pair<string, string>("AclOperationTypes", *request->aclOperationTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->aclPermissionType)) {
+    query->insert(pair<string, string>("AclPermissionType", *request->aclPermissionType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->aclResourceName)) {
     query->insert(pair<string, string>("AclResourceName", *request->aclResourceName));
   }
@@ -119,6 +125,9 @@ CreateAclResponse Alibabacloud_Alikafka20190916::Client::createAclWithOptions(sh
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->aclResourceType)) {
     query->insert(pair<string, string>("AclResourceType", *request->aclResourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->host)) {
+    query->insert(pair<string, string>("Host", *request->host));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
@@ -333,6 +342,9 @@ CreateSaslUserResponse Alibabacloud_Alikafka20190916::Client::createSaslUserWith
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mechanism)) {
+    query->insert(pair<string, string>("Mechanism", *request->mechanism));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
     query->insert(pair<string, string>("Password", *request->password));
   }
@@ -431,6 +443,12 @@ DeleteAclResponse Alibabacloud_Alikafka20190916::Client::deleteAclWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->aclOperationType)) {
     query->insert(pair<string, string>("AclOperationType", *request->aclOperationType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->aclOperationTypes)) {
+    query->insert(pair<string, string>("AclOperationTypes", *request->aclOperationTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->aclPermissionType)) {
+    query->insert(pair<string, string>("AclPermissionType", *request->aclPermissionType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->aclResourceName)) {
     query->insert(pair<string, string>("AclResourceName", *request->aclResourceName));
   }
@@ -439,6 +457,9 @@ DeleteAclResponse Alibabacloud_Alikafka20190916::Client::deleteAclWithOptions(sh
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->aclResourceType)) {
     query->insert(pair<string, string>("AclResourceType", *request->aclResourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->host)) {
+    query->insert(pair<string, string>("Host", *request->host));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
@@ -542,6 +563,9 @@ DeleteSaslUserResponse Alibabacloud_Alikafka20190916::Client::deleteSaslUserWith
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mechanism)) {
+    query->insert(pair<string, string>("Mechanism", *request->mechanism));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -610,6 +634,12 @@ DeleteTopicResponse Alibabacloud_Alikafka20190916::Client::deleteTopic(shared_pt
 DescribeAclsResponse Alibabacloud_Alikafka20190916::Client::describeAclsWithOptions(shared_ptr<DescribeAclsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aclOperationType)) {
+    query->insert(pair<string, string>("AclOperationType", *request->aclOperationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->aclPermissionType)) {
+    query->insert(pair<string, string>("AclPermissionType", *request->aclPermissionType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->aclResourceName)) {
     query->insert(pair<string, string>("AclResourceName", *request->aclResourceName));
   }
@@ -618,6 +648,9 @@ DescribeAclsResponse Alibabacloud_Alikafka20190916::Client::describeAclsWithOpti
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->aclResourceType)) {
     query->insert(pair<string, string>("AclResourceType", *request->aclResourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->host)) {
+    query->insert(pair<string, string>("Host", *request->host));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
