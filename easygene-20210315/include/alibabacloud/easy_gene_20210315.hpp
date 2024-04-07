@@ -5422,6 +5422,7 @@ class GetRunResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> appName{};
   shared_ptr<string> appRevision{};
+  shared_ptr<vector<string>> billingInstanceIds{};
   shared_ptr<string> calls{};
   shared_ptr<string> createTime{};
   shared_ptr<string> defaultRuntime{};
@@ -5463,6 +5464,9 @@ public:
     }
     if (appRevision) {
       res["AppRevision"] = boost::any(*appRevision);
+    }
+    if (billingInstanceIds) {
+      res["BillingInstanceIds"] = boost::any(*billingInstanceIds);
     }
     if (calls) {
       res["Calls"] = boost::any(*calls);
@@ -5548,6 +5552,16 @@ public:
     }
     if (m.find("AppRevision") != m.end() && !m["AppRevision"].empty()) {
       appRevision = make_shared<string>(boost::any_cast<string>(m["AppRevision"]));
+    }
+    if (m.find("BillingInstanceIds") != m.end() && !m["BillingInstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["BillingInstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BillingInstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      billingInstanceIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Calls") != m.end() && !m["Calls"].empty()) {
       calls = make_shared<string>(boost::any_cast<string>(m["Calls"]));
