@@ -4017,6 +4017,70 @@ public:
 
   virtual ~QueryConvertInstancePriceRequest() = default;
 };
+class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> cheapRate{};
+  shared_ptr<string> cheapStandAmount{};
+  shared_ptr<bool> isShow{};
+  shared_ptr<string> monthPrice{};
+  shared_ptr<string> originalStandAmount{};
+  shared_ptr<string> startTime{};
+
+  QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo() {}
+
+  explicit QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cheapRate) {
+      res["CheapRate"] = boost::any(*cheapRate);
+    }
+    if (cheapStandAmount) {
+      res["CheapStandAmount"] = boost::any(*cheapStandAmount);
+    }
+    if (isShow) {
+      res["IsShow"] = boost::any(*isShow);
+    }
+    if (monthPrice) {
+      res["MonthPrice"] = boost::any(*monthPrice);
+    }
+    if (originalStandAmount) {
+      res["OriginalStandAmount"] = boost::any(*originalStandAmount);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheapRate") != m.end() && !m["CheapRate"].empty()) {
+      cheapRate = make_shared<string>(boost::any_cast<string>(m["CheapRate"]));
+    }
+    if (m.find("CheapStandAmount") != m.end() && !m["CheapStandAmount"].empty()) {
+      cheapStandAmount = make_shared<string>(boost::any_cast<string>(m["CheapStandAmount"]));
+    }
+    if (m.find("IsShow") != m.end() && !m["IsShow"].empty()) {
+      isShow = make_shared<bool>(boost::any_cast<bool>(m["IsShow"]));
+    }
+    if (m.find("MonthPrice") != m.end() && !m["MonthPrice"].empty()) {
+      monthPrice = make_shared<string>(boost::any_cast<string>(m["MonthPrice"]));
+    }
+    if (m.find("OriginalStandAmount") != m.end() && !m["OriginalStandAmount"].empty()) {
+      originalStandAmount = make_shared<string>(boost::any_cast<string>(m["OriginalStandAmount"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo() = default;
+};
 class QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions : public Darabonba::Model {
 public:
   shared_ptr<string> promotionDesc{};
@@ -4107,11 +4171,15 @@ class QueryConvertInstancePriceResponseBodyPriceInfo : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<string> currency{};
+  shared_ptr<QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo> depreciateInfo{};
   shared_ptr<double> discountAmount{};
+  shared_ptr<bool> isContractActivity{};
   shared_ptr<string> message{};
   shared_ptr<vector<QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions>> optionalPromotions{};
   shared_ptr<double> originalAmount{};
   shared_ptr<vector<QueryConvertInstancePriceResponseBodyPriceInfoRules>> rules{};
+  shared_ptr<string> standDiscountPrice{};
+  shared_ptr<string> standPrice{};
   shared_ptr<double> tradeAmount{};
 
   QueryConvertInstancePriceResponseBodyPriceInfo() {}
@@ -4130,8 +4198,14 @@ public:
     if (currency) {
       res["Currency"] = boost::any(*currency);
     }
+    if (depreciateInfo) {
+      res["DepreciateInfo"] = depreciateInfo ? boost::any(depreciateInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (discountAmount) {
       res["DiscountAmount"] = boost::any(*discountAmount);
+    }
+    if (isContractActivity) {
+      res["IsContractActivity"] = boost::any(*isContractActivity);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -4153,6 +4227,12 @@ public:
       }
       res["Rules"] = boost::any(temp1);
     }
+    if (standDiscountPrice) {
+      res["StandDiscountPrice"] = boost::any(*standDiscountPrice);
+    }
+    if (standPrice) {
+      res["StandPrice"] = boost::any(*standPrice);
+    }
     if (tradeAmount) {
       res["TradeAmount"] = boost::any(*tradeAmount);
     }
@@ -4166,8 +4246,18 @@ public:
     if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
       currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
     }
+    if (m.find("DepreciateInfo") != m.end() && !m["DepreciateInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DepreciateInfo"].type()) {
+        QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DepreciateInfo"]));
+        depreciateInfo = make_shared<QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo>(model1);
+      }
+    }
     if (m.find("DiscountAmount") != m.end() && !m["DiscountAmount"].empty()) {
       discountAmount = make_shared<double>(boost::any_cast<double>(m["DiscountAmount"]));
+    }
+    if (m.find("IsContractActivity") != m.end() && !m["IsContractActivity"].empty()) {
+      isContractActivity = make_shared<bool>(boost::any_cast<bool>(m["IsContractActivity"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -4200,6 +4290,12 @@ public:
         }
         rules = make_shared<vector<QueryConvertInstancePriceResponseBodyPriceInfoRules>>(expect1);
       }
+    }
+    if (m.find("StandDiscountPrice") != m.end() && !m["StandDiscountPrice"].empty()) {
+      standDiscountPrice = make_shared<string>(boost::any_cast<string>(m["StandDiscountPrice"]));
+    }
+    if (m.find("StandPrice") != m.end() && !m["StandPrice"].empty()) {
+      standPrice = make_shared<string>(boost::any_cast<string>(m["StandPrice"]));
     }
     if (m.find("TradeAmount") != m.end() && !m["TradeAmount"].empty()) {
       tradeAmount = make_shared<double>(boost::any_cast<double>(m["TradeAmount"]));
@@ -4377,6 +4473,70 @@ public:
 
   virtual ~QueryConvertPrepayInstancePriceRequest() = default;
 };
+class QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> cheapRate{};
+  shared_ptr<string> cheapStandAmount{};
+  shared_ptr<bool> isShow{};
+  shared_ptr<string> monthPrice{};
+  shared_ptr<string> originalStandAmount{};
+  shared_ptr<string> startTime{};
+
+  QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo() {}
+
+  explicit QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cheapRate) {
+      res["CheapRate"] = boost::any(*cheapRate);
+    }
+    if (cheapStandAmount) {
+      res["CheapStandAmount"] = boost::any(*cheapStandAmount);
+    }
+    if (isShow) {
+      res["IsShow"] = boost::any(*isShow);
+    }
+    if (monthPrice) {
+      res["MonthPrice"] = boost::any(*monthPrice);
+    }
+    if (originalStandAmount) {
+      res["OriginalStandAmount"] = boost::any(*originalStandAmount);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheapRate") != m.end() && !m["CheapRate"].empty()) {
+      cheapRate = make_shared<string>(boost::any_cast<string>(m["CheapRate"]));
+    }
+    if (m.find("CheapStandAmount") != m.end() && !m["CheapStandAmount"].empty()) {
+      cheapStandAmount = make_shared<string>(boost::any_cast<string>(m["CheapStandAmount"]));
+    }
+    if (m.find("IsShow") != m.end() && !m["IsShow"].empty()) {
+      isShow = make_shared<bool>(boost::any_cast<bool>(m["IsShow"]));
+    }
+    if (m.find("MonthPrice") != m.end() && !m["MonthPrice"].empty()) {
+      monthPrice = make_shared<string>(boost::any_cast<string>(m["MonthPrice"]));
+    }
+    if (m.find("OriginalStandAmount") != m.end() && !m["OriginalStandAmount"].empty()) {
+      originalStandAmount = make_shared<string>(boost::any_cast<string>(m["OriginalStandAmount"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo() = default;
+};
 class QueryConvertPrepayInstancePriceResponseBodyPriceInfoOptionalPromotions : public Darabonba::Model {
 public:
   shared_ptr<string> promotionDesc{};
@@ -4467,11 +4627,15 @@ class QueryConvertPrepayInstancePriceResponseBodyPriceInfo : public Darabonba::M
 public:
   shared_ptr<string> code{};
   shared_ptr<string> currency{};
+  shared_ptr<QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo> depreciateInfo{};
   shared_ptr<double> discountAmount{};
+  shared_ptr<bool> isContractActivity{};
   shared_ptr<string> message{};
   shared_ptr<vector<QueryConvertPrepayInstancePriceResponseBodyPriceInfoOptionalPromotions>> optionalPromotions{};
   shared_ptr<double> originalAmount{};
   shared_ptr<vector<QueryConvertPrepayInstancePriceResponseBodyPriceInfoRules>> rules{};
+  shared_ptr<string> standDiscountPrice{};
+  shared_ptr<string> standPrice{};
   shared_ptr<double> tradeAmount{};
 
   QueryConvertPrepayInstancePriceResponseBodyPriceInfo() {}
@@ -4490,8 +4654,14 @@ public:
     if (currency) {
       res["Currency"] = boost::any(*currency);
     }
+    if (depreciateInfo) {
+      res["DepreciateInfo"] = depreciateInfo ? boost::any(depreciateInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (discountAmount) {
       res["DiscountAmount"] = boost::any(*discountAmount);
+    }
+    if (isContractActivity) {
+      res["IsContractActivity"] = boost::any(*isContractActivity);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -4513,6 +4683,12 @@ public:
       }
       res["Rules"] = boost::any(temp1);
     }
+    if (standDiscountPrice) {
+      res["StandDiscountPrice"] = boost::any(*standDiscountPrice);
+    }
+    if (standPrice) {
+      res["StandPrice"] = boost::any(*standPrice);
+    }
     if (tradeAmount) {
       res["TradeAmount"] = boost::any(*tradeAmount);
     }
@@ -4526,8 +4702,18 @@ public:
     if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
       currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
     }
+    if (m.find("DepreciateInfo") != m.end() && !m["DepreciateInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DepreciateInfo"].type()) {
+        QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DepreciateInfo"]));
+        depreciateInfo = make_shared<QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo>(model1);
+      }
+    }
     if (m.find("DiscountAmount") != m.end() && !m["DiscountAmount"].empty()) {
       discountAmount = make_shared<double>(boost::any_cast<double>(m["DiscountAmount"]));
+    }
+    if (m.find("IsContractActivity") != m.end() && !m["IsContractActivity"].empty()) {
+      isContractActivity = make_shared<bool>(boost::any_cast<bool>(m["IsContractActivity"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -4560,6 +4746,12 @@ public:
         }
         rules = make_shared<vector<QueryConvertPrepayInstancePriceResponseBodyPriceInfoRules>>(expect1);
       }
+    }
+    if (m.find("StandDiscountPrice") != m.end() && !m["StandDiscountPrice"].empty()) {
+      standDiscountPrice = make_shared<string>(boost::any_cast<string>(m["StandDiscountPrice"]));
+    }
+    if (m.find("StandPrice") != m.end() && !m["StandPrice"].empty()) {
+      standPrice = make_shared<string>(boost::any_cast<string>(m["StandPrice"]));
     }
     if (m.find("TradeAmount") != m.end() && !m["TradeAmount"].empty()) {
       tradeAmount = make_shared<double>(boost::any_cast<double>(m["TradeAmount"]));
@@ -4995,6 +5187,70 @@ public:
 
   virtual ~QueryCreateInstancePriceRequest() = default;
 };
+class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> cheapRate{};
+  shared_ptr<string> cheapStandAmount{};
+  shared_ptr<bool> isShow{};
+  shared_ptr<string> monthPrice{};
+  shared_ptr<string> originalStandAmount{};
+  shared_ptr<string> startTime{};
+
+  QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo() {}
+
+  explicit QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cheapRate) {
+      res["CheapRate"] = boost::any(*cheapRate);
+    }
+    if (cheapStandAmount) {
+      res["CheapStandAmount"] = boost::any(*cheapStandAmount);
+    }
+    if (isShow) {
+      res["IsShow"] = boost::any(*isShow);
+    }
+    if (monthPrice) {
+      res["MonthPrice"] = boost::any(*monthPrice);
+    }
+    if (originalStandAmount) {
+      res["OriginalStandAmount"] = boost::any(*originalStandAmount);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheapRate") != m.end() && !m["CheapRate"].empty()) {
+      cheapRate = make_shared<string>(boost::any_cast<string>(m["CheapRate"]));
+    }
+    if (m.find("CheapStandAmount") != m.end() && !m["CheapStandAmount"].empty()) {
+      cheapStandAmount = make_shared<string>(boost::any_cast<string>(m["CheapStandAmount"]));
+    }
+    if (m.find("IsShow") != m.end() && !m["IsShow"].empty()) {
+      isShow = make_shared<bool>(boost::any_cast<bool>(m["IsShow"]));
+    }
+    if (m.find("MonthPrice") != m.end() && !m["MonthPrice"].empty()) {
+      monthPrice = make_shared<string>(boost::any_cast<string>(m["MonthPrice"]));
+    }
+    if (m.find("OriginalStandAmount") != m.end() && !m["OriginalStandAmount"].empty()) {
+      originalStandAmount = make_shared<string>(boost::any_cast<string>(m["OriginalStandAmount"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo() = default;
+};
 class QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions : public Darabonba::Model {
 public:
   shared_ptr<string> promotionDesc{};
@@ -5085,11 +5341,15 @@ class QueryCreateInstancePriceResponseBodyPriceInfo : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<string> currency{};
+  shared_ptr<QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo> depreciateInfo{};
   shared_ptr<double> discountAmount{};
+  shared_ptr<bool> isContractActivity{};
   shared_ptr<string> message{};
   shared_ptr<vector<QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions>> optionalPromotions{};
   shared_ptr<double> originalAmount{};
   shared_ptr<vector<QueryCreateInstancePriceResponseBodyPriceInfoRules>> rules{};
+  shared_ptr<string> standDiscountPrice{};
+  shared_ptr<string> standPrice{};
   shared_ptr<double> tradeAmount{};
 
   QueryCreateInstancePriceResponseBodyPriceInfo() {}
@@ -5108,8 +5368,14 @@ public:
     if (currency) {
       res["Currency"] = boost::any(*currency);
     }
+    if (depreciateInfo) {
+      res["DepreciateInfo"] = depreciateInfo ? boost::any(depreciateInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (discountAmount) {
       res["DiscountAmount"] = boost::any(*discountAmount);
+    }
+    if (isContractActivity) {
+      res["IsContractActivity"] = boost::any(*isContractActivity);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -5131,6 +5397,12 @@ public:
       }
       res["Rules"] = boost::any(temp1);
     }
+    if (standDiscountPrice) {
+      res["StandDiscountPrice"] = boost::any(*standDiscountPrice);
+    }
+    if (standPrice) {
+      res["StandPrice"] = boost::any(*standPrice);
+    }
     if (tradeAmount) {
       res["TradeAmount"] = boost::any(*tradeAmount);
     }
@@ -5144,8 +5416,18 @@ public:
     if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
       currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
     }
+    if (m.find("DepreciateInfo") != m.end() && !m["DepreciateInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DepreciateInfo"].type()) {
+        QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DepreciateInfo"]));
+        depreciateInfo = make_shared<QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo>(model1);
+      }
+    }
     if (m.find("DiscountAmount") != m.end() && !m["DiscountAmount"].empty()) {
       discountAmount = make_shared<double>(boost::any_cast<double>(m["DiscountAmount"]));
+    }
+    if (m.find("IsContractActivity") != m.end() && !m["IsContractActivity"].empty()) {
+      isContractActivity = make_shared<bool>(boost::any_cast<bool>(m["IsContractActivity"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -5178,6 +5460,12 @@ public:
         }
         rules = make_shared<vector<QueryCreateInstancePriceResponseBodyPriceInfoRules>>(expect1);
       }
+    }
+    if (m.find("StandDiscountPrice") != m.end() && !m["StandDiscountPrice"].empty()) {
+      standDiscountPrice = make_shared<string>(boost::any_cast<string>(m["StandDiscountPrice"]));
+    }
+    if (m.find("StandPrice") != m.end() && !m["StandPrice"].empty()) {
+      standPrice = make_shared<string>(boost::any_cast<string>(m["StandPrice"]));
     }
     if (m.find("TradeAmount") != m.end() && !m["TradeAmount"].empty()) {
       tradeAmount = make_shared<double>(boost::any_cast<double>(m["TradeAmount"]));
@@ -5477,6 +5765,70 @@ public:
 
   virtual ~QueryModifyInstancePriceRequest() = default;
 };
+class QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> cheapRate{};
+  shared_ptr<string> cheapStandAmount{};
+  shared_ptr<bool> isShow{};
+  shared_ptr<string> monthPrice{};
+  shared_ptr<string> originalStandAmount{};
+  shared_ptr<string> startTime{};
+
+  QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo() {}
+
+  explicit QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cheapRate) {
+      res["CheapRate"] = boost::any(*cheapRate);
+    }
+    if (cheapStandAmount) {
+      res["CheapStandAmount"] = boost::any(*cheapStandAmount);
+    }
+    if (isShow) {
+      res["IsShow"] = boost::any(*isShow);
+    }
+    if (monthPrice) {
+      res["MonthPrice"] = boost::any(*monthPrice);
+    }
+    if (originalStandAmount) {
+      res["OriginalStandAmount"] = boost::any(*originalStandAmount);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheapRate") != m.end() && !m["CheapRate"].empty()) {
+      cheapRate = make_shared<string>(boost::any_cast<string>(m["CheapRate"]));
+    }
+    if (m.find("CheapStandAmount") != m.end() && !m["CheapStandAmount"].empty()) {
+      cheapStandAmount = make_shared<string>(boost::any_cast<string>(m["CheapStandAmount"]));
+    }
+    if (m.find("IsShow") != m.end() && !m["IsShow"].empty()) {
+      isShow = make_shared<bool>(boost::any_cast<bool>(m["IsShow"]));
+    }
+    if (m.find("MonthPrice") != m.end() && !m["MonthPrice"].empty()) {
+      monthPrice = make_shared<string>(boost::any_cast<string>(m["MonthPrice"]));
+    }
+    if (m.find("OriginalStandAmount") != m.end() && !m["OriginalStandAmount"].empty()) {
+      originalStandAmount = make_shared<string>(boost::any_cast<string>(m["OriginalStandAmount"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo() = default;
+};
 class QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions : public Darabonba::Model {
 public:
   shared_ptr<string> promotionDesc{};
@@ -5567,11 +5919,15 @@ class QueryModifyInstancePriceResponseBodyPriceInfo : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<string> currency{};
+  shared_ptr<QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo> depreciateInfo{};
   shared_ptr<double> discountAmount{};
+  shared_ptr<bool> isContractActivity{};
   shared_ptr<string> message{};
   shared_ptr<vector<QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions>> optionalPromotions{};
   shared_ptr<double> originalAmount{};
   shared_ptr<vector<QueryModifyInstancePriceResponseBodyPriceInfoRules>> rules{};
+  shared_ptr<string> standDiscountPrice{};
+  shared_ptr<string> standPrice{};
   shared_ptr<double> tradeAmount{};
 
   QueryModifyInstancePriceResponseBodyPriceInfo() {}
@@ -5590,8 +5946,14 @@ public:
     if (currency) {
       res["Currency"] = boost::any(*currency);
     }
+    if (depreciateInfo) {
+      res["DepreciateInfo"] = depreciateInfo ? boost::any(depreciateInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (discountAmount) {
       res["DiscountAmount"] = boost::any(*discountAmount);
+    }
+    if (isContractActivity) {
+      res["IsContractActivity"] = boost::any(*isContractActivity);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -5613,6 +5975,12 @@ public:
       }
       res["Rules"] = boost::any(temp1);
     }
+    if (standDiscountPrice) {
+      res["StandDiscountPrice"] = boost::any(*standDiscountPrice);
+    }
+    if (standPrice) {
+      res["StandPrice"] = boost::any(*standPrice);
+    }
     if (tradeAmount) {
       res["TradeAmount"] = boost::any(*tradeAmount);
     }
@@ -5626,8 +5994,18 @@ public:
     if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
       currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
     }
+    if (m.find("DepreciateInfo") != m.end() && !m["DepreciateInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DepreciateInfo"].type()) {
+        QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DepreciateInfo"]));
+        depreciateInfo = make_shared<QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo>(model1);
+      }
+    }
     if (m.find("DiscountAmount") != m.end() && !m["DiscountAmount"].empty()) {
       discountAmount = make_shared<double>(boost::any_cast<double>(m["DiscountAmount"]));
+    }
+    if (m.find("IsContractActivity") != m.end() && !m["IsContractActivity"].empty()) {
+      isContractActivity = make_shared<bool>(boost::any_cast<bool>(m["IsContractActivity"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -5660,6 +6038,12 @@ public:
         }
         rules = make_shared<vector<QueryModifyInstancePriceResponseBodyPriceInfoRules>>(expect1);
       }
+    }
+    if (m.find("StandDiscountPrice") != m.end() && !m["StandDiscountPrice"].empty()) {
+      standDiscountPrice = make_shared<string>(boost::any_cast<string>(m["StandDiscountPrice"]));
+    }
+    if (m.find("StandPrice") != m.end() && !m["StandPrice"].empty()) {
+      standPrice = make_shared<string>(boost::any_cast<string>(m["StandPrice"]));
     }
     if (m.find("TradeAmount") != m.end() && !m["TradeAmount"].empty()) {
       tradeAmount = make_shared<double>(boost::any_cast<double>(m["TradeAmount"]));
@@ -5851,6 +6235,70 @@ public:
 
   virtual ~QueryRenewInstancePriceRequest() = default;
 };
+class QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> cheapRate{};
+  shared_ptr<string> cheapStandAmount{};
+  shared_ptr<bool> isShow{};
+  shared_ptr<string> monthPrice{};
+  shared_ptr<string> originalStandAmount{};
+  shared_ptr<string> startTime{};
+
+  QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo() {}
+
+  explicit QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cheapRate) {
+      res["CheapRate"] = boost::any(*cheapRate);
+    }
+    if (cheapStandAmount) {
+      res["CheapStandAmount"] = boost::any(*cheapStandAmount);
+    }
+    if (isShow) {
+      res["IsShow"] = boost::any(*isShow);
+    }
+    if (monthPrice) {
+      res["MonthPrice"] = boost::any(*monthPrice);
+    }
+    if (originalStandAmount) {
+      res["OriginalStandAmount"] = boost::any(*originalStandAmount);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheapRate") != m.end() && !m["CheapRate"].empty()) {
+      cheapRate = make_shared<string>(boost::any_cast<string>(m["CheapRate"]));
+    }
+    if (m.find("CheapStandAmount") != m.end() && !m["CheapStandAmount"].empty()) {
+      cheapStandAmount = make_shared<string>(boost::any_cast<string>(m["CheapStandAmount"]));
+    }
+    if (m.find("IsShow") != m.end() && !m["IsShow"].empty()) {
+      isShow = make_shared<bool>(boost::any_cast<bool>(m["IsShow"]));
+    }
+    if (m.find("MonthPrice") != m.end() && !m["MonthPrice"].empty()) {
+      monthPrice = make_shared<string>(boost::any_cast<string>(m["MonthPrice"]));
+    }
+    if (m.find("OriginalStandAmount") != m.end() && !m["OriginalStandAmount"].empty()) {
+      originalStandAmount = make_shared<string>(boost::any_cast<string>(m["OriginalStandAmount"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo() = default;
+};
 class QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions : public Darabonba::Model {
 public:
   shared_ptr<string> promotionDesc{};
@@ -5941,11 +6389,15 @@ class QueryRenewInstancePriceResponseBodyPriceInfo : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<string> currency{};
+  shared_ptr<QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo> depreciateInfo{};
   shared_ptr<double> discountAmount{};
+  shared_ptr<bool> isContractActivity{};
   shared_ptr<string> message{};
   shared_ptr<vector<QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions>> optionalPromotions{};
   shared_ptr<double> originalAmount{};
   shared_ptr<vector<QueryRenewInstancePriceResponseBodyPriceInfoRules>> rules{};
+  shared_ptr<string> standDiscountPrice{};
+  shared_ptr<string> standPrice{};
   shared_ptr<double> tradeAmount{};
 
   QueryRenewInstancePriceResponseBodyPriceInfo() {}
@@ -5964,8 +6416,14 @@ public:
     if (currency) {
       res["Currency"] = boost::any(*currency);
     }
+    if (depreciateInfo) {
+      res["DepreciateInfo"] = depreciateInfo ? boost::any(depreciateInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (discountAmount) {
       res["DiscountAmount"] = boost::any(*discountAmount);
+    }
+    if (isContractActivity) {
+      res["IsContractActivity"] = boost::any(*isContractActivity);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -5987,6 +6445,12 @@ public:
       }
       res["Rules"] = boost::any(temp1);
     }
+    if (standDiscountPrice) {
+      res["StandDiscountPrice"] = boost::any(*standDiscountPrice);
+    }
+    if (standPrice) {
+      res["StandPrice"] = boost::any(*standPrice);
+    }
     if (tradeAmount) {
       res["TradeAmount"] = boost::any(*tradeAmount);
     }
@@ -6000,8 +6464,18 @@ public:
     if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
       currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
     }
+    if (m.find("DepreciateInfo") != m.end() && !m["DepreciateInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DepreciateInfo"].type()) {
+        QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DepreciateInfo"]));
+        depreciateInfo = make_shared<QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo>(model1);
+      }
+    }
     if (m.find("DiscountAmount") != m.end() && !m["DiscountAmount"].empty()) {
       discountAmount = make_shared<double>(boost::any_cast<double>(m["DiscountAmount"]));
+    }
+    if (m.find("IsContractActivity") != m.end() && !m["IsContractActivity"].empty()) {
+      isContractActivity = make_shared<bool>(boost::any_cast<bool>(m["IsContractActivity"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -6034,6 +6508,12 @@ public:
         }
         rules = make_shared<vector<QueryRenewInstancePriceResponseBodyPriceInfoRules>>(expect1);
       }
+    }
+    if (m.find("StandDiscountPrice") != m.end() && !m["StandDiscountPrice"].empty()) {
+      standDiscountPrice = make_shared<string>(boost::any_cast<string>(m["StandDiscountPrice"]));
+    }
+    if (m.find("StandPrice") != m.end() && !m["StandPrice"].empty()) {
+      standPrice = make_shared<string>(boost::any_cast<string>(m["StandPrice"]));
     }
     if (m.find("TradeAmount") != m.end() && !m["TradeAmount"].empty()) {
       tradeAmount = make_shared<double>(boost::any_cast<double>(m["TradeAmount"]));
