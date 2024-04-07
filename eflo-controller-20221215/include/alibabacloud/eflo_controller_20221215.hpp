@@ -1734,6 +1734,7 @@ public:
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
   shared_ptr<vector<DescribeClusterResponseBodyComponents>> components{};
+  shared_ptr<string> computingIpVersion{};
   shared_ptr<string> createTime{};
   shared_ptr<string> hpnZone{};
   shared_ptr<vector<DescribeClusterResponseBodyNetworks>> networks{};
@@ -1774,6 +1775,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Components"] = boost::any(temp1);
+    }
+    if (computingIpVersion) {
+      res["ComputingIpVersion"] = boost::any(*computingIpVersion);
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
@@ -1840,6 +1844,9 @@ public:
         }
         components = make_shared<vector<DescribeClusterResponseBodyComponents>>(expect1);
       }
+    }
+    if (m.find("ComputingIpVersion") != m.end() && !m["ComputingIpVersion"].empty()) {
+      computingIpVersion = make_shared<string>(boost::any_cast<string>(m["ComputingIpVersion"]));
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
@@ -4904,6 +4911,7 @@ public:
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
   shared_ptr<boost::any> components{};
+  shared_ptr<string> computingIpVersion{};
   shared_ptr<string> createTime{};
   shared_ptr<string> hpnZone{};
   shared_ptr<long> nodeCount{};
@@ -4938,6 +4946,9 @@ public:
     }
     if (components) {
       res["Components"] = boost::any(*components);
+    }
+    if (computingIpVersion) {
+      res["ComputingIpVersion"] = boost::any(*computingIpVersion);
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
@@ -4984,6 +4995,9 @@ public:
     }
     if (m.find("Components") != m.end() && !m["Components"].empty()) {
       components = make_shared<boost::any>(boost::any_cast<boost::any>(m["Components"]));
+    }
+    if (m.find("ComputingIpVersion") != m.end() && !m["ComputingIpVersion"].empty()) {
+      computingIpVersion = make_shared<string>(boost::any_cast<string>(m["ComputingIpVersion"]));
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
