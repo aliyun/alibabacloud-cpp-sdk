@@ -38016,6 +38016,7 @@ public:
 class ListOrganizationsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> accessLevel{};
+  shared_ptr<string> accessToken{};
   shared_ptr<long> minAccessLevel{};
 
   ListOrganizationsRequest() {}
@@ -38031,6 +38032,9 @@ public:
     if (accessLevel) {
       res["accessLevel"] = boost::any(*accessLevel);
     }
+    if (accessToken) {
+      res["accessToken"] = boost::any(*accessToken);
+    }
     if (minAccessLevel) {
       res["minAccessLevel"] = boost::any(*minAccessLevel);
     }
@@ -38040,6 +38044,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("accessLevel") != m.end() && !m["accessLevel"].empty()) {
       accessLevel = make_shared<long>(boost::any_cast<long>(m["accessLevel"]));
+    }
+    if (m.find("accessToken") != m.end() && !m["accessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["accessToken"]));
     }
     if (m.find("minAccessLevel") != m.end() && !m["minAccessLevel"].empty()) {
       minAccessLevel = make_shared<long>(boost::any_cast<long>(m["minAccessLevel"]));

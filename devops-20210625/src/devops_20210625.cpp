@@ -5232,6 +5232,9 @@ ListOrganizationsResponse Alibabacloud_Devops20210625::Client::listOrganizations
   if (!Darabonba_Util::Client::isUnset<long>(request->accessLevel)) {
     query->insert(pair<string, long>("accessLevel", *request->accessLevel));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
+    query->insert(pair<string, string>("accessToken", *request->accessToken));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->minAccessLevel)) {
     query->insert(pair<string, long>("minAccessLevel", *request->minAccessLevel));
   }
