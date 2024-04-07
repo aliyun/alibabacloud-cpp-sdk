@@ -17230,6 +17230,7 @@ public:
   shared_ptr<long> listPrice{};
   shared_ptr<long> monthPrice{};
   shared_ptr<long> originalStandAmount{};
+  shared_ptr<string> startTime{};
 
   DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo() {}
 
@@ -17268,6 +17269,9 @@ public:
     if (originalStandAmount) {
       res["OriginalStandAmount"] = boost::any(*originalStandAmount);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     return res;
   }
 
@@ -17302,6 +17306,9 @@ public:
     }
     if (m.find("OriginalStandAmount") != m.end() && !m["OriginalStandAmount"].empty()) {
       originalStandAmount = make_shared<long>(boost::any_cast<long>(m["OriginalStandAmount"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
   }
 
