@@ -41,7 +41,7 @@ AttachVscMountPointResponse Alibabacloud_DFS20180620::Client::attachVscMountPoin
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<AttachVscMountPointShrinkRequest> request = make_shared<AttachVscMountPointShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->instanceIds)) {
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceIds)) {
     request->instanceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceIds, make_shared<string>("InstanceIds"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->vscIds)) {
@@ -349,7 +349,7 @@ CreateVscMountPointResponse Alibabacloud_DFS20180620::Client::createVscMountPoin
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateVscMountPointShrinkRequest> request = make_shared<CreateVscMountPointShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->instanceIds)) {
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceIds)) {
     request->instanceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceIds, make_shared<string>("InstanceIds"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -659,7 +659,7 @@ DetachVscMountPointResponse Alibabacloud_DFS20180620::Client::detachVscMountPoin
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<DetachVscMountPointShrinkRequest> request = make_shared<DetachVscMountPointShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->instanceIds)) {
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceIds)) {
     request->instanceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceIds, make_shared<string>("InstanceIds"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->vscIds)) {

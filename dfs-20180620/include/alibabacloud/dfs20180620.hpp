@@ -19,7 +19,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> fileSystemId{};
   shared_ptr<string> inputRegionId{};
-  shared_ptr<map<string, boost::any>> instanceIds{};
+  shared_ptr<vector<string>> instanceIds{};
   shared_ptr<string> mountPointId{};
   shared_ptr<vector<string>> vscIds{};
   shared_ptr<string> vscType{};
@@ -69,12 +69,14 @@ public:
       inputRegionId = make_shared<string>(boost::any_cast<string>(m["InputRegionId"]));
     }
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InstanceIds"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      instanceIds = make_shared<map<string, boost::any>>(toMap1);
+      instanceIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("MountPointId") != m.end() && !m["MountPointId"].empty()) {
       mountPointId = make_shared<string>(boost::any_cast<string>(m["MountPointId"]));
@@ -1223,7 +1225,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> fileSystemId{};
   shared_ptr<string> inputRegionId{};
-  shared_ptr<map<string, boost::any>> instanceIds{};
+  shared_ptr<vector<string>> instanceIds{};
 
   CreateVscMountPointRequest() {}
 
@@ -1261,12 +1263,14 @@ public:
       inputRegionId = make_shared<string>(boost::any_cast<string>(m["InputRegionId"]));
     }
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InstanceIds"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      instanceIds = make_shared<map<string, boost::any>>(toMap1);
+      instanceIds = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -2766,7 +2770,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> fileSystemId{};
   shared_ptr<string> inputRegionId{};
-  shared_ptr<map<string, boost::any>> instanceIds{};
+  shared_ptr<vector<string>> instanceIds{};
   shared_ptr<string> mountPointId{};
   shared_ptr<vector<string>> vscIds{};
 
@@ -2812,12 +2816,14 @@ public:
       inputRegionId = make_shared<string>(boost::any_cast<string>(m["InputRegionId"]));
     }
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InstanceIds"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      instanceIds = make_shared<map<string, boost::any>>(toMap1);
+      instanceIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("MountPointId") != m.end() && !m["MountPointId"].empty()) {
       mountPointId = make_shared<string>(boost::any_cast<string>(m["MountPointId"]));
