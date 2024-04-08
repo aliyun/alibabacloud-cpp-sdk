@@ -333,6 +333,75 @@ BatchDeleteDcdnDomainConfigsResponse Alibabacloud_Dcdn20180115::Client::batchDel
   return batchDeleteDcdnDomainConfigsWithOptions(request, runtime);
 }
 
+BatchDeleteDcdnKvResponse Alibabacloud_Dcdn20180115::Client::batchDeleteDcdnKvWithOptions(shared_ptr<BatchDeleteDcdnKvRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<BatchDeleteDcdnKvShrinkRequest> request = make_shared<BatchDeleteDcdnKvShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->keys)) {
+    request->keysShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->keys, make_shared<string>("Keys"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->keysShrink)) {
+    body->insert(pair<string, string>("Keys", *request->keysShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchDeleteDcdnKv"))},
+    {"version", boost::any(string("2018-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchDeleteDcdnKvResponse(callApi(params, req, runtime));
+}
+
+BatchDeleteDcdnKvResponse Alibabacloud_Dcdn20180115::Client::batchDeleteDcdnKv(shared_ptr<BatchDeleteDcdnKvRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return batchDeleteDcdnKvWithOptions(request, runtime);
+}
+
+BatchDeleteDcdnKvWithHighCapacityResponse Alibabacloud_Dcdn20180115::Client::batchDeleteDcdnKvWithHighCapacityWithOptions(shared_ptr<BatchDeleteDcdnKvWithHighCapacityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    query->insert(pair<string, string>("Url", *request->url));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchDeleteDcdnKvWithHighCapacity"))},
+    {"version", boost::any(string("2018-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchDeleteDcdnKvWithHighCapacityResponse(callApi(params, req, runtime));
+}
+
+BatchDeleteDcdnKvWithHighCapacityResponse Alibabacloud_Dcdn20180115::Client::batchDeleteDcdnKvWithHighCapacity(shared_ptr<BatchDeleteDcdnKvWithHighCapacityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return batchDeleteDcdnKvWithHighCapacityWithOptions(request, runtime);
+}
+
 BatchDeleteDcdnWafRulesResponse Alibabacloud_Dcdn20180115::Client::batchDeleteDcdnWafRulesWithOptions(shared_ptr<BatchDeleteDcdnWafRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -400,14 +469,16 @@ BatchPutDcdnKvResponse Alibabacloud_Dcdn20180115::Client::batchPutDcdnKvWithOpti
     request->kvListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->kvList, make_shared<string>("KvList"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->kvListShrink)) {
-    query->insert(pair<string, string>("KvList", *request->kvListShrink));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->kvListShrink)) {
+    body->insert(pair<string, string>("KvList", *request->kvListShrink));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("BatchPutDcdnKv"))},
@@ -426,6 +497,37 @@ BatchPutDcdnKvResponse Alibabacloud_Dcdn20180115::Client::batchPutDcdnKvWithOpti
 BatchPutDcdnKvResponse Alibabacloud_Dcdn20180115::Client::batchPutDcdnKv(shared_ptr<BatchPutDcdnKvRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return batchPutDcdnKvWithOptions(request, runtime);
+}
+
+BatchPutDcdnKvWithHighCapacityResponse Alibabacloud_Dcdn20180115::Client::batchPutDcdnKvWithHighCapacityWithOptions(shared_ptr<BatchPutDcdnKvWithHighCapacityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    query->insert(pair<string, string>("Url", *request->url));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchPutDcdnKvWithHighCapacity"))},
+    {"version", boost::any(string("2018-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchPutDcdnKvWithHighCapacityResponse(callApi(params, req, runtime));
+}
+
+BatchPutDcdnKvWithHighCapacityResponse Alibabacloud_Dcdn20180115::Client::batchPutDcdnKvWithHighCapacity(shared_ptr<BatchPutDcdnKvWithHighCapacityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return batchPutDcdnKvWithHighCapacityWithOptions(request, runtime);
 }
 
 BatchSetDcdnDomainCertificateResponse Alibabacloud_Dcdn20180115::Client::batchSetDcdnDomainCertificateWithOptions(shared_ptr<BatchSetDcdnDomainCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -6767,6 +6869,40 @@ PutDcdnKvNamespaceResponse Alibabacloud_Dcdn20180115::Client::putDcdnKvNamespace
 PutDcdnKvNamespaceResponse Alibabacloud_Dcdn20180115::Client::putDcdnKvNamespace(shared_ptr<PutDcdnKvNamespaceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return putDcdnKvNamespaceWithOptions(request, runtime);
+}
+
+PutDcdnKvWithHighCapacityResponse Alibabacloud_Dcdn20180115::Client::putDcdnKvWithHighCapacityWithOptions(shared_ptr<PutDcdnKvWithHighCapacityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->key)) {
+    query->insert(pair<string, string>("Key", *request->key));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    query->insert(pair<string, string>("Url", *request->url));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PutDcdnKvWithHighCapacity"))},
+    {"version", boost::any(string("2018-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PutDcdnKvWithHighCapacityResponse(callApi(params, req, runtime));
+}
+
+PutDcdnKvWithHighCapacityResponse Alibabacloud_Dcdn20180115::Client::putDcdnKvWithHighCapacity(shared_ptr<PutDcdnKvWithHighCapacityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return putDcdnKvWithHighCapacityWithOptions(request, runtime);
 }
 
 RefreshDcdnObjectCachesResponse Alibabacloud_Dcdn20180115::Client::refreshDcdnObjectCachesWithOptions(shared_ptr<RefreshDcdnObjectCachesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

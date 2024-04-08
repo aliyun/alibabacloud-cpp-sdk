@@ -978,6 +978,339 @@ public:
 
   virtual ~BatchDeleteDcdnDomainConfigsResponse() = default;
 };
+class BatchDeleteDcdnKvRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> keys{};
+  shared_ptr<string> namespace_{};
+
+  BatchDeleteDcdnKvRequest() {}
+
+  explicit BatchDeleteDcdnKvRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keys) {
+      res["Keys"] = boost::any(*keys);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Keys") != m.end() && !m["Keys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Keys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Keys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      keys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~BatchDeleteDcdnKvRequest() = default;
+};
+class BatchDeleteDcdnKvShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> keysShrink{};
+  shared_ptr<string> namespace_{};
+
+  BatchDeleteDcdnKvShrinkRequest() {}
+
+  explicit BatchDeleteDcdnKvShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keysShrink) {
+      res["Keys"] = boost::any(*keysShrink);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Keys") != m.end() && !m["Keys"].empty()) {
+      keysShrink = make_shared<string>(boost::any_cast<string>(m["Keys"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~BatchDeleteDcdnKvShrinkRequest() = default;
+};
+class BatchDeleteDcdnKvResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> failKeys{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> successKeys{};
+
+  BatchDeleteDcdnKvResponseBody() {}
+
+  explicit BatchDeleteDcdnKvResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failKeys) {
+      res["FailKeys"] = boost::any(*failKeys);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (successKeys) {
+      res["SuccessKeys"] = boost::any(*successKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailKeys") != m.end() && !m["FailKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FailKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FailKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      failKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuccessKeys") != m.end() && !m["SuccessKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SuccessKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SuccessKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      successKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~BatchDeleteDcdnKvResponseBody() = default;
+};
+class BatchDeleteDcdnKvResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchDeleteDcdnKvResponseBody> body{};
+
+  BatchDeleteDcdnKvResponse() {}
+
+  explicit BatchDeleteDcdnKvResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchDeleteDcdnKvResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchDeleteDcdnKvResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchDeleteDcdnKvResponse() = default;
+};
+class BatchDeleteDcdnKvWithHighCapacityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> url{};
+
+  BatchDeleteDcdnKvWithHighCapacityRequest() {}
+
+  explicit BatchDeleteDcdnKvWithHighCapacityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~BatchDeleteDcdnKvWithHighCapacityRequest() = default;
+};
+class BatchDeleteDcdnKvWithHighCapacityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> failKeys{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> successKeys{};
+
+  BatchDeleteDcdnKvWithHighCapacityResponseBody() {}
+
+  explicit BatchDeleteDcdnKvWithHighCapacityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failKeys) {
+      res["FailKeys"] = boost::any(*failKeys);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (successKeys) {
+      res["SuccessKeys"] = boost::any(*successKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailKeys") != m.end() && !m["FailKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FailKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FailKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      failKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuccessKeys") != m.end() && !m["SuccessKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SuccessKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SuccessKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      successKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~BatchDeleteDcdnKvWithHighCapacityResponseBody() = default;
+};
+class BatchDeleteDcdnKvWithHighCapacityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchDeleteDcdnKvWithHighCapacityResponseBody> body{};
+
+  BatchDeleteDcdnKvWithHighCapacityResponse() {}
+
+  explicit BatchDeleteDcdnKvWithHighCapacityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchDeleteDcdnKvWithHighCapacityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchDeleteDcdnKvWithHighCapacityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchDeleteDcdnKvWithHighCapacityResponse() = default;
+};
 class BatchDeleteDcdnWafRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ruleIds{};
@@ -1449,6 +1782,151 @@ public:
 
 
   virtual ~BatchPutDcdnKvResponse() = default;
+};
+class BatchPutDcdnKvWithHighCapacityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> url{};
+
+  BatchPutDcdnKvWithHighCapacityRequest() {}
+
+  explicit BatchPutDcdnKvWithHighCapacityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~BatchPutDcdnKvWithHighCapacityRequest() = default;
+};
+class BatchPutDcdnKvWithHighCapacityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> failKeys{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> successKeys{};
+
+  BatchPutDcdnKvWithHighCapacityResponseBody() {}
+
+  explicit BatchPutDcdnKvWithHighCapacityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failKeys) {
+      res["FailKeys"] = boost::any(*failKeys);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (successKeys) {
+      res["SuccessKeys"] = boost::any(*successKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailKeys") != m.end() && !m["FailKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FailKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FailKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      failKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuccessKeys") != m.end() && !m["SuccessKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SuccessKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SuccessKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      successKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~BatchPutDcdnKvWithHighCapacityResponseBody() = default;
+};
+class BatchPutDcdnKvWithHighCapacityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchPutDcdnKvWithHighCapacityResponseBody> body{};
+
+  BatchPutDcdnKvWithHighCapacityResponse() {}
+
+  explicit BatchPutDcdnKvWithHighCapacityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchPutDcdnKvWithHighCapacityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchPutDcdnKvWithHighCapacityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchPutDcdnKvWithHighCapacityResponse() = default;
 };
 class BatchSetDcdnDomainCertificateRequest : public Darabonba::Model {
 public:
@@ -41598,6 +42076,144 @@ public:
 
   virtual ~PutDcdnKvNamespaceResponse() = default;
 };
+class PutDcdnKvWithHighCapacityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> url{};
+
+  PutDcdnKvWithHighCapacityRequest() {}
+
+  explicit PutDcdnKvWithHighCapacityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~PutDcdnKvWithHighCapacityRequest() = default;
+};
+class PutDcdnKvWithHighCapacityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> length{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> value{};
+
+  PutDcdnKvWithHighCapacityResponseBody() {}
+
+  explicit PutDcdnKvWithHighCapacityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (length) {
+      res["Length"] = boost::any(*length);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Length") != m.end() && !m["Length"].empty()) {
+      length = make_shared<long>(boost::any_cast<long>(m["Length"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~PutDcdnKvWithHighCapacityResponseBody() = default;
+};
+class PutDcdnKvWithHighCapacityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PutDcdnKvWithHighCapacityResponseBody> body{};
+
+  PutDcdnKvWithHighCapacityResponse() {}
+
+  explicit PutDcdnKvWithHighCapacityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PutDcdnKvWithHighCapacityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PutDcdnKvWithHighCapacityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PutDcdnKvWithHighCapacityResponse() = default;
+};
 class RefreshDcdnObjectCachesRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> force{};
@@ -45325,12 +45941,18 @@ public:
   BatchCreateDcdnWafRulesResponse batchCreateDcdnWafRules(shared_ptr<BatchCreateDcdnWafRulesRequest> request);
   BatchDeleteDcdnDomainConfigsResponse batchDeleteDcdnDomainConfigsWithOptions(shared_ptr<BatchDeleteDcdnDomainConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchDeleteDcdnDomainConfigsResponse batchDeleteDcdnDomainConfigs(shared_ptr<BatchDeleteDcdnDomainConfigsRequest> request);
+  BatchDeleteDcdnKvResponse batchDeleteDcdnKvWithOptions(shared_ptr<BatchDeleteDcdnKvRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchDeleteDcdnKvResponse batchDeleteDcdnKv(shared_ptr<BatchDeleteDcdnKvRequest> request);
+  BatchDeleteDcdnKvWithHighCapacityResponse batchDeleteDcdnKvWithHighCapacityWithOptions(shared_ptr<BatchDeleteDcdnKvWithHighCapacityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchDeleteDcdnKvWithHighCapacityResponse batchDeleteDcdnKvWithHighCapacity(shared_ptr<BatchDeleteDcdnKvWithHighCapacityRequest> request);
   BatchDeleteDcdnWafRulesResponse batchDeleteDcdnWafRulesWithOptions(shared_ptr<BatchDeleteDcdnWafRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchDeleteDcdnWafRulesResponse batchDeleteDcdnWafRules(shared_ptr<BatchDeleteDcdnWafRulesRequest> request);
   BatchModifyDcdnWafRulesResponse batchModifyDcdnWafRulesWithOptions(shared_ptr<BatchModifyDcdnWafRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchModifyDcdnWafRulesResponse batchModifyDcdnWafRules(shared_ptr<BatchModifyDcdnWafRulesRequest> request);
   BatchPutDcdnKvResponse batchPutDcdnKvWithOptions(shared_ptr<BatchPutDcdnKvRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchPutDcdnKvResponse batchPutDcdnKv(shared_ptr<BatchPutDcdnKvRequest> request);
+  BatchPutDcdnKvWithHighCapacityResponse batchPutDcdnKvWithHighCapacityWithOptions(shared_ptr<BatchPutDcdnKvWithHighCapacityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchPutDcdnKvWithHighCapacityResponse batchPutDcdnKvWithHighCapacity(shared_ptr<BatchPutDcdnKvWithHighCapacityRequest> request);
   BatchSetDcdnDomainCertificateResponse batchSetDcdnDomainCertificateWithOptions(shared_ptr<BatchSetDcdnDomainCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchSetDcdnDomainCertificateResponse batchSetDcdnDomainCertificate(shared_ptr<BatchSetDcdnDomainCertificateRequest> request);
   BatchSetDcdnDomainConfigsResponse batchSetDcdnDomainConfigsWithOptions(shared_ptr<BatchSetDcdnDomainConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -45709,6 +46331,8 @@ public:
   PutDcdnKvResponse putDcdnKv(shared_ptr<PutDcdnKvRequest> request);
   PutDcdnKvNamespaceResponse putDcdnKvNamespaceWithOptions(shared_ptr<PutDcdnKvNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PutDcdnKvNamespaceResponse putDcdnKvNamespace(shared_ptr<PutDcdnKvNamespaceRequest> request);
+  PutDcdnKvWithHighCapacityResponse putDcdnKvWithHighCapacityWithOptions(shared_ptr<PutDcdnKvWithHighCapacityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PutDcdnKvWithHighCapacityResponse putDcdnKvWithHighCapacity(shared_ptr<PutDcdnKvWithHighCapacityRequest> request);
   RefreshDcdnObjectCachesResponse refreshDcdnObjectCachesWithOptions(shared_ptr<RefreshDcdnObjectCachesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RefreshDcdnObjectCachesResponse refreshDcdnObjectCaches(shared_ptr<RefreshDcdnObjectCachesRequest> request);
   RefreshErObjectCachesResponse refreshErObjectCachesWithOptions(shared_ptr<RefreshErObjectCachesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
