@@ -151,8 +151,14 @@ AddressGetResponse Alibabacloud_BtripOpen20220520::Client::addressGetWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->taobaoCallbackUrl)) {
     query->insert(pair<string, string>("taobao_callback_url", *request->taobaoCallbackUrl));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->travelerId)) {
+    query->insert(pair<string, string>("traveler_id", *request->travelerId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->type)) {
     query->insert(pair<string, long>("type", *request->type));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->useBookingProxy)) {
+    query->insert(pair<string, long>("use_booking_proxy", *request->useBookingProxy));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     query->insert(pair<string, string>("user_id", *request->userId));
@@ -6787,6 +6793,83 @@ MealBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::mealBill
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<MealBillSettlementQueryHeaders> headers = make_shared<MealBillSettlementQueryHeaders>();
   return mealBillSettlementQueryWithOptions(request, headers, runtime);
+}
+
+MealOrderDetailQueryResponse Alibabacloud_BtripOpen20220520::Client::mealOrderDetailQueryWithOptions(shared_ptr<string> orderId,
+                                                                                                     shared_ptr<MealOrderDetailQueryRequest> request,
+                                                                                                     shared_ptr<MealOrderDetailQueryHeaders> headers,
+                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("user_id", *request->userId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("MealOrderDetailQuery"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/meal/v1/orders/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(orderId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return MealOrderDetailQueryResponse(callApi(params, req, runtime));
+}
+
+MealOrderDetailQueryResponse Alibabacloud_BtripOpen20220520::Client::mealOrderDetailQuery(shared_ptr<string> orderId, shared_ptr<MealOrderDetailQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<MealOrderDetailQueryHeaders> headers = make_shared<MealOrderDetailQueryHeaders>();
+  return mealOrderDetailQueryWithOptions(orderId, request, headers, runtime);
+}
+
+MealOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::mealOrderListQueryWithOptions(shared_ptr<MealOrderListQueryRequest> request, shared_ptr<MealOrderListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("user_id", *request->userId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("MealOrderListQuery"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/meal/v1/orders"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return MealOrderListQueryResponse(callApi(params, req, runtime));
+}
+
+MealOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::mealOrderListQuery(shared_ptr<MealOrderListQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<MealOrderListQueryHeaders> headers = make_shared<MealOrderListQueryHeaders>();
+  return mealOrderListQueryWithOptions(request, headers, runtime);
 }
 
 MonthBillConfirmResponse Alibabacloud_BtripOpen20220520::Client::monthBillConfirmWithOptions(shared_ptr<MonthBillConfirmRequest> request, shared_ptr<MonthBillConfirmHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
