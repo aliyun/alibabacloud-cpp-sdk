@@ -2822,6 +2822,10 @@ public:
   shared_ptr<string> fullTransferSpeedMode{};
   shared_ptr<string> fullVerifySpeedMode{};
   shared_ptr<bool> nonePkUkTruncateDstTable{};
+  shared_ptr<long> readWorkerNum{};
+  shared_ptr<long> throttleIOPS{};
+  shared_ptr<long> throttleRps{};
+  shared_ptr<long> writeWorkerNum{};
 
   CreateProjectRequestFullTransferConfig() {}
 
@@ -2845,6 +2849,18 @@ public:
     if (nonePkUkTruncateDstTable) {
       res["NonePkUkTruncateDstTable"] = boost::any(*nonePkUkTruncateDstTable);
     }
+    if (readWorkerNum) {
+      res["ReadWorkerNum"] = boost::any(*readWorkerNum);
+    }
+    if (throttleIOPS) {
+      res["ThrottleIOPS"] = boost::any(*throttleIOPS);
+    }
+    if (throttleRps) {
+      res["ThrottleRps"] = boost::any(*throttleRps);
+    }
+    if (writeWorkerNum) {
+      res["WriteWorkerNum"] = boost::any(*writeWorkerNum);
+    }
     return res;
   }
 
@@ -2861,6 +2877,18 @@ public:
     if (m.find("NonePkUkTruncateDstTable") != m.end() && !m["NonePkUkTruncateDstTable"].empty()) {
       nonePkUkTruncateDstTable = make_shared<bool>(boost::any_cast<bool>(m["NonePkUkTruncateDstTable"]));
     }
+    if (m.find("ReadWorkerNum") != m.end() && !m["ReadWorkerNum"].empty()) {
+      readWorkerNum = make_shared<long>(boost::any_cast<long>(m["ReadWorkerNum"]));
+    }
+    if (m.find("ThrottleIOPS") != m.end() && !m["ThrottleIOPS"].empty()) {
+      throttleIOPS = make_shared<long>(boost::any_cast<long>(m["ThrottleIOPS"]));
+    }
+    if (m.find("ThrottleRps") != m.end() && !m["ThrottleRps"].empty()) {
+      throttleRps = make_shared<long>(boost::any_cast<long>(m["ThrottleRps"]));
+    }
+    if (m.find("WriteWorkerNum") != m.end() && !m["WriteWorkerNum"].empty()) {
+      writeWorkerNum = make_shared<long>(boost::any_cast<long>(m["WriteWorkerNum"]));
+    }
   }
 
 
@@ -2874,6 +2902,9 @@ public:
   shared_ptr<vector<string>> recordTypeWhiteList{};
   shared_ptr<string> startTimestamp{};
   shared_ptr<long> storeLogKeptHour{};
+  shared_ptr<vector<string>> supportDDLTypes{};
+  shared_ptr<long> throttleIOPS{};
+  shared_ptr<long> throttleRps{};
 
   CreateProjectRequestIncrTransferConfig() {}
 
@@ -2902,6 +2933,15 @@ public:
     }
     if (storeLogKeptHour) {
       res["StoreLogKeptHour"] = boost::any(*storeLogKeptHour);
+    }
+    if (supportDDLTypes) {
+      res["SupportDDLTypes"] = boost::any(*supportDDLTypes);
+    }
+    if (throttleIOPS) {
+      res["ThrottleIOPS"] = boost::any(*throttleIOPS);
+    }
+    if (throttleRps) {
+      res["ThrottleRps"] = boost::any(*throttleRps);
     }
     return res;
   }
@@ -2932,10 +2972,125 @@ public:
     if (m.find("StoreLogKeptHour") != m.end() && !m["StoreLogKeptHour"].empty()) {
       storeLogKeptHour = make_shared<long>(boost::any_cast<long>(m["StoreLogKeptHour"]));
     }
+    if (m.find("SupportDDLTypes") != m.end() && !m["SupportDDLTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SupportDDLTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SupportDDLTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      supportDDLTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ThrottleIOPS") != m.end() && !m["ThrottleIOPS"].empty()) {
+      throttleIOPS = make_shared<long>(boost::any_cast<long>(m["ThrottleIOPS"]));
+    }
+    if (m.find("ThrottleRps") != m.end() && !m["ThrottleRps"].empty()) {
+      throttleRps = make_shared<long>(boost::any_cast<long>(m["ThrottleRps"]));
+    }
   }
 
 
   virtual ~CreateProjectRequestIncrTransferConfig() = default;
+};
+class CreateProjectRequestReverseIncrTransferConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableIncrSyncStatistics{};
+  shared_ptr<bool> enableSequencingWithinTxn{};
+  shared_ptr<long> incrSyncConcurrency{};
+  shared_ptr<vector<string>> recordTypeWhiteList{};
+  shared_ptr<string> startTimestamp{};
+  shared_ptr<long> storeLogKeptHour{};
+  shared_ptr<vector<string>> supportDDLTypes{};
+  shared_ptr<long> throttleIOPS{};
+  shared_ptr<long> throttleRps{};
+
+  CreateProjectRequestReverseIncrTransferConfig() {}
+
+  explicit CreateProjectRequestReverseIncrTransferConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableIncrSyncStatistics) {
+      res["EnableIncrSyncStatistics"] = boost::any(*enableIncrSyncStatistics);
+    }
+    if (enableSequencingWithinTxn) {
+      res["EnableSequencingWithinTxn"] = boost::any(*enableSequencingWithinTxn);
+    }
+    if (incrSyncConcurrency) {
+      res["IncrSyncConcurrency"] = boost::any(*incrSyncConcurrency);
+    }
+    if (recordTypeWhiteList) {
+      res["RecordTypeWhiteList"] = boost::any(*recordTypeWhiteList);
+    }
+    if (startTimestamp) {
+      res["StartTimestamp"] = boost::any(*startTimestamp);
+    }
+    if (storeLogKeptHour) {
+      res["StoreLogKeptHour"] = boost::any(*storeLogKeptHour);
+    }
+    if (supportDDLTypes) {
+      res["SupportDDLTypes"] = boost::any(*supportDDLTypes);
+    }
+    if (throttleIOPS) {
+      res["ThrottleIOPS"] = boost::any(*throttleIOPS);
+    }
+    if (throttleRps) {
+      res["ThrottleRps"] = boost::any(*throttleRps);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableIncrSyncStatistics") != m.end() && !m["EnableIncrSyncStatistics"].empty()) {
+      enableIncrSyncStatistics = make_shared<bool>(boost::any_cast<bool>(m["EnableIncrSyncStatistics"]));
+    }
+    if (m.find("EnableSequencingWithinTxn") != m.end() && !m["EnableSequencingWithinTxn"].empty()) {
+      enableSequencingWithinTxn = make_shared<bool>(boost::any_cast<bool>(m["EnableSequencingWithinTxn"]));
+    }
+    if (m.find("IncrSyncConcurrency") != m.end() && !m["IncrSyncConcurrency"].empty()) {
+      incrSyncConcurrency = make_shared<long>(boost::any_cast<long>(m["IncrSyncConcurrency"]));
+    }
+    if (m.find("RecordTypeWhiteList") != m.end() && !m["RecordTypeWhiteList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordTypeWhiteList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordTypeWhiteList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordTypeWhiteList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("StartTimestamp") != m.end() && !m["StartTimestamp"].empty()) {
+      startTimestamp = make_shared<string>(boost::any_cast<string>(m["StartTimestamp"]));
+    }
+    if (m.find("StoreLogKeptHour") != m.end() && !m["StoreLogKeptHour"].empty()) {
+      storeLogKeptHour = make_shared<long>(boost::any_cast<long>(m["StoreLogKeptHour"]));
+    }
+    if (m.find("SupportDDLTypes") != m.end() && !m["SupportDDLTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SupportDDLTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SupportDDLTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      supportDDLTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ThrottleIOPS") != m.end() && !m["ThrottleIOPS"].empty()) {
+      throttleIOPS = make_shared<long>(boost::any_cast<long>(m["ThrottleIOPS"]));
+    }
+    if (m.find("ThrottleRps") != m.end() && !m["ThrottleRps"].empty()) {
+      throttleRps = make_shared<long>(boost::any_cast<long>(m["ThrottleRps"]));
+    }
+  }
+
+
+  virtual ~CreateProjectRequestReverseIncrTransferConfig() = default;
 };
 class CreateProjectRequestStructTransferConfig : public Darabonba::Model {
 public:
@@ -4592,6 +4747,7 @@ public:
   shared_ptr<vector<string>> labelIds{};
   shared_ptr<string> name{};
   shared_ptr<string> ossKey{};
+  shared_ptr<CreateProjectRequestReverseIncrTransferConfig> reverseIncrTransferConfig{};
   shared_ptr<string> sinkEndpointId{};
   shared_ptr<string> sourceEndpointId{};
   shared_ptr<CreateProjectRequestStructTransferConfig> structTransferConfig{};
@@ -4645,6 +4801,9 @@ public:
     }
     if (ossKey) {
       res["OssKey"] = boost::any(*ossKey);
+    }
+    if (reverseIncrTransferConfig) {
+      res["ReverseIncrTransferConfig"] = reverseIncrTransferConfig ? boost::any(reverseIncrTransferConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sinkEndpointId) {
       res["SinkEndpointId"] = boost::any(*sinkEndpointId);
@@ -4726,6 +4885,13 @@ public:
     if (m.find("OssKey") != m.end() && !m["OssKey"].empty()) {
       ossKey = make_shared<string>(boost::any_cast<string>(m["OssKey"]));
     }
+    if (m.find("ReverseIncrTransferConfig") != m.end() && !m["ReverseIncrTransferConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ReverseIncrTransferConfig"].type()) {
+        CreateProjectRequestReverseIncrTransferConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ReverseIncrTransferConfig"]));
+        reverseIncrTransferConfig = make_shared<CreateProjectRequestReverseIncrTransferConfig>(model1);
+      }
+    }
     if (m.find("SinkEndpointId") != m.end() && !m["SinkEndpointId"].empty()) {
       sinkEndpointId = make_shared<string>(boost::any_cast<string>(m["SinkEndpointId"]));
     }
@@ -4774,6 +4940,7 @@ public:
   shared_ptr<string> labelIdsShrink{};
   shared_ptr<string> name{};
   shared_ptr<string> ossKey{};
+  shared_ptr<string> reverseIncrTransferConfigShrink{};
   shared_ptr<string> sinkEndpointId{};
   shared_ptr<string> sourceEndpointId{};
   shared_ptr<string> structTransferConfigShrink{};
@@ -4827,6 +4994,9 @@ public:
     }
     if (ossKey) {
       res["OssKey"] = boost::any(*ossKey);
+    }
+    if (reverseIncrTransferConfigShrink) {
+      res["ReverseIncrTransferConfig"] = boost::any(*reverseIncrTransferConfigShrink);
     }
     if (sinkEndpointId) {
       res["SinkEndpointId"] = boost::any(*sinkEndpointId);
@@ -4888,6 +5058,9 @@ public:
     }
     if (m.find("OssKey") != m.end() && !m["OssKey"].empty()) {
       ossKey = make_shared<string>(boost::any_cast<string>(m["OssKey"]));
+    }
+    if (m.find("ReverseIncrTransferConfig") != m.end() && !m["ReverseIncrTransferConfig"].empty()) {
+      reverseIncrTransferConfigShrink = make_shared<string>(boost::any_cast<string>(m["ReverseIncrTransferConfig"]));
     }
     if (m.find("SinkEndpointId") != m.end() && !m["SinkEndpointId"].empty()) {
       sinkEndpointId = make_shared<string>(boost::any_cast<string>(m["SinkEndpointId"]));
@@ -22611,6 +22784,10 @@ public:
   shared_ptr<string> fullTransferSpeedMode{};
   shared_ptr<string> fullVerifySpeedMode{};
   shared_ptr<bool> nonePkUkTruncateDstTable{};
+  shared_ptr<long> readWorkerNum{};
+  shared_ptr<long> throttleIOPS{};
+  shared_ptr<long> throttleRps{};
+  shared_ptr<long> writeWorkerNum{};
 
   DescribeProjectResponseBodyDataFullTransferConfig() {}
 
@@ -22634,6 +22811,18 @@ public:
     if (nonePkUkTruncateDstTable) {
       res["NonePkUkTruncateDstTable"] = boost::any(*nonePkUkTruncateDstTable);
     }
+    if (readWorkerNum) {
+      res["ReadWorkerNum"] = boost::any(*readWorkerNum);
+    }
+    if (throttleIOPS) {
+      res["ThrottleIOPS"] = boost::any(*throttleIOPS);
+    }
+    if (throttleRps) {
+      res["ThrottleRps"] = boost::any(*throttleRps);
+    }
+    if (writeWorkerNum) {
+      res["WriteWorkerNum"] = boost::any(*writeWorkerNum);
+    }
     return res;
   }
 
@@ -22650,6 +22839,18 @@ public:
     if (m.find("NonePkUkTruncateDstTable") != m.end() && !m["NonePkUkTruncateDstTable"].empty()) {
       nonePkUkTruncateDstTable = make_shared<bool>(boost::any_cast<bool>(m["NonePkUkTruncateDstTable"]));
     }
+    if (m.find("ReadWorkerNum") != m.end() && !m["ReadWorkerNum"].empty()) {
+      readWorkerNum = make_shared<long>(boost::any_cast<long>(m["ReadWorkerNum"]));
+    }
+    if (m.find("ThrottleIOPS") != m.end() && !m["ThrottleIOPS"].empty()) {
+      throttleIOPS = make_shared<long>(boost::any_cast<long>(m["ThrottleIOPS"]));
+    }
+    if (m.find("ThrottleRps") != m.end() && !m["ThrottleRps"].empty()) {
+      throttleRps = make_shared<long>(boost::any_cast<long>(m["ThrottleRps"]));
+    }
+    if (m.find("WriteWorkerNum") != m.end() && !m["WriteWorkerNum"].empty()) {
+      writeWorkerNum = make_shared<long>(boost::any_cast<long>(m["WriteWorkerNum"]));
+    }
   }
 
 
@@ -22663,6 +22864,9 @@ public:
   shared_ptr<vector<string>> recordTypeWhiteList{};
   shared_ptr<long> startTimestamp{};
   shared_ptr<long> storeLogKeptHour{};
+  shared_ptr<vector<string>> supportDDLTypes{};
+  shared_ptr<long> throttleIOPS{};
+  shared_ptr<long> throttleRps{};
 
   DescribeProjectResponseBodyDataIncrTransferConfig() {}
 
@@ -22692,6 +22896,15 @@ public:
     if (storeLogKeptHour) {
       res["StoreLogKeptHour"] = boost::any(*storeLogKeptHour);
     }
+    if (supportDDLTypes) {
+      res["SupportDDLTypes"] = boost::any(*supportDDLTypes);
+    }
+    if (throttleIOPS) {
+      res["ThrottleIOPS"] = boost::any(*throttleIOPS);
+    }
+    if (throttleRps) {
+      res["ThrottleRps"] = boost::any(*throttleRps);
+    }
     return res;
   }
 
@@ -22720,6 +22933,22 @@ public:
     }
     if (m.find("StoreLogKeptHour") != m.end() && !m["StoreLogKeptHour"].empty()) {
       storeLogKeptHour = make_shared<long>(boost::any_cast<long>(m["StoreLogKeptHour"]));
+    }
+    if (m.find("SupportDDLTypes") != m.end() && !m["SupportDDLTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SupportDDLTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SupportDDLTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      supportDDLTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ThrottleIOPS") != m.end() && !m["ThrottleIOPS"].empty()) {
+      throttleIOPS = make_shared<long>(boost::any_cast<long>(m["ThrottleIOPS"]));
+    }
+    if (m.find("ThrottleRps") != m.end() && !m["ThrottleRps"].empty()) {
+      throttleRps = make_shared<long>(boost::any_cast<long>(m["ThrottleRps"]));
     }
   }
 
@@ -22761,6 +22990,105 @@ public:
 
 
   virtual ~DescribeProjectResponseBodyDataLabels() = default;
+};
+class DescribeProjectResponseBodyDataReverseIncrTransferConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableIncrSyncStatistics{};
+  shared_ptr<bool> enableSequencingWithinTxn{};
+  shared_ptr<long> incrSyncConcurrency{};
+  shared_ptr<vector<string>> recordTypeWhiteList{};
+  shared_ptr<long> startTimestamp{};
+  shared_ptr<long> storeLogKeptHour{};
+  shared_ptr<vector<string>> supportDDLTypes{};
+  shared_ptr<long> throttleIOPS{};
+  shared_ptr<long> throttleRps{};
+
+  DescribeProjectResponseBodyDataReverseIncrTransferConfig() {}
+
+  explicit DescribeProjectResponseBodyDataReverseIncrTransferConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableIncrSyncStatistics) {
+      res["EnableIncrSyncStatistics"] = boost::any(*enableIncrSyncStatistics);
+    }
+    if (enableSequencingWithinTxn) {
+      res["EnableSequencingWithinTxn"] = boost::any(*enableSequencingWithinTxn);
+    }
+    if (incrSyncConcurrency) {
+      res["IncrSyncConcurrency"] = boost::any(*incrSyncConcurrency);
+    }
+    if (recordTypeWhiteList) {
+      res["RecordTypeWhiteList"] = boost::any(*recordTypeWhiteList);
+    }
+    if (startTimestamp) {
+      res["StartTimestamp"] = boost::any(*startTimestamp);
+    }
+    if (storeLogKeptHour) {
+      res["StoreLogKeptHour"] = boost::any(*storeLogKeptHour);
+    }
+    if (supportDDLTypes) {
+      res["SupportDDLTypes"] = boost::any(*supportDDLTypes);
+    }
+    if (throttleIOPS) {
+      res["ThrottleIOPS"] = boost::any(*throttleIOPS);
+    }
+    if (throttleRps) {
+      res["ThrottleRps"] = boost::any(*throttleRps);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableIncrSyncStatistics") != m.end() && !m["EnableIncrSyncStatistics"].empty()) {
+      enableIncrSyncStatistics = make_shared<bool>(boost::any_cast<bool>(m["EnableIncrSyncStatistics"]));
+    }
+    if (m.find("EnableSequencingWithinTxn") != m.end() && !m["EnableSequencingWithinTxn"].empty()) {
+      enableSequencingWithinTxn = make_shared<bool>(boost::any_cast<bool>(m["EnableSequencingWithinTxn"]));
+    }
+    if (m.find("IncrSyncConcurrency") != m.end() && !m["IncrSyncConcurrency"].empty()) {
+      incrSyncConcurrency = make_shared<long>(boost::any_cast<long>(m["IncrSyncConcurrency"]));
+    }
+    if (m.find("RecordTypeWhiteList") != m.end() && !m["RecordTypeWhiteList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RecordTypeWhiteList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecordTypeWhiteList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      recordTypeWhiteList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("StartTimestamp") != m.end() && !m["StartTimestamp"].empty()) {
+      startTimestamp = make_shared<long>(boost::any_cast<long>(m["StartTimestamp"]));
+    }
+    if (m.find("StoreLogKeptHour") != m.end() && !m["StoreLogKeptHour"].empty()) {
+      storeLogKeptHour = make_shared<long>(boost::any_cast<long>(m["StoreLogKeptHour"]));
+    }
+    if (m.find("SupportDDLTypes") != m.end() && !m["SupportDDLTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SupportDDLTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SupportDDLTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      supportDDLTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ThrottleIOPS") != m.end() && !m["ThrottleIOPS"].empty()) {
+      throttleIOPS = make_shared<long>(boost::any_cast<long>(m["ThrottleIOPS"]));
+    }
+    if (m.find("ThrottleRps") != m.end() && !m["ThrottleRps"].empty()) {
+      throttleRps = make_shared<long>(boost::any_cast<long>(m["ThrottleRps"]));
+    }
+  }
+
+
+  virtual ~DescribeProjectResponseBodyDataReverseIncrTransferConfig() = default;
 };
 class DescribeProjectResponseBodyDataSinkConnectInfo : public Darabonba::Model {
 public:
@@ -25162,6 +25490,7 @@ public:
   shared_ptr<vector<DescribeProjectResponseBodyDataLabels>> labels{};
   shared_ptr<string> name{};
   shared_ptr<string> owner{};
+  shared_ptr<DescribeProjectResponseBodyDataReverseIncrTransferConfig> reverseIncrTransferConfig{};
   shared_ptr<DescribeProjectResponseBodyDataSinkConnectInfo> sinkConnectInfo{};
   shared_ptr<string> sinkEndpointType{};
   shared_ptr<DescribeProjectResponseBodyDataSourceConnectInfo> sourceConnectInfo{};
@@ -25259,6 +25588,9 @@ public:
     }
     if (owner) {
       res["Owner"] = boost::any(*owner);
+    }
+    if (reverseIncrTransferConfig) {
+      res["ReverseIncrTransferConfig"] = reverseIncrTransferConfig ? boost::any(reverseIncrTransferConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sinkConnectInfo) {
       res["SinkConnectInfo"] = sinkConnectInfo ? boost::any(sinkConnectInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -25402,6 +25734,13 @@ public:
     }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("ReverseIncrTransferConfig") != m.end() && !m["ReverseIncrTransferConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ReverseIncrTransferConfig"].type()) {
+        DescribeProjectResponseBodyDataReverseIncrTransferConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ReverseIncrTransferConfig"]));
+        reverseIncrTransferConfig = make_shared<DescribeProjectResponseBodyDataReverseIncrTransferConfig>(model1);
+      }
     }
     if (m.find("SinkConnectInfo") != m.end() && !m["SinkConnectInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["SinkConnectInfo"].type()) {

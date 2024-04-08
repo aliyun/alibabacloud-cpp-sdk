@@ -454,6 +454,9 @@ CreateProjectResponse Alibabacloud_OceanBasePro20190901::Client::createProjectWi
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->labelIds)) {
     request->labelIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->labelIds, make_shared<string>("LabelIds"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateProjectRequestReverseIncrTransferConfig>(tmpReq->reverseIncrTransferConfig)) {
+    request->reverseIncrTransferConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->reverseIncrTransferConfig, make_shared<string>("ReverseIncrTransferConfig"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<CreateProjectRequestStructTransferConfig>(tmpReq->structTransferConfig)) {
     request->structTransferConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->structTransferConfig, make_shared<string>("StructTransferConfig"), make_shared<string>("json")));
   }
@@ -496,6 +499,9 @@ CreateProjectResponse Alibabacloud_OceanBasePro20190901::Client::createProjectWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ossKey)) {
     body->insert(pair<string, string>("OssKey", *request->ossKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reverseIncrTransferConfigShrink)) {
+    body->insert(pair<string, string>("ReverseIncrTransferConfig", *request->reverseIncrTransferConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sinkEndpointId)) {
     body->insert(pair<string, string>("SinkEndpointId", *request->sinkEndpointId));
