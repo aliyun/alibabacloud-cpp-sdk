@@ -6980,6 +6980,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> pipelineId{};
   shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceQuotaName{};
   shared_ptr<bool> showOwn{};
   shared_ptr<string> sortBy{};
   shared_ptr<string> startTime{};
@@ -7034,6 +7035,9 @@ public:
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceQuotaName) {
+      res["ResourceQuotaName"] = boost::any(*resourceQuotaName);
     }
     if (showOwn) {
       res["ShowOwn"] = boost::any(*showOwn);
@@ -7099,6 +7103,9 @@ public:
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
+    if (m.find("ResourceQuotaName") != m.end() && !m["ResourceQuotaName"].empty()) {
+      resourceQuotaName = make_shared<string>(boost::any_cast<string>(m["ResourceQuotaName"]));
+    }
     if (m.find("ShowOwn") != m.end() && !m["ShowOwn"].empty()) {
       showOwn = make_shared<bool>(boost::any_cast<bool>(m["ShowOwn"]));
     }
@@ -7147,6 +7154,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> pipelineId{};
   shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceQuotaName{};
   shared_ptr<bool> showOwn{};
   shared_ptr<string> sortBy{};
   shared_ptr<string> startTime{};
@@ -7201,6 +7209,9 @@ public:
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceQuotaName) {
+      res["ResourceQuotaName"] = boost::any(*resourceQuotaName);
     }
     if (showOwn) {
       res["ShowOwn"] = boost::any(*showOwn);
@@ -7265,6 +7276,9 @@ public:
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceQuotaName") != m.end() && !m["ResourceQuotaName"].empty()) {
+      resourceQuotaName = make_shared<string>(boost::any_cast<string>(m["ResourceQuotaName"]));
     }
     if (m.find("ShowOwn") != m.end() && !m["ShowOwn"].empty()) {
       showOwn = make_shared<bool>(boost::any_cast<bool>(m["ShowOwn"]));
