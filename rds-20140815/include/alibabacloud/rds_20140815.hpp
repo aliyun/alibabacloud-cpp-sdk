@@ -28256,11 +28256,11 @@ public:
   shared_ptr<string> connectionMode{};
   shared_ptr<string> connectionString{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> DBInstanceCPU{};
   shared_ptr<string> DBInstanceClass{};
-  shared_ptr<string> DBInstanceCpuCores{};
   shared_ptr<string> DBInstanceDescription{};
   shared_ptr<string> DBInstanceId{};
-  shared_ptr<string> DBInstanceMemory{};
+  shared_ptr<long> DBInstanceMemory{};
   shared_ptr<string> DBInstanceNetType{};
   shared_ptr<string> DBInstanceStatus{};
   shared_ptr<string> DBInstanceStorageType{};
@@ -28334,11 +28334,11 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
+    if (DBInstanceCPU) {
+      res["DBInstanceCPU"] = boost::any(*DBInstanceCPU);
+    }
     if (DBInstanceClass) {
       res["DBInstanceClass"] = boost::any(*DBInstanceClass);
-    }
-    if (DBInstanceCpuCores) {
-      res["DBInstanceCpuCores"] = boost::any(*DBInstanceCpuCores);
     }
     if (DBInstanceDescription) {
       res["DBInstanceDescription"] = boost::any(*DBInstanceDescription);
@@ -28497,11 +28497,11 @@ public:
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
+    if (m.find("DBInstanceCPU") != m.end() && !m["DBInstanceCPU"].empty()) {
+      DBInstanceCPU = make_shared<string>(boost::any_cast<string>(m["DBInstanceCPU"]));
+    }
     if (m.find("DBInstanceClass") != m.end() && !m["DBInstanceClass"].empty()) {
       DBInstanceClass = make_shared<string>(boost::any_cast<string>(m["DBInstanceClass"]));
-    }
-    if (m.find("DBInstanceCpuCores") != m.end() && !m["DBInstanceCpuCores"].empty()) {
-      DBInstanceCpuCores = make_shared<string>(boost::any_cast<string>(m["DBInstanceCpuCores"]));
     }
     if (m.find("DBInstanceDescription") != m.end() && !m["DBInstanceDescription"].empty()) {
       DBInstanceDescription = make_shared<string>(boost::any_cast<string>(m["DBInstanceDescription"]));
@@ -28510,7 +28510,7 @@ public:
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
     }
     if (m.find("DBInstanceMemory") != m.end() && !m["DBInstanceMemory"].empty()) {
-      DBInstanceMemory = make_shared<string>(boost::any_cast<string>(m["DBInstanceMemory"]));
+      DBInstanceMemory = make_shared<long>(boost::any_cast<long>(m["DBInstanceMemory"]));
     }
     if (m.find("DBInstanceNetType") != m.end() && !m["DBInstanceNetType"].empty()) {
       DBInstanceNetType = make_shared<string>(boost::any_cast<string>(m["DBInstanceNetType"]));
@@ -38722,7 +38722,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
-  shared_ptr<string> resourceOwnerId{};
+  shared_ptr<long> resourceOwnerId{};
 
   DescribeKmsAssociateResourcesRequest() {}
 
@@ -38802,7 +38802,7 @@ public:
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
-      resourceOwnerId = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerId"]));
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
   }
 
