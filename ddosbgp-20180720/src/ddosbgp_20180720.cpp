@@ -97,6 +97,39 @@ AddIpResponse Alibabacloud_Ddosbgp20180720::Client::addIp(shared_ptr<AddIpReques
   return addIpWithOptions(request, runtime);
 }
 
+AddRdMemberListResponse Alibabacloud_Ddosbgp20180720::Client::addRdMemberListWithOptions(shared_ptr<AddRdMemberListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AddRdMemberListShrinkRequest> request = make_shared<AddRdMemberListShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<AddRdMemberListRequestMemberList>>(tmpReq->memberList)) {
+    request->memberListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->memberList, make_shared<string>("MemberList"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->memberListShrink)) {
+    query->insert(pair<string, string>("MemberList", *request->memberListShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddRdMemberList"))},
+    {"version", boost::any(string("2018-07-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddRdMemberListResponse(callApi(params, req, runtime));
+}
+
+AddRdMemberListResponse Alibabacloud_Ddosbgp20180720::Client::addRdMemberList(shared_ptr<AddRdMemberListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addRdMemberListWithOptions(request, runtime);
+}
+
 AttachAssetGroupToInstanceResponse Alibabacloud_Ddosbgp20180720::Client::attachAssetGroupToInstanceWithOptions(shared_ptr<AttachAssetGroupToInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<AttachAssetGroupToInstanceShrinkRequest> request = make_shared<AttachAssetGroupToInstanceShrinkRequest>();
@@ -389,6 +422,39 @@ DeleteIpResponse Alibabacloud_Ddosbgp20180720::Client::deleteIpWithOptions(share
 DeleteIpResponse Alibabacloud_Ddosbgp20180720::Client::deleteIp(shared_ptr<DeleteIpRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteIpWithOptions(request, runtime);
+}
+
+DeleteRdMemberListResponse Alibabacloud_Ddosbgp20180720::Client::deleteRdMemberListWithOptions(shared_ptr<DeleteRdMemberListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteRdMemberListShrinkRequest> request = make_shared<DeleteRdMemberListShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<DeleteRdMemberListRequestMemberList>>(tmpReq->memberList)) {
+    request->memberListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->memberList, make_shared<string>("MemberList"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->memberListShrink)) {
+    query->insert(pair<string, string>("MemberList", *request->memberListShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteRdMemberList"))},
+    {"version", boost::any(string("2018-07-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteRdMemberListResponse(callApi(params, req, runtime));
+}
+
+DeleteRdMemberListResponse Alibabacloud_Ddosbgp20180720::Client::deleteRdMemberList(shared_ptr<DeleteRdMemberListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteRdMemberListWithOptions(request, runtime);
 }
 
 DeleteSchedruleOnDemandResponse Alibabacloud_Ddosbgp20180720::Client::deleteSchedruleOnDemandWithOptions(shared_ptr<DeleteSchedruleOnDemandRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -905,6 +971,61 @@ DescribePackIpListResponse Alibabacloud_Ddosbgp20180720::Client::describePackIpL
 DescribePackIpListResponse Alibabacloud_Ddosbgp20180720::Client::describePackIpList(shared_ptr<DescribePackIpListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describePackIpListWithOptions(request, runtime);
+}
+
+DescribeRdMemberListResponse Alibabacloud_Ddosbgp20180720::Client::describeRdMemberListWithOptions(shared_ptr<DescribeRdMemberListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceDirectoryId)) {
+    query->insert(pair<string, string>("ResourceDirectoryId", *request->resourceDirectoryId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeRdMemberList"))},
+    {"version", boost::any(string("2018-07-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeRdMemberListResponse(callApi(params, req, runtime));
+}
+
+DescribeRdMemberListResponse Alibabacloud_Ddosbgp20180720::Client::describeRdMemberList(shared_ptr<DescribeRdMemberListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeRdMemberListWithOptions(request, runtime);
+}
+
+DescribeRdStatusResponse Alibabacloud_Ddosbgp20180720::Client::describeRdStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeRdStatus"))},
+    {"version", boost::any(string("2018-07-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeRdStatusResponse(callApi(params, req, runtime));
+}
+
+DescribeRdStatusResponse Alibabacloud_Ddosbgp20180720::Client::describeRdStatus() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeRdStatusWithOptions(runtime);
 }
 
 DescribeRegionsResponse Alibabacloud_Ddosbgp20180720::Client::describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
