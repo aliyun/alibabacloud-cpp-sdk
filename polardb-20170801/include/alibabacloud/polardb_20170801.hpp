@@ -13533,6 +13533,7 @@ class DescribeDBClustersResponseBodyItemsDBCluster : public Darabonba::Model {
 public:
   shared_ptr<string> aiType{};
   shared_ptr<string> category{};
+  shared_ptr<string> cpuCores{};
   shared_ptr<string> createTime{};
   shared_ptr<string> DBClusterDescription{};
   shared_ptr<string> DBClusterId{};
@@ -13548,14 +13549,17 @@ public:
   shared_ptr<string> expireTime{};
   shared_ptr<string> expired{};
   shared_ptr<string> lockMode{};
+  shared_ptr<string> memorySize{};
   shared_ptr<string> payType{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> remoteMemorySize{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serverlessType{};
   shared_ptr<string> storagePayType{};
   shared_ptr<long> storageSpace{};
   shared_ptr<long> storageUsed{};
   shared_ptr<string> strictConsistency{};
+  shared_ptr<string> subCategory{};
   shared_ptr<DescribeDBClustersResponseBodyItemsDBClusterTags> tags{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> vswitchId{};
@@ -13576,6 +13580,9 @@ public:
     }
     if (category) {
       res["Category"] = boost::any(*category);
+    }
+    if (cpuCores) {
+      res["CpuCores"] = boost::any(*cpuCores);
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
@@ -13622,11 +13629,17 @@ public:
     if (lockMode) {
       res["LockMode"] = boost::any(*lockMode);
     }
+    if (memorySize) {
+      res["MemorySize"] = boost::any(*memorySize);
+    }
     if (payType) {
       res["PayType"] = boost::any(*payType);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (remoteMemorySize) {
+      res["RemoteMemorySize"] = boost::any(*remoteMemorySize);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -13645,6 +13658,9 @@ public:
     }
     if (strictConsistency) {
       res["StrictConsistency"] = boost::any(*strictConsistency);
+    }
+    if (subCategory) {
+      res["SubCategory"] = boost::any(*subCategory);
     }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
@@ -13667,6 +13683,9 @@ public:
     }
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("CpuCores") != m.end() && !m["CpuCores"].empty()) {
+      cpuCores = make_shared<string>(boost::any_cast<string>(m["CpuCores"]));
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
@@ -13717,11 +13736,17 @@ public:
     if (m.find("LockMode") != m.end() && !m["LockMode"].empty()) {
       lockMode = make_shared<string>(boost::any_cast<string>(m["LockMode"]));
     }
+    if (m.find("MemorySize") != m.end() && !m["MemorySize"].empty()) {
+      memorySize = make_shared<string>(boost::any_cast<string>(m["MemorySize"]));
+    }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RemoteMemorySize") != m.end() && !m["RemoteMemorySize"].empty()) {
+      remoteMemorySize = make_shared<string>(boost::any_cast<string>(m["RemoteMemorySize"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -13740,6 +13765,9 @@ public:
     }
     if (m.find("StrictConsistency") != m.end() && !m["StrictConsistency"].empty()) {
       strictConsistency = make_shared<string>(boost::any_cast<string>(m["StrictConsistency"]));
+    }
+    if (m.find("SubCategory") != m.end() && !m["SubCategory"].empty()) {
+      subCategory = make_shared<string>(boost::any_cast<string>(m["SubCategory"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(map<string, boost::any>) == m["Tags"].type()) {
