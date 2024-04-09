@@ -1159,6 +1159,151 @@ public:
 
   virtual ~Service() = default;
 };
+class CloneServiceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> body{};
+
+  CloneServiceRequest() {}
+
+  explicit CloneServiceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<string>(boost::any_cast<string>(m["body"]));
+    }
+  }
+
+
+  virtual ~CloneServiceRequest() = default;
+};
+class CloneServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> internetEndpoint{};
+  shared_ptr<string> intranetEndpoint{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<string> serviceName{};
+  shared_ptr<string> status{};
+
+  CloneServiceResponseBody() {}
+
+  explicit CloneServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (internetEndpoint) {
+      res["InternetEndpoint"] = boost::any(*internetEndpoint);
+    }
+    if (intranetEndpoint) {
+      res["IntranetEndpoint"] = boost::any(*intranetEndpoint);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InternetEndpoint") != m.end() && !m["InternetEndpoint"].empty()) {
+      internetEndpoint = make_shared<string>(boost::any_cast<string>(m["InternetEndpoint"]));
+    }
+    if (m.find("IntranetEndpoint") != m.end() && !m["IntranetEndpoint"].empty()) {
+      intranetEndpoint = make_shared<string>(boost::any_cast<string>(m["IntranetEndpoint"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~CloneServiceResponseBody() = default;
+};
+class CloneServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CloneServiceResponseBody> body{};
+
+  CloneServiceResponse() {}
+
+  explicit CloneServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CloneServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CloneServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CloneServiceResponse() = default;
+};
 class CommitServiceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> message{};
@@ -12294,6 +12439,12 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  CloneServiceResponse cloneServiceWithOptions(shared_ptr<string> ClusterId,
+                                               shared_ptr<string> ServiceName,
+                                               shared_ptr<CloneServiceRequest> request,
+                                               shared_ptr<map<string, string>> headers,
+                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CloneServiceResponse cloneService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CloneServiceRequest> request);
   CommitServiceResponse commitServiceWithOptions(shared_ptr<string> ClusterId,
                                                  shared_ptr<string> ServiceName,
                                                  shared_ptr<map<string, string>> headers,

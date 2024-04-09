@@ -55,6 +55,36 @@ string Alibabacloud_Eas20210701::Client::getEndpoint(shared_ptr<string> productI
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CloneServiceResponse Alibabacloud_Eas20210701::Client::cloneServiceWithOptions(shared_ptr<string> ClusterId,
+                                                                               shared_ptr<string> ServiceName,
+                                                                               shared_ptr<CloneServiceRequest> request,
+                                                                               shared_ptr<map<string, string>> headers,
+                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", !request->body ? boost::any() : boost::any(*request->body)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CloneService"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/services/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ServiceName)) + string("/clone"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CloneServiceResponse(callApi(params, req, runtime));
+}
+
+CloneServiceResponse Alibabacloud_Eas20210701::Client::cloneService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CloneServiceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return cloneServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
+}
+
 CommitServiceResponse Alibabacloud_Eas20210701::Client::commitServiceWithOptions(shared_ptr<string> ClusterId,
                                                                                  shared_ptr<string> ServiceName,
                                                                                  shared_ptr<map<string, string>> headers,
