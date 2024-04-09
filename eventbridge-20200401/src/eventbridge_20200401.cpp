@@ -456,6 +456,9 @@ DeleteEventBusResponse Alibabacloud_Eventbridge20200401::Client::deleteEventBus(
 DeleteEventSourceResponse Alibabacloud_Eventbridge20200401::Client::deleteEventSourceWithOptions(shared_ptr<DeleteEventSourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventBusName)) {
+    body->insert(pair<string, string>("EventBusName", *request->eventBusName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->eventSourceName)) {
     body->insert(pair<string, string>("EventSourceName", *request->eventSourceName));
   }

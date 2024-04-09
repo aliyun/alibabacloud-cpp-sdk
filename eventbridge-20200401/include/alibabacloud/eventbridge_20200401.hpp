@@ -6097,6 +6097,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> dataType{};
   shared_ptr<string> labels{};
+  shared_ptr<string> regionId{};
 
   CreateEventStreamingRequestSourceSourcePrometheusParameters() {}
 
@@ -6117,6 +6118,9 @@ public:
     if (labels) {
       res["Labels"] = boost::any(*labels);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -6129,6 +6133,9 @@ public:
     }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -7344,6 +7351,7 @@ public:
 class CreateServiceLinkedRoleForProductResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<long> httpCode{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -7361,6 +7369,9 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (httpCode) {
+      res["HttpCode"] = boost::any(*httpCode);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
@@ -7376,6 +7387,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpCode") != m.end() && !m["HttpCode"].empty()) {
+      httpCode = make_shared<long>(boost::any_cast<long>(m["HttpCode"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -7824,6 +7838,7 @@ public:
 };
 class DeleteEventSourceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> eventBusName{};
   shared_ptr<string> eventSourceName{};
 
   DeleteEventSourceRequest() {}
@@ -7836,6 +7851,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (eventBusName) {
+      res["EventBusName"] = boost::any(*eventBusName);
+    }
     if (eventSourceName) {
       res["EventSourceName"] = boost::any(*eventSourceName);
     }
@@ -7843,6 +7861,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventBusName") != m.end() && !m["EventBusName"].empty()) {
+      eventBusName = make_shared<string>(boost::any_cast<string>(m["EventBusName"]));
+    }
     if (m.find("EventSourceName") != m.end() && !m["EventSourceName"].empty()) {
       eventSourceName = make_shared<string>(boost::any_cast<string>(m["EventSourceName"]));
     }
@@ -12735,6 +12756,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> dataType{};
   shared_ptr<string> labels{};
+  shared_ptr<string> regionId{};
 
   GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters() {}
 
@@ -12755,6 +12777,9 @@ public:
     if (labels) {
       res["Labels"] = boost::any(*labels);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -12767,6 +12792,9 @@ public:
     }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -18241,6 +18269,56 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters() = default;
 };
+class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dataType{};
+  shared_ptr<string> labels{};
+  shared_ptr<string> regionId{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
+    }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters() = default;
+};
 class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbitMQParameters : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -18488,6 +18566,7 @@ public:
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters> sourceKafkaParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSParameters> sourceMNSParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters> sourceMQTTParameters{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters> sourcePrometheusParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbitMQParameters> sourceRabbitMQParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQParameters> sourceRocketMQParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceSLSParameters> sourceSLSParameters{};
@@ -18513,6 +18592,9 @@ public:
     }
     if (sourceMQTTParameters) {
       res["SourceMQTTParameters"] = sourceMQTTParameters ? boost::any(sourceMQTTParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourcePrometheusParameters) {
+      res["SourcePrometheusParameters"] = sourcePrometheusParameters ? boost::any(sourcePrometheusParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceRabbitMQParameters) {
       res["SourceRabbitMQParameters"] = sourceRabbitMQParameters ? boost::any(sourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
@@ -18553,6 +18635,13 @@ public:
         ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceMQTTParameters"]));
         sourceMQTTParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters>(model1);
+      }
+    }
+    if (m.find("SourcePrometheusParameters") != m.end() && !m["SourcePrometheusParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourcePrometheusParameters"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourcePrometheusParameters"]));
+        sourcePrometheusParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters>(model1);
       }
     }
     if (m.find("SourceRabbitMQParameters") != m.end() && !m["SourceRabbitMQParameters"].empty()) {
@@ -27575,6 +27664,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> dataType{};
   shared_ptr<string> labels{};
+  shared_ptr<string> regionId{};
 
   UpdateEventStreamingRequestSourceSourcePrometheusParameters() {}
 
@@ -27595,6 +27685,9 @@ public:
     if (labels) {
       res["Labels"] = boost::any(*labels);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -27607,6 +27700,9 @@ public:
     }
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
