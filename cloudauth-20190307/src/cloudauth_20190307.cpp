@@ -89,6 +89,52 @@ AIGCFaceVerifyResponse Alibabacloud_Cloudauth20190307::Client::aIGCFaceVerify(sh
   return aIGCFaceVerifyWithOptions(request, runtime);
 }
 
+BankMetaVerifyResponse Alibabacloud_Cloudauth20190307::Client::bankMetaVerifyWithOptions(shared_ptr<BankMetaVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bankCard)) {
+    query->insert(pair<string, string>("BankCard", *request->bankCard));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identifyNum)) {
+    query->insert(pair<string, string>("IdentifyNum", *request->identifyNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
+    query->insert(pair<string, string>("Mobile", *request->mobile));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
+    query->insert(pair<string, string>("ParamType", *request->paramType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productType)) {
+    query->insert(pair<string, string>("ProductType", *request->productType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
+    query->insert(pair<string, string>("UserName", *request->userName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->verifyMode)) {
+    query->insert(pair<string, string>("VerifyMode", *request->verifyMode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BankMetaVerify"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BankMetaVerifyResponse(callApi(params, req, runtime));
+}
+
+BankMetaVerifyResponse Alibabacloud_Cloudauth20190307::Client::bankMetaVerify(shared_ptr<BankMetaVerifyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return bankMetaVerifyWithOptions(request, runtime);
+}
+
 CompareFaceVerifyResponse Alibabacloud_Cloudauth20190307::Client::compareFaceVerifyWithOptions(shared_ptr<CompareFaceVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -527,6 +573,49 @@ DescribeOssUploadTokenResponse Alibabacloud_Cloudauth20190307::Client::describeO
 DescribeOssUploadTokenResponse Alibabacloud_Cloudauth20190307::Client::describeOssUploadToken() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeOssUploadTokenWithOptions(runtime);
+}
+
+DescribePageFaceVerifyDataResponse Alibabacloud_Cloudauth20190307::Client::describePageFaceVerifyDataWithOptions(shared_ptr<DescribePageFaceVerifyDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endDate)) {
+    query->insert(pair<string, string>("EndDate", *request->endDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    query->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sceneId)) {
+    query->insert(pair<string, long>("SceneId", *request->sceneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    query->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribePageFaceVerifyData"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribePageFaceVerifyDataResponse(callApi(params, req, runtime));
+}
+
+DescribePageFaceVerifyDataResponse Alibabacloud_Cloudauth20190307::Client::describePageFaceVerifyData(shared_ptr<DescribePageFaceVerifyDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describePageFaceVerifyDataWithOptions(request, runtime);
 }
 
 DescribeSmartStatisticsPageListResponse Alibabacloud_Cloudauth20190307::Client::describeSmartStatisticsPageListWithOptions(shared_ptr<DescribeSmartStatisticsPageListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1033,6 +1122,99 @@ Mobile3MetaSimpleVerifyResponse Alibabacloud_Cloudauth20190307::Client::mobile3M
 Mobile3MetaSimpleVerifyResponse Alibabacloud_Cloudauth20190307::Client::mobile3MetaSimpleVerify(shared_ptr<Mobile3MetaSimpleVerifyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return mobile3MetaSimpleVerifyWithOptions(request, runtime);
+}
+
+MobileDetectResponse Alibabacloud_Cloudauth20190307::Client::mobileDetectWithOptions(shared_ptr<MobileDetectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->mobiles)) {
+    query->insert(pair<string, string>("Mobiles", *request->mobiles));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
+    query->insert(pair<string, string>("ParamType", *request->paramType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("MobileDetect"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return MobileDetectResponse(callApi(params, req, runtime));
+}
+
+MobileDetectResponse Alibabacloud_Cloudauth20190307::Client::mobileDetect(shared_ptr<MobileDetectRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return mobileDetectWithOptions(request, runtime);
+}
+
+MobileOnlineStatusResponse Alibabacloud_Cloudauth20190307::Client::mobileOnlineStatusWithOptions(shared_ptr<MobileOnlineStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
+    query->insert(pair<string, string>("Mobile", *request->mobile));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
+    query->insert(pair<string, string>("ParamType", *request->paramType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("MobileOnlineStatus"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return MobileOnlineStatusResponse(callApi(params, req, runtime));
+}
+
+MobileOnlineStatusResponse Alibabacloud_Cloudauth20190307::Client::mobileOnlineStatus(shared_ptr<MobileOnlineStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return mobileOnlineStatusWithOptions(request, runtime);
+}
+
+MobileOnlineTimeResponse Alibabacloud_Cloudauth20190307::Client::mobileOnlineTimeWithOptions(shared_ptr<MobileOnlineTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
+    query->insert(pair<string, string>("Mobile", *request->mobile));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paramType)) {
+    query->insert(pair<string, string>("ParamType", *request->paramType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("MobileOnlineTime"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return MobileOnlineTimeResponse(callApi(params, req, runtime));
+}
+
+MobileOnlineTimeResponse Alibabacloud_Cloudauth20190307::Client::mobileOnlineTime(shared_ptr<MobileOnlineTimeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return mobileOnlineTimeWithOptions(request, runtime);
 }
 
 ModifyDeviceInfoResponse Alibabacloud_Cloudauth20190307::Client::modifyDeviceInfoWithOptions(shared_ptr<ModifyDeviceInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
