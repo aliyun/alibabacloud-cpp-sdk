@@ -2269,6 +2269,9 @@ PostMSSearchEnhanceResponse Alibabacloud_Alinlp20200629::Client::postMSSearchEnh
   if (!Darabonba_Util::Client::isUnset<string>(request->filters)) {
     body->insert(pair<string, string>("Filters", *request->filters));
   }
+  if (!Darabonba_Util::Client::isUnset<double>(request->minScore)) {
+    body->insert(pair<string, double>("MinScore", *request->minScore));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->page)) {
     body->insert(pair<string, long>("Page", *request->page));
   }

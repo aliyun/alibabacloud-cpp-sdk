@@ -9231,6 +9231,7 @@ public:
   shared_ptr<bool> debug{};
   shared_ptr<vector<string>> fields{};
   shared_ptr<string> filters{};
+  shared_ptr<double> minScore{};
   shared_ptr<long> page{};
   shared_ptr<string> queries{};
   shared_ptr<map<string, boost::any>> rankModelInfo{};
@@ -9264,6 +9265,9 @@ public:
     }
     if (filters) {
       res["Filters"] = boost::any(*filters);
+    }
+    if (minScore) {
+      res["MinScore"] = boost::any(*minScore);
     }
     if (page) {
       res["Page"] = boost::any(*page);
@@ -9320,6 +9324,9 @@ public:
     if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
       filters = make_shared<string>(boost::any_cast<string>(m["Filters"]));
     }
+    if (m.find("MinScore") != m.end() && !m["MinScore"].empty()) {
+      minScore = make_shared<double>(boost::any_cast<double>(m["MinScore"]));
+    }
     if (m.find("Page") != m.end() && !m["Page"].empty()) {
       page = make_shared<long>(boost::any_cast<long>(m["Page"]));
     }
@@ -9368,6 +9375,7 @@ public:
   shared_ptr<bool> debug{};
   shared_ptr<string> fieldsShrink{};
   shared_ptr<string> filters{};
+  shared_ptr<double> minScore{};
   shared_ptr<long> page{};
   shared_ptr<string> queries{};
   shared_ptr<string> rankModelInfoShrink{};
@@ -9401,6 +9409,9 @@ public:
     }
     if (filters) {
       res["Filters"] = boost::any(*filters);
+    }
+    if (minScore) {
+      res["MinScore"] = boost::any(*minScore);
     }
     if (page) {
       res["Page"] = boost::any(*page);
@@ -9444,6 +9455,9 @@ public:
     }
     if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
       filters = make_shared<string>(boost::any_cast<string>(m["Filters"]));
+    }
+    if (m.find("MinScore") != m.end() && !m["MinScore"].empty()) {
+      minScore = make_shared<double>(boost::any_cast<double>(m["MinScore"]));
     }
     if (m.find("Page") != m.end() && !m["Page"].empty()) {
       page = make_shared<long>(boost::any_cast<long>(m["Page"]));
