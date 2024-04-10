@@ -5,7 +5,6 @@
 
 #include <alibabacloud/open_api.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -209,17 +208,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -425,17 +414,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -627,17 +606,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -787,17 +756,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -878,9 +837,7 @@ public:
   shared_ptr<long> maximumMessageSize{};
   shared_ptr<long> messageRetentionPeriod{};
   shared_ptr<long> pollingWaitSeconds{};
-  shared_ptr<string> queueInternalUrl{};
   shared_ptr<string> queueName{};
-  shared_ptr<string> queueUrl{};
   shared_ptr<long> visibilityTimeout{};
 
   GetQueueAttributesResponseBodyData() {}
@@ -923,14 +880,8 @@ public:
     if (pollingWaitSeconds) {
       res["PollingWaitSeconds"] = boost::any(*pollingWaitSeconds);
     }
-    if (queueInternalUrl) {
-      res["QueueInternalUrl"] = boost::any(*queueInternalUrl);
-    }
     if (queueName) {
       res["QueueName"] = boost::any(*queueName);
-    }
-    if (queueUrl) {
-      res["QueueUrl"] = boost::any(*queueUrl);
     }
     if (visibilityTimeout) {
       res["VisibilityTimeout"] = boost::any(*visibilityTimeout);
@@ -969,14 +920,8 @@ public:
     if (m.find("PollingWaitSeconds") != m.end() && !m["PollingWaitSeconds"].empty()) {
       pollingWaitSeconds = make_shared<long>(boost::any_cast<long>(m["PollingWaitSeconds"]));
     }
-    if (m.find("QueueInternalUrl") != m.end() && !m["QueueInternalUrl"].empty()) {
-      queueInternalUrl = make_shared<string>(boost::any_cast<string>(m["QueueInternalUrl"]));
-    }
     if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
       queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
-    }
-    if (m.find("QueueUrl") != m.end() && !m["QueueUrl"].empty()) {
-      queueUrl = make_shared<string>(boost::any_cast<string>(m["QueueUrl"]));
     }
     if (m.find("VisibilityTimeout") != m.end() && !m["VisibilityTimeout"].empty()) {
       visibilityTimeout = make_shared<long>(boost::any_cast<long>(m["VisibilityTimeout"]));
@@ -1066,17 +1011,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1161,7 +1096,6 @@ public:
   shared_ptr<string> notifyContentFormat{};
   shared_ptr<string> notifyStrategy{};
   shared_ptr<string> subscriptionName{};
-  shared_ptr<string> subscriptionURL{};
   shared_ptr<string> topicName{};
   shared_ptr<string> topicOwner{};
 
@@ -1196,9 +1130,6 @@ public:
     if (subscriptionName) {
       res["SubscriptionName"] = boost::any(*subscriptionName);
     }
-    if (subscriptionURL) {
-      res["SubscriptionURL"] = boost::any(*subscriptionURL);
-    }
     if (topicName) {
       res["TopicName"] = boost::any(*topicName);
     }
@@ -1229,9 +1160,6 @@ public:
     }
     if (m.find("SubscriptionName") != m.end() && !m["SubscriptionName"].empty()) {
       subscriptionName = make_shared<string>(boost::any_cast<string>(m["SubscriptionName"]));
-    }
-    if (m.find("SubscriptionURL") != m.end() && !m["SubscriptionURL"].empty()) {
-      subscriptionURL = make_shared<string>(boost::any_cast<string>(m["SubscriptionURL"]));
     }
     if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
       topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
@@ -1324,17 +1252,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1411,9 +1329,7 @@ public:
   shared_ptr<long> maxMessageSize{};
   shared_ptr<long> messageCount{};
   shared_ptr<long> messageRetentionPeriod{};
-  shared_ptr<string> topicInnerUrl{};
   shared_ptr<string> topicName{};
-  shared_ptr<string> topicUrl{};
 
   GetTopicAttributesResponseBodyData() {}
 
@@ -1443,14 +1359,8 @@ public:
     if (messageRetentionPeriod) {
       res["MessageRetentionPeriod"] = boost::any(*messageRetentionPeriod);
     }
-    if (topicInnerUrl) {
-      res["TopicInnerUrl"] = boost::any(*topicInnerUrl);
-    }
     if (topicName) {
       res["TopicName"] = boost::any(*topicName);
-    }
-    if (topicUrl) {
-      res["TopicUrl"] = boost::any(*topicUrl);
     }
     return res;
   }
@@ -1474,14 +1384,8 @@ public:
     if (m.find("MessageRetentionPeriod") != m.end() && !m["MessageRetentionPeriod"].empty()) {
       messageRetentionPeriod = make_shared<long>(boost::any_cast<long>(m["MessageRetentionPeriod"]));
     }
-    if (m.find("TopicInnerUrl") != m.end() && !m["TopicInnerUrl"].empty()) {
-      topicInnerUrl = make_shared<string>(boost::any_cast<string>(m["TopicInnerUrl"]));
-    }
     if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
       topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
-    }
-    if (m.find("TopicUrl") != m.end() && !m["TopicUrl"].empty()) {
-      topicUrl = make_shared<string>(boost::any_cast<string>(m["TopicUrl"]));
     }
   }
 
@@ -1568,17 +1472,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1673,9 +1567,7 @@ public:
   shared_ptr<long> maximumMessageSize{};
   shared_ptr<long> messageRetentionPeriod{};
   shared_ptr<long> pollingWaitSeconds{};
-  shared_ptr<string> queueInternalUrl{};
   shared_ptr<string> queueName{};
-  shared_ptr<string> queueUrl{};
   shared_ptr<long> visibilityTimeout{};
 
   ListQueueResponseBodyDataPageData() {}
@@ -1718,14 +1610,8 @@ public:
     if (pollingWaitSeconds) {
       res["PollingWaitSeconds"] = boost::any(*pollingWaitSeconds);
     }
-    if (queueInternalUrl) {
-      res["QueueInternalUrl"] = boost::any(*queueInternalUrl);
-    }
     if (queueName) {
       res["QueueName"] = boost::any(*queueName);
-    }
-    if (queueUrl) {
-      res["QueueUrl"] = boost::any(*queueUrl);
     }
     if (visibilityTimeout) {
       res["VisibilityTimeout"] = boost::any(*visibilityTimeout);
@@ -1764,14 +1650,8 @@ public:
     if (m.find("PollingWaitSeconds") != m.end() && !m["PollingWaitSeconds"].empty()) {
       pollingWaitSeconds = make_shared<long>(boost::any_cast<long>(m["PollingWaitSeconds"]));
     }
-    if (m.find("QueueInternalUrl") != m.end() && !m["QueueInternalUrl"].empty()) {
-      queueInternalUrl = make_shared<string>(boost::any_cast<string>(m["QueueInternalUrl"]));
-    }
     if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
       queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
-    }
-    if (m.find("QueueUrl") != m.end() && !m["QueueUrl"].empty()) {
-      queueUrl = make_shared<string>(boost::any_cast<string>(m["QueueUrl"]));
     }
     if (m.find("VisibilityTimeout") != m.end() && !m["VisibilityTimeout"].empty()) {
       visibilityTimeout = make_shared<long>(boost::any_cast<long>(m["VisibilityTimeout"]));
@@ -1939,17 +1819,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2048,7 +1918,6 @@ public:
   shared_ptr<string> notifyContentFormat{};
   shared_ptr<string> notifyStrategy{};
   shared_ptr<string> subscriptionName{};
-  shared_ptr<string> subscriptionURL{};
   shared_ptr<string> topicName{};
   shared_ptr<string> topicOwner{};
 
@@ -2083,9 +1952,6 @@ public:
     if (subscriptionName) {
       res["SubscriptionName"] = boost::any(*subscriptionName);
     }
-    if (subscriptionURL) {
-      res["SubscriptionURL"] = boost::any(*subscriptionURL);
-    }
     if (topicName) {
       res["TopicName"] = boost::any(*topicName);
     }
@@ -2116,9 +1982,6 @@ public:
     }
     if (m.find("SubscriptionName") != m.end() && !m["SubscriptionName"].empty()) {
       subscriptionName = make_shared<string>(boost::any_cast<string>(m["SubscriptionName"]));
-    }
-    if (m.find("SubscriptionURL") != m.end() && !m["SubscriptionURL"].empty()) {
-      subscriptionURL = make_shared<string>(boost::any_cast<string>(m["SubscriptionURL"]));
     }
     if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
       topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
@@ -2289,17 +2152,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2390,9 +2243,7 @@ public:
   shared_ptr<long> maxMessageSize{};
   shared_ptr<long> messageCount{};
   shared_ptr<long> messageRetentionPeriod{};
-  shared_ptr<string> topicInnerUrl{};
   shared_ptr<string> topicName{};
-  shared_ptr<string> topicUrl{};
 
   ListTopicResponseBodyDataPageData() {}
 
@@ -2422,14 +2273,8 @@ public:
     if (messageRetentionPeriod) {
       res["MessageRetentionPeriod"] = boost::any(*messageRetentionPeriod);
     }
-    if (topicInnerUrl) {
-      res["TopicInnerUrl"] = boost::any(*topicInnerUrl);
-    }
     if (topicName) {
       res["TopicName"] = boost::any(*topicName);
-    }
-    if (topicUrl) {
-      res["TopicUrl"] = boost::any(*topicUrl);
     }
     return res;
   }
@@ -2453,14 +2298,8 @@ public:
     if (m.find("MessageRetentionPeriod") != m.end() && !m["MessageRetentionPeriod"].empty()) {
       messageRetentionPeriod = make_shared<long>(boost::any_cast<long>(m["MessageRetentionPeriod"]));
     }
-    if (m.find("TopicInnerUrl") != m.end() && !m["TopicInnerUrl"].empty()) {
-      topicInnerUrl = make_shared<string>(boost::any_cast<string>(m["TopicInnerUrl"]));
-    }
     if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
       topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
-    }
-    if (m.find("TopicUrl") != m.end() && !m["TopicUrl"].empty()) {
-      topicUrl = make_shared<string>(boost::any_cast<string>(m["TopicUrl"]));
     }
   }
 
@@ -2611,17 +2450,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2855,17 +2684,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3071,17 +2890,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3287,17 +3096,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3484,17 +3283,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3693,17 +3482,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
