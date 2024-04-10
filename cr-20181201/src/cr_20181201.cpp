@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -2841,6 +2840,56 @@ ListRepositoryResponse Alibabacloud_Cr20181201::Client::listRepositoryWithOption
 ListRepositoryResponse Alibabacloud_Cr20181201::Client::listRepository(shared_ptr<ListRepositoryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listRepositoryWithOptions(request, runtime);
+}
+
+ListScanBaselineByTaskResponse Alibabacloud_Cr20181201::Client::listScanBaselineByTaskWithOptions(shared_ptr<ListScanBaselineByTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListScanBaselineByTask"))},
+    {"version", boost::any(string("2018-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListScanBaselineByTaskResponse(callApi(params, req, runtime));
+}
+
+ListScanBaselineByTaskResponse Alibabacloud_Cr20181201::Client::listScanBaselineByTask(shared_ptr<ListScanBaselineByTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listScanBaselineByTaskWithOptions(request, runtime);
+}
+
+ListScanMaliciousFileByTaskResponse Alibabacloud_Cr20181201::Client::listScanMaliciousFileByTaskWithOptions(shared_ptr<ListScanMaliciousFileByTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListScanMaliciousFileByTask"))},
+    {"version", boost::any(string("2018-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListScanMaliciousFileByTaskResponse(callApi(params, req, runtime));
+}
+
+ListScanMaliciousFileByTaskResponse Alibabacloud_Cr20181201::Client::listScanMaliciousFileByTask(shared_ptr<ListScanMaliciousFileByTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listScanMaliciousFileByTaskWithOptions(request, runtime);
 }
 
 ListTagResourcesResponse Alibabacloud_Cr20181201::Client::listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
