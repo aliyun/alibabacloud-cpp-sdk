@@ -844,8 +844,17 @@ BindAuthToMachineResponse Alibabacloud_Sas20181203::Client::bindAuthToMachineWit
   if (!Darabonba_Util::Client::isUnset<string>(request->criteria)) {
     query->insert(pair<string, string>("Criteria", *request->criteria));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->isPreBind)) {
+    query->insert(pair<string, long>("IsPreBind", *request->isPreBind));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->logicalExp)) {
     query->insert(pair<string, string>("LogicalExp", *request->logicalExp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ntmVersion)) {
+    query->insert(pair<string, string>("NtmVersion", *request->ntmVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->preBindOrderId)) {
+    query->insert(pair<string, long>("PreBindOrderId", *request->preBindOrderId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->unBind)) {
     query->insert(pair<string, vector<string>>("UnBind", *request->unBind));
@@ -2395,6 +2404,12 @@ CreateOssBucketScanTaskResponse Alibabacloud_Sas20181203::Client::createOssBucke
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->bucketNameList)) {
     query->insert(pair<string, vector<string>>("BucketNameList", *request->bucketNameList));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->decompressMaxFileCount)) {
+    query->insert(pair<string, long>("DecompressMaxFileCount", *request->decompressMaxFileCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->decompressMaxLayer)) {
+    query->insert(pair<string, long>("DecompressMaxLayer", *request->decompressMaxLayer));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->excludeKeySuffixList)) {
     query->insert(pair<string, vector<string>>("ExcludeKeySuffixList", *request->excludeKeySuffixList));
   }
@@ -2437,6 +2452,12 @@ CreateOssScanConfigResponse Alibabacloud_Sas20181203::Client::createOssScanConfi
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->bucketNameList)) {
     query->insert(pair<string, vector<string>>("BucketNameList", *request->bucketNameList));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->decompressMaxFileCount)) {
+    query->insert(pair<string, long>("DecompressMaxFileCount", *request->decompressMaxFileCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->decompressMaxLayer)) {
+    query->insert(pair<string, long>("DecompressMaxLayer", *request->decompressMaxLayer));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->enable)) {
     query->insert(pair<string, long>("Enable", *request->enable));
@@ -18377,6 +18398,9 @@ ListObjectScanEventResponse Alibabacloud_Sas20181203::Client::listObjectScanEven
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->parentEventId)) {
+    query->insert(pair<string, long>("ParentEventId", *request->parentEventId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->riskLevel)) {
     query->insert(pair<string, string>("RiskLevel", *request->riskLevel));
   }
@@ -24558,6 +24582,12 @@ UpdateOssScanConfigResponse Alibabacloud_Sas20181203::Client::updateOssScanConfi
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->bucketNameList)) {
     query->insert(pair<string, vector<string>>("BucketNameList", *request->bucketNameList));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->decompressMaxFileCount)) {
+    query->insert(pair<string, long>("DecompressMaxFileCount", *request->decompressMaxFileCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->decompressMaxLayer)) {
+    query->insert(pair<string, long>("DecompressMaxLayer", *request->decompressMaxLayer));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->enable)) {
     query->insert(pair<string, long>("Enable", *request->enable));
