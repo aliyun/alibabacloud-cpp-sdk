@@ -239,6 +239,9 @@ GetInternetTupleResponse Alibabacloud_Nis20211216::Client::getInternetTupleWithO
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<GetInternetTupleShrinkRequest> request = make_shared<GetInternetTupleShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->cloudIpList)) {
+    request->cloudIpListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->cloudIpList, make_shared<string>("CloudIpList"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceList)) {
     request->instanceListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceList, make_shared<string>("InstanceList"), make_shared<string>("json")));
   }
@@ -251,6 +254,9 @@ GetInternetTupleResponse Alibabacloud_Nis20211216::Client::getInternetTupleWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->cloudIp)) {
     query->insert(pair<string, string>("CloudIp", *request->cloudIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cloudIpListShrink)) {
+    query->insert(pair<string, string>("CloudIpList", *request->cloudIpListShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->cloudIsp)) {
     query->insert(pair<string, string>("CloudIsp", *request->cloudIsp));

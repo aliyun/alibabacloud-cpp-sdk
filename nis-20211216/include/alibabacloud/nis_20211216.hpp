@@ -1034,6 +1034,7 @@ public:
   shared_ptr<vector<long>> accountIds{};
   shared_ptr<long> beginTime{};
   shared_ptr<string> cloudIp{};
+  shared_ptr<vector<string>> cloudIpList{};
   shared_ptr<string> cloudIsp{};
   shared_ptr<string> cloudPort{};
   shared_ptr<string> direction{};
@@ -1071,6 +1072,9 @@ public:
     }
     if (cloudIp) {
       res["CloudIp"] = boost::any(*cloudIp);
+    }
+    if (cloudIpList) {
+      res["CloudIpList"] = boost::any(*cloudIpList);
     }
     if (cloudIsp) {
       res["CloudIsp"] = boost::any(*cloudIsp);
@@ -1146,6 +1150,16 @@ public:
     if (m.find("CloudIp") != m.end() && !m["CloudIp"].empty()) {
       cloudIp = make_shared<string>(boost::any_cast<string>(m["CloudIp"]));
     }
+    if (m.find("CloudIpList") != m.end() && !m["CloudIpList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CloudIpList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CloudIpList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cloudIpList = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("CloudIsp") != m.end() && !m["CloudIsp"].empty()) {
       cloudIsp = make_shared<string>(boost::any_cast<string>(m["CloudIsp"]));
     }
@@ -1217,6 +1231,7 @@ public:
   shared_ptr<vector<long>> accountIds{};
   shared_ptr<long> beginTime{};
   shared_ptr<string> cloudIp{};
+  shared_ptr<string> cloudIpListShrink{};
   shared_ptr<string> cloudIsp{};
   shared_ptr<string> cloudPort{};
   shared_ptr<string> direction{};
@@ -1254,6 +1269,9 @@ public:
     }
     if (cloudIp) {
       res["CloudIp"] = boost::any(*cloudIp);
+    }
+    if (cloudIpListShrink) {
+      res["CloudIpList"] = boost::any(*cloudIpListShrink);
     }
     if (cloudIsp) {
       res["CloudIsp"] = boost::any(*cloudIsp);
@@ -1328,6 +1346,9 @@ public:
     }
     if (m.find("CloudIp") != m.end() && !m["CloudIp"].empty()) {
       cloudIp = make_shared<string>(boost::any_cast<string>(m["CloudIp"]));
+    }
+    if (m.find("CloudIpList") != m.end() && !m["CloudIpList"].empty()) {
+      cloudIpListShrink = make_shared<string>(boost::any_cast<string>(m["CloudIpList"]));
     }
     if (m.find("CloudIsp") != m.end() && !m["CloudIsp"].empty()) {
       cloudIsp = make_shared<string>(boost::any_cast<string>(m["CloudIsp"]));
