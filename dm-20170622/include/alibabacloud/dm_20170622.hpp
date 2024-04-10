@@ -7439,9 +7439,11 @@ public:
 class SenderStatisticsDetailByParamResponseBodyDataMailDetail : public Darabonba::Model {
 public:
   shared_ptr<string> accountName{};
+  shared_ptr<string> errorClassification{};
   shared_ptr<string> lastUpdateTime{};
   shared_ptr<string> message{};
   shared_ptr<long> status{};
+  shared_ptr<string> subject{};
   shared_ptr<string> toAddress{};
   shared_ptr<string> utcLastUpdateTime{};
 
@@ -7458,6 +7460,9 @@ public:
     if (accountName) {
       res["AccountName"] = boost::any(*accountName);
     }
+    if (errorClassification) {
+      res["ErrorClassification"] = boost::any(*errorClassification);
+    }
     if (lastUpdateTime) {
       res["LastUpdateTime"] = boost::any(*lastUpdateTime);
     }
@@ -7466,6 +7471,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
     }
     if (toAddress) {
       res["ToAddress"] = boost::any(*toAddress);
@@ -7480,6 +7488,9 @@ public:
     if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
       accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
     }
+    if (m.find("ErrorClassification") != m.end() && !m["ErrorClassification"].empty()) {
+      errorClassification = make_shared<string>(boost::any_cast<string>(m["ErrorClassification"]));
+    }
     if (m.find("LastUpdateTime") != m.end() && !m["LastUpdateTime"].empty()) {
       lastUpdateTime = make_shared<string>(boost::any_cast<string>(m["LastUpdateTime"]));
     }
@@ -7488,6 +7499,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
     }
     if (m.find("ToAddress") != m.end() && !m["ToAddress"].empty()) {
       toAddress = make_shared<string>(boost::any_cast<string>(m["ToAddress"]));
