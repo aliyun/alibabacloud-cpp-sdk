@@ -84388,6 +84388,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> roleName{};
+  shared_ptr<string> storageLocationArn{};
   shared_ptr<vector<ImportImageRequestTag>> tag{};
 
   ImportImageRequest() {}
@@ -84448,6 +84449,9 @@ public:
     }
     if (roleName) {
       res["RoleName"] = boost::any(*roleName);
+    }
+    if (storageLocationArn) {
+      res["StorageLocationArn"] = boost::any(*storageLocationArn);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -84514,6 +84518,9 @@ public:
     }
     if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
       roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
+    }
+    if (m.find("StorageLocationArn") != m.end() && !m["StorageLocationArn"].empty()) {
+      storageLocationArn = make_shared<string>(boost::any_cast<string>(m["StorageLocationArn"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {

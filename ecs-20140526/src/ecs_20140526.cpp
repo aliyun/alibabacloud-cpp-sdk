@@ -12259,9 +12259,6 @@ DescribeSnapshotsUsageResponse Alibabacloud_Ecs20140526::Client::describeSnapsho
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
@@ -13861,6 +13858,9 @@ ImportImageResponse Alibabacloud_Ecs20140526::Client::importImageWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->roleName)) {
     query->insert(pair<string, string>("RoleName", *request->roleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageLocationArn)) {
+    query->insert(pair<string, string>("StorageLocationArn", *request->storageLocationArn));
   }
   if (!Darabonba_Util::Client::isUnset<vector<ImportImageRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<ImportImageRequestTag>>("Tag", *request->tag));
