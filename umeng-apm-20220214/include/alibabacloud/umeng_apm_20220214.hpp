@@ -1576,9 +1576,9 @@ public:
 class GetTodayStatTrendResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> affectedUserCount{};
-  shared_ptr<long> affectedUserRate{};
+  shared_ptr<double> affectedUserRate{};
   shared_ptr<long> errorCount{};
-  shared_ptr<long> errorRate{};
+  shared_ptr<double> errorRate{};
   shared_ptr<string> timePoint{};
 
   GetTodayStatTrendResponseBodyData() {}
@@ -1614,13 +1614,13 @@ public:
       affectedUserCount = make_shared<long>(boost::any_cast<long>(m["affectedUserCount"]));
     }
     if (m.find("affectedUserRate") != m.end() && !m["affectedUserRate"].empty()) {
-      affectedUserRate = make_shared<long>(boost::any_cast<long>(m["affectedUserRate"]));
+      affectedUserRate = make_shared<double>(boost::any_cast<double>(m["affectedUserRate"]));
     }
     if (m.find("errorCount") != m.end() && !m["errorCount"].empty()) {
       errorCount = make_shared<long>(boost::any_cast<long>(m["errorCount"]));
     }
     if (m.find("errorRate") != m.end() && !m["errorRate"].empty()) {
-      errorRate = make_shared<long>(boost::any_cast<long>(m["errorRate"]));
+      errorRate = make_shared<double>(boost::any_cast<double>(m["errorRate"]));
     }
     if (m.find("timePoint") != m.end() && !m["timePoint"].empty()) {
       timePoint = make_shared<string>(boost::any_cast<string>(m["timePoint"]));
