@@ -1040,6 +1040,7 @@ public:
   shared_ptr<string> meetingAssistance{};
   shared_ptr<string> pptExtraction{};
   shared_ptr<string> summarization{};
+  shared_ptr<string> textPolish{};
   shared_ptr<string> transcription{};
   shared_ptr<string> translation{};
 
@@ -1065,6 +1066,9 @@ public:
     if (summarization) {
       res["Summarization"] = boost::any(*summarization);
     }
+    if (textPolish) {
+      res["TextPolish"] = boost::any(*textPolish);
+    }
     if (transcription) {
       res["Transcription"] = boost::any(*transcription);
     }
@@ -1086,6 +1090,9 @@ public:
     }
     if (m.find("Summarization") != m.end() && !m["Summarization"].empty()) {
       summarization = make_shared<string>(boost::any_cast<string>(m["Summarization"]));
+    }
+    if (m.find("TextPolish") != m.end() && !m["TextPolish"].empty()) {
+      textPolish = make_shared<string>(boost::any_cast<string>(m["TextPolish"]));
     }
     if (m.find("Transcription") != m.end() && !m["Transcription"].empty()) {
       transcription = make_shared<string>(boost::any_cast<string>(m["Transcription"]));
