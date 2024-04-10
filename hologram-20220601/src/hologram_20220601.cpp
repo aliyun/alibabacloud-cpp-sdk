@@ -91,6 +91,9 @@ CreateInstanceResponse Alibabacloud_Hologram20220601::Client::createInstanceWith
   if (!Darabonba_Util::Client::isUnset<long>(request->duration)) {
     body->insert(pair<string, long>("duration", *request->duration));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableServerlessComputing)) {
+    body->insert(pair<string, bool>("enableServerlessComputing", *request->enableServerlessComputing));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->gatewayCount)) {
     body->insert(pair<string, long>("gatewayCount", *request->gatewayCount));
   }
@@ -453,6 +456,9 @@ ScaleInstanceResponse Alibabacloud_Hologram20220601::Client::scaleInstanceWithOp
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->cpu)) {
     body->insert(pair<string, long>("cpu", *request->cpu));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableServerlessComputing)) {
+    body->insert(pair<string, bool>("enableServerlessComputing", *request->enableServerlessComputing));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->gatewayCount)) {
     body->insert(pair<string, long>("gatewayCount", *request->gatewayCount));

@@ -145,6 +145,7 @@ public:
   shared_ptr<long> coldStorageSize{};
   shared_ptr<long> cpu{};
   shared_ptr<long> duration{};
+  shared_ptr<bool> enableServerlessComputing{};
   shared_ptr<long> gatewayCount{};
   shared_ptr<string> initialDatabases{};
   shared_ptr<string> instanceName{};
@@ -185,6 +186,9 @@ public:
     }
     if (duration) {
       res["duration"] = boost::any(*duration);
+    }
+    if (enableServerlessComputing) {
+      res["enableServerlessComputing"] = boost::any(*enableServerlessComputing);
     }
     if (gatewayCount) {
       res["gatewayCount"] = boost::any(*gatewayCount);
@@ -243,6 +247,9 @@ public:
     }
     if (m.find("duration") != m.end() && !m["duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["duration"]));
+    }
+    if (m.find("enableServerlessComputing") != m.end() && !m["enableServerlessComputing"].empty()) {
+      enableServerlessComputing = make_shared<bool>(boost::any_cast<bool>(m["enableServerlessComputing"]));
     }
     if (m.find("gatewayCount") != m.end() && !m["gatewayCount"].empty()) {
       gatewayCount = make_shared<long>(boost::any_cast<long>(m["gatewayCount"]));
@@ -2683,6 +2690,7 @@ class ScaleInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> coldStorageSize{};
   shared_ptr<long> cpu{};
+  shared_ptr<bool> enableServerlessComputing{};
   shared_ptr<long> gatewayCount{};
   shared_ptr<string> scaleType{};
   shared_ptr<long> storageSize{};
@@ -2703,6 +2711,9 @@ public:
     if (cpu) {
       res["cpu"] = boost::any(*cpu);
     }
+    if (enableServerlessComputing) {
+      res["enableServerlessComputing"] = boost::any(*enableServerlessComputing);
+    }
     if (gatewayCount) {
       res["gatewayCount"] = boost::any(*gatewayCount);
     }
@@ -2721,6 +2732,9 @@ public:
     }
     if (m.find("cpu") != m.end() && !m["cpu"].empty()) {
       cpu = make_shared<long>(boost::any_cast<long>(m["cpu"]));
+    }
+    if (m.find("enableServerlessComputing") != m.end() && !m["enableServerlessComputing"].empty()) {
+      enableServerlessComputing = make_shared<bool>(boost::any_cast<bool>(m["enableServerlessComputing"]));
     }
     if (m.find("gatewayCount") != m.end() && !m["gatewayCount"].empty()) {
       gatewayCount = make_shared<long>(boost::any_cast<long>(m["gatewayCount"]));
