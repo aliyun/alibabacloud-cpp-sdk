@@ -42893,8 +42893,10 @@ public:
 class ListListenersByConfigResponseBodyListeners : public Darabonba::Model {
 public:
   shared_ptr<string> ip{};
+  shared_ptr<map<string, string>> labels{};
   shared_ptr<string> md5{};
   shared_ptr<string> status{};
+  shared_ptr<string> version{};
 
   ListListenersByConfigResponseBodyListeners() {}
 
@@ -42909,11 +42911,17 @@ public:
     if (ip) {
       res["Ip"] = boost::any(*ip);
     }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
     if (md5) {
       res["Md5"] = boost::any(*md5);
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
     }
     return res;
   }
@@ -42922,11 +42930,22 @@ public:
     if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
       ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
     }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Labels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      labels = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("Md5") != m.end() && !m["Md5"].empty()) {
       md5 = make_shared<string>(boost::any_cast<string>(m["Md5"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
     }
   }
 
@@ -43146,6 +43165,7 @@ public:
   shared_ptr<string> dataId{};
   shared_ptr<string> group{};
   shared_ptr<string> md5{};
+  shared_ptr<string> namespaceId{};
 
   ListListenersByIpResponseBodyListeners() {}
 
@@ -43166,6 +43186,9 @@ public:
     if (md5) {
       res["Md5"] = boost::any(*md5);
     }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
     return res;
   }
 
@@ -43178,6 +43201,9 @@ public:
     }
     if (m.find("Md5") != m.end() && !m["Md5"].empty()) {
       md5 = make_shared<string>(boost::any_cast<string>(m["Md5"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
     }
   }
 
