@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -628,8 +627,17 @@ DeleteChatappTemplateResponse Alibabacloud_Cams20200606::Client::deleteChatappTe
   if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
     query->insert(pair<string, string>("IsvCode", *request->isvCode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("Language", *request->language));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     query->insert(pair<string, string>("TemplateCode", *request->templateCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
+    query->insert(pair<string, string>("TemplateName", *request->templateName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateType)) {
+    query->insert(pair<string, string>("TemplateType", *request->templateType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -840,6 +848,9 @@ GetChatappTemplateDetailResponse Alibabacloud_Cams20200606::Client::getChatappTe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     query->insert(pair<string, string>("TemplateCode", *request->templateCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
+    query->insert(pair<string, string>("TemplateName", *request->templateName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateType)) {
     query->insert(pair<string, string>("TemplateType", *request->templateType));
@@ -1613,6 +1624,9 @@ ModifyChatappTemplateResponse Alibabacloud_Cams20200606::Client::modifyChatappTe
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     body->insert(pair<string, string>("TemplateCode", *request->templateCode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
+    body->insert(pair<string, string>("TemplateName", *request->templateName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateType)) {
     body->insert(pair<string, string>("TemplateType", *request->templateType));
   }
@@ -1688,6 +1702,9 @@ ModifyPhoneBusinessProfileResponse Alibabacloud_Cams20200606::Client::modifyPhon
     request->websitesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->websites, make_shared<string>("Websites"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->about)) {
+    query->insert(pair<string, string>("About", *request->about));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->address)) {
     query->insert(pair<string, string>("Address", *request->address));
   }
@@ -1804,6 +1821,9 @@ QueryChatappPhoneNumbersResponse Alibabacloud_Cams20200606::Client::queryChatapp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
     query->insert(pair<string, string>("IsvCode", *request->isvCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1942,6 +1962,9 @@ SendChatappMassMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMas
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     body->insert(pair<string, string>("TemplateCode", *request->templateCode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
+    body->insert(pair<string, string>("TemplateName", *request->templateName));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ttl)) {
     body->insert(pair<string, long>("Ttl", *request->ttl));
   }
@@ -2044,6 +2067,9 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     body->insert(pair<string, string>("TemplateCode", *request->templateCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
+    body->insert(pair<string, string>("TemplateName", *request->templateName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateParamsShrink)) {
     body->insert(pair<string, string>("TemplateParams", *request->templateParamsShrink));
