@@ -1191,6 +1191,12 @@ DescribeApsResourceGroupsResponse Alibabacloud_Adb20211201::Client::describeApsR
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     body->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workloadId)) {
+    body->insert(pair<string, string>("WorkloadId", *request->workloadId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
