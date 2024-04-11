@@ -880,8 +880,52 @@ public:
 
   virtual ~DescribeImageResultExtResponseBodyDataPublicFigure() = default;
 };
+class DescribeImageResultExtResponseBodyDataTextInImageCustomTexts : public Darabonba::Model {
+public:
+  shared_ptr<string> keyWords{};
+  shared_ptr<string> libId{};
+  shared_ptr<string> libName{};
+
+  DescribeImageResultExtResponseBodyDataTextInImageCustomTexts() {}
+
+  explicit DescribeImageResultExtResponseBodyDataTextInImageCustomTexts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keyWords) {
+      res["KeyWords"] = boost::any(*keyWords);
+    }
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    if (libName) {
+      res["LibName"] = boost::any(*libName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("KeyWords") != m.end() && !m["KeyWords"].empty()) {
+      keyWords = make_shared<string>(boost::any_cast<string>(m["KeyWords"]));
+    }
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+    if (m.find("LibName") != m.end() && !m["LibName"].empty()) {
+      libName = make_shared<string>(boost::any_cast<string>(m["LibName"]));
+    }
+  }
+
+
+  virtual ~DescribeImageResultExtResponseBodyDataTextInImageCustomTexts() = default;
+};
 class DescribeImageResultExtResponseBodyDataTextInImage : public Darabonba::Model {
 public:
+  shared_ptr<vector<DescribeImageResultExtResponseBodyDataTextInImageCustomTexts>> customTexts{};
   shared_ptr<vector<string>> ocrDatas{};
   shared_ptr<vector<string>> riskWords{};
 
@@ -895,6 +939,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (customTexts) {
+      vector<boost::any> temp1;
+      for(auto item1:*customTexts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomTexts"] = boost::any(temp1);
+    }
     if (ocrDatas) {
       res["OcrDatas"] = boost::any(*ocrDatas);
     }
@@ -905,6 +956,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomTexts") != m.end() && !m["CustomTexts"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomTexts"].type()) {
+        vector<DescribeImageResultExtResponseBodyDataTextInImageCustomTexts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomTexts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeImageResultExtResponseBodyDataTextInImageCustomTexts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customTexts = make_shared<vector<DescribeImageResultExtResponseBodyDataTextInImageCustomTexts>>(expect1);
+      }
+    }
     if (m.find("OcrDatas") != m.end() && !m["OcrDatas"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["OcrDatas"].type()) {
