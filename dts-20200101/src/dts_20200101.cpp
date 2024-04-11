@@ -5639,6 +5639,12 @@ TransferPayTypeResponse Alibabacloud_Dts20200101::Client::transferPayTypeWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->dtsJobId)) {
     query->insert(pair<string, string>("DtsJobId", *request->dtsJobId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxDu)) {
+    query->insert(pair<string, long>("MaxDu", *request->maxDu));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minDu)) {
+    query->insert(pair<string, long>("MinDu", *request->minDu));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->period)) {
     query->insert(pair<string, string>("Period", *request->period));
   }

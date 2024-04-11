@@ -42306,6 +42306,8 @@ public:
   shared_ptr<string> buyCount{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> dtsJobId{};
+  shared_ptr<long> maxDu{};
+  shared_ptr<long> minDu{};
   shared_ptr<string> period{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -42329,6 +42331,12 @@ public:
     if (dtsJobId) {
       res["DtsJobId"] = boost::any(*dtsJobId);
     }
+    if (maxDu) {
+      res["MaxDu"] = boost::any(*maxDu);
+    }
+    if (minDu) {
+      res["MinDu"] = boost::any(*minDu);
+    }
     if (period) {
       res["Period"] = boost::any(*period);
     }
@@ -42350,6 +42358,12 @@ public:
     }
     if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
       dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
+    }
+    if (m.find("MaxDu") != m.end() && !m["MaxDu"].empty()) {
+      maxDu = make_shared<long>(boost::any_cast<long>(m["MaxDu"]));
+    }
+    if (m.find("MinDu") != m.end() && !m["MinDu"].empty()) {
+      minDu = make_shared<long>(boost::any_cast<long>(m["MinDu"]));
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<string>(boost::any_cast<string>(m["Period"]));
