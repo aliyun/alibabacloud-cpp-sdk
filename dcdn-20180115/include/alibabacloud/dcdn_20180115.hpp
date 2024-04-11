@@ -42214,6 +42214,137 @@ public:
 
   virtual ~PutDcdnKvWithHighCapacityResponse() = default;
 };
+class RefreshDcdnObjectCacheByCacheTagRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cacheTag{};
+  shared_ptr<string> domainName{};
+  shared_ptr<bool> force{};
+
+  RefreshDcdnObjectCacheByCacheTagRequest() {}
+
+  explicit RefreshDcdnObjectCacheByCacheTagRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheTag) {
+      res["CacheTag"] = boost::any(*cacheTag);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheTag") != m.end() && !m["CacheTag"].empty()) {
+      cacheTag = make_shared<string>(boost::any_cast<string>(m["CacheTag"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
+    }
+  }
+
+
+  virtual ~RefreshDcdnObjectCacheByCacheTagRequest() = default;
+};
+class RefreshDcdnObjectCacheByCacheTagResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> refreshTaskId{};
+  shared_ptr<string> requestId{};
+
+  RefreshDcdnObjectCacheByCacheTagResponseBody() {}
+
+  explicit RefreshDcdnObjectCacheByCacheTagResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (refreshTaskId) {
+      res["RefreshTaskId"] = boost::any(*refreshTaskId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RefreshTaskId") != m.end() && !m["RefreshTaskId"].empty()) {
+      refreshTaskId = make_shared<string>(boost::any_cast<string>(m["RefreshTaskId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RefreshDcdnObjectCacheByCacheTagResponseBody() = default;
+};
+class RefreshDcdnObjectCacheByCacheTagResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RefreshDcdnObjectCacheByCacheTagResponseBody> body{};
+
+  RefreshDcdnObjectCacheByCacheTagResponse() {}
+
+  explicit RefreshDcdnObjectCacheByCacheTagResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RefreshDcdnObjectCacheByCacheTagResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RefreshDcdnObjectCacheByCacheTagResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RefreshDcdnObjectCacheByCacheTagResponse() = default;
+};
 class RefreshDcdnObjectCachesRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> force{};
@@ -46333,6 +46464,8 @@ public:
   PutDcdnKvNamespaceResponse putDcdnKvNamespace(shared_ptr<PutDcdnKvNamespaceRequest> request);
   PutDcdnKvWithHighCapacityResponse putDcdnKvWithHighCapacityWithOptions(shared_ptr<PutDcdnKvWithHighCapacityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PutDcdnKvWithHighCapacityResponse putDcdnKvWithHighCapacity(shared_ptr<PutDcdnKvWithHighCapacityRequest> request);
+  RefreshDcdnObjectCacheByCacheTagResponse refreshDcdnObjectCacheByCacheTagWithOptions(shared_ptr<RefreshDcdnObjectCacheByCacheTagRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RefreshDcdnObjectCacheByCacheTagResponse refreshDcdnObjectCacheByCacheTag(shared_ptr<RefreshDcdnObjectCacheByCacheTagRequest> request);
   RefreshDcdnObjectCachesResponse refreshDcdnObjectCachesWithOptions(shared_ptr<RefreshDcdnObjectCachesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RefreshDcdnObjectCachesResponse refreshDcdnObjectCaches(shared_ptr<RefreshDcdnObjectCachesRequest> request);
   RefreshErObjectCachesResponse refreshErObjectCachesWithOptions(shared_ptr<RefreshErObjectCachesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
