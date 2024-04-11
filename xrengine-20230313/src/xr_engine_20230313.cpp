@@ -2290,6 +2290,9 @@ SubmitMotionShopTaskResponse Alibabacloud_XrEngine20230313::Client::submitMotion
   if (!Darabonba_Util::Client::isUnset<string>(request->jwtToken)) {
     body->insert(pair<string, string>("JwtToken", *request->jwtToken));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->selectedBoxIndex)) {
+    body->insert(pair<string, long>("SelectedBoxIndex", *request->selectedBoxIndex));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
     body->insert(pair<string, string>("Title", *request->title));
   }

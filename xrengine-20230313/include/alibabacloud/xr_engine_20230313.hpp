@@ -23378,6 +23378,7 @@ public:
   shared_ptr<vector<double>> box{};
   shared_ptr<long> code{};
   shared_ptr<string> coverUrl{};
+  shared_ptr<vector<vector<double>>> humanBoxes{};
   shared_ptr<string> message{};
   shared_ptr<long> selectedFrameIndex{};
 
@@ -23399,6 +23400,9 @@ public:
     }
     if (coverUrl) {
       res["CoverUrl"] = boost::any(*coverUrl);
+    }
+    if (humanBoxes) {
+      res["HumanBoxes"] = boost::any(*humanBoxes);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -23425,6 +23429,23 @@ public:
     }
     if (m.find("CoverUrl") != m.end() && !m["CoverUrl"].empty()) {
       coverUrl = make_shared<string>(boost::any_cast<string>(m["CoverUrl"]));
+    }
+    if (m.find("HumanBoxes") != m.end() && !m["HumanBoxes"].empty()) {
+      vector<vector<double>> toVec1;
+      if (typeid(vector<boost::any>) == m["HumanBoxes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HumanBoxes"]);
+        for (auto item:vec1) {
+          vector<double> toVec2;
+          if (typeid(vector<boost::any>) == item.type()) {
+            vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item);
+            for (auto item:vec2) {
+               toVec2.push_back(boost::any_cast<double>(item));
+            }
+          }
+           toVec1 = toVec2;
+        }
+      }
+      humanBoxes = make_shared<vector<vector<double>>>(toVec1);
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -23753,6 +23774,7 @@ class SubmitMotionShopTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> avatarId{};
   shared_ptr<string> jwtToken{};
+  shared_ptr<long> selectedBoxIndex{};
   shared_ptr<string> title{};
   shared_ptr<string> videoId{};
 
@@ -23772,6 +23794,9 @@ public:
     if (jwtToken) {
       res["JwtToken"] = boost::any(*jwtToken);
     }
+    if (selectedBoxIndex) {
+      res["SelectedBoxIndex"] = boost::any(*selectedBoxIndex);
+    }
     if (title) {
       res["Title"] = boost::any(*title);
     }
@@ -23787,6 +23812,9 @@ public:
     }
     if (m.find("JwtToken") != m.end() && !m["JwtToken"].empty()) {
       jwtToken = make_shared<string>(boost::any_cast<string>(m["JwtToken"]));
+    }
+    if (m.find("SelectedBoxIndex") != m.end() && !m["SelectedBoxIndex"].empty()) {
+      selectedBoxIndex = make_shared<long>(boost::any_cast<long>(m["SelectedBoxIndex"]));
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
