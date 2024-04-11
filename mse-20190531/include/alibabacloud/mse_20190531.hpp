@@ -2837,7 +2837,9 @@ public:
 class AddGatewayAuthRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> authResourceConfig{};
   shared_ptr<vector<AddGatewayAuthRequestAuthResourceList>> authResourceList{};
+  shared_ptr<long> authResourceMode{};
   shared_ptr<string> clientId{};
   shared_ptr<string> clientSecret{};
   shared_ptr<string> cookieDomain{};
@@ -2871,12 +2873,18 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
+    if (authResourceConfig) {
+      res["AuthResourceConfig"] = boost::any(*authResourceConfig);
+    }
     if (authResourceList) {
       vector<boost::any> temp1;
       for(auto item1:*authResourceList){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["AuthResourceList"] = boost::any(temp1);
+    }
+    if (authResourceMode) {
+      res["AuthResourceMode"] = boost::any(*authResourceMode);
     }
     if (clientId) {
       res["ClientId"] = boost::any(*clientId);
@@ -2942,6 +2950,9 @@ public:
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
     }
+    if (m.find("AuthResourceConfig") != m.end() && !m["AuthResourceConfig"].empty()) {
+      authResourceConfig = make_shared<string>(boost::any_cast<string>(m["AuthResourceConfig"]));
+    }
     if (m.find("AuthResourceList") != m.end() && !m["AuthResourceList"].empty()) {
       if (typeid(vector<boost::any>) == m["AuthResourceList"].type()) {
         vector<AddGatewayAuthRequestAuthResourceList> expect1;
@@ -2954,6 +2965,9 @@ public:
         }
         authResourceList = make_shared<vector<AddGatewayAuthRequestAuthResourceList>>(expect1);
       }
+    }
+    if (m.find("AuthResourceMode") != m.end() && !m["AuthResourceMode"].empty()) {
+      authResourceMode = make_shared<long>(boost::any_cast<long>(m["AuthResourceMode"]));
     }
     if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
       clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
@@ -3031,7 +3045,9 @@ public:
 class AddGatewayAuthShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> authResourceConfig{};
   shared_ptr<string> authResourceListShrink{};
+  shared_ptr<long> authResourceMode{};
   shared_ptr<string> clientId{};
   shared_ptr<string> clientSecret{};
   shared_ptr<string> cookieDomain{};
@@ -3065,8 +3081,14 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
+    if (authResourceConfig) {
+      res["AuthResourceConfig"] = boost::any(*authResourceConfig);
+    }
     if (authResourceListShrink) {
       res["AuthResourceList"] = boost::any(*authResourceListShrink);
+    }
+    if (authResourceMode) {
+      res["AuthResourceMode"] = boost::any(*authResourceMode);
     }
     if (clientId) {
       res["ClientId"] = boost::any(*clientId);
@@ -3132,8 +3154,14 @@ public:
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
     }
+    if (m.find("AuthResourceConfig") != m.end() && !m["AuthResourceConfig"].empty()) {
+      authResourceConfig = make_shared<string>(boost::any_cast<string>(m["AuthResourceConfig"]));
+    }
     if (m.find("AuthResourceList") != m.end() && !m["AuthResourceList"].empty()) {
       authResourceListShrink = make_shared<string>(boost::any_cast<string>(m["AuthResourceList"]));
+    }
+    if (m.find("AuthResourceMode") != m.end() && !m["AuthResourceMode"].empty()) {
+      authResourceMode = make_shared<long>(boost::any_cast<long>(m["AuthResourceMode"]));
     }
     if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
       clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
@@ -20994,6 +21022,8 @@ public:
 };
 class GetGatewayAuthDetailResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> authResourceConfig{};
+  shared_ptr<long> authResourceMode{};
   shared_ptr<string> clientId{};
   shared_ptr<string> clientSecret{};
   shared_ptr<string> cookieDomain{};
@@ -21029,6 +21059,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (authResourceConfig) {
+      res["AuthResourceConfig"] = boost::any(*authResourceConfig);
+    }
+    if (authResourceMode) {
+      res["AuthResourceMode"] = boost::any(*authResourceMode);
+    }
     if (clientId) {
       res["ClientId"] = boost::any(*clientId);
     }
@@ -21109,6 +21145,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthResourceConfig") != m.end() && !m["AuthResourceConfig"].empty()) {
+      authResourceConfig = make_shared<string>(boost::any_cast<string>(m["AuthResourceConfig"]));
+    }
+    if (m.find("AuthResourceMode") != m.end() && !m["AuthResourceMode"].empty()) {
+      authResourceMode = make_shared<long>(boost::any_cast<long>(m["AuthResourceMode"]));
+    }
     if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
       clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
     }

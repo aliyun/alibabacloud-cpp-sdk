@@ -318,8 +318,14 @@ AddGatewayAuthResponse Alibabacloud_Mse20190531::Client::addGatewayAuthWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authResourceConfig)) {
+    query->insert(pair<string, string>("AuthResourceConfig", *request->authResourceConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->authResourceListShrink)) {
     query->insert(pair<string, string>("AuthResourceList", *request->authResourceListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->authResourceMode)) {
+    query->insert(pair<string, long>("AuthResourceMode", *request->authResourceMode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
     query->insert(pair<string, string>("ClientId", *request->clientId));
