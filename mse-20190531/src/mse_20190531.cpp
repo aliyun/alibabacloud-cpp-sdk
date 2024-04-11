@@ -1425,6 +1425,204 @@ CreateFlowRuleResponse Alibabacloud_Mse20190531::Client::createFlowRule(shared_p
   return createFlowRuleWithOptions(request, runtime);
 }
 
+CreateGatewayCircuitBreakerRuleResponse Alibabacloud_Mse20190531::Client::createGatewayCircuitBreakerRuleWithOptions(shared_ptr<CreateGatewayCircuitBreakerRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->behaviorType)) {
+    query->insert(pair<string, long>("BehaviorType", *request->behaviorType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->bodyEncoding)) {
+    query->insert(pair<string, long>("BodyEncoding", *request->bodyEncoding));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enable)) {
+    query->insert(pair<string, long>("Enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->gatewayId)) {
+    query->insert(pair<string, long>("GatewayId", *request->gatewayId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
+    query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxAllowedMs)) {
+    query->insert(pair<string, long>("MaxAllowedMs", *request->maxAllowedMs));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minRequestAmount)) {
+    query->insert(pair<string, long>("MinRequestAmount", *request->minRequestAmount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->recoveryTimeoutSec)) {
+    query->insert(pair<string, long>("RecoveryTimeoutSec", *request->recoveryTimeoutSec));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseContentBody)) {
+    query->insert(pair<string, string>("ResponseContentBody", *request->responseContentBody));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseRedirectUrl)) {
+    query->insert(pair<string, string>("ResponseRedirectUrl", *request->responseRedirectUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->responseStatusCode)) {
+    query->insert(pair<string, long>("ResponseStatusCode", *request->responseStatusCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->routeId)) {
+    query->insert(pair<string, long>("RouteId", *request->routeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeName)) {
+    query->insert(pair<string, string>("RouteName", *request->routeName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->statDurationSec)) {
+    query->insert(pair<string, long>("StatDurationSec", *request->statDurationSec));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->strategy)) {
+    query->insert(pair<string, long>("Strategy", *request->strategy));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->triggerRatio)) {
+    query->insert(pair<string, long>("TriggerRatio", *request->triggerRatio));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateGatewayCircuitBreakerRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateGatewayCircuitBreakerRuleResponse(callApi(params, req, runtime));
+}
+
+CreateGatewayCircuitBreakerRuleResponse Alibabacloud_Mse20190531::Client::createGatewayCircuitBreakerRule(shared_ptr<CreateGatewayCircuitBreakerRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createGatewayCircuitBreakerRuleWithOptions(request, runtime);
+}
+
+CreateGatewayFlowRuleResponse Alibabacloud_Mse20190531::Client::createGatewayFlowRuleWithOptions(shared_ptr<CreateGatewayFlowRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->behaviorType)) {
+    query->insert(pair<string, long>("BehaviorType", *request->behaviorType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->bodyEncoding)) {
+    query->insert(pair<string, long>("BodyEncoding", *request->bodyEncoding));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enable)) {
+    query->insert(pair<string, long>("Enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->gatewayId)) {
+    query->insert(pair<string, long>("GatewayId", *request->gatewayId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
+    query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseContentBody)) {
+    query->insert(pair<string, string>("ResponseContentBody", *request->responseContentBody));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseRedirectUrl)) {
+    query->insert(pair<string, string>("ResponseRedirectUrl", *request->responseRedirectUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->responseStatusCode)) {
+    query->insert(pair<string, long>("ResponseStatusCode", *request->responseStatusCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->routeId)) {
+    query->insert(pair<string, long>("RouteId", *request->routeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeName)) {
+    query->insert(pair<string, string>("RouteName", *request->routeName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->threshold)) {
+    query->insert(pair<string, long>("Threshold", *request->threshold));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateGatewayFlowRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateGatewayFlowRuleResponse(callApi(params, req, runtime));
+}
+
+CreateGatewayFlowRuleResponse Alibabacloud_Mse20190531::Client::createGatewayFlowRule(shared_ptr<CreateGatewayFlowRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createGatewayFlowRuleWithOptions(request, runtime);
+}
+
+CreateGatewayIsolationRuleResponse Alibabacloud_Mse20190531::Client::createGatewayIsolationRuleWithOptions(shared_ptr<CreateGatewayIsolationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->behaviorType)) {
+    query->insert(pair<string, long>("BehaviorType", *request->behaviorType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->bodyEncoding)) {
+    query->insert(pair<string, long>("BodyEncoding", *request->bodyEncoding));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enable)) {
+    query->insert(pair<string, long>("Enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->gatewayId)) {
+    query->insert(pair<string, long>("GatewayId", *request->gatewayId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
+    query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxConcurrency)) {
+    query->insert(pair<string, long>("MaxConcurrency", *request->maxConcurrency));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseContentBody)) {
+    query->insert(pair<string, string>("ResponseContentBody", *request->responseContentBody));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseRedirectUrl)) {
+    query->insert(pair<string, string>("ResponseRedirectUrl", *request->responseRedirectUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->responseStatusCode)) {
+    query->insert(pair<string, long>("ResponseStatusCode", *request->responseStatusCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->routeId)) {
+    query->insert(pair<string, long>("RouteId", *request->routeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeName)) {
+    query->insert(pair<string, string>("RouteName", *request->routeName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateGatewayIsolationRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateGatewayIsolationRuleResponse(callApi(params, req, runtime));
+}
+
+CreateGatewayIsolationRuleResponse Alibabacloud_Mse20190531::Client::createGatewayIsolationRule(shared_ptr<CreateGatewayIsolationRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createGatewayIsolationRuleWithOptions(request, runtime);
+}
+
 CreateIsolationRuleResponse Alibabacloud_Mse20190531::Client::createIsolationRuleWithOptions(shared_ptr<CreateIsolationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2170,6 +2368,43 @@ DeleteGatewayAuthConsumerResourceResponse Alibabacloud_Mse20190531::Client::dele
   return deleteGatewayAuthConsumerResourceWithOptions(request, runtime);
 }
 
+DeleteGatewayCircuitBreakerRuleResponse Alibabacloud_Mse20190531::Client::deleteGatewayCircuitBreakerRuleWithOptions(shared_ptr<DeleteGatewayCircuitBreakerRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
+    query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->routeId)) {
+    query->insert(pair<string, long>("RouteId", *request->routeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ruleId)) {
+    query->insert(pair<string, long>("RuleId", *request->ruleId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteGatewayCircuitBreakerRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteGatewayCircuitBreakerRuleResponse(callApi(params, req, runtime));
+}
+
+DeleteGatewayCircuitBreakerRuleResponse Alibabacloud_Mse20190531::Client::deleteGatewayCircuitBreakerRule(shared_ptr<DeleteGatewayCircuitBreakerRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteGatewayCircuitBreakerRuleWithOptions(request, runtime);
+}
+
 DeleteGatewayDomainResponse Alibabacloud_Mse20190531::Client::deleteGatewayDomainWithOptions(shared_ptr<DeleteGatewayDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2202,6 +2437,80 @@ DeleteGatewayDomainResponse Alibabacloud_Mse20190531::Client::deleteGatewayDomai
 DeleteGatewayDomainResponse Alibabacloud_Mse20190531::Client::deleteGatewayDomain(shared_ptr<DeleteGatewayDomainRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteGatewayDomainWithOptions(request, runtime);
+}
+
+DeleteGatewayFlowRuleResponse Alibabacloud_Mse20190531::Client::deleteGatewayFlowRuleWithOptions(shared_ptr<DeleteGatewayFlowRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
+    query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->routeId)) {
+    query->insert(pair<string, long>("RouteId", *request->routeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ruleId)) {
+    query->insert(pair<string, long>("RuleId", *request->ruleId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteGatewayFlowRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteGatewayFlowRuleResponse(callApi(params, req, runtime));
+}
+
+DeleteGatewayFlowRuleResponse Alibabacloud_Mse20190531::Client::deleteGatewayFlowRule(shared_ptr<DeleteGatewayFlowRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteGatewayFlowRuleWithOptions(request, runtime);
+}
+
+DeleteGatewayIsolationRuleResponse Alibabacloud_Mse20190531::Client::deleteGatewayIsolationRuleWithOptions(shared_ptr<DeleteGatewayIsolationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
+    query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->routeId)) {
+    query->insert(pair<string, long>("RouteId", *request->routeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ruleId)) {
+    query->insert(pair<string, long>("RuleId", *request->ruleId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteGatewayIsolationRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteGatewayIsolationRuleResponse(callApi(params, req, runtime));
+}
+
+DeleteGatewayIsolationRuleResponse Alibabacloud_Mse20190531::Client::deleteGatewayIsolationRule(shared_ptr<DeleteGatewayIsolationRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteGatewayIsolationRuleWithOptions(request, runtime);
 }
 
 DeleteGatewayRouteResponse Alibabacloud_Mse20190531::Client::deleteGatewayRouteWithOptions(shared_ptr<DeleteGatewayRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5184,6 +5493,37 @@ ListGatewayAuthConsumerResourceResponse Alibabacloud_Mse20190531::Client::listGa
   return listGatewayAuthConsumerResourceWithOptions(request, runtime);
 }
 
+ListGatewayCircuitBreakerRuleResponse Alibabacloud_Mse20190531::Client::listGatewayCircuitBreakerRuleWithOptions(shared_ptr<ListGatewayCircuitBreakerRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterParams)) {
+    query->insert(pair<string, string>("FilterParams", *request->filterParams));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListGatewayCircuitBreakerRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListGatewayCircuitBreakerRuleResponse(callApi(params, req, runtime));
+}
+
+ListGatewayCircuitBreakerRuleResponse Alibabacloud_Mse20190531::Client::listGatewayCircuitBreakerRule(shared_ptr<ListGatewayCircuitBreakerRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listGatewayCircuitBreakerRuleWithOptions(request, runtime);
+}
+
 ListGatewayDomainResponse Alibabacloud_Mse20190531::Client::listGatewayDomainWithOptions(shared_ptr<ListGatewayDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5219,6 +5559,68 @@ ListGatewayDomainResponse Alibabacloud_Mse20190531::Client::listGatewayDomainWit
 ListGatewayDomainResponse Alibabacloud_Mse20190531::Client::listGatewayDomain(shared_ptr<ListGatewayDomainRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listGatewayDomainWithOptions(request, runtime);
+}
+
+ListGatewayFlowRuleResponse Alibabacloud_Mse20190531::Client::listGatewayFlowRuleWithOptions(shared_ptr<ListGatewayFlowRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterParams)) {
+    query->insert(pair<string, string>("FilterParams", *request->filterParams));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListGatewayFlowRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListGatewayFlowRuleResponse(callApi(params, req, runtime));
+}
+
+ListGatewayFlowRuleResponse Alibabacloud_Mse20190531::Client::listGatewayFlowRule(shared_ptr<ListGatewayFlowRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listGatewayFlowRuleWithOptions(request, runtime);
+}
+
+ListGatewayIsolationRuleResponse Alibabacloud_Mse20190531::Client::listGatewayIsolationRuleWithOptions(shared_ptr<ListGatewayIsolationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterParams)) {
+    query->insert(pair<string, string>("FilterParams", *request->filterParams));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListGatewayIsolationRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListGatewayIsolationRuleResponse(callApi(params, req, runtime));
+}
+
+ListGatewayIsolationRuleResponse Alibabacloud_Mse20190531::Client::listGatewayIsolationRule(shared_ptr<ListGatewayIsolationRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listGatewayIsolationRuleWithOptions(request, runtime);
 }
 
 ListGatewayRouteResponse Alibabacloud_Mse20190531::Client::listGatewayRouteWithOptions(shared_ptr<ListGatewayRouteRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -7770,6 +8172,85 @@ UpdateGatewayAuthConsumerStatusResponse Alibabacloud_Mse20190531::Client::update
   return updateGatewayAuthConsumerStatusWithOptions(request, runtime);
 }
 
+UpdateGatewayCircuitBreakerRuleResponse Alibabacloud_Mse20190531::Client::updateGatewayCircuitBreakerRuleWithOptions(shared_ptr<UpdateGatewayCircuitBreakerRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->behaviorType)) {
+    query->insert(pair<string, long>("BehaviorType", *request->behaviorType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->bodyEncoding)) {
+    query->insert(pair<string, long>("BodyEncoding", *request->bodyEncoding));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enable)) {
+    query->insert(pair<string, long>("Enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->gatewayId)) {
+    query->insert(pair<string, long>("GatewayId", *request->gatewayId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
+    query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    query->insert(pair<string, long>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxAllowedMs)) {
+    query->insert(pair<string, long>("MaxAllowedMs", *request->maxAllowedMs));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minRequestAmount)) {
+    query->insert(pair<string, long>("MinRequestAmount", *request->minRequestAmount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->recoveryTimeoutSec)) {
+    query->insert(pair<string, long>("RecoveryTimeoutSec", *request->recoveryTimeoutSec));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseContentBody)) {
+    query->insert(pair<string, string>("ResponseContentBody", *request->responseContentBody));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseRedirectUrl)) {
+    query->insert(pair<string, string>("ResponseRedirectUrl", *request->responseRedirectUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->responseStatusCode)) {
+    query->insert(pair<string, long>("ResponseStatusCode", *request->responseStatusCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->routeId)) {
+    query->insert(pair<string, long>("RouteId", *request->routeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeName)) {
+    query->insert(pair<string, string>("RouteName", *request->routeName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->statDurationSec)) {
+    query->insert(pair<string, long>("StatDurationSec", *request->statDurationSec));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->strategy)) {
+    query->insert(pair<string, long>("Strategy", *request->strategy));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->triggerRatio)) {
+    query->insert(pair<string, long>("TriggerRatio", *request->triggerRatio));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateGatewayCircuitBreakerRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateGatewayCircuitBreakerRuleResponse(callApi(params, req, runtime));
+}
+
+UpdateGatewayCircuitBreakerRuleResponse Alibabacloud_Mse20190531::Client::updateGatewayCircuitBreakerRule(shared_ptr<UpdateGatewayCircuitBreakerRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateGatewayCircuitBreakerRuleWithOptions(request, runtime);
+}
+
 UpdateGatewayDomainResponse Alibabacloud_Mse20190531::Client::updateGatewayDomainWithOptions(shared_ptr<UpdateGatewayDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -7820,6 +8301,134 @@ UpdateGatewayDomainResponse Alibabacloud_Mse20190531::Client::updateGatewayDomai
 UpdateGatewayDomainResponse Alibabacloud_Mse20190531::Client::updateGatewayDomain(shared_ptr<UpdateGatewayDomainRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateGatewayDomainWithOptions(request, runtime);
+}
+
+UpdateGatewayFlowRuleResponse Alibabacloud_Mse20190531::Client::updateGatewayFlowRuleWithOptions(shared_ptr<UpdateGatewayFlowRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->behaviorType)) {
+    query->insert(pair<string, long>("BehaviorType", *request->behaviorType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->bodyEncoding)) {
+    query->insert(pair<string, long>("BodyEncoding", *request->bodyEncoding));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enable)) {
+    query->insert(pair<string, long>("Enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->gatewayId)) {
+    query->insert(pair<string, long>("GatewayId", *request->gatewayId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
+    query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    query->insert(pair<string, long>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseContentBody)) {
+    query->insert(pair<string, string>("ResponseContentBody", *request->responseContentBody));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseRedirectUrl)) {
+    query->insert(pair<string, string>("ResponseRedirectUrl", *request->responseRedirectUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->responseStatusCode)) {
+    query->insert(pair<string, long>("ResponseStatusCode", *request->responseStatusCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->routeId)) {
+    query->insert(pair<string, long>("RouteId", *request->routeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeName)) {
+    query->insert(pair<string, string>("RouteName", *request->routeName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->threshold)) {
+    query->insert(pair<string, long>("Threshold", *request->threshold));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateGatewayFlowRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateGatewayFlowRuleResponse(callApi(params, req, runtime));
+}
+
+UpdateGatewayFlowRuleResponse Alibabacloud_Mse20190531::Client::updateGatewayFlowRule(shared_ptr<UpdateGatewayFlowRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateGatewayFlowRuleWithOptions(request, runtime);
+}
+
+UpdateGatewayIsolationRuleResponse Alibabacloud_Mse20190531::Client::updateGatewayIsolationRuleWithOptions(shared_ptr<UpdateGatewayIsolationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->behaviorType)) {
+    query->insert(pair<string, long>("BehaviorType", *request->behaviorType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->bodyEncoding)) {
+    query->insert(pair<string, long>("BodyEncoding", *request->bodyEncoding));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->enable)) {
+    query->insert(pair<string, long>("Enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->gatewayId)) {
+    query->insert(pair<string, long>("GatewayId", *request->gatewayId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
+    query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    query->insert(pair<string, long>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxConcurrency)) {
+    query->insert(pair<string, long>("MaxConcurrency", *request->maxConcurrency));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseContentBody)) {
+    query->insert(pair<string, string>("ResponseContentBody", *request->responseContentBody));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->responseRedirectUrl)) {
+    query->insert(pair<string, string>("ResponseRedirectUrl", *request->responseRedirectUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->responseStatusCode)) {
+    query->insert(pair<string, long>("ResponseStatusCode", *request->responseStatusCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->routeId)) {
+    query->insert(pair<string, long>("RouteId", *request->routeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeName)) {
+    query->insert(pair<string, string>("RouteName", *request->routeName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateGatewayIsolationRule"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateGatewayIsolationRuleResponse(callApi(params, req, runtime));
+}
+
+UpdateGatewayIsolationRuleResponse Alibabacloud_Mse20190531::Client::updateGatewayIsolationRule(shared_ptr<UpdateGatewayIsolationRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateGatewayIsolationRuleWithOptions(request, runtime);
 }
 
 UpdateGatewayNameResponse Alibabacloud_Mse20190531::Client::updateGatewayNameWithOptions(shared_ptr<UpdateGatewayNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
