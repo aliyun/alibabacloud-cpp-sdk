@@ -44377,8 +44377,11 @@ public:
   shared_ptr<DescribePriceResponseBodyPriceInfoCoupons> coupons{};
   shared_ptr<string> currency{};
   shared_ptr<double> discountPrice{};
+  shared_ptr<string> orderLines{};
   shared_ptr<double> originalPrice{};
   shared_ptr<DescribePriceResponseBodyPriceInfoRuleIds> ruleIds{};
+  shared_ptr<double> tradeMaxRCUAmount{};
+  shared_ptr<double> tradeMinRCUAmount{};
   shared_ptr<double> tradePrice{};
 
   DescribePriceResponseBodyPriceInfo() {}
@@ -44403,11 +44406,20 @@ public:
     if (discountPrice) {
       res["DiscountPrice"] = boost::any(*discountPrice);
     }
+    if (orderLines) {
+      res["OrderLines"] = boost::any(*orderLines);
+    }
     if (originalPrice) {
       res["OriginalPrice"] = boost::any(*originalPrice);
     }
     if (ruleIds) {
       res["RuleIds"] = ruleIds ? boost::any(ruleIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tradeMaxRCUAmount) {
+      res["TradeMaxRCUAmount"] = boost::any(*tradeMaxRCUAmount);
+    }
+    if (tradeMinRCUAmount) {
+      res["TradeMinRCUAmount"] = boost::any(*tradeMinRCUAmount);
     }
     if (tradePrice) {
       res["TradePrice"] = boost::any(*tradePrice);
@@ -44436,6 +44448,9 @@ public:
     if (m.find("DiscountPrice") != m.end() && !m["DiscountPrice"].empty()) {
       discountPrice = make_shared<double>(boost::any_cast<double>(m["DiscountPrice"]));
     }
+    if (m.find("OrderLines") != m.end() && !m["OrderLines"].empty()) {
+      orderLines = make_shared<string>(boost::any_cast<string>(m["OrderLines"]));
+    }
     if (m.find("OriginalPrice") != m.end() && !m["OriginalPrice"].empty()) {
       originalPrice = make_shared<double>(boost::any_cast<double>(m["OriginalPrice"]));
     }
@@ -44445,6 +44460,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RuleIds"]));
         ruleIds = make_shared<DescribePriceResponseBodyPriceInfoRuleIds>(model1);
       }
+    }
+    if (m.find("TradeMaxRCUAmount") != m.end() && !m["TradeMaxRCUAmount"].empty()) {
+      tradeMaxRCUAmount = make_shared<double>(boost::any_cast<double>(m["TradeMaxRCUAmount"]));
+    }
+    if (m.find("TradeMinRCUAmount") != m.end() && !m["TradeMinRCUAmount"].empty()) {
+      tradeMinRCUAmount = make_shared<double>(boost::any_cast<double>(m["TradeMinRCUAmount"]));
     }
     if (m.find("TradePrice") != m.end() && !m["TradePrice"].empty()) {
       tradePrice = make_shared<double>(boost::any_cast<double>(m["TradePrice"]));
@@ -44540,11 +44561,105 @@ public:
 
   virtual ~DescribePriceResponseBodyRules() = default;
 };
+class DescribePriceResponseBodyServerlessPrice : public Darabonba::Model {
+public:
+  shared_ptr<double> RCUDiscountMaxAmount{};
+  shared_ptr<double> RCUDiscountMinAmount{};
+  shared_ptr<double> RCUOriginalMaxAmount{};
+  shared_ptr<double> RCUOriginalMinAmount{};
+  shared_ptr<double> storageOriginalAmount{};
+  shared_ptr<double> totalOriginalMaxAmount{};
+  shared_ptr<double> totalOriginalMinAmount{};
+  shared_ptr<double> tradeMaxRCUAmount{};
+  shared_ptr<double> tradeMinRCUAmount{};
+  shared_ptr<double> storageDiscountAmount{};
+
+  DescribePriceResponseBodyServerlessPrice() {}
+
+  explicit DescribePriceResponseBodyServerlessPrice(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (RCUDiscountMaxAmount) {
+      res["RCUDiscountMaxAmount"] = boost::any(*RCUDiscountMaxAmount);
+    }
+    if (RCUDiscountMinAmount) {
+      res["RCUDiscountMinAmount"] = boost::any(*RCUDiscountMinAmount);
+    }
+    if (RCUOriginalMaxAmount) {
+      res["RCUOriginalMaxAmount"] = boost::any(*RCUOriginalMaxAmount);
+    }
+    if (RCUOriginalMinAmount) {
+      res["RCUOriginalMinAmount"] = boost::any(*RCUOriginalMinAmount);
+    }
+    if (storageOriginalAmount) {
+      res["StorageOriginalAmount"] = boost::any(*storageOriginalAmount);
+    }
+    if (totalOriginalMaxAmount) {
+      res["TotalOriginalMaxAmount"] = boost::any(*totalOriginalMaxAmount);
+    }
+    if (totalOriginalMinAmount) {
+      res["TotalOriginalMinAmount"] = boost::any(*totalOriginalMinAmount);
+    }
+    if (tradeMaxRCUAmount) {
+      res["TradeMaxRCUAmount"] = boost::any(*tradeMaxRCUAmount);
+    }
+    if (tradeMinRCUAmount) {
+      res["TradeMinRCUAmount"] = boost::any(*tradeMinRCUAmount);
+    }
+    if (storageDiscountAmount) {
+      res["storageDiscountAmount"] = boost::any(*storageDiscountAmount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RCUDiscountMaxAmount") != m.end() && !m["RCUDiscountMaxAmount"].empty()) {
+      RCUDiscountMaxAmount = make_shared<double>(boost::any_cast<double>(m["RCUDiscountMaxAmount"]));
+    }
+    if (m.find("RCUDiscountMinAmount") != m.end() && !m["RCUDiscountMinAmount"].empty()) {
+      RCUDiscountMinAmount = make_shared<double>(boost::any_cast<double>(m["RCUDiscountMinAmount"]));
+    }
+    if (m.find("RCUOriginalMaxAmount") != m.end() && !m["RCUOriginalMaxAmount"].empty()) {
+      RCUOriginalMaxAmount = make_shared<double>(boost::any_cast<double>(m["RCUOriginalMaxAmount"]));
+    }
+    if (m.find("RCUOriginalMinAmount") != m.end() && !m["RCUOriginalMinAmount"].empty()) {
+      RCUOriginalMinAmount = make_shared<double>(boost::any_cast<double>(m["RCUOriginalMinAmount"]));
+    }
+    if (m.find("StorageOriginalAmount") != m.end() && !m["StorageOriginalAmount"].empty()) {
+      storageOriginalAmount = make_shared<double>(boost::any_cast<double>(m["StorageOriginalAmount"]));
+    }
+    if (m.find("TotalOriginalMaxAmount") != m.end() && !m["TotalOriginalMaxAmount"].empty()) {
+      totalOriginalMaxAmount = make_shared<double>(boost::any_cast<double>(m["TotalOriginalMaxAmount"]));
+    }
+    if (m.find("TotalOriginalMinAmount") != m.end() && !m["TotalOriginalMinAmount"].empty()) {
+      totalOriginalMinAmount = make_shared<double>(boost::any_cast<double>(m["TotalOriginalMinAmount"]));
+    }
+    if (m.find("TradeMaxRCUAmount") != m.end() && !m["TradeMaxRCUAmount"].empty()) {
+      tradeMaxRCUAmount = make_shared<double>(boost::any_cast<double>(m["TradeMaxRCUAmount"]));
+    }
+    if (m.find("TradeMinRCUAmount") != m.end() && !m["TradeMinRCUAmount"].empty()) {
+      tradeMinRCUAmount = make_shared<double>(boost::any_cast<double>(m["TradeMinRCUAmount"]));
+    }
+    if (m.find("storageDiscountAmount") != m.end() && !m["storageDiscountAmount"].empty()) {
+      storageDiscountAmount = make_shared<double>(boost::any_cast<double>(m["storageDiscountAmount"]));
+    }
+  }
+
+
+  virtual ~DescribePriceResponseBodyServerlessPrice() = default;
+};
 class DescribePriceResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> orderParams{};
   shared_ptr<DescribePriceResponseBodyPriceInfo> priceInfo{};
   shared_ptr<string> requestId{};
   shared_ptr<DescribePriceResponseBodyRules> rules{};
+  shared_ptr<DescribePriceResponseBodyServerlessPrice> serverlessPrice{};
   shared_ptr<bool> showDiscount{};
   shared_ptr<double> tradeMaxRCUAmount{};
   shared_ptr<double> tradeMinRCUAmount{};
@@ -44559,6 +44674,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (orderParams) {
+      res["OrderParams"] = boost::any(*orderParams);
+    }
     if (priceInfo) {
       res["PriceInfo"] = priceInfo ? boost::any(priceInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -44567,6 +44685,9 @@ public:
     }
     if (rules) {
       res["Rules"] = rules ? boost::any(rules->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (serverlessPrice) {
+      res["ServerlessPrice"] = serverlessPrice ? boost::any(serverlessPrice->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (showDiscount) {
       res["ShowDiscount"] = boost::any(*showDiscount);
@@ -44581,6 +44702,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderParams") != m.end() && !m["OrderParams"].empty()) {
+      orderParams = make_shared<string>(boost::any_cast<string>(m["OrderParams"]));
+    }
     if (m.find("PriceInfo") != m.end() && !m["PriceInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["PriceInfo"].type()) {
         DescribePriceResponseBodyPriceInfo model1;
@@ -44596,6 +44720,13 @@ public:
         DescribePriceResponseBodyRules model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Rules"]));
         rules = make_shared<DescribePriceResponseBodyRules>(model1);
+      }
+    }
+    if (m.find("ServerlessPrice") != m.end() && !m["ServerlessPrice"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ServerlessPrice"].type()) {
+        DescribePriceResponseBodyServerlessPrice model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ServerlessPrice"]));
+        serverlessPrice = make_shared<DescribePriceResponseBodyServerlessPrice>(model1);
       }
     }
     if (m.find("ShowDiscount") != m.end() && !m["ShowDiscount"].empty()) {
