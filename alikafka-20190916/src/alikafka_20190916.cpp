@@ -200,8 +200,13 @@ CreateConsumerGroupResponse Alibabacloud_Alikafka20190916::Client::createConsume
   return createConsumerGroupWithOptions(request, runtime);
 }
 
-CreatePostPayOrderResponse Alibabacloud_Alikafka20190916::Client::createPostPayOrderWithOptions(shared_ptr<CreatePostPayOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreatePostPayOrderResponse Alibabacloud_Alikafka20190916::Client::createPostPayOrderWithOptions(shared_ptr<CreatePostPayOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreatePostPayOrderShrinkRequest> request = make_shared<CreatePostPayOrderShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreatePostPayOrderRequestServerlessConfig>(tmpReq->serverlessConfig)) {
+    request->serverlessConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->serverlessConfig, make_shared<string>("ServerlessConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->deployType)) {
     query->insert(pair<string, long>("DeployType", *request->deployType));
@@ -221,6 +226,9 @@ CreatePostPayOrderResponse Alibabacloud_Alikafka20190916::Client::createPostPayO
   if (!Darabonba_Util::Client::isUnset<string>(request->ioMaxSpec)) {
     query->insert(pair<string, string>("IoMaxSpec", *request->ioMaxSpec));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->paidType)) {
+    query->insert(pair<string, long>("PaidType", *request->paidType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->partitionNum)) {
     query->insert(pair<string, long>("PartitionNum", *request->partitionNum));
   }
@@ -230,11 +238,14 @@ CreatePostPayOrderResponse Alibabacloud_Alikafka20190916::Client::createPostPayO
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverlessConfigShrink)) {
+    query->insert(pair<string, string>("ServerlessConfig", *request->serverlessConfigShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->specType)) {
     query->insert(pair<string, string>("SpecType", *request->specType));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreatePostPayOrderRequestTag>>(request->tag)) {
-    query->insert(pair<string, vector<CreatePostPayOrderRequestTag>>("Tag", *request->tag));
+  if (!Darabonba_Util::Client::isUnset<vector<CreatePostPayOrderShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreatePostPayOrderShrinkRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->topicQuota)) {
     query->insert(pair<string, long>("TopicQuota", *request->topicQuota));

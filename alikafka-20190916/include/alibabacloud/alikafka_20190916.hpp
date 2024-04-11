@@ -721,6 +721,42 @@ public:
 
   virtual ~CreateConsumerGroupResponse() = default;
 };
+class CreatePostPayOrderRequestServerlessConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> reservedPublishCapacity{};
+  shared_ptr<long> reservedSubscribeCapacity{};
+
+  CreatePostPayOrderRequestServerlessConfig() {}
+
+  explicit CreatePostPayOrderRequestServerlessConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (reservedPublishCapacity) {
+      res["ReservedPublishCapacity"] = boost::any(*reservedPublishCapacity);
+    }
+    if (reservedSubscribeCapacity) {
+      res["ReservedSubscribeCapacity"] = boost::any(*reservedSubscribeCapacity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReservedPublishCapacity") != m.end() && !m["ReservedPublishCapacity"].empty()) {
+      reservedPublishCapacity = make_shared<long>(boost::any_cast<long>(m["ReservedPublishCapacity"]));
+    }
+    if (m.find("ReservedSubscribeCapacity") != m.end() && !m["ReservedSubscribeCapacity"].empty()) {
+      reservedSubscribeCapacity = make_shared<long>(boost::any_cast<long>(m["ReservedSubscribeCapacity"]));
+    }
+  }
+
+
+  virtual ~CreatePostPayOrderRequestServerlessConfig() = default;
+};
 class CreatePostPayOrderRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -765,9 +801,11 @@ public:
   shared_ptr<long> eipMax{};
   shared_ptr<long> ioMax{};
   shared_ptr<string> ioMaxSpec{};
+  shared_ptr<long> paidType{};
   shared_ptr<long> partitionNum{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<CreatePostPayOrderRequestServerlessConfig> serverlessConfig{};
   shared_ptr<string> specType{};
   shared_ptr<vector<CreatePostPayOrderRequestTag>> tag{};
   shared_ptr<long> topicQuota{};
@@ -800,6 +838,9 @@ public:
     if (ioMaxSpec) {
       res["IoMaxSpec"] = boost::any(*ioMaxSpec);
     }
+    if (paidType) {
+      res["PaidType"] = boost::any(*paidType);
+    }
     if (partitionNum) {
       res["PartitionNum"] = boost::any(*partitionNum);
     }
@@ -808,6 +849,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (serverlessConfig) {
+      res["ServerlessConfig"] = serverlessConfig ? boost::any(serverlessConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (specType) {
       res["SpecType"] = boost::any(*specType);
@@ -844,6 +888,9 @@ public:
     if (m.find("IoMaxSpec") != m.end() && !m["IoMaxSpec"].empty()) {
       ioMaxSpec = make_shared<string>(boost::any_cast<string>(m["IoMaxSpec"]));
     }
+    if (m.find("PaidType") != m.end() && !m["PaidType"].empty()) {
+      paidType = make_shared<long>(boost::any_cast<long>(m["PaidType"]));
+    }
     if (m.find("PartitionNum") != m.end() && !m["PartitionNum"].empty()) {
       partitionNum = make_shared<long>(boost::any_cast<long>(m["PartitionNum"]));
     }
@@ -852,6 +899,13 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ServerlessConfig") != m.end() && !m["ServerlessConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ServerlessConfig"].type()) {
+        CreatePostPayOrderRequestServerlessConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ServerlessConfig"]));
+        serverlessConfig = make_shared<CreatePostPayOrderRequestServerlessConfig>(model1);
+      }
     }
     if (m.find("SpecType") != m.end() && !m["SpecType"].empty()) {
       specType = make_shared<string>(boost::any_cast<string>(m["SpecType"]));
@@ -876,6 +930,176 @@ public:
 
 
   virtual ~CreatePostPayOrderRequest() = default;
+};
+class CreatePostPayOrderShrinkRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreatePostPayOrderShrinkRequestTag() {}
+
+  explicit CreatePostPayOrderShrinkRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreatePostPayOrderShrinkRequestTag() = default;
+};
+class CreatePostPayOrderShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> deployType{};
+  shared_ptr<long> diskSize{};
+  shared_ptr<string> diskType{};
+  shared_ptr<long> eipMax{};
+  shared_ptr<long> ioMax{};
+  shared_ptr<string> ioMaxSpec{};
+  shared_ptr<long> paidType{};
+  shared_ptr<long> partitionNum{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> serverlessConfigShrink{};
+  shared_ptr<string> specType{};
+  shared_ptr<vector<CreatePostPayOrderShrinkRequestTag>> tag{};
+  shared_ptr<long> topicQuota{};
+
+  CreatePostPayOrderShrinkRequest() {}
+
+  explicit CreatePostPayOrderShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deployType) {
+      res["DeployType"] = boost::any(*deployType);
+    }
+    if (diskSize) {
+      res["DiskSize"] = boost::any(*diskSize);
+    }
+    if (diskType) {
+      res["DiskType"] = boost::any(*diskType);
+    }
+    if (eipMax) {
+      res["EipMax"] = boost::any(*eipMax);
+    }
+    if (ioMax) {
+      res["IoMax"] = boost::any(*ioMax);
+    }
+    if (ioMaxSpec) {
+      res["IoMaxSpec"] = boost::any(*ioMaxSpec);
+    }
+    if (paidType) {
+      res["PaidType"] = boost::any(*paidType);
+    }
+    if (partitionNum) {
+      res["PartitionNum"] = boost::any(*partitionNum);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (serverlessConfigShrink) {
+      res["ServerlessConfig"] = boost::any(*serverlessConfigShrink);
+    }
+    if (specType) {
+      res["SpecType"] = boost::any(*specType);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    if (topicQuota) {
+      res["TopicQuota"] = boost::any(*topicQuota);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeployType") != m.end() && !m["DeployType"].empty()) {
+      deployType = make_shared<long>(boost::any_cast<long>(m["DeployType"]));
+    }
+    if (m.find("DiskSize") != m.end() && !m["DiskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["DiskSize"]));
+    }
+    if (m.find("DiskType") != m.end() && !m["DiskType"].empty()) {
+      diskType = make_shared<string>(boost::any_cast<string>(m["DiskType"]));
+    }
+    if (m.find("EipMax") != m.end() && !m["EipMax"].empty()) {
+      eipMax = make_shared<long>(boost::any_cast<long>(m["EipMax"]));
+    }
+    if (m.find("IoMax") != m.end() && !m["IoMax"].empty()) {
+      ioMax = make_shared<long>(boost::any_cast<long>(m["IoMax"]));
+    }
+    if (m.find("IoMaxSpec") != m.end() && !m["IoMaxSpec"].empty()) {
+      ioMaxSpec = make_shared<string>(boost::any_cast<string>(m["IoMaxSpec"]));
+    }
+    if (m.find("PaidType") != m.end() && !m["PaidType"].empty()) {
+      paidType = make_shared<long>(boost::any_cast<long>(m["PaidType"]));
+    }
+    if (m.find("PartitionNum") != m.end() && !m["PartitionNum"].empty()) {
+      partitionNum = make_shared<long>(boost::any_cast<long>(m["PartitionNum"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ServerlessConfig") != m.end() && !m["ServerlessConfig"].empty()) {
+      serverlessConfigShrink = make_shared<string>(boost::any_cast<string>(m["ServerlessConfig"]));
+    }
+    if (m.find("SpecType") != m.end() && !m["SpecType"].empty()) {
+      specType = make_shared<string>(boost::any_cast<string>(m["SpecType"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreatePostPayOrderShrinkRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePostPayOrderShrinkRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreatePostPayOrderShrinkRequestTag>>(expect1);
+      }
+    }
+    if (m.find("TopicQuota") != m.end() && !m["TopicQuota"].empty()) {
+      topicQuota = make_shared<long>(boost::any_cast<long>(m["TopicQuota"]));
+    }
+  }
+
+
+  virtual ~CreatePostPayOrderShrinkRequest() = default;
 };
 class CreatePostPayOrderResponseBody : public Darabonba::Model {
 public:
@@ -5399,7 +5623,9 @@ public:
   shared_ptr<long> expiredTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> ioMax{};
+  shared_ptr<long> ioMaxRead{};
   shared_ptr<string> ioMaxSpec{};
+  shared_ptr<long> ioMaxWrite{};
   shared_ptr<string> kmsKeyId{};
   shared_ptr<long> msgRetain{};
   shared_ptr<string> name{};
@@ -5472,8 +5698,14 @@ public:
     if (ioMax) {
       res["IoMax"] = boost::any(*ioMax);
     }
+    if (ioMaxRead) {
+      res["IoMaxRead"] = boost::any(*ioMaxRead);
+    }
     if (ioMaxSpec) {
       res["IoMaxSpec"] = boost::any(*ioMaxSpec);
+    }
+    if (ioMaxWrite) {
+      res["IoMaxWrite"] = boost::any(*ioMaxWrite);
     }
     if (kmsKeyId) {
       res["KmsKeyId"] = boost::any(*kmsKeyId);
@@ -5594,8 +5826,14 @@ public:
     if (m.find("IoMax") != m.end() && !m["IoMax"].empty()) {
       ioMax = make_shared<long>(boost::any_cast<long>(m["IoMax"]));
     }
+    if (m.find("IoMaxRead") != m.end() && !m["IoMaxRead"].empty()) {
+      ioMaxRead = make_shared<long>(boost::any_cast<long>(m["IoMaxRead"]));
+    }
     if (m.find("IoMaxSpec") != m.end() && !m["IoMaxSpec"].empty()) {
       ioMaxSpec = make_shared<string>(boost::any_cast<string>(m["IoMaxSpec"]));
+    }
+    if (m.find("IoMaxWrite") != m.end() && !m["IoMaxWrite"].empty()) {
+      ioMaxWrite = make_shared<long>(boost::any_cast<long>(m["IoMaxWrite"]));
     }
     if (m.find("KmsKeyId") != m.end() && !m["KmsKeyId"].empty()) {
       kmsKeyId = make_shared<string>(boost::any_cast<string>(m["KmsKeyId"]));
@@ -10876,7 +11114,7 @@ public:
   CreateAclResponse createAcl(shared_ptr<CreateAclRequest> request);
   CreateConsumerGroupResponse createConsumerGroupWithOptions(shared_ptr<CreateConsumerGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateConsumerGroupResponse createConsumerGroup(shared_ptr<CreateConsumerGroupRequest> request);
-  CreatePostPayOrderResponse createPostPayOrderWithOptions(shared_ptr<CreatePostPayOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePostPayOrderResponse createPostPayOrderWithOptions(shared_ptr<CreatePostPayOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePostPayOrderResponse createPostPayOrder(shared_ptr<CreatePostPayOrderRequest> request);
   CreatePrePayOrderResponse createPrePayOrderWithOptions(shared_ptr<CreatePrePayOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePrePayOrderResponse createPrePayOrder(shared_ptr<CreatePrePayOrderRequest> request);
