@@ -10239,6 +10239,292 @@ public:
 
   virtual ~DescribeVodDomainUsageDataResponse() = default;
 };
+class DescribeVodMediaPlayDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mediaId{};
+  shared_ptr<string> orderName{};
+  shared_ptr<string> orderType{};
+  shared_ptr<string> os{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> playDate{};
+  shared_ptr<string> region{};
+  shared_ptr<string> terminalType{};
+
+  DescribeVodMediaPlayDataRequest() {}
+
+  explicit DescribeVodMediaPlayDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    if (orderName) {
+      res["OrderName"] = boost::any(*orderName);
+    }
+    if (orderType) {
+      res["OrderType"] = boost::any(*orderType);
+    }
+    if (os) {
+      res["Os"] = boost::any(*os);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (playDate) {
+      res["PlayDate"] = boost::any(*playDate);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (terminalType) {
+      res["TerminalType"] = boost::any(*terminalType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+    if (m.find("OrderName") != m.end() && !m["OrderName"].empty()) {
+      orderName = make_shared<string>(boost::any_cast<string>(m["OrderName"]));
+    }
+    if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
+      orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
+    }
+    if (m.find("Os") != m.end() && !m["Os"].empty()) {
+      os = make_shared<string>(boost::any_cast<string>(m["Os"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PlayDate") != m.end() && !m["PlayDate"].empty()) {
+      playDate = make_shared<string>(boost::any_cast<string>(m["PlayDate"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("TerminalType") != m.end() && !m["TerminalType"].empty()) {
+      terminalType = make_shared<string>(boost::any_cast<string>(m["TerminalType"]));
+    }
+  }
+
+
+  virtual ~DescribeVodMediaPlayDataRequest() = default;
+};
+class DescribeVodMediaPlayDataResponseBodyQoeInfoList : public Darabonba::Model {
+public:
+  shared_ptr<double> DAU{};
+  shared_ptr<string> mediaId{};
+  shared_ptr<double> playDuration{};
+  shared_ptr<double> playDurationPerUv{};
+  shared_ptr<double> playPerVv{};
+  shared_ptr<double> playSuccessVv{};
+  shared_ptr<double> videoDuration{};
+  shared_ptr<double> videoTitle{};
+
+  DescribeVodMediaPlayDataResponseBodyQoeInfoList() {}
+
+  explicit DescribeVodMediaPlayDataResponseBodyQoeInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DAU) {
+      res["DAU"] = boost::any(*DAU);
+    }
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    if (playDuration) {
+      res["PlayDuration"] = boost::any(*playDuration);
+    }
+    if (playDurationPerUv) {
+      res["PlayDurationPerUv"] = boost::any(*playDurationPerUv);
+    }
+    if (playPerVv) {
+      res["PlayPerVv"] = boost::any(*playPerVv);
+    }
+    if (playSuccessVv) {
+      res["PlaySuccessVv"] = boost::any(*playSuccessVv);
+    }
+    if (videoDuration) {
+      res["VideoDuration"] = boost::any(*videoDuration);
+    }
+    if (videoTitle) {
+      res["VideoTitle"] = boost::any(*videoTitle);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DAU") != m.end() && !m["DAU"].empty()) {
+      DAU = make_shared<double>(boost::any_cast<double>(m["DAU"]));
+    }
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+    if (m.find("PlayDuration") != m.end() && !m["PlayDuration"].empty()) {
+      playDuration = make_shared<double>(boost::any_cast<double>(m["PlayDuration"]));
+    }
+    if (m.find("PlayDurationPerUv") != m.end() && !m["PlayDurationPerUv"].empty()) {
+      playDurationPerUv = make_shared<double>(boost::any_cast<double>(m["PlayDurationPerUv"]));
+    }
+    if (m.find("PlayPerVv") != m.end() && !m["PlayPerVv"].empty()) {
+      playPerVv = make_shared<double>(boost::any_cast<double>(m["PlayPerVv"]));
+    }
+    if (m.find("PlaySuccessVv") != m.end() && !m["PlaySuccessVv"].empty()) {
+      playSuccessVv = make_shared<double>(boost::any_cast<double>(m["PlaySuccessVv"]));
+    }
+    if (m.find("VideoDuration") != m.end() && !m["VideoDuration"].empty()) {
+      videoDuration = make_shared<double>(boost::any_cast<double>(m["VideoDuration"]));
+    }
+    if (m.find("VideoTitle") != m.end() && !m["VideoTitle"].empty()) {
+      videoTitle = make_shared<double>(boost::any_cast<double>(m["VideoTitle"]));
+    }
+  }
+
+
+  virtual ~DescribeVodMediaPlayDataResponseBodyQoeInfoList() = default;
+};
+class DescribeVodMediaPlayDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<DescribeVodMediaPlayDataResponseBodyQoeInfoList>> qoeInfoList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeVodMediaPlayDataResponseBody() {}
+
+  explicit DescribeVodMediaPlayDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (qoeInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*qoeInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["QoeInfoList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("QoeInfoList") != m.end() && !m["QoeInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["QoeInfoList"].type()) {
+        vector<DescribeVodMediaPlayDataResponseBodyQoeInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["QoeInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVodMediaPlayDataResponseBodyQoeInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        qoeInfoList = make_shared<vector<DescribeVodMediaPlayDataResponseBodyQoeInfoList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeVodMediaPlayDataResponseBody() = default;
+};
+class DescribeVodMediaPlayDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeVodMediaPlayDataResponseBody> body{};
+
+  DescribeVodMediaPlayDataResponse() {}
+
+  explicit DescribeVodMediaPlayDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeVodMediaPlayDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeVodMediaPlayDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVodMediaPlayDataResponse() = default;
+};
 class DescribeVodRefreshQuotaRequest : public Darabonba::Model {
 public:
   shared_ptr<long> ownerId{};
@@ -29486,6 +29772,7 @@ public:
 };
 class RefreshVodObjectCachesRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> force{};
   shared_ptr<string> objectPath{};
   shared_ptr<string> objectType{};
   shared_ptr<long> ownerId{};
@@ -29501,6 +29788,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
     if (objectPath) {
       res["ObjectPath"] = boost::any(*objectPath);
     }
@@ -29517,6 +29807,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
+    }
     if (m.find("ObjectPath") != m.end() && !m["ObjectPath"].empty()) {
       objectPath = make_shared<string>(boost::any_cast<string>(m["ObjectPath"]));
     }
@@ -37445,6 +37738,8 @@ public:
   DescribeVodDomainTrafficDataResponse describeVodDomainTrafficData(shared_ptr<DescribeVodDomainTrafficDataRequest> request);
   DescribeVodDomainUsageDataResponse describeVodDomainUsageDataWithOptions(shared_ptr<DescribeVodDomainUsageDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVodDomainUsageDataResponse describeVodDomainUsageData(shared_ptr<DescribeVodDomainUsageDataRequest> request);
+  DescribeVodMediaPlayDataResponse describeVodMediaPlayDataWithOptions(shared_ptr<DescribeVodMediaPlayDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeVodMediaPlayDataResponse describeVodMediaPlayData(shared_ptr<DescribeVodMediaPlayDataRequest> request);
   DescribeVodRefreshQuotaResponse describeVodRefreshQuotaWithOptions(shared_ptr<DescribeVodRefreshQuotaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVodRefreshQuotaResponse describeVodRefreshQuota(shared_ptr<DescribeVodRefreshQuotaRequest> request);
   DescribeVodRefreshTasksResponse describeVodRefreshTasksWithOptions(shared_ptr<DescribeVodRefreshTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

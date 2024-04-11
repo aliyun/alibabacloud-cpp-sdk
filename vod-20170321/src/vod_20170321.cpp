@@ -2098,6 +2098,58 @@ DescribeVodDomainUsageDataResponse Alibabacloud_Vod20170321::Client::describeVod
   return describeVodDomainUsageDataWithOptions(request, runtime);
 }
 
+DescribeVodMediaPlayDataResponse Alibabacloud_Vod20170321::Client::describeVodMediaPlayDataWithOptions(shared_ptr<DescribeVodMediaPlayDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaId)) {
+    query->insert(pair<string, string>("MediaId", *request->mediaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderName)) {
+    query->insert(pair<string, string>("OrderName", *request->orderName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderType)) {
+    query->insert(pair<string, string>("OrderType", *request->orderType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->os)) {
+    query->insert(pair<string, string>("Os", *request->os));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->playDate)) {
+    query->insert(pair<string, string>("PlayDate", *request->playDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("Region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->terminalType)) {
+    query->insert(pair<string, string>("TerminalType", *request->terminalType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeVodMediaPlayData"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeVodMediaPlayDataResponse(callApi(params, req, runtime));
+}
+
+DescribeVodMediaPlayDataResponse Alibabacloud_Vod20170321::Client::describeVodMediaPlayData(shared_ptr<DescribeVodMediaPlayDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeVodMediaPlayDataWithOptions(request, runtime);
+}
+
 DescribeVodRefreshQuotaResponse Alibabacloud_Vod20170321::Client::describeVodRefreshQuotaWithOptions(shared_ptr<DescribeVodRefreshQuotaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4298,6 +4350,9 @@ RefreshUploadVideoResponse Alibabacloud_Vod20170321::Client::refreshUploadVideo(
 RefreshVodObjectCachesResponse Alibabacloud_Vod20170321::Client::refreshVodObjectCachesWithOptions(shared_ptr<RefreshVodObjectCachesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("Force", *request->force));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->objectPath)) {
     query->insert(pair<string, string>("ObjectPath", *request->objectPath));
   }
