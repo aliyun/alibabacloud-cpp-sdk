@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -184,6 +183,9 @@ CreateContainerGroupResponse Alibabacloud_Eci20180808::Client::createContainerGr
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->computeCategory)) {
+    query->insert(pair<string, vector<string>>("ComputeCategory", *request->computeCategory));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateContainerGroupRequestContainer>>(request->container)) {
     query->insert(pair<string, vector<CreateContainerGroupRequestContainer>>("Container", *request->container));
   }
@@ -252,6 +254,9 @@ CreateContainerGroupResponse Alibabacloud_Eci20180808::Client::createContainerGr
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->fixedIpRetainHour)) {
     query->insert(pair<string, long>("FixedIpRetainHour", *request->fixedIpRetainHour));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gpuDriverVersion)) {
+    query->insert(pair<string, string>("GpuDriverVersion", *request->gpuDriverVersion));
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateContainerGroupRequestHostAliase>>(request->hostAliase)) {
     query->insert(pair<string, vector<CreateContainerGroupRequestHostAliase>>("HostAliase", *request->hostAliase));
@@ -1151,6 +1156,9 @@ DescribeContainerGroupMetricResponse Alibabacloud_Eci20180808::Client::describeC
 DescribeContainerGroupPriceResponse Alibabacloud_Eci20180808::Client::describeContainerGroupPriceWithOptions(shared_ptr<DescribeContainerGroupPriceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->computeCategory)) {
+    query->insert(pair<string, string>("ComputeCategory", *request->computeCategory));
+  }
   if (!Darabonba_Util::Client::isUnset<double>(request->cpu)) {
     query->insert(pair<string, double>("Cpu", *request->cpu));
   }
@@ -1270,6 +1278,9 @@ DescribeContainerGroupStatusResponse Alibabacloud_Eci20180808::Client::describeC
 DescribeContainerGroupsResponse Alibabacloud_Eci20180808::Client::describeContainerGroupsWithOptions(shared_ptr<DescribeContainerGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->computeCategory)) {
+    query->insert(pair<string, string>("ComputeCategory", *request->computeCategory));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->containerGroupIds)) {
     query->insert(pair<string, string>("ContainerGroupIds", *request->containerGroupIds));
   }
