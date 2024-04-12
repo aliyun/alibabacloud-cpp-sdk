@@ -1109,6 +1109,10 @@ class GetTaskInfoResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> outputMp3Path{};
+  shared_ptr<string> outputMp4Path{};
+  shared_ptr<string> outputSpectrumPath{};
+  shared_ptr<string> outputThumbnailPath{};
   shared_ptr<GetTaskInfoResponseBodyDataResult> result{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskKey{};
@@ -1129,6 +1133,18 @@ public:
     }
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (outputMp3Path) {
+      res["OutputMp3Path"] = boost::any(*outputMp3Path);
+    }
+    if (outputMp4Path) {
+      res["OutputMp4Path"] = boost::any(*outputMp4Path);
+    }
+    if (outputSpectrumPath) {
+      res["OutputSpectrumPath"] = boost::any(*outputSpectrumPath);
+    }
+    if (outputThumbnailPath) {
+      res["OutputThumbnailPath"] = boost::any(*outputThumbnailPath);
     }
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1151,6 +1167,18 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("OutputMp3Path") != m.end() && !m["OutputMp3Path"].empty()) {
+      outputMp3Path = make_shared<string>(boost::any_cast<string>(m["OutputMp3Path"]));
+    }
+    if (m.find("OutputMp4Path") != m.end() && !m["OutputMp4Path"].empty()) {
+      outputMp4Path = make_shared<string>(boost::any_cast<string>(m["OutputMp4Path"]));
+    }
+    if (m.find("OutputSpectrumPath") != m.end() && !m["OutputSpectrumPath"].empty()) {
+      outputSpectrumPath = make_shared<string>(boost::any_cast<string>(m["OutputSpectrumPath"]));
+    }
+    if (m.find("OutputThumbnailPath") != m.end() && !m["OutputThumbnailPath"].empty()) {
+      outputThumbnailPath = make_shared<string>(boost::any_cast<string>(m["OutputThumbnailPath"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(map<string, boost::any>) == m["Result"].type()) {
