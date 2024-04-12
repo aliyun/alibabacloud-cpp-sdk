@@ -1453,6 +1453,7 @@ public:
   shared_ptr<string> datasourceUrl{};
   shared_ptr<string> description{};
   shared_ptr<string> exploreUrl{};
+  shared_ptr<map<string, string>> extra{};
   shared_ptr<string> folderUrl{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
@@ -1485,6 +1486,9 @@ public:
     }
     if (exploreUrl) {
       res["exploreUrl"] = boost::any(*exploreUrl);
+    }
+    if (extra) {
+      res["extra"] = boost::any(*extra);
     }
     if (folderUrl) {
       res["folderUrl"] = boost::any(*folderUrl);
@@ -1519,6 +1523,14 @@ public:
     }
     if (m.find("exploreUrl") != m.end() && !m["exploreUrl"].empty()) {
       exploreUrl = make_shared<string>(boost::any_cast<string>(m["exploreUrl"]));
+    }
+    if (m.find("extra") != m.end() && !m["extra"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["extra"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      extra = make_shared<map<string, string>>(toMap1);
     }
     if (m.find("folderUrl") != m.end() && !m["folderUrl"].empty()) {
       folderUrl = make_shared<string>(boost::any_cast<string>(m["folderUrl"]));
@@ -11549,6 +11561,7 @@ public:
 class CreatePrometheusInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> allSubClustersSuccess{};
+  shared_ptr<long> archiveDuration{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
@@ -11574,6 +11587,9 @@ public:
     map<string, boost::any> res;
     if (allSubClustersSuccess) {
       res["AllSubClustersSuccess"] = boost::any(*allSubClustersSuccess);
+    }
+    if (archiveDuration) {
+      res["ArchiveDuration"] = boost::any(*archiveDuration);
     }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
@@ -11621,6 +11637,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AllSubClustersSuccess") != m.end() && !m["AllSubClustersSuccess"].empty()) {
       allSubClustersSuccess = make_shared<bool>(boost::any_cast<bool>(m["AllSubClustersSuccess"]));
+    }
+    if (m.find("ArchiveDuration") != m.end() && !m["ArchiveDuration"].empty()) {
+      archiveDuration = make_shared<long>(boost::any_cast<long>(m["ArchiveDuration"]));
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
@@ -13935,6 +13954,54 @@ public:
 
   virtual ~CreateTimingSyntheticTaskRequestCommonSettingCustomHost() = default;
 };
+class CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting : public Darabonba::Model {
+public:
+  shared_ptr<string> prometheusClusterId{};
+  shared_ptr<string> prometheusClusterRegion{};
+  shared_ptr<map<string, string>> prometheusLabels{};
+
+  CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting() {}
+
+  explicit CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (prometheusClusterId) {
+      res["PrometheusClusterId"] = boost::any(*prometheusClusterId);
+    }
+    if (prometheusClusterRegion) {
+      res["PrometheusClusterRegion"] = boost::any(*prometheusClusterRegion);
+    }
+    if (prometheusLabels) {
+      res["PrometheusLabels"] = boost::any(*prometheusLabels);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PrometheusClusterId") != m.end() && !m["PrometheusClusterId"].empty()) {
+      prometheusClusterId = make_shared<string>(boost::any_cast<string>(m["PrometheusClusterId"]));
+    }
+    if (m.find("PrometheusClusterRegion") != m.end() && !m["PrometheusClusterRegion"].empty()) {
+      prometheusClusterRegion = make_shared<string>(boost::any_cast<string>(m["PrometheusClusterRegion"]));
+    }
+    if (m.find("PrometheusLabels") != m.end() && !m["PrometheusLabels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["PrometheusLabels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      prometheusLabels = make_shared<map<string, string>>(toMap1);
+    }
+  }
+
+
+  virtual ~CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting() = default;
+};
 class CreateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -13988,6 +14055,7 @@ public:
 class CreateTimingSyntheticTaskRequestCommonSetting : public Darabonba::Model {
 public:
   shared_ptr<CreateTimingSyntheticTaskRequestCommonSettingCustomHost> customHost{};
+  shared_ptr<CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting> customPrometheusSetting{};
   shared_ptr<CreateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting> customVPCSetting{};
   shared_ptr<long> ipType{};
   shared_ptr<bool> isOpenTrace{};
@@ -14007,6 +14075,9 @@ public:
     map<string, boost::any> res;
     if (customHost) {
       res["CustomHost"] = customHost ? boost::any(customHost->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customPrometheusSetting) {
+      res["CustomPrometheusSetting"] = customPrometheusSetting ? boost::any(customPrometheusSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (customVPCSetting) {
       res["CustomVPCSetting"] = customVPCSetting ? boost::any(customVPCSetting->toMap()) : boost::any(map<string,boost::any>({}));
@@ -14035,6 +14106,13 @@ public:
         CreateTimingSyntheticTaskRequestCommonSettingCustomHost model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomHost"]));
         customHost = make_shared<CreateTimingSyntheticTaskRequestCommonSettingCustomHost>(model1);
+      }
+    }
+    if (m.find("CustomPrometheusSetting") != m.end() && !m["CustomPrometheusSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomPrometheusSetting"].type()) {
+        CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomPrometheusSetting"]));
+        customPrometheusSetting = make_shared<CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting>(model1);
       }
     }
     if (m.find("CustomVPCSetting") != m.end() && !m["CustomVPCSetting"].empty()) {
@@ -29485,6 +29563,7 @@ public:
 };
 class GetPrometheusInstanceResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> archiveDuration{};
   shared_ptr<string> authToken{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterName{};
@@ -29503,6 +29582,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<long> storageDuration{};
   shared_ptr<string> subClustersJson{};
   shared_ptr<vector<GetPrometheusInstanceResponseBodyDataTags>> tags{};
   shared_ptr<string> userId{};
@@ -29519,6 +29599,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (archiveDuration) {
+      res["ArchiveDuration"] = boost::any(*archiveDuration);
+    }
     if (authToken) {
       res["AuthToken"] = boost::any(*authToken);
     }
@@ -29573,6 +29656,9 @@ public:
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
     }
+    if (storageDuration) {
+      res["StorageDuration"] = boost::any(*storageDuration);
+    }
     if (subClustersJson) {
       res["SubClustersJson"] = boost::any(*subClustersJson);
     }
@@ -29596,6 +29682,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArchiveDuration") != m.end() && !m["ArchiveDuration"].empty()) {
+      archiveDuration = make_shared<long>(boost::any_cast<long>(m["ArchiveDuration"]));
+    }
     if (m.find("AuthToken") != m.end() && !m["AuthToken"].empty()) {
       authToken = make_shared<string>(boost::any_cast<string>(m["AuthToken"]));
     }
@@ -29649,6 +29738,9 @@ public:
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("StorageDuration") != m.end() && !m["StorageDuration"].empty()) {
+      storageDuration = make_shared<long>(boost::any_cast<long>(m["StorageDuration"]));
     }
     if (m.find("SubClustersJson") != m.end() && !m["SubClustersJson"].empty()) {
       subClustersJson = make_shared<string>(boost::any_cast<string>(m["SubClustersJson"]));
@@ -34402,6 +34494,54 @@ public:
 
   virtual ~GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost() = default;
 };
+class GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomPrometheusSetting : public Darabonba::Model {
+public:
+  shared_ptr<string> prometheusClusterId{};
+  shared_ptr<string> prometheusClusterRegion{};
+  shared_ptr<map<string, string>> prometheusLabels{};
+
+  GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomPrometheusSetting() {}
+
+  explicit GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomPrometheusSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (prometheusClusterId) {
+      res["PrometheusClusterId"] = boost::any(*prometheusClusterId);
+    }
+    if (prometheusClusterRegion) {
+      res["PrometheusClusterRegion"] = boost::any(*prometheusClusterRegion);
+    }
+    if (prometheusLabels) {
+      res["PrometheusLabels"] = boost::any(*prometheusLabels);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PrometheusClusterId") != m.end() && !m["PrometheusClusterId"].empty()) {
+      prometheusClusterId = make_shared<string>(boost::any_cast<string>(m["PrometheusClusterId"]));
+    }
+    if (m.find("PrometheusClusterRegion") != m.end() && !m["PrometheusClusterRegion"].empty()) {
+      prometheusClusterRegion = make_shared<string>(boost::any_cast<string>(m["PrometheusClusterRegion"]));
+    }
+    if (m.find("PrometheusLabels") != m.end() && !m["PrometheusLabels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["PrometheusLabels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      prometheusLabels = make_shared<map<string, string>>(toMap1);
+    }
+  }
+
+
+  virtual ~GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomPrometheusSetting() = default;
+};
 class GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomVPCSetting : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -34455,6 +34595,7 @@ public:
 class GetTimingSyntheticTaskResponseBodyDataCommonSetting : public Darabonba::Model {
 public:
   shared_ptr<GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost> customHost{};
+  shared_ptr<GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomPrometheusSetting> customPrometheusSetting{};
   shared_ptr<GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomVPCSetting> customVPCSetting{};
   shared_ptr<long> ipType{};
   shared_ptr<bool> isOpenTrace{};
@@ -34474,6 +34615,9 @@ public:
     map<string, boost::any> res;
     if (customHost) {
       res["CustomHost"] = customHost ? boost::any(customHost->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customPrometheusSetting) {
+      res["CustomPrometheusSetting"] = customPrometheusSetting ? boost::any(customPrometheusSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (customVPCSetting) {
       res["CustomVPCSetting"] = customVPCSetting ? boost::any(customVPCSetting->toMap()) : boost::any(map<string,boost::any>({}));
@@ -34502,6 +34646,13 @@ public:
         GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomHost"]));
         customHost = make_shared<GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost>(model1);
+      }
+    }
+    if (m.find("CustomPrometheusSetting") != m.end() && !m["CustomPrometheusSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomPrometheusSetting"].type()) {
+        GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomPrometheusSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomPrometheusSetting"]));
+        customPrometheusSetting = make_shared<GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomPrometheusSetting>(model1);
       }
     }
     if (m.find("CustomVPCSetting") != m.end() && !m["CustomVPCSetting"].empty()) {
@@ -50373,6 +50524,294 @@ public:
 
   virtual ~ListTimingSyntheticTasksShrinkRequest() = default;
 };
+class ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHostHosts : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<long> ipType{};
+  shared_ptr<vector<string>> ips{};
+
+  ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHostHosts() {}
+
+  explicit ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHostHosts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (ipType) {
+      res["IpType"] = boost::any(*ipType);
+    }
+    if (ips) {
+      res["Ips"] = boost::any(*ips);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("IpType") != m.end() && !m["IpType"].empty()) {
+      ipType = make_shared<long>(boost::any_cast<long>(m["IpType"]));
+    }
+    if (m.find("Ips") != m.end() && !m["Ips"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ips"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ips"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ips = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHostHosts() = default;
+};
+class ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHost : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHostHosts>> hosts{};
+  shared_ptr<long> selectType{};
+
+  ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHost() {}
+
+  explicit ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHost(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hosts) {
+      vector<boost::any> temp1;
+      for(auto item1:*hosts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Hosts"] = boost::any(temp1);
+    }
+    if (selectType) {
+      res["SelectType"] = boost::any(*selectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Hosts") != m.end() && !m["Hosts"].empty()) {
+      if (typeid(vector<boost::any>) == m["Hosts"].type()) {
+        vector<ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHostHosts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Hosts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHostHosts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hosts = make_shared<vector<ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHostHosts>>(expect1);
+      }
+    }
+    if (m.find("SelectType") != m.end() && !m["SelectType"].empty()) {
+      selectType = make_shared<long>(boost::any_cast<long>(m["SelectType"]));
+    }
+  }
+
+
+  virtual ~ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHost() = default;
+};
+class ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomPrometheusSetting : public Darabonba::Model {
+public:
+  shared_ptr<string> prometheusClusterId{};
+  shared_ptr<string> prometheusClusterRegion{};
+  shared_ptr<map<string, string>> prometheusLabels{};
+
+  ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomPrometheusSetting() {}
+
+  explicit ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomPrometheusSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (prometheusClusterId) {
+      res["PrometheusClusterId"] = boost::any(*prometheusClusterId);
+    }
+    if (prometheusClusterRegion) {
+      res["PrometheusClusterRegion"] = boost::any(*prometheusClusterRegion);
+    }
+    if (prometheusLabels) {
+      res["PrometheusLabels"] = boost::any(*prometheusLabels);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PrometheusClusterId") != m.end() && !m["PrometheusClusterId"].empty()) {
+      prometheusClusterId = make_shared<string>(boost::any_cast<string>(m["PrometheusClusterId"]));
+    }
+    if (m.find("PrometheusClusterRegion") != m.end() && !m["PrometheusClusterRegion"].empty()) {
+      prometheusClusterRegion = make_shared<string>(boost::any_cast<string>(m["PrometheusClusterRegion"]));
+    }
+    if (m.find("PrometheusLabels") != m.end() && !m["PrometheusLabels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["PrometheusLabels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      prometheusLabels = make_shared<map<string, string>>(toMap1);
+    }
+  }
+
+
+  virtual ~ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomPrometheusSetting() = default;
+};
+class ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomVPCSetting : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<string> secureGroupId{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+
+  ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomVPCSetting() {}
+
+  explicit ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomVPCSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (secureGroupId) {
+      res["SecureGroupId"] = boost::any(*secureGroupId);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecureGroupId") != m.end() && !m["SecureGroupId"].empty()) {
+      secureGroupId = make_shared<string>(boost::any_cast<string>(m["SecureGroupId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomVPCSetting() = default;
+};
+class ListTimingSyntheticTasksResponseBodyDataItemsCommonSetting : public Darabonba::Model {
+public:
+  shared_ptr<ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHost> customHost{};
+  shared_ptr<ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomPrometheusSetting> customPrometheusSetting{};
+  shared_ptr<ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomVPCSetting> customVPCSetting{};
+  shared_ptr<long> ipType{};
+  shared_ptr<bool> isOpenTrace{};
+  shared_ptr<long> monitorSamples{};
+  shared_ptr<long> traceClientType{};
+  shared_ptr<string> xtraceRegion{};
+
+  ListTimingSyntheticTasksResponseBodyDataItemsCommonSetting() {}
+
+  explicit ListTimingSyntheticTasksResponseBodyDataItemsCommonSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customHost) {
+      res["CustomHost"] = customHost ? boost::any(customHost->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customPrometheusSetting) {
+      res["CustomPrometheusSetting"] = customPrometheusSetting ? boost::any(customPrometheusSetting->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customVPCSetting) {
+      res["CustomVPCSetting"] = customVPCSetting ? boost::any(customVPCSetting->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ipType) {
+      res["IpType"] = boost::any(*ipType);
+    }
+    if (isOpenTrace) {
+      res["IsOpenTrace"] = boost::any(*isOpenTrace);
+    }
+    if (monitorSamples) {
+      res["MonitorSamples"] = boost::any(*monitorSamples);
+    }
+    if (traceClientType) {
+      res["TraceClientType"] = boost::any(*traceClientType);
+    }
+    if (xtraceRegion) {
+      res["XtraceRegion"] = boost::any(*xtraceRegion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomHost") != m.end() && !m["CustomHost"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomHost"].type()) {
+        ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHost model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomHost"]));
+        customHost = make_shared<ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHost>(model1);
+      }
+    }
+    if (m.find("CustomPrometheusSetting") != m.end() && !m["CustomPrometheusSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomPrometheusSetting"].type()) {
+        ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomPrometheusSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomPrometheusSetting"]));
+        customPrometheusSetting = make_shared<ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomPrometheusSetting>(model1);
+      }
+    }
+    if (m.find("CustomVPCSetting") != m.end() && !m["CustomVPCSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomVPCSetting"].type()) {
+        ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomVPCSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomVPCSetting"]));
+        customVPCSetting = make_shared<ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomVPCSetting>(model1);
+      }
+    }
+    if (m.find("IpType") != m.end() && !m["IpType"].empty()) {
+      ipType = make_shared<long>(boost::any_cast<long>(m["IpType"]));
+    }
+    if (m.find("IsOpenTrace") != m.end() && !m["IsOpenTrace"].empty()) {
+      isOpenTrace = make_shared<bool>(boost::any_cast<bool>(m["IsOpenTrace"]));
+    }
+    if (m.find("MonitorSamples") != m.end() && !m["MonitorSamples"].empty()) {
+      monitorSamples = make_shared<long>(boost::any_cast<long>(m["MonitorSamples"]));
+    }
+    if (m.find("TraceClientType") != m.end() && !m["TraceClientType"].empty()) {
+      traceClientType = make_shared<long>(boost::any_cast<long>(m["TraceClientType"]));
+    }
+    if (m.find("XtraceRegion") != m.end() && !m["XtraceRegion"].empty()) {
+      xtraceRegion = make_shared<string>(boost::any_cast<string>(m["XtraceRegion"]));
+    }
+  }
+
+
+  virtual ~ListTimingSyntheticTasksResponseBodyDataItemsCommonSetting() = default;
+};
 class ListTimingSyntheticTasksResponseBodyDataItemsTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -50411,6 +50850,7 @@ public:
 };
 class ListTimingSyntheticTasksResponseBodyDataItems : public Darabonba::Model {
 public:
+  shared_ptr<ListTimingSyntheticTasksResponseBodyDataItemsCommonSetting> commonSetting{};
   shared_ptr<string> frequency{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
@@ -50435,6 +50875,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (commonSetting) {
+      res["CommonSetting"] = commonSetting ? boost::any(commonSetting->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (frequency) {
       res["Frequency"] = boost::any(*frequency);
     }
@@ -50482,6 +50925,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommonSetting") != m.end() && !m["CommonSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CommonSetting"].type()) {
+        ListTimingSyntheticTasksResponseBodyDataItemsCommonSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CommonSetting"]));
+        commonSetting = make_shared<ListTimingSyntheticTasksResponseBodyDataItemsCommonSetting>(model1);
+      }
+    }
     if (m.find("Frequency") != m.end() && !m["Frequency"].empty()) {
       frequency = make_shared<string>(boost::any_cast<string>(m["Frequency"]));
     }
@@ -63157,6 +63607,165 @@ public:
 
   virtual ~UpdatePrometheusGlobalViewResponse() = default;
 };
+class UpdatePrometheusInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> archiveDuration{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<long> storageDuration{};
+
+  UpdatePrometheusInstanceRequest() {}
+
+  explicit UpdatePrometheusInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (archiveDuration) {
+      res["ArchiveDuration"] = boost::any(*archiveDuration);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (storageDuration) {
+      res["StorageDuration"] = boost::any(*storageDuration);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArchiveDuration") != m.end() && !m["ArchiveDuration"].empty()) {
+      archiveDuration = make_shared<long>(boost::any_cast<long>(m["ArchiveDuration"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("StorageDuration") != m.end() && !m["StorageDuration"].empty()) {
+      storageDuration = make_shared<long>(boost::any_cast<long>(m["StorageDuration"]));
+    }
+  }
+
+
+  virtual ~UpdatePrometheusInstanceRequest() = default;
+};
+class UpdatePrometheusInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  UpdatePrometheusInstanceResponseBody() {}
+
+  explicit UpdatePrometheusInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdatePrometheusInstanceResponseBody() = default;
+};
+class UpdatePrometheusInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdatePrometheusInstanceResponseBody> body{};
+
+  UpdatePrometheusInstanceResponse() {}
+
+  explicit UpdatePrometheusInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdatePrometheusInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdatePrometheusInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdatePrometheusInstanceResponse() = default;
+};
 class UpdatePrometheusIntegrationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -63983,6 +64592,54 @@ public:
 
   virtual ~UpdateTimingSyntheticTaskRequestCommonSettingCustomHost() = default;
 };
+class UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting : public Darabonba::Model {
+public:
+  shared_ptr<string> prometheusClusterId{};
+  shared_ptr<string> prometheusClusterRegion{};
+  shared_ptr<map<string, string>> prometheusLabels{};
+
+  UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting() {}
+
+  explicit UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (prometheusClusterId) {
+      res["PrometheusClusterId"] = boost::any(*prometheusClusterId);
+    }
+    if (prometheusClusterRegion) {
+      res["PrometheusClusterRegion"] = boost::any(*prometheusClusterRegion);
+    }
+    if (prometheusLabels) {
+      res["PrometheusLabels"] = boost::any(*prometheusLabels);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PrometheusClusterId") != m.end() && !m["PrometheusClusterId"].empty()) {
+      prometheusClusterId = make_shared<string>(boost::any_cast<string>(m["PrometheusClusterId"]));
+    }
+    if (m.find("PrometheusClusterRegion") != m.end() && !m["PrometheusClusterRegion"].empty()) {
+      prometheusClusterRegion = make_shared<string>(boost::any_cast<string>(m["PrometheusClusterRegion"]));
+    }
+    if (m.find("PrometheusLabels") != m.end() && !m["PrometheusLabels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["PrometheusLabels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      prometheusLabels = make_shared<map<string, string>>(toMap1);
+    }
+  }
+
+
+  virtual ~UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting() = default;
+};
 class UpdateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -64036,6 +64693,7 @@ public:
 class UpdateTimingSyntheticTaskRequestCommonSetting : public Darabonba::Model {
 public:
   shared_ptr<UpdateTimingSyntheticTaskRequestCommonSettingCustomHost> customHost{};
+  shared_ptr<UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting> customPrometheusSetting{};
   shared_ptr<UpdateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting> customVPCSetting{};
   shared_ptr<long> ipType{};
   shared_ptr<bool> isOpenTrace{};
@@ -64055,6 +64713,9 @@ public:
     map<string, boost::any> res;
     if (customHost) {
       res["CustomHost"] = customHost ? boost::any(customHost->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customPrometheusSetting) {
+      res["CustomPrometheusSetting"] = customPrometheusSetting ? boost::any(customPrometheusSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (customVPCSetting) {
       res["CustomVPCSetting"] = customVPCSetting ? boost::any(customVPCSetting->toMap()) : boost::any(map<string,boost::any>({}));
@@ -64083,6 +64744,13 @@ public:
         UpdateTimingSyntheticTaskRequestCommonSettingCustomHost model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomHost"]));
         customHost = make_shared<UpdateTimingSyntheticTaskRequestCommonSettingCustomHost>(model1);
+      }
+    }
+    if (m.find("CustomPrometheusSetting") != m.end() && !m["CustomPrometheusSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomPrometheusSetting"].type()) {
+        UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomPrometheusSetting"]));
+        customPrometheusSetting = make_shared<UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting>(model1);
       }
     }
     if (m.find("CustomVPCSetting") != m.end() && !m["CustomVPCSetting"].empty()) {
@@ -66633,6 +67301,8 @@ public:
   UpdatePrometheusAlertRuleResponse updatePrometheusAlertRule(shared_ptr<UpdatePrometheusAlertRuleRequest> request);
   UpdatePrometheusGlobalViewResponse updatePrometheusGlobalViewWithOptions(shared_ptr<UpdatePrometheusGlobalViewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePrometheusGlobalViewResponse updatePrometheusGlobalView(shared_ptr<UpdatePrometheusGlobalViewRequest> request);
+  UpdatePrometheusInstanceResponse updatePrometheusInstanceWithOptions(shared_ptr<UpdatePrometheusInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdatePrometheusInstanceResponse updatePrometheusInstance(shared_ptr<UpdatePrometheusInstanceRequest> request);
   UpdatePrometheusIntegrationResponse updatePrometheusIntegrationWithOptions(shared_ptr<UpdatePrometheusIntegrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePrometheusIntegrationResponse updatePrometheusIntegration(shared_ptr<UpdatePrometheusIntegrationRequest> request);
   UpdatePrometheusMonitoringResponse updatePrometheusMonitoringWithOptions(shared_ptr<UpdatePrometheusMonitoringRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

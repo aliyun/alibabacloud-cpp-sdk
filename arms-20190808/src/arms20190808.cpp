@@ -1764,6 +1764,9 @@ CreatePrometheusInstanceResponse Alibabacloud_ARMS20190808::Client::createPromet
   if (!Darabonba_Util::Client::isUnset<bool>(request->allSubClustersSuccess)) {
     query->insert(pair<string, bool>("AllSubClustersSuccess", *request->allSubClustersSuccess));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->archiveDuration)) {
+    query->insert(pair<string, long>("ArchiveDuration", *request->archiveDuration));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
@@ -8713,6 +8716,46 @@ UpdatePrometheusGlobalViewResponse Alibabacloud_ARMS20190808::Client::updateProm
 UpdatePrometheusGlobalViewResponse Alibabacloud_ARMS20190808::Client::updatePrometheusGlobalView(shared_ptr<UpdatePrometheusGlobalViewRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updatePrometheusGlobalViewWithOptions(request, runtime);
+}
+
+UpdatePrometheusInstanceResponse Alibabacloud_ARMS20190808::Client::updatePrometheusInstanceWithOptions(shared_ptr<UpdatePrometheusInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->archiveDuration)) {
+    query->insert(pair<string, long>("ArchiveDuration", *request->archiveDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->storageDuration)) {
+    query->insert(pair<string, long>("StorageDuration", *request->storageDuration));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdatePrometheusInstance"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdatePrometheusInstanceResponse(callApi(params, req, runtime));
+}
+
+UpdatePrometheusInstanceResponse Alibabacloud_ARMS20190808::Client::updatePrometheusInstance(shared_ptr<UpdatePrometheusInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updatePrometheusInstanceWithOptions(request, runtime);
 }
 
 UpdatePrometheusIntegrationResponse Alibabacloud_ARMS20190808::Client::updatePrometheusIntegrationWithOptions(shared_ptr<UpdatePrometheusIntegrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
