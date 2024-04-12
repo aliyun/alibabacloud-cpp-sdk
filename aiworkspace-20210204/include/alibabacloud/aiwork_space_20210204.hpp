@@ -6653,6 +6653,7 @@ class GetPermissionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessibility{};
   shared_ptr<string> creator{};
+  shared_ptr<string> option{};
   shared_ptr<string> resource{};
 
   GetPermissionRequest() {}
@@ -6671,6 +6672,9 @@ public:
     if (creator) {
       res["Creator"] = boost::any(*creator);
     }
+    if (option) {
+      res["Option"] = boost::any(*option);
+    }
     if (resource) {
       res["Resource"] = boost::any(*resource);
     }
@@ -6683,6 +6687,9 @@ public:
     }
     if (m.find("Creator") != m.end() && !m["Creator"].empty()) {
       creator = make_shared<string>(boost::any_cast<string>(m["Creator"]));
+    }
+    if (m.find("Option") != m.end() && !m["Option"].empty()) {
+      option = make_shared<string>(boost::any_cast<string>(m["Option"]));
     }
     if (m.find("Resource") != m.end() && !m["Resource"].empty()) {
       resource = make_shared<string>(boost::any_cast<string>(m["Resource"]));

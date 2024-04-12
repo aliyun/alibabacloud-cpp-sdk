@@ -1166,6 +1166,9 @@ GetPermissionResponse Alibabacloud_AIWorkSpace20210204::Client::getPermissionWit
   if (!Darabonba_Util::Client::isUnset<string>(request->creator)) {
     query->insert(pair<string, string>("Creator", *request->creator));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->option)) {
+    query->insert(pair<string, string>("Option", *request->option));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resource)) {
     query->insert(pair<string, string>("Resource", *request->resource));
   }
