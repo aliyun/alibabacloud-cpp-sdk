@@ -7460,6 +7460,12 @@ DescribeDedicatedHostsResponse Alibabacloud_Ecs20140526::Client::describeDedicat
   if (!Darabonba_Util::Client::isUnset<string>(request->lockReason)) {
     query->insert(pair<string, string>("LockReason", *request->lockReason));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -9573,8 +9579,17 @@ DescribeInstanceTypesResponse Alibabacloud_Ecs20140526::Client::describeInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->cpuArchitecture)) {
     query->insert(pair<string, string>("CpuArchitecture", *request->cpuArchitecture));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->cpuArchitectures)) {
+    query->insert(pair<string, vector<string>>("CpuArchitectures", *request->cpuArchitectures));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->GPUSpec)) {
     query->insert(pair<string, string>("GPUSpec", *request->GPUSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->gpuSpecs)) {
+    query->insert(pair<string, vector<string>>("GpuSpecs", *request->gpuSpecs));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceCategories)) {
+    query->insert(pair<string, vector<string>>("InstanceCategories", *request->instanceCategories));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceCategory)) {
     query->insert(pair<string, string>("InstanceCategory", *request->instanceCategory));
@@ -9582,11 +9597,17 @@ DescribeInstanceTypesResponse Alibabacloud_Ecs20140526::Client::describeInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceFamilyLevel)) {
     query->insert(pair<string, string>("InstanceFamilyLevel", *request->instanceFamilyLevel));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceTypeFamilies)) {
+    query->insert(pair<string, vector<string>>("InstanceTypeFamilies", *request->instanceTypeFamilies));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceTypeFamily)) {
     query->insert(pair<string, string>("InstanceTypeFamily", *request->instanceTypeFamily));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceTypes)) {
     query->insert(pair<string, vector<string>>("InstanceTypes", *request->instanceTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->localStorageCategories)) {
+    query->insert(pair<string, vector<string>>("LocalStorageCategories", *request->localStorageCategories));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->localStorageCategory)) {
     query->insert(pair<string, string>("LocalStorageCategory", *request->localStorageCategory));
@@ -9686,6 +9707,9 @@ DescribeInstanceTypesResponse Alibabacloud_Ecs20140526::Client::describeInstance
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->physicalProcessorModel)) {
     query->insert(pair<string, string>("PhysicalProcessorModel", *request->physicalProcessorModel));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->physicalProcessorModels)) {
+    query->insert(pair<string, vector<string>>("PhysicalProcessorModels", *request->physicalProcessorModels));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
