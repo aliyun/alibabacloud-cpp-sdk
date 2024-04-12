@@ -2532,6 +2532,49 @@ public:
 
   virtual ~GetInstanceResponseBodyLatestSnapshot() = default;
 };
+class GetInstanceResponseBodyNodeErrorRecovery : public Darabonba::Model {
+public:
+  shared_ptr<long> autoSwitchCountdownSeconds{};
+  shared_ptr<bool> enableAutoSwitchOnNodeError{};
+  shared_ptr<bool> hasNodeError{};
+
+  GetInstanceResponseBodyNodeErrorRecovery() {}
+
+  explicit GetInstanceResponseBodyNodeErrorRecovery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoSwitchCountdownSeconds) {
+      res["autoSwitchCountdownSeconds"] = boost::any(*autoSwitchCountdownSeconds);
+    }
+    if (enableAutoSwitchOnNodeError) {
+      res["enableAutoSwitchOnNodeError"] = boost::any(*enableAutoSwitchOnNodeError);
+    }
+    if (hasNodeError) {
+      res["hasNodeError"] = boost::any(*hasNodeError);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("autoSwitchCountdownSeconds") != m.end() && !m["autoSwitchCountdownSeconds"].empty()) {
+      autoSwitchCountdownSeconds = make_shared<long>(boost::any_cast<long>(m["autoSwitchCountdownSeconds"]));
+    }
+    if (m.find("enableAutoSwitchOnNodeError") != m.end() && !m["enableAutoSwitchOnNodeError"].empty()) {
+      enableAutoSwitchOnNodeError = make_shared<bool>(boost::any_cast<bool>(m["enableAutoSwitchOnNodeError"]));
+    }
+    if (m.find("hasNodeError") != m.end() && !m["hasNodeError"].empty()) {
+      hasNodeError = make_shared<bool>(boost::any_cast<bool>(m["hasNodeError"]));
+    }
+  }
+
+
+  virtual ~GetInstanceResponseBodyNodeErrorRecovery() = default;
+};
 class GetInstanceResponseBodyRequestedResource : public Darabonba::Model {
 public:
   shared_ptr<string> CPU{};
@@ -2701,6 +2744,7 @@ public:
   shared_ptr<vector<GetInstanceResponseBodyLabels>> labels{};
   shared_ptr<GetInstanceResponseBodyLatestSnapshot> latestSnapshot{};
   shared_ptr<string> message{};
+  shared_ptr<GetInstanceResponseBodyNodeErrorRecovery> nodeErrorRecovery{};
   shared_ptr<string> paymentType{};
   shared_ptr<long> priority{};
   shared_ptr<string> reasonCode{};
@@ -2820,6 +2864,9 @@ public:
     }
     if (message) {
       res["Message"] = boost::any(*message);
+    }
+    if (nodeErrorRecovery) {
+      res["NodeErrorRecovery"] = nodeErrorRecovery ? boost::any(nodeErrorRecovery->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (paymentType) {
       res["PaymentType"] = boost::any(*paymentType);
@@ -3010,6 +3057,13 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("NodeErrorRecovery") != m.end() && !m["NodeErrorRecovery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NodeErrorRecovery"].type()) {
+        GetInstanceResponseBodyNodeErrorRecovery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NodeErrorRecovery"]));
+        nodeErrorRecovery = make_shared<GetInstanceResponseBodyNodeErrorRecovery>(model1);
+      }
     }
     if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
       paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
