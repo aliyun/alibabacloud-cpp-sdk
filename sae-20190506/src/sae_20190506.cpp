@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -107,6 +106,9 @@ BatchStartApplicationsResponse Alibabacloud_Sae20190506::Client::batchStartAppli
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
+    query->insert(pair<string, string>("Version", *request->version));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -139,6 +141,9 @@ BatchStopApplicationsResponse Alibabacloud_Sae20190506::Client::batchStopApplica
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
+    query->insert(pair<string, string>("Version", *request->version));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2426,6 +2431,12 @@ ExecJobResponse Alibabacloud_Sae20190506::Client::execJob(shared_ptr<ExecJobRequ
 GetArmsTopNMetricResponse Alibabacloud_Sae20190506::Client::getArmsTopNMetricWithOptions(shared_ptr<GetArmsTopNMetricRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appSource)) {
+    query->insert(pair<string, string>("AppSource", *request->appSource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cpuStrategy)) {
+    query->insert(pair<string, string>("CpuStrategy", *request->cpuStrategy));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
     query->insert(pair<string, long>("EndTime", *request->endTime));
   }
@@ -2468,6 +2479,12 @@ GetArmsTopNMetricResponse Alibabacloud_Sae20190506::Client::getArmsTopNMetric(sh
 GetAvailabilityMetricResponse Alibabacloud_Sae20190506::Client::getAvailabilityMetricWithOptions(shared_ptr<GetAvailabilityMetricRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appSource)) {
+    query->insert(pair<string, string>("AppSource", *request->appSource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cpuStrategy)) {
+    query->insert(pair<string, string>("CpuStrategy", *request->cpuStrategy));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
     query->insert(pair<string, long>("Limit", *request->limit));
   }
@@ -2501,6 +2518,12 @@ GetAvailabilityMetricResponse Alibabacloud_Sae20190506::Client::getAvailabilityM
 GetChangeOrderMetricResponse Alibabacloud_Sae20190506::Client::getChangeOrderMetricWithOptions(shared_ptr<GetChangeOrderMetricRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appSource)) {
+    query->insert(pair<string, string>("AppSource", *request->appSource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cpuStrategy)) {
+    query->insert(pair<string, string>("CpuStrategy", *request->cpuStrategy));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->createTime)) {
     query->insert(pair<string, string>("CreateTime", *request->createTime));
   }
@@ -2540,6 +2563,12 @@ GetChangeOrderMetricResponse Alibabacloud_Sae20190506::Client::getChangeOrderMet
 GetScaleAppMetricResponse Alibabacloud_Sae20190506::Client::getScaleAppMetricWithOptions(shared_ptr<GetScaleAppMetricRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appSource)) {
+    query->insert(pair<string, string>("AppSource", *request->appSource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cpuStrategy)) {
+    query->insert(pair<string, string>("CpuStrategy", *request->cpuStrategy));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
     query->insert(pair<string, long>("Limit", *request->limit));
   }
@@ -2573,6 +2602,12 @@ GetScaleAppMetricResponse Alibabacloud_Sae20190506::Client::getScaleAppMetric(sh
 GetWarningEventMetricResponse Alibabacloud_Sae20190506::Client::getWarningEventMetricWithOptions(shared_ptr<GetWarningEventMetricRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appSource)) {
+    query->insert(pair<string, string>("AppSource", *request->appSource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cpuStrategy)) {
+    query->insert(pair<string, string>("CpuStrategy", *request->cpuStrategy));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
     query->insert(pair<string, long>("EndTime", *request->endTime));
   }
