@@ -18826,6 +18826,8 @@ public:
 };
 class SaveBatchTaskForReserveDropListDomainRequestDomains : public Darabonba::Model {
 public:
+  shared_ptr<string> dns1{};
+  shared_ptr<string> dns2{};
   shared_ptr<string> domainName{};
 
   SaveBatchTaskForReserveDropListDomainRequestDomains() {}
@@ -18838,6 +18840,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dns1) {
+      res["Dns1"] = boost::any(*dns1);
+    }
+    if (dns2) {
+      res["Dns2"] = boost::any(*dns2);
+    }
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
     }
@@ -18845,6 +18853,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Dns1") != m.end() && !m["Dns1"].empty()) {
+      dns1 = make_shared<string>(boost::any_cast<string>(m["Dns1"]));
+    }
+    if (m.find("Dns2") != m.end() && !m["Dns2"].empty()) {
+      dns2 = make_shared<string>(boost::any_cast<string>(m["Dns2"]));
+    }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
     }
