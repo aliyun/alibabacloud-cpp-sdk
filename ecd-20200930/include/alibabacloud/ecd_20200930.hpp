@@ -6241,7 +6241,9 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> desktopType{};
   shared_ptr<string> directoryId{};
+  shared_ptr<long> idleDisconnectDuration{};
   shared_ptr<string> imageId{};
+  shared_ptr<long> keepDuration{};
   shared_ptr<string> name{};
   shared_ptr<long> oversoldUserCount{};
   shared_ptr<long> oversoldWarn{};
@@ -6276,8 +6278,14 @@ public:
     if (directoryId) {
       res["DirectoryId"] = boost::any(*directoryId);
     }
+    if (idleDisconnectDuration) {
+      res["IdleDisconnectDuration"] = boost::any(*idleDisconnectDuration);
+    }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
+    }
+    if (keepDuration) {
+      res["KeepDuration"] = boost::any(*keepDuration);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -6322,8 +6330,14 @@ public:
     if (m.find("DirectoryId") != m.end() && !m["DirectoryId"].empty()) {
       directoryId = make_shared<string>(boost::any_cast<string>(m["DirectoryId"]));
     }
+    if (m.find("IdleDisconnectDuration") != m.end() && !m["IdleDisconnectDuration"].empty()) {
+      idleDisconnectDuration = make_shared<long>(boost::any_cast<long>(m["IdleDisconnectDuration"]));
+    }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("KeepDuration") != m.end() && !m["KeepDuration"].empty()) {
+      keepDuration = make_shared<long>(boost::any_cast<long>(m["KeepDuration"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -16297,6 +16311,8 @@ public:
 };
 class DescribeDesktopSessionsRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> desktopId{};
+  shared_ptr<string> desktopName{};
   shared_ptr<string> endTime{};
   shared_ptr<string> endUserId{};
   shared_ptr<string> officeSiteId{};
@@ -16316,6 +16332,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (desktopId) {
+      res["DesktopId"] = boost::any(*desktopId);
+    }
+    if (desktopName) {
+      res["DesktopName"] = boost::any(*desktopName);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -16344,6 +16366,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DesktopId") != m.end() && !m["DesktopId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DesktopId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DesktopId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      desktopId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DesktopName") != m.end() && !m["DesktopName"].empty()) {
+      desktopName = make_shared<string>(boost::any_cast<string>(m["DesktopName"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -25891,6 +25926,299 @@ public:
 
 
   virtual ~DescribePriceForRenewDesktopOversoldGroupResponse() = default;
+};
+class DescribeRecordingsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> desktopId{};
+  shared_ptr<string> endTime{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<bool> needSignedUrl{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> policyGroupId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> signedUrlExpireMinutes{};
+  shared_ptr<string> startTime{};
+
+  DescribeRecordingsRequest() {}
+
+  explicit DescribeRecordingsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desktopId) {
+      res["DesktopId"] = boost::any(*desktopId);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (needSignedUrl) {
+      res["NeedSignedUrl"] = boost::any(*needSignedUrl);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (policyGroupId) {
+      res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (signedUrlExpireMinutes) {
+      res["SignedUrlExpireMinutes"] = boost::any(*signedUrlExpireMinutes);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DesktopId") != m.end() && !m["DesktopId"].empty()) {
+      desktopId = make_shared<string>(boost::any_cast<string>(m["DesktopId"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NeedSignedUrl") != m.end() && !m["NeedSignedUrl"].empty()) {
+      needSignedUrl = make_shared<bool>(boost::any_cast<bool>(m["NeedSignedUrl"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
+      policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SignedUrlExpireMinutes") != m.end() && !m["SignedUrlExpireMinutes"].empty()) {
+      signedUrlExpireMinutes = make_shared<long>(boost::any_cast<long>(m["SignedUrlExpireMinutes"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeRecordingsRequest() = default;
+};
+class DescribeRecordingsResponseBodyRecordings : public Darabonba::Model {
+public:
+  shared_ptr<string> desktopId{};
+  shared_ptr<string> desktopName{};
+  shared_ptr<string> endTime{};
+  shared_ptr<vector<string>> endUserIds{};
+  shared_ptr<string> filePath{};
+  shared_ptr<string> policyGroupId{};
+  shared_ptr<long> recordingSize{};
+  shared_ptr<string> recordingType{};
+  shared_ptr<string> signedUrl{};
+  shared_ptr<string> startTime{};
+
+  DescribeRecordingsResponseBodyRecordings() {}
+
+  explicit DescribeRecordingsResponseBodyRecordings(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desktopId) {
+      res["DesktopId"] = boost::any(*desktopId);
+    }
+    if (desktopName) {
+      res["DesktopName"] = boost::any(*desktopName);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (endUserIds) {
+      res["EndUserIds"] = boost::any(*endUserIds);
+    }
+    if (filePath) {
+      res["FilePath"] = boost::any(*filePath);
+    }
+    if (policyGroupId) {
+      res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (recordingSize) {
+      res["RecordingSize"] = boost::any(*recordingSize);
+    }
+    if (recordingType) {
+      res["RecordingType"] = boost::any(*recordingType);
+    }
+    if (signedUrl) {
+      res["SignedUrl"] = boost::any(*signedUrl);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DesktopId") != m.end() && !m["DesktopId"].empty()) {
+      desktopId = make_shared<string>(boost::any_cast<string>(m["DesktopId"]));
+    }
+    if (m.find("DesktopName") != m.end() && !m["DesktopName"].empty()) {
+      desktopName = make_shared<string>(boost::any_cast<string>(m["DesktopName"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("EndUserIds") != m.end() && !m["EndUserIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EndUserIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EndUserIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      endUserIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("FilePath") != m.end() && !m["FilePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["FilePath"]));
+    }
+    if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
+      policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("RecordingSize") != m.end() && !m["RecordingSize"].empty()) {
+      recordingSize = make_shared<long>(boost::any_cast<long>(m["RecordingSize"]));
+    }
+    if (m.find("RecordingType") != m.end() && !m["RecordingType"].empty()) {
+      recordingType = make_shared<string>(boost::any_cast<string>(m["RecordingType"]));
+    }
+    if (m.find("SignedUrl") != m.end() && !m["SignedUrl"].empty()) {
+      signedUrl = make_shared<string>(boost::any_cast<string>(m["SignedUrl"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeRecordingsResponseBodyRecordings() = default;
+};
+class DescribeRecordingsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<DescribeRecordingsResponseBodyRecordings>> recordings{};
+  shared_ptr<string> requestId{};
+
+  DescribeRecordingsResponseBody() {}
+
+  explicit DescribeRecordingsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (recordings) {
+      vector<boost::any> temp1;
+      for(auto item1:*recordings){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Recordings"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Recordings") != m.end() && !m["Recordings"].empty()) {
+      if (typeid(vector<boost::any>) == m["Recordings"].type()) {
+        vector<DescribeRecordingsResponseBodyRecordings> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Recordings"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRecordingsResponseBodyRecordings model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        recordings = make_shared<vector<DescribeRecordingsResponseBodyRecordings>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeRecordingsResponseBody() = default;
+};
+class DescribeRecordingsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeRecordingsResponseBody> body{};
+
+  DescribeRecordingsResponse() {}
+
+  explicit DescribeRecordingsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeRecordingsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeRecordingsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRecordingsResponse() = default;
 };
 class DescribeRegionsRequest : public Darabonba::Model {
 public:
@@ -36534,7 +36862,9 @@ class ModifyDesktopOversoldGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<long> concurrenceCount{};
   shared_ptr<string> description{};
+  shared_ptr<long> idleDisconnectDuration{};
   shared_ptr<string> imageId{};
+  shared_ptr<long> keepDuration{};
   shared_ptr<string> name{};
   shared_ptr<string> oversoldGroupId{};
   shared_ptr<long> oversoldUserCount{};
@@ -36558,8 +36888,14 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (idleDisconnectDuration) {
+      res["IdleDisconnectDuration"] = boost::any(*idleDisconnectDuration);
+    }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
+    }
+    if (keepDuration) {
+      res["KeepDuration"] = boost::any(*keepDuration);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -36589,8 +36925,14 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("IdleDisconnectDuration") != m.end() && !m["IdleDisconnectDuration"].empty()) {
+      idleDisconnectDuration = make_shared<long>(boost::any_cast<long>(m["IdleDisconnectDuration"]));
+    }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("KeepDuration") != m.end() && !m["KeepDuration"].empty()) {
+      keepDuration = make_shared<long>(boost::any_cast<long>(m["KeepDuration"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -45852,6 +46194,8 @@ public:
   DescribePriceForModifyDesktopOversoldGroupSaleResponse describePriceForModifyDesktopOversoldGroupSale(shared_ptr<DescribePriceForModifyDesktopOversoldGroupSaleRequest> request);
   DescribePriceForRenewDesktopOversoldGroupResponse describePriceForRenewDesktopOversoldGroupWithOptions(shared_ptr<DescribePriceForRenewDesktopOversoldGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePriceForRenewDesktopOversoldGroupResponse describePriceForRenewDesktopOversoldGroup(shared_ptr<DescribePriceForRenewDesktopOversoldGroupRequest> request);
+  DescribeRecordingsResponse describeRecordingsWithOptions(shared_ptr<DescribeRecordingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeRecordingsResponse describeRecordings(shared_ptr<DescribeRecordingsRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DescribeSessionStatisticResponse describeSessionStatisticWithOptions(shared_ptr<DescribeSessionStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
