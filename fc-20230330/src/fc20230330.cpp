@@ -736,36 +736,6 @@ GetProvisionConfigResponse Alibabacloud_FC20230330::Client::getProvisionConfig(s
   return getProvisionConfigWithOptions(functionName, request, headers, runtime);
 }
 
-GetResourceTagsResponse Alibabacloud_FC20230330::Client::getResourceTagsWithOptions(shared_ptr<GetResourceTagsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->arn)) {
-    query->insert(pair<string, string>("arn", *request->arn));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetResourceTags"))},
-    {"version", boost::any(string("2023-03-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/2023-03-30/tag"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetResourceTagsResponse(callApi(params, req, runtime));
-}
-
-GetResourceTagsResponse Alibabacloud_FC20230330::Client::getResourceTags(shared_ptr<GetResourceTagsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getResourceTagsWithOptions(request, headers, runtime);
-}
-
 GetTriggerResponse Alibabacloud_FC20230330::Client::getTriggerWithOptions(shared_ptr<string> functionName,
                                                                           shared_ptr<string> triggerName,
                                                                           shared_ptr<map<string, string>> headers,
@@ -805,6 +775,9 @@ InvokeFunctionResponse Alibabacloud_FC20230330::Client::invokeFunctionWithOption
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
     realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAsyncTaskId)) {
+    realHeaders->insert(pair<string, string>("x-fc-async-task-id", Darabonba_Util::Client::toJSONString(headers->xFcAsyncTaskId)));
   }
   if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
     realHeaders->insert(pair<string, string>("x-fc-invocation-type", Darabonba_Util::Client::toJSONString(headers->xFcInvocationType)));
@@ -1274,42 +1247,6 @@ ListTagResourcesResponse Alibabacloud_FC20230330::Client::listTagResources(share
   return listTagResourcesWithOptions(request, headers, runtime);
 }
 
-ListTaggedResourcesResponse Alibabacloud_FC20230330::Client::listTaggedResourcesWithOptions(shared_ptr<ListTaggedResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
-    query->insert(pair<string, long>("limit", *request->limit));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
-    query->insert(pair<string, string>("nextToken", *request->nextToken));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
-    query->insert(pair<string, string>("resourceType", *request->resourceType));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListTaggedResources"))},
-    {"version", boost::any(string("2023-03-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/2023-03-30/tags"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListTaggedResourcesResponse(callApi(params, req, runtime));
-}
-
-ListTaggedResourcesResponse Alibabacloud_FC20230330::Client::listTaggedResources(shared_ptr<ListTaggedResourcesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listTaggedResourcesWithOptions(request, headers, runtime);
-}
-
 ListTriggersResponse Alibabacloud_FC20230330::Client::listTriggersWithOptions(shared_ptr<string> functionName,
                                                                               shared_ptr<ListTriggersRequest> request,
                                                                               shared_ptr<map<string, string>> headers,
@@ -1532,32 +1469,6 @@ PutProvisionConfigResponse Alibabacloud_FC20230330::Client::putProvisionConfig(s
   return putProvisionConfigWithOptions(functionName, request, headers, runtime);
 }
 
-TagResourceResponse Alibabacloud_FC20230330::Client::tagResourceWithOptions(shared_ptr<TagResourceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("TagResource"))},
-    {"version", boost::any(string("2023-03-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/2023-03-30/tag"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return TagResourceResponse(callApi(params, req, runtime));
-}
-
-TagResourceResponse Alibabacloud_FC20230330::Client::tagResource(shared_ptr<TagResourceRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return tagResourceWithOptions(request, headers, runtime);
-}
-
 TagResourcesResponse Alibabacloud_FC20230330::Client::tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -1582,42 +1493,6 @@ TagResourcesResponse Alibabacloud_FC20230330::Client::tagResources(shared_ptr<Ta
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return tagResourcesWithOptions(request, headers, runtime);
-}
-
-UntagResourceResponse Alibabacloud_FC20230330::Client::untagResourceWithOptions(shared_ptr<UntagResourceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<bool>(request->all)) {
-    query->insert(pair<string, bool>("all", *request->all));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->arn)) {
-    query->insert(pair<string, string>("arn", *request->arn));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->tagKeys)) {
-    query->insert(pair<string, string>("tagKeys", *request->tagKeys));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("UntagResource"))},
-    {"version", boost::any(string("2023-03-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/2023-03-30/tag"))},
-    {"method", boost::any(string("DELETE"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return UntagResourceResponse(callApi(params, req, runtime));
-}
-
-UntagResourceResponse Alibabacloud_FC20230330::Client::untagResource(shared_ptr<UntagResourceRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return untagResourceWithOptions(request, headers, runtime);
 }
 
 UntagResourcesResponse Alibabacloud_FC20230330::Client::untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
