@@ -3653,9 +3653,6 @@ ListTagResourcesResponse Alibabacloud_Dds20151201::Client::listTagResources(shar
 MigrateAvailableZoneResponse Alibabacloud_Dds20151201::Client::migrateAvailableZoneWithOptions(shared_ptr<MigrateAvailableZoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->category)) {
-    query->insert(pair<string, string>("Category", *request->category));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }

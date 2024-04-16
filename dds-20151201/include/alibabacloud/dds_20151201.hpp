@@ -6769,7 +6769,7 @@ public:
 };
 class DescribeBackupTasksRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> backupJobId{};
+  shared_ptr<string> backupJobId{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -6813,7 +6813,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BackupJobId") != m.end() && !m["BackupJobId"].empty()) {
-      backupJobId = make_shared<long>(boost::any_cast<long>(m["BackupJobId"]));
+      backupJobId = make_shared<string>(boost::any_cast<string>(m["BackupJobId"]));
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
@@ -6842,7 +6842,7 @@ class DescribeBackupTasksResponseBodyBackupJobs : public Darabonba::Model {
 public:
   shared_ptr<string> backupSetStatus{};
   shared_ptr<string> backupStartTime{};
-  shared_ptr<long> backupjobId{};
+  shared_ptr<string> backupjobId{};
   shared_ptr<string> jobMode{};
   shared_ptr<string> progress{};
 
@@ -6882,7 +6882,7 @@ public:
       backupStartTime = make_shared<string>(boost::any_cast<string>(m["BackupStartTime"]));
     }
     if (m.find("BackupjobId") != m.end() && !m["BackupjobId"].empty()) {
-      backupjobId = make_shared<long>(boost::any_cast<long>(m["BackupjobId"]));
+      backupjobId = make_shared<string>(boost::any_cast<string>(m["BackupjobId"]));
     }
     if (m.find("JobMode") != m.end() && !m["JobMode"].empty()) {
       jobMode = make_shared<string>(boost::any_cast<string>(m["JobMode"]));
@@ -7101,9 +7101,9 @@ public:
   shared_ptr<string> backupDBNames{};
   shared_ptr<string> backupDownloadURL{};
   shared_ptr<string> backupEndTime{};
-  shared_ptr<long> backupId{};
+  shared_ptr<string> backupId{};
   shared_ptr<string> backupIntranetDownloadURL{};
-  shared_ptr<long> backupJobId{};
+  shared_ptr<string> backupJobId{};
   shared_ptr<string> backupMethod{};
   shared_ptr<string> backupMode{};
   shared_ptr<long> backupSize{};
@@ -7171,13 +7171,13 @@ public:
       backupEndTime = make_shared<string>(boost::any_cast<string>(m["BackupEndTime"]));
     }
     if (m.find("BackupId") != m.end() && !m["BackupId"].empty()) {
-      backupId = make_shared<long>(boost::any_cast<long>(m["BackupId"]));
+      backupId = make_shared<string>(boost::any_cast<string>(m["BackupId"]));
     }
     if (m.find("BackupIntranetDownloadURL") != m.end() && !m["BackupIntranetDownloadURL"].empty()) {
       backupIntranetDownloadURL = make_shared<string>(boost::any_cast<string>(m["BackupIntranetDownloadURL"]));
     }
     if (m.find("BackupJobId") != m.end() && !m["BackupJobId"].empty()) {
-      backupJobId = make_shared<long>(boost::any_cast<long>(m["BackupJobId"]));
+      backupJobId = make_shared<string>(boost::any_cast<string>(m["BackupJobId"]));
     }
     if (m.find("BackupMethod") != m.end() && !m["BackupMethod"].empty()) {
       backupMethod = make_shared<string>(boost::any_cast<string>(m["BackupMethod"]));
@@ -21953,7 +21953,6 @@ public:
 };
 class MigrateAvailableZoneRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> category{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> effectiveTime{};
   shared_ptr<string> ownerAccount{};
@@ -21973,9 +21972,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (category) {
-      res["Category"] = boost::any(*category);
-    }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
@@ -22004,9 +22000,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Category") != m.end() && !m["Category"].empty()) {
-      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
-    }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
     }
