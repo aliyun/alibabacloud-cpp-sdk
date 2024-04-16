@@ -1,10 +1,10 @@
 // This file is auto-generated, don't edit it. Thanks.
 
 #include <alibabacloud/ali_genieiap_10.hpp>
+#include <alibabacloud/endpoint_util.hpp>
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -17,10 +17,25 @@ using namespace Alibabacloud_AliGenieiap10;
 
 Alibabacloud_AliGenieiap10::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
   _endpointRule = make_shared<string>("");
-  if (Darabonba_Util::Client::empty(_endpoint)) {
-    _endpoint = make_shared<string>("openapi.aligenie.com/v1.0/iap");
-  }
+  checkConfig(config);
+  _endpoint = make_shared<string>(getEndpoint(make_shared<string>("aligenie"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
 };
+
+string Alibabacloud_AliGenieiap10::Client::getEndpoint(shared_ptr<string> productId,
+                                                       shared_ptr<string> regionId,
+                                                       shared_ptr<string> endpointRule,
+                                                       shared_ptr<string> network,
+                                                       shared_ptr<string> suffix,
+                                                       shared_ptr<map<string, string>> endpointMap,
+                                                       shared_ptr<string> endpoint) {
+  if (!Darabonba_Util::Client::empty(endpoint)) {
+    return *endpoint;
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)[regionId]))) {
+    return (*endpointMap)[regionId];
+  }
+  return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
+}
 
 AppUseTimeReportResponse Alibabacloud_AliGenieiap10::Client::appUseTimeReportWithOptions(shared_ptr<AppUseTimeReportRequest> tmpReq, shared_ptr<AppUseTimeReportHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
@@ -77,6 +92,132 @@ AppUseTimeReportResponse Alibabacloud_AliGenieiap10::Client::appUseTimeReport(sh
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<AppUseTimeReportHeaders> headers = make_shared<AppUseTimeReportHeaders>();
   return appUseTimeReportWithOptions(request, headers, runtime);
+}
+
+CallBackThirdRightSendPlanResponse Alibabacloud_AliGenieiap10::Client::callBackThirdRightSendPlanWithOptions(shared_ptr<CallBackThirdRightSendPlanRequest> tmpReq, shared_ptr<CallBackThirdRightSendPlanHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CallBackThirdRightSendPlanShrinkRequest> request = make_shared<CallBackThirdRightSendPlanShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->extendInfo)) {
+    request->extendInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->extendInfo, make_shared<string>("ExtendInfo"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizGroup)) {
+    query->insert(pair<string, string>("BizGroup", *request->bizGroup));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
+    query->insert(pair<string, string>("BizType", *request->bizType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cardType)) {
+    query->insert(pair<string, long>("CardType", *request->cardType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->errorMsg)) {
+    query->insert(pair<string, string>("ErrorMsg", *request->errorMsg));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extendInfoShrink)) {
+    query->insert(pair<string, string>("ExtendInfo", *request->extendInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->genieOpenId)) {
+    query->insert(pair<string, string>("GenieOpenId", *request->genieOpenId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->receiveStatus)) {
+    query->insert(pair<string, long>("ReceiveStatus", *request->receiveStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sn)) {
+    query->insert(pair<string, string>("Sn", *request->sn));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->supplierId)) {
+    query->insert(pair<string, long>("SupplierId", *request->supplierId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAligenieAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-aligenie-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAligenieAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CallBackThirdRightSendPlan"))},
+    {"version", boost::any(string("iap_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/1.0/iap/business/CallBackThirdRightSendPlan"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CallBackThirdRightSendPlanResponse(callApi(params, req, runtime));
+}
+
+CallBackThirdRightSendPlanResponse Alibabacloud_AliGenieiap10::Client::callBackThirdRightSendPlan(shared_ptr<CallBackThirdRightSendPlanRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<CallBackThirdRightSendPlanHeaders> headers = make_shared<CallBackThirdRightSendPlanHeaders>();
+  return callBackThirdRightSendPlanWithOptions(request, headers, runtime);
+}
+
+CheckThirdRightSendPlanResponse Alibabacloud_AliGenieiap10::Client::checkThirdRightSendPlanWithOptions(shared_ptr<CheckThirdRightSendPlanRequest> tmpReq, shared_ptr<CheckThirdRightSendPlanHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CheckThirdRightSendPlanShrinkRequest> request = make_shared<CheckThirdRightSendPlanShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->extendInfo)) {
+    request->extendInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->extendInfo, make_shared<string>("ExtendInfo"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizGroup)) {
+    query->insert(pair<string, string>("BizGroup", *request->bizGroup));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
+    query->insert(pair<string, string>("BizType", *request->bizType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extendInfoShrink)) {
+    query->insert(pair<string, string>("ExtendInfo", *request->extendInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sn)) {
+    query->insert(pair<string, string>("Sn", *request->sn));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->supplierId)) {
+    query->insert(pair<string, long>("SupplierId", *request->supplierId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAligenieAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-aligenie-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAligenieAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CheckThirdRightSendPlan"))},
+    {"version", boost::any(string("iap_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1.0/iap/business/CheckThirdRightSendPlan"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CheckThirdRightSendPlanResponse(callApi(params, req, runtime));
+}
+
+CheckThirdRightSendPlanResponse Alibabacloud_AliGenieiap10::Client::checkThirdRightSendPlan(shared_ptr<CheckThirdRightSendPlanRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<CheckThirdRightSendPlanHeaders> headers = make_shared<CheckThirdRightSendPlanHeaders>();
+  return checkThirdRightSendPlanWithOptions(request, headers, runtime);
 }
 
 CreateReminderResponse Alibabacloud_AliGenieiap10::Client::createReminderWithOptions(shared_ptr<CreateReminderRequest> tmpReq, shared_ptr<CreateReminderHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -248,6 +389,63 @@ GetAccountForAppResponse Alibabacloud_AliGenieiap10::Client::getAccountForApp(sh
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<GetAccountForAppHeaders> headers = make_shared<GetAccountForAppHeaders>();
   return getAccountForAppWithOptions(request, headers, runtime);
+}
+
+GetBusAppConfigResponse Alibabacloud_AliGenieiap10::Client::getBusAppConfigWithOptions(shared_ptr<GetBusAppConfigRequest> tmpReq, shared_ptr<GetBusAppConfigHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetBusAppConfigShrinkRequest> request = make_shared<GetBusAppConfigShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<GetBusAppConfigRequestDeviceInfo>(tmpReq->deviceInfo)) {
+    request->deviceInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->deviceInfo, make_shared<string>("DeviceInfo"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<GetBusAppConfigRequestPayload>(tmpReq->payload)) {
+    request->payloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->payload, make_shared<string>("Payload"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<GetBusAppConfigRequestUserInfo>(tmpReq->userInfo)) {
+    request->userInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->userInfo, make_shared<string>("UserInfo"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceInfoShrink)) {
+    query->insert(pair<string, string>("DeviceInfo", *request->deviceInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->payloadShrink)) {
+    query->insert(pair<string, string>("Payload", *request->payloadShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userInfoShrink)) {
+    query->insert(pair<string, string>("UserInfo", *request->userInfoShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAligenieAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-aligenie-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAligenieAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetBusAppConfig"))},
+    {"version", boost::any(string("iap_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1.0/iap/app/config/get"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetBusAppConfigResponse(callApi(params, req, runtime));
+}
+
+GetBusAppConfigResponse Alibabacloud_AliGenieiap10::Client::getBusAppConfig(shared_ptr<GetBusAppConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<GetBusAppConfigHeaders> headers = make_shared<GetBusAppConfigHeaders>();
+  return getBusAppConfigWithOptions(request, headers, runtime);
 }
 
 GetPhoneNumberResponse Alibabacloud_AliGenieiap10::Client::getPhoneNumberWithOptions(shared_ptr<GetPhoneNumberRequest> tmpReq, shared_ptr<GetPhoneNumberHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
