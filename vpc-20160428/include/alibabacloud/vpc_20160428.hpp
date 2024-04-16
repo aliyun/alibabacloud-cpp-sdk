@@ -58561,6 +58561,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> dhcpOptionsSetId{};
   shared_ptr<string> dhcpOptionsSetStatus{};
+  shared_ptr<bool> enabledIpv6{};
   shared_ptr<string> ipv4GatewayId{};
   shared_ptr<string> ipv6CidrBlock{};
   shared_ptr<DescribeVpcAttributeResponseBodyIpv6CidrBlocks> ipv6CidrBlocks{};
@@ -58615,6 +58616,9 @@ public:
     }
     if (dhcpOptionsSetStatus) {
       res["DhcpOptionsSetStatus"] = boost::any(*dhcpOptionsSetStatus);
+    }
+    if (enabledIpv6) {
+      res["EnabledIpv6"] = boost::any(*enabledIpv6);
     }
     if (ipv4GatewayId) {
       res["Ipv4GatewayId"] = boost::any(*ipv4GatewayId);
@@ -58709,6 +58713,9 @@ public:
     }
     if (m.find("DhcpOptionsSetStatus") != m.end() && !m["DhcpOptionsSetStatus"].empty()) {
       dhcpOptionsSetStatus = make_shared<string>(boost::any_cast<string>(m["DhcpOptionsSetStatus"]));
+    }
+    if (m.find("EnabledIpv6") != m.end() && !m["EnabledIpv6"].empty()) {
+      enabledIpv6 = make_shared<bool>(boost::any_cast<bool>(m["EnabledIpv6"]));
     }
     if (m.find("Ipv4GatewayId") != m.end() && !m["Ipv4GatewayId"].empty()) {
       ipv4GatewayId = make_shared<string>(boost::any_cast<string>(m["Ipv4GatewayId"]));
@@ -59361,6 +59368,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> dhcpOptionsSetId{};
   shared_ptr<string> dhcpOptionsSetStatus{};
+  shared_ptr<bool> enabledIpv6{};
   shared_ptr<string> ipv6CidrBlock{};
   shared_ptr<DescribeVpcsResponseBodyVpcsVpcIpv6CidrBlocks> ipv6CidrBlocks{};
   shared_ptr<bool> isDefault{};
@@ -59405,6 +59413,9 @@ public:
     }
     if (dhcpOptionsSetStatus) {
       res["DhcpOptionsSetStatus"] = boost::any(*dhcpOptionsSetStatus);
+    }
+    if (enabledIpv6) {
+      res["EnabledIpv6"] = boost::any(*enabledIpv6);
     }
     if (ipv6CidrBlock) {
       res["Ipv6CidrBlock"] = boost::any(*ipv6CidrBlock);
@@ -59475,6 +59486,9 @@ public:
     }
     if (m.find("DhcpOptionsSetStatus") != m.end() && !m["DhcpOptionsSetStatus"].empty()) {
       dhcpOptionsSetStatus = make_shared<string>(boost::any_cast<string>(m["DhcpOptionsSetStatus"]));
+    }
+    if (m.find("EnabledIpv6") != m.end() && !m["EnabledIpv6"].empty()) {
+      enabledIpv6 = make_shared<bool>(boost::any_cast<bool>(m["EnabledIpv6"]));
     }
     if (m.find("Ipv6CidrBlock") != m.end() && !m["Ipv6CidrBlock"].empty()) {
       ipv6CidrBlock = make_shared<string>(boost::any_cast<string>(m["Ipv6CidrBlock"]));
@@ -81923,16 +81937,89 @@ public:
 
   virtual ~ModifyExpressCloudConnectionBandwidthResponse() = default;
 };
+class ModifyExpressConnectTrafficQosRequestAddInstanceList : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+
+  ModifyExpressConnectTrafficQosRequestAddInstanceList() {}
+
+  explicit ModifyExpressConnectTrafficQosRequestAddInstanceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+  }
+
+
+  virtual ~ModifyExpressConnectTrafficQosRequestAddInstanceList() = default;
+};
+class ModifyExpressConnectTrafficQosRequestRemoveInstanceList : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+
+  ModifyExpressConnectTrafficQosRequestRemoveInstanceList() {}
+
+  explicit ModifyExpressConnectTrafficQosRequestRemoveInstanceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+  }
+
+
+  virtual ~ModifyExpressConnectTrafficQosRequestRemoveInstanceList() = default;
+};
 class ModifyExpressConnectTrafficQosRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<ModifyExpressConnectTrafficQosRequestAddInstanceList>> addInstanceList{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
-  shared_ptr<string> pconnIdList{};
   shared_ptr<string> qosDescription{};
   shared_ptr<string> qosId{};
   shared_ptr<string> qosName{};
   shared_ptr<string> regionId{};
+  shared_ptr<vector<ModifyExpressConnectTrafficQosRequestRemoveInstanceList>> removeInstanceList{};
   shared_ptr<string> resourceOwnerAccount{};
 
   ModifyExpressConnectTrafficQosRequest() {}
@@ -81945,6 +82032,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addInstanceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*addInstanceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AddInstanceList"] = boost::any(temp1);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -81953,9 +82047,6 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
-    }
-    if (pconnIdList) {
-      res["PconnIdList"] = boost::any(*pconnIdList);
     }
     if (qosDescription) {
       res["QosDescription"] = boost::any(*qosDescription);
@@ -81969,6 +82060,13 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (removeInstanceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*removeInstanceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RemoveInstanceList"] = boost::any(temp1);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -81976,6 +82074,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddInstanceList") != m.end() && !m["AddInstanceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AddInstanceList"].type()) {
+        vector<ModifyExpressConnectTrafficQosRequestAddInstanceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AddInstanceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyExpressConnectTrafficQosRequestAddInstanceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        addInstanceList = make_shared<vector<ModifyExpressConnectTrafficQosRequestAddInstanceList>>(expect1);
+      }
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -81984,9 +82095,6 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
-    }
-    if (m.find("PconnIdList") != m.end() && !m["PconnIdList"].empty()) {
-      pconnIdList = make_shared<string>(boost::any_cast<string>(m["PconnIdList"]));
     }
     if (m.find("QosDescription") != m.end() && !m["QosDescription"].empty()) {
       qosDescription = make_shared<string>(boost::any_cast<string>(m["QosDescription"]));
@@ -81999,6 +82107,19 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RemoveInstanceList") != m.end() && !m["RemoveInstanceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RemoveInstanceList"].type()) {
+        vector<ModifyExpressConnectTrafficQosRequestRemoveInstanceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RemoveInstanceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyExpressConnectTrafficQosRequestRemoveInstanceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        removeInstanceList = make_shared<vector<ModifyExpressConnectTrafficQosRequestRemoveInstanceList>>(expect1);
+      }
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));

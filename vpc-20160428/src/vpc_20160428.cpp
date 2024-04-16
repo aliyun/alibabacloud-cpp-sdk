@@ -15911,6 +15911,9 @@ ModifyExpressCloudConnectionBandwidthResponse Alibabacloud_Vpc20160428::Client::
 ModifyExpressConnectTrafficQosResponse Alibabacloud_Vpc20160428::Client::modifyExpressConnectTrafficQosWithOptions(shared_ptr<ModifyExpressConnectTrafficQosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyExpressConnectTrafficQosRequestAddInstanceList>>(request->addInstanceList)) {
+    query->insert(pair<string, vector<ModifyExpressConnectTrafficQosRequestAddInstanceList>>("AddInstanceList", *request->addInstanceList));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -15923,9 +15926,6 @@ ModifyExpressConnectTrafficQosResponse Alibabacloud_Vpc20160428::Client::modifyE
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->pconnIdList)) {
-    query->insert(pair<string, string>("PconnIdList", *request->pconnIdList));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->qosDescription)) {
     query->insert(pair<string, string>("QosDescription", *request->qosDescription));
   }
@@ -15937,6 +15937,9 @@ ModifyExpressConnectTrafficQosResponse Alibabacloud_Vpc20160428::Client::modifyE
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyExpressConnectTrafficQosRequestRemoveInstanceList>>(request->removeInstanceList)) {
+    query->insert(pair<string, vector<ModifyExpressConnectTrafficQosRequestRemoveInstanceList>>("RemoveInstanceList", *request->removeInstanceList));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
