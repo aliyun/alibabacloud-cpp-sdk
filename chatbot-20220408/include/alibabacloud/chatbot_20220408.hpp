@@ -9627,6 +9627,7 @@ public:
   shared_ptr<string> goodsCodes{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> productCode{};
 
   ListAgentRequest() {}
 
@@ -9650,6 +9651,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
+    }
     return res;
   }
 
@@ -9666,6 +9670,9 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
   }
 
 
@@ -9676,6 +9683,7 @@ public:
   shared_ptr<long> agentId{};
   shared_ptr<string> agentKey{};
   shared_ptr<string> agentName{};
+  shared_ptr<bool> defaultAgent{};
   shared_ptr<map<string, boost::any>> instanceInfos{};
 
   ListAgentResponseBodyData() {}
@@ -9697,6 +9705,9 @@ public:
     if (agentName) {
       res["AgentName"] = boost::any(*agentName);
     }
+    if (defaultAgent) {
+      res["DefaultAgent"] = boost::any(*defaultAgent);
+    }
     if (instanceInfos) {
       res["InstanceInfos"] = boost::any(*instanceInfos);
     }
@@ -9712,6 +9723,9 @@ public:
     }
     if (m.find("AgentName") != m.end() && !m["AgentName"].empty()) {
       agentName = make_shared<string>(boost::any_cast<string>(m["AgentName"]));
+    }
+    if (m.find("DefaultAgent") != m.end() && !m["DefaultAgent"].empty()) {
+      defaultAgent = make_shared<bool>(boost::any_cast<bool>(m["DefaultAgent"]));
     }
     if (m.find("InstanceInfos") != m.end() && !m["InstanceInfos"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InstanceInfos"]);
