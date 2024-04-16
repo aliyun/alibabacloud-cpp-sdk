@@ -42663,6 +42663,462 @@ public:
 
   virtual ~ListScenariosResponse() = default;
 };
+class ListSensitiveColumnInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> columnName{};
+  shared_ptr<long> instanceId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> schemaName{};
+  shared_ptr<string> tableName{};
+  shared_ptr<long> tid{};
+
+  ListSensitiveColumnInfoRequest() {}
+
+  explicit ListSensitiveColumnInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (columnName) {
+      res["ColumnName"] = boost::any(*columnName);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (schemaName) {
+      res["SchemaName"] = boost::any(*schemaName);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ColumnName") != m.end() && !m["ColumnName"].empty()) {
+      columnName = make_shared<string>(boost::any_cast<string>(m["ColumnName"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SchemaName") != m.end() && !m["SchemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["SchemaName"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~ListSensitiveColumnInfoRequest() = default;
+};
+class ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnDefaultDesensitizationRule : public Darabonba::Model {
+public:
+  shared_ptr<long> ruleId{};
+  shared_ptr<string> ruleName{};
+
+  ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnDefaultDesensitizationRule() {}
+
+  explicit ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnDefaultDesensitizationRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnDefaultDesensitizationRule() = default;
+};
+class ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleListSemiDesensitizationRule : public Darabonba::Model {
+public:
+  shared_ptr<long> ruleId{};
+  shared_ptr<string> ruleName{};
+
+  ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleListSemiDesensitizationRule() {}
+
+  explicit ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleListSemiDesensitizationRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleListSemiDesensitizationRule() = default;
+};
+class ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleList : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleListSemiDesensitizationRule>> semiDesensitizationRule{};
+
+  ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleList() {}
+
+  explicit ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (semiDesensitizationRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*semiDesensitizationRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SemiDesensitizationRule"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SemiDesensitizationRule") != m.end() && !m["SemiDesensitizationRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["SemiDesensitizationRule"].type()) {
+        vector<ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleListSemiDesensitizationRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SemiDesensitizationRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleListSemiDesensitizationRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        semiDesensitizationRule = make_shared<vector<ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleListSemiDesensitizationRule>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleList() = default;
+};
+class ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumn : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryName{};
+  shared_ptr<string> columnName{};
+  shared_ptr<ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnDefaultDesensitizationRule> defaultDesensitizationRule{};
+  shared_ptr<long> instanceId{};
+  shared_ptr<bool> isPlain{};
+  shared_ptr<string> sampleData{};
+  shared_ptr<string> schemaName{};
+  shared_ptr<string> securityLevel{};
+  shared_ptr<ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleList> semiDesensitizationRuleList{};
+  shared_ptr<string> tableName{};
+  shared_ptr<string> userSensitivityLevel{};
+
+  ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumn() {}
+
+  explicit ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumn(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryName) {
+      res["CategoryName"] = boost::any(*categoryName);
+    }
+    if (columnName) {
+      res["ColumnName"] = boost::any(*columnName);
+    }
+    if (defaultDesensitizationRule) {
+      res["DefaultDesensitizationRule"] = defaultDesensitizationRule ? boost::any(defaultDesensitizationRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (isPlain) {
+      res["IsPlain"] = boost::any(*isPlain);
+    }
+    if (sampleData) {
+      res["SampleData"] = boost::any(*sampleData);
+    }
+    if (schemaName) {
+      res["SchemaName"] = boost::any(*schemaName);
+    }
+    if (securityLevel) {
+      res["SecurityLevel"] = boost::any(*securityLevel);
+    }
+    if (semiDesensitizationRuleList) {
+      res["SemiDesensitizationRuleList"] = semiDesensitizationRuleList ? boost::any(semiDesensitizationRuleList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (userSensitivityLevel) {
+      res["UserSensitivityLevel"] = boost::any(*userSensitivityLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryName") != m.end() && !m["CategoryName"].empty()) {
+      categoryName = make_shared<string>(boost::any_cast<string>(m["CategoryName"]));
+    }
+    if (m.find("ColumnName") != m.end() && !m["ColumnName"].empty()) {
+      columnName = make_shared<string>(boost::any_cast<string>(m["ColumnName"]));
+    }
+    if (m.find("DefaultDesensitizationRule") != m.end() && !m["DefaultDesensitizationRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DefaultDesensitizationRule"].type()) {
+        ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnDefaultDesensitizationRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DefaultDesensitizationRule"]));
+        defaultDesensitizationRule = make_shared<ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnDefaultDesensitizationRule>(model1);
+      }
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
+    }
+    if (m.find("IsPlain") != m.end() && !m["IsPlain"].empty()) {
+      isPlain = make_shared<bool>(boost::any_cast<bool>(m["IsPlain"]));
+    }
+    if (m.find("SampleData") != m.end() && !m["SampleData"].empty()) {
+      sampleData = make_shared<string>(boost::any_cast<string>(m["SampleData"]));
+    }
+    if (m.find("SchemaName") != m.end() && !m["SchemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["SchemaName"]));
+    }
+    if (m.find("SecurityLevel") != m.end() && !m["SecurityLevel"].empty()) {
+      securityLevel = make_shared<string>(boost::any_cast<string>(m["SecurityLevel"]));
+    }
+    if (m.find("SemiDesensitizationRuleList") != m.end() && !m["SemiDesensitizationRuleList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SemiDesensitizationRuleList"].type()) {
+        ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SemiDesensitizationRuleList"]));
+        semiDesensitizationRuleList = make_shared<ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleList>(model1);
+      }
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("UserSensitivityLevel") != m.end() && !m["UserSensitivityLevel"].empty()) {
+      userSensitivityLevel = make_shared<string>(boost::any_cast<string>(m["UserSensitivityLevel"]));
+    }
+  }
+
+
+  virtual ~ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumn() = default;
+};
+class ListSensitiveColumnInfoResponseBodySensitiveColumnList : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumn>> sensitiveColumn{};
+
+  ListSensitiveColumnInfoResponseBodySensitiveColumnList() {}
+
+  explicit ListSensitiveColumnInfoResponseBodySensitiveColumnList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sensitiveColumn) {
+      vector<boost::any> temp1;
+      for(auto item1:*sensitiveColumn){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SensitiveColumn"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SensitiveColumn") != m.end() && !m["SensitiveColumn"].empty()) {
+      if (typeid(vector<boost::any>) == m["SensitiveColumn"].type()) {
+        vector<ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumn> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SensitiveColumn"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumn model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sensitiveColumn = make_shared<vector<ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumn>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListSensitiveColumnInfoResponseBodySensitiveColumnList() = default;
+};
+class ListSensitiveColumnInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<ListSensitiveColumnInfoResponseBodySensitiveColumnList> sensitiveColumnList{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> totalCount{};
+
+  ListSensitiveColumnInfoResponseBody() {}
+
+  explicit ListSensitiveColumnInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sensitiveColumnList) {
+      res["SensitiveColumnList"] = sensitiveColumnList ? boost::any(sensitiveColumnList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SensitiveColumnList") != m.end() && !m["SensitiveColumnList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SensitiveColumnList"].type()) {
+        ListSensitiveColumnInfoResponseBodySensitiveColumnList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SensitiveColumnList"]));
+        sensitiveColumnList = make_shared<ListSensitiveColumnInfoResponseBodySensitiveColumnList>(model1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListSensitiveColumnInfoResponseBody() = default;
+};
+class ListSensitiveColumnInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListSensitiveColumnInfoResponseBody> body{};
+
+  ListSensitiveColumnInfoResponse() {}
+
+  explicit ListSensitiveColumnInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSensitiveColumnInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSensitiveColumnInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSensitiveColumnInfoResponse() = default;
+};
 class ListSensitiveColumnsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> columnName{};
@@ -59158,6 +59614,8 @@ public:
   ListSQLReviewOriginSQLResponse listSQLReviewOriginSQL(shared_ptr<ListSQLReviewOriginSQLRequest> request);
   ListScenariosResponse listScenariosWithOptions(shared_ptr<ListScenariosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListScenariosResponse listScenarios(shared_ptr<ListScenariosRequest> request);
+  ListSensitiveColumnInfoResponse listSensitiveColumnInfoWithOptions(shared_ptr<ListSensitiveColumnInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSensitiveColumnInfoResponse listSensitiveColumnInfo(shared_ptr<ListSensitiveColumnInfoRequest> request);
   ListSensitiveColumnsResponse listSensitiveColumnsWithOptions(shared_ptr<ListSensitiveColumnsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSensitiveColumnsResponse listSensitiveColumns(shared_ptr<ListSensitiveColumnsRequest> request);
   ListSensitiveColumnsDetailResponse listSensitiveColumnsDetailWithOptions(shared_ptr<ListSensitiveColumnsDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
