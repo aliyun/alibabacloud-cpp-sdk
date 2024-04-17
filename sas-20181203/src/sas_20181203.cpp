@@ -1591,6 +1591,15 @@ CreateCycleTaskResponse Alibabacloud_Sas20181203::Client::createCycleTask(shared
 CreateFileDetectResponse Alibabacloud_Sas20181203::Client::createFileDetectWithOptions(shared_ptr<CreateFileDetectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->decompress)) {
+    query->insert(pair<string, bool>("Decompress", *request->decompress));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->decompressMaxFileCount)) {
+    query->insert(pair<string, long>("DecompressMaxFileCount", *request->decompressMaxFileCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->decompressMaxLayer)) {
+    query->insert(pair<string, long>("DecompressMaxLayer", *request->decompressMaxLayer));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->downloadUrl)) {
     query->insert(pair<string, string>("DownloadUrl", *request->downloadUrl));
   }
@@ -17347,6 +17356,43 @@ ListClusterPluginInfoResponse Alibabacloud_Sas20181203::Client::listClusterPlugi
 ListClusterPluginInfoResponse Alibabacloud_Sas20181203::Client::listClusterPluginInfo(shared_ptr<ListClusterPluginInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listClusterPluginInfoWithOptions(request, runtime);
+}
+
+ListCompressFileDetectResultResponse Alibabacloud_Sas20181203::Client::listCompressFileDetectResultWithOptions(shared_ptr<ListCompressFileDetectResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hashKey)) {
+    query->insert(pair<string, string>("HashKey", *request->hashKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceIp)) {
+    query->insert(pair<string, string>("SourceIp", *request->sourceIp));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCompressFileDetectResult"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCompressFileDetectResultResponse(callApi(params, req, runtime));
+}
+
+ListCompressFileDetectResultResponse Alibabacloud_Sas20181203::Client::listCompressFileDetectResult(shared_ptr<ListCompressFileDetectResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCompressFileDetectResultWithOptions(request, runtime);
 }
 
 ListContainerDefenseRuleResponse Alibabacloud_Sas20181203::Client::listContainerDefenseRuleWithOptions(shared_ptr<ListContainerDefenseRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
