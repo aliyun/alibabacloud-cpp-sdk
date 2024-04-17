@@ -57012,6 +57012,7 @@ public:
   shared_ptr<string> eccId{};
   shared_ptr<string> ecrAttatchStatus{};
   shared_ptr<string> ecrId{};
+  shared_ptr<string> ecrOwnerId{};
   shared_ptr<bool> enableIpv6{};
   shared_ptr<string> localGatewayIp{};
   shared_ptr<string> localIpv6GatewayIp{};
@@ -57088,6 +57089,9 @@ public:
     }
     if (ecrId) {
       res["EcrId"] = boost::any(*ecrId);
+    }
+    if (ecrOwnerId) {
+      res["EcrOwnerId"] = boost::any(*ecrOwnerId);
     }
     if (enableIpv6) {
       res["EnableIpv6"] = boost::any(*enableIpv6);
@@ -57220,6 +57224,9 @@ public:
     }
     if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
       ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
+    }
+    if (m.find("EcrOwnerId") != m.end() && !m["EcrOwnerId"].empty()) {
+      ecrOwnerId = make_shared<string>(boost::any_cast<string>(m["EcrOwnerId"]));
     }
     if (m.find("EnableIpv6") != m.end() && !m["EnableIpv6"].empty()) {
       enableIpv6 = make_shared<bool>(boost::any_cast<bool>(m["EnableIpv6"]));
