@@ -14147,6 +14147,263 @@ public:
 
   virtual ~DesensitizeDataResponse() = default;
 };
+class DsgQuerySensResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> col{};
+  shared_ptr<string> dbType{};
+  shared_ptr<string> level{};
+  shared_ptr<string> nodeName{};
+  shared_ptr<string> order{};
+  shared_ptr<string> orderField{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> schemaName{};
+  shared_ptr<string> sensStatus{};
+  shared_ptr<string> sensitiveId{};
+  shared_ptr<string> sensitiveName{};
+  shared_ptr<string> table{};
+  shared_ptr<string> tenantId{};
+
+  DsgQuerySensResultRequest() {}
+
+  explicit DsgQuerySensResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (col) {
+      res["Col"] = boost::any(*col);
+    }
+    if (dbType) {
+      res["DbType"] = boost::any(*dbType);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (nodeName) {
+      res["NodeName"] = boost::any(*nodeName);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (orderField) {
+      res["OrderField"] = boost::any(*orderField);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (schemaName) {
+      res["SchemaName"] = boost::any(*schemaName);
+    }
+    if (sensStatus) {
+      res["SensStatus"] = boost::any(*sensStatus);
+    }
+    if (sensitiveId) {
+      res["SensitiveId"] = boost::any(*sensitiveId);
+    }
+    if (sensitiveName) {
+      res["SensitiveName"] = boost::any(*sensitiveName);
+    }
+    if (table) {
+      res["Table"] = boost::any(*table);
+    }
+    if (tenantId) {
+      res["TenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Col") != m.end() && !m["Col"].empty()) {
+      col = make_shared<string>(boost::any_cast<string>(m["Col"]));
+    }
+    if (m.find("DbType") != m.end() && !m["DbType"].empty()) {
+      dbType = make_shared<string>(boost::any_cast<string>(m["DbType"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+    }
+    if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
+      nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("OrderField") != m.end() && !m["OrderField"].empty()) {
+      orderField = make_shared<string>(boost::any_cast<string>(m["OrderField"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SchemaName") != m.end() && !m["SchemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["SchemaName"]));
+    }
+    if (m.find("SensStatus") != m.end() && !m["SensStatus"].empty()) {
+      sensStatus = make_shared<string>(boost::any_cast<string>(m["SensStatus"]));
+    }
+    if (m.find("SensitiveId") != m.end() && !m["SensitiveId"].empty()) {
+      sensitiveId = make_shared<string>(boost::any_cast<string>(m["SensitiveId"]));
+    }
+    if (m.find("SensitiveName") != m.end() && !m["SensitiveName"].empty()) {
+      sensitiveName = make_shared<string>(boost::any_cast<string>(m["SensitiveName"]));
+    }
+    if (m.find("Table") != m.end() && !m["Table"].empty()) {
+      table = make_shared<string>(boost::any_cast<string>(m["Table"]));
+    }
+    if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
+    }
+  }
+
+
+  virtual ~DsgQuerySensResultRequest() = default;
+};
+class DsgQuerySensResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<boost::any> data{};
+  shared_ptr<string> dynamicErrorCode{};
+  shared_ptr<string> dynamicErrorMessage{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DsgQuerySensResultResponseBody() {}
+
+  explicit DsgQuerySensResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (dynamicErrorCode) {
+      res["DynamicErrorCode"] = boost::any(*dynamicErrorCode);
+    }
+    if (dynamicErrorMessage) {
+      res["DynamicErrorMessage"] = boost::any(*dynamicErrorMessage);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+    }
+    if (m.find("DynamicErrorCode") != m.end() && !m["DynamicErrorCode"].empty()) {
+      dynamicErrorCode = make_shared<string>(boost::any_cast<string>(m["DynamicErrorCode"]));
+    }
+    if (m.find("DynamicErrorMessage") != m.end() && !m["DynamicErrorMessage"].empty()) {
+      dynamicErrorMessage = make_shared<string>(boost::any_cast<string>(m["DynamicErrorMessage"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DsgQuerySensResultResponseBody() = default;
+};
+class DsgQuerySensResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DsgQuerySensResultResponseBody> body{};
+
+  DsgQuerySensResultResponse() {}
+
+  explicit DsgQuerySensResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DsgQuerySensResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DsgQuerySensResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DsgQuerySensResultResponse() = default;
+};
 class EstablishRelationTableToBusinessRequest : public Darabonba::Model {
 public:
   shared_ptr<string> businessId{};
@@ -76028,6 +76285,8 @@ public:
   DeployFileResponse deployFile(shared_ptr<DeployFileRequest> request);
   DesensitizeDataResponse desensitizeDataWithOptions(shared_ptr<DesensitizeDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DesensitizeDataResponse desensitizeData(shared_ptr<DesensitizeDataRequest> request);
+  DsgQuerySensResultResponse dsgQuerySensResultWithOptions(shared_ptr<DsgQuerySensResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DsgQuerySensResultResponse dsgQuerySensResult(shared_ptr<DsgQuerySensResultRequest> request);
   EstablishRelationTableToBusinessResponse establishRelationTableToBusinessWithOptions(shared_ptr<EstablishRelationTableToBusinessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EstablishRelationTableToBusinessResponse establishRelationTableToBusiness(shared_ptr<EstablishRelationTableToBusinessRequest> request);
   ExportDataSourcesResponse exportDataSourcesWithOptions(shared_ptr<ExportDataSourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

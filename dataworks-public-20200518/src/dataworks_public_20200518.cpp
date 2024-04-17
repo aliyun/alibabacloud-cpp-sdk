@@ -3231,6 +3231,76 @@ DesensitizeDataResponse Alibabacloud_Dataworks-public20200518::Client::desensiti
   return desensitizeDataWithOptions(request, runtime);
 }
 
+DsgQuerySensResultResponse Alibabacloud_Dataworks-public20200518::Client::dsgQuerySensResultWithOptions(shared_ptr<DsgQuerySensResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->col)) {
+    body->insert(pair<string, string>("Col", *request->col));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbType)) {
+    body->insert(pair<string, string>("DbType", *request->dbType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->level)) {
+    body->insert(pair<string, string>("Level", *request->level));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeName)) {
+    body->insert(pair<string, string>("NodeName", *request->nodeName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    body->insert(pair<string, string>("Order", *request->order));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderField)) {
+    body->insert(pair<string, string>("OrderField", *request->orderField));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    body->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    body->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->schemaName)) {
+    body->insert(pair<string, string>("SchemaName", *request->schemaName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sensStatus)) {
+    body->insert(pair<string, string>("SensStatus", *request->sensStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sensitiveId)) {
+    body->insert(pair<string, string>("SensitiveId", *request->sensitiveId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sensitiveName)) {
+    body->insert(pair<string, string>("SensitiveName", *request->sensitiveName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->table)) {
+    body->insert(pair<string, string>("Table", *request->table));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantId)) {
+    body->insert(pair<string, string>("TenantId", *request->tenantId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DsgQuerySensResult"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DsgQuerySensResultResponse(callApi(params, req, runtime));
+}
+
+DsgQuerySensResultResponse Alibabacloud_Dataworks-public20200518::Client::dsgQuerySensResult(shared_ptr<DsgQuerySensResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return dsgQuerySensResultWithOptions(request, runtime);
+}
+
 EstablishRelationTableToBusinessResponse Alibabacloud_Dataworks-public20200518::Client::establishRelationTableToBusinessWithOptions(shared_ptr<EstablishRelationTableToBusinessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
