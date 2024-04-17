@@ -317,6 +317,12 @@ CloseDeliveryResponse Alibabacloud_Cloud-siem20220616::Client::closeDeliveryWith
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -347,6 +353,12 @@ DeleteAutomateResponseConfigResponse Alibabacloud_Cloud-siem20220616::Client::de
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -415,6 +427,12 @@ DeleteCustomizeRuleResponse Alibabacloud_Cloud-siem20220616::Client::deleteCusto
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ruleId)) {
     body->insert(pair<string, long>("RuleId", *request->ruleId));
@@ -589,6 +607,12 @@ DeleteWhiteRuleListResponse Alibabacloud_Cloud-siem20220616::Client::deleteWhite
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -617,6 +641,12 @@ DescribeAggregateFunctionResponse Alibabacloud_Cloud-siem20220616::Client::descr
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -644,6 +674,12 @@ DescribeAlertSceneResponse Alibabacloud_Cloud-siem20220616::Client::describeAler
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -675,6 +711,12 @@ DescribeAlertSceneByEventResponse Alibabacloud_Cloud-siem20220616::Client::descr
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -710,6 +752,12 @@ DescribeAlertSourceResponse Alibabacloud_Cloud-siem20220616::Client::describeAle
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     body->insert(pair<string, long>("StartTime", *request->startTime));
   }
@@ -744,6 +792,12 @@ DescribeAlertSourceWithEventResponse Alibabacloud_Cloud-siem20220616::Client::de
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -771,6 +825,15 @@ DescribeAlertTypeResponse Alibabacloud_Cloud-siem20220616::Client::describeAlert
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleType)) {
+    body->insert(pair<string, string>("RuleType", *request->ruleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -821,6 +884,12 @@ DescribeAlertsResponse Alibabacloud_Cloud-siem20220616::Client::describeAlertsWi
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     body->insert(pair<string, string>("Source", *request->source));
   }
@@ -860,6 +929,12 @@ DescribeAlertsCountResponse Alibabacloud_Cloud-siem20220616::Client::describeAle
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     body->insert(pair<string, long>("StartTime", *request->startTime));
@@ -903,6 +978,12 @@ DescribeAlertsWithEntityResponse Alibabacloud_Cloud-siem20220616::Client::descri
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sophonTaskId)) {
     body->insert(pair<string, string>("SophonTaskId", *request->sophonTaskId));
@@ -953,6 +1034,12 @@ DescribeAlertsWithEventResponse Alibabacloud_Cloud-siem20220616::Client::describ
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     body->insert(pair<string, string>("Source", *request->source));
   }
@@ -995,6 +1082,12 @@ DescribeAttackTimeLineResponse Alibabacloud_Cloud-siem20220616::Client::describe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     body->insert(pair<string, long>("StartTime", *request->startTime));
@@ -1055,6 +1148,12 @@ DescribeAutomateResponseConfigCounterResponse Alibabacloud_Cloud-siem20220616::C
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -1085,6 +1184,12 @@ DescribeAutomateResponseConfigFeatureResponse Alibabacloud_Cloud-siem20220616::C
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1119,6 +1224,12 @@ DescribeAutomateResponseConfigPlayBooksResponse Alibabacloud_Cloud-siem20220616:
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1160,6 +1271,12 @@ DescribeCloudSiemAssetsResponse Alibabacloud_Cloud-siem20220616::Client::describ
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -1191,6 +1308,12 @@ DescribeCloudSiemAssetsCounterResponse Alibabacloud_Cloud-siem20220616::Client::
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -1221,6 +1344,12 @@ DescribeCloudSiemEventDetailResponse Alibabacloud_Cloud-siem20220616::Client::de
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1273,6 +1402,12 @@ DescribeCloudSiemEventsResponse Alibabacloud_Cloud-siem20220616::Client::describ
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     body->insert(pair<string, long>("StartTime", *request->startTime));
@@ -1376,6 +1511,12 @@ DescribeCustomizeRuleCountResponse Alibabacloud_Cloud-siem20220616::Client::desc
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -1407,6 +1548,12 @@ DescribeCustomizeRuleTestResponse Alibabacloud_Cloud-siem20220616::Client::descr
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -1437,6 +1584,12 @@ DescribeCustomizeRuleTestHistogramResponse Alibabacloud_Cloud-siem20220616::Clie
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1549,6 +1702,12 @@ DescribeDisposeAndPlaybookResponse Alibabacloud_Cloud-siem20220616::Client::desc
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -1579,6 +1738,12 @@ DescribeDisposeStrategyPlaybookResponse Alibabacloud_Cloud-siem20220616::Client:
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     body->insert(pair<string, long>("StartTime", *request->startTime));
@@ -1620,6 +1785,12 @@ DescribeEntityInfoResponse Alibabacloud_Cloud-siem20220616::Client::describeEnti
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sophonTaskId)) {
     body->insert(pair<string, string>("SophonTaskId", *request->sophonTaskId));
   }
@@ -1648,8 +1819,20 @@ DescribeEntityInfoResponse Alibabacloud_Cloud-siem20220616::Client::describeEnti
 DescribeEventCountByThreatLevelResponse Alibabacloud_Cloud-siem20220616::Client::describeEventCountByThreatLevelWithOptions(shared_ptr<DescribeEventCountByThreatLevelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    body->insert(pair<string, long>("EndTime", *request->endTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    body->insert(pair<string, long>("StartTime", *request->startTime));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1687,6 +1870,12 @@ DescribeEventDisposeResponse Alibabacloud_Cloud-siem20220616::Client::describeEv
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1781,6 +1970,12 @@ DescribeLogFieldsResponse Alibabacloud_Cloud-siem20220616::Client::describeLogFi
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -1811,6 +2006,12 @@ DescribeLogSourceResponse Alibabacloud_Cloud-siem20220616::Client::describeLogSo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1868,6 +2069,12 @@ DescribeLogTypeResponse Alibabacloud_Cloud-siem20220616::Client::describeLogType
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -1895,6 +2102,12 @@ DescribeOperatorsResponse Alibabacloud_Cloud-siem20220616::Client::describeOpera
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sceneType)) {
     body->insert(pair<string, string>("SceneType", *request->sceneType));
@@ -1955,6 +2168,12 @@ DescribeScopeUsersResponse Alibabacloud_Cloud-siem20220616::Client::describeScop
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -2010,6 +2229,12 @@ DescribeStorageResponse Alibabacloud_Cloud-siem20220616::Client::describeStorage
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -2073,6 +2298,12 @@ DescribeWafScopeResponse Alibabacloud_Cloud-siem20220616::Client::describeWafSco
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -2115,6 +2346,12 @@ DescribeWhiteRuleListResponse Alibabacloud_Cloud-siem20220616::Client::describeW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -2221,8 +2458,17 @@ DoSelfDelegateResponse Alibabacloud_Cloud-siem20220616::Client::doSelfDelegate(s
 EnableAccessForCloudSiemResponse Alibabacloud_Cloud-siem20220616::Client::enableAccessForCloudSiemWithOptions(shared_ptr<EnableAccessForCloudSiemRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->autoSubmit)) {
+    body->insert(pair<string, long>("AutoSubmit", *request->autoSubmit));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -2279,6 +2525,12 @@ GetCapacityResponse Alibabacloud_Cloud-siem20220616::Client::getCapacityWithOpti
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -2425,6 +2677,12 @@ GetStorageResponse Alibabacloud_Cloud-siem20220616::Client::getStorageWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -2493,6 +2751,12 @@ ListAccountsByLogResponse Alibabacloud_Cloud-siem20220616::Client::listAccountsB
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -2520,6 +2784,12 @@ ListAllProdsResponse Alibabacloud_Cloud-siem20220616::Client::listAllProdsWithOp
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -2566,6 +2836,12 @@ ListAutomateResponseConfigsResponse Alibabacloud_Cloud-siem20220616::Client::lis
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
     body->insert(pair<string, string>("RuleName", *request->ruleName));
@@ -2678,11 +2954,23 @@ ListCloudSiemCustomizeRulesResponse Alibabacloud_Cloud-siem20220616::Client::lis
   if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
     body->insert(pair<string, string>("Id", *request->id));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    body->insert(pair<string, string>("Order", *request->order));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderField)) {
+    body->insert(pair<string, string>("OrderField", *request->orderField));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     body->insert(pair<string, long>("PageSize", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
     body->insert(pair<string, string>("RuleName", *request->ruleName));
@@ -2727,20 +3015,41 @@ ListCloudSiemPredefinedRulesResponse Alibabacloud_Cloud-siem20220616::Client::li
   if (!Darabonba_Util::Client::isUnset<string>(request->alertType)) {
     body->insert(pair<string, string>("AlertType", *request->alertType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->attCk)) {
+    body->insert(pair<string, string>("AttCk", *request->attCk));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     body->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
     body->insert(pair<string, long>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventTransferType)) {
+    body->insert(pair<string, string>("EventTransferType", *request->eventTransferType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
     body->insert(pair<string, string>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logSource)) {
+    body->insert(pair<string, string>("LogSource", *request->logSource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    body->insert(pair<string, string>("Order", *request->order));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderField)) {
+    body->insert(pair<string, string>("OrderField", *request->orderField));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     body->insert(pair<string, long>("PageSize", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
     body->insert(pair<string, string>("RuleName", *request->ruleName));
@@ -2793,6 +3102,12 @@ ListCustomizeRuleTestResultResponse Alibabacloud_Cloud-siem20220616::Client::lis
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -2890,6 +3205,12 @@ ListDeliveryResponse Alibabacloud_Cloud-siem20220616::Client::listDeliveryWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -2951,6 +3272,12 @@ ListDisposeStrategyResponse Alibabacloud_Cloud-siem20220616::Client::listDispose
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sophonTaskId)) {
     body->insert(pair<string, string>("SophonTaskId", *request->sophonTaskId));
   }
@@ -2990,6 +3317,12 @@ ListImportedLogsByProdResponse Alibabacloud_Cloud-siem20220616::Client::listImpo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -3358,6 +3691,12 @@ OpenDeliveryResponse Alibabacloud_Cloud-siem20220616::Client::openDeliveryWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -3401,6 +3740,12 @@ PostAutomateResponseConfigResponse Alibabacloud_Cloud-siem20220616::Client::post
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
     body->insert(pair<string, string>("RuleName", *request->ruleName));
   }
@@ -3438,6 +3783,9 @@ PostCustomizeRuleResponse Alibabacloud_Cloud-siem20220616::Client::postCustomize
   if (!Darabonba_Util::Client::isUnset<string>(request->alertTypeMds)) {
     body->insert(pair<string, string>("AlertTypeMds", *request->alertTypeMds));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->attCk)) {
+    body->insert(pair<string, string>("AttCk", *request->attCk));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->eventTransferExt)) {
     body->insert(pair<string, string>("EventTransferExt", *request->eventTransferExt));
   }
@@ -3467,6 +3815,12 @@ PostCustomizeRuleResponse Alibabacloud_Cloud-siem20220616::Client::postCustomize
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ruleCondition)) {
     body->insert(pair<string, string>("RuleCondition", *request->ruleCondition));
@@ -3517,6 +3871,12 @@ PostCustomizeRuleTestResponse Alibabacloud_Cloud-siem20220616::Client::postCusto
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->simulatedData)) {
     body->insert(pair<string, string>("SimulatedData", *request->simulatedData));
   }
@@ -3563,6 +3923,12 @@ PostEventDisposeAndWhiteruleListResponse Alibabacloud_Cloud-siem20220616::Client
   if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
     body->insert(pair<string, string>("Remark", *request->remark));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
     body->insert(pair<string, long>("Status", *request->status));
   }
@@ -3596,6 +3962,12 @@ PostEventWhiteruleListResponse Alibabacloud_Cloud-siem20220616::Client::postEven
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->whiteruleList)) {
     body->insert(pair<string, string>("WhiteruleList", *request->whiteruleList));
@@ -3631,6 +4003,12 @@ PostFinishCustomizeRuleTestResponse Alibabacloud_Cloud-siem20220616::Client::pos
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -3665,6 +4043,12 @@ PostRuleStatusChangeResponse Alibabacloud_Cloud-siem20220616::Client::postRuleSt
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ruleType)) {
     body->insert(pair<string, string>("RuleType", *request->ruleType));
   }
@@ -3695,6 +4079,12 @@ RestoreCapacityResponse Alibabacloud_Cloud-siem20220616::Client::restoreCapacity
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -3760,6 +4150,12 @@ SetStorageResponse Alibabacloud_Cloud-siem20220616::Client::setStorageWithOption
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ttl)) {
     body->insert(pair<string, long>("Ttl", *request->ttl));
@@ -3900,6 +4296,12 @@ UpdateAutomateResponseConfigStatusResponse Alibabacloud_Cloud-siem20220616::Clie
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -3933,6 +4335,12 @@ UpdateWhiteRuleListResponse Alibabacloud_Cloud-siem20220616::Client::updateWhite
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->whiteRuleId)) {
     body->insert(pair<string, long>("WhiteRuleId", *request->whiteRuleId));

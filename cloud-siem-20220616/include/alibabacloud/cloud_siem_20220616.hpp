@@ -1870,6 +1870,8 @@ public:
   shared_ptr<string> logCode{};
   shared_ptr<string> productCode{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   CloseDeliveryRequest() {}
 
@@ -1890,6 +1892,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -1902,6 +1910,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -2000,6 +2014,8 @@ class DeleteAutomateResponseConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DeleteAutomateResponseConfigRequest() {}
 
@@ -2017,6 +2033,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -2026,6 +2048,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -2322,6 +2350,8 @@ public:
 class DeleteCustomizeRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<long> ruleId{};
 
   DeleteCustomizeRuleRequest() {}
@@ -2337,6 +2367,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (ruleId) {
       res["RuleId"] = boost::any(*ruleId);
     }
@@ -2346,6 +2382,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
       ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
@@ -3072,6 +3114,8 @@ class DeleteWhiteRuleListRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DeleteWhiteRuleListRequest() {}
 
@@ -3089,6 +3133,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -3098,6 +3148,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -3216,6 +3272,8 @@ public:
 class DescribeAggregateFunctionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeAggregateFunctionRequest() {}
 
@@ -3230,12 +3288,24 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -3404,6 +3474,8 @@ public:
 class DescribeAlertSceneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeAlertSceneRequest() {}
 
@@ -3418,12 +3490,24 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -3699,6 +3783,8 @@ class DescribeAlertSceneByEventRequest : public Darabonba::Model {
 public:
   shared_ptr<string> incidentUuid{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeAlertSceneByEventRequest() {}
 
@@ -3716,6 +3802,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -3725,6 +3817,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -4001,6 +4099,8 @@ public:
   shared_ptr<long> endTime{};
   shared_ptr<vector<string>> level{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<long> startTime{};
 
   DescribeAlertSourceRequest() {}
@@ -4021,6 +4121,12 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -4044,6 +4150,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -4216,6 +4328,8 @@ class DescribeAlertSourceWithEventRequest : public Darabonba::Model {
 public:
   shared_ptr<string> incidentUuid{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeAlertSourceWithEventRequest() {}
 
@@ -4233,6 +4347,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -4242,6 +4362,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -4410,6 +4536,9 @@ public:
 class DescribeAlertTypeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
+  shared_ptr<string> ruleType{};
 
   DescribeAlertTypeRequest() {}
 
@@ -4424,12 +4553,30 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
     }
   }
 
@@ -4605,6 +4752,8 @@ public:
   shared_ptr<vector<string>> level{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> source{};
   shared_ptr<long> startTime{};
   shared_ptr<string> subUserId{};
@@ -4642,6 +4791,12 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
     }
     if (source) {
       res["Source"] = boost::any(*source);
@@ -4686,6 +4841,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -5218,6 +5379,8 @@ class DescribeAlertsCountRequest : public Darabonba::Model {
 public:
   shared_ptr<long> endTime{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<long> startTime{};
 
   DescribeAlertsCountRequest() {}
@@ -5236,6 +5399,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -5248,6 +5417,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -5434,6 +5609,8 @@ public:
   shared_ptr<string> incidentUuid{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> sophonTaskId{};
 
   DescribeAlertsWithEntityRequest() {}
@@ -5461,6 +5638,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (sophonTaskId) {
       res["SophonTaskId"] = boost::any(*sophonTaskId);
     }
@@ -5482,6 +5665,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("SophonTaskId") != m.end() && !m["SophonTaskId"].empty()) {
       sophonTaskId = make_shared<string>(boost::any_cast<string>(m["SophonTaskId"]));
@@ -6013,6 +6202,8 @@ public:
   shared_ptr<vector<string>> level{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> source{};
   shared_ptr<long> subUserId{};
 
@@ -6046,6 +6237,12 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
     }
     if (source) {
       res["Source"] = boost::any(*source);
@@ -6084,6 +6281,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -6205,6 +6408,7 @@ public:
   shared_ptr<string> attCk{};
   shared_ptr<string> cloudCode{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> entityList{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<long> id{};
@@ -6293,6 +6497,9 @@ public:
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (entityList) {
+      res["EntityList"] = boost::any(*entityList);
     }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
@@ -6403,6 +6610,9 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("EntityList") != m.end() && !m["EntityList"].empty()) {
+      entityList = make_shared<string>(boost::any_cast<string>(m["EntityList"]));
     }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
@@ -6615,6 +6825,8 @@ public:
   shared_ptr<long> endTime{};
   shared_ptr<string> incidentUuid{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<long> startTime{};
 
   DescribeAttackTimeLineRequest() {}
@@ -6639,6 +6851,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -6657,6 +6875,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -7071,6 +7295,8 @@ public:
 class DescribeAutomateResponseConfigCounterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeAutomateResponseConfigCounterRequest() {}
 
@@ -7085,12 +7311,24 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -7250,6 +7488,8 @@ class DescribeAutomateResponseConfigFeatureRequest : public Darabonba::Model {
 public:
   shared_ptr<string> autoResponseType{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeAutomateResponseConfigFeatureRequest() {}
 
@@ -7267,6 +7507,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -7276,6 +7522,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -7609,6 +7861,8 @@ public:
   shared_ptr<string> autoResponseType{};
   shared_ptr<string> entityType{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeAutomateResponseConfigPlayBooksRequest() {}
 
@@ -7629,6 +7883,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -7641,6 +7901,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -7834,6 +8100,8 @@ public:
   shared_ptr<string> incidentUuid{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeCloudSiemAssetsRequest() {}
 
@@ -7860,6 +8128,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -7878,6 +8152,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -8261,6 +8541,8 @@ class DescribeCloudSiemAssetsCounterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> incidentUuid{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeCloudSiemAssetsCounterRequest() {}
 
@@ -8278,6 +8560,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -8287,6 +8575,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -8456,6 +8750,8 @@ class DescribeCloudSiemEventDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> incidentUuid{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeCloudSiemEventDetailRequest() {}
 
@@ -8473,6 +8769,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -8482,6 +8784,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -8774,6 +9082,8 @@ public:
   shared_ptr<string> orderField{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<long> startTime{};
   shared_ptr<long> status{};
   shared_ptr<vector<string>> threadLevel{};
@@ -8815,6 +9125,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -8854,6 +9170,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -8934,6 +9256,7 @@ public:
   shared_ptr<string> incidentName{};
   shared_ptr<string> incidentNameEn{};
   shared_ptr<string> incidentUuid{};
+  shared_ptr<string> referAccount{};
   shared_ptr<string> remark{};
   shared_ptr<long> status{};
   shared_ptr<string> threatLevel{};
@@ -8987,6 +9310,9 @@ public:
     }
     if (incidentUuid) {
       res["IncidentUuid"] = boost::any(*incidentUuid);
+    }
+    if (referAccount) {
+      res["ReferAccount"] = boost::any(*referAccount);
     }
     if (remark) {
       res["Remark"] = boost::any(*remark);
@@ -9056,6 +9382,9 @@ public:
     }
     if (m.find("IncidentUuid") != m.end() && !m["IncidentUuid"].empty()) {
       incidentUuid = make_shared<string>(boost::any_cast<string>(m["IncidentUuid"]));
+    }
+    if (m.find("ReferAccount") != m.end() && !m["ReferAccount"].empty()) {
+      referAccount = make_shared<string>(boost::any_cast<string>(m["ReferAccount"]));
     }
     if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
@@ -9700,6 +10029,8 @@ public:
 class DescribeCustomizeRuleCountRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeCustomizeRuleCountRequest() {}
 
@@ -9714,12 +10045,24 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -9728,10 +10071,18 @@ public:
 };
 class DescribeCustomizeRuleCountResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> aggregationRuleNum{};
+  shared_ptr<long> customizeRuleNum{};
+  shared_ptr<long> expertRuleNum{};
+  shared_ptr<long> graphComputingRuleNum{};
   shared_ptr<long> highRuleNum{};
   shared_ptr<long> inUseRuleNum{};
   shared_ptr<long> lowRuleNum{};
   shared_ptr<long> mediumRuleNum{};
+  shared_ptr<long> predefinedRuleNum{};
+  shared_ptr<long> singleAlertRuleNum{};
+  shared_ptr<long> totalRuleNum{};
+  shared_ptr<long> unEventRuleNum{};
 
   DescribeCustomizeRuleCountResponseBodyData() {}
 
@@ -9743,6 +10094,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aggregationRuleNum) {
+      res["AggregationRuleNum"] = boost::any(*aggregationRuleNum);
+    }
+    if (customizeRuleNum) {
+      res["CustomizeRuleNum"] = boost::any(*customizeRuleNum);
+    }
+    if (expertRuleNum) {
+      res["ExpertRuleNum"] = boost::any(*expertRuleNum);
+    }
+    if (graphComputingRuleNum) {
+      res["GraphComputingRuleNum"] = boost::any(*graphComputingRuleNum);
+    }
     if (highRuleNum) {
       res["HighRuleNum"] = boost::any(*highRuleNum);
     }
@@ -9755,10 +10118,34 @@ public:
     if (mediumRuleNum) {
       res["MediumRuleNum"] = boost::any(*mediumRuleNum);
     }
+    if (predefinedRuleNum) {
+      res["PredefinedRuleNum"] = boost::any(*predefinedRuleNum);
+    }
+    if (singleAlertRuleNum) {
+      res["SingleAlertRuleNum"] = boost::any(*singleAlertRuleNum);
+    }
+    if (totalRuleNum) {
+      res["TotalRuleNum"] = boost::any(*totalRuleNum);
+    }
+    if (unEventRuleNum) {
+      res["UnEventRuleNum"] = boost::any(*unEventRuleNum);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggregationRuleNum") != m.end() && !m["AggregationRuleNum"].empty()) {
+      aggregationRuleNum = make_shared<long>(boost::any_cast<long>(m["AggregationRuleNum"]));
+    }
+    if (m.find("CustomizeRuleNum") != m.end() && !m["CustomizeRuleNum"].empty()) {
+      customizeRuleNum = make_shared<long>(boost::any_cast<long>(m["CustomizeRuleNum"]));
+    }
+    if (m.find("ExpertRuleNum") != m.end() && !m["ExpertRuleNum"].empty()) {
+      expertRuleNum = make_shared<long>(boost::any_cast<long>(m["ExpertRuleNum"]));
+    }
+    if (m.find("GraphComputingRuleNum") != m.end() && !m["GraphComputingRuleNum"].empty()) {
+      graphComputingRuleNum = make_shared<long>(boost::any_cast<long>(m["GraphComputingRuleNum"]));
+    }
     if (m.find("HighRuleNum") != m.end() && !m["HighRuleNum"].empty()) {
       highRuleNum = make_shared<long>(boost::any_cast<long>(m["HighRuleNum"]));
     }
@@ -9770,6 +10157,18 @@ public:
     }
     if (m.find("MediumRuleNum") != m.end() && !m["MediumRuleNum"].empty()) {
       mediumRuleNum = make_shared<long>(boost::any_cast<long>(m["MediumRuleNum"]));
+    }
+    if (m.find("PredefinedRuleNum") != m.end() && !m["PredefinedRuleNum"].empty()) {
+      predefinedRuleNum = make_shared<long>(boost::any_cast<long>(m["PredefinedRuleNum"]));
+    }
+    if (m.find("SingleAlertRuleNum") != m.end() && !m["SingleAlertRuleNum"].empty()) {
+      singleAlertRuleNum = make_shared<long>(boost::any_cast<long>(m["SingleAlertRuleNum"]));
+    }
+    if (m.find("TotalRuleNum") != m.end() && !m["TotalRuleNum"].empty()) {
+      totalRuleNum = make_shared<long>(boost::any_cast<long>(m["TotalRuleNum"]));
+    }
+    if (m.find("UnEventRuleNum") != m.end() && !m["UnEventRuleNum"].empty()) {
+      unEventRuleNum = make_shared<long>(boost::any_cast<long>(m["UnEventRuleNum"]));
     }
   }
 
@@ -9893,6 +10292,8 @@ class DescribeCustomizeRuleTestRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeCustomizeRuleTestRequest() {}
 
@@ -9910,6 +10311,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -9919,6 +10326,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -10085,6 +10498,8 @@ class DescribeCustomizeRuleTestHistogramRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeCustomizeRuleTestHistogramRequest() {}
 
@@ -10102,6 +10517,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -10111,6 +10532,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -10847,6 +11274,8 @@ public:
   shared_ptr<string> incidentUuid{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeDisposeAndPlaybookRequest() {}
 
@@ -10873,6 +11302,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -10891,6 +11326,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -11312,6 +11753,8 @@ class DescribeDisposeStrategyPlaybookRequest : public Darabonba::Model {
 public:
   shared_ptr<long> endTime{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<long> startTime{};
 
   DescribeDisposeStrategyPlaybookRequest() {}
@@ -11330,6 +11773,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -11342,6 +11791,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -11516,6 +11971,8 @@ public:
   shared_ptr<string> entityIdentity{};
   shared_ptr<string> incidentUuid{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> sophonTaskId{};
 
   DescribeEntityInfoRequest() {}
@@ -11540,6 +11997,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (sophonTaskId) {
       res["SophonTaskId"] = boost::any(*sophonTaskId);
     }
@@ -11558,6 +12021,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("SophonTaskId") != m.end() && !m["SophonTaskId"].empty()) {
       sophonTaskId = make_shared<string>(boost::any_cast<string>(m["SophonTaskId"]));
@@ -11742,7 +12211,11 @@ public:
 };
 class DescribeEventCountByThreatLevelRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> endTime{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
+  shared_ptr<long> startTime{};
 
   DescribeEventCountByThreatLevelRequest() {}
 
@@ -11754,15 +12227,39 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
   }
 
@@ -11945,6 +12442,8 @@ public:
   shared_ptr<string> incidentUuid{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeEventDisposeRequest() {}
 
@@ -11968,6 +12467,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -11983,6 +12488,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -12815,6 +13326,8 @@ public:
   shared_ptr<string> logSource{};
   shared_ptr<string> logType{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeLogFieldsRequest() {}
 
@@ -12835,6 +13348,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -12847,6 +13366,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -13037,6 +13562,8 @@ class DescribeLogSourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> logType{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeLogSourceRequest() {}
 
@@ -13054,6 +13581,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -13063,6 +13596,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -13423,6 +13962,8 @@ public:
 class DescribeLogTypeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeLogTypeRequest() {}
 
@@ -13437,12 +13978,24 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -13611,6 +14164,8 @@ public:
 class DescribeOperatorsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> sceneType{};
 
   DescribeOperatorsRequest() {}
@@ -13626,6 +14181,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (sceneType) {
       res["SceneType"] = boost::any(*sceneType);
     }
@@ -13635,6 +14196,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("SceneType") != m.end() && !m["SceneType"].empty()) {
       sceneType = make_shared<string>(boost::any_cast<string>(m["SceneType"]));
@@ -14012,6 +14579,8 @@ public:
 class DescribeScopeUsersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeScopeUsersRequest() {}
 
@@ -14026,12 +14595,24 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -14041,8 +14622,10 @@ public:
 class DescribeScopeUsersResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> aliUid{};
+  shared_ptr<string> cloudCode{};
   shared_ptr<vector<string>> domains{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> userId{};
   shared_ptr<string> userName{};
 
   DescribeScopeUsersResponseBodyData() {}
@@ -14058,11 +14641,17 @@ public:
     if (aliUid) {
       res["AliUid"] = boost::any(*aliUid);
     }
+    if (cloudCode) {
+      res["CloudCode"] = boost::any(*cloudCode);
+    }
     if (domains) {
       res["Domains"] = boost::any(*domains);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
     }
     if (userName) {
       res["UserName"] = boost::any(*userName);
@@ -14073,6 +14662,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliUid") != m.end() && !m["AliUid"].empty()) {
       aliUid = make_shared<long>(boost::any_cast<long>(m["AliUid"]));
+    }
+    if (m.find("CloudCode") != m.end() && !m["CloudCode"].empty()) {
+      cloudCode = make_shared<string>(boost::any_cast<string>(m["CloudCode"]));
     }
     if (m.find("Domains") != m.end() && !m["Domains"].empty()) {
       vector<string> toVec1;
@@ -14086,6 +14678,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
     }
     if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
       userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
@@ -14338,6 +14933,8 @@ public:
 class DescribeStorageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeStorageRequest() {}
 
@@ -14352,12 +14949,24 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -14498,6 +15107,7 @@ public:
   shared_ptr<string> mainUserName{};
   shared_ptr<long> masterUserId{};
   shared_ptr<string> masterUserName{};
+  shared_ptr<long> rdOrder{};
   shared_ptr<string> sasInstanceId{};
   shared_ptr<long> subUserId{};
   shared_ptr<string> subUserName{};
@@ -14536,6 +15146,9 @@ public:
     if (masterUserName) {
       res["MasterUserName"] = boost::any(*masterUserName);
     }
+    if (rdOrder) {
+      res["RdOrder"] = boost::any(*rdOrder);
+    }
     if (sasInstanceId) {
       res["SasInstanceId"] = boost::any(*sasInstanceId);
     }
@@ -14572,6 +15185,9 @@ public:
     }
     if (m.find("MasterUserName") != m.end() && !m["MasterUserName"].empty()) {
       masterUserName = make_shared<string>(boost::any_cast<string>(m["MasterUserName"]));
+    }
+    if (m.find("RdOrder") != m.end() && !m["RdOrder"].empty()) {
+      rdOrder = make_shared<long>(boost::any_cast<long>(m["RdOrder"]));
     }
     if (m.find("SasInstanceId") != m.end() && !m["SasInstanceId"].empty()) {
       sasInstanceId = make_shared<string>(boost::any_cast<string>(m["SasInstanceId"]));
@@ -14683,6 +15299,8 @@ class DescribeWafScopeRequest : public Darabonba::Model {
 public:
   shared_ptr<long> entityId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeWafScopeRequest() {}
 
@@ -14700,6 +15318,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -14709,6 +15333,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -14896,6 +15526,8 @@ public:
   shared_ptr<string> incidentUuid{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   DescribeWhiteRuleListRequest() {}
 
@@ -14925,6 +15557,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -14946,6 +15584,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -15927,7 +16571,10 @@ public:
 };
 class EnableAccessForCloudSiemRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> autoSubmit{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   EnableAccessForCloudSiemRequest() {}
 
@@ -15939,15 +16586,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoSubmit) {
+      res["AutoSubmit"] = boost::any(*autoSubmit);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoSubmit") != m.end() && !m["AutoSubmit"].empty()) {
+      autoSubmit = make_shared<long>(boost::any_cast<long>(m["AutoSubmit"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -16162,6 +16827,8 @@ public:
 class GetCapacityRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   GetCapacityRequest() {}
 
@@ -16176,12 +16843,24 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -17055,6 +17734,8 @@ public:
 class GetStorageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   GetStorageRequest() {}
 
@@ -17069,12 +17750,24 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -17459,6 +18152,8 @@ public:
   shared_ptr<vector<string>> logCodes{};
   shared_ptr<string> prodCode{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   ListAccountsByLogRequest() {}
 
@@ -17482,6 +18177,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -17504,6 +18205,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -17686,6 +18393,8 @@ public:
 class ListAllProdsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   ListAllProdsRequest() {}
 
@@ -17700,12 +18409,24 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -17934,6 +18655,8 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> playbookUuid{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> ruleName{};
   shared_ptr<long> status{};
   shared_ptr<long> subUserId{};
@@ -17969,6 +18692,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
     }
@@ -18002,6 +18731,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
@@ -18066,6 +18801,7 @@ public:
   shared_ptr<string> actionType{};
   shared_ptr<long> aliuid{};
   shared_ptr<string> autoResponseType{};
+  shared_ptr<long> dataType{};
   shared_ptr<string> executionCondition{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
@@ -18095,6 +18831,9 @@ public:
     }
     if (autoResponseType) {
       res["AutoResponseType"] = boost::any(*autoResponseType);
+    }
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
     }
     if (executionCondition) {
       res["ExecutionCondition"] = boost::any(*executionCondition);
@@ -18132,6 +18871,9 @@ public:
     }
     if (m.find("AutoResponseType") != m.end() && !m["AutoResponseType"].empty()) {
       autoResponseType = make_shared<string>(boost::any_cast<string>(m["AutoResponseType"]));
+    }
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<long>(boost::any_cast<long>(m["DataType"]));
     }
     if (m.find("ExecutionCondition") != m.end() && !m["ExecutionCondition"].empty()) {
       executionCondition = make_shared<string>(boost::any_cast<string>(m["ExecutionCondition"]));
@@ -18778,8 +19520,12 @@ public:
   shared_ptr<long> currentPage{};
   shared_ptr<long> endTime{};
   shared_ptr<string> id{};
+  shared_ptr<string> order{};
+  shared_ptr<string> orderField{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> ruleName{};
   shared_ptr<string> ruleType{};
   shared_ptr<long> startTime{};
@@ -18808,11 +19554,23 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (orderField) {
+      res["OrderField"] = boost::any(*orderField);
+    }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
     }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
@@ -18845,11 +19603,23 @@ public:
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
     }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("OrderField") != m.end() && !m["OrderField"].empty()) {
+      orderField = make_shared<string>(boost::any_cast<string>(m["OrderField"]));
+    }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
@@ -18926,6 +19696,8 @@ public:
   shared_ptr<string> alertType{};
   shared_ptr<string> alertTypeMds{};
   shared_ptr<long> aliuid{};
+  shared_ptr<string> attCk{};
+  shared_ptr<long> dataType{};
   shared_ptr<string> eventTransferExt{};
   shared_ptr<long> eventTransferSwitch{};
   shared_ptr<string> eventTransferType{};
@@ -18964,6 +19736,12 @@ public:
     }
     if (aliuid) {
       res["Aliuid"] = boost::any(*aliuid);
+    }
+    if (attCk) {
+      res["AttCk"] = boost::any(*attCk);
+    }
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
     }
     if (eventTransferExt) {
       res["EventTransferExt"] = boost::any(*eventTransferExt);
@@ -19034,6 +19812,12 @@ public:
     }
     if (m.find("Aliuid") != m.end() && !m["Aliuid"].empty()) {
       aliuid = make_shared<long>(boost::any_cast<long>(m["Aliuid"]));
+    }
+    if (m.find("AttCk") != m.end() && !m["AttCk"].empty()) {
+      attCk = make_shared<string>(boost::any_cast<string>(m["AttCk"]));
+    }
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<long>(boost::any_cast<long>(m["DataType"]));
     }
     if (m.find("EventTransferExt") != m.end() && !m["EventTransferExt"].empty()) {
       eventTransferExt = make_shared<string>(boost::any_cast<string>(m["EventTransferExt"]));
@@ -19267,11 +20051,18 @@ public:
 class ListCloudSiemPredefinedRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alertType{};
+  shared_ptr<string> attCk{};
   shared_ptr<long> currentPage{};
   shared_ptr<long> endTime{};
+  shared_ptr<string> eventTransferType{};
   shared_ptr<string> id{};
+  shared_ptr<string> logSource{};
+  shared_ptr<string> order{};
+  shared_ptr<string> orderField{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> ruleName{};
   shared_ptr<string> ruleType{};
   shared_ptr<long> startTime{};
@@ -19291,20 +20082,41 @@ public:
     if (alertType) {
       res["AlertType"] = boost::any(*alertType);
     }
+    if (attCk) {
+      res["AttCk"] = boost::any(*attCk);
+    }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (eventTransferType) {
+      res["EventTransferType"] = boost::any(*eventTransferType);
+    }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (logSource) {
+      res["LogSource"] = boost::any(*logSource);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (orderField) {
+      res["OrderField"] = boost::any(*orderField);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
     }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
@@ -19328,20 +20140,41 @@ public:
     if (m.find("AlertType") != m.end() && !m["AlertType"].empty()) {
       alertType = make_shared<string>(boost::any_cast<string>(m["AlertType"]));
     }
+    if (m.find("AttCk") != m.end() && !m["AttCk"].empty()) {
+      attCk = make_shared<string>(boost::any_cast<string>(m["AttCk"]));
+    }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
     }
+    if (m.find("EventTransferType") != m.end() && !m["EventTransferType"].empty()) {
+      eventTransferType = make_shared<string>(boost::any_cast<string>(m["EventTransferType"]));
+    }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("LogSource") != m.end() && !m["LogSource"].empty()) {
+      logSource = make_shared<string>(boost::any_cast<string>(m["LogSource"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("OrderField") != m.end() && !m["OrderField"].empty()) {
+      orderField = make_shared<string>(boost::any_cast<string>(m["OrderField"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
@@ -19416,11 +20249,15 @@ public:
 class ListCloudSiemPredefinedRulesResponseBodyDataResponseData : public Darabonba::Model {
 public:
   shared_ptr<string> alertType{};
+  shared_ptr<string> attCk{};
+  shared_ptr<string> eventTransferType{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<long> id{};
   shared_ptr<string> ruleDescMds{};
   shared_ptr<string> ruleName{};
+  shared_ptr<string> ruleNameCn{};
+  shared_ptr<string> ruleNameEn{};
   shared_ptr<string> ruleNameMds{};
   shared_ptr<string> source{};
   shared_ptr<long> status{};
@@ -19439,6 +20276,12 @@ public:
     if (alertType) {
       res["AlertType"] = boost::any(*alertType);
     }
+    if (attCk) {
+      res["AttCk"] = boost::any(*attCk);
+    }
+    if (eventTransferType) {
+      res["EventTransferType"] = boost::any(*eventTransferType);
+    }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
     }
@@ -19453,6 +20296,12 @@ public:
     }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
+    }
+    if (ruleNameCn) {
+      res["RuleNameCn"] = boost::any(*ruleNameCn);
+    }
+    if (ruleNameEn) {
+      res["RuleNameEn"] = boost::any(*ruleNameEn);
     }
     if (ruleNameMds) {
       res["RuleNameMds"] = boost::any(*ruleNameMds);
@@ -19473,6 +20322,12 @@ public:
     if (m.find("AlertType") != m.end() && !m["AlertType"].empty()) {
       alertType = make_shared<string>(boost::any_cast<string>(m["AlertType"]));
     }
+    if (m.find("AttCk") != m.end() && !m["AttCk"].empty()) {
+      attCk = make_shared<string>(boost::any_cast<string>(m["AttCk"]));
+    }
+    if (m.find("EventTransferType") != m.end() && !m["EventTransferType"].empty()) {
+      eventTransferType = make_shared<string>(boost::any_cast<string>(m["EventTransferType"]));
+    }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
     }
@@ -19487,6 +20342,12 @@ public:
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("RuleNameCn") != m.end() && !m["RuleNameCn"].empty()) {
+      ruleNameCn = make_shared<string>(boost::any_cast<string>(m["RuleNameCn"]));
+    }
+    if (m.find("RuleNameEn") != m.end() && !m["RuleNameEn"].empty()) {
+      ruleNameEn = make_shared<string>(boost::any_cast<string>(m["RuleNameEn"]));
     }
     if (m.find("RuleNameMds") != m.end() && !m["RuleNameMds"].empty()) {
       ruleNameMds = make_shared<string>(boost::any_cast<string>(m["RuleNameMds"]));
@@ -19678,6 +20539,8 @@ public:
   shared_ptr<long> id{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   ListCustomizeRuleTestResultRequest() {}
 
@@ -19701,6 +20564,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -19716,6 +20585,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -20570,6 +21445,8 @@ public:
 class ListDeliveryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   ListDeliveryRequest() {}
 
@@ -20584,12 +21461,24 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -20996,6 +21885,8 @@ public:
   shared_ptr<string> playbookTypes{};
   shared_ptr<string> playbookUuid{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> sophonTaskId{};
   shared_ptr<long> startTime{};
 
@@ -21045,6 +21936,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (sophonTaskId) {
       res["SophonTaskId"] = boost::any(*sophonTaskId);
     }
@@ -21090,6 +21987,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("SophonTaskId") != m.end() && !m["SophonTaskId"].empty()) {
       sophonTaskId = make_shared<string>(boost::any_cast<string>(m["SophonTaskId"]));
@@ -21500,6 +22403,8 @@ public:
   shared_ptr<string> cloudCode{};
   shared_ptr<string> prodCode{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   ListImportedLogsByProdRequest() {}
 
@@ -21520,6 +22425,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -21532,6 +22443,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -21546,6 +22463,7 @@ public:
   shared_ptr<long> importedUserCount{};
   shared_ptr<string> logCode{};
   shared_ptr<string> logMdsCode{};
+  shared_ptr<long> logType{};
   shared_ptr<string> modifyTime{};
   shared_ptr<string> prodCode{};
   shared_ptr<long> totalUserCount{};
@@ -21578,6 +22496,9 @@ public:
     }
     if (logMdsCode) {
       res["LogMdsCode"] = boost::any(*logMdsCode);
+    }
+    if (logType) {
+      res["LogType"] = boost::any(*logType);
     }
     if (modifyTime) {
       res["ModifyTime"] = boost::any(*modifyTime);
@@ -21612,6 +22533,9 @@ public:
     }
     if (m.find("LogMdsCode") != m.end() && !m["LogMdsCode"].empty()) {
       logMdsCode = make_shared<string>(boost::any_cast<string>(m["LogMdsCode"]));
+    }
+    if (m.find("LogType") != m.end() && !m["LogType"].empty()) {
+      logType = make_shared<long>(boost::any_cast<long>(m["LogType"]));
     }
     if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
       modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
@@ -23618,6 +24542,8 @@ public:
   shared_ptr<string> logCode{};
   shared_ptr<string> productCode{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   OpenDeliveryRequest() {}
 
@@ -23638,6 +24564,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -23650,6 +24582,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -23752,6 +24690,8 @@ public:
   shared_ptr<string> executionCondition{};
   shared_ptr<long> id{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> ruleName{};
   shared_ptr<long> subUserId{};
 
@@ -23783,6 +24723,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
     }
@@ -23810,6 +24756,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
@@ -23935,6 +24887,7 @@ class PostCustomizeRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alertType{};
   shared_ptr<string> alertTypeMds{};
+  shared_ptr<string> attCk{};
   shared_ptr<string> eventTransferExt{};
   shared_ptr<long> eventTransferSwitch{};
   shared_ptr<string> eventTransferType{};
@@ -23945,6 +24898,8 @@ public:
   shared_ptr<string> logTypeMds{};
   shared_ptr<string> queryCycle{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> ruleCondition{};
   shared_ptr<string> ruleDesc{};
   shared_ptr<string> ruleGroup{};
@@ -23967,6 +24922,9 @@ public:
     }
     if (alertTypeMds) {
       res["AlertTypeMds"] = boost::any(*alertTypeMds);
+    }
+    if (attCk) {
+      res["AttCk"] = boost::any(*attCk);
     }
     if (eventTransferExt) {
       res["EventTransferExt"] = boost::any(*eventTransferExt);
@@ -23998,6 +24956,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (ruleCondition) {
       res["RuleCondition"] = boost::any(*ruleCondition);
     }
@@ -24025,6 +24989,9 @@ public:
     }
     if (m.find("AlertTypeMds") != m.end() && !m["AlertTypeMds"].empty()) {
       alertTypeMds = make_shared<string>(boost::any_cast<string>(m["AlertTypeMds"]));
+    }
+    if (m.find("AttCk") != m.end() && !m["AttCk"].empty()) {
+      attCk = make_shared<string>(boost::any_cast<string>(m["AttCk"]));
     }
     if (m.find("EventTransferExt") != m.end() && !m["EventTransferExt"].empty()) {
       eventTransferExt = make_shared<string>(boost::any_cast<string>(m["EventTransferExt"]));
@@ -24056,6 +25023,12 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
+    }
     if (m.find("RuleCondition") != m.end() && !m["RuleCondition"].empty()) {
       ruleCondition = make_shared<string>(boost::any_cast<string>(m["RuleCondition"]));
     }
@@ -24084,6 +25057,8 @@ public:
   shared_ptr<string> alertType{};
   shared_ptr<string> alertTypeMds{};
   shared_ptr<long> aliuid{};
+  shared_ptr<string> attCk{};
+  shared_ptr<long> dataType{};
   shared_ptr<string> eventTransferExt{};
   shared_ptr<long> eventTransferSwitch{};
   shared_ptr<string> eventTransferType{};
@@ -24122,6 +25097,12 @@ public:
     }
     if (aliuid) {
       res["Aliuid"] = boost::any(*aliuid);
+    }
+    if (attCk) {
+      res["AttCk"] = boost::any(*attCk);
+    }
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
     }
     if (eventTransferExt) {
       res["EventTransferExt"] = boost::any(*eventTransferExt);
@@ -24192,6 +25173,12 @@ public:
     }
     if (m.find("Aliuid") != m.end() && !m["Aliuid"].empty()) {
       aliuid = make_shared<long>(boost::any_cast<long>(m["Aliuid"]));
+    }
+    if (m.find("AttCk") != m.end() && !m["AttCk"].empty()) {
+      attCk = make_shared<string>(boost::any_cast<string>(m["AttCk"]));
+    }
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<long>(boost::any_cast<long>(m["DataType"]));
     }
     if (m.find("EventTransferExt") != m.end() && !m["EventTransferExt"].empty()) {
       eventTransferExt = make_shared<string>(boost::any_cast<string>(m["EventTransferExt"]));
@@ -24372,6 +25359,8 @@ class PostCustomizeRuleTestRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> simulatedData{};
   shared_ptr<string> testType{};
 
@@ -24391,6 +25380,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (simulatedData) {
       res["SimulatedData"] = boost::any(*simulatedData);
     }
@@ -24406,6 +25401,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("SimulatedData") != m.end() && !m["SimulatedData"].empty()) {
       simulatedData = make_shared<string>(boost::any_cast<string>(m["SimulatedData"]));
@@ -24534,6 +25535,8 @@ public:
   shared_ptr<string> receiverInfo{};
   shared_ptr<string> regionId{};
   shared_ptr<string> remark{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<long> status{};
 
   PostEventDisposeAndWhiteruleListRequest() {}
@@ -24561,6 +25564,12 @@ public:
     if (remark) {
       res["Remark"] = boost::any(*remark);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -24582,6 +25591,12 @@ public:
     }
     if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
@@ -24704,6 +25719,8 @@ class PostEventWhiteruleListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> incidentUuid{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> whiteruleList{};
 
   PostEventWhiteruleListRequest() {}
@@ -24722,6 +25739,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (whiteruleList) {
       res["WhiteruleList"] = boost::any(*whiteruleList);
     }
@@ -24734,6 +25757,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("WhiteruleList") != m.end() && !m["WhiteruleList"].empty()) {
       whiteruleList = make_shared<string>(boost::any_cast<string>(m["WhiteruleList"]));
@@ -24856,6 +25885,8 @@ class PostFinishCustomizeRuleTestRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   PostFinishCustomizeRuleTestRequest() {}
 
@@ -24873,6 +25904,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -24882,6 +25919,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -25002,6 +26045,8 @@ public:
   shared_ptr<string> ids{};
   shared_ptr<bool> inUse{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> ruleType{};
 
   PostRuleStatusChangeRequest() {}
@@ -25023,6 +26068,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (ruleType) {
       res["RuleType"] = boost::any(*ruleType);
     }
@@ -25038,6 +26089,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
       ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
@@ -25159,6 +26216,8 @@ public:
 class RestoreCapacityRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   RestoreCapacityRequest() {}
 
@@ -25173,12 +26232,24 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -25408,6 +26479,8 @@ class SetStorageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> region{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<long> ttl{};
 
   SetStorageRequest() {}
@@ -25426,6 +26499,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (ttl) {
       res["Ttl"] = boost::any(*ttl);
     }
@@ -25438,6 +26517,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("Ttl") != m.end() && !m["Ttl"].empty()) {
       ttl = make_shared<long>(boost::any_cast<long>(m["Ttl"]));
@@ -26006,6 +27091,8 @@ public:
   shared_ptr<string> ids{};
   shared_ptr<bool> inUse{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
 
   UpdateAutomateResponseConfigStatusRequest() {}
 
@@ -26026,6 +27113,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     return res;
   }
 
@@ -26038,6 +27131,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
   }
 
@@ -26158,6 +27257,8 @@ public:
   shared_ptr<string> expression{};
   shared_ptr<string> incidentUuid{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<long> whiteRuleId{};
 
   UpdateWhiteRuleListRequest() {}
@@ -26179,6 +27280,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (whiteRuleId) {
       res["WhiteRuleId"] = boost::any(*whiteRuleId);
     }
@@ -26194,6 +27301,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("WhiteRuleId") != m.end() && !m["WhiteRuleId"].empty()) {
       whiteRuleId = make_shared<long>(boost::any_cast<long>(m["WhiteRuleId"]));
