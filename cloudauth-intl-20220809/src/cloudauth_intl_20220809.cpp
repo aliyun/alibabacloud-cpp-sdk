@@ -797,9 +797,6 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->facePictureUrl)) {
     query->insert(pair<string, string>("FacePictureUrl", *request->facePictureUrl));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->flowType)) {
-    query->insert(pair<string, string>("FlowType", *request->flowType));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->idFaceQuality)) {
     query->insert(pair<string, string>("IdFaceQuality", *request->idFaceQuality));
   }
@@ -821,17 +818,8 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->ocr)) {
     query->insert(pair<string, string>("Ocr", *request->ocr));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->operationMode)) {
-    query->insert(pair<string, string>("OperationMode", *request->operationMode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->pages)) {
-    query->insert(pair<string, string>("Pages", *request->pages));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
     query->insert(pair<string, string>("ProductCode", *request->productCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->productConfig)) {
-    query->insert(pair<string, string>("ProductConfig", *request->productConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->productFlow)) {
     query->insert(pair<string, string>("ProductFlow", *request->productFlow));
@@ -845,8 +833,8 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->securityLevel)) {
     query->insert(pair<string, string>("SecurityLevel", *request->securityLevel));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->serviceLevel)) {
-    query->insert(pair<string, string>("ServiceLevel", *request->serviceLevel));
+  if (!Darabonba_Util::Client::isUnset<string>(request->styleConfig)) {
+    query->insert(pair<string, string>("StyleConfig", *request->styleConfig));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->facePictureBase64)) {

@@ -4665,7 +4665,6 @@ public:
   shared_ptr<string> docType{};
   shared_ptr<string> facePictureBase64{};
   shared_ptr<string> facePictureUrl{};
-  shared_ptr<string> flowType{};
   shared_ptr<string> idFaceQuality{};
   shared_ptr<string> idSpoof{};
   shared_ptr<string> languageConfig{};
@@ -4673,15 +4672,12 @@ public:
   shared_ptr<string> merchantUserId{};
   shared_ptr<string> metaInfo{};
   shared_ptr<string> ocr{};
-  shared_ptr<string> operationMode{};
-  shared_ptr<string> pages{};
   shared_ptr<string> productCode{};
-  shared_ptr<string> productConfig{};
   shared_ptr<string> productFlow{};
   shared_ptr<string> returnUrl{};
   shared_ptr<string> sceneCode{};
   shared_ptr<string> securityLevel{};
-  shared_ptr<string> serviceLevel{};
+  shared_ptr<string> styleConfig{};
 
   InitializeRequest() {}
 
@@ -4717,9 +4713,6 @@ public:
     if (facePictureUrl) {
       res["FacePictureUrl"] = boost::any(*facePictureUrl);
     }
-    if (flowType) {
-      res["FlowType"] = boost::any(*flowType);
-    }
     if (idFaceQuality) {
       res["IdFaceQuality"] = boost::any(*idFaceQuality);
     }
@@ -4741,17 +4734,8 @@ public:
     if (ocr) {
       res["Ocr"] = boost::any(*ocr);
     }
-    if (operationMode) {
-      res["OperationMode"] = boost::any(*operationMode);
-    }
-    if (pages) {
-      res["Pages"] = boost::any(*pages);
-    }
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
-    }
-    if (productConfig) {
-      res["ProductConfig"] = boost::any(*productConfig);
     }
     if (productFlow) {
       res["ProductFlow"] = boost::any(*productFlow);
@@ -4765,8 +4749,8 @@ public:
     if (securityLevel) {
       res["SecurityLevel"] = boost::any(*securityLevel);
     }
-    if (serviceLevel) {
-      res["ServiceLevel"] = boost::any(*serviceLevel);
+    if (styleConfig) {
+      res["StyleConfig"] = boost::any(*styleConfig);
     }
     return res;
   }
@@ -4796,9 +4780,6 @@ public:
     if (m.find("FacePictureUrl") != m.end() && !m["FacePictureUrl"].empty()) {
       facePictureUrl = make_shared<string>(boost::any_cast<string>(m["FacePictureUrl"]));
     }
-    if (m.find("FlowType") != m.end() && !m["FlowType"].empty()) {
-      flowType = make_shared<string>(boost::any_cast<string>(m["FlowType"]));
-    }
     if (m.find("IdFaceQuality") != m.end() && !m["IdFaceQuality"].empty()) {
       idFaceQuality = make_shared<string>(boost::any_cast<string>(m["IdFaceQuality"]));
     }
@@ -4820,17 +4801,8 @@ public:
     if (m.find("Ocr") != m.end() && !m["Ocr"].empty()) {
       ocr = make_shared<string>(boost::any_cast<string>(m["Ocr"]));
     }
-    if (m.find("OperationMode") != m.end() && !m["OperationMode"].empty()) {
-      operationMode = make_shared<string>(boost::any_cast<string>(m["OperationMode"]));
-    }
-    if (m.find("Pages") != m.end() && !m["Pages"].empty()) {
-      pages = make_shared<string>(boost::any_cast<string>(m["Pages"]));
-    }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
-    }
-    if (m.find("ProductConfig") != m.end() && !m["ProductConfig"].empty()) {
-      productConfig = make_shared<string>(boost::any_cast<string>(m["ProductConfig"]));
     }
     if (m.find("ProductFlow") != m.end() && !m["ProductFlow"].empty()) {
       productFlow = make_shared<string>(boost::any_cast<string>(m["ProductFlow"]));
@@ -4844,8 +4816,8 @@ public:
     if (m.find("SecurityLevel") != m.end() && !m["SecurityLevel"].empty()) {
       securityLevel = make_shared<string>(boost::any_cast<string>(m["SecurityLevel"]));
     }
-    if (m.find("ServiceLevel") != m.end() && !m["ServiceLevel"].empty()) {
-      serviceLevel = make_shared<string>(boost::any_cast<string>(m["ServiceLevel"]));
+    if (m.find("StyleConfig") != m.end() && !m["StyleConfig"].empty()) {
+      styleConfig = make_shared<string>(boost::any_cast<string>(m["StyleConfig"]));
     }
   }
 
