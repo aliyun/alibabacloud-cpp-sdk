@@ -1826,8 +1826,10 @@ public:
   shared_ptr<bool> allowFullScan{};
   shared_ptr<string> elderTunnelQuota{};
   shared_ptr<bool> enableDecimal2{};
+  shared_ptr<bool> enableFdcCacheForce{};
   shared_ptr<bool> enableTunnelQuotaRoute{};
   shared_ptr<GetProjectResponseBodyDataPropertiesEncryption> encryption{};
+  shared_ptr<string> fdcQuota{};
   shared_ptr<long> retentionDays{};
   shared_ptr<string> sqlMeteringMax{};
   shared_ptr<GetProjectResponseBodyDataPropertiesStorageTierInfo> storageTierInfo{};
@@ -1855,11 +1857,17 @@ public:
     if (enableDecimal2) {
       res["enableDecimal2"] = boost::any(*enableDecimal2);
     }
+    if (enableFdcCacheForce) {
+      res["enableFdcCacheForce"] = boost::any(*enableFdcCacheForce);
+    }
     if (enableTunnelQuotaRoute) {
       res["enableTunnelQuotaRoute"] = boost::any(*enableTunnelQuotaRoute);
     }
     if (encryption) {
       res["encryption"] = encryption ? boost::any(encryption->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fdcQuota) {
+      res["fdcQuota"] = boost::any(*fdcQuota);
     }
     if (retentionDays) {
       res["retentionDays"] = boost::any(*retentionDays);
@@ -1895,6 +1903,9 @@ public:
     if (m.find("enableDecimal2") != m.end() && !m["enableDecimal2"].empty()) {
       enableDecimal2 = make_shared<bool>(boost::any_cast<bool>(m["enableDecimal2"]));
     }
+    if (m.find("enableFdcCacheForce") != m.end() && !m["enableFdcCacheForce"].empty()) {
+      enableFdcCacheForce = make_shared<bool>(boost::any_cast<bool>(m["enableFdcCacheForce"]));
+    }
     if (m.find("enableTunnelQuotaRoute") != m.end() && !m["enableTunnelQuotaRoute"].empty()) {
       enableTunnelQuotaRoute = make_shared<bool>(boost::any_cast<bool>(m["enableTunnelQuotaRoute"]));
     }
@@ -1904,6 +1915,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["encryption"]));
         encryption = make_shared<GetProjectResponseBodyDataPropertiesEncryption>(model1);
       }
+    }
+    if (m.find("fdcQuota") != m.end() && !m["fdcQuota"].empty()) {
+      fdcQuota = make_shared<string>(boost::any_cast<string>(m["fdcQuota"]));
     }
     if (m.find("retentionDays") != m.end() && !m["retentionDays"].empty()) {
       retentionDays = make_shared<long>(boost::any_cast<long>(m["retentionDays"]));
