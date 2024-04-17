@@ -3423,6 +3423,9 @@ ModifyNodePoolNodeConfigResponse Alibabacloud_CS20151215::Client::modifyNodePool
   if (!Darabonba_Util::Client::isUnset<KubeletConfig>(request->kubeletConfig)) {
     body->insert(pair<string, KubeletConfig>("kubelet_config", *request->kubeletConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<ModifyNodePoolNodeConfigRequestOsConfig>(request->osConfig)) {
+    body->insert(pair<string, ModifyNodePoolNodeConfigRequestOsConfig>("os_config", *request->osConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<ModifyNodePoolNodeConfigRequestRollingPolicy>(request->rollingPolicy)) {
     body->insert(pair<string, ModifyNodePoolNodeConfigRequestRollingPolicy>("rolling_policy", *request->rollingPolicy));
   }

@@ -22745,6 +22745,40 @@ public:
 
   virtual ~ModifyClusterTagsResponse() = default;
 };
+class ModifyNodePoolNodeConfigRequestOsConfig : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> sysctl{};
+
+  ModifyNodePoolNodeConfigRequestOsConfig() {}
+
+  explicit ModifyNodePoolNodeConfigRequestOsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sysctl) {
+      res["sysctl"] = boost::any(*sysctl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("sysctl") != m.end() && !m["sysctl"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["sysctl"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      sysctl = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~ModifyNodePoolNodeConfigRequestOsConfig() = default;
+};
 class ModifyNodePoolNodeConfigRequestRollingPolicy : public Darabonba::Model {
 public:
   shared_ptr<long> maxParallelism{};
@@ -22777,6 +22811,7 @@ public:
 class ModifyNodePoolNodeConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<KubeletConfig> kubeletConfig{};
+  shared_ptr<ModifyNodePoolNodeConfigRequestOsConfig> osConfig{};
   shared_ptr<ModifyNodePoolNodeConfigRequestRollingPolicy> rollingPolicy{};
 
   ModifyNodePoolNodeConfigRequest() {}
@@ -22792,6 +22827,9 @@ public:
     if (kubeletConfig) {
       res["kubelet_config"] = kubeletConfig ? boost::any(kubeletConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (osConfig) {
+      res["os_config"] = osConfig ? boost::any(osConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (rollingPolicy) {
       res["rolling_policy"] = rollingPolicy ? boost::any(rollingPolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -22804,6 +22842,13 @@ public:
         KubeletConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["kubelet_config"]));
         kubeletConfig = make_shared<KubeletConfig>(model1);
+      }
+    }
+    if (m.find("os_config") != m.end() && !m["os_config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["os_config"].type()) {
+        ModifyNodePoolNodeConfigRequestOsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["os_config"]));
+        osConfig = make_shared<ModifyNodePoolNodeConfigRequestOsConfig>(model1);
       }
     }
     if (m.find("rolling_policy") != m.end() && !m["rolling_policy"].empty()) {
