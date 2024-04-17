@@ -7395,6 +7395,186 @@ public:
 
   virtual ~ApplyTagPoliciesResponse() = default;
 };
+class BindSentinelBlockFallbackDefinitionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> appName{};
+  shared_ptr<long> fallbackId{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> resource{};
+  shared_ptr<string> targetType{};
+
+  BindSentinelBlockFallbackDefinitionRequest() {}
+
+  explicit BindSentinelBlockFallbackDefinitionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (fallbackId) {
+      res["FallbackId"] = boost::any(*fallbackId);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (resource) {
+      res["Resource"] = boost::any(*resource);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("FallbackId") != m.end() && !m["FallbackId"].empty()) {
+      fallbackId = make_shared<long>(boost::any_cast<long>(m["FallbackId"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("Resource") != m.end() && !m["Resource"].empty()) {
+      resource = make_shared<string>(boost::any_cast<string>(m["Resource"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~BindSentinelBlockFallbackDefinitionRequest() = default;
+};
+class BindSentinelBlockFallbackDefinitionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  BindSentinelBlockFallbackDefinitionResponseBody() {}
+
+  explicit BindSentinelBlockFallbackDefinitionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BindSentinelBlockFallbackDefinitionResponseBody() = default;
+};
+class BindSentinelBlockFallbackDefinitionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BindSentinelBlockFallbackDefinitionResponseBody> body{};
+
+  BindSentinelBlockFallbackDefinitionResponse() {}
+
+  explicit BindSentinelBlockFallbackDefinitionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BindSentinelBlockFallbackDefinitionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BindSentinelBlockFallbackDefinitionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BindSentinelBlockFallbackDefinitionResponse() = default;
+};
 class CloneNacosConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -47942,6 +48122,317 @@ public:
 
   virtual ~ListSecurityGroupRuleResponse() = default;
 };
+class ListSentinelBlockFallbackDefinitionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> appName{};
+  shared_ptr<vector<long>> classificationSet{};
+  shared_ptr<string> namespace_{};
+
+  ListSentinelBlockFallbackDefinitionsRequest() {}
+
+  explicit ListSentinelBlockFallbackDefinitionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (classificationSet) {
+      res["ClassificationSet"] = boost::any(*classificationSet);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("ClassificationSet") != m.end() && !m["ClassificationSet"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["ClassificationSet"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ClassificationSet"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      classificationSet = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~ListSentinelBlockFallbackDefinitionsRequest() = default;
+};
+class ListSentinelBlockFallbackDefinitionsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> classificationSetShrink{};
+  shared_ptr<string> namespace_{};
+
+  ListSentinelBlockFallbackDefinitionsShrinkRequest() {}
+
+  explicit ListSentinelBlockFallbackDefinitionsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (classificationSetShrink) {
+      res["ClassificationSet"] = boost::any(*classificationSetShrink);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("ClassificationSet") != m.end() && !m["ClassificationSet"].empty()) {
+      classificationSetShrink = make_shared<string>(boost::any_cast<string>(m["ClassificationSet"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~ListSentinelBlockFallbackDefinitionsShrinkRequest() = default;
+};
+class ListSentinelBlockFallbackDefinitionsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> appName{};
+  shared_ptr<map<string, boost::any>> fallbackBehavior{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> resourceClassification{};
+  shared_ptr<map<string, boost::any>> targetMap{};
+
+  ListSentinelBlockFallbackDefinitionsResponseBodyData() {}
+
+  explicit ListSentinelBlockFallbackDefinitionsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (fallbackBehavior) {
+      res["FallbackBehavior"] = boost::any(*fallbackBehavior);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (resourceClassification) {
+      res["ResourceClassification"] = boost::any(*resourceClassification);
+    }
+    if (targetMap) {
+      res["TargetMap"] = boost::any(*targetMap);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("FallbackBehavior") != m.end() && !m["FallbackBehavior"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["FallbackBehavior"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      fallbackBehavior = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("ResourceClassification") != m.end() && !m["ResourceClassification"].empty()) {
+      resourceClassification = make_shared<string>(boost::any_cast<string>(m["ResourceClassification"]));
+    }
+    if (m.find("TargetMap") != m.end() && !m["TargetMap"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["TargetMap"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      targetMap = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~ListSentinelBlockFallbackDefinitionsResponseBodyData() = default;
+};
+class ListSentinelBlockFallbackDefinitionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListSentinelBlockFallbackDefinitionsResponseBodyData>> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListSentinelBlockFallbackDefinitionsResponseBody() {}
+
+  explicit ListSentinelBlockFallbackDefinitionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<ListSentinelBlockFallbackDefinitionsResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSentinelBlockFallbackDefinitionsResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListSentinelBlockFallbackDefinitionsResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListSentinelBlockFallbackDefinitionsResponseBody() = default;
+};
+class ListSentinelBlockFallbackDefinitionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListSentinelBlockFallbackDefinitionsResponseBody> body{};
+
+  ListSentinelBlockFallbackDefinitionsResponse() {}
+
+  explicit ListSentinelBlockFallbackDefinitionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSentinelBlockFallbackDefinitionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSentinelBlockFallbackDefinitionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSentinelBlockFallbackDefinitionsResponse() = default;
+};
 class ListServiceSourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -69635,6 +70126,8 @@ public:
   ApplyGatewayRouteResponse applyGatewayRoute(shared_ptr<ApplyGatewayRouteRequest> request);
   ApplyTagPoliciesResponse applyTagPoliciesWithOptions(shared_ptr<ApplyTagPoliciesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApplyTagPoliciesResponse applyTagPolicies(shared_ptr<ApplyTagPoliciesRequest> request);
+  BindSentinelBlockFallbackDefinitionResponse bindSentinelBlockFallbackDefinitionWithOptions(shared_ptr<BindSentinelBlockFallbackDefinitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BindSentinelBlockFallbackDefinitionResponse bindSentinelBlockFallbackDefinition(shared_ptr<BindSentinelBlockFallbackDefinitionRequest> request);
   CloneNacosConfigResponse cloneNacosConfigWithOptions(shared_ptr<CloneNacosConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CloneNacosConfigResponse cloneNacosConfig(shared_ptr<CloneNacosConfigRequest> request);
   CreateApplicationResponse createApplicationWithOptions(shared_ptr<CreateApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -69879,6 +70372,8 @@ public:
   ListSecurityGroupResponse listSecurityGroup(shared_ptr<ListSecurityGroupRequest> request);
   ListSecurityGroupRuleResponse listSecurityGroupRuleWithOptions(shared_ptr<ListSecurityGroupRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSecurityGroupRuleResponse listSecurityGroupRule(shared_ptr<ListSecurityGroupRuleRequest> request);
+  ListSentinelBlockFallbackDefinitionsResponse listSentinelBlockFallbackDefinitionsWithOptions(shared_ptr<ListSentinelBlockFallbackDefinitionsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSentinelBlockFallbackDefinitionsResponse listSentinelBlockFallbackDefinitions(shared_ptr<ListSentinelBlockFallbackDefinitionsRequest> request);
   ListServiceSourceResponse listServiceSourceWithOptions(shared_ptr<ListServiceSourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListServiceSourceResponse listServiceSource(shared_ptr<ListServiceSourceRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
