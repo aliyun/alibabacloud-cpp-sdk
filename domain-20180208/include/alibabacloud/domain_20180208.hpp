@@ -2955,6 +2955,7 @@ public:
   shared_ptr<double> maxBid{};
   shared_ptr<string> partnerType{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> snatchNo{};
   shared_ptr<double> transferInPrice{};
 
   QueryBookingDomainInfoResponseBody() {}
@@ -2985,6 +2986,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (snatchNo) {
+      res["SnatchNo"] = boost::any(*snatchNo);
+    }
     if (transferInPrice) {
       res["TransferInPrice"] = boost::any(*transferInPrice);
     }
@@ -3009,6 +3013,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SnatchNo") != m.end() && !m["SnatchNo"].empty()) {
+      snatchNo = make_shared<string>(boost::any_cast<string>(m["SnatchNo"]));
     }
     if (m.find("TransferInPrice") != m.end() && !m["TransferInPrice"].empty()) {
       transferInPrice = make_shared<double>(boost::any_cast<double>(m["TransferInPrice"]));
