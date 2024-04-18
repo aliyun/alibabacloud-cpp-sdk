@@ -101,6 +101,9 @@ CreateInstanceResponse Alibabacloud_Foasconsole20211028::Client::createInstanceW
   if (!Darabonba_Util::Client::isUnset<CreateInstanceRequestStorage>(tmpReq->storage)) {
     request->storageShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->storage, make_shared<string>("Storage"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateInstanceRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->vSwitchIds)) {
     request->vSwitchIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vSwitchIds, make_shared<string>("VSwitchIds"), make_shared<string>("json")));
   }
@@ -155,6 +158,9 @@ CreateInstanceResponse Alibabacloud_Foasconsole20211028::Client::createInstanceW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->storageShrink)) {
     body->insert(pair<string, string>("Storage", *request->storageShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    body->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->usePromotionCode)) {
     body->insert(pair<string, bool>("UsePromotionCode", *request->usePromotionCode));
