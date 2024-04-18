@@ -800,6 +800,9 @@ DescribeDataLimitsResponse Alibabacloud_Sddp20190103::Client::describeDataLimits
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->memberAccount)) {
+    query->insert(pair<string, long>("MemberAccount", *request->memberAccount));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
@@ -1056,6 +1059,9 @@ DescribeDataObjectsResponse Alibabacloud_Sddp20190103::Client::describeDataObjec
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->memberAccount)) {
+    query->insert(pair<string, long>("MemberAccount", *request->memberAccount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->modelIds)) {
     query->insert(pair<string, string>("ModelIds", *request->modelIds));
@@ -1595,6 +1601,9 @@ DescribeParentInstanceResponse Alibabacloud_Sddp20190103::Client::describeParent
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->memberAccount)) {
+    query->insert(pair<string, long>("MemberAccount", *request->memberAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));

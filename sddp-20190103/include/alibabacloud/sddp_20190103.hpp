@@ -3865,6 +3865,7 @@ public:
   shared_ptr<string> engineType{};
   shared_ptr<long> featureType{};
   shared_ptr<string> lang{};
+  shared_ptr<long> memberAccount{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> parentId{};
   shared_ptr<long> resourceType{};
@@ -3907,6 +3908,9 @@ public:
     }
     if (lang) {
       res["Lang"] = boost::any(*lang);
+    }
+    if (memberAccount) {
+      res["MemberAccount"] = boost::any(*memberAccount);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
@@ -3954,6 +3958,9 @@ public:
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
     }
+    if (m.find("MemberAccount") != m.end() && !m["MemberAccount"].empty()) {
+      memberAccount = make_shared<long>(boost::any_cast<long>(m["MemberAccount"]));
+    }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
@@ -3994,6 +4001,7 @@ public:
   shared_ptr<long> lastFinishedTime{};
   shared_ptr<string> localName{};
   shared_ptr<long> logStoreDay{};
+  shared_ptr<long> memberAccount{};
   shared_ptr<long> nextStartTime{};
   shared_ptr<long> ocrStatus{};
   shared_ptr<string> parentId{};
@@ -4079,6 +4087,9 @@ public:
     }
     if (logStoreDay) {
       res["LogStoreDay"] = boost::any(*logStoreDay);
+    }
+    if (memberAccount) {
+      res["MemberAccount"] = boost::any(*memberAccount);
     }
     if (nextStartTime) {
       res["NextStartTime"] = boost::any(*nextStartTime);
@@ -4200,6 +4211,9 @@ public:
     }
     if (m.find("LogStoreDay") != m.end() && !m["LogStoreDay"].empty()) {
       logStoreDay = make_shared<long>(boost::any_cast<long>(m["LogStoreDay"]));
+    }
+    if (m.find("MemberAccount") != m.end() && !m["MemberAccount"].empty()) {
+      memberAccount = make_shared<long>(boost::any_cast<long>(m["MemberAccount"]));
     }
     if (m.find("NextStartTime") != m.end() && !m["NextStartTime"].empty()) {
       nextStartTime = make_shared<long>(boost::any_cast<long>(m["NextStartTime"]));
@@ -4856,6 +4870,7 @@ public:
 };
 class DescribeDataMaskingTasksResponseBodyItems : public Darabonba::Model {
 public:
+  shared_ptr<long> dstMemberAccount{};
   shared_ptr<string> dstPath{};
   shared_ptr<long> dstType{};
   shared_ptr<string> dstTypeCode{};
@@ -4865,6 +4880,7 @@ public:
   shared_ptr<bool> originalTable{};
   shared_ptr<string> owner{};
   shared_ptr<long> runCount{};
+  shared_ptr<long> srcMemberAccount{};
   shared_ptr<string> srcPath{};
   shared_ptr<long> srcType{};
   shared_ptr<string> srcTypeCode{};
@@ -4883,6 +4899,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dstMemberAccount) {
+      res["DstMemberAccount"] = boost::any(*dstMemberAccount);
+    }
     if (dstPath) {
       res["DstPath"] = boost::any(*dstPath);
     }
@@ -4910,6 +4929,9 @@ public:
     if (runCount) {
       res["RunCount"] = boost::any(*runCount);
     }
+    if (srcMemberAccount) {
+      res["SrcMemberAccount"] = boost::any(*srcMemberAccount);
+    }
     if (srcPath) {
       res["SrcPath"] = boost::any(*srcPath);
     }
@@ -4935,6 +4957,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DstMemberAccount") != m.end() && !m["DstMemberAccount"].empty()) {
+      dstMemberAccount = make_shared<long>(boost::any_cast<long>(m["DstMemberAccount"]));
+    }
     if (m.find("DstPath") != m.end() && !m["DstPath"].empty()) {
       dstPath = make_shared<string>(boost::any_cast<string>(m["DstPath"]));
     }
@@ -4961,6 +4986,9 @@ public:
     }
     if (m.find("RunCount") != m.end() && !m["RunCount"].empty()) {
       runCount = make_shared<long>(boost::any_cast<long>(m["RunCount"]));
+    }
+    if (m.find("SrcMemberAccount") != m.end() && !m["SrcMemberAccount"].empty()) {
+      srcMemberAccount = make_shared<long>(boost::any_cast<long>(m["SrcMemberAccount"]));
     }
     if (m.find("SrcPath") != m.end() && !m["SrcPath"].empty()) {
       srcPath = make_shared<string>(boost::any_cast<string>(m["SrcPath"]));
@@ -5820,6 +5848,7 @@ public:
   shared_ptr<long> fileType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> lang{};
+  shared_ptr<long> memberAccount{};
   shared_ptr<string> modelIds{};
   shared_ptr<string> modelTagIds{};
   shared_ptr<long> pageSize{};
@@ -5860,6 +5889,9 @@ public:
     }
     if (lang) {
       res["Lang"] = boost::any(*lang);
+    }
+    if (memberAccount) {
+      res["MemberAccount"] = boost::any(*memberAccount);
     }
     if (modelIds) {
       res["ModelIds"] = boost::any(*modelIds);
@@ -5912,6 +5944,9 @@ public:
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("MemberAccount") != m.end() && !m["MemberAccount"].empty()) {
+      memberAccount = make_shared<long>(boost::any_cast<long>(m["MemberAccount"]));
     }
     if (m.find("ModelIds") != m.end() && !m["ModelIds"].empty()) {
       modelIds = make_shared<string>(boost::any_cast<string>(m["ModelIds"]));
@@ -6045,6 +6080,7 @@ public:
   shared_ptr<string> instanceDescription{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> lastScanTime{};
+  shared_ptr<long> memberAccount{};
   shared_ptr<vector<DescribeDataObjectsResponseBodyItemsModelTags>> modelTags{};
   shared_ptr<string> name{};
   shared_ptr<string> objectFileCategory{};
@@ -6081,6 +6117,9 @@ public:
     }
     if (lastScanTime) {
       res["LastScanTime"] = boost::any(*lastScanTime);
+    }
+    if (memberAccount) {
+      res["MemberAccount"] = boost::any(*memberAccount);
     }
     if (modelTags) {
       vector<boost::any> temp1;
@@ -6148,6 +6187,9 @@ public:
     }
     if (m.find("LastScanTime") != m.end() && !m["LastScanTime"].empty()) {
       lastScanTime = make_shared<long>(boost::any_cast<long>(m["LastScanTime"]));
+    }
+    if (m.find("MemberAccount") != m.end() && !m["MemberAccount"].empty()) {
+      memberAccount = make_shared<long>(boost::any_cast<long>(m["MemberAccount"]));
     }
     if (m.find("ModelTags") != m.end() && !m["ModelTags"].empty()) {
       if (typeid(vector<boost::any>) == m["ModelTags"].type()) {
@@ -10150,6 +10192,7 @@ public:
   shared_ptr<string> engineType{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> lang{};
+  shared_ptr<long> memberAccount{};
   shared_ptr<long> pageSize{};
   shared_ptr<long> resourceType{};
   shared_ptr<string> serviceRegionId{};
@@ -10188,6 +10231,9 @@ public:
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
+    if (memberAccount) {
+      res["MemberAccount"] = boost::any(*memberAccount);
+    }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
@@ -10225,6 +10271,9 @@ public:
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
     }
+    if (m.find("MemberAccount") != m.end() && !m["MemberAccount"].empty()) {
+      memberAccount = make_shared<long>(boost::any_cast<long>(m["MemberAccount"]));
+    }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
@@ -10251,6 +10300,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<long> instanceSize{};
   shared_ptr<string> localName{};
+  shared_ptr<long> memberAccount{};
   shared_ptr<string> parentId{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> supportConnectNodes{};
@@ -10298,6 +10348,9 @@ public:
     }
     if (localName) {
       res["LocalName"] = boost::any(*localName);
+    }
+    if (memberAccount) {
+      res["MemberAccount"] = boost::any(*memberAccount);
     }
     if (parentId) {
       res["ParentId"] = boost::any(*parentId);
@@ -10353,6 +10406,9 @@ public:
     }
     if (m.find("LocalName") != m.end() && !m["LocalName"].empty()) {
       localName = make_shared<string>(boost::any_cast<string>(m["LocalName"]));
+    }
+    if (m.find("MemberAccount") != m.end() && !m["MemberAccount"].empty()) {
+      memberAccount = make_shared<long>(boost::any_cast<long>(m["MemberAccount"]));
     }
     if (m.find("ParentId") != m.end() && !m["ParentId"].empty()) {
       parentId = make_shared<string>(boost::any_cast<string>(m["ParentId"]));
