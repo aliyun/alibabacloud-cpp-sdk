@@ -1431,8 +1431,12 @@ public:
   shared_ptr<string> aliyunId{};
   shared_ptr<string> associationSuccessTime{};
   shared_ptr<long> cid{};
+  shared_ptr<string> customerBd{};
+  shared_ptr<string> delayAmount{};
+  shared_ptr<string> delayStatus{};
   shared_ptr<string> email{};
   shared_ptr<string> mobile{};
+  shared_ptr<string> newBuyStatus{};
   shared_ptr<string> remark{};
   shared_ptr<long> subAccountType{};
   shared_ptr<long> uid{};
@@ -1459,11 +1463,23 @@ public:
     if (cid) {
       res["Cid"] = boost::any(*cid);
     }
+    if (customerBd) {
+      res["CustomerBd"] = boost::any(*customerBd);
+    }
+    if (delayAmount) {
+      res["DelayAmount"] = boost::any(*delayAmount);
+    }
+    if (delayStatus) {
+      res["DelayStatus"] = boost::any(*delayStatus);
+    }
     if (email) {
       res["Email"] = boost::any(*email);
     }
     if (mobile) {
       res["Mobile"] = boost::any(*mobile);
+    }
+    if (newBuyStatus) {
+      res["NewBuyStatus"] = boost::any(*newBuyStatus);
     }
     if (remark) {
       res["Remark"] = boost::any(*remark);
@@ -1490,11 +1506,23 @@ public:
     if (m.find("Cid") != m.end() && !m["Cid"].empty()) {
       cid = make_shared<long>(boost::any_cast<long>(m["Cid"]));
     }
+    if (m.find("CustomerBd") != m.end() && !m["CustomerBd"].empty()) {
+      customerBd = make_shared<string>(boost::any_cast<string>(m["CustomerBd"]));
+    }
+    if (m.find("DelayAmount") != m.end() && !m["DelayAmount"].empty()) {
+      delayAmount = make_shared<string>(boost::any_cast<string>(m["DelayAmount"]));
+    }
+    if (m.find("DelayStatus") != m.end() && !m["DelayStatus"].empty()) {
+      delayStatus = make_shared<string>(boost::any_cast<string>(m["DelayStatus"]));
+    }
     if (m.find("Email") != m.end() && !m["Email"].empty()) {
       email = make_shared<string>(boost::any_cast<string>(m["Email"]));
     }
     if (m.find("Mobile") != m.end() && !m["Mobile"].empty()) {
       mobile = make_shared<string>(boost::any_cast<string>(m["Mobile"]));
+    }
+    if (m.find("NewBuyStatus") != m.end() && !m["NewBuyStatus"].empty()) {
+      newBuyStatus = make_shared<string>(boost::any_cast<string>(m["NewBuyStatus"]));
     }
     if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
@@ -3047,6 +3075,7 @@ class InviteSubAccountRequestAccountInfoList : public Darabonba::Model {
 public:
   shared_ptr<string> accountNickname{};
   shared_ptr<string> creditLine{};
+  shared_ptr<string> customerBd{};
   shared_ptr<string> customerId{};
   shared_ptr<string> emailAddress{};
   shared_ptr<string> newBuyStatus{};
@@ -3069,6 +3098,9 @@ public:
     }
     if (creditLine) {
       res["CreditLine"] = boost::any(*creditLine);
+    }
+    if (customerBd) {
+      res["CustomerBd"] = boost::any(*customerBd);
     }
     if (customerId) {
       res["CustomerId"] = boost::any(*customerId);
@@ -3097,6 +3129,9 @@ public:
     }
     if (m.find("CreditLine") != m.end() && !m["CreditLine"].empty()) {
       creditLine = make_shared<string>(boost::any_cast<string>(m["CreditLine"]));
+    }
+    if (m.find("CustomerBd") != m.end() && !m["CustomerBd"].empty()) {
+      customerBd = make_shared<string>(boost::any_cast<string>(m["CustomerBd"]));
     }
     if (m.find("CustomerId") != m.end() && !m["CustomerId"].empty()) {
       customerId = make_shared<string>(boost::any_cast<string>(m["CustomerId"]));
@@ -4230,6 +4265,7 @@ public:
 class SetAccountInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountNickname{};
+  shared_ptr<string> customerBd{};
   shared_ptr<string> remark{};
   shared_ptr<long> uid{};
 
@@ -4246,6 +4282,9 @@ public:
     if (accountNickname) {
       res["AccountNickname"] = boost::any(*accountNickname);
     }
+    if (customerBd) {
+      res["CustomerBd"] = boost::any(*customerBd);
+    }
     if (remark) {
       res["Remark"] = boost::any(*remark);
     }
@@ -4258,6 +4297,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountNickname") != m.end() && !m["AccountNickname"].empty()) {
       accountNickname = make_shared<string>(boost::any_cast<string>(m["AccountNickname"]));
+    }
+    if (m.find("CustomerBd") != m.end() && !m["CustomerBd"].empty()) {
+      customerBd = make_shared<string>(boost::any_cast<string>(m["CustomerBd"]));
     }
     if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));

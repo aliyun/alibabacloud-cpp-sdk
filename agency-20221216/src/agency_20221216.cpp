@@ -669,6 +669,9 @@ SetAccountInfoResponse Alibabacloud_Agency20221216::Client::setAccountInfoWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->accountNickname)) {
     query->insert(pair<string, string>("AccountNickname", *request->accountNickname));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerBd)) {
+    query->insert(pair<string, string>("CustomerBd", *request->customerBd));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
     query->insert(pair<string, string>("Remark", *request->remark));
   }
