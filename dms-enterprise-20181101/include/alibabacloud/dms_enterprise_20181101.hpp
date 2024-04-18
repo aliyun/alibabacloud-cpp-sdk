@@ -2327,6 +2327,7 @@ public:
   shared_ptr<string> approvalType{};
   shared_ptr<string> comment{};
   shared_ptr<long> newApprover{};
+  shared_ptr<string> newApproverList{};
   shared_ptr<long> oldApprover{};
   shared_ptr<long> tid{};
   shared_ptr<long> workflowInstanceId{};
@@ -2356,6 +2357,9 @@ public:
     if (newApprover) {
       res["NewApprover"] = boost::any(*newApprover);
     }
+    if (newApproverList) {
+      res["NewApproverList"] = boost::any(*newApproverList);
+    }
     if (oldApprover) {
       res["OldApprover"] = boost::any(*oldApprover);
     }
@@ -2383,6 +2387,9 @@ public:
     }
     if (m.find("NewApprover") != m.end() && !m["NewApprover"].empty()) {
       newApprover = make_shared<long>(boost::any_cast<long>(m["NewApprover"]));
+    }
+    if (m.find("NewApproverList") != m.end() && !m["NewApproverList"].empty()) {
+      newApproverList = make_shared<string>(boost::any_cast<string>(m["NewApproverList"]));
     }
     if (m.find("OldApprover") != m.end() && !m["OldApprover"].empty()) {
       oldApprover = make_shared<long>(boost::any_cast<long>(m["OldApprover"]));
@@ -17693,6 +17700,220 @@ public:
 
   virtual ~GetDataCorrectOrderDetailRequest() = default;
 };
+class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailCronExtConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> currentClearTaskCount{};
+  shared_ptr<long> optimizeTableAfterEveryClearTimes{};
+
+  GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailCronExtConfig() {}
+
+  explicit GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailCronExtConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentClearTaskCount) {
+      res["CurrentClearTaskCount"] = boost::any(*currentClearTaskCount);
+    }
+    if (optimizeTableAfterEveryClearTimes) {
+      res["OptimizeTableAfterEveryClearTimes"] = boost::any(*optimizeTableAfterEveryClearTimes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentClearTaskCount") != m.end() && !m["CurrentClearTaskCount"].empty()) {
+      currentClearTaskCount = make_shared<long>(boost::any_cast<long>(m["CurrentClearTaskCount"]));
+    }
+    if (m.find("OptimizeTableAfterEveryClearTimes") != m.end() && !m["OptimizeTableAfterEveryClearTimes"].empty()) {
+      optimizeTableAfterEveryClearTimes = make_shared<long>(boost::any_cast<long>(m["OptimizeTableAfterEveryClearTimes"]));
+    }
+  }
+
+
+  virtual ~GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailCronExtConfig() = default;
+};
+class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailImportExtConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> csvFirstRowIsColumnDef{};
+  shared_ptr<bool> ignoreError{};
+  shared_ptr<string> importMode{};
+  shared_ptr<string> insertType{};
+
+  GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailImportExtConfig() {}
+
+  explicit GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailImportExtConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (csvFirstRowIsColumnDef) {
+      res["CsvFirstRowIsColumnDef"] = boost::any(*csvFirstRowIsColumnDef);
+    }
+    if (ignoreError) {
+      res["IgnoreError"] = boost::any(*ignoreError);
+    }
+    if (importMode) {
+      res["ImportMode"] = boost::any(*importMode);
+    }
+    if (insertType) {
+      res["InsertType"] = boost::any(*insertType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CsvFirstRowIsColumnDef") != m.end() && !m["CsvFirstRowIsColumnDef"].empty()) {
+      csvFirstRowIsColumnDef = make_shared<bool>(boost::any_cast<bool>(m["CsvFirstRowIsColumnDef"]));
+    }
+    if (m.find("IgnoreError") != m.end() && !m["IgnoreError"].empty()) {
+      ignoreError = make_shared<bool>(boost::any_cast<bool>(m["IgnoreError"]));
+    }
+    if (m.find("ImportMode") != m.end() && !m["ImportMode"].empty()) {
+      importMode = make_shared<string>(boost::any_cast<string>(m["ImportMode"]));
+    }
+    if (m.find("InsertType") != m.end() && !m["InsertType"].empty()) {
+      insertType = make_shared<string>(boost::any_cast<string>(m["InsertType"]));
+    }
+  }
+
+
+  virtual ~GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailImportExtConfig() = default;
+};
+class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetail : public Darabonba::Model {
+public:
+  shared_ptr<bool> cron{};
+  shared_ptr<long> cronCallTimes{};
+  shared_ptr<GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailCronExtConfig> cronExtConfig{};
+  shared_ptr<string> cronFormat{};
+  shared_ptr<string> cronLastCallStartTime{};
+  shared_ptr<string> cronNextCallTime{};
+  shared_ptr<string> cronStatus{};
+  shared_ptr<string> csvTableName{};
+  shared_ptr<long> currentTaskId{};
+  shared_ptr<string> detailType{};
+  shared_ptr<long> duration{};
+  shared_ptr<string> fileEncoding{};
+  shared_ptr<string> fileType{};
+  shared_ptr<GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailImportExtConfig> importExtConfig{};
+
+  GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetail() {}
+
+  explicit GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cron) {
+      res["Cron"] = boost::any(*cron);
+    }
+    if (cronCallTimes) {
+      res["CronCallTimes"] = boost::any(*cronCallTimes);
+    }
+    if (cronExtConfig) {
+      res["CronExtConfig"] = cronExtConfig ? boost::any(cronExtConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (cronFormat) {
+      res["CronFormat"] = boost::any(*cronFormat);
+    }
+    if (cronLastCallStartTime) {
+      res["CronLastCallStartTime"] = boost::any(*cronLastCallStartTime);
+    }
+    if (cronNextCallTime) {
+      res["CronNextCallTime"] = boost::any(*cronNextCallTime);
+    }
+    if (cronStatus) {
+      res["CronStatus"] = boost::any(*cronStatus);
+    }
+    if (csvTableName) {
+      res["CsvTableName"] = boost::any(*csvTableName);
+    }
+    if (currentTaskId) {
+      res["CurrentTaskId"] = boost::any(*currentTaskId);
+    }
+    if (detailType) {
+      res["DetailType"] = boost::any(*detailType);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (fileEncoding) {
+      res["FileEncoding"] = boost::any(*fileEncoding);
+    }
+    if (fileType) {
+      res["FileType"] = boost::any(*fileType);
+    }
+    if (importExtConfig) {
+      res["ImportExtConfig"] = importExtConfig ? boost::any(importExtConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cron") != m.end() && !m["Cron"].empty()) {
+      cron = make_shared<bool>(boost::any_cast<bool>(m["Cron"]));
+    }
+    if (m.find("CronCallTimes") != m.end() && !m["CronCallTimes"].empty()) {
+      cronCallTimes = make_shared<long>(boost::any_cast<long>(m["CronCallTimes"]));
+    }
+    if (m.find("CronExtConfig") != m.end() && !m["CronExtConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CronExtConfig"].type()) {
+        GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailCronExtConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CronExtConfig"]));
+        cronExtConfig = make_shared<GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailCronExtConfig>(model1);
+      }
+    }
+    if (m.find("CronFormat") != m.end() && !m["CronFormat"].empty()) {
+      cronFormat = make_shared<string>(boost::any_cast<string>(m["CronFormat"]));
+    }
+    if (m.find("CronLastCallStartTime") != m.end() && !m["CronLastCallStartTime"].empty()) {
+      cronLastCallStartTime = make_shared<string>(boost::any_cast<string>(m["CronLastCallStartTime"]));
+    }
+    if (m.find("CronNextCallTime") != m.end() && !m["CronNextCallTime"].empty()) {
+      cronNextCallTime = make_shared<string>(boost::any_cast<string>(m["CronNextCallTime"]));
+    }
+    if (m.find("CronStatus") != m.end() && !m["CronStatus"].empty()) {
+      cronStatus = make_shared<string>(boost::any_cast<string>(m["CronStatus"]));
+    }
+    if (m.find("CsvTableName") != m.end() && !m["CsvTableName"].empty()) {
+      csvTableName = make_shared<string>(boost::any_cast<string>(m["CsvTableName"]));
+    }
+    if (m.find("CurrentTaskId") != m.end() && !m["CurrentTaskId"].empty()) {
+      currentTaskId = make_shared<long>(boost::any_cast<long>(m["CurrentTaskId"]));
+    }
+    if (m.find("DetailType") != m.end() && !m["DetailType"].empty()) {
+      detailType = make_shared<string>(boost::any_cast<string>(m["DetailType"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("FileEncoding") != m.end() && !m["FileEncoding"].empty()) {
+      fileEncoding = make_shared<string>(boost::any_cast<string>(m["FileEncoding"]));
+    }
+    if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
+      fileType = make_shared<string>(boost::any_cast<string>(m["FileType"]));
+    }
+    if (m.find("ImportExtConfig") != m.end() && !m["ImportExtConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ImportExtConfig"].type()) {
+        GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailImportExtConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ImportExtConfig"]));
+        importExtConfig = make_shared<GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailImportExtConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetail() = default;
+};
 class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailDatabaseListDatabase : public Darabonba::Model {
 public:
   shared_ptr<long> dbId{};
@@ -17980,6 +18201,7 @@ public:
 };
 class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetail : public Darabonba::Model {
 public:
+  shared_ptr<GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetail> configDetail{};
   shared_ptr<GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailDatabaseList> databaseList{};
   shared_ptr<string> execMode{};
   shared_ptr<GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailOrderDetail> orderDetail{};
@@ -17996,6 +18218,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (configDetail) {
+      res["ConfigDetail"] = configDetail ? boost::any(configDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (databaseList) {
       res["DatabaseList"] = databaseList ? boost::any(databaseList->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -18015,6 +18240,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigDetail") != m.end() && !m["ConfigDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConfigDetail"].type()) {
+        GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConfigDetail"]));
+        configDetail = make_shared<GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetail>(model1);
+      }
+    }
     if (m.find("DatabaseList") != m.end() && !m["DatabaseList"].empty()) {
       if (typeid(map<string, boost::any>) == m["DatabaseList"].type()) {
         GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailDatabaseList model1;

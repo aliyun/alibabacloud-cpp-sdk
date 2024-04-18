@@ -366,6 +366,9 @@ ApproveOrderResponse Alibabacloud_Dms-enterprise20181101::Client::approveOrderWi
   if (!Darabonba_Util::Client::isUnset<long>(request->newApprover)) {
     query->insert(pair<string, long>("NewApprover", *request->newApprover));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->newApproverList)) {
+    query->insert(pair<string, string>("NewApproverList", *request->newApproverList));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->oldApprover)) {
     query->insert(pair<string, long>("OldApprover", *request->oldApprover));
   }
