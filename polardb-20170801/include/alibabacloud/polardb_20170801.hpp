@@ -9221,6 +9221,7 @@ public:
   shared_ptr<long> storageUsed{};
   shared_ptr<string> strictConsistency{};
   shared_ptr<string> subCategory{};
+  shared_ptr<string> supportInstantSwitchWithImci{};
   shared_ptr<vector<DescribeDBClusterAttributeResponseBodyTags>> tags{};
   shared_ptr<string> VPCId{};
   shared_ptr<string> vSwitchId{};
@@ -9392,6 +9393,9 @@ public:
     }
     if (subCategory) {
       res["SubCategory"] = boost::any(*subCategory);
+    }
+    if (supportInstantSwitchWithImci) {
+      res["SupportInstantSwitchWithImci"] = boost::any(*supportInstantSwitchWithImci);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -9575,6 +9579,9 @@ public:
     }
     if (m.find("SubCategory") != m.end() && !m["SubCategory"].empty()) {
       subCategory = make_shared<string>(boost::any_cast<string>(m["SubCategory"]));
+    }
+    if (m.find("SupportInstantSwitchWithImci") != m.end() && !m["SupportInstantSwitchWithImci"].empty()) {
+      supportInstantSwitchWithImci = make_shared<string>(boost::any_cast<string>(m["SupportInstantSwitchWithImci"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
