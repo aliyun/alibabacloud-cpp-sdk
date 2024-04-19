@@ -11540,6 +11540,7 @@ public:
   shared_ptr<string> categoryIdentifier{};
   shared_ptr<string> creator{};
   shared_ptr<string> document{};
+  shared_ptr<string> documentFormat{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
   shared_ptr<string> identifier{};
@@ -11579,6 +11580,9 @@ public:
     }
     if (document) {
       res["document"] = boost::any(*document);
+    }
+    if (documentFormat) {
+      res["documentFormat"] = boost::any(*documentFormat);
     }
     if (gmtCreate) {
       res["gmtCreate"] = boost::any(*gmtCreate);
@@ -11646,6 +11650,9 @@ public:
     }
     if (m.find("document") != m.end() && !m["document"].empty()) {
       document = make_shared<string>(boost::any_cast<string>(m["document"]));
+    }
+    if (m.find("documentFormat") != m.end() && !m["documentFormat"].empty()) {
+      documentFormat = make_shared<string>(boost::any_cast<string>(m["documentFormat"]));
     }
     if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
       gmtCreate = make_shared<long>(boost::any_cast<long>(m["gmtCreate"]));
@@ -29749,6 +29756,7 @@ public:
   shared_ptr<string> creator{};
   shared_ptr<vector<GetWorkItemInfoResponseBodyWorkitemCustomFields>> customFields{};
   shared_ptr<string> document{};
+  shared_ptr<string> documentFormat{};
   shared_ptr<long> finishTime{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
@@ -29801,6 +29809,9 @@ public:
     }
     if (document) {
       res["document"] = boost::any(*document);
+    }
+    if (documentFormat) {
+      res["documentFormat"] = boost::any(*documentFormat);
     }
     if (finishTime) {
       res["finishTime"] = boost::any(*finishTime);
@@ -29903,6 +29914,9 @@ public:
     }
     if (m.find("document") != m.end() && !m["document"].empty()) {
       document = make_shared<string>(boost::any_cast<string>(m["document"]));
+    }
+    if (m.find("documentFormat") != m.end() && !m["documentFormat"].empty()) {
+      documentFormat = make_shared<string>(boost::any_cast<string>(m["documentFormat"]));
     }
     if (m.find("finishTime") != m.end() && !m["finishTime"].empty()) {
       finishTime = make_shared<long>(boost::any_cast<long>(m["finishTime"]));
@@ -63226,6 +63240,7 @@ public:
   shared_ptr<string> categoryIdentifier{};
   shared_ptr<string> creator{};
   shared_ptr<string> document{};
+  shared_ptr<string> documentFormat{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
   shared_ptr<string> identifier{};
@@ -63265,6 +63280,9 @@ public:
     }
     if (document) {
       res["document"] = boost::any(*document);
+    }
+    if (documentFormat) {
+      res["documentFormat"] = boost::any(*documentFormat);
     }
     if (gmtCreate) {
       res["gmtCreate"] = boost::any(*gmtCreate);
@@ -63332,6 +63350,9 @@ public:
     }
     if (m.find("document") != m.end() && !m["document"].empty()) {
       document = make_shared<string>(boost::any_cast<string>(m["document"]));
+    }
+    if (m.find("documentFormat") != m.end() && !m["documentFormat"].empty()) {
+      documentFormat = make_shared<string>(boost::any_cast<string>(m["documentFormat"]));
     }
     if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
       gmtCreate = make_shared<long>(boost::any_cast<long>(m["gmtCreate"]));
