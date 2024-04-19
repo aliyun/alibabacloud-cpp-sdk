@@ -5562,11 +5562,155 @@ public:
 
   virtual ~CreateCloudDriveServiceRequest() = default;
 };
+class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds : public Darabonba::Model {
+public:
+  shared_ptr<string> cdsId{};
+  shared_ptr<string> regionId{};
+
+  CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds() {}
+
+  explicit CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cdsId) {
+      res["CdsId"] = boost::any(*cdsId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CdsId") != m.end() && !m["CdsId"].empty()) {
+      cdsId = make_shared<string>(boost::any_cast<string>(m["CdsId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds() = default;
+};
+class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder : public Darabonba::Model {
+public:
+  shared_ptr<string> cdsId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> regionId{};
+
+  CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder() {}
+
+  explicit CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cdsId) {
+      res["CdsId"] = boost::any(*cdsId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CdsId") != m.end() && !m["CdsId"].empty()) {
+      cdsId = make_shared<string>(boost::any_cast<string>(m["CdsId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder() = default;
+};
+class CreateCloudDriveServiceResponseBodyConflictCdsAndOrder : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds>> conflictCds{};
+  shared_ptr<vector<CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder>> conflictOrder{};
+
+  CreateCloudDriveServiceResponseBodyConflictCdsAndOrder() {}
+
+  explicit CreateCloudDriveServiceResponseBodyConflictCdsAndOrder(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conflictCds) {
+      vector<boost::any> temp1;
+      for(auto item1:*conflictCds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConflictCds"] = boost::any(temp1);
+    }
+    if (conflictOrder) {
+      vector<boost::any> temp1;
+      for(auto item1:*conflictOrder){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConflictOrder"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConflictCds") != m.end() && !m["ConflictCds"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConflictCds"].type()) {
+        vector<CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConflictCds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conflictCds = make_shared<vector<CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds>>(expect1);
+      }
+    }
+    if (m.find("ConflictOrder") != m.end() && !m["ConflictOrder"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConflictOrder"].type()) {
+        vector<CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConflictOrder"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conflictOrder = make_shared<vector<CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCloudDriveServiceResponseBodyConflictCdsAndOrder() = default;
+};
 class CreateCloudDriveServiceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> cdsId{};
   shared_ptr<string> cdsName{};
   shared_ptr<string> cenId{};
+  shared_ptr<CreateCloudDriveServiceResponseBodyConflictCdsAndOrder> conflictCdsAndOrder{};
   shared_ptr<string> domainName{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> maxSize{};
@@ -5592,6 +5736,9 @@ public:
     }
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
+    }
+    if (conflictCdsAndOrder) {
+      res["ConflictCdsAndOrder"] = conflictCdsAndOrder ? boost::any(conflictCdsAndOrder->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
@@ -5623,6 +5770,13 @@ public:
     }
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("ConflictCdsAndOrder") != m.end() && !m["ConflictCdsAndOrder"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConflictCdsAndOrder"].type()) {
+        CreateCloudDriveServiceResponseBodyConflictCdsAndOrder model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConflictCdsAndOrder"]));
+        conflictCdsAndOrder = make_shared<CreateCloudDriveServiceResponseBodyConflictCdsAndOrder>(model1);
+      }
     }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
@@ -15587,7 +15741,9 @@ public:
   shared_ptr<string> desktopType{};
   shared_ptr<string> directoryId{};
   shared_ptr<string> expireTime{};
+  shared_ptr<string> idleDisconnectDuration{};
   shared_ptr<string> imageId{};
+  shared_ptr<string> keepDuration{};
   shared_ptr<string> name{};
   shared_ptr<string> oversoldGroupId{};
   shared_ptr<long> oversoldUserCount{};
@@ -15629,8 +15785,14 @@ public:
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
     }
+    if (idleDisconnectDuration) {
+      res["IdleDisconnectDuration"] = boost::any(*idleDisconnectDuration);
+    }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
+    }
+    if (keepDuration) {
+      res["KeepDuration"] = boost::any(*keepDuration);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -15684,8 +15846,14 @@ public:
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
     }
+    if (m.find("IdleDisconnectDuration") != m.end() && !m["IdleDisconnectDuration"].empty()) {
+      idleDisconnectDuration = make_shared<string>(boost::any_cast<string>(m["IdleDisconnectDuration"]));
+    }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("KeepDuration") != m.end() && !m["KeepDuration"].empty()) {
+      keepDuration = make_shared<string>(boost::any_cast<string>(m["KeepDuration"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
