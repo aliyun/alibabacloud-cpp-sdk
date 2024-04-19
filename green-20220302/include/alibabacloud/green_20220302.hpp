@@ -2019,6 +2019,85 @@ public:
 
   virtual ~ImageModerationRequest() = default;
 };
+class ImageModerationResponseBodyDataExtRecognition : public Darabonba::Model {
+public:
+  shared_ptr<string> classification{};
+  shared_ptr<double> confidence{};
+
+  ImageModerationResponseBodyDataExtRecognition() {}
+
+  explicit ImageModerationResponseBodyDataExtRecognition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (classification) {
+      res["Classification"] = boost::any(*classification);
+    }
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Classification") != m.end() && !m["Classification"].empty()) {
+      classification = make_shared<string>(boost::any_cast<string>(m["Classification"]));
+    }
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtRecognition() = default;
+};
+class ImageModerationResponseBodyDataExt : public Darabonba::Model {
+public:
+  shared_ptr<vector<ImageModerationResponseBodyDataExtRecognition>> recognition{};
+
+  ImageModerationResponseBodyDataExt() {}
+
+  explicit ImageModerationResponseBodyDataExt(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (recognition) {
+      vector<boost::any> temp1;
+      for(auto item1:*recognition){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Recognition"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Recognition") != m.end() && !m["Recognition"].empty()) {
+      if (typeid(vector<boost::any>) == m["Recognition"].type()) {
+        vector<ImageModerationResponseBodyDataExtRecognition> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Recognition"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImageModerationResponseBodyDataExtRecognition model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        recognition = make_shared<vector<ImageModerationResponseBodyDataExtRecognition>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExt() = default;
+};
 class ImageModerationResponseBodyDataResult : public Darabonba::Model {
 public:
   shared_ptr<double> confidence{};
@@ -2058,6 +2137,7 @@ public:
 class ImageModerationResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> dataId{};
+  shared_ptr<ImageModerationResponseBodyDataExt> ext{};
   shared_ptr<vector<ImageModerationResponseBodyDataResult>> result{};
 
   ImageModerationResponseBodyData() {}
@@ -2073,6 +2153,9 @@ public:
     if (dataId) {
       res["DataId"] = boost::any(*dataId);
     }
+    if (ext) {
+      res["Ext"] = ext ? boost::any(ext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (result) {
       vector<boost::any> temp1;
       for(auto item1:*result){
@@ -2086,6 +2169,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
       dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
+    }
+    if (m.find("Ext") != m.end() && !m["Ext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Ext"].type()) {
+        ImageModerationResponseBodyDataExt model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Ext"]));
+        ext = make_shared<ImageModerationResponseBodyDataExt>(model1);
+      }
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(vector<boost::any>) == m["Result"].type()) {
