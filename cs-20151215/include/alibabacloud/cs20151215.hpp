@@ -4054,6 +4054,8 @@ public:
 class CreateClusterNodePoolRequestManagementAutoUpgradePolicy : public Darabonba::Model {
 public:
   shared_ptr<bool> autoUpgradeKubelet{};
+  shared_ptr<bool> autoUpgradeOs{};
+  shared_ptr<bool> autoUpgradeRuntime{};
 
   CreateClusterNodePoolRequestManagementAutoUpgradePolicy() {}
 
@@ -4068,12 +4070,24 @@ public:
     if (autoUpgradeKubelet) {
       res["auto_upgrade_kubelet"] = boost::any(*autoUpgradeKubelet);
     }
+    if (autoUpgradeOs) {
+      res["auto_upgrade_os"] = boost::any(*autoUpgradeOs);
+    }
+    if (autoUpgradeRuntime) {
+      res["auto_upgrade_runtime"] = boost::any(*autoUpgradeRuntime);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("auto_upgrade_kubelet") != m.end() && !m["auto_upgrade_kubelet"].empty()) {
       autoUpgradeKubelet = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade_kubelet"]));
+    }
+    if (m.find("auto_upgrade_os") != m.end() && !m["auto_upgrade_os"].empty()) {
+      autoUpgradeOs = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade_os"]));
+    }
+    if (m.find("auto_upgrade_runtime") != m.end() && !m["auto_upgrade_runtime"].empty()) {
+      autoUpgradeRuntime = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade_runtime"]));
     }
   }
 
@@ -21766,6 +21780,8 @@ public:
 class ModifyClusterNodePoolRequestManagementAutoUpgradePolicy : public Darabonba::Model {
 public:
   shared_ptr<bool> autoUpgradeKubelet{};
+  shared_ptr<bool> autoUpgradeOs{};
+  shared_ptr<bool> autoUpgradeRuntime{};
 
   ModifyClusterNodePoolRequestManagementAutoUpgradePolicy() {}
 
@@ -21780,12 +21796,24 @@ public:
     if (autoUpgradeKubelet) {
       res["auto_upgrade_kubelet"] = boost::any(*autoUpgradeKubelet);
     }
+    if (autoUpgradeOs) {
+      res["auto_upgrade_os"] = boost::any(*autoUpgradeOs);
+    }
+    if (autoUpgradeRuntime) {
+      res["auto_upgrade_runtime"] = boost::any(*autoUpgradeRuntime);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("auto_upgrade_kubelet") != m.end() && !m["auto_upgrade_kubelet"].empty()) {
       autoUpgradeKubelet = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade_kubelet"]));
+    }
+    if (m.find("auto_upgrade_os") != m.end() && !m["auto_upgrade_os"].empty()) {
+      autoUpgradeOs = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade_os"]));
+    }
+    if (m.find("auto_upgrade_runtime") != m.end() && !m["auto_upgrade_runtime"].empty()) {
+      autoUpgradeRuntime = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade_runtime"]));
     }
   }
 
