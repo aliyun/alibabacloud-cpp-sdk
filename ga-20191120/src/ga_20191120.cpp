@@ -1324,17 +1324,21 @@ CreateEndpointGroupsResponse Alibabacloud_Ga20191120::Client::createEndpointGrou
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateEndpointGroupsRequestEndpointGroupConfigurations>>(request->endpointGroupConfigurations)) {
-    query->insert(pair<string, vector<CreateEndpointGroupsRequestEndpointGroupConfigurations>>("EndpointGroupConfigurations", *request->endpointGroupConfigurations));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
     query->insert(pair<string, string>("ListenerId", *request->listenerId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CreateEndpointGroupsRequestEndpointGroupConfigurations>>(request->endpointGroupConfigurations)) {
+    bodyFlat->insert(pair<string, vector<CreateEndpointGroupsRequestEndpointGroupConfigurations>>("EndpointGroupConfigurations", *request->endpointGroupConfigurations));
+  }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateEndpointGroups"))},
@@ -1364,17 +1368,21 @@ CreateForwardingRulesResponse Alibabacloud_Ga20191120::Client::createForwardingR
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateForwardingRulesRequestForwardingRules>>(request->forwardingRules)) {
-    query->insert(pair<string, vector<CreateForwardingRulesRequestForwardingRules>>("ForwardingRules", *request->forwardingRules));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
     query->insert(pair<string, string>("ListenerId", *request->listenerId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CreateForwardingRulesRequestForwardingRules>>(request->forwardingRules)) {
+    bodyFlat->insert(pair<string, vector<CreateForwardingRulesRequestForwardingRules>>("ForwardingRules", *request->forwardingRules));
+  }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateForwardingRules"))},
