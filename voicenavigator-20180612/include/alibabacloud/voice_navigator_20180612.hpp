@@ -5267,6 +5267,8 @@ public:
   shared_ptr<string> calledNumber{};
   shared_ptr<string> callingNumber{};
   shared_ptr<string> conversationId{};
+  shared_ptr<string> dsReport{};
+  shared_ptr<vector<string>> dsReportTitles{};
   shared_ptr<long> endReason{};
   shared_ptr<long> endTime{};
   shared_ptr<bool> hasLastPlaybackCompleted{};
@@ -5294,6 +5296,12 @@ public:
     }
     if (conversationId) {
       res["ConversationId"] = boost::any(*conversationId);
+    }
+    if (dsReport) {
+      res["DsReport"] = boost::any(*dsReport);
+    }
+    if (dsReportTitles) {
+      res["DsReportTitles"] = boost::any(*dsReportTitles);
     }
     if (endReason) {
       res["EndReason"] = boost::any(*endReason);
@@ -5331,6 +5339,19 @@ public:
     }
     if (m.find("ConversationId") != m.end() && !m["ConversationId"].empty()) {
       conversationId = make_shared<string>(boost::any_cast<string>(m["ConversationId"]));
+    }
+    if (m.find("DsReport") != m.end() && !m["DsReport"].empty()) {
+      dsReport = make_shared<string>(boost::any_cast<string>(m["DsReport"]));
+    }
+    if (m.find("DsReportTitles") != m.end() && !m["DsReportTitles"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DsReportTitles"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DsReportTitles"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dsReportTitles = make_shared<vector<string>>(toVec1);
     }
     if (m.find("EndReason") != m.end() && !m["EndReason"].empty()) {
       endReason = make_shared<long>(boost::any_cast<long>(m["EndReason"]));
