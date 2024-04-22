@@ -6586,6 +6586,7 @@ class DescribeEventDetailResponseBodyEventDetailChartData : public Darabonba::Mo
 public:
   shared_ptr<vector<string>> x{};
   shared_ptr<vector<string>> y{};
+  shared_ptr<vector<string>> z{};
 
   DescribeEventDetailResponseBodyEventDetailChartData() {}
 
@@ -6602,6 +6603,9 @@ public:
     }
     if (y) {
       res["Y"] = boost::any(*y);
+    }
+    if (z) {
+      res["Z"] = boost::any(*z);
     }
     return res;
   }
@@ -6627,6 +6631,16 @@ public:
       }
       y = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("Z") != m.end() && !m["Z"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Z"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Z"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      z = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
@@ -6634,11 +6648,14 @@ public:
 };
 class DescribeEventDetailResponseBodyEventDetailChart : public Darabonba::Model {
 public:
+  shared_ptr<long> chatType{};
   shared_ptr<DescribeEventDetailResponseBodyEventDetailChartData> data{};
   shared_ptr<string> label{};
+  shared_ptr<string> name{};
   shared_ptr<string> type{};
   shared_ptr<string> XLabel{};
   shared_ptr<string> YLabel{};
+  shared_ptr<string> ZLabel{};
 
   DescribeEventDetailResponseBodyEventDetailChart() {}
 
@@ -6650,11 +6667,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (chatType) {
+      res["ChatType"] = boost::any(*chatType);
+    }
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (label) {
       res["Label"] = boost::any(*label);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -6665,10 +6688,16 @@ public:
     if (YLabel) {
       res["YLabel"] = boost::any(*YLabel);
     }
+    if (ZLabel) {
+      res["ZLabel"] = boost::any(*ZLabel);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChatType") != m.end() && !m["ChatType"].empty()) {
+      chatType = make_shared<long>(boost::any_cast<long>(m["ChatType"]));
+    }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(map<string, boost::any>) == m["Data"].type()) {
         DescribeEventDetailResponseBodyEventDetailChartData model1;
@@ -6679,6 +6708,9 @@ public:
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
     }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
@@ -6688,6 +6720,9 @@ public:
     if (m.find("YLabel") != m.end() && !m["YLabel"].empty()) {
       YLabel = make_shared<string>(boost::any_cast<string>(m["YLabel"]));
     }
+    if (m.find("ZLabel") != m.end() && !m["ZLabel"].empty()) {
+      ZLabel = make_shared<string>(boost::any_cast<string>(m["ZLabel"]));
+    }
   }
 
 
@@ -6696,6 +6731,7 @@ public:
 class DescribeEventDetailResponseBodyEventDetailContent : public Darabonba::Model {
 public:
   shared_ptr<string> label{};
+  shared_ptr<string> name{};
   shared_ptr<string> value{};
 
   DescribeEventDetailResponseBodyEventDetailContent() {}
@@ -6711,6 +6747,9 @@ public:
     if (label) {
       res["Label"] = boost::any(*label);
     }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
     if (value) {
       res["Value"] = boost::any(*value);
     }
@@ -6720,6 +6759,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
     if (m.find("Value") != m.end() && !m["Value"].empty()) {
       value = make_shared<string>(boost::any_cast<string>(m["Value"]));
@@ -6945,6 +6987,7 @@ public:
   shared_ptr<long> id{};
   shared_ptr<string> logDetail{};
   shared_ptr<string> loginName{};
+  shared_ptr<bool> newAlarm{};
   shared_ptr<string> productCode{};
   shared_ptr<long> status{};
   shared_ptr<string> statusName{};
@@ -7012,6 +7055,9 @@ public:
     }
     if (loginName) {
       res["LoginName"] = boost::any(*loginName);
+    }
+    if (newAlarm) {
+      res["NewAlarm"] = boost::any(*newAlarm);
     }
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
@@ -7099,6 +7145,9 @@ public:
     }
     if (m.find("LoginName") != m.end() && !m["LoginName"].empty()) {
       loginName = make_shared<string>(boost::any_cast<string>(m["LoginName"]));
+    }
+    if (m.find("NewAlarm") != m.end() && !m["NewAlarm"].empty()) {
+      newAlarm = make_shared<bool>(boost::any_cast<bool>(m["NewAlarm"]));
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
