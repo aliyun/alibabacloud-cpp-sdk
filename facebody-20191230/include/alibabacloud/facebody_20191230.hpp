@@ -5529,6 +5529,7 @@ public:
   shared_ptr<vector<double>> faceProbabilityList{};
   shared_ptr<vector<long>> faceRectangles{};
   shared_ptr<long> landmarkCount{};
+  shared_ptr<vector<double>> landmarkScore{};
   shared_ptr<vector<double>> landmarks{};
   shared_ptr<vector<double>> poseList{};
   shared_ptr<vector<double>> pupils{};
@@ -5555,6 +5556,9 @@ public:
     }
     if (landmarkCount) {
       res["LandmarkCount"] = boost::any(*landmarkCount);
+    }
+    if (landmarkScore) {
+      res["LandmarkScore"] = boost::any(*landmarkScore);
     }
     if (landmarks) {
       res["Landmarks"] = boost::any(*landmarks);
@@ -5597,6 +5601,16 @@ public:
     }
     if (m.find("LandmarkCount") != m.end() && !m["LandmarkCount"].empty()) {
       landmarkCount = make_shared<long>(boost::any_cast<long>(m["LandmarkCount"]));
+    }
+    if (m.find("LandmarkScore") != m.end() && !m["LandmarkScore"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["LandmarkScore"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LandmarkScore"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      landmarkScore = make_shared<vector<double>>(toVec1);
     }
     if (m.find("Landmarks") != m.end() && !m["Landmarks"].empty()) {
       vector<double> toVec1;
