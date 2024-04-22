@@ -4236,6 +4236,9 @@ QueryCollectionDataResponse Alibabacloud_Gpdb20160503::Client::queryCollectionDa
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<QueryCollectionDataShrinkRequest> request = make_shared<QueryCollectionDataShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, map<string, boost::any>>>(tmpReq->hybridSearchArgs)) {
+    request->hybridSearchArgsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->hybridSearchArgs, make_shared<string>("HybridSearchArgs"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<double>>(tmpReq->vector)) {
     request->vectorShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vector, make_shared<string>("Vector"), make_shared<string>("json")));
   }
@@ -4251,6 +4254,12 @@ QueryCollectionDataResponse Alibabacloud_Gpdb20160503::Client::queryCollectionDa
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     query->insert(pair<string, string>("Filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hybridSearch)) {
+    query->insert(pair<string, string>("HybridSearch", *request->hybridSearch));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hybridSearchArgsShrink)) {
+    query->insert(pair<string, string>("HybridSearchArgs", *request->hybridSearchArgsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->includeValues)) {
     query->insert(pair<string, bool>("IncludeValues", *request->includeValues));
@@ -4302,6 +4311,9 @@ QueryContentResponse Alibabacloud_Gpdb20160503::Client::queryContentWithOptions(
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<QueryContentShrinkRequest> request = make_shared<QueryContentShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, map<string, boost::any>>>(tmpReq->hybridSearchArgs)) {
+    request->hybridSearchArgsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->hybridSearchArgs, make_shared<string>("HybridSearchArgs"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->recallWindow)) {
     request->recallWindowShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->recallWindow, make_shared<string>("RecallWindow"), make_shared<string>("json")));
   }
@@ -4323,6 +4335,12 @@ QueryContentResponse Alibabacloud_Gpdb20160503::Client::queryContentWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     query->insert(pair<string, string>("Filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hybridSearch)) {
+    query->insert(pair<string, string>("HybridSearch", *request->hybridSearch));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hybridSearchArgsShrink)) {
+    query->insert(pair<string, string>("HybridSearchArgs", *request->hybridSearchArgsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->includeVector)) {
     query->insert(pair<string, bool>("IncludeVector", *request->includeVector));

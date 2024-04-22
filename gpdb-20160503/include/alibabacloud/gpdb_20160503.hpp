@@ -22694,6 +22694,8 @@ public:
   shared_ptr<string> content{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> filter{};
+  shared_ptr<string> hybridSearch{};
+  shared_ptr<map<string, map<string, boost::any>>> hybridSearchArgs{};
   shared_ptr<bool> includeValues{};
   shared_ptr<string> metrics{};
   shared_ptr<string> namespace_{};
@@ -22724,6 +22726,12 @@ public:
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
+    }
+    if (hybridSearch) {
+      res["HybridSearch"] = boost::any(*hybridSearch);
+    }
+    if (hybridSearchArgs) {
+      res["HybridSearchArgs"] = boost::any(*hybridSearchArgs);
     }
     if (includeValues) {
       res["IncludeValues"] = boost::any(*includeValues);
@@ -22764,6 +22772,22 @@ public:
     }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("HybridSearch") != m.end() && !m["HybridSearch"].empty()) {
+      hybridSearch = make_shared<string>(boost::any_cast<string>(m["HybridSearch"]));
+    }
+    if (m.find("HybridSearchArgs") != m.end() && !m["HybridSearchArgs"].empty()) {
+      map<string, map<string, boost::any>> map1 = boost::any_cast<map<string, map<string, boost::any>>>(m["HybridSearchArgs"]);
+      map<string, map<string, boost::any>> toMap1;
+      for (auto item:map1) {
+        map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item.second);
+        map<string, boost::any> toMap2;
+        for (auto item:map2) {
+           toMap2[item.first] = item.second;
+        }
+         toMap1[item.first] = toMap2;
+      }
+      hybridSearchArgs = make_shared<map<string, map<string, boost::any>>>(toMap1);
     }
     if (m.find("IncludeValues") != m.end() && !m["IncludeValues"].empty()) {
       includeValues = make_shared<bool>(boost::any_cast<bool>(m["IncludeValues"]));
@@ -22807,6 +22831,8 @@ public:
   shared_ptr<string> content{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> filter{};
+  shared_ptr<string> hybridSearch{};
+  shared_ptr<string> hybridSearchArgsShrink{};
   shared_ptr<bool> includeValues{};
   shared_ptr<string> metrics{};
   shared_ptr<string> namespace_{};
@@ -22837,6 +22863,12 @@ public:
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
+    }
+    if (hybridSearch) {
+      res["HybridSearch"] = boost::any(*hybridSearch);
+    }
+    if (hybridSearchArgsShrink) {
+      res["HybridSearchArgs"] = boost::any(*hybridSearchArgsShrink);
     }
     if (includeValues) {
       res["IncludeValues"] = boost::any(*includeValues);
@@ -22877,6 +22909,12 @@ public:
     }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("HybridSearch") != m.end() && !m["HybridSearch"].empty()) {
+      hybridSearch = make_shared<string>(boost::any_cast<string>(m["HybridSearch"]));
+    }
+    if (m.find("HybridSearchArgs") != m.end() && !m["HybridSearchArgs"].empty()) {
+      hybridSearchArgsShrink = make_shared<string>(boost::any_cast<string>(m["HybridSearchArgs"]));
     }
     if (m.find("IncludeValues") != m.end() && !m["IncludeValues"].empty()) {
       includeValues = make_shared<bool>(boost::any_cast<bool>(m["IncludeValues"]));
@@ -23159,6 +23197,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> filter{};
+  shared_ptr<string> hybridSearch{};
+  shared_ptr<map<string, map<string, boost::any>>> hybridSearchArgs{};
   shared_ptr<bool> includeVector{};
   shared_ptr<string> metrics{};
   shared_ptr<string> namespace_{};
@@ -23197,6 +23237,12 @@ public:
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
+    }
+    if (hybridSearch) {
+      res["HybridSearch"] = boost::any(*hybridSearch);
+    }
+    if (hybridSearchArgs) {
+      res["HybridSearchArgs"] = boost::any(*hybridSearchArgs);
     }
     if (includeVector) {
       res["IncludeVector"] = boost::any(*includeVector);
@@ -23250,6 +23296,22 @@ public:
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
+    if (m.find("HybridSearch") != m.end() && !m["HybridSearch"].empty()) {
+      hybridSearch = make_shared<string>(boost::any_cast<string>(m["HybridSearch"]));
+    }
+    if (m.find("HybridSearchArgs") != m.end() && !m["HybridSearchArgs"].empty()) {
+      map<string, map<string, boost::any>> map1 = boost::any_cast<map<string, map<string, boost::any>>>(m["HybridSearchArgs"]);
+      map<string, map<string, boost::any>> toMap1;
+      for (auto item:map1) {
+        map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item.second);
+        map<string, boost::any> toMap2;
+        for (auto item:map2) {
+           toMap2[item.first] = item.second;
+        }
+         toMap1[item.first] = toMap2;
+      }
+      hybridSearchArgs = make_shared<map<string, map<string, boost::any>>>(toMap1);
+    }
     if (m.find("IncludeVector") != m.end() && !m["IncludeVector"].empty()) {
       includeVector = make_shared<bool>(boost::any_cast<bool>(m["IncludeVector"]));
     }
@@ -23300,6 +23362,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
   shared_ptr<string> filter{};
+  shared_ptr<string> hybridSearch{};
+  shared_ptr<map<string, map<string, boost::any>>> hybridSearchArgs{};
   shared_ptr<bool> includeVector{};
   shared_ptr<string> metrics{};
   shared_ptr<string> namespace_{};
@@ -23338,6 +23402,12 @@ public:
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
+    }
+    if (hybridSearch) {
+      res["HybridSearch"] = boost::any(*hybridSearch);
+    }
+    if (hybridSearchArgs) {
+      res["HybridSearchArgs"] = boost::any(*hybridSearchArgs);
     }
     if (includeVector) {
       res["IncludeVector"] = boost::any(*includeVector);
@@ -23391,6 +23461,22 @@ public:
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
+    if (m.find("HybridSearch") != m.end() && !m["HybridSearch"].empty()) {
+      hybridSearch = make_shared<string>(boost::any_cast<string>(m["HybridSearch"]));
+    }
+    if (m.find("HybridSearchArgs") != m.end() && !m["HybridSearchArgs"].empty()) {
+      map<string, map<string, boost::any>> map1 = boost::any_cast<map<string, map<string, boost::any>>>(m["HybridSearchArgs"]);
+      map<string, map<string, boost::any>> toMap1;
+      for (auto item:map1) {
+        map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item.second);
+        map<string, boost::any> toMap2;
+        for (auto item:map2) {
+           toMap2[item.first] = item.second;
+        }
+         toMap1[item.first] = toMap2;
+      }
+      hybridSearchArgs = make_shared<map<string, map<string, boost::any>>>(toMap1);
+    }
     if (m.find("IncludeVector") != m.end() && !m["IncludeVector"].empty()) {
       includeVector = make_shared<bool>(boost::any_cast<bool>(m["IncludeVector"]));
     }
@@ -23441,6 +23527,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> filter{};
+  shared_ptr<string> hybridSearch{};
+  shared_ptr<string> hybridSearchArgsShrink{};
   shared_ptr<bool> includeVector{};
   shared_ptr<string> metrics{};
   shared_ptr<string> namespace_{};
@@ -23479,6 +23567,12 @@ public:
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
+    }
+    if (hybridSearch) {
+      res["HybridSearch"] = boost::any(*hybridSearch);
+    }
+    if (hybridSearchArgsShrink) {
+      res["HybridSearchArgs"] = boost::any(*hybridSearchArgsShrink);
     }
     if (includeVector) {
       res["IncludeVector"] = boost::any(*includeVector);
@@ -23531,6 +23625,12 @@ public:
     }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("HybridSearch") != m.end() && !m["HybridSearch"].empty()) {
+      hybridSearch = make_shared<string>(boost::any_cast<string>(m["HybridSearch"]));
+    }
+    if (m.find("HybridSearchArgs") != m.end() && !m["HybridSearchArgs"].empty()) {
+      hybridSearchArgsShrink = make_shared<string>(boost::any_cast<string>(m["HybridSearchArgs"]));
     }
     if (m.find("IncludeVector") != m.end() && !m["IncludeVector"].empty()) {
       includeVector = make_shared<bool>(boost::any_cast<bool>(m["IncludeVector"]));
