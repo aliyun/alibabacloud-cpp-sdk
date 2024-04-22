@@ -1353,6 +1353,144 @@ public:
 
   virtual ~CreateTagResponse() = default;
 };
+class CreateUserSuppressionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> address{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  CreateUserSuppressionRequest() {}
+
+  explicit CreateUserSuppressionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (address) {
+      res["Address"] = boost::any(*address);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~CreateUserSuppressionRequest() = default;
+};
+class CreateUserSuppressionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> suppressionId{};
+
+  CreateUserSuppressionResponseBody() {}
+
+  explicit CreateUserSuppressionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (suppressionId) {
+      res["SuppressionId"] = boost::any(*suppressionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuppressionId") != m.end() && !m["SuppressionId"].empty()) {
+      suppressionId = make_shared<string>(boost::any_cast<string>(m["SuppressionId"]));
+    }
+  }
+
+
+  virtual ~CreateUserSuppressionResponseBody() = default;
+};
+class CreateUserSuppressionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateUserSuppressionResponseBody> body{};
+
+  CreateUserSuppressionResponse() {}
+
+  explicit CreateUserSuppressionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateUserSuppressionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateUserSuppressionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateUserSuppressionResponse() = default;
+};
 class DeleteDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<long> domainId{};
@@ -3227,6 +3365,137 @@ public:
 
   virtual ~GetIpfilterListResponse() = default;
 };
+class GetSuppressionListLevelRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  GetSuppressionListLevelRequest() {}
+
+  explicit GetSuppressionListLevelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~GetSuppressionListLevelRequest() = default;
+};
+class GetSuppressionListLevelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> suppressionListLevel{};
+
+  GetSuppressionListLevelResponseBody() {}
+
+  explicit GetSuppressionListLevelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (suppressionListLevel) {
+      res["SuppressionListLevel"] = boost::any(*suppressionListLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuppressionListLevel") != m.end() && !m["SuppressionListLevel"].empty()) {
+      suppressionListLevel = make_shared<string>(boost::any_cast<string>(m["SuppressionListLevel"]));
+    }
+  }
+
+
+  virtual ~GetSuppressionListLevelResponseBody() = default;
+};
+class GetSuppressionListLevelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetSuppressionListLevelResponseBody> body{};
+
+  GetSuppressionListLevelResponse() {}
+
+  explicit GetSuppressionListLevelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSuppressionListLevelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSuppressionListLevelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSuppressionListLevelResponse() = default;
+};
 class GetTrackListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
@@ -3962,6 +4231,311 @@ public:
 
 
   virtual ~GetTrackListByMailFromAndTagNameResponse() = default;
+};
+class ListUserSuppressionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> address{};
+  shared_ptr<long> endBounceTime{};
+  shared_ptr<long> endCreateTime{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> startBounceTime{};
+  shared_ptr<long> startCreateTime{};
+
+  ListUserSuppressionRequest() {}
+
+  explicit ListUserSuppressionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (address) {
+      res["Address"] = boost::any(*address);
+    }
+    if (endBounceTime) {
+      res["EndBounceTime"] = boost::any(*endBounceTime);
+    }
+    if (endCreateTime) {
+      res["EndCreateTime"] = boost::any(*endCreateTime);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (startBounceTime) {
+      res["StartBounceTime"] = boost::any(*startBounceTime);
+    }
+    if (startCreateTime) {
+      res["StartCreateTime"] = boost::any(*startCreateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("EndBounceTime") != m.end() && !m["EndBounceTime"].empty()) {
+      endBounceTime = make_shared<long>(boost::any_cast<long>(m["EndBounceTime"]));
+    }
+    if (m.find("EndCreateTime") != m.end() && !m["EndCreateTime"].empty()) {
+      endCreateTime = make_shared<long>(boost::any_cast<long>(m["EndCreateTime"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("StartBounceTime") != m.end() && !m["StartBounceTime"].empty()) {
+      startBounceTime = make_shared<long>(boost::any_cast<long>(m["StartBounceTime"]));
+    }
+    if (m.find("StartCreateTime") != m.end() && !m["StartCreateTime"].empty()) {
+      startCreateTime = make_shared<long>(boost::any_cast<long>(m["StartCreateTime"]));
+    }
+  }
+
+
+  virtual ~ListUserSuppressionRequest() = default;
+};
+class ListUserSuppressionResponseBodyDataUserSuppressions : public Darabonba::Model {
+public:
+  shared_ptr<string> address{};
+  shared_ptr<long> createTime{};
+  shared_ptr<long> lastBounceTime{};
+  shared_ptr<long> suppressionId{};
+  shared_ptr<string> type{};
+
+  ListUserSuppressionResponseBodyDataUserSuppressions() {}
+
+  explicit ListUserSuppressionResponseBodyDataUserSuppressions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (address) {
+      res["Address"] = boost::any(*address);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (lastBounceTime) {
+      res["LastBounceTime"] = boost::any(*lastBounceTime);
+    }
+    if (suppressionId) {
+      res["SuppressionId"] = boost::any(*suppressionId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("LastBounceTime") != m.end() && !m["LastBounceTime"].empty()) {
+      lastBounceTime = make_shared<long>(boost::any_cast<long>(m["LastBounceTime"]));
+    }
+    if (m.find("SuppressionId") != m.end() && !m["SuppressionId"].empty()) {
+      suppressionId = make_shared<long>(boost::any_cast<long>(m["SuppressionId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListUserSuppressionResponseBodyDataUserSuppressions() = default;
+};
+class ListUserSuppressionResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListUserSuppressionResponseBodyDataUserSuppressions>> userSuppressions{};
+
+  ListUserSuppressionResponseBodyData() {}
+
+  explicit ListUserSuppressionResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userSuppressions) {
+      vector<boost::any> temp1;
+      for(auto item1:*userSuppressions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UserSuppressions"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UserSuppressions") != m.end() && !m["UserSuppressions"].empty()) {
+      if (typeid(vector<boost::any>) == m["UserSuppressions"].type()) {
+        vector<ListUserSuppressionResponseBodyDataUserSuppressions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UserSuppressions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListUserSuppressionResponseBodyDataUserSuppressions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        userSuppressions = make_shared<vector<ListUserSuppressionResponseBodyDataUserSuppressions>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListUserSuppressionResponseBodyData() = default;
+};
+class ListUserSuppressionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListUserSuppressionResponseBodyData> data{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListUserSuppressionResponseBody() {}
+
+  explicit ListUserSuppressionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListUserSuppressionResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListUserSuppressionResponseBodyData>(model1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListUserSuppressionResponseBody() = default;
+};
+class ListUserSuppressionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListUserSuppressionResponseBody> body{};
+
+  ListUserSuppressionResponse() {}
+
+  explicit ListUserSuppressionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListUserSuppressionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListUserSuppressionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListUserSuppressionResponse() = default;
 };
 class ModifyMailAddressRequest : public Darabonba::Model {
 public:
@@ -6498,6 +7072,137 @@ public:
 
   virtual ~QueryTaskByParamResponse() = default;
 };
+class RemoveUserSuppressionRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> suppressionIds{};
+
+  RemoveUserSuppressionRequest() {}
+
+  explicit RemoveUserSuppressionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (suppressionIds) {
+      res["SuppressionIds"] = boost::any(*suppressionIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SuppressionIds") != m.end() && !m["SuppressionIds"].empty()) {
+      suppressionIds = make_shared<string>(boost::any_cast<string>(m["SuppressionIds"]));
+    }
+  }
+
+
+  virtual ~RemoveUserSuppressionRequest() = default;
+};
+class RemoveUserSuppressionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RemoveUserSuppressionResponseBody() {}
+
+  explicit RemoveUserSuppressionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RemoveUserSuppressionResponseBody() = default;
+};
+class RemoveUserSuppressionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RemoveUserSuppressionResponseBody> body{};
+
+  RemoveUserSuppressionResponse() {}
+
+  explicit RemoveUserSuppressionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RemoveUserSuppressionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RemoveUserSuppressionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RemoveUserSuppressionResponse() = default;
+};
 class SaveReceiverDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> detail{};
@@ -7299,6 +8004,7 @@ public:
 class SenderStatisticsDetailByParamResponseBodyDataMailDetail : public Darabonba::Model {
 public:
   shared_ptr<string> accountName{};
+  shared_ptr<string> errorClassification{};
   shared_ptr<string> lastUpdateTime{};
   shared_ptr<string> message{};
   shared_ptr<long> status{};
@@ -7318,6 +8024,9 @@ public:
     map<string, boost::any> res;
     if (accountName) {
       res["AccountName"] = boost::any(*accountName);
+    }
+    if (errorClassification) {
+      res["ErrorClassification"] = boost::any(*errorClassification);
     }
     if (lastUpdateTime) {
       res["LastUpdateTime"] = boost::any(*lastUpdateTime);
@@ -7343,6 +8052,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
       accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
+    if (m.find("ErrorClassification") != m.end() && !m["ErrorClassification"].empty()) {
+      errorClassification = make_shared<string>(boost::any_cast<string>(m["ErrorClassification"]));
     }
     if (m.find("LastUpdateTime") != m.end() && !m["LastUpdateTime"].empty()) {
       lastUpdateTime = make_shared<string>(boost::any_cast<string>(m["LastUpdateTime"]));
@@ -7508,6 +8220,144 @@ public:
 
 
   virtual ~SenderStatisticsDetailByParamResponse() = default;
+};
+class SetSuppressionListLevelRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> suppressionListLevel{};
+
+  SetSuppressionListLevelRequest() {}
+
+  explicit SetSuppressionListLevelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (suppressionListLevel) {
+      res["SuppressionListLevel"] = boost::any(*suppressionListLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SuppressionListLevel") != m.end() && !m["SuppressionListLevel"].empty()) {
+      suppressionListLevel = make_shared<string>(boost::any_cast<string>(m["SuppressionListLevel"]));
+    }
+  }
+
+
+  virtual ~SetSuppressionListLevelRequest() = default;
+};
+class SetSuppressionListLevelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> suppressionListLevel{};
+
+  SetSuppressionListLevelResponseBody() {}
+
+  explicit SetSuppressionListLevelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (suppressionListLevel) {
+      res["SuppressionListLevel"] = boost::any(*suppressionListLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuppressionListLevel") != m.end() && !m["SuppressionListLevel"].empty()) {
+      suppressionListLevel = make_shared<string>(boost::any_cast<string>(m["SuppressionListLevel"]));
+    }
+  }
+
+
+  virtual ~SetSuppressionListLevelResponseBody() = default;
+};
+class SetSuppressionListLevelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetSuppressionListLevelResponseBody> body{};
+
+  SetSuppressionListLevelResponse() {}
+
+  explicit SetSuppressionListLevelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetSuppressionListLevelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetSuppressionListLevelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetSuppressionListLevelResponse() = default;
 };
 class SingleSendMailRequest : public Darabonba::Model {
 public:
@@ -7897,6 +8747,8 @@ public:
   CreateReceiverResponse createReceiver(shared_ptr<CreateReceiverRequest> request);
   CreateTagResponse createTagWithOptions(shared_ptr<CreateTagRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTagResponse createTag(shared_ptr<CreateTagRequest> request);
+  CreateUserSuppressionResponse createUserSuppressionWithOptions(shared_ptr<CreateUserSuppressionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateUserSuppressionResponse createUserSuppression(shared_ptr<CreateUserSuppressionRequest> request);
   DeleteDomainResponse deleteDomainWithOptions(shared_ptr<DeleteDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDomainResponse deleteDomain(shared_ptr<DeleteDomainRequest> request);
   DeleteInvalidAddressResponse deleteInvalidAddressWithOptions(shared_ptr<DeleteInvalidAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7919,10 +8771,14 @@ public:
   GetIpProtectionResponse getIpProtection(shared_ptr<GetIpProtectionRequest> request);
   GetIpfilterListResponse getIpfilterListWithOptions(shared_ptr<GetIpfilterListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetIpfilterListResponse getIpfilterList(shared_ptr<GetIpfilterListRequest> request);
+  GetSuppressionListLevelResponse getSuppressionListLevelWithOptions(shared_ptr<GetSuppressionListLevelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSuppressionListLevelResponse getSuppressionListLevel(shared_ptr<GetSuppressionListLevelRequest> request);
   GetTrackListResponse getTrackListWithOptions(shared_ptr<GetTrackListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTrackListResponse getTrackList(shared_ptr<GetTrackListRequest> request);
   GetTrackListByMailFromAndTagNameResponse getTrackListByMailFromAndTagNameWithOptions(shared_ptr<GetTrackListByMailFromAndTagNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTrackListByMailFromAndTagNameResponse getTrackListByMailFromAndTagName(shared_ptr<GetTrackListByMailFromAndTagNameRequest> request);
+  ListUserSuppressionResponse listUserSuppressionWithOptions(shared_ptr<ListUserSuppressionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListUserSuppressionResponse listUserSuppression(shared_ptr<ListUserSuppressionRequest> request);
   ModifyMailAddressResponse modifyMailAddressWithOptions(shared_ptr<ModifyMailAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyMailAddressResponse modifyMailAddress(shared_ptr<ModifyMailAddressRequest> request);
   ModifyPWByDomainResponse modifyPWByDomainWithOptions(shared_ptr<ModifyPWByDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7943,6 +8799,8 @@ public:
   QueryTagByParamResponse queryTagByParam(shared_ptr<QueryTagByParamRequest> request);
   QueryTaskByParamResponse queryTaskByParamWithOptions(shared_ptr<QueryTaskByParamRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryTaskByParamResponse queryTaskByParam(shared_ptr<QueryTaskByParamRequest> request);
+  RemoveUserSuppressionResponse removeUserSuppressionWithOptions(shared_ptr<RemoveUserSuppressionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RemoveUserSuppressionResponse removeUserSuppression(shared_ptr<RemoveUserSuppressionRequest> request);
   SaveReceiverDetailResponse saveReceiverDetailWithOptions(shared_ptr<SaveReceiverDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SaveReceiverDetailResponse saveReceiverDetail(shared_ptr<SaveReceiverDetailRequest> request);
   SendTestByTemplateResponse sendTestByTemplateWithOptions(shared_ptr<SendTestByTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7951,6 +8809,8 @@ public:
   SenderStatisticsByTagNameAndBatchIDResponse senderStatisticsByTagNameAndBatchID(shared_ptr<SenderStatisticsByTagNameAndBatchIDRequest> request);
   SenderStatisticsDetailByParamResponse senderStatisticsDetailByParamWithOptions(shared_ptr<SenderStatisticsDetailByParamRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SenderStatisticsDetailByParamResponse senderStatisticsDetailByParam(shared_ptr<SenderStatisticsDetailByParamRequest> request);
+  SetSuppressionListLevelResponse setSuppressionListLevelWithOptions(shared_ptr<SetSuppressionListLevelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetSuppressionListLevelResponse setSuppressionListLevel(shared_ptr<SetSuppressionListLevelRequest> request);
   SingleSendMailResponse singleSendMailWithOptions(shared_ptr<SingleSendMailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SingleSendMailResponse singleSendMail(shared_ptr<SingleSendMailRequest> request);
   UpdateIpProtectionResponse updateIpProtectionWithOptions(shared_ptr<UpdateIpProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
