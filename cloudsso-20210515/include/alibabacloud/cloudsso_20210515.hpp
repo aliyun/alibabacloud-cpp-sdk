@@ -4415,6 +4415,7 @@ public:
   shared_ptr<long> groupCount{};
   shared_ptr<long> groupQuota{};
   shared_ptr<long> inProgressTaskCount{};
+  shared_ptr<long> inlinePolicyPerAccessConfigurationQuota{};
   shared_ptr<string> region{};
   shared_ptr<long> SCIMServerCredentialCount{};
   shared_ptr<bool> SCIMSyncEnabled{};
@@ -4456,6 +4457,9 @@ public:
     }
     if (inProgressTaskCount) {
       res["InProgressTaskCount"] = boost::any(*inProgressTaskCount);
+    }
+    if (inlinePolicyPerAccessConfigurationQuota) {
+      res["InlinePolicyPerAccessConfigurationQuota"] = boost::any(*inlinePolicyPerAccessConfigurationQuota);
     }
     if (region) {
       res["Region"] = boost::any(*region);
@@ -4505,6 +4509,9 @@ public:
     }
     if (m.find("InProgressTaskCount") != m.end() && !m["InProgressTaskCount"].empty()) {
       inProgressTaskCount = make_shared<long>(boost::any_cast<long>(m["InProgressTaskCount"]));
+    }
+    if (m.find("InlinePolicyPerAccessConfigurationQuota") != m.end() && !m["InlinePolicyPerAccessConfigurationQuota"].empty()) {
+      inlinePolicyPerAccessConfigurationQuota = make_shared<long>(boost::any_cast<long>(m["InlinePolicyPerAccessConfigurationQuota"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
