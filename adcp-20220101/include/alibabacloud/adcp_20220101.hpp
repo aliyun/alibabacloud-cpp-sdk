@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_ADCP20220101_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -126,17 +125,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -186,6 +175,7 @@ public:
   shared_ptr<string> priceLimit{};
   shared_ptr<string> profile{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupID{};
   shared_ptr<string> vSwitches{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> workflowScheduleMode{};
@@ -224,6 +214,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupID) {
+      res["ResourceGroupID"] = boost::any(*resourceGroupID);
+    }
     if (vSwitches) {
       res["VSwitches"] = boost::any(*vSwitches);
     }
@@ -260,6 +253,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupID") != m.end() && !m["ResourceGroupID"].empty()) {
+      resourceGroupID = make_shared<string>(boost::any_cast<string>(m["ResourceGroupID"]));
     }
     if (m.find("VSwitches") != m.end() && !m["VSwitches"].empty()) {
       vSwitches = make_shared<string>(boost::any_cast<string>(m["VSwitches"]));
@@ -330,17 +326,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -528,17 +514,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -712,17 +688,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -839,17 +805,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1058,17 +1014,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1180,15 +1126,241 @@ public:
 
   virtual ~DescribeHubClusterDetailsResponseBodyClusterApiServer() = default;
 };
+class DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneGitOps : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accessControlList{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<bool> HAEnabled{};
+  shared_ptr<bool> publicAccessEnabled{};
+
+  DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneGitOps() {}
+
+  explicit DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneGitOps(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessControlList) {
+      res["AccessControlList"] = boost::any(*accessControlList);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (HAEnabled) {
+      res["HAEnabled"] = boost::any(*HAEnabled);
+    }
+    if (publicAccessEnabled) {
+      res["PublicAccessEnabled"] = boost::any(*publicAccessEnabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessControlList") != m.end() && !m["AccessControlList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccessControlList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccessControlList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accessControlList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("HAEnabled") != m.end() && !m["HAEnabled"].empty()) {
+      HAEnabled = make_shared<bool>(boost::any_cast<bool>(m["HAEnabled"]));
+    }
+    if (m.find("PublicAccessEnabled") != m.end() && !m["PublicAccessEnabled"].empty()) {
+      publicAccessEnabled = make_shared<bool>(boost::any_cast<bool>(m["PublicAccessEnabled"]));
+    }
+  }
+
+
+  virtual ~DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneGitOps() = default;
+};
+class DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlowArgoWorkflow : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accessControlList{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<bool> publicAccessEnabled{};
+  shared_ptr<string> serverEnabled{};
+
+  DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlowArgoWorkflow() {}
+
+  explicit DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlowArgoWorkflow(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessControlList) {
+      res["AccessControlList"] = boost::any(*accessControlList);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (publicAccessEnabled) {
+      res["PublicAccessEnabled"] = boost::any(*publicAccessEnabled);
+    }
+    if (serverEnabled) {
+      res["ServerEnabled"] = boost::any(*serverEnabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessControlList") != m.end() && !m["AccessControlList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccessControlList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccessControlList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accessControlList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("PublicAccessEnabled") != m.end() && !m["PublicAccessEnabled"].empty()) {
+      publicAccessEnabled = make_shared<bool>(boost::any_cast<bool>(m["PublicAccessEnabled"]));
+    }
+    if (m.find("ServerEnabled") != m.end() && !m["ServerEnabled"].empty()) {
+      serverEnabled = make_shared<string>(boost::any_cast<string>(m["ServerEnabled"]));
+    }
+  }
+
+
+  virtual ~DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlowArgoWorkflow() = default;
+};
+class DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlow : public Darabonba::Model {
+public:
+  shared_ptr<DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlowArgoWorkflow> argoWorkflow{};
+
+  DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlow() {}
+
+  explicit DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlow(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (argoWorkflow) {
+      res["ArgoWorkflow"] = argoWorkflow ? boost::any(argoWorkflow->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArgoWorkflow") != m.end() && !m["ArgoWorkflow"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ArgoWorkflow"].type()) {
+        DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlowArgoWorkflow model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ArgoWorkflow"]));
+        argoWorkflow = make_shared<DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlowArgoWorkflow>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlow() = default;
+};
+class DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOne : public Darabonba::Model {
+public:
+  shared_ptr<DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneGitOps> gitOps{};
+  shared_ptr<DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlow> workFlow{};
+
+  DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOne() {}
+
+  explicit DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOne(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gitOps) {
+      res["GitOps"] = gitOps ? boost::any(gitOps->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (workFlow) {
+      res["WorkFlow"] = workFlow ? boost::any(workFlow->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GitOps") != m.end() && !m["GitOps"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GitOps"].type()) {
+        DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneGitOps model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GitOps"]));
+        gitOps = make_shared<DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneGitOps>(model1);
+      }
+    }
+    if (m.find("WorkFlow") != m.end() && !m["WorkFlow"].empty()) {
+      if (typeid(map<string, boost::any>) == m["WorkFlow"].type()) {
+        DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlow model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["WorkFlow"]));
+        workFlow = make_shared<DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOneWorkFlow>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOne() = default;
+};
+class DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaData : public Darabonba::Model {
+public:
+  shared_ptr<DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOne> ACKOne{};
+
+  DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaData() {}
+
+  explicit DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ACKOne) {
+      res["ACKOne"] = ACKOne ? boost::any(ACKOne->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ACKOne") != m.end() && !m["ACKOne"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ACKOne"].type()) {
+        DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOne model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ACKOne"]));
+        ACKOne = make_shared<DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaDataACKOne>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaData() = default;
+};
 class DescribeHubClusterDetailsResponseBodyClusterClusterInfo : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterSpec{};
   shared_ptr<string> creationTime{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaData> metaData{};
   shared_ptr<string> name{};
   shared_ptr<string> profile{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupID{};
   shared_ptr<string> state{};
   shared_ptr<string> updateTime{};
   shared_ptr<string> version{};
@@ -1215,6 +1387,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (metaData) {
+      res["MetaData"] = metaData ? boost::any(metaData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -1223,6 +1398,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupID) {
+      res["ResourceGroupID"] = boost::any(*resourceGroupID);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -1249,6 +1427,13 @@ public:
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
+    if (m.find("MetaData") != m.end() && !m["MetaData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MetaData"].type()) {
+        DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MetaData"]));
+        metaData = make_shared<DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaData>(model1);
+      }
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -1257,6 +1442,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupID") != m.end() && !m["ResourceGroupID"].empty()) {
+      resourceGroupID = make_shared<string>(boost::any_cast<string>(m["ResourceGroupID"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -1837,17 +2025,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1971,17 +2149,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2162,17 +2330,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2215,6 +2373,7 @@ public:
 class DescribeHubClustersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> profile{};
+  shared_ptr<string> resourceGroupId{};
 
   DescribeHubClustersRequest() {}
 
@@ -2229,12 +2388,18 @@ public:
     if (profile) {
       res["Profile"] = boost::any(*profile);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Profile") != m.end() && !m["Profile"].empty()) {
       profile = make_shared<string>(boost::any_cast<string>(m["Profile"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -2293,6 +2458,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> profile{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupID{};
   shared_ptr<string> state{};
   shared_ptr<string> updateTime{};
   shared_ptr<string> version{};
@@ -2328,6 +2494,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupID) {
+      res["ResourceGroupID"] = boost::any(*resourceGroupID);
+    }
     if (state) {
       res["State"] = boost::any(*state);
     }
@@ -2361,6 +2530,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupID") != m.end() && !m["ResourceGroupID"].empty()) {
+      resourceGroupID = make_shared<string>(boost::any_cast<string>(m["ResourceGroupID"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -2776,17 +2948,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3157,17 +3319,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3312,17 +3464,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3528,17 +3670,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4305,17 +4437,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4550,17 +4672,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4895,17 +5007,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5072,17 +5174,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5263,17 +5355,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5425,17 +5507,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5580,17 +5652,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5814,17 +5876,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5876,7 +5928,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<bool> enableMesh{};
-  shared_ptr<bool> MSEEnabled{};
+  shared_ptr<bool> gatewayEnabled{};
   shared_ptr<bool> monitorEnabled{};
   shared_ptr<string> name{};
   shared_ptr<string> priceLimit{};
@@ -5925,8 +5977,8 @@ public:
     if (enableMesh) {
       res["EnableMesh"] = boost::any(*enableMesh);
     }
-    if (MSEEnabled) {
-      res["MSEEnabled"] = boost::any(*MSEEnabled);
+    if (gatewayEnabled) {
+      res["GatewayEnabled"] = boost::any(*gatewayEnabled);
     }
     if (monitorEnabled) {
       res["MonitorEnabled"] = boost::any(*monitorEnabled);
@@ -5990,8 +6042,8 @@ public:
     if (m.find("EnableMesh") != m.end() && !m["EnableMesh"].empty()) {
       enableMesh = make_shared<bool>(boost::any_cast<bool>(m["EnableMesh"]));
     }
-    if (m.find("MSEEnabled") != m.end() && !m["MSEEnabled"].empty()) {
-      MSEEnabled = make_shared<bool>(boost::any_cast<bool>(m["MSEEnabled"]));
+    if (m.find("GatewayEnabled") != m.end() && !m["GatewayEnabled"].empty()) {
+      gatewayEnabled = make_shared<bool>(boost::any_cast<bool>(m["GatewayEnabled"]));
     }
     if (m.find("MonitorEnabled") != m.end() && !m["MonitorEnabled"].empty()) {
       monitorEnabled = make_shared<bool>(boost::any_cast<bool>(m["MonitorEnabled"]));
@@ -6038,7 +6090,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<bool> enableMesh{};
-  shared_ptr<bool> MSEEnabled{};
+  shared_ptr<bool> gatewayEnabled{};
   shared_ptr<bool> monitorEnabled{};
   shared_ptr<string> name{};
   shared_ptr<string> priceLimit{};
@@ -6087,8 +6139,8 @@ public:
     if (enableMesh) {
       res["EnableMesh"] = boost::any(*enableMesh);
     }
-    if (MSEEnabled) {
-      res["MSEEnabled"] = boost::any(*MSEEnabled);
+    if (gatewayEnabled) {
+      res["GatewayEnabled"] = boost::any(*gatewayEnabled);
     }
     if (monitorEnabled) {
       res["MonitorEnabled"] = boost::any(*monitorEnabled);
@@ -6145,8 +6197,8 @@ public:
     if (m.find("EnableMesh") != m.end() && !m["EnableMesh"].empty()) {
       enableMesh = make_shared<bool>(boost::any_cast<bool>(m["EnableMesh"]));
     }
-    if (m.find("MSEEnabled") != m.end() && !m["MSEEnabled"].empty()) {
-      MSEEnabled = make_shared<bool>(boost::any_cast<bool>(m["MSEEnabled"]));
+    if (m.find("GatewayEnabled") != m.end() && !m["GatewayEnabled"].empty()) {
+      gatewayEnabled = make_shared<bool>(boost::any_cast<bool>(m["GatewayEnabled"]));
     }
     if (m.find("MonitorEnabled") != m.end() && !m["MonitorEnabled"].empty()) {
       monitorEnabled = make_shared<bool>(boost::any_cast<bool>(m["MonitorEnabled"]));
@@ -6215,17 +6267,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6363,17 +6405,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;

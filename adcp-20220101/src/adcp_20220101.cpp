@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -17,7 +16,6 @@ using namespace std;
 using namespace Alibabacloud_Adcp20220101;
 
 Alibabacloud_Adcp20220101::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
-  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("central");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"cn-beijing", "adcp.cn-beijing.aliyuncs.com"},
@@ -127,6 +125,9 @@ CreateHubClusterResponse Alibabacloud_Adcp20220101::Client::createHubClusterWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupID)) {
+    body->insert(pair<string, string>("ResourceGroupID", *request->resourceGroupID));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitches)) {
     body->insert(pair<string, string>("VSwitches", *request->vSwitches));
@@ -408,6 +409,9 @@ DescribeHubClustersResponse Alibabacloud_Adcp20220101::Client::describeHubCluste
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->profile)) {
     query->insert(pair<string, string>("Profile", *request->profile));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -804,8 +808,8 @@ UpdateHubClusterFeatureResponse Alibabacloud_Adcp20220101::Client::updateHubClus
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableMesh)) {
     query->insert(pair<string, bool>("EnableMesh", *request->enableMesh));
   }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->MSEEnabled)) {
-    query->insert(pair<string, bool>("MSEEnabled", *request->MSEEnabled));
+  if (!Darabonba_Util::Client::isUnset<bool>(request->gatewayEnabled)) {
+    query->insert(pair<string, bool>("GatewayEnabled", *request->gatewayEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->monitorEnabled)) {
     query->insert(pair<string, bool>("MonitorEnabled", *request->monitorEnabled));
