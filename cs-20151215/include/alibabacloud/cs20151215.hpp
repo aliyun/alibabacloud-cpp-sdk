@@ -2948,6 +2948,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<Runtime> runtime{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<bool> securityHardeningOs{};
   shared_ptr<string> serviceAccountIssuer{};
   shared_ptr<string> serviceCidr{};
   shared_ptr<vector<string>> serviceDiscoveryTypes{};
@@ -3182,6 +3183,9 @@ public:
     }
     if (securityGroupId) {
       res["security_group_id"] = boost::any(*securityGroupId);
+    }
+    if (securityHardeningOs) {
+      res["security_hardening_os"] = boost::any(*securityHardeningOs);
     }
     if (serviceAccountIssuer) {
       res["service_account_issuer"] = boost::any(*serviceAccountIssuer);
@@ -3541,6 +3545,9 @@ public:
     }
     if (m.find("security_group_id") != m.end() && !m["security_group_id"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["security_group_id"]));
+    }
+    if (m.find("security_hardening_os") != m.end() && !m["security_hardening_os"].empty()) {
+      securityHardeningOs = make_shared<bool>(boost::any_cast<bool>(m["security_hardening_os"]));
     }
     if (m.find("service_account_issuer") != m.end() && !m["service_account_issuer"].empty()) {
       serviceAccountIssuer = make_shared<string>(boost::any_cast<string>(m["service_account_issuer"]));
@@ -4487,6 +4494,7 @@ public:
   shared_ptr<string> scalingPolicy{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<vector<string>> securityGroupIds{};
+  shared_ptr<bool> securityHardeningOs{};
   shared_ptr<bool> socEnabled{};
   shared_ptr<long> spotInstancePools{};
   shared_ptr<bool> spotInstanceRemedy{};
@@ -4598,6 +4606,9 @@ public:
     }
     if (securityGroupIds) {
       res["security_group_ids"] = boost::any(*securityGroupIds);
+    }
+    if (securityHardeningOs) {
+      res["security_hardening_os"] = boost::any(*securityHardeningOs);
     }
     if (socEnabled) {
       res["soc_enabled"] = boost::any(*socEnabled);
@@ -4774,6 +4785,9 @@ public:
         }
       }
       securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("security_hardening_os") != m.end() && !m["security_hardening_os"].empty()) {
+      securityHardeningOs = make_shared<bool>(boost::any_cast<bool>(m["security_hardening_os"]));
     }
     if (m.find("soc_enabled") != m.end() && !m["soc_enabled"].empty()) {
       socEnabled = make_shared<bool>(boost::any_cast<bool>(m["soc_enabled"]));
@@ -9631,6 +9645,7 @@ public:
   shared_ptr<string> scalingPolicy{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<vector<string>> securityGroupIds{};
+  shared_ptr<bool> securityHardeningOs{};
   shared_ptr<bool> socEnabled{};
   shared_ptr<long> spotInstancePools{};
   shared_ptr<bool> spotInstanceRemedy{};
@@ -9748,6 +9763,9 @@ public:
     }
     if (securityGroupIds) {
       res["security_group_ids"] = boost::any(*securityGroupIds);
+    }
+    if (securityHardeningOs) {
+      res["security_hardening_os"] = boost::any(*securityHardeningOs);
     }
     if (socEnabled) {
       res["soc_enabled"] = boost::any(*socEnabled);
@@ -9930,6 +9948,9 @@ public:
         }
       }
       securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("security_hardening_os") != m.end() && !m["security_hardening_os"].empty()) {
+      securityHardeningOs = make_shared<bool>(boost::any_cast<bool>(m["security_hardening_os"]));
     }
     if (m.find("soc_enabled") != m.end() && !m["soc_enabled"].empty()) {
       socEnabled = make_shared<bool>(boost::any_cast<bool>(m["soc_enabled"]));
@@ -11005,6 +11026,7 @@ public:
   shared_ptr<string> scalingPolicy{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<vector<string>> securityGroupIds{};
+  shared_ptr<bool> securityHardeningOs{};
   shared_ptr<bool> socEnabled{};
   shared_ptr<long> spotInstancePools{};
   shared_ptr<bool> spotInstanceRemedy{};
@@ -11122,6 +11144,9 @@ public:
     }
     if (securityGroupIds) {
       res["security_group_ids"] = boost::any(*securityGroupIds);
+    }
+    if (securityHardeningOs) {
+      res["security_hardening_os"] = boost::any(*securityHardeningOs);
     }
     if (socEnabled) {
       res["soc_enabled"] = boost::any(*socEnabled);
@@ -11304,6 +11329,9 @@ public:
         }
       }
       securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("security_hardening_os") != m.end() && !m["security_hardening_os"].empty()) {
+      securityHardeningOs = make_shared<bool>(boost::any_cast<bool>(m["security_hardening_os"]));
     }
     if (m.find("soc_enabled") != m.end() && !m["soc_enabled"].empty()) {
       socEnabled = make_shared<bool>(boost::any_cast<bool>(m["soc_enabled"]));

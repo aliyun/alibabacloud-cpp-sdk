@@ -603,6 +603,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     body->insert(pair<string, string>("security_group_id", *request->securityGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->securityHardeningOs)) {
+    body->insert(pair<string, bool>("security_hardening_os", *request->securityHardeningOs));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceAccountIssuer)) {
     body->insert(pair<string, string>("service_account_issuer", *request->serviceAccountIssuer));
   }
