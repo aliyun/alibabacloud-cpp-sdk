@@ -944,6 +944,9 @@ GetInstanceListResponse Alibabacloud_Alikafka20190916::Client::getInstanceListWi
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->series)) {
+    query->insert(pair<string, string>("Series", *request->series));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<GetInstanceListRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<GetInstanceListRequestTag>>("Tag", *request->tag));
   }

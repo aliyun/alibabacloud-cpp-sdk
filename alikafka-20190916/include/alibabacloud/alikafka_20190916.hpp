@@ -5281,6 +5281,7 @@ public:
   shared_ptr<string> orderId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> series{};
   shared_ptr<vector<GetInstanceListRequestTag>> tag{};
 
   GetInstanceListRequest() {}
@@ -5304,6 +5305,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (series) {
+      res["Series"] = boost::any(*series);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -5334,6 +5338,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("Series") != m.end() && !m["Series"].empty()) {
+      series = make_shared<string>(boost::any_cast<string>(m["Series"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -5636,6 +5643,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> saslDomainEndpoint{};
   shared_ptr<string> securityGroup{};
+  shared_ptr<string> series{};
   shared_ptr<long> serviceStatus{};
   shared_ptr<string> specType{};
   shared_ptr<string> sslDomainEndpoint{};
@@ -5736,6 +5744,9 @@ public:
     }
     if (securityGroup) {
       res["SecurityGroup"] = boost::any(*securityGroup);
+    }
+    if (series) {
+      res["Series"] = boost::any(*series);
     }
     if (serviceStatus) {
       res["ServiceStatus"] = boost::any(*serviceStatus);
@@ -5864,6 +5875,9 @@ public:
     }
     if (m.find("SecurityGroup") != m.end() && !m["SecurityGroup"].empty()) {
       securityGroup = make_shared<string>(boost::any_cast<string>(m["SecurityGroup"]));
+    }
+    if (m.find("Series") != m.end() && !m["Series"].empty()) {
+      series = make_shared<string>(boost::any_cast<string>(m["Series"]));
     }
     if (m.find("ServiceStatus") != m.end() && !m["ServiceStatus"].empty()) {
       serviceStatus = make_shared<long>(boost::any_cast<long>(m["ServiceStatus"]));
