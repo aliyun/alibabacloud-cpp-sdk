@@ -1448,11 +1448,17 @@ DescribeClusterAddonInstanceResponse Alibabacloud_CS20151215::Client::describeCl
 
 DescribeClusterAddonMetadataResponse Alibabacloud_CS20151215::Client::describeClusterAddonMetadataWithOptions(shared_ptr<string> clusterId,
                                                                                                               shared_ptr<string> componentId,
-                                                                                                              shared_ptr<string> version,
+                                                                                                              shared_ptr<DescribeClusterAddonMetadataRequest> request,
                                                                                                               shared_ptr<map<string, string>> headers,
                                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
+    query->insert(pair<string, string>("version", *request->version));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeClusterAddonMetadata"))},
@@ -1468,10 +1474,10 @@ DescribeClusterAddonMetadataResponse Alibabacloud_CS20151215::Client::describeCl
   return DescribeClusterAddonMetadataResponse(callApi(params, req, runtime));
 }
 
-DescribeClusterAddonMetadataResponse Alibabacloud_CS20151215::Client::describeClusterAddonMetadata(shared_ptr<string> clusterId, shared_ptr<string> componentId, shared_ptr<string> version) {
+DescribeClusterAddonMetadataResponse Alibabacloud_CS20151215::Client::describeClusterAddonMetadata(shared_ptr<string> clusterId, shared_ptr<string> componentId, shared_ptr<DescribeClusterAddonMetadataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeClusterAddonMetadataWithOptions(clusterId, componentId, version, headers, runtime);
+  return describeClusterAddonMetadataWithOptions(clusterId, componentId, request, headers, runtime);
 }
 
 DescribeClusterAddonUpgradeStatusResponse Alibabacloud_CS20151215::Client::describeClusterAddonUpgradeStatusWithOptions(shared_ptr<string> ClusterId,

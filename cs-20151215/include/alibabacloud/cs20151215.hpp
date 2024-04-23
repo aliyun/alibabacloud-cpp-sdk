@@ -7778,6 +7778,35 @@ public:
 
   virtual ~DescribeClusterAddonInstanceResponse() = default;
 };
+class DescribeClusterAddonMetadataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> version{};
+
+  DescribeClusterAddonMetadataRequest() {}
+
+  explicit DescribeClusterAddonMetadataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (version) {
+      res["version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("version") != m.end() && !m["version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["version"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterAddonMetadataRequest() = default;
+};
 class DescribeClusterAddonMetadataResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> configSchema{};
@@ -27334,10 +27363,10 @@ public:
   DescribeClusterAddonInstanceResponse describeClusterAddonInstance(shared_ptr<string> ClusterID, shared_ptr<string> AddonName);
   DescribeClusterAddonMetadataResponse describeClusterAddonMetadataWithOptions(shared_ptr<string> clusterId,
                                                                                shared_ptr<string> componentId,
-                                                                               shared_ptr<string> version,
+                                                                               shared_ptr<DescribeClusterAddonMetadataRequest> request,
                                                                                shared_ptr<map<string, string>> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeClusterAddonMetadataResponse describeClusterAddonMetadata(shared_ptr<string> clusterId, shared_ptr<string> componentId, shared_ptr<string> version);
+  DescribeClusterAddonMetadataResponse describeClusterAddonMetadata(shared_ptr<string> clusterId, shared_ptr<string> componentId, shared_ptr<DescribeClusterAddonMetadataRequest> request);
   DescribeClusterAddonUpgradeStatusResponse describeClusterAddonUpgradeStatusWithOptions(shared_ptr<string> ClusterId,
                                                                                          shared_ptr<string> ComponentId,
                                                                                          shared_ptr<map<string, string>> headers,
