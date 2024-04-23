@@ -207,6 +207,9 @@ AttachAlbServerGroupsResponse Alibabacloud_Ess20220222::Client::attachAlbServerG
 AttachDBInstancesResponse Alibabacloud_Ess20220222::Client::attachDBInstancesWithOptions(shared_ptr<AttachDBInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->attachMode)) {
+    query->insert(pair<string, string>("AttachMode", *request->attachMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -227,6 +230,9 @@ AttachDBInstancesResponse Alibabacloud_Ess20220222::Client::attachDBInstancesWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scalingGroupId)) {
     query->insert(pair<string, string>("ScalingGroupId", *request->scalingGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -919,6 +925,9 @@ CreateScalingConfigurationResponse Alibabacloud_Ess20220222::Client::createScali
   if (!Darabonba_Util::Client::isUnset<vector<CreateScalingConfigurationShrinkRequestDataDisks>>(request->dataDisks)) {
     query->insert(pair<string, vector<CreateScalingConfigurationShrinkRequestDataDisks>>("DataDisks", *request->dataDisks));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dedicatedHostClusterId)) {
+    query->insert(pair<string, string>("DedicatedHostClusterId", *request->dedicatedHostClusterId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dedicatedHostId)) {
     query->insert(pair<string, string>("DedicatedHostId", *request->dedicatedHostId));
   }
@@ -1117,6 +1126,9 @@ CreateScalingGroupResponse Alibabacloud_Ess20220222::Client::createScalingGroupW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceIds)) {
     query->insert(pair<string, string>("DBInstanceIds", *request->DBInstanceIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateScalingGroupRequestDBInstances>>(request->DBInstances)) {
+    query->insert(pair<string, vector<CreateScalingGroupRequestDBInstances>>("DBInstances", *request->DBInstances));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->defaultCooldown)) {
     query->insert(pair<string, long>("DefaultCooldown", *request->defaultCooldown));
@@ -2672,6 +2684,9 @@ DetachDBInstancesResponse Alibabacloud_Ess20220222::Client::detachDBInstancesWit
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->removeSecurityGroup)) {
+    query->insert(pair<string, bool>("RemoveSecurityGroup", *request->removeSecurityGroup));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
@@ -3776,6 +3791,9 @@ ModifyScalingConfigurationResponse Alibabacloud_Ess20220222::Client::modifyScali
   }
   if (!Darabonba_Util::Client::isUnset<vector<ModifyScalingConfigurationShrinkRequestDataDisks>>(request->dataDisks)) {
     query->insert(pair<string, vector<ModifyScalingConfigurationShrinkRequestDataDisks>>("DataDisks", *request->dataDisks));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dedicatedHostClusterId)) {
+    query->insert(pair<string, string>("DedicatedHostClusterId", *request->dedicatedHostClusterId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->dedicatedHostId)) {
     query->insert(pair<string, string>("DedicatedHostId", *request->dedicatedHostId));

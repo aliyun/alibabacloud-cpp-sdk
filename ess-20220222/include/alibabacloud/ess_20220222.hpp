@@ -508,6 +508,7 @@ public:
 };
 class AttachDBInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> attachMode{};
   shared_ptr<string> clientToken{};
   shared_ptr<vector<string>> DBInstances{};
   shared_ptr<bool> forceAttach{};
@@ -515,6 +516,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<string> scalingGroupId{};
+  shared_ptr<string> type{};
 
   AttachDBInstancesRequest() {}
 
@@ -526,6 +528,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (attachMode) {
+      res["AttachMode"] = boost::any(*attachMode);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -547,10 +552,16 @@ public:
     if (scalingGroupId) {
       res["ScalingGroupId"] = boost::any(*scalingGroupId);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttachMode") != m.end() && !m["AttachMode"].empty()) {
+      attachMode = make_shared<string>(boost::any_cast<string>(m["AttachMode"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -578,6 +589,9 @@ public:
     }
     if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
       scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
@@ -5686,6 +5700,7 @@ public:
   shared_ptr<string> creditSpecification{};
   shared_ptr<vector<CreateScalingConfigurationRequestCustomPriorities>> customPriorities{};
   shared_ptr<vector<CreateScalingConfigurationRequestDataDisks>> dataDisks{};
+  shared_ptr<string> dedicatedHostClusterId{};
   shared_ptr<string> dedicatedHostId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<string> deploymentSetId{};
@@ -5778,6 +5793,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["DataDisks"] = boost::any(temp1);
+    }
+    if (dedicatedHostClusterId) {
+      res["DedicatedHostClusterId"] = boost::any(*dedicatedHostClusterId);
     }
     if (dedicatedHostId) {
       res["DedicatedHostId"] = boost::any(*dedicatedHostId);
@@ -5998,6 +6016,9 @@ public:
         }
         dataDisks = make_shared<vector<CreateScalingConfigurationRequestDataDisks>>(expect1);
       }
+    }
+    if (m.find("DedicatedHostClusterId") != m.end() && !m["DedicatedHostClusterId"].empty()) {
+      dedicatedHostClusterId = make_shared<string>(boost::any_cast<string>(m["DedicatedHostClusterId"]));
     }
     if (m.find("DedicatedHostId") != m.end() && !m["DedicatedHostId"].empty()) {
       dedicatedHostId = make_shared<string>(boost::any_cast<string>(m["DedicatedHostId"]));
@@ -6763,6 +6784,7 @@ public:
   shared_ptr<string> creditSpecification{};
   shared_ptr<vector<CreateScalingConfigurationShrinkRequestCustomPriorities>> customPriorities{};
   shared_ptr<vector<CreateScalingConfigurationShrinkRequestDataDisks>> dataDisks{};
+  shared_ptr<string> dedicatedHostClusterId{};
   shared_ptr<string> dedicatedHostId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<string> deploymentSetId{};
@@ -6855,6 +6877,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["DataDisks"] = boost::any(temp1);
+    }
+    if (dedicatedHostClusterId) {
+      res["DedicatedHostClusterId"] = boost::any(*dedicatedHostClusterId);
     }
     if (dedicatedHostId) {
       res["DedicatedHostId"] = boost::any(*dedicatedHostId);
@@ -7075,6 +7100,9 @@ public:
         }
         dataDisks = make_shared<vector<CreateScalingConfigurationShrinkRequestDataDisks>>(expect1);
       }
+    }
+    if (m.find("DedicatedHostClusterId") != m.end() && !m["DedicatedHostClusterId"].empty()) {
+      dedicatedHostClusterId = make_shared<string>(boost::any_cast<string>(m["DedicatedHostClusterId"]));
     }
     if (m.find("DedicatedHostId") != m.end() && !m["DedicatedHostId"].empty()) {
       dedicatedHostId = make_shared<string>(boost::any_cast<string>(m["DedicatedHostId"]));
@@ -7413,6 +7441,49 @@ public:
 
 
   virtual ~CreateScalingGroupRequestAlbServerGroups() = default;
+};
+class CreateScalingGroupRequestDBInstances : public Darabonba::Model {
+public:
+  shared_ptr<string> attachMode{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> type{};
+
+  CreateScalingGroupRequestDBInstances() {}
+
+  explicit CreateScalingGroupRequestDBInstances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attachMode) {
+      res["AttachMode"] = boost::any(*attachMode);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttachMode") != m.end() && !m["AttachMode"].empty()) {
+      attachMode = make_shared<string>(boost::any_cast<string>(m["AttachMode"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateScalingGroupRequestDBInstances() = default;
 };
 class CreateScalingGroupRequestLaunchTemplateOverrides : public Darabonba::Model {
 public:
@@ -7753,6 +7824,7 @@ public:
   shared_ptr<string> containerGroupId{};
   shared_ptr<string> customPolicyARN{};
   shared_ptr<string> DBInstanceIds{};
+  shared_ptr<vector<CreateScalingGroupRequestDBInstances>> DBInstances{};
   shared_ptr<long> defaultCooldown{};
   shared_ptr<long> desiredCapacity{};
   shared_ptr<bool> groupDeletionProtection{};
@@ -7827,6 +7899,13 @@ public:
     }
     if (DBInstanceIds) {
       res["DBInstanceIds"] = boost::any(*DBInstanceIds);
+    }
+    if (DBInstances) {
+      vector<boost::any> temp1;
+      for(auto item1:*DBInstances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DBInstances"] = boost::any(temp1);
     }
     if (defaultCooldown) {
       res["DefaultCooldown"] = boost::any(*defaultCooldown);
@@ -7997,6 +8076,19 @@ public:
     }
     if (m.find("DBInstanceIds") != m.end() && !m["DBInstanceIds"].empty()) {
       DBInstanceIds = make_shared<string>(boost::any_cast<string>(m["DBInstanceIds"]));
+    }
+    if (m.find("DBInstances") != m.end() && !m["DBInstances"].empty()) {
+      if (typeid(vector<boost::any>) == m["DBInstances"].type()) {
+        vector<CreateScalingGroupRequestDBInstances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DBInstances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateScalingGroupRequestDBInstances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        DBInstances = make_shared<vector<CreateScalingGroupRequestDBInstances>>(expect1);
+      }
     }
     if (m.find("DefaultCooldown") != m.end() && !m["DefaultCooldown"].empty()) {
       defaultCooldown = make_shared<long>(boost::any_cast<long>(m["DefaultCooldown"]));
@@ -17398,6 +17490,7 @@ public:
   shared_ptr<string> creditSpecification{};
   shared_ptr<vector<DescribeScalingConfigurationsResponseBodyScalingConfigurationsCustomPriorities>> customPriorities{};
   shared_ptr<vector<DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataDisks>> dataDisks{};
+  shared_ptr<string> dedicatedHostClusterId{};
   shared_ptr<string> dedicatedHostId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<string> deploymentSetId{};
@@ -17495,6 +17588,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["DataDisks"] = boost::any(temp1);
+    }
+    if (dedicatedHostClusterId) {
+      res["DedicatedHostClusterId"] = boost::any(*dedicatedHostClusterId);
     }
     if (dedicatedHostId) {
       res["DedicatedHostId"] = boost::any(*dedicatedHostId);
@@ -17736,6 +17832,9 @@ public:
         }
         dataDisks = make_shared<vector<DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataDisks>>(expect1);
       }
+    }
+    if (m.find("DedicatedHostClusterId") != m.end() && !m["DedicatedHostClusterId"].empty()) {
+      dedicatedHostClusterId = make_shared<string>(boost::any_cast<string>(m["DedicatedHostClusterId"]));
     }
     if (m.find("DedicatedHostId") != m.end() && !m["DedicatedHostId"].empty()) {
       dedicatedHostId = make_shared<string>(boost::any_cast<string>(m["DedicatedHostId"]));
@@ -19358,6 +19457,56 @@ public:
 
   virtual ~DescribeScalingGroupsResponseBodyScalingGroupsAlbServerGroups() = default;
 };
+class DescribeScalingGroupsResponseBodyScalingGroupsDBInstances : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<vector<string>> securityGroupIds{};
+  shared_ptr<string> type{};
+
+  DescribeScalingGroupsResponseBodyScalingGroupsDBInstances() {}
+
+  explicit DescribeScalingGroupsResponseBodyScalingGroupsDBInstances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (securityGroupIds) {
+      res["SecurityGroupIds"] = boost::any(*securityGroupIds);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("SecurityGroupIds") != m.end() && !m["SecurityGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SecurityGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SecurityGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      securityGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupsResponseBodyScalingGroupsDBInstances() = default;
+};
 class DescribeScalingGroupsResponseBodyScalingGroupsLaunchTemplateOverrides : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -19635,6 +19784,7 @@ public:
   shared_ptr<string> currentHostName{};
   shared_ptr<string> customPolicyARN{};
   shared_ptr<vector<string>> DBInstanceIds{};
+  shared_ptr<vector<DescribeScalingGroupsResponseBodyScalingGroupsDBInstances>> DBInstances{};
   shared_ptr<long> defaultCooldown{};
   shared_ptr<long> desiredCapacity{};
   shared_ptr<bool> enableDesiredCapacity{};
@@ -19728,6 +19878,13 @@ public:
     }
     if (DBInstanceIds) {
       res["DBInstanceIds"] = boost::any(*DBInstanceIds);
+    }
+    if (DBInstances) {
+      vector<boost::any> temp1;
+      for(auto item1:*DBInstances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DBInstances"] = boost::any(temp1);
     }
     if (defaultCooldown) {
       res["DefaultCooldown"] = boost::any(*defaultCooldown);
@@ -19946,6 +20103,19 @@ public:
         }
       }
       DBInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DBInstances") != m.end() && !m["DBInstances"].empty()) {
+      if (typeid(vector<boost::any>) == m["DBInstances"].type()) {
+        vector<DescribeScalingGroupsResponseBodyScalingGroupsDBInstances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DBInstances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingGroupsResponseBodyScalingGroupsDBInstances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        DBInstances = make_shared<vector<DescribeScalingGroupsResponseBodyScalingGroupsDBInstances>>(expect1);
+      }
     }
     if (m.find("DefaultCooldown") != m.end() && !m["DefaultCooldown"].empty()) {
       defaultCooldown = make_shared<long>(boost::any_cast<long>(m["DefaultCooldown"]));
@@ -22036,6 +22206,7 @@ public:
   shared_ptr<bool> forceDetach{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<bool> removeSecurityGroup{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<string> scalingGroupId{};
 
@@ -22063,6 +22234,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (removeSecurityGroup) {
+      res["RemoveSecurityGroup"] = boost::any(*removeSecurityGroup);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -22095,6 +22269,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RemoveSecurityGroup") != m.end() && !m["RemoveSecurityGroup"].empty()) {
+      removeSecurityGroup = make_shared<bool>(boost::any_cast<bool>(m["RemoveSecurityGroup"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
@@ -28847,6 +29024,7 @@ public:
   shared_ptr<string> creditSpecification{};
   shared_ptr<vector<ModifyScalingConfigurationRequestCustomPriorities>> customPriorities{};
   shared_ptr<vector<ModifyScalingConfigurationRequestDataDisks>> dataDisks{};
+  shared_ptr<string> dedicatedHostClusterId{};
   shared_ptr<string> dedicatedHostId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<string> deploymentSetId{};
@@ -28933,6 +29111,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["DataDisks"] = boost::any(temp1);
+    }
+    if (dedicatedHostClusterId) {
+      res["DedicatedHostClusterId"] = boost::any(*dedicatedHostClusterId);
     }
     if (dedicatedHostId) {
       res["DedicatedHostId"] = boost::any(*dedicatedHostId);
@@ -29141,6 +29322,9 @@ public:
         }
         dataDisks = make_shared<vector<ModifyScalingConfigurationRequestDataDisks>>(expect1);
       }
+    }
+    if (m.find("DedicatedHostClusterId") != m.end() && !m["DedicatedHostClusterId"].empty()) {
+      dedicatedHostClusterId = make_shared<string>(boost::any_cast<string>(m["DedicatedHostClusterId"]));
     }
     if (m.find("DedicatedHostId") != m.end() && !m["DedicatedHostId"].empty()) {
       dedicatedHostId = make_shared<string>(boost::any_cast<string>(m["DedicatedHostId"]));
@@ -29896,6 +30080,7 @@ public:
   shared_ptr<string> creditSpecification{};
   shared_ptr<vector<ModifyScalingConfigurationShrinkRequestCustomPriorities>> customPriorities{};
   shared_ptr<vector<ModifyScalingConfigurationShrinkRequestDataDisks>> dataDisks{};
+  shared_ptr<string> dedicatedHostClusterId{};
   shared_ptr<string> dedicatedHostId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<string> deploymentSetId{};
@@ -29982,6 +30167,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["DataDisks"] = boost::any(temp1);
+    }
+    if (dedicatedHostClusterId) {
+      res["DedicatedHostClusterId"] = boost::any(*dedicatedHostClusterId);
     }
     if (dedicatedHostId) {
       res["DedicatedHostId"] = boost::any(*dedicatedHostId);
@@ -30190,6 +30378,9 @@ public:
         }
         dataDisks = make_shared<vector<ModifyScalingConfigurationShrinkRequestDataDisks>>(expect1);
       }
+    }
+    if (m.find("DedicatedHostClusterId") != m.end() && !m["DedicatedHostClusterId"].empty()) {
+      dedicatedHostClusterId = make_shared<string>(boost::any_cast<string>(m["DedicatedHostClusterId"]));
     }
     if (m.find("DedicatedHostId") != m.end() && !m["DedicatedHostId"].empty()) {
       dedicatedHostId = make_shared<string>(boost::any_cast<string>(m["DedicatedHostId"]));
