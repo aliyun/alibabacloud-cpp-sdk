@@ -538,6 +538,40 @@ GetAsyncInvokeConfigResponse Alibabacloud_FC20230330::Client::getAsyncInvokeConf
   return getAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
 }
 
+GetAsyncTaskResponse Alibabacloud_FC20230330::Client::getAsyncTaskWithOptions(shared_ptr<string> functionName,
+                                                                              shared_ptr<string> taskId,
+                                                                              shared_ptr<GetAsyncTaskRequest> request,
+                                                                              shared_ptr<map<string, string>> headers,
+                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
+    query->insert(pair<string, string>("qualifier", *request->qualifier));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAsyncTask"))},
+    {"version", boost::any(string("2023-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2023-03-30/functions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(functionName)) + string("/async-tasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(taskId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAsyncTaskResponse(callApi(params, req, runtime));
+}
+
+GetAsyncTaskResponse Alibabacloud_FC20230330::Client::getAsyncTask(shared_ptr<string> functionName, shared_ptr<string> taskId, shared_ptr<GetAsyncTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getAsyncTaskWithOptions(functionName, taskId, request, headers, runtime);
+}
+
 GetConcurrencyConfigResponse Alibabacloud_FC20230330::Client::getConcurrencyConfigWithOptions(shared_ptr<string> functionName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -898,6 +932,63 @@ ListAsyncInvokeConfigsResponse Alibabacloud_FC20230330::Client::listAsyncInvokeC
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listAsyncInvokeConfigsWithOptions(request, headers, runtime);
+}
+
+ListAsyncTasksResponse Alibabacloud_FC20230330::Client::listAsyncTasksWithOptions(shared_ptr<string> functionName,
+                                                                                  shared_ptr<ListAsyncTasksRequest> request,
+                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->includePayload)) {
+    query->insert(pair<string, bool>("includePayload", *request->includePayload));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
+    query->insert(pair<string, long>("limit", *request->limit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("nextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prefix)) {
+    query->insert(pair<string, string>("prefix", *request->prefix));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
+    query->insert(pair<string, string>("qualifier", *request->qualifier));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortOrderByTime)) {
+    query->insert(pair<string, string>("sortOrderByTime", *request->sortOrderByTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startedTimeBegin)) {
+    query->insert(pair<string, long>("startedTimeBegin", *request->startedTimeBegin));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startedTimeEnd)) {
+    query->insert(pair<string, long>("startedTimeEnd", *request->startedTimeEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("status", *request->status));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListAsyncTasks"))},
+    {"version", boost::any(string("2023-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2023-03-30/functions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(functionName)) + string("/async-tasks"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListAsyncTasksResponse(callApi(params, req, runtime));
+}
+
+ListAsyncTasksResponse Alibabacloud_FC20230330::Client::listAsyncTasks(shared_ptr<string> functionName, shared_ptr<ListAsyncTasksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listAsyncTasksWithOptions(functionName, request, headers, runtime);
 }
 
 ListConcurrencyConfigsResponse Alibabacloud_FC20230330::Client::listConcurrencyConfigsWithOptions(shared_ptr<ListConcurrencyConfigsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1467,6 +1558,40 @@ PutProvisionConfigResponse Alibabacloud_FC20230330::Client::putProvisionConfig(s
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return putProvisionConfigWithOptions(functionName, request, headers, runtime);
+}
+
+StopAsyncTaskResponse Alibabacloud_FC20230330::Client::stopAsyncTaskWithOptions(shared_ptr<string> functionName,
+                                                                                shared_ptr<string> taskId,
+                                                                                shared_ptr<StopAsyncTaskRequest> request,
+                                                                                shared_ptr<map<string, string>> headers,
+                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
+    query->insert(pair<string, string>("qualifier", *request->qualifier));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopAsyncTask"))},
+    {"version", boost::any(string("2023-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2023-03-30/functions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(functionName)) + string("/async-tasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(taskId)) + string("/stop"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return StopAsyncTaskResponse(callApi(params, req, runtime));
+}
+
+StopAsyncTaskResponse Alibabacloud_FC20230330::Client::stopAsyncTask(shared_ptr<string> functionName, shared_ptr<string> taskId, shared_ptr<StopAsyncTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return stopAsyncTaskWithOptions(functionName, taskId, request, headers, runtime);
 }
 
 TagResourcesResponse Alibabacloud_FC20230330::Client::tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

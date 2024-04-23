@@ -7660,6 +7660,87 @@ public:
 
   virtual ~GetAsyncInvokeConfigResponse() = default;
 };
+class GetAsyncTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> qualifier{};
+
+  GetAsyncTaskRequest() {}
+
+  explicit GetAsyncTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (qualifier) {
+      res["qualifier"] = boost::any(*qualifier);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
+      qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
+    }
+  }
+
+
+  virtual ~GetAsyncTaskRequest() = default;
+};
+class GetAsyncTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AsyncTask> body{};
+
+  GetAsyncTaskResponse() {}
+
+  explicit GetAsyncTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AsyncTask model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AsyncTask>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAsyncTaskResponse() = default;
+};
 class GetConcurrencyConfigResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -8491,6 +8572,143 @@ public:
 
 
   virtual ~ListAsyncInvokeConfigsResponse() = default;
+};
+class ListAsyncTasksRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> includePayload{};
+  shared_ptr<long> limit{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> prefix{};
+  shared_ptr<string> qualifier{};
+  shared_ptr<string> sortOrderByTime{};
+  shared_ptr<long> startedTimeBegin{};
+  shared_ptr<long> startedTimeEnd{};
+  shared_ptr<string> status{};
+
+  ListAsyncTasksRequest() {}
+
+  explicit ListAsyncTasksRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (includePayload) {
+      res["includePayload"] = boost::any(*includePayload);
+    }
+    if (limit) {
+      res["limit"] = boost::any(*limit);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    if (prefix) {
+      res["prefix"] = boost::any(*prefix);
+    }
+    if (qualifier) {
+      res["qualifier"] = boost::any(*qualifier);
+    }
+    if (sortOrderByTime) {
+      res["sortOrderByTime"] = boost::any(*sortOrderByTime);
+    }
+    if (startedTimeBegin) {
+      res["startedTimeBegin"] = boost::any(*startedTimeBegin);
+    }
+    if (startedTimeEnd) {
+      res["startedTimeEnd"] = boost::any(*startedTimeEnd);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("includePayload") != m.end() && !m["includePayload"].empty()) {
+      includePayload = make_shared<bool>(boost::any_cast<bool>(m["includePayload"]));
+    }
+    if (m.find("limit") != m.end() && !m["limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["limit"]));
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("prefix") != m.end() && !m["prefix"].empty()) {
+      prefix = make_shared<string>(boost::any_cast<string>(m["prefix"]));
+    }
+    if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
+      qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
+    }
+    if (m.find("sortOrderByTime") != m.end() && !m["sortOrderByTime"].empty()) {
+      sortOrderByTime = make_shared<string>(boost::any_cast<string>(m["sortOrderByTime"]));
+    }
+    if (m.find("startedTimeBegin") != m.end() && !m["startedTimeBegin"].empty()) {
+      startedTimeBegin = make_shared<long>(boost::any_cast<long>(m["startedTimeBegin"]));
+    }
+    if (m.find("startedTimeEnd") != m.end() && !m["startedTimeEnd"].empty()) {
+      startedTimeEnd = make_shared<long>(boost::any_cast<long>(m["startedTimeEnd"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+  }
+
+
+  virtual ~ListAsyncTasksRequest() = default;
+};
+class ListAsyncTasksResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListAsyncTaskOutput> body{};
+
+  ListAsyncTasksResponse() {}
+
+  explicit ListAsyncTasksResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListAsyncTaskOutput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListAsyncTaskOutput>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAsyncTasksResponse() = default;
 };
 class ListConcurrencyConfigsRequest : public Darabonba::Model {
 public:
@@ -10046,6 +10264,76 @@ public:
 
   virtual ~PutProvisionConfigResponse() = default;
 };
+class StopAsyncTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> qualifier{};
+
+  StopAsyncTaskRequest() {}
+
+  explicit StopAsyncTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (qualifier) {
+      res["qualifier"] = boost::any(*qualifier);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
+      qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
+    }
+  }
+
+
+  virtual ~StopAsyncTaskRequest() = default;
+};
+class StopAsyncTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  StopAsyncTaskResponse() {}
+
+  explicit StopAsyncTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~StopAsyncTaskResponse() = default;
+};
 class TagResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<TagResourcesInput> body{};
@@ -10700,6 +10988,12 @@ public:
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAsyncInvokeConfigResponse getAsyncInvokeConfig(shared_ptr<string> functionName, shared_ptr<GetAsyncInvokeConfigRequest> request);
+  GetAsyncTaskResponse getAsyncTaskWithOptions(shared_ptr<string> functionName,
+                                               shared_ptr<string> taskId,
+                                               shared_ptr<GetAsyncTaskRequest> request,
+                                               shared_ptr<map<string, string>> headers,
+                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAsyncTaskResponse getAsyncTask(shared_ptr<string> functionName, shared_ptr<string> taskId, shared_ptr<GetAsyncTaskRequest> request);
   GetConcurrencyConfigResponse getConcurrencyConfigWithOptions(shared_ptr<string> functionName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetConcurrencyConfigResponse getConcurrencyConfig(shared_ptr<string> functionName);
   GetCustomDomainResponse getCustomDomainWithOptions(shared_ptr<string> domainName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -10743,6 +11037,11 @@ public:
   ListAliasesResponse listAliases(shared_ptr<string> functionName, shared_ptr<ListAliasesRequest> request);
   ListAsyncInvokeConfigsResponse listAsyncInvokeConfigsWithOptions(shared_ptr<ListAsyncInvokeConfigsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAsyncInvokeConfigsResponse listAsyncInvokeConfigs(shared_ptr<ListAsyncInvokeConfigsRequest> request);
+  ListAsyncTasksResponse listAsyncTasksWithOptions(shared_ptr<string> functionName,
+                                                   shared_ptr<ListAsyncTasksRequest> request,
+                                                   shared_ptr<map<string, string>> headers,
+                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAsyncTasksResponse listAsyncTasks(shared_ptr<string> functionName, shared_ptr<ListAsyncTasksRequest> request);
   ListConcurrencyConfigsResponse listConcurrencyConfigsWithOptions(shared_ptr<ListConcurrencyConfigsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListConcurrencyConfigsResponse listConcurrencyConfigs(shared_ptr<ListConcurrencyConfigsRequest> request);
   ListCustomDomainsResponse listCustomDomainsWithOptions(shared_ptr<ListCustomDomainsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -10802,6 +11101,12 @@ public:
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PutProvisionConfigResponse putProvisionConfig(shared_ptr<string> functionName, shared_ptr<PutProvisionConfigRequest> request);
+  StopAsyncTaskResponse stopAsyncTaskWithOptions(shared_ptr<string> functionName,
+                                                 shared_ptr<string> taskId,
+                                                 shared_ptr<StopAsyncTaskRequest> request,
+                                                 shared_ptr<map<string, string>> headers,
+                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopAsyncTaskResponse stopAsyncTask(shared_ptr<string> functionName, shared_ptr<string> taskId, shared_ptr<StopAsyncTaskRequest> request);
   TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
