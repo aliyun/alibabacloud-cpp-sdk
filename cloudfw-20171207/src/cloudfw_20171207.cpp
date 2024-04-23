@@ -415,6 +415,64 @@ CreateNatFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::cre
   return createNatFirewallControlPolicyWithOptions(request, runtime);
 }
 
+CreateSecurityProxyResponse Alibabacloud_Cloudfw20171207::Client::createSecurityProxyWithOptions(shared_ptr<CreateSecurityProxyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->firewallSwitch)) {
+    query->insert(pair<string, string>("FirewallSwitch", *request->firewallSwitch));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->natGatewayId)) {
+    query->insert(pair<string, string>("NatGatewayId", *request->natGatewayId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSecurityProxyRequestNatRouteEntryList>>(request->natRouteEntryList)) {
+    query->insert(pair<string, vector<CreateSecurityProxyRequestNatRouteEntryList>>("NatRouteEntryList", *request->natRouteEntryList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->proxyName)) {
+    query->insert(pair<string, string>("ProxyName", *request->proxyName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionNo)) {
+    query->insert(pair<string, string>("RegionNo", *request->regionNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->strictMode)) {
+    query->insert(pair<string, long>("StrictMode", *request->strictMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vswitchAuto)) {
+    query->insert(pair<string, string>("VswitchAuto", *request->vswitchAuto));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vswitchCidr)) {
+    query->insert(pair<string, string>("VswitchCidr", *request->vswitchCidr));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vswitchId)) {
+    query->insert(pair<string, string>("VswitchId", *request->vswitchId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateSecurityProxy"))},
+    {"version", boost::any(string("2017-12-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateSecurityProxyResponse(callApi(params, req, runtime));
+}
+
+CreateSecurityProxyResponse Alibabacloud_Cloudfw20171207::Client::createSecurityProxy(shared_ptr<CreateSecurityProxyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createSecurityProxyWithOptions(request, runtime);
+}
+
 CreateTrFirewallV2Response Alibabacloud_Cloudfw20171207::Client::createTrFirewallV2WithOptions(shared_ptr<CreateTrFirewallV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
