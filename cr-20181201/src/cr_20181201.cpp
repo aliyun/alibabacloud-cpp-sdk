@@ -181,6 +181,58 @@ CreateArtifactBuildRuleResponse Alibabacloud_Cr20181201::Client::createArtifactB
   return createArtifactBuildRuleWithOptions(request, runtime);
 }
 
+CreateArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::createArtifactLifecycleRuleWithOptions(shared_ptr<CreateArtifactLifecycleRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->auto_)) {
+    query->insert(pair<string, bool>("Auto_", *request->auto_));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableDeleteTag)) {
+    query->insert(pair<string, bool>("EnableDeleteTag", *request->enableDeleteTag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespaceName)) {
+    query->insert(pair<string, string>("NamespaceName", *request->namespaceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repoName)) {
+    query->insert(pair<string, string>("RepoName", *request->repoName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->retentionTagCount)) {
+    query->insert(pair<string, long>("RetentionTagCount", *request->retentionTagCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleTime)) {
+    query->insert(pair<string, string>("ScheduleTime", *request->scheduleTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    query->insert(pair<string, string>("Scope", *request->scope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagRegexp)) {
+    query->insert(pair<string, string>("TagRegexp", *request->tagRegexp));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateArtifactLifecycleRule"))},
+    {"version", boost::any(string("2018-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateArtifactLifecycleRuleResponse(callApi(params, req, runtime));
+}
+
+CreateArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::createArtifactLifecycleRule(shared_ptr<CreateArtifactLifecycleRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createArtifactLifecycleRuleWithOptions(request, runtime);
+}
+
 CreateBuildRecordByRecordResponse Alibabacloud_Cr20181201::Client::createBuildRecordByRecordWithOptions(shared_ptr<CreateBuildRecordByRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -912,6 +964,37 @@ CreateRepositoryResponse Alibabacloud_Cr20181201::Client::createRepository(share
   return createRepositoryWithOptions(request, runtime);
 }
 
+DeleteArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::deleteArtifactLifecycleRuleWithOptions(shared_ptr<DeleteArtifactLifecycleRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleId)) {
+    query->insert(pair<string, string>("RuleId", *request->ruleId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteArtifactLifecycleRule"))},
+    {"version", boost::any(string("2018-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteArtifactLifecycleRuleResponse(callApi(params, req, runtime));
+}
+
+DeleteArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::deleteArtifactLifecycleRule(shared_ptr<DeleteArtifactLifecycleRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteArtifactLifecycleRuleWithOptions(request, runtime);
+}
+
 DeleteChainResponse Alibabacloud_Cr20181201::Client::deleteChainWithOptions(shared_ptr<DeleteChainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1402,6 +1485,31 @@ GetArtifactBuildTaskResponse Alibabacloud_Cr20181201::Client::getArtifactBuildTa
 GetArtifactBuildTaskResponse Alibabacloud_Cr20181201::Client::getArtifactBuildTask(shared_ptr<GetArtifactBuildTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getArtifactBuildTaskWithOptions(request, runtime);
+}
+
+GetArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::getArtifactLifecycleRuleWithOptions(shared_ptr<GetArtifactLifecycleRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetArtifactLifecycleRule"))},
+    {"version", boost::any(string("2018-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetArtifactLifecycleRuleResponse(callApi(params, req, runtime));
+}
+
+GetArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::getArtifactLifecycleRule(shared_ptr<GetArtifactLifecycleRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getArtifactLifecycleRuleWithOptions(request, runtime);
 }
 
 GetAuthorizationTokenResponse Alibabacloud_Cr20181201::Client::getAuthorizationTokenWithOptions(shared_ptr<GetAuthorizationTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2070,6 +2178,31 @@ ListArtifactBuildTaskLogResponse Alibabacloud_Cr20181201::Client::listArtifactBu
 ListArtifactBuildTaskLogResponse Alibabacloud_Cr20181201::Client::listArtifactBuildTaskLog(shared_ptr<ListArtifactBuildTaskLogRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listArtifactBuildTaskLogWithOptions(request, runtime);
+}
+
+ListArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::listArtifactLifecycleRuleWithOptions(shared_ptr<ListArtifactLifecycleRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListArtifactLifecycleRule"))},
+    {"version", boost::any(string("2018-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListArtifactLifecycleRuleResponse(callApi(params, req, runtime));
+}
+
+ListArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::listArtifactLifecycleRule(shared_ptr<ListArtifactLifecycleRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listArtifactLifecycleRuleWithOptions(request, runtime);
 }
 
 ListChainResponse Alibabacloud_Cr20181201::Client::listChainWithOptions(shared_ptr<ListChainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3038,6 +3171,61 @@ UntagResourcesResponse Alibabacloud_Cr20181201::Client::untagResourcesWithOption
 UntagResourcesResponse Alibabacloud_Cr20181201::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return untagResourcesWithOptions(request, runtime);
+}
+
+UpdateArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::updateArtifactLifecycleRuleWithOptions(shared_ptr<UpdateArtifactLifecycleRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->auto_)) {
+    query->insert(pair<string, bool>("Auto_", *request->auto_));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableDeleteTag)) {
+    query->insert(pair<string, bool>("EnableDeleteTag", *request->enableDeleteTag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespaceName)) {
+    query->insert(pair<string, string>("NamespaceName", *request->namespaceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repoName)) {
+    query->insert(pair<string, string>("RepoName", *request->repoName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->retentionTagCount)) {
+    query->insert(pair<string, long>("RetentionTagCount", *request->retentionTagCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleId)) {
+    query->insert(pair<string, string>("RuleId", *request->ruleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleTime)) {
+    query->insert(pair<string, string>("ScheduleTime", *request->scheduleTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    query->insert(pair<string, string>("Scope", *request->scope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagRegexp)) {
+    query->insert(pair<string, string>("TagRegexp", *request->tagRegexp));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateArtifactLifecycleRule"))},
+    {"version", boost::any(string("2018-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateArtifactLifecycleRuleResponse(callApi(params, req, runtime));
+}
+
+UpdateArtifactLifecycleRuleResponse Alibabacloud_Cr20181201::Client::updateArtifactLifecycleRule(shared_ptr<UpdateArtifactLifecycleRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateArtifactLifecycleRuleWithOptions(request, runtime);
 }
 
 UpdateChainResponse Alibabacloud_Cr20181201::Client::updateChainWithOptions(shared_ptr<UpdateChainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

@@ -628,6 +628,193 @@ public:
 
   virtual ~CreateArtifactBuildRuleResponse() = default;
 };
+class CreateArtifactLifecycleRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> auto_{};
+  shared_ptr<bool> enableDeleteTag{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> namespaceName{};
+  shared_ptr<string> repoName{};
+  shared_ptr<long> retentionTagCount{};
+  shared_ptr<string> scheduleTime{};
+  shared_ptr<string> scope{};
+  shared_ptr<string> tagRegexp{};
+
+  CreateArtifactLifecycleRuleRequest() {}
+
+  explicit CreateArtifactLifecycleRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auto_) {
+      res["Auto"] = boost::any(*auto_);
+    }
+    if (enableDeleteTag) {
+      res["EnableDeleteTag"] = boost::any(*enableDeleteTag);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (namespaceName) {
+      res["NamespaceName"] = boost::any(*namespaceName);
+    }
+    if (repoName) {
+      res["RepoName"] = boost::any(*repoName);
+    }
+    if (retentionTagCount) {
+      res["RetentionTagCount"] = boost::any(*retentionTagCount);
+    }
+    if (scheduleTime) {
+      res["ScheduleTime"] = boost::any(*scheduleTime);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    if (tagRegexp) {
+      res["TagRegexp"] = boost::any(*tagRegexp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Auto") != m.end() && !m["Auto"].empty()) {
+      auto_ = make_shared<bool>(boost::any_cast<bool>(m["Auto"]));
+    }
+    if (m.find("EnableDeleteTag") != m.end() && !m["EnableDeleteTag"].empty()) {
+      enableDeleteTag = make_shared<bool>(boost::any_cast<bool>(m["EnableDeleteTag"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NamespaceName") != m.end() && !m["NamespaceName"].empty()) {
+      namespaceName = make_shared<string>(boost::any_cast<string>(m["NamespaceName"]));
+    }
+    if (m.find("RepoName") != m.end() && !m["RepoName"].empty()) {
+      repoName = make_shared<string>(boost::any_cast<string>(m["RepoName"]));
+    }
+    if (m.find("RetentionTagCount") != m.end() && !m["RetentionTagCount"].empty()) {
+      retentionTagCount = make_shared<long>(boost::any_cast<long>(m["RetentionTagCount"]));
+    }
+    if (m.find("ScheduleTime") != m.end() && !m["ScheduleTime"].empty()) {
+      scheduleTime = make_shared<string>(boost::any_cast<string>(m["ScheduleTime"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+    if (m.find("TagRegexp") != m.end() && !m["TagRegexp"].empty()) {
+      tagRegexp = make_shared<string>(boost::any_cast<string>(m["TagRegexp"]));
+    }
+  }
+
+
+  virtual ~CreateArtifactLifecycleRuleRequest() = default;
+};
+class CreateArtifactLifecycleRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> isSuccess{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> ruleId{};
+
+  CreateArtifactLifecycleRuleResponseBody() {}
+
+  explicit CreateArtifactLifecycleRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (isSuccess) {
+      res["IsSuccess"] = boost::any(*isSuccess);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("IsSuccess") != m.end() && !m["IsSuccess"].empty()) {
+      isSuccess = make_shared<bool>(boost::any_cast<bool>(m["IsSuccess"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~CreateArtifactLifecycleRuleResponseBody() = default;
+};
+class CreateArtifactLifecycleRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateArtifactLifecycleRuleResponseBody> body{};
+
+  CreateArtifactLifecycleRuleResponse() {}
+
+  explicit CreateArtifactLifecycleRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateArtifactLifecycleRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateArtifactLifecycleRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateArtifactLifecycleRuleResponse() = default;
+};
 class CreateBuildRecordByRecordRequest : public Darabonba::Model {
 public:
   shared_ptr<string> buildRecordId{};
@@ -3422,6 +3609,137 @@ public:
 
   virtual ~CreateRepositoryResponse() = default;
 };
+class DeleteArtifactLifecycleRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> ruleId{};
+
+  DeleteArtifactLifecycleRuleRequest() {}
+
+  explicit DeleteArtifactLifecycleRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~DeleteArtifactLifecycleRuleRequest() = default;
+};
+class DeleteArtifactLifecycleRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> isSuccess{};
+  shared_ptr<string> requestId{};
+
+  DeleteArtifactLifecycleRuleResponseBody() {}
+
+  explicit DeleteArtifactLifecycleRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (isSuccess) {
+      res["IsSuccess"] = boost::any(*isSuccess);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("IsSuccess") != m.end() && !m["IsSuccess"].empty()) {
+      isSuccess = make_shared<bool>(boost::any_cast<bool>(m["IsSuccess"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteArtifactLifecycleRuleResponseBody() = default;
+};
+class DeleteArtifactLifecycleRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteArtifactLifecycleRuleResponseBody> body{};
+
+  DeleteArtifactLifecycleRuleResponse() {}
+
+  explicit DeleteArtifactLifecycleRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteArtifactLifecycleRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteArtifactLifecycleRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteArtifactLifecycleRuleResponse() = default;
+};
 class DeleteChainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> chainId{};
@@ -5716,6 +6034,228 @@ public:
 
 
   virtual ~GetArtifactBuildTaskResponse() = default;
+};
+class GetArtifactLifecycleRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> ruleId{};
+
+  GetArtifactLifecycleRuleRequest() {}
+
+  explicit GetArtifactLifecycleRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~GetArtifactLifecycleRuleRequest() = default;
+};
+class GetArtifactLifecycleRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> auto_{};
+  shared_ptr<string> code{};
+  shared_ptr<long> createTime{};
+  shared_ptr<bool> enableDeleteTag{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<bool> isSuccess{};
+  shared_ptr<long> modifiedTime{};
+  shared_ptr<string> namespaceName{};
+  shared_ptr<long> nextTime{};
+  shared_ptr<string> repoName{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> retentionTagCount{};
+  shared_ptr<string> ruleId{};
+  shared_ptr<string> scheduleTime{};
+  shared_ptr<string> scope{};
+  shared_ptr<string> tagRegexp{};
+
+  GetArtifactLifecycleRuleResponseBody() {}
+
+  explicit GetArtifactLifecycleRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auto_) {
+      res["Auto"] = boost::any(*auto_);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (enableDeleteTag) {
+      res["EnableDeleteTag"] = boost::any(*enableDeleteTag);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (isSuccess) {
+      res["IsSuccess"] = boost::any(*isSuccess);
+    }
+    if (modifiedTime) {
+      res["ModifiedTime"] = boost::any(*modifiedTime);
+    }
+    if (namespaceName) {
+      res["NamespaceName"] = boost::any(*namespaceName);
+    }
+    if (nextTime) {
+      res["NextTime"] = boost::any(*nextTime);
+    }
+    if (repoName) {
+      res["RepoName"] = boost::any(*repoName);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (retentionTagCount) {
+      res["RetentionTagCount"] = boost::any(*retentionTagCount);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (scheduleTime) {
+      res["ScheduleTime"] = boost::any(*scheduleTime);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    if (tagRegexp) {
+      res["TagRegexp"] = boost::any(*tagRegexp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Auto") != m.end() && !m["Auto"].empty()) {
+      auto_ = make_shared<bool>(boost::any_cast<bool>(m["Auto"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("EnableDeleteTag") != m.end() && !m["EnableDeleteTag"].empty()) {
+      enableDeleteTag = make_shared<bool>(boost::any_cast<bool>(m["EnableDeleteTag"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IsSuccess") != m.end() && !m["IsSuccess"].empty()) {
+      isSuccess = make_shared<bool>(boost::any_cast<bool>(m["IsSuccess"]));
+    }
+    if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
+      modifiedTime = make_shared<long>(boost::any_cast<long>(m["ModifiedTime"]));
+    }
+    if (m.find("NamespaceName") != m.end() && !m["NamespaceName"].empty()) {
+      namespaceName = make_shared<string>(boost::any_cast<string>(m["NamespaceName"]));
+    }
+    if (m.find("NextTime") != m.end() && !m["NextTime"].empty()) {
+      nextTime = make_shared<long>(boost::any_cast<long>(m["NextTime"]));
+    }
+    if (m.find("RepoName") != m.end() && !m["RepoName"].empty()) {
+      repoName = make_shared<string>(boost::any_cast<string>(m["RepoName"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RetentionTagCount") != m.end() && !m["RetentionTagCount"].empty()) {
+      retentionTagCount = make_shared<long>(boost::any_cast<long>(m["RetentionTagCount"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+    if (m.find("ScheduleTime") != m.end() && !m["ScheduleTime"].empty()) {
+      scheduleTime = make_shared<string>(boost::any_cast<string>(m["ScheduleTime"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+    if (m.find("TagRegexp") != m.end() && !m["TagRegexp"].empty()) {
+      tagRegexp = make_shared<string>(boost::any_cast<string>(m["TagRegexp"]));
+    }
+  }
+
+
+  virtual ~GetArtifactLifecycleRuleResponseBody() = default;
+};
+class GetArtifactLifecycleRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetArtifactLifecycleRuleResponseBody> body{};
+
+  GetArtifactLifecycleRuleResponse() {}
+
+  explicit GetArtifactLifecycleRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetArtifactLifecycleRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetArtifactLifecycleRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetArtifactLifecycleRuleResponse() = default;
 };
 class GetAuthorizationTokenRequest : public Darabonba::Model {
 public:
@@ -10709,6 +11249,306 @@ public:
 
 
   virtual ~ListArtifactBuildTaskLogResponse() = default;
+};
+class ListArtifactLifecycleRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableDeleteTag{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+
+  ListArtifactLifecycleRuleRequest() {}
+
+  explicit ListArtifactLifecycleRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableDeleteTag) {
+      res["EnableDeleteTag"] = boost::any(*enableDeleteTag);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableDeleteTag") != m.end() && !m["EnableDeleteTag"].empty()) {
+      enableDeleteTag = make_shared<bool>(boost::any_cast<bool>(m["EnableDeleteTag"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListArtifactLifecycleRuleRequest() = default;
+};
+class ListArtifactLifecycleRuleResponseBodyRules : public Darabonba::Model {
+public:
+  shared_ptr<bool> auto_{};
+  shared_ptr<long> createTime{};
+  shared_ptr<bool> enableDeleteTag{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> modifiedTime{};
+  shared_ptr<string> namespaceName{};
+  shared_ptr<long> nextTime{};
+  shared_ptr<string> repoName{};
+  shared_ptr<long> retentionTagCount{};
+  shared_ptr<string> ruleId{};
+  shared_ptr<string> scheduleTime{};
+  shared_ptr<string> scope{};
+  shared_ptr<string> tagRegexp{};
+
+  ListArtifactLifecycleRuleResponseBodyRules() {}
+
+  explicit ListArtifactLifecycleRuleResponseBodyRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auto_) {
+      res["Auto"] = boost::any(*auto_);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (enableDeleteTag) {
+      res["EnableDeleteTag"] = boost::any(*enableDeleteTag);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (modifiedTime) {
+      res["ModifiedTime"] = boost::any(*modifiedTime);
+    }
+    if (namespaceName) {
+      res["NamespaceName"] = boost::any(*namespaceName);
+    }
+    if (nextTime) {
+      res["NextTime"] = boost::any(*nextTime);
+    }
+    if (repoName) {
+      res["RepoName"] = boost::any(*repoName);
+    }
+    if (retentionTagCount) {
+      res["RetentionTagCount"] = boost::any(*retentionTagCount);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (scheduleTime) {
+      res["ScheduleTime"] = boost::any(*scheduleTime);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    if (tagRegexp) {
+      res["TagRegexp"] = boost::any(*tagRegexp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Auto") != m.end() && !m["Auto"].empty()) {
+      auto_ = make_shared<bool>(boost::any_cast<bool>(m["Auto"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("EnableDeleteTag") != m.end() && !m["EnableDeleteTag"].empty()) {
+      enableDeleteTag = make_shared<bool>(boost::any_cast<bool>(m["EnableDeleteTag"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
+      modifiedTime = make_shared<long>(boost::any_cast<long>(m["ModifiedTime"]));
+    }
+    if (m.find("NamespaceName") != m.end() && !m["NamespaceName"].empty()) {
+      namespaceName = make_shared<string>(boost::any_cast<string>(m["NamespaceName"]));
+    }
+    if (m.find("NextTime") != m.end() && !m["NextTime"].empty()) {
+      nextTime = make_shared<long>(boost::any_cast<long>(m["NextTime"]));
+    }
+    if (m.find("RepoName") != m.end() && !m["RepoName"].empty()) {
+      repoName = make_shared<string>(boost::any_cast<string>(m["RepoName"]));
+    }
+    if (m.find("RetentionTagCount") != m.end() && !m["RetentionTagCount"].empty()) {
+      retentionTagCount = make_shared<long>(boost::any_cast<long>(m["RetentionTagCount"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+    if (m.find("ScheduleTime") != m.end() && !m["ScheduleTime"].empty()) {
+      scheduleTime = make_shared<string>(boost::any_cast<string>(m["ScheduleTime"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+    if (m.find("TagRegexp") != m.end() && !m["TagRegexp"].empty()) {
+      tagRegexp = make_shared<string>(boost::any_cast<string>(m["TagRegexp"]));
+    }
+  }
+
+
+  virtual ~ListArtifactLifecycleRuleResponseBodyRules() = default;
+};
+class ListArtifactLifecycleRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> isSuccess{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListArtifactLifecycleRuleResponseBodyRules>> rules{};
+  shared_ptr<long> totalCount{};
+
+  ListArtifactLifecycleRuleResponseBody() {}
+
+  explicit ListArtifactLifecycleRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (isSuccess) {
+      res["IsSuccess"] = boost::any(*isSuccess);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (rules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Rules"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("IsSuccess") != m.end() && !m["IsSuccess"].empty()) {
+      isSuccess = make_shared<bool>(boost::any_cast<bool>(m["IsSuccess"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(vector<boost::any>) == m["Rules"].type()) {
+        vector<ListArtifactLifecycleRuleResponseBodyRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Rules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListArtifactLifecycleRuleResponseBodyRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rules = make_shared<vector<ListArtifactLifecycleRuleResponseBodyRules>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListArtifactLifecycleRuleResponseBody() = default;
+};
+class ListArtifactLifecycleRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListArtifactLifecycleRuleResponseBody> body{};
+
+  ListArtifactLifecycleRuleResponse() {}
+
+  explicit ListArtifactLifecycleRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListArtifactLifecycleRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListArtifactLifecycleRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListArtifactLifecycleRuleResponse() = default;
 };
 class ListChainRequest : public Darabonba::Model {
 public:
@@ -17936,6 +18776,193 @@ public:
 
   virtual ~UntagResourcesResponse() = default;
 };
+class UpdateArtifactLifecycleRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> auto_{};
+  shared_ptr<bool> enableDeleteTag{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> namespaceName{};
+  shared_ptr<string> repoName{};
+  shared_ptr<long> retentionTagCount{};
+  shared_ptr<string> ruleId{};
+  shared_ptr<string> scheduleTime{};
+  shared_ptr<string> scope{};
+  shared_ptr<string> tagRegexp{};
+
+  UpdateArtifactLifecycleRuleRequest() {}
+
+  explicit UpdateArtifactLifecycleRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auto_) {
+      res["Auto"] = boost::any(*auto_);
+    }
+    if (enableDeleteTag) {
+      res["EnableDeleteTag"] = boost::any(*enableDeleteTag);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (namespaceName) {
+      res["NamespaceName"] = boost::any(*namespaceName);
+    }
+    if (repoName) {
+      res["RepoName"] = boost::any(*repoName);
+    }
+    if (retentionTagCount) {
+      res["RetentionTagCount"] = boost::any(*retentionTagCount);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (scheduleTime) {
+      res["ScheduleTime"] = boost::any(*scheduleTime);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    if (tagRegexp) {
+      res["TagRegexp"] = boost::any(*tagRegexp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Auto") != m.end() && !m["Auto"].empty()) {
+      auto_ = make_shared<bool>(boost::any_cast<bool>(m["Auto"]));
+    }
+    if (m.find("EnableDeleteTag") != m.end() && !m["EnableDeleteTag"].empty()) {
+      enableDeleteTag = make_shared<bool>(boost::any_cast<bool>(m["EnableDeleteTag"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NamespaceName") != m.end() && !m["NamespaceName"].empty()) {
+      namespaceName = make_shared<string>(boost::any_cast<string>(m["NamespaceName"]));
+    }
+    if (m.find("RepoName") != m.end() && !m["RepoName"].empty()) {
+      repoName = make_shared<string>(boost::any_cast<string>(m["RepoName"]));
+    }
+    if (m.find("RetentionTagCount") != m.end() && !m["RetentionTagCount"].empty()) {
+      retentionTagCount = make_shared<long>(boost::any_cast<long>(m["RetentionTagCount"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+    if (m.find("ScheduleTime") != m.end() && !m["ScheduleTime"].empty()) {
+      scheduleTime = make_shared<string>(boost::any_cast<string>(m["ScheduleTime"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+    if (m.find("TagRegexp") != m.end() && !m["TagRegexp"].empty()) {
+      tagRegexp = make_shared<string>(boost::any_cast<string>(m["TagRegexp"]));
+    }
+  }
+
+
+  virtual ~UpdateArtifactLifecycleRuleRequest() = default;
+};
+class UpdateArtifactLifecycleRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> isSuccess{};
+  shared_ptr<string> requestId{};
+
+  UpdateArtifactLifecycleRuleResponseBody() {}
+
+  explicit UpdateArtifactLifecycleRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (isSuccess) {
+      res["IsSuccess"] = boost::any(*isSuccess);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("IsSuccess") != m.end() && !m["IsSuccess"].empty()) {
+      isSuccess = make_shared<bool>(boost::any_cast<bool>(m["IsSuccess"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateArtifactLifecycleRuleResponseBody() = default;
+};
+class UpdateArtifactLifecycleRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateArtifactLifecycleRuleResponseBody> body{};
+
+  UpdateArtifactLifecycleRuleResponse() {}
+
+  explicit UpdateArtifactLifecycleRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateArtifactLifecycleRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateArtifactLifecycleRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateArtifactLifecycleRuleResponse() = default;
+};
 class UpdateChainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> chainConfig{};
@@ -19727,6 +20754,8 @@ public:
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
   CreateArtifactBuildRuleResponse createArtifactBuildRuleWithOptions(shared_ptr<CreateArtifactBuildRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateArtifactBuildRuleResponse createArtifactBuildRule(shared_ptr<CreateArtifactBuildRuleRequest> request);
+  CreateArtifactLifecycleRuleResponse createArtifactLifecycleRuleWithOptions(shared_ptr<CreateArtifactLifecycleRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateArtifactLifecycleRuleResponse createArtifactLifecycleRule(shared_ptr<CreateArtifactLifecycleRuleRequest> request);
   CreateBuildRecordByRecordResponse createBuildRecordByRecordWithOptions(shared_ptr<CreateBuildRecordByRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBuildRecordByRecordResponse createBuildRecordByRecord(shared_ptr<CreateBuildRecordByRecordRequest> request);
   CreateBuildRecordByRuleResponse createBuildRecordByRuleWithOptions(shared_ptr<CreateBuildRecordByRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19761,6 +20790,8 @@ public:
   CreateRepoTriggerResponse createRepoTrigger(shared_ptr<CreateRepoTriggerRequest> request);
   CreateRepositoryResponse createRepositoryWithOptions(shared_ptr<CreateRepositoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateRepositoryResponse createRepository(shared_ptr<CreateRepositoryRequest> request);
+  DeleteArtifactLifecycleRuleResponse deleteArtifactLifecycleRuleWithOptions(shared_ptr<DeleteArtifactLifecycleRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteArtifactLifecycleRuleResponse deleteArtifactLifecycleRule(shared_ptr<DeleteArtifactLifecycleRuleRequest> request);
   DeleteChainResponse deleteChainWithOptions(shared_ptr<DeleteChainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteChainResponse deleteChain(shared_ptr<DeleteChainRequest> request);
   DeleteChartNamespaceResponse deleteChartNamespaceWithOptions(shared_ptr<DeleteChartNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19791,6 +20822,8 @@ public:
   GetArtifactBuildRuleResponse getArtifactBuildRule(shared_ptr<GetArtifactBuildRuleRequest> request);
   GetArtifactBuildTaskResponse getArtifactBuildTaskWithOptions(shared_ptr<GetArtifactBuildTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetArtifactBuildTaskResponse getArtifactBuildTask(shared_ptr<GetArtifactBuildTaskRequest> request);
+  GetArtifactLifecycleRuleResponse getArtifactLifecycleRuleWithOptions(shared_ptr<GetArtifactLifecycleRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetArtifactLifecycleRuleResponse getArtifactLifecycleRule(shared_ptr<GetArtifactLifecycleRuleRequest> request);
   GetAuthorizationTokenResponse getAuthorizationTokenWithOptions(shared_ptr<GetAuthorizationTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAuthorizationTokenResponse getAuthorizationToken(shared_ptr<GetAuthorizationTokenRequest> request);
   GetChainResponse getChainWithOptions(shared_ptr<GetChainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19833,6 +20866,8 @@ public:
   GetRepositoryResponse getRepository(shared_ptr<GetRepositoryRequest> request);
   ListArtifactBuildTaskLogResponse listArtifactBuildTaskLogWithOptions(shared_ptr<ListArtifactBuildTaskLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListArtifactBuildTaskLogResponse listArtifactBuildTaskLog(shared_ptr<ListArtifactBuildTaskLogRequest> request);
+  ListArtifactLifecycleRuleResponse listArtifactLifecycleRuleWithOptions(shared_ptr<ListArtifactLifecycleRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListArtifactLifecycleRuleResponse listArtifactLifecycleRule(shared_ptr<ListArtifactLifecycleRuleRequest> request);
   ListChainResponse listChainWithOptions(shared_ptr<ListChainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListChainResponse listChain(shared_ptr<ListChainRequest> request);
   ListChainInstanceResponse listChainInstanceWithOptions(shared_ptr<ListChainInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19885,6 +20920,8 @@ public:
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
+  UpdateArtifactLifecycleRuleResponse updateArtifactLifecycleRuleWithOptions(shared_ptr<UpdateArtifactLifecycleRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateArtifactLifecycleRuleResponse updateArtifactLifecycleRule(shared_ptr<UpdateArtifactLifecycleRuleRequest> request);
   UpdateChainResponse updateChainWithOptions(shared_ptr<UpdateChainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateChainResponse updateChain(shared_ptr<UpdateChainRequest> request);
   UpdateChartNamespaceResponse updateChartNamespaceWithOptions(shared_ptr<UpdateChartNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
