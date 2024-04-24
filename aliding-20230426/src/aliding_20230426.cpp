@@ -5829,6 +5829,9 @@ InviteUsersResponse Alibabacloud_Aliding20230426::Client::inviteUsersWithOptions
   if (!Darabonba_Util::Client::isUnset<InviteUsersRequestTenantContext>(tmpReq->tenantContext)) {
     request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<InviteUsersRequestPhoneInviteeList>>(tmpReq->phoneInviteeList)) {
+    request->phoneInviteeListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->phoneInviteeList, make_shared<string>("phoneInviteeList"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->inviteeListShrink)) {
     body->insert(pair<string, string>("InviteeList", *request->inviteeListShrink));
@@ -5838,6 +5841,9 @@ InviteUsersResponse Alibabacloud_Aliding20230426::Client::inviteUsersWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->conferenceId)) {
     body->insert(pair<string, string>("conferenceId", *request->conferenceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneInviteeListShrink)) {
+    body->insert(pair<string, string>("phoneInviteeList", *request->phoneInviteeListShrink));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -8892,6 +8898,9 @@ StartInstanceResponse Alibabacloud_Aliding20230426::Client::startInstanceWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->processCode)) {
     body->insert(pair<string, string>("ProcessCode", *request->processCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->processData)) {
+    body->insert(pair<string, string>("ProcessData", *request->processData));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->systemToken)) {
     body->insert(pair<string, string>("SystemToken", *request->systemToken));

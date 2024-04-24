@@ -43034,11 +43034,48 @@ public:
 
   virtual ~InviteUsersRequestTenantContext() = default;
 };
+class InviteUsersRequestPhoneInviteeList : public Darabonba::Model {
+public:
+  shared_ptr<string> nick{};
+  shared_ptr<string> phoneNumber{};
+
+  InviteUsersRequestPhoneInviteeList() {}
+
+  explicit InviteUsersRequestPhoneInviteeList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nick) {
+      res["Nick"] = boost::any(*nick);
+    }
+    if (phoneNumber) {
+      res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Nick") != m.end() && !m["Nick"].empty()) {
+      nick = make_shared<string>(boost::any_cast<string>(m["Nick"]));
+    }
+    if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
+      phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+  }
+
+
+  virtual ~InviteUsersRequestPhoneInviteeList() = default;
+};
 class InviteUsersRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<InviteUsersRequestInviteeList>> inviteeList{};
   shared_ptr<InviteUsersRequestTenantContext> tenantContext{};
   shared_ptr<string> conferenceId{};
+  shared_ptr<vector<InviteUsersRequestPhoneInviteeList>> phoneInviteeList{};
 
   InviteUsersRequest() {}
 
@@ -43062,6 +43099,13 @@ public:
     }
     if (conferenceId) {
       res["conferenceId"] = boost::any(*conferenceId);
+    }
+    if (phoneInviteeList) {
+      vector<boost::any> temp1;
+      for(auto item1:*phoneInviteeList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["phoneInviteeList"] = boost::any(temp1);
     }
     return res;
   }
@@ -43090,6 +43134,19 @@ public:
     if (m.find("conferenceId") != m.end() && !m["conferenceId"].empty()) {
       conferenceId = make_shared<string>(boost::any_cast<string>(m["conferenceId"]));
     }
+    if (m.find("phoneInviteeList") != m.end() && !m["phoneInviteeList"].empty()) {
+      if (typeid(vector<boost::any>) == m["phoneInviteeList"].type()) {
+        vector<InviteUsersRequestPhoneInviteeList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["phoneInviteeList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InviteUsersRequestPhoneInviteeList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        phoneInviteeList = make_shared<vector<InviteUsersRequestPhoneInviteeList>>(expect1);
+      }
+    }
   }
 
 
@@ -43100,6 +43157,7 @@ public:
   shared_ptr<string> inviteeListShrink{};
   shared_ptr<string> tenantContextShrink{};
   shared_ptr<string> conferenceId{};
+  shared_ptr<string> phoneInviteeListShrink{};
 
   InviteUsersShrinkRequest() {}
 
@@ -43120,6 +43178,9 @@ public:
     if (conferenceId) {
       res["conferenceId"] = boost::any(*conferenceId);
     }
+    if (phoneInviteeListShrink) {
+      res["phoneInviteeList"] = boost::any(*phoneInviteeListShrink);
+    }
     return res;
   }
 
@@ -43132,6 +43193,9 @@ public:
     }
     if (m.find("conferenceId") != m.end() && !m["conferenceId"].empty()) {
       conferenceId = make_shared<string>(boost::any_cast<string>(m["conferenceId"]));
+    }
+    if (m.find("phoneInviteeList") != m.end() && !m["phoneInviteeList"].empty()) {
+      phoneInviteeListShrink = make_shared<string>(boost::any_cast<string>(m["phoneInviteeList"]));
     }
   }
 
@@ -68592,6 +68656,7 @@ public:
   shared_ptr<string> formUuid{};
   shared_ptr<string> language{};
   shared_ptr<string> processCode{};
+  shared_ptr<string> processData{};
   shared_ptr<string> systemToken{};
 
   StartInstanceRequest() {}
@@ -68622,6 +68687,9 @@ public:
     if (processCode) {
       res["ProcessCode"] = boost::any(*processCode);
     }
+    if (processData) {
+      res["ProcessData"] = boost::any(*processData);
+    }
     if (systemToken) {
       res["SystemToken"] = boost::any(*systemToken);
     }
@@ -68646,6 +68714,9 @@ public:
     }
     if (m.find("ProcessCode") != m.end() && !m["ProcessCode"].empty()) {
       processCode = make_shared<string>(boost::any_cast<string>(m["ProcessCode"]));
+    }
+    if (m.find("ProcessData") != m.end() && !m["ProcessData"].empty()) {
+      processData = make_shared<string>(boost::any_cast<string>(m["ProcessData"]));
     }
     if (m.find("SystemToken") != m.end() && !m["SystemToken"].empty()) {
       systemToken = make_shared<string>(boost::any_cast<string>(m["SystemToken"]));
@@ -72927,6 +72998,7 @@ public:
 class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting : public Darabonba::Model {
 public:
   shared_ptr<long> enableChat{};
+  shared_ptr<bool> enableWebAnonymousJoin{};
   shared_ptr<long> joinBeforeHost{};
   shared_ptr<long> lockMediaStatusMicMute{};
   shared_ptr<long> lockNick{};
@@ -72944,6 +73016,9 @@ public:
     map<string, boost::any> res;
     if (enableChat) {
       res["EnableChat"] = boost::any(*enableChat);
+    }
+    if (enableWebAnonymousJoin) {
+      res["EnableWebAnonymousJoin"] = boost::any(*enableWebAnonymousJoin);
     }
     if (joinBeforeHost) {
       res["JoinBeforeHost"] = boost::any(*joinBeforeHost);
@@ -72963,6 +73038,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EnableChat") != m.end() && !m["EnableChat"].empty()) {
       enableChat = make_shared<long>(boost::any_cast<long>(m["EnableChat"]));
+    }
+    if (m.find("EnableWebAnonymousJoin") != m.end() && !m["EnableWebAnonymousJoin"].empty()) {
+      enableWebAnonymousJoin = make_shared<bool>(boost::any_cast<bool>(m["EnableWebAnonymousJoin"]));
     }
     if (m.find("JoinBeforeHost") != m.end() && !m["JoinBeforeHost"].empty()) {
       joinBeforeHost = make_shared<long>(boost::any_cast<long>(m["JoinBeforeHost"]));
