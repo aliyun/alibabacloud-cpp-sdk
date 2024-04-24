@@ -2912,6 +2912,7 @@ public:
 class CreateTemplateScratchRequestSourceResources : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> relatedResourceTypeFilter{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceType{};
 
@@ -2928,6 +2929,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (relatedResourceTypeFilter) {
+      res["RelatedResourceTypeFilter"] = boost::any(*relatedResourceTypeFilter);
+    }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
     }
@@ -2940,6 +2944,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RelatedResourceTypeFilter") != m.end() && !m["RelatedResourceTypeFilter"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RelatedResourceTypeFilter"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RelatedResourceTypeFilter"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      relatedResourceTypeFilter = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
@@ -12971,6 +12985,7 @@ public:
 };
 class GetTemplateScratchResponseBodyTemplateScratchSourceResources : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> relatedResourceTypeFilter{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceType{};
 
@@ -12984,6 +12999,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (relatedResourceTypeFilter) {
+      res["RelatedResourceTypeFilter"] = boost::any(*relatedResourceTypeFilter);
+    }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
     }
@@ -12994,6 +13012,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("RelatedResourceTypeFilter") != m.end() && !m["RelatedResourceTypeFilter"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RelatedResourceTypeFilter"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RelatedResourceTypeFilter"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      relatedResourceTypeFilter = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
