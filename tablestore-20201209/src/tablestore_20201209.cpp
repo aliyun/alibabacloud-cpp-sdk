@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -76,6 +75,9 @@ CreateInstanceResponse Alibabacloud_Tablestore20201209::Client::createInstanceWi
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
     body->insert(pair<string, string>("ClusterType", *request->clusterType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->disableReplication)) {
+    body->insert(pair<string, bool>("DisableReplication", *request->disableReplication));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceDescription)) {
     body->insert(pair<string, string>("InstanceDescription", *request->instanceDescription));
