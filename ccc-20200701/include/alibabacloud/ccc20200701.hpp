@@ -43943,9 +43943,19 @@ public:
   shared_ptr<long> averageDialingTime{};
   shared_ptr<long> averageTalkTime{};
   shared_ptr<long> averageWorkTime{};
+  shared_ptr<long> callsAbandoned{};
+  shared_ptr<long> callsAgentHandled{};
   shared_ptr<long> callsAnswered{};
   shared_ptr<long> callsDialed{};
+  shared_ptr<long> callsOffered{};
+  shared_ptr<long> callsQueuingCancelled{};
+  shared_ptr<long> callsQueuingFailed{};
+  shared_ptr<long> callsQueuingFailure{};
+  shared_ptr<long> callsQueuingOverflow{};
+  shared_ptr<long> callsQueuingRerouted{};
+  shared_ptr<long> callsQueuingTimeout{};
   shared_ptr<string> callsServiceLevel30{};
+  shared_ptr<long> callsServiceLevel30V2{};
   shared_ptr<long> maxDialingTime{};
   shared_ptr<long> maxTalkTime{};
   shared_ptr<long> maxWorkTime{};
@@ -43954,6 +43964,7 @@ public:
   shared_ptr<long> satisfactionSurveysResponded{};
   shared_ptr<long> totalDialingTime{};
   shared_ptr<long> totalTalkTime{};
+  shared_ptr<long> totalWaitTime{};
   shared_ptr<long> totalWorkTime{};
 
   ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOutbound() {}
@@ -43978,14 +43989,44 @@ public:
     if (averageWorkTime) {
       res["AverageWorkTime"] = boost::any(*averageWorkTime);
     }
+    if (callsAbandoned) {
+      res["CallsAbandoned"] = boost::any(*callsAbandoned);
+    }
+    if (callsAgentHandled) {
+      res["CallsAgentHandled"] = boost::any(*callsAgentHandled);
+    }
     if (callsAnswered) {
       res["CallsAnswered"] = boost::any(*callsAnswered);
     }
     if (callsDialed) {
       res["CallsDialed"] = boost::any(*callsDialed);
     }
+    if (callsOffered) {
+      res["CallsOffered"] = boost::any(*callsOffered);
+    }
+    if (callsQueuingCancelled) {
+      res["CallsQueuingCancelled"] = boost::any(*callsQueuingCancelled);
+    }
+    if (callsQueuingFailed) {
+      res["CallsQueuingFailed"] = boost::any(*callsQueuingFailed);
+    }
+    if (callsQueuingFailure) {
+      res["CallsQueuingFailure"] = boost::any(*callsQueuingFailure);
+    }
+    if (callsQueuingOverflow) {
+      res["CallsQueuingOverflow"] = boost::any(*callsQueuingOverflow);
+    }
+    if (callsQueuingRerouted) {
+      res["CallsQueuingRerouted"] = boost::any(*callsQueuingRerouted);
+    }
+    if (callsQueuingTimeout) {
+      res["CallsQueuingTimeout"] = boost::any(*callsQueuingTimeout);
+    }
     if (callsServiceLevel30) {
       res["CallsServiceLevel30"] = boost::any(*callsServiceLevel30);
+    }
+    if (callsServiceLevel30V2) {
+      res["CallsServiceLevel30V2"] = boost::any(*callsServiceLevel30V2);
     }
     if (maxDialingTime) {
       res["MaxDialingTime"] = boost::any(*maxDialingTime);
@@ -44011,6 +44052,9 @@ public:
     if (totalTalkTime) {
       res["TotalTalkTime"] = boost::any(*totalTalkTime);
     }
+    if (totalWaitTime) {
+      res["TotalWaitTime"] = boost::any(*totalWaitTime);
+    }
     if (totalWorkTime) {
       res["TotalWorkTime"] = boost::any(*totalWorkTime);
     }
@@ -44030,14 +44074,44 @@ public:
     if (m.find("AverageWorkTime") != m.end() && !m["AverageWorkTime"].empty()) {
       averageWorkTime = make_shared<long>(boost::any_cast<long>(m["AverageWorkTime"]));
     }
+    if (m.find("CallsAbandoned") != m.end() && !m["CallsAbandoned"].empty()) {
+      callsAbandoned = make_shared<long>(boost::any_cast<long>(m["CallsAbandoned"]));
+    }
+    if (m.find("CallsAgentHandled") != m.end() && !m["CallsAgentHandled"].empty()) {
+      callsAgentHandled = make_shared<long>(boost::any_cast<long>(m["CallsAgentHandled"]));
+    }
     if (m.find("CallsAnswered") != m.end() && !m["CallsAnswered"].empty()) {
       callsAnswered = make_shared<long>(boost::any_cast<long>(m["CallsAnswered"]));
     }
     if (m.find("CallsDialed") != m.end() && !m["CallsDialed"].empty()) {
       callsDialed = make_shared<long>(boost::any_cast<long>(m["CallsDialed"]));
     }
+    if (m.find("CallsOffered") != m.end() && !m["CallsOffered"].empty()) {
+      callsOffered = make_shared<long>(boost::any_cast<long>(m["CallsOffered"]));
+    }
+    if (m.find("CallsQueuingCancelled") != m.end() && !m["CallsQueuingCancelled"].empty()) {
+      callsQueuingCancelled = make_shared<long>(boost::any_cast<long>(m["CallsQueuingCancelled"]));
+    }
+    if (m.find("CallsQueuingFailed") != m.end() && !m["CallsQueuingFailed"].empty()) {
+      callsQueuingFailed = make_shared<long>(boost::any_cast<long>(m["CallsQueuingFailed"]));
+    }
+    if (m.find("CallsQueuingFailure") != m.end() && !m["CallsQueuingFailure"].empty()) {
+      callsQueuingFailure = make_shared<long>(boost::any_cast<long>(m["CallsQueuingFailure"]));
+    }
+    if (m.find("CallsQueuingOverflow") != m.end() && !m["CallsQueuingOverflow"].empty()) {
+      callsQueuingOverflow = make_shared<long>(boost::any_cast<long>(m["CallsQueuingOverflow"]));
+    }
+    if (m.find("CallsQueuingRerouted") != m.end() && !m["CallsQueuingRerouted"].empty()) {
+      callsQueuingRerouted = make_shared<long>(boost::any_cast<long>(m["CallsQueuingRerouted"]));
+    }
+    if (m.find("CallsQueuingTimeout") != m.end() && !m["CallsQueuingTimeout"].empty()) {
+      callsQueuingTimeout = make_shared<long>(boost::any_cast<long>(m["CallsQueuingTimeout"]));
+    }
     if (m.find("CallsServiceLevel30") != m.end() && !m["CallsServiceLevel30"].empty()) {
       callsServiceLevel30 = make_shared<string>(boost::any_cast<string>(m["CallsServiceLevel30"]));
+    }
+    if (m.find("CallsServiceLevel30V2") != m.end() && !m["CallsServiceLevel30V2"].empty()) {
+      callsServiceLevel30V2 = make_shared<long>(boost::any_cast<long>(m["CallsServiceLevel30V2"]));
     }
     if (m.find("MaxDialingTime") != m.end() && !m["MaxDialingTime"].empty()) {
       maxDialingTime = make_shared<long>(boost::any_cast<long>(m["MaxDialingTime"]));
@@ -44062,6 +44136,9 @@ public:
     }
     if (m.find("TotalTalkTime") != m.end() && !m["TotalTalkTime"].empty()) {
       totalTalkTime = make_shared<long>(boost::any_cast<long>(m["TotalTalkTime"]));
+    }
+    if (m.find("TotalWaitTime") != m.end() && !m["TotalWaitTime"].empty()) {
+      totalWaitTime = make_shared<long>(boost::any_cast<long>(m["TotalWaitTime"]));
     }
     if (m.find("TotalWorkTime") != m.end() && !m["TotalWorkTime"].empty()) {
       totalWorkTime = make_shared<long>(boost::any_cast<long>(m["TotalWorkTime"]));
