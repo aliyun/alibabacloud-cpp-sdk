@@ -21056,6 +21056,49 @@ public:
 
   virtual ~MigrateClusterResponse() = default;
 };
+class ModifyClusterRequestApiServerCustomCertSans : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<vector<string>> subjectAlternativeNames{};
+
+  ModifyClusterRequestApiServerCustomCertSans() {}
+
+  explicit ModifyClusterRequestApiServerCustomCertSans(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["action"] = boost::any(*action);
+    }
+    if (subjectAlternativeNames) {
+      res["subject_alternative_names"] = boost::any(*subjectAlternativeNames);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("action") != m.end() && !m["action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["action"]));
+    }
+    if (m.find("subject_alternative_names") != m.end() && !m["subject_alternative_names"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["subject_alternative_names"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["subject_alternative_names"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      subjectAlternativeNames = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ModifyClusterRequestApiServerCustomCertSans() = default;
+};
 class ModifyClusterRequestOperationPolicyClusterAutoUpgrade : public Darabonba::Model {
 public:
   shared_ptr<string> channel{};
@@ -21164,6 +21207,7 @@ public:
 class ModifyClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> accessControlList{};
+  shared_ptr<ModifyClusterRequestApiServerCustomCertSans> apiServerCustomCertSans{};
   shared_ptr<bool> apiServerEip{};
   shared_ptr<string> apiServerEipId{};
   shared_ptr<string> clusterName{};
@@ -21189,6 +21233,9 @@ public:
     map<string, boost::any> res;
     if (accessControlList) {
       res["access_control_list"] = boost::any(*accessControlList);
+    }
+    if (apiServerCustomCertSans) {
+      res["api_server_custom_cert_sans"] = apiServerCustomCertSans ? boost::any(apiServerCustomCertSans->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (apiServerEip) {
       res["api_server_eip"] = boost::any(*apiServerEip);
@@ -21239,6 +21286,13 @@ public:
         }
       }
       accessControlList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("api_server_custom_cert_sans") != m.end() && !m["api_server_custom_cert_sans"].empty()) {
+      if (typeid(map<string, boost::any>) == m["api_server_custom_cert_sans"].type()) {
+        ModifyClusterRequestApiServerCustomCertSans model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["api_server_custom_cert_sans"]));
+        apiServerCustomCertSans = make_shared<ModifyClusterRequestApiServerCustomCertSans>(model1);
+      }
     }
     if (m.find("api_server_eip") != m.end() && !m["api_server_eip"].empty()) {
       apiServerEip = make_shared<bool>(boost::any_cast<bool>(m["api_server_eip"]));

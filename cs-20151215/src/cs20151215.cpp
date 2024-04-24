@@ -3211,6 +3211,9 @@ ModifyClusterResponse Alibabacloud_CS20151215::Client::modifyClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->accessControlList)) {
     body->insert(pair<string, vector<string>>("access_control_list", *request->accessControlList));
   }
+  if (!Darabonba_Util::Client::isUnset<ModifyClusterRequestApiServerCustomCertSans>(request->apiServerCustomCertSans)) {
+    body->insert(pair<string, ModifyClusterRequestApiServerCustomCertSans>("api_server_custom_cert_sans", *request->apiServerCustomCertSans));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->apiServerEip)) {
     body->insert(pair<string, bool>("api_server_eip", *request->apiServerEip));
   }
