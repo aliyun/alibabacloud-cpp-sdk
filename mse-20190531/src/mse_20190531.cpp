@@ -1151,6 +1151,46 @@ CloneNacosConfigResponse Alibabacloud_Mse20190531::Client::cloneNacosConfig(shar
   return cloneNacosConfigWithOptions(request, runtime);
 }
 
+CloneSentinelRuleFromAhasResponse Alibabacloud_Mse20190531::Client::cloneSentinelRuleFromAhasWithOptions(shared_ptr<CloneSentinelRuleFromAhasRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ahasNamespace)) {
+    query->insert(pair<string, string>("AhasNamespace", *request->ahasNamespace));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isAHASPublicRegion)) {
+    query->insert(pair<string, bool>("IsAHASPublicRegion", *request->isAHASPublicRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CloneSentinelRuleFromAhas"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CloneSentinelRuleFromAhasResponse(callApi(params, req, runtime));
+}
+
+CloneSentinelRuleFromAhasResponse Alibabacloud_Mse20190531::Client::cloneSentinelRuleFromAhas(shared_ptr<CloneSentinelRuleFromAhasRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return cloneSentinelRuleFromAhasWithOptions(request, runtime);
+}
+
 CreateApplicationResponse Alibabacloud_Mse20190531::Client::createApplicationWithOptions(shared_ptr<CreateApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

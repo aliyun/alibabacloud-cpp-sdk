@@ -7923,6 +7923,163 @@ public:
 
   virtual ~CloneNacosConfigResponse() = default;
 };
+class CloneSentinelRuleFromAhasRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> ahasNamespace{};
+  shared_ptr<string> appName{};
+  shared_ptr<bool> isAHASPublicRegion{};
+  shared_ptr<string> namespace_{};
+
+  CloneSentinelRuleFromAhasRequest() {}
+
+  explicit CloneSentinelRuleFromAhasRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (ahasNamespace) {
+      res["AhasNamespace"] = boost::any(*ahasNamespace);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (isAHASPublicRegion) {
+      res["IsAHASPublicRegion"] = boost::any(*isAHASPublicRegion);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AhasNamespace") != m.end() && !m["AhasNamespace"].empty()) {
+      ahasNamespace = make_shared<string>(boost::any_cast<string>(m["AhasNamespace"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("IsAHASPublicRegion") != m.end() && !m["IsAHASPublicRegion"].empty()) {
+      isAHASPublicRegion = make_shared<bool>(boost::any_cast<bool>(m["IsAHASPublicRegion"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~CloneSentinelRuleFromAhasRequest() = default;
+};
+class CloneSentinelRuleFromAhasResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<map<string, vector<string>>> data{};
+  shared_ptr<string> requestId{};
+
+  CloneSentinelRuleFromAhasResponseBody() {}
+
+  explicit CloneSentinelRuleFromAhasResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      map<string, vector<string>> map1 = boost::any_cast<map<string, vector<string>>>(m["Data"]);
+      map<string, vector<string>> toMap1;
+      for (auto item:map1) {
+        vector<string> toVec2;
+        if (typeid(vector<boost::any>) == item.second.type()) {
+          vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item.second);
+          for (auto item:vec2) {
+             toVec2.push_back(boost::any_cast<string>(item));
+          }
+        }
+         toMap1[item.first] = toVec2;
+      }
+      data = make_shared<map<string, vector<string>>>(toMap1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CloneSentinelRuleFromAhasResponseBody() = default;
+};
+class CloneSentinelRuleFromAhasResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CloneSentinelRuleFromAhasResponseBody> body{};
+
+  CloneSentinelRuleFromAhasResponse() {}
+
+  explicit CloneSentinelRuleFromAhasResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CloneSentinelRuleFromAhasResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CloneSentinelRuleFromAhasResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CloneSentinelRuleFromAhasResponse() = default;
+};
 class CreateApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -70130,6 +70287,8 @@ public:
   BindSentinelBlockFallbackDefinitionResponse bindSentinelBlockFallbackDefinition(shared_ptr<BindSentinelBlockFallbackDefinitionRequest> request);
   CloneNacosConfigResponse cloneNacosConfigWithOptions(shared_ptr<CloneNacosConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CloneNacosConfigResponse cloneNacosConfig(shared_ptr<CloneNacosConfigRequest> request);
+  CloneSentinelRuleFromAhasResponse cloneSentinelRuleFromAhasWithOptions(shared_ptr<CloneSentinelRuleFromAhasRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CloneSentinelRuleFromAhasResponse cloneSentinelRuleFromAhas(shared_ptr<CloneSentinelRuleFromAhasRequest> request);
   CreateApplicationResponse createApplicationWithOptions(shared_ptr<CreateApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateApplicationResponse createApplication(shared_ptr<CreateApplicationRequest> request);
   CreateCircuitBreakerRuleResponse createCircuitBreakerRuleWithOptions(shared_ptr<CreateCircuitBreakerRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
