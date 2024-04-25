@@ -4635,6 +4635,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> secondaryCidrBlock{};
+  shared_ptr<long> secondaryCidrMask{};
   shared_ptr<string> vpcId{};
 
   AssociateVpcCidrBlockRequest() {}
@@ -4677,6 +4678,9 @@ public:
     if (secondaryCidrBlock) {
       res["SecondaryCidrBlock"] = boost::any(*secondaryCidrBlock);
     }
+    if (secondaryCidrMask) {
+      res["SecondaryCidrMask"] = boost::any(*secondaryCidrMask);
+    }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
@@ -4713,6 +4717,9 @@ public:
     }
     if (m.find("SecondaryCidrBlock") != m.end() && !m["SecondaryCidrBlock"].empty()) {
       secondaryCidrBlock = make_shared<string>(boost::any_cast<string>(m["SecondaryCidrBlock"]));
+    }
+    if (m.find("SecondaryCidrMask") != m.end() && !m["SecondaryCidrMask"].empty()) {
+      secondaryCidrMask = make_shared<long>(boost::any_cast<long>(m["SecondaryCidrMask"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -19618,6 +19625,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<bool> dryRun{};
   shared_ptr<bool> enableIpv6{};
+  shared_ptr<long> ipv4CidrMask{};
   shared_ptr<string> ipv4IpamPoolId{};
   shared_ptr<string> ipv6CidrBlock{};
   shared_ptr<string> ipv6Isp{};
@@ -19655,6 +19663,9 @@ public:
     }
     if (enableIpv6) {
       res["EnableIpv6"] = boost::any(*enableIpv6);
+    }
+    if (ipv4CidrMask) {
+      res["Ipv4CidrMask"] = boost::any(*ipv4CidrMask);
     }
     if (ipv4IpamPoolId) {
       res["Ipv4IpamPoolId"] = boost::any(*ipv4IpamPoolId);
@@ -19714,6 +19725,9 @@ public:
     }
     if (m.find("EnableIpv6") != m.end() && !m["EnableIpv6"].empty()) {
       enableIpv6 = make_shared<bool>(boost::any_cast<bool>(m["EnableIpv6"]));
+    }
+    if (m.find("Ipv4CidrMask") != m.end() && !m["Ipv4CidrMask"].empty()) {
+      ipv4CidrMask = make_shared<long>(boost::any_cast<long>(m["Ipv4CidrMask"]));
     }
     if (m.find("Ipv4IpamPoolId") != m.end() && !m["Ipv4IpamPoolId"].empty()) {
       ipv4IpamPoolId = make_shared<string>(boost::any_cast<string>(m["Ipv4IpamPoolId"]));
