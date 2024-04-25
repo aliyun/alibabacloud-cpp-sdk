@@ -17814,6 +17814,8 @@ public:
 };
 class GetApplicationResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> appTemplateDisplayName{};
+  shared_ptr<string> appTemplateName{};
   shared_ptr<string> creatorAccountId{};
   shared_ptr<string> description{};
   shared_ptr<string> gmtCreate{};
@@ -17830,6 +17832,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appTemplateDisplayName) {
+      res["appTemplateDisplayName"] = boost::any(*appTemplateDisplayName);
+    }
+    if (appTemplateName) {
+      res["appTemplateName"] = boost::any(*appTemplateName);
+    }
     if (creatorAccountId) {
       res["creatorAccountId"] = boost::any(*creatorAccountId);
     }
@@ -17849,6 +17857,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("appTemplateDisplayName") != m.end() && !m["appTemplateDisplayName"].empty()) {
+      appTemplateDisplayName = make_shared<string>(boost::any_cast<string>(m["appTemplateDisplayName"]));
+    }
+    if (m.find("appTemplateName") != m.end() && !m["appTemplateName"].empty()) {
+      appTemplateName = make_shared<string>(boost::any_cast<string>(m["appTemplateName"]));
+    }
     if (m.find("creatorAccountId") != m.end() && !m["creatorAccountId"].empty()) {
       creatorAccountId = make_shared<string>(boost::any_cast<string>(m["creatorAccountId"]));
     }
