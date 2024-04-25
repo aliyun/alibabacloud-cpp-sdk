@@ -773,6 +773,9 @@ RebootDesktopsResponse Alibabacloud_Ecd20201002::Client::rebootDesktopsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionToken)) {
     query->insert(pair<string, string>("SessionToken", *request->sessionToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    query->insert(pair<string, string>("Uuid", *request->uuid));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1183,6 +1186,9 @@ StartDesktopsResponse Alibabacloud_Ecd20201002::Client::startDesktopsWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     query->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    query->insert(pair<string, string>("Uuid", *request->uuid));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

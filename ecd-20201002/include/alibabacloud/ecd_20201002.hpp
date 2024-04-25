@@ -3251,6 +3251,56 @@ public:
 
   virtual ~GetLoginTokenRequest() = default;
 };
+class GetLoginTokenResponseBodyRiskVerifyInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> email{};
+  shared_ptr<long> lastLockDuration{};
+  shared_ptr<string> locked{};
+  shared_ptr<string> phone{};
+
+  GetLoginTokenResponseBodyRiskVerifyInfo() {}
+
+  explicit GetLoginTokenResponseBodyRiskVerifyInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (email) {
+      res["Email"] = boost::any(*email);
+    }
+    if (lastLockDuration) {
+      res["LastLockDuration"] = boost::any(*lastLockDuration);
+    }
+    if (locked) {
+      res["Locked"] = boost::any(*locked);
+    }
+    if (phone) {
+      res["Phone"] = boost::any(*phone);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Email") != m.end() && !m["Email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["Email"]));
+    }
+    if (m.find("LastLockDuration") != m.end() && !m["LastLockDuration"].empty()) {
+      lastLockDuration = make_shared<long>(boost::any_cast<long>(m["LastLockDuration"]));
+    }
+    if (m.find("Locked") != m.end() && !m["Locked"].empty()) {
+      locked = make_shared<string>(boost::any_cast<string>(m["Locked"]));
+    }
+    if (m.find("Phone") != m.end() && !m["Phone"].empty()) {
+      phone = make_shared<string>(boost::any_cast<string>(m["Phone"]));
+    }
+  }
+
+
+  virtual ~GetLoginTokenResponseBodyRiskVerifyInfo() = default;
+};
 class GetLoginTokenResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> email{};
@@ -3264,6 +3314,7 @@ public:
   shared_ptr<map<string, string>> props{};
   shared_ptr<string> qrCodePng{};
   shared_ptr<string> requestId{};
+  shared_ptr<GetLoginTokenResponseBodyRiskVerifyInfo> riskVerifyInfo{};
   shared_ptr<string> secret{};
   shared_ptr<string> sessionId{};
   shared_ptr<long> tenantId{};
@@ -3311,6 +3362,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (riskVerifyInfo) {
+      res["RiskVerifyInfo"] = riskVerifyInfo ? boost::any(riskVerifyInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (secret) {
       res["Secret"] = boost::any(*secret);
@@ -3365,6 +3419,13 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RiskVerifyInfo") != m.end() && !m["RiskVerifyInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RiskVerifyInfo"].type()) {
+        GetLoginTokenResponseBodyRiskVerifyInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RiskVerifyInfo"]));
+        riskVerifyInfo = make_shared<GetLoginTokenResponseBodyRiskVerifyInfo>(model1);
+      }
     }
     if (m.find("Secret") != m.end() && !m["Secret"].empty()) {
       secret = make_shared<string>(boost::any_cast<string>(m["Secret"]));
@@ -3755,6 +3816,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> sessionId{};
   shared_ptr<string> sessionToken{};
+  shared_ptr<string> uuid{};
 
   RebootDesktopsRequest() {}
 
@@ -3793,6 +3855,9 @@ public:
     if (sessionToken) {
       res["SessionToken"] = boost::any(*sessionToken);
     }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
     return res;
   }
 
@@ -3830,6 +3895,9 @@ public:
     }
     if (m.find("SessionToken") != m.end() && !m["SessionToken"].empty()) {
       sessionToken = make_shared<string>(boost::any_cast<string>(m["SessionToken"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
     }
   }
 
@@ -5150,6 +5218,7 @@ public:
   shared_ptr<string> loginToken{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sessionId{};
+  shared_ptr<string> uuid{};
 
   StartDesktopsRequest() {}
 
@@ -5185,6 +5254,9 @@ public:
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
     return res;
   }
 
@@ -5219,6 +5291,9 @@ public:
     }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
     }
   }
 
