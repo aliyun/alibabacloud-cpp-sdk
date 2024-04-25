@@ -530,6 +530,46 @@ ExecuteCallTaskResponse Alibabacloud_Dyvmsapi20170525::Client::executeCallTask(s
   return executeCallTaskWithOptions(request, runtime);
 }
 
+GetCallMediaTypeResponse Alibabacloud_Dyvmsapi20170525::Client::getCallMediaTypeWithOptions(shared_ptr<GetCallMediaTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->callId)) {
+    query->insert(pair<string, string>("CallId", *request->callId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->calledNumber)) {
+    query->insert(pair<string, string>("CalledNumber", *request->calledNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCallMediaType"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCallMediaTypeResponse(callApi(params, req, runtime));
+}
+
+GetCallMediaTypeResponse Alibabacloud_Dyvmsapi20170525::Client::getCallMediaType(shared_ptr<GetCallMediaTypeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getCallMediaTypeWithOptions(request, runtime);
+}
+
 GetCallProgressResponse Alibabacloud_Dyvmsapi20170525::Client::getCallProgressWithOptions(shared_ptr<GetCallProgressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -605,6 +645,43 @@ GetHotlineQualificationByOrderResponse Alibabacloud_Dyvmsapi20170525::Client::ge
 GetHotlineQualificationByOrderResponse Alibabacloud_Dyvmsapi20170525::Client::getHotlineQualificationByOrder(shared_ptr<GetHotlineQualificationByOrderRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getHotlineQualificationByOrderWithOptions(request, runtime);
+}
+
+GetTemporaryFileUrlResponse Alibabacloud_Dyvmsapi20170525::Client::getTemporaryFileUrlWithOptions(shared_ptr<GetTemporaryFileUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoId)) {
+    query->insert(pair<string, string>("VideoId", *request->videoId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTemporaryFileUrl"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTemporaryFileUrlResponse(callApi(params, req, runtime));
+}
+
+GetTemporaryFileUrlResponse Alibabacloud_Dyvmsapi20170525::Client::getTemporaryFileUrl(shared_ptr<GetTemporaryFileUrlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getTemporaryFileUrlWithOptions(request, runtime);
 }
 
 GetTokenResponse Alibabacloud_Dyvmsapi20170525::Client::getTokenWithOptions(shared_ptr<GetTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
