@@ -131,37 +131,6 @@ CheckResultResponse Alibabacloud_Cloudauth-intl20220809::Client::checkResult(sha
   return checkResultWithOptions(request, runtime);
 }
 
-DeletePictureResponse Alibabacloud_Cloudauth-intl20220809::Client::deletePictureWithOptions(shared_ptr<DeletePictureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->deletePicAfterQuery)) {
-    query->insert(pair<string, string>("DeletePicAfterQuery", *request->deletePicAfterQuery));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->transactionId)) {
-    query->insert(pair<string, string>("TransactionId", *request->transactionId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DeletePicture"))},
-    {"version", boost::any(string("2022-08-09"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DeletePictureResponse(callApi(params, req, runtime));
-}
-
-DeletePictureResponse Alibabacloud_Cloudauth-intl20220809::Client::deletePicture(shared_ptr<DeletePictureRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return deletePictureWithOptions(request, runtime);
-}
-
 DeleteVerifyResultResponse Alibabacloud_Cloudauth-intl20220809::Client::deleteVerifyResultWithOptions(shared_ptr<DeleteVerifyResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
