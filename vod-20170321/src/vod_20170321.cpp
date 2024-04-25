@@ -2062,6 +2062,31 @@ DescribeVodDomainRealTimeByteHitRateDataResponse Alibabacloud_Vod20170321::Clien
   return describeVodDomainRealTimeByteHitRateDataWithOptions(request, runtime);
 }
 
+DescribeVodDomainRealTimeDetailDataResponse Alibabacloud_Vod20170321::Client::describeVodDomainRealTimeDetailDataWithOptions(shared_ptr<DescribeVodDomainRealTimeDetailDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeVodDomainRealTimeDetailData"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeVodDomainRealTimeDetailDataResponse(callApi(params, req, runtime));
+}
+
+DescribeVodDomainRealTimeDetailDataResponse Alibabacloud_Vod20170321::Client::describeVodDomainRealTimeDetailData(shared_ptr<DescribeVodDomainRealTimeDetailDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeVodDomainRealTimeDetailDataWithOptions(request, runtime);
+}
+
 DescribeVodDomainRealTimeHttpCodeDataResponse Alibabacloud_Vod20170321::Client::describeVodDomainRealTimeHttpCodeDataWithOptions(shared_ptr<DescribeVodDomainRealTimeHttpCodeDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
