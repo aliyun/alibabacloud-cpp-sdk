@@ -1310,6 +1310,12 @@ CreateReverseDtsJobResponse Alibabacloud_Dts20200101::Client::createReverseDtsJo
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shardPassword)) {
+    query->insert(pair<string, string>("ShardPassword", *request->shardPassword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shardUsername)) {
+    query->insert(pair<string, string>("ShardUsername", *request->shardUsername));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4281,6 +4287,9 @@ ModifyDtsJobEndpointResponse Alibabacloud_Dts20200101::Client::modifyDtsJobEndpo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointPort)) {
     query->insert(pair<string, string>("EndpointPort", *request->endpointPort));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointRegionId)) {
+    query->insert(pair<string, string>("EndpointRegionId", *request->endpointRegionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
     query->insert(pair<string, string>("Password", *request->password));

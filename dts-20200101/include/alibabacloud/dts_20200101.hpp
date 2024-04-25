@@ -4897,6 +4897,8 @@ class CreateReverseDtsJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dtsJobId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> shardPassword{};
+  shared_ptr<string> shardUsername{};
 
   CreateReverseDtsJobRequest() {}
 
@@ -4914,6 +4916,12 @@ public:
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
+    if (shardPassword) {
+      res["ShardPassword"] = boost::any(*shardPassword);
+    }
+    if (shardUsername) {
+      res["ShardUsername"] = boost::any(*shardUsername);
+    }
     return res;
   }
 
@@ -4923,6 +4931,12 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ShardPassword") != m.end() && !m["ShardPassword"].empty()) {
+      shardPassword = make_shared<string>(boost::any_cast<string>(m["ShardPassword"]));
+    }
+    if (m.find("ShardUsername") != m.end() && !m["ShardUsername"].empty()) {
+      shardUsername = make_shared<string>(boost::any_cast<string>(m["ShardUsername"]));
     }
   }
 
@@ -36331,6 +36345,7 @@ public:
   shared_ptr<string> endpointInstanceType{};
   shared_ptr<string> endpointIp{};
   shared_ptr<string> endpointPort{};
+  shared_ptr<string> endpointRegionId{};
   shared_ptr<string> password{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -36379,6 +36394,9 @@ public:
     }
     if (endpointPort) {
       res["EndpointPort"] = boost::any(*endpointPort);
+    }
+    if (endpointRegionId) {
+      res["EndpointRegionId"] = boost::any(*endpointRegionId);
     }
     if (password) {
       res["Password"] = boost::any(*password);
@@ -36437,6 +36455,9 @@ public:
     }
     if (m.find("EndpointPort") != m.end() && !m["EndpointPort"].empty()) {
       endpointPort = make_shared<string>(boost::any_cast<string>(m["EndpointPort"]));
+    }
+    if (m.find("EndpointRegionId") != m.end() && !m["EndpointRegionId"].empty()) {
+      endpointRegionId = make_shared<string>(boost::any_cast<string>(m["EndpointRegionId"]));
     }
     if (m.find("Password") != m.end() && !m["Password"].empty()) {
       password = make_shared<string>(boost::any_cast<string>(m["Password"]));
