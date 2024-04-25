@@ -4406,6 +4406,7 @@ public:
   shared_ptr<string> userBackupId{};
   shared_ptr<string> VPCId{};
   shared_ptr<string> vSwitchId{};
+  shared_ptr<string> whitelistTemplateList{};
   shared_ptr<string> zoneId{};
   shared_ptr<string> zoneIdSlave1{};
   shared_ptr<string> zoneIdSlave2{};
@@ -4579,6 +4580,9 @@ public:
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (whitelistTemplateList) {
+      res["WhitelistTemplateList"] = boost::any(*whitelistTemplateList);
     }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
@@ -4763,6 +4767,9 @@ public:
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
+    if (m.find("WhitelistTemplateList") != m.end() && !m["WhitelistTemplateList"].empty()) {
+      whitelistTemplateList = make_shared<string>(boost::any_cast<string>(m["WhitelistTemplateList"]));
+    }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
     }
@@ -4867,6 +4874,7 @@ public:
   shared_ptr<string> userBackupId{};
   shared_ptr<string> VPCId{};
   shared_ptr<string> vSwitchId{};
+  shared_ptr<string> whitelistTemplateList{};
   shared_ptr<string> zoneId{};
   shared_ptr<string> zoneIdSlave1{};
   shared_ptr<string> zoneIdSlave2{};
@@ -5040,6 +5048,9 @@ public:
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (whitelistTemplateList) {
+      res["WhitelistTemplateList"] = boost::any(*whitelistTemplateList);
     }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
@@ -5219,6 +5230,9 @@ public:
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("WhitelistTemplateList") != m.end() && !m["WhitelistTemplateList"].empty()) {
+      whitelistTemplateList = make_shared<string>(boost::any_cast<string>(m["WhitelistTemplateList"]));
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
@@ -62614,6 +62628,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> vSwitchIds{};
 
   ModifyDBProxyInstanceRequest() {}
 
@@ -62655,6 +62670,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
     return res;
   }
 
@@ -62688,6 +62706,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
     }
   }
 

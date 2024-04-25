@@ -1355,6 +1355,9 @@ CreateDBInstanceResponse Alibabacloud_Rds20140815::Client::createDBInstanceWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->whitelistTemplateList)) {
+    query->insert(pair<string, string>("WhitelistTemplateList", *request->whitelistTemplateList));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
     query->insert(pair<string, string>("ZoneId", *request->zoneId));
   }
@@ -11839,6 +11842,9 @@ ModifyDBProxyInstanceResponse Alibabacloud_Rds20140815::Client::modifyDBProxyIns
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchIds)) {
+    query->insert(pair<string, string>("VSwitchIds", *request->vSwitchIds));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
