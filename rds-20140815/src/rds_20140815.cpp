@@ -302,6 +302,9 @@ AttachWhitelistTemplateToInstanceResponse Alibabacloud_Rds20140815::Client::atta
   if (!Darabonba_Util::Client::isUnset<string>(request->insName)) {
     query->insert(pair<string, string>("InsName", *request->insName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -3611,6 +3614,9 @@ DescribeAllWhitelistTemplateResponse Alibabacloud_Rds20140815::Client::describeA
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumbers)) {
     query->insert(pair<string, long>("PageNumbers", *request->pageNumbers));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
@@ -7069,6 +7075,9 @@ DescribeInstanceLinkedWhitelistTemplateResponse Alibabacloud_Rds20140815::Client
   if (!Darabonba_Util::Client::isUnset<string>(request->insName)) {
     query->insert(pair<string, string>("InsName", *request->insName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -9174,6 +9183,9 @@ DescribeVSwitchesResponse Alibabacloud_Rds20140815::Client::describeVSwitches(sh
 DescribeWhitelistTemplateResponse Alibabacloud_Rds20140815::Client::describeWhitelistTemplateWithOptions(shared_ptr<DescribeWhitelistTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -9211,6 +9223,9 @@ DescribeWhitelistTemplateResponse Alibabacloud_Rds20140815::Client::describeWhit
 DescribeWhitelistTemplateLinkedInstanceResponse Alibabacloud_Rds20140815::Client::describeWhitelistTemplateLinkedInstanceWithOptions(shared_ptr<DescribeWhitelistTemplateLinkedInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -9332,6 +9347,9 @@ DetachWhitelistTemplateToInstanceResponse Alibabacloud_Rds20140815::Client::deta
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->insName)) {
     query->insert(pair<string, string>("InsName", *request->insName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
@@ -12826,6 +12844,9 @@ ModifyWhitelistTemplateResponse Alibabacloud_Rds20140815::Client::modifyWhitelis
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->ipWhitelist)) {
     query->insert(pair<string, string>("IpWhitelist", *request->ipWhitelist));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));

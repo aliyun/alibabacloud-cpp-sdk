@@ -780,6 +780,7 @@ public:
 class AttachWhitelistTemplateToInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> insName{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -797,6 +798,9 @@ public:
     map<string, boost::any> res;
     if (insName) {
       res["InsName"] = boost::any(*insName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -816,6 +820,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("InsName") != m.end() && !m["InsName"].empty()) {
       insName = make_shared<string>(boost::any_cast<string>(m["InsName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -6269,7 +6276,7 @@ public:
 class CreateDBNodesRequestDBNode : public Darabonba::Model {
 public:
   shared_ptr<string> classCode{};
-  shared_ptr<string> vswId{};
+  shared_ptr<string> vswitchId{};
   shared_ptr<string> zoneId{};
 
   CreateDBNodesRequestDBNode() {}
@@ -6285,8 +6292,8 @@ public:
     if (classCode) {
       res["classCode"] = boost::any(*classCode);
     }
-    if (vswId) {
-      res["vswId"] = boost::any(*vswId);
+    if (vswitchId) {
+      res["vswitchId"] = boost::any(*vswitchId);
     }
     if (zoneId) {
       res["zoneId"] = boost::any(*zoneId);
@@ -6298,8 +6305,8 @@ public:
     if (m.find("classCode") != m.end() && !m["classCode"].empty()) {
       classCode = make_shared<string>(boost::any_cast<string>(m["classCode"]));
     }
-    if (m.find("vswId") != m.end() && !m["vswId"].empty()) {
-      vswId = make_shared<string>(boost::any_cast<string>(m["vswId"]));
+    if (m.find("vswitchId") != m.end() && !m["vswitchId"].empty()) {
+      vswitchId = make_shared<string>(boost::any_cast<string>(m["vswitchId"]));
     }
     if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
@@ -14527,6 +14534,7 @@ public:
   shared_ptr<bool> fuzzySearch{};
   shared_ptr<long> maxRecordsPerPage{};
   shared_ptr<long> pageNumbers{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -14550,6 +14558,9 @@ public:
     }
     if (pageNumbers) {
       res["PageNumbers"] = boost::any(*pageNumbers);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -14575,6 +14586,9 @@ public:
     }
     if (m.find("PageNumbers") != m.end() && !m["PageNumbers"].empty()) {
       pageNumbers = make_shared<long>(boost::any_cast<long>(m["PageNumbers"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -38016,6 +38030,7 @@ public:
 class DescribeInstanceLinkedWhitelistTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> insName{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -38033,6 +38048,9 @@ public:
     if (insName) {
       res["InsName"] = boost::any(*insName);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -38048,6 +38066,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("InsName") != m.end() && !m["InsName"].empty()) {
       insName = make_shared<string>(boost::any_cast<string>(m["InsName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -52270,6 +52291,7 @@ public:
 };
 class DescribeWhitelistTemplateRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -52285,6 +52307,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -52301,6 +52326,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
@@ -52530,6 +52558,7 @@ public:
 };
 class DescribeWhitelistTemplateLinkedInstanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -52545,6 +52574,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -52561,6 +52593,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
@@ -53020,6 +53055,7 @@ public:
 class DetachWhitelistTemplateToInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> insName{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -53037,6 +53073,9 @@ public:
     map<string, boost::any> res;
     if (insName) {
       res["InsName"] = boost::any(*insName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -53056,6 +53095,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("InsName") != m.end() && !m["InsName"].empty()) {
       insName = make_shared<string>(boost::any_cast<string>(m["InsName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -66273,6 +66315,7 @@ public:
 class ModifyWhitelistTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ipWhitelist{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -66291,6 +66334,9 @@ public:
     map<string, boost::any> res;
     if (ipWhitelist) {
       res["IpWhitelist"] = boost::any(*ipWhitelist);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -66313,6 +66359,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("IpWhitelist") != m.end() && !m["IpWhitelist"].empty()) {
       ipWhitelist = make_shared<string>(boost::any_cast<string>(m["IpWhitelist"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
