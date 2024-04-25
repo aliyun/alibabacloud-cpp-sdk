@@ -7630,6 +7630,384 @@ public:
 
   virtual ~DescribeEventsResponse() = default;
 };
+class DescribeLensMonitorDisksRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> diskCategory{};
+  shared_ptr<vector<string>> diskIds{};
+  shared_ptr<vector<string>> lensTags{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+
+  DescribeLensMonitorDisksRequest() {}
+
+  explicit DescribeLensMonitorDisksRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskCategory) {
+      res["DiskCategory"] = boost::any(*diskCategory);
+    }
+    if (diskIds) {
+      res["DiskIds"] = boost::any(*diskIds);
+    }
+    if (lensTags) {
+      res["LensTags"] = boost::any(*lensTags);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiskCategory") != m.end() && !m["DiskCategory"].empty()) {
+      diskCategory = make_shared<string>(boost::any_cast<string>(m["DiskCategory"]));
+    }
+    if (m.find("DiskIds") != m.end() && !m["DiskIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DiskIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DiskIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      diskIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LensTags") != m.end() && !m["LensTags"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LensTags"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LensTags"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      lensTags = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeLensMonitorDisksRequest() = default;
+};
+class DescribeLensMonitorDisksResponseBodyDiskInfosTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  DescribeLensMonitorDisksResponseBodyDiskInfosTags() {}
+
+  explicit DescribeLensMonitorDisksResponseBodyDiskInfosTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~DescribeLensMonitorDisksResponseBodyDiskInfosTags() = default;
+};
+class DescribeLensMonitorDisksResponseBodyDiskInfos : public Darabonba::Model {
+public:
+  shared_ptr<long> bps{};
+  shared_ptr<bool> burstingEnabled{};
+  shared_ptr<string> diskCategory{};
+  shared_ptr<string> diskId{};
+  shared_ptr<string> diskName{};
+  shared_ptr<string> diskStatus{};
+  shared_ptr<string> diskType{};
+  shared_ptr<long> iops{};
+  shared_ptr<vector<string>> lensTags{};
+  shared_ptr<string> performanceLevel{};
+  shared_ptr<long> provisionedIops{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> size{};
+  shared_ptr<vector<DescribeLensMonitorDisksResponseBodyDiskInfosTags>> tags{};
+  shared_ptr<string> zoneId{};
+
+  DescribeLensMonitorDisksResponseBodyDiskInfos() {}
+
+  explicit DescribeLensMonitorDisksResponseBodyDiskInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bps) {
+      res["Bps"] = boost::any(*bps);
+    }
+    if (burstingEnabled) {
+      res["BurstingEnabled"] = boost::any(*burstingEnabled);
+    }
+    if (diskCategory) {
+      res["DiskCategory"] = boost::any(*diskCategory);
+    }
+    if (diskId) {
+      res["DiskId"] = boost::any(*diskId);
+    }
+    if (diskName) {
+      res["DiskName"] = boost::any(*diskName);
+    }
+    if (diskStatus) {
+      res["DiskStatus"] = boost::any(*diskStatus);
+    }
+    if (diskType) {
+      res["DiskType"] = boost::any(*diskType);
+    }
+    if (iops) {
+      res["Iops"] = boost::any(*iops);
+    }
+    if (lensTags) {
+      res["LensTags"] = boost::any(*lensTags);
+    }
+    if (performanceLevel) {
+      res["PerformanceLevel"] = boost::any(*performanceLevel);
+    }
+    if (provisionedIops) {
+      res["ProvisionedIops"] = boost::any(*provisionedIops);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bps") != m.end() && !m["Bps"].empty()) {
+      bps = make_shared<long>(boost::any_cast<long>(m["Bps"]));
+    }
+    if (m.find("BurstingEnabled") != m.end() && !m["BurstingEnabled"].empty()) {
+      burstingEnabled = make_shared<bool>(boost::any_cast<bool>(m["BurstingEnabled"]));
+    }
+    if (m.find("DiskCategory") != m.end() && !m["DiskCategory"].empty()) {
+      diskCategory = make_shared<string>(boost::any_cast<string>(m["DiskCategory"]));
+    }
+    if (m.find("DiskId") != m.end() && !m["DiskId"].empty()) {
+      diskId = make_shared<string>(boost::any_cast<string>(m["DiskId"]));
+    }
+    if (m.find("DiskName") != m.end() && !m["DiskName"].empty()) {
+      diskName = make_shared<string>(boost::any_cast<string>(m["DiskName"]));
+    }
+    if (m.find("DiskStatus") != m.end() && !m["DiskStatus"].empty()) {
+      diskStatus = make_shared<string>(boost::any_cast<string>(m["DiskStatus"]));
+    }
+    if (m.find("DiskType") != m.end() && !m["DiskType"].empty()) {
+      diskType = make_shared<string>(boost::any_cast<string>(m["DiskType"]));
+    }
+    if (m.find("Iops") != m.end() && !m["Iops"].empty()) {
+      iops = make_shared<long>(boost::any_cast<long>(m["Iops"]));
+    }
+    if (m.find("LensTags") != m.end() && !m["LensTags"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LensTags"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LensTags"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      lensTags = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PerformanceLevel") != m.end() && !m["PerformanceLevel"].empty()) {
+      performanceLevel = make_shared<string>(boost::any_cast<string>(m["PerformanceLevel"]));
+    }
+    if (m.find("ProvisionedIops") != m.end() && !m["ProvisionedIops"].empty()) {
+      provisionedIops = make_shared<long>(boost::any_cast<long>(m["ProvisionedIops"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeLensMonitorDisksResponseBodyDiskInfosTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeLensMonitorDisksResponseBodyDiskInfosTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeLensMonitorDisksResponseBodyDiskInfosTags>>(expect1);
+      }
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~DescribeLensMonitorDisksResponseBodyDiskInfos() = default;
+};
+class DescribeLensMonitorDisksResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeLensMonitorDisksResponseBodyDiskInfos>> diskInfos{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeLensMonitorDisksResponseBody() {}
+
+  explicit DescribeLensMonitorDisksResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*diskInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DiskInfos"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiskInfos") != m.end() && !m["DiskInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["DiskInfos"].type()) {
+        vector<DescribeLensMonitorDisksResponseBodyDiskInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DiskInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeLensMonitorDisksResponseBodyDiskInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        diskInfos = make_shared<vector<DescribeLensMonitorDisksResponseBodyDiskInfos>>(expect1);
+      }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeLensMonitorDisksResponseBody() = default;
+};
+class DescribeLensMonitorDisksResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeLensMonitorDisksResponseBody> body{};
+
+  DescribeLensMonitorDisksResponse() {}
+
+  explicit DescribeLensMonitorDisksResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeLensMonitorDisksResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeLensMonitorDisksResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeLensMonitorDisksResponse() = default;
+};
 class DescribeLensServiceStatusResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
@@ -13501,6 +13879,8 @@ public:
   DescribeEnterpriseSnapshotPolicyResponse describeEnterpriseSnapshotPolicy(shared_ptr<DescribeEnterpriseSnapshotPolicyRequest> request);
   DescribeEventsResponse describeEventsWithOptions(shared_ptr<DescribeEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeEventsResponse describeEvents(shared_ptr<DescribeEventsRequest> request);
+  DescribeLensMonitorDisksResponse describeLensMonitorDisksWithOptions(shared_ptr<DescribeLensMonitorDisksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeLensMonitorDisksResponse describeLensMonitorDisks(shared_ptr<DescribeLensMonitorDisksRequest> request);
   DescribeLensServiceStatusResponse describeLensServiceStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeLensServiceStatusResponse describeLensServiceStatus();
   DescribeMetricDataResponse describeMetricDataWithOptions(shared_ptr<DescribeMetricDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

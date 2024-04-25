@@ -1205,6 +1205,49 @@ DescribeEventsResponse Alibabacloud_Ebs20210730::Client::describeEvents(shared_p
   return describeEventsWithOptions(request, runtime);
 }
 
+DescribeLensMonitorDisksResponse Alibabacloud_Ebs20210730::Client::describeLensMonitorDisksWithOptions(shared_ptr<DescribeLensMonitorDisksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->diskCategory)) {
+    query->insert(pair<string, string>("DiskCategory", *request->diskCategory));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->diskIds)) {
+    query->insert(pair<string, vector<string>>("DiskIds", *request->diskIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->lensTags)) {
+    query->insert(pair<string, vector<string>>("LensTags", *request->lensTags));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeLensMonitorDisks"))},
+    {"version", boost::any(string("2021-07-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeLensMonitorDisksResponse(callApi(params, req, runtime));
+}
+
+DescribeLensMonitorDisksResponse Alibabacloud_Ebs20210730::Client::describeLensMonitorDisks(shared_ptr<DescribeLensMonitorDisksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeLensMonitorDisksWithOptions(request, runtime);
+}
+
 DescribeLensServiceStatusResponse Alibabacloud_Ebs20210730::Client::describeLensServiceStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
