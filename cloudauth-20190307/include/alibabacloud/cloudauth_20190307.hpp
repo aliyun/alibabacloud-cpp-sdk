@@ -1705,6 +1705,266 @@ public:
 
   virtual ~CreateVerifySettingResponse() = default;
 };
+class CredentialVerifyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> certNum{};
+  shared_ptr<string> credName{};
+  shared_ptr<string> credType{};
+  shared_ptr<string> identifyNum{};
+  shared_ptr<string> imageContext{};
+  shared_ptr<string> imageUrl{};
+  shared_ptr<string> isCheck{};
+  shared_ptr<string> isOCR{};
+  shared_ptr<string> userName{};
+
+  CredentialVerifyRequest() {}
+
+  explicit CredentialVerifyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certNum) {
+      res["CertNum"] = boost::any(*certNum);
+    }
+    if (credName) {
+      res["CredName"] = boost::any(*credName);
+    }
+    if (credType) {
+      res["CredType"] = boost::any(*credType);
+    }
+    if (identifyNum) {
+      res["IdentifyNum"] = boost::any(*identifyNum);
+    }
+    if (imageContext) {
+      res["ImageContext"] = boost::any(*imageContext);
+    }
+    if (imageUrl) {
+      res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (isCheck) {
+      res["IsCheck"] = boost::any(*isCheck);
+    }
+    if (isOCR) {
+      res["IsOCR"] = boost::any(*isOCR);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertNum") != m.end() && !m["CertNum"].empty()) {
+      certNum = make_shared<string>(boost::any_cast<string>(m["CertNum"]));
+    }
+    if (m.find("CredName") != m.end() && !m["CredName"].empty()) {
+      credName = make_shared<string>(boost::any_cast<string>(m["CredName"]));
+    }
+    if (m.find("CredType") != m.end() && !m["CredType"].empty()) {
+      credType = make_shared<string>(boost::any_cast<string>(m["CredType"]));
+    }
+    if (m.find("IdentifyNum") != m.end() && !m["IdentifyNum"].empty()) {
+      identifyNum = make_shared<string>(boost::any_cast<string>(m["IdentifyNum"]));
+    }
+    if (m.find("ImageContext") != m.end() && !m["ImageContext"].empty()) {
+      imageContext = make_shared<string>(boost::any_cast<string>(m["ImageContext"]));
+    }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("IsCheck") != m.end() && !m["IsCheck"].empty()) {
+      isCheck = make_shared<string>(boost::any_cast<string>(m["IsCheck"]));
+    }
+    if (m.find("IsOCR") != m.end() && !m["IsOCR"].empty()) {
+      isOCR = make_shared<string>(boost::any_cast<string>(m["IsOCR"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~CredentialVerifyRequest() = default;
+};
+class CredentialVerifyResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> ocrInfo{};
+  shared_ptr<string> result{};
+  shared_ptr<map<string, string>> riskScore{};
+  shared_ptr<string> riskTag{};
+  shared_ptr<string> verifyDetail{};
+  shared_ptr<string> verifyResult{};
+
+  CredentialVerifyResponseBodyResultObject() {}
+
+  explicit CredentialVerifyResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ocrInfo) {
+      res["OcrInfo"] = boost::any(*ocrInfo);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (riskScore) {
+      res["RiskScore"] = boost::any(*riskScore);
+    }
+    if (riskTag) {
+      res["RiskTag"] = boost::any(*riskTag);
+    }
+    if (verifyDetail) {
+      res["VerifyDetail"] = boost::any(*verifyDetail);
+    }
+    if (verifyResult) {
+      res["VerifyResult"] = boost::any(*verifyResult);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OcrInfo") != m.end() && !m["OcrInfo"].empty()) {
+      ocrInfo = make_shared<string>(boost::any_cast<string>(m["OcrInfo"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["Result"]));
+    }
+    if (m.find("RiskScore") != m.end() && !m["RiskScore"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["RiskScore"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      riskScore = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("RiskTag") != m.end() && !m["RiskTag"].empty()) {
+      riskTag = make_shared<string>(boost::any_cast<string>(m["RiskTag"]));
+    }
+    if (m.find("VerifyDetail") != m.end() && !m["VerifyDetail"].empty()) {
+      verifyDetail = make_shared<string>(boost::any_cast<string>(m["VerifyDetail"]));
+    }
+    if (m.find("VerifyResult") != m.end() && !m["VerifyResult"].empty()) {
+      verifyResult = make_shared<string>(boost::any_cast<string>(m["VerifyResult"]));
+    }
+  }
+
+
+  virtual ~CredentialVerifyResponseBodyResultObject() = default;
+};
+class CredentialVerifyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<CredentialVerifyResponseBodyResultObject> resultObject{};
+
+  CredentialVerifyResponseBody() {}
+
+  explicit CredentialVerifyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        CredentialVerifyResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<CredentialVerifyResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CredentialVerifyResponseBody() = default;
+};
+class CredentialVerifyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CredentialVerifyResponseBody> body{};
+
+  CredentialVerifyResponse() {}
+
+  explicit CredentialVerifyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CredentialVerifyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CredentialVerifyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CredentialVerifyResponse() = default;
+};
 class DescribeDeviceInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizType{};
@@ -6601,6 +6861,8 @@ public:
   CreateAuthKeyResponse createAuthKey(shared_ptr<CreateAuthKeyRequest> request);
   CreateVerifySettingResponse createVerifySettingWithOptions(shared_ptr<CreateVerifySettingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateVerifySettingResponse createVerifySetting(shared_ptr<CreateVerifySettingRequest> request);
+  CredentialVerifyResponse credentialVerifyWithOptions(shared_ptr<CredentialVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CredentialVerifyResponse credentialVerify(shared_ptr<CredentialVerifyRequest> request);
   DescribeDeviceInfoResponse describeDeviceInfoWithOptions(shared_ptr<DescribeDeviceInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDeviceInfoResponse describeDeviceInfo(shared_ptr<DescribeDeviceInfoRequest> request);
   DescribeFaceVerifyResponse describeFaceVerifyWithOptions(shared_ptr<DescribeFaceVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

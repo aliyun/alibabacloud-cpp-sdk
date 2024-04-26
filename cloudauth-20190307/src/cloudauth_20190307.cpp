@@ -474,6 +474,60 @@ CreateVerifySettingResponse Alibabacloud_Cloudauth20190307::Client::createVerify
   return createVerifySettingWithOptions(request, runtime);
 }
 
+CredentialVerifyResponse Alibabacloud_Cloudauth20190307::Client::credentialVerifyWithOptions(shared_ptr<CredentialVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->certNum)) {
+    query->insert(pair<string, string>("CertNum", *request->certNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->credName)) {
+    query->insert(pair<string, string>("CredName", *request->credName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->credType)) {
+    query->insert(pair<string, string>("CredType", *request->credType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->identifyNum)) {
+    query->insert(pair<string, string>("IdentifyNum", *request->identifyNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageUrl)) {
+    query->insert(pair<string, string>("ImageUrl", *request->imageUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isCheck)) {
+    query->insert(pair<string, string>("IsCheck", *request->isCheck));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isOCR)) {
+    query->insert(pair<string, string>("IsOCR", *request->isOCR));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
+    query->insert(pair<string, string>("UserName", *request->userName));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageContext)) {
+    body->insert(pair<string, string>("ImageContext", *request->imageContext));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CredentialVerify"))},
+    {"version", boost::any(string("2019-03-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CredentialVerifyResponse(callApi(params, req, runtime));
+}
+
+CredentialVerifyResponse Alibabacloud_Cloudauth20190307::Client::credentialVerify(shared_ptr<CredentialVerifyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return credentialVerifyWithOptions(request, runtime);
+}
+
 DescribeDeviceInfoResponse Alibabacloud_Cloudauth20190307::Client::describeDeviceInfoWithOptions(shared_ptr<DescribeDeviceInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
