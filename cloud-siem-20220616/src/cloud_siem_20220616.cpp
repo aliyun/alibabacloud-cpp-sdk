@@ -3479,6 +3479,12 @@ ListUserProdLogsResponse Alibabacloud_Cloud-siem20220616::Client::listUserProdLo
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceLogCode)) {
     body->insert(pair<string, string>("SourceLogCode", *request->sourceLogCode));
   }
@@ -3512,6 +3518,12 @@ ListUsersByProdResponse Alibabacloud_Cloud-siem20220616::Client::listUsersByProd
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleFor)) {
+    body->insert(pair<string, long>("RoleFor", *request->roleFor));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->roleType)) {
+    body->insert(pair<string, long>("RoleType", *request->roleType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceProdCode)) {
     body->insert(pair<string, string>("SourceProdCode", *request->sourceProdCode));

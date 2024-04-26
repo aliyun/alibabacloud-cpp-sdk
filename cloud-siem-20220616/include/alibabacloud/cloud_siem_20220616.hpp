@@ -23483,6 +23483,8 @@ public:
 class ListUserProdLogsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> sourceLogCode{};
   shared_ptr<string> sourceProdCode{};
 
@@ -23499,6 +23501,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (sourceLogCode) {
       res["SourceLogCode"] = boost::any(*sourceLogCode);
     }
@@ -23511,6 +23519,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("SourceLogCode") != m.end() && !m["SourceLogCode"].empty()) {
       sourceLogCode = make_shared<string>(boost::any_cast<string>(m["SourceLogCode"]));
@@ -23720,6 +23734,8 @@ public:
 class ListUsersByProdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<long> roleFor{};
+  shared_ptr<long> roleType{};
   shared_ptr<string> sourceProdCode{};
 
   ListUsersByProdRequest() {}
@@ -23735,6 +23751,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (roleFor) {
+      res["RoleFor"] = boost::any(*roleFor);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
     if (sourceProdCode) {
       res["SourceProdCode"] = boost::any(*sourceProdCode);
     }
@@ -23744,6 +23766,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleFor") != m.end() && !m["RoleFor"].empty()) {
+      roleFor = make_shared<long>(boost::any_cast<long>(m["RoleFor"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<long>(boost::any_cast<long>(m["RoleType"]));
     }
     if (m.find("SourceProdCode") != m.end() && !m["SourceProdCode"].empty()) {
       sourceProdCode = make_shared<string>(boost::any_cast<string>(m["SourceProdCode"]));
