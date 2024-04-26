@@ -29776,6 +29776,606 @@ public:
 
   virtual ~GetTableDBTopologyResponse() = default;
 };
+class GetTableDesignProjectFlowRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  GetTableDesignProjectFlowRequest() {}
+
+  explicit GetTableDesignProjectFlowRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetTableDesignProjectFlowRequest() = default;
+};
+class GetTableDesignProjectFlowResponseBodyProjectFlowFlowNodeArray : public Darabonba::Model {
+public:
+  shared_ptr<bool> backToDesign{};
+  shared_ptr<bool> canSkip{};
+  shared_ptr<string> nodeRole{};
+  shared_ptr<string> nodeTitle{};
+  shared_ptr<long> position{};
+  shared_ptr<bool> publishAnchor{};
+  shared_ptr<vector<string>> publishStrategies{};
+
+  GetTableDesignProjectFlowResponseBodyProjectFlowFlowNodeArray() {}
+
+  explicit GetTableDesignProjectFlowResponseBodyProjectFlowFlowNodeArray(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (backToDesign) {
+      res["BackToDesign"] = boost::any(*backToDesign);
+    }
+    if (canSkip) {
+      res["CanSkip"] = boost::any(*canSkip);
+    }
+    if (nodeRole) {
+      res["NodeRole"] = boost::any(*nodeRole);
+    }
+    if (nodeTitle) {
+      res["NodeTitle"] = boost::any(*nodeTitle);
+    }
+    if (position) {
+      res["Position"] = boost::any(*position);
+    }
+    if (publishAnchor) {
+      res["PublishAnchor"] = boost::any(*publishAnchor);
+    }
+    if (publishStrategies) {
+      res["PublishStrategies"] = boost::any(*publishStrategies);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackToDesign") != m.end() && !m["BackToDesign"].empty()) {
+      backToDesign = make_shared<bool>(boost::any_cast<bool>(m["BackToDesign"]));
+    }
+    if (m.find("CanSkip") != m.end() && !m["CanSkip"].empty()) {
+      canSkip = make_shared<bool>(boost::any_cast<bool>(m["CanSkip"]));
+    }
+    if (m.find("NodeRole") != m.end() && !m["NodeRole"].empty()) {
+      nodeRole = make_shared<string>(boost::any_cast<string>(m["NodeRole"]));
+    }
+    if (m.find("NodeTitle") != m.end() && !m["NodeTitle"].empty()) {
+      nodeTitle = make_shared<string>(boost::any_cast<string>(m["NodeTitle"]));
+    }
+    if (m.find("Position") != m.end() && !m["Position"].empty()) {
+      position = make_shared<long>(boost::any_cast<long>(m["Position"]));
+    }
+    if (m.find("PublishAnchor") != m.end() && !m["PublishAnchor"].empty()) {
+      publishAnchor = make_shared<bool>(boost::any_cast<bool>(m["PublishAnchor"]));
+    }
+    if (m.find("PublishStrategies") != m.end() && !m["PublishStrategies"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PublishStrategies"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PublishStrategies"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      publishStrategies = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetTableDesignProjectFlowResponseBodyProjectFlowFlowNodeArray() = default;
+};
+class GetTableDesignProjectFlowResponseBodyProjectFlow : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPosition{};
+  shared_ptr<vector<GetTableDesignProjectFlowResponseBodyProjectFlowFlowNodeArray>> flowNodeArray{};
+  shared_ptr<string> ruleComment{};
+  shared_ptr<string> ruleName{};
+
+  GetTableDesignProjectFlowResponseBodyProjectFlow() {}
+
+  explicit GetTableDesignProjectFlowResponseBodyProjectFlow(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPosition) {
+      res["CurrentPosition"] = boost::any(*currentPosition);
+    }
+    if (flowNodeArray) {
+      vector<boost::any> temp1;
+      for(auto item1:*flowNodeArray){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FlowNodeArray"] = boost::any(temp1);
+    }
+    if (ruleComment) {
+      res["RuleComment"] = boost::any(*ruleComment);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPosition") != m.end() && !m["CurrentPosition"].empty()) {
+      currentPosition = make_shared<long>(boost::any_cast<long>(m["CurrentPosition"]));
+    }
+    if (m.find("FlowNodeArray") != m.end() && !m["FlowNodeArray"].empty()) {
+      if (typeid(vector<boost::any>) == m["FlowNodeArray"].type()) {
+        vector<GetTableDesignProjectFlowResponseBodyProjectFlowFlowNodeArray> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FlowNodeArray"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTableDesignProjectFlowResponseBodyProjectFlowFlowNodeArray model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        flowNodeArray = make_shared<vector<GetTableDesignProjectFlowResponseBodyProjectFlowFlowNodeArray>>(expect1);
+      }
+    }
+    if (m.find("RuleComment") != m.end() && !m["RuleComment"].empty()) {
+      ruleComment = make_shared<string>(boost::any_cast<string>(m["RuleComment"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~GetTableDesignProjectFlowResponseBodyProjectFlow() = default;
+};
+class GetTableDesignProjectFlowResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<GetTableDesignProjectFlowResponseBodyProjectFlow> projectFlow{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetTableDesignProjectFlowResponseBody() {}
+
+  explicit GetTableDesignProjectFlowResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (projectFlow) {
+      res["ProjectFlow"] = projectFlow ? boost::any(projectFlow->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("ProjectFlow") != m.end() && !m["ProjectFlow"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ProjectFlow"].type()) {
+        GetTableDesignProjectFlowResponseBodyProjectFlow model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProjectFlow"]));
+        projectFlow = make_shared<GetTableDesignProjectFlowResponseBodyProjectFlow>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetTableDesignProjectFlowResponseBody() = default;
+};
+class GetTableDesignProjectFlowResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetTableDesignProjectFlowResponseBody> body{};
+
+  GetTableDesignProjectFlowResponse() {}
+
+  explicit GetTableDesignProjectFlowResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetTableDesignProjectFlowResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetTableDesignProjectFlowResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetTableDesignProjectFlowResponse() = default;
+};
+class GetTableDesignProjectInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  GetTableDesignProjectInfoRequest() {}
+
+  explicit GetTableDesignProjectInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetTableDesignProjectInfoRequest() = default;
+};
+class GetTableDesignProjectInfoResponseBodyProjectInfoBaseDatabase : public Darabonba::Model {
+public:
+  shared_ptr<string> alias{};
+  shared_ptr<long> dbId{};
+  shared_ptr<string> dbType{};
+  shared_ptr<string> envType{};
+  shared_ptr<bool> logic{};
+  shared_ptr<string> schemaName{};
+  shared_ptr<string> searchName{};
+
+  GetTableDesignProjectInfoResponseBodyProjectInfoBaseDatabase() {}
+
+  explicit GetTableDesignProjectInfoResponseBodyProjectInfoBaseDatabase(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alias) {
+      res["Alias"] = boost::any(*alias);
+    }
+    if (dbId) {
+      res["DbId"] = boost::any(*dbId);
+    }
+    if (dbType) {
+      res["DbType"] = boost::any(*dbType);
+    }
+    if (envType) {
+      res["EnvType"] = boost::any(*envType);
+    }
+    if (logic) {
+      res["Logic"] = boost::any(*logic);
+    }
+    if (schemaName) {
+      res["SchemaName"] = boost::any(*schemaName);
+    }
+    if (searchName) {
+      res["SearchName"] = boost::any(*searchName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
+      alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
+    }
+    if (m.find("DbId") != m.end() && !m["DbId"].empty()) {
+      dbId = make_shared<long>(boost::any_cast<long>(m["DbId"]));
+    }
+    if (m.find("DbType") != m.end() && !m["DbType"].empty()) {
+      dbType = make_shared<string>(boost::any_cast<string>(m["DbType"]));
+    }
+    if (m.find("EnvType") != m.end() && !m["EnvType"].empty()) {
+      envType = make_shared<string>(boost::any_cast<string>(m["EnvType"]));
+    }
+    if (m.find("Logic") != m.end() && !m["Logic"].empty()) {
+      logic = make_shared<bool>(boost::any_cast<bool>(m["Logic"]));
+    }
+    if (m.find("SchemaName") != m.end() && !m["SchemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["SchemaName"]));
+    }
+    if (m.find("SearchName") != m.end() && !m["SearchName"].empty()) {
+      searchName = make_shared<string>(boost::any_cast<string>(m["SearchName"]));
+    }
+  }
+
+
+  virtual ~GetTableDesignProjectInfoResponseBodyProjectInfoBaseDatabase() = default;
+};
+class GetTableDesignProjectInfoResponseBodyProjectInfo : public Darabonba::Model {
+public:
+  shared_ptr<GetTableDesignProjectInfoResponseBodyProjectInfoBaseDatabase> baseDatabase{};
+  shared_ptr<long> creatorId{};
+  shared_ptr<string> description{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<long> orderId{};
+  shared_ptr<long> projectId{};
+  shared_ptr<string> status{};
+  shared_ptr<string> title{};
+
+  GetTableDesignProjectInfoResponseBodyProjectInfo() {}
+
+  explicit GetTableDesignProjectInfoResponseBodyProjectInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseDatabase) {
+      res["BaseDatabase"] = baseDatabase ? boost::any(baseDatabase->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (creatorId) {
+      res["CreatorId"] = boost::any(*creatorId);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseDatabase") != m.end() && !m["BaseDatabase"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BaseDatabase"].type()) {
+        GetTableDesignProjectInfoResponseBodyProjectInfoBaseDatabase model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BaseDatabase"]));
+        baseDatabase = make_shared<GetTableDesignProjectInfoResponseBodyProjectInfoBaseDatabase>(model1);
+      }
+    }
+    if (m.find("CreatorId") != m.end() && !m["CreatorId"].empty()) {
+      creatorId = make_shared<long>(boost::any_cast<long>(m["CreatorId"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~GetTableDesignProjectInfoResponseBodyProjectInfo() = default;
+};
+class GetTableDesignProjectInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<GetTableDesignProjectInfoResponseBodyProjectInfo> projectInfo{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetTableDesignProjectInfoResponseBody() {}
+
+  explicit GetTableDesignProjectInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (projectInfo) {
+      res["ProjectInfo"] = projectInfo ? boost::any(projectInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("ProjectInfo") != m.end() && !m["ProjectInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ProjectInfo"].type()) {
+        GetTableDesignProjectInfoResponseBodyProjectInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProjectInfo"]));
+        projectInfo = make_shared<GetTableDesignProjectInfoResponseBodyProjectInfo>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetTableDesignProjectInfoResponseBody() = default;
+};
+class GetTableDesignProjectInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetTableDesignProjectInfoResponseBody> body{};
+
+  GetTableDesignProjectInfoResponse() {}
+
+  explicit GetTableDesignProjectInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetTableDesignProjectInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetTableDesignProjectInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetTableDesignProjectInfoResponse() = default;
+};
 class GetTableTopologyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> tableGuid{};
@@ -59760,6 +60360,10 @@ public:
   GetStructSyncOrderDetailResponse getStructSyncOrderDetail(shared_ptr<GetStructSyncOrderDetailRequest> request);
   GetTableDBTopologyResponse getTableDBTopologyWithOptions(shared_ptr<GetTableDBTopologyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTableDBTopologyResponse getTableDBTopology(shared_ptr<GetTableDBTopologyRequest> request);
+  GetTableDesignProjectFlowResponse getTableDesignProjectFlowWithOptions(shared_ptr<GetTableDesignProjectFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetTableDesignProjectFlowResponse getTableDesignProjectFlow(shared_ptr<GetTableDesignProjectFlowRequest> request);
+  GetTableDesignProjectInfoResponse getTableDesignProjectInfoWithOptions(shared_ptr<GetTableDesignProjectInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetTableDesignProjectInfoResponse getTableDesignProjectInfo(shared_ptr<GetTableDesignProjectInfoRequest> request);
   GetTableTopologyResponse getTableTopologyWithOptions(shared_ptr<GetTableTopologyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTableTopologyResponse getTableTopology(shared_ptr<GetTableTopologyRequest> request);
   GetTaskResponse getTaskWithOptions(shared_ptr<GetTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
