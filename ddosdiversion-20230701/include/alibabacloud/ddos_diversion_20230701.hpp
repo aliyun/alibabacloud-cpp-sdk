@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_DDOSDIVERSION20230701_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -140,17 +139,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -523,7 +512,7 @@ public:
 class ListInstanceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> code{};
-  shared_ptr<vector<ListInstanceResponseBodyData>> data{};
+  shared_ptr<ListInstanceResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
@@ -541,11 +530,7 @@ public:
       res["Code"] = boost::any(*code);
     }
     if (data) {
-      vector<boost::any> temp1;
-      for(auto item1:*data){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Data"] = boost::any(temp1);
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -561,16 +546,10 @@ public:
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(vector<boost::any>) == m["Data"].type()) {
-        vector<ListInstanceResponseBodyData> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListInstanceResponseBodyData model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        data = make_shared<vector<ListInstanceResponseBodyData>>(expect1);
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListInstanceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListInstanceResponseBodyData>(model1);
       }
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
@@ -596,17 +575,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -905,8 +874,8 @@ public:
   shared_ptr<string> gmtModify{};
   shared_ptr<string> mode{};
   shared_ptr<string> net{};
-  shared_ptr<long> netExtend{};
-  shared_ptr<string> netMain{};
+  shared_ptr<string> netExtend{};
+  shared_ptr<long> netMain{};
   shared_ptr<string> netType{};
   shared_ptr<string> saleId{};
   shared_ptr<string> upstreamType{};
@@ -1011,10 +980,10 @@ public:
       net = make_shared<string>(boost::any_cast<string>(m["Net"]));
     }
     if (m.find("NetExtend") != m.end() && !m["NetExtend"].empty()) {
-      netExtend = make_shared<long>(boost::any_cast<long>(m["NetExtend"]));
+      netExtend = make_shared<string>(boost::any_cast<string>(m["NetExtend"]));
     }
     if (m.find("NetMain") != m.end() && !m["NetMain"].empty()) {
-      netMain = make_shared<string>(boost::any_cast<string>(m["NetMain"]));
+      netMain = make_shared<long>(boost::any_cast<long>(m["NetMain"]));
     }
     if (m.find("NetType") != m.end() && !m["NetType"].empty()) {
       netType = make_shared<string>(boost::any_cast<string>(m["NetType"]));
@@ -1100,7 +1069,7 @@ public:
 class QueryNetListResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> code{};
-  shared_ptr<vector<QueryNetListResponseBodyData>> data{};
+  shared_ptr<QueryNetListResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
@@ -1118,11 +1087,7 @@ public:
       res["Code"] = boost::any(*code);
     }
     if (data) {
-      vector<boost::any> temp1;
-      for(auto item1:*data){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Data"] = boost::any(temp1);
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -1138,16 +1103,10 @@ public:
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(vector<boost::any>) == m["Data"].type()) {
-        vector<QueryNetListResponseBodyData> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            QueryNetListResponseBodyData model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        data = make_shared<vector<QueryNetListResponseBodyData>>(expect1);
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QueryNetListResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QueryNetListResponseBodyData>(model1);
       }
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
@@ -1173,17 +1132,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
