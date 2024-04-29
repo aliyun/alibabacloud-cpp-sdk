@@ -6799,6 +6799,49 @@ public:
 
   virtual ~CreateDesktopsRequestDesktopTimers() = default;
 };
+class CreateDesktopsRequestMonthDesktopSetting : public Darabonba::Model {
+public:
+  shared_ptr<long> buyerId{};
+  shared_ptr<string> desktopId{};
+  shared_ptr<long> useDuration{};
+
+  CreateDesktopsRequestMonthDesktopSetting() {}
+
+  explicit CreateDesktopsRequestMonthDesktopSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (buyerId) {
+      res["BuyerId"] = boost::any(*buyerId);
+    }
+    if (desktopId) {
+      res["DesktopId"] = boost::any(*desktopId);
+    }
+    if (useDuration) {
+      res["UseDuration"] = boost::any(*useDuration);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BuyerId") != m.end() && !m["BuyerId"].empty()) {
+      buyerId = make_shared<long>(boost::any_cast<long>(m["BuyerId"]));
+    }
+    if (m.find("DesktopId") != m.end() && !m["DesktopId"].empty()) {
+      desktopId = make_shared<string>(boost::any_cast<string>(m["DesktopId"]));
+    }
+    if (m.find("UseDuration") != m.end() && !m["UseDuration"].empty()) {
+      useDuration = make_shared<long>(boost::any_cast<long>(m["UseDuration"]));
+    }
+  }
+
+
+  virtual ~CreateDesktopsRequestMonthDesktopSetting() = default;
+};
 class CreateDesktopsRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -6894,6 +6937,7 @@ public:
   shared_ptr<vector<string>> endUserId{};
   shared_ptr<string> groupId{};
   shared_ptr<string> hostname{};
+  shared_ptr<CreateDesktopsRequestMonthDesktopSetting> monthDesktopSetting{};
   shared_ptr<string> officeSiteId{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
@@ -6967,6 +7011,9 @@ public:
     }
     if (hostname) {
       res["Hostname"] = boost::any(*hostname);
+    }
+    if (monthDesktopSetting) {
+      res["MonthDesktopSetting"] = monthDesktopSetting ? boost::any(monthDesktopSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (officeSiteId) {
       res["OfficeSiteId"] = boost::any(*officeSiteId);
@@ -7087,6 +7134,13 @@ public:
     }
     if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
       hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
+    }
+    if (m.find("MonthDesktopSetting") != m.end() && !m["MonthDesktopSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MonthDesktopSetting"].type()) {
+        CreateDesktopsRequestMonthDesktopSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MonthDesktopSetting"]));
+        monthDesktopSetting = make_shared<CreateDesktopsRequestMonthDesktopSetting>(model1);
+      }
     }
     if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
       officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
@@ -23334,6 +23388,8 @@ class DescribeOfficeSitesResponseBodyOfficeSites : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeOfficeSitesResponseBodyOfficeSitesADConnectors>> ADConnectors{};
   shared_ptr<string> adHostname{};
+  shared_ptr<string> backupDCHostname{};
+  shared_ptr<string> backupDns{};
   shared_ptr<long> bandwidth{};
   shared_ptr<string> cenAttachStatus{};
   shared_ptr<string> cenId{};
@@ -23352,6 +23408,7 @@ public:
   shared_ptr<bool> enableAdminAccess{};
   shared_ptr<bool> enableCrossDesktopAccess{};
   shared_ptr<bool> enableInternetAccess{};
+  shared_ptr<bool> enableServiceRoute{};
   shared_ptr<vector<string>> fileSystemIds{};
   shared_ptr<vector<DescribeOfficeSitesResponseBodyOfficeSitesLogs>> logs{};
   shared_ptr<bool> mfaEnabled{};
@@ -23397,6 +23454,12 @@ public:
     }
     if (adHostname) {
       res["AdHostname"] = boost::any(*adHostname);
+    }
+    if (backupDCHostname) {
+      res["BackupDCHostname"] = boost::any(*backupDCHostname);
+    }
+    if (backupDns) {
+      res["BackupDns"] = boost::any(*backupDns);
     }
     if (bandwidth) {
       res["Bandwidth"] = boost::any(*bandwidth);
@@ -23451,6 +23514,9 @@ public:
     }
     if (enableInternetAccess) {
       res["EnableInternetAccess"] = boost::any(*enableInternetAccess);
+    }
+    if (enableServiceRoute) {
+      res["EnableServiceRoute"] = boost::any(*enableServiceRoute);
     }
     if (fileSystemIds) {
       res["FileSystemIds"] = boost::any(*fileSystemIds);
@@ -23551,6 +23617,12 @@ public:
     if (m.find("AdHostname") != m.end() && !m["AdHostname"].empty()) {
       adHostname = make_shared<string>(boost::any_cast<string>(m["AdHostname"]));
     }
+    if (m.find("BackupDCHostname") != m.end() && !m["BackupDCHostname"].empty()) {
+      backupDCHostname = make_shared<string>(boost::any_cast<string>(m["BackupDCHostname"]));
+    }
+    if (m.find("BackupDns") != m.end() && !m["BackupDns"].empty()) {
+      backupDns = make_shared<string>(boost::any_cast<string>(m["BackupDns"]));
+    }
     if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
       bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
     }
@@ -23611,6 +23683,9 @@ public:
     }
     if (m.find("EnableInternetAccess") != m.end() && !m["EnableInternetAccess"].empty()) {
       enableInternetAccess = make_shared<bool>(boost::any_cast<bool>(m["EnableInternetAccess"]));
+    }
+    if (m.find("EnableServiceRoute") != m.end() && !m["EnableServiceRoute"].empty()) {
+      enableServiceRoute = make_shared<bool>(boost::any_cast<bool>(m["EnableServiceRoute"]));
     }
     if (m.find("FileSystemIds") != m.end() && !m["FileSystemIds"].empty()) {
       vector<string> toVec1;
@@ -42134,6 +42209,7 @@ public:
   shared_ptr<string> periodUnit{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceType{};
 
   RenewDesktopsRequest() {}
 
@@ -42163,6 +42239,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     return res;
   }
 
@@ -42191,6 +42270,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
   }
 

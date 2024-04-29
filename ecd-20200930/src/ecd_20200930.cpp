@@ -1697,6 +1697,9 @@ CreateDesktopsResponse Alibabacloud_Ecd20200930::Client::createDesktopsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->hostname)) {
     query->insert(pair<string, string>("Hostname", *request->hostname));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateDesktopsRequestMonthDesktopSetting>(request->monthDesktopSetting)) {
+    query->insert(pair<string, CreateDesktopsRequestMonthDesktopSetting>("MonthDesktopSetting", *request->monthDesktopSetting));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->officeSiteId)) {
     query->insert(pair<string, string>("OfficeSiteId", *request->officeSiteId));
   }
@@ -8188,6 +8191,9 @@ RenewDesktopsResponse Alibabacloud_Ecd20200930::Client::renewDesktopsWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
