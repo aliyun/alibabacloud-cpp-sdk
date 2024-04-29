@@ -4261,6 +4261,9 @@ QueryCollectionDataResponse Alibabacloud_Gpdb20160503::Client::queryCollectionDa
   if (!Darabonba_Util::Client::isUnset<string>(request->hybridSearchArgsShrink)) {
     query->insert(pair<string, string>("HybridSearchArgs", *request->hybridSearchArgsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->includeMetadataFields)) {
+    query->insert(pair<string, string>("IncludeMetadataFields", *request->includeMetadataFields));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->includeValues)) {
     query->insert(pair<string, bool>("IncludeValues", *request->includeValues));
   }
@@ -4272,6 +4275,12 @@ QueryCollectionDataResponse Alibabacloud_Gpdb20160503::Client::queryCollectionDa
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespacePassword)) {
     query->insert(pair<string, string>("NamespacePassword", *request->namespacePassword));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->offset)) {
+    query->insert(pair<string, long>("Offset", *request->offset));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
+    query->insert(pair<string, string>("OrderBy", *request->orderBy));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
@@ -4341,6 +4350,9 @@ QueryContentResponse Alibabacloud_Gpdb20160503::Client::queryContentWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->hybridSearchArgsShrink)) {
     query->insert(pair<string, string>("HybridSearchArgs", *request->hybridSearchArgsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->includeMetadataFields)) {
+    query->insert(pair<string, string>("IncludeMetadataFields", *request->includeMetadataFields));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->includeVector)) {
     query->insert(pair<string, bool>("IncludeVector", *request->includeVector));

@@ -22696,10 +22696,13 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<string> hybridSearch{};
   shared_ptr<map<string, map<string, boost::any>>> hybridSearchArgs{};
+  shared_ptr<string> includeMetadataFields{};
   shared_ptr<bool> includeValues{};
   shared_ptr<string> metrics{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> namespacePassword{};
+  shared_ptr<long> offset{};
+  shared_ptr<string> orderBy{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<long> topK{};
@@ -22733,6 +22736,9 @@ public:
     if (hybridSearchArgs) {
       res["HybridSearchArgs"] = boost::any(*hybridSearchArgs);
     }
+    if (includeMetadataFields) {
+      res["IncludeMetadataFields"] = boost::any(*includeMetadataFields);
+    }
     if (includeValues) {
       res["IncludeValues"] = boost::any(*includeValues);
     }
@@ -22744,6 +22750,12 @@ public:
     }
     if (namespacePassword) {
       res["NamespacePassword"] = boost::any(*namespacePassword);
+    }
+    if (offset) {
+      res["Offset"] = boost::any(*offset);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -22789,6 +22801,9 @@ public:
       }
       hybridSearchArgs = make_shared<map<string, map<string, boost::any>>>(toMap1);
     }
+    if (m.find("IncludeMetadataFields") != m.end() && !m["IncludeMetadataFields"].empty()) {
+      includeMetadataFields = make_shared<string>(boost::any_cast<string>(m["IncludeMetadataFields"]));
+    }
     if (m.find("IncludeValues") != m.end() && !m["IncludeValues"].empty()) {
       includeValues = make_shared<bool>(boost::any_cast<bool>(m["IncludeValues"]));
     }
@@ -22800,6 +22815,12 @@ public:
     }
     if (m.find("NamespacePassword") != m.end() && !m["NamespacePassword"].empty()) {
       namespacePassword = make_shared<string>(boost::any_cast<string>(m["NamespacePassword"]));
+    }
+    if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
+      offset = make_shared<long>(boost::any_cast<long>(m["Offset"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -22833,10 +22854,13 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<string> hybridSearch{};
   shared_ptr<string> hybridSearchArgsShrink{};
+  shared_ptr<string> includeMetadataFields{};
   shared_ptr<bool> includeValues{};
   shared_ptr<string> metrics{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> namespacePassword{};
+  shared_ptr<long> offset{};
+  shared_ptr<string> orderBy{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<long> topK{};
@@ -22870,6 +22894,9 @@ public:
     if (hybridSearchArgsShrink) {
       res["HybridSearchArgs"] = boost::any(*hybridSearchArgsShrink);
     }
+    if (includeMetadataFields) {
+      res["IncludeMetadataFields"] = boost::any(*includeMetadataFields);
+    }
     if (includeValues) {
       res["IncludeValues"] = boost::any(*includeValues);
     }
@@ -22881,6 +22908,12 @@ public:
     }
     if (namespacePassword) {
       res["NamespacePassword"] = boost::any(*namespacePassword);
+    }
+    if (offset) {
+      res["Offset"] = boost::any(*offset);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -22916,6 +22949,9 @@ public:
     if (m.find("HybridSearchArgs") != m.end() && !m["HybridSearchArgs"].empty()) {
       hybridSearchArgsShrink = make_shared<string>(boost::any_cast<string>(m["HybridSearchArgs"]));
     }
+    if (m.find("IncludeMetadataFields") != m.end() && !m["IncludeMetadataFields"].empty()) {
+      includeMetadataFields = make_shared<string>(boost::any_cast<string>(m["IncludeMetadataFields"]));
+    }
     if (m.find("IncludeValues") != m.end() && !m["IncludeValues"].empty()) {
       includeValues = make_shared<bool>(boost::any_cast<bool>(m["IncludeValues"]));
     }
@@ -22927,6 +22963,12 @@ public:
     }
     if (m.find("NamespacePassword") != m.end() && !m["NamespacePassword"].empty()) {
       namespacePassword = make_shared<string>(boost::any_cast<string>(m["NamespacePassword"]));
+    }
+    if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
+      offset = make_shared<long>(boost::any_cast<long>(m["Offset"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -23089,6 +23131,7 @@ public:
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
+  shared_ptr<long> total{};
 
   QueryCollectionDataResponseBody() {}
 
@@ -23112,6 +23155,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
     return res;
   }
 
@@ -23131,6 +23177,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
     }
   }
 
@@ -23199,6 +23248,7 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<string> hybridSearch{};
   shared_ptr<map<string, map<string, boost::any>>> hybridSearchArgs{};
+  shared_ptr<string> includeMetadataFields{};
   shared_ptr<bool> includeVector{};
   shared_ptr<string> metrics{};
   shared_ptr<string> namespace_{};
@@ -23243,6 +23293,9 @@ public:
     }
     if (hybridSearchArgs) {
       res["HybridSearchArgs"] = boost::any(*hybridSearchArgs);
+    }
+    if (includeMetadataFields) {
+      res["IncludeMetadataFields"] = boost::any(*includeMetadataFields);
     }
     if (includeVector) {
       res["IncludeVector"] = boost::any(*includeVector);
@@ -23312,6 +23365,9 @@ public:
       }
       hybridSearchArgs = make_shared<map<string, map<string, boost::any>>>(toMap1);
     }
+    if (m.find("IncludeMetadataFields") != m.end() && !m["IncludeMetadataFields"].empty()) {
+      includeMetadataFields = make_shared<string>(boost::any_cast<string>(m["IncludeMetadataFields"]));
+    }
     if (m.find("IncludeVector") != m.end() && !m["IncludeVector"].empty()) {
       includeVector = make_shared<bool>(boost::any_cast<bool>(m["IncludeVector"]));
     }
@@ -23364,6 +23420,7 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<string> hybridSearch{};
   shared_ptr<map<string, map<string, boost::any>>> hybridSearchArgs{};
+  shared_ptr<string> includeMetadataFields{};
   shared_ptr<bool> includeVector{};
   shared_ptr<string> metrics{};
   shared_ptr<string> namespace_{};
@@ -23408,6 +23465,9 @@ public:
     }
     if (hybridSearchArgs) {
       res["HybridSearchArgs"] = boost::any(*hybridSearchArgs);
+    }
+    if (includeMetadataFields) {
+      res["IncludeMetadataFields"] = boost::any(*includeMetadataFields);
     }
     if (includeVector) {
       res["IncludeVector"] = boost::any(*includeVector);
@@ -23477,6 +23537,9 @@ public:
       }
       hybridSearchArgs = make_shared<map<string, map<string, boost::any>>>(toMap1);
     }
+    if (m.find("IncludeMetadataFields") != m.end() && !m["IncludeMetadataFields"].empty()) {
+      includeMetadataFields = make_shared<string>(boost::any_cast<string>(m["IncludeMetadataFields"]));
+    }
     if (m.find("IncludeVector") != m.end() && !m["IncludeVector"].empty()) {
       includeVector = make_shared<bool>(boost::any_cast<bool>(m["IncludeVector"]));
     }
@@ -23529,6 +23592,7 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<string> hybridSearch{};
   shared_ptr<string> hybridSearchArgsShrink{};
+  shared_ptr<string> includeMetadataFields{};
   shared_ptr<bool> includeVector{};
   shared_ptr<string> metrics{};
   shared_ptr<string> namespace_{};
@@ -23573,6 +23637,9 @@ public:
     }
     if (hybridSearchArgsShrink) {
       res["HybridSearchArgs"] = boost::any(*hybridSearchArgsShrink);
+    }
+    if (includeMetadataFields) {
+      res["IncludeMetadataFields"] = boost::any(*includeMetadataFields);
     }
     if (includeVector) {
       res["IncludeVector"] = boost::any(*includeVector);
@@ -23631,6 +23698,9 @@ public:
     }
     if (m.find("HybridSearchArgs") != m.end() && !m["HybridSearchArgs"].empty()) {
       hybridSearchArgsShrink = make_shared<string>(boost::any_cast<string>(m["HybridSearchArgs"]));
+    }
+    if (m.find("IncludeMetadataFields") != m.end() && !m["IncludeMetadataFields"].empty()) {
+      includeMetadataFields = make_shared<string>(boost::any_cast<string>(m["IncludeMetadataFields"]));
     }
     if (m.find("IncludeVector") != m.end() && !m["IncludeVector"].empty()) {
       includeVector = make_shared<bool>(boost::any_cast<bool>(m["IncludeVector"]));
