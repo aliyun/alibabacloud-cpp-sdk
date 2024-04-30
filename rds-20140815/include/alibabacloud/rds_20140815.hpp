@@ -8171,6 +8171,337 @@ public:
 
   virtual ~CreateGadInstanceMemberResponse() = default;
 };
+class CreateMaskingRulesRequestRuleConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> columns{};
+  shared_ptr<vector<string>> databases{};
+  shared_ptr<vector<string>> tables{};
+
+  CreateMaskingRulesRequestRuleConfig() {}
+
+  explicit CreateMaskingRulesRequestRuleConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (columns) {
+      res["Columns"] = boost::any(*columns);
+    }
+    if (databases) {
+      res["Databases"] = boost::any(*databases);
+    }
+    if (tables) {
+      res["Tables"] = boost::any(*tables);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Columns") != m.end() && !m["Columns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Columns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Columns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      columns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Databases") != m.end() && !m["Databases"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Databases"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Databases"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      databases = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tables") != m.end() && !m["Tables"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Tables"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Tables"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tables = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateMaskingRulesRequestRuleConfig() = default;
+};
+class CreateMaskingRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceName{};
+  shared_ptr<string> defaultAlgo{};
+  shared_ptr<string> maskingAlgo{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<CreateMaskingRulesRequestRuleConfig> ruleConfig{};
+  shared_ptr<string> ruleName{};
+
+  CreateMaskingRulesRequest() {}
+
+  explicit CreateMaskingRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceName) {
+      res["DBInstanceName"] = boost::any(*DBInstanceName);
+    }
+    if (defaultAlgo) {
+      res["DefaultAlgo"] = boost::any(*defaultAlgo);
+    }
+    if (maskingAlgo) {
+      res["MaskingAlgo"] = boost::any(*maskingAlgo);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (ruleConfig) {
+      res["RuleConfig"] = ruleConfig ? boost::any(ruleConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
+      DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
+    }
+    if (m.find("DefaultAlgo") != m.end() && !m["DefaultAlgo"].empty()) {
+      defaultAlgo = make_shared<string>(boost::any_cast<string>(m["DefaultAlgo"]));
+    }
+    if (m.find("MaskingAlgo") != m.end() && !m["MaskingAlgo"].empty()) {
+      maskingAlgo = make_shared<string>(boost::any_cast<string>(m["MaskingAlgo"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RuleConfig") != m.end() && !m["RuleConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RuleConfig"].type()) {
+        CreateMaskingRulesRequestRuleConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RuleConfig"]));
+        ruleConfig = make_shared<CreateMaskingRulesRequestRuleConfig>(model1);
+      }
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~CreateMaskingRulesRequest() = default;
+};
+class CreateMaskingRulesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceName{};
+  shared_ptr<string> defaultAlgo{};
+  shared_ptr<string> maskingAlgo{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> ruleConfigShrink{};
+  shared_ptr<string> ruleName{};
+
+  CreateMaskingRulesShrinkRequest() {}
+
+  explicit CreateMaskingRulesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceName) {
+      res["DBInstanceName"] = boost::any(*DBInstanceName);
+    }
+    if (defaultAlgo) {
+      res["DefaultAlgo"] = boost::any(*defaultAlgo);
+    }
+    if (maskingAlgo) {
+      res["MaskingAlgo"] = boost::any(*maskingAlgo);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (ruleConfigShrink) {
+      res["RuleConfig"] = boost::any(*ruleConfigShrink);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
+      DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
+    }
+    if (m.find("DefaultAlgo") != m.end() && !m["DefaultAlgo"].empty()) {
+      defaultAlgo = make_shared<string>(boost::any_cast<string>(m["DefaultAlgo"]));
+    }
+    if (m.find("MaskingAlgo") != m.end() && !m["MaskingAlgo"].empty()) {
+      maskingAlgo = make_shared<string>(boost::any_cast<string>(m["MaskingAlgo"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RuleConfig") != m.end() && !m["RuleConfig"].empty()) {
+      ruleConfigShrink = make_shared<string>(boost::any_cast<string>(m["RuleConfig"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~CreateMaskingRulesShrinkRequest() = default;
+};
+class CreateMaskingRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  CreateMaskingRulesResponseBody() {}
+
+  explicit CreateMaskingRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Data"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      data = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateMaskingRulesResponseBody() = default;
+};
+class CreateMaskingRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateMaskingRulesResponseBody> body{};
+
+  CreateMaskingRulesResponse() {}
+
+  explicit CreateMaskingRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateMaskingRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateMaskingRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateMaskingRulesResponse() = default;
+};
 class CreateMigrateTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> backupMode{};
@@ -12143,6 +12474,170 @@ public:
 
   virtual ~DeleteGadInstanceResponse() = default;
 };
+class DeleteMaskingRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceName{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> ruleName{};
+
+  DeleteMaskingRulesRequest() {}
+
+  explicit DeleteMaskingRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceName) {
+      res["DBInstanceName"] = boost::any(*DBInstanceName);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
+      DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~DeleteMaskingRulesRequest() = default;
+};
+class DeleteMaskingRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  DeleteMaskingRulesResponseBody() {}
+
+  explicit DeleteMaskingRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Data"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      data = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteMaskingRulesResponseBody() = default;
+};
+class DeleteMaskingRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteMaskingRulesResponseBody> body{};
+
+  DeleteMaskingRulesResponse() {}
+
+  explicit DeleteMaskingRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteMaskingRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteMaskingRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteMaskingRulesResponse() = default;
+};
 class DeleteParameterGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<long> ownerId{};
@@ -13485,6 +13980,241 @@ public:
 
 
   virtual ~DescribeADInfoResponse() = default;
+};
+class DescribeAccountMaskingPrivilegeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceName{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> userName{};
+
+  DescribeAccountMaskingPrivilegeRequest() {}
+
+  explicit DescribeAccountMaskingPrivilegeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceName) {
+      res["DBInstanceName"] = boost::any(*DBInstanceName);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
+      DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~DescribeAccountMaskingPrivilegeRequest() = default;
+};
+class DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege : public Darabonba::Model {
+public:
+  shared_ptr<string> expireTime{};
+  shared_ptr<string> privilege{};
+  shared_ptr<string> userName{};
+
+  DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege() {}
+
+  explicit DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expireTime) {
+      res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (privilege) {
+      res["Privilege"] = boost::any(*privilege);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
+      expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
+    }
+    if (m.find("Privilege") != m.end() && !m["Privilege"].empty()) {
+      privilege = make_shared<string>(boost::any_cast<string>(m["Privilege"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege() = default;
+};
+class DescribeAccountMaskingPrivilegeResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege>> userPrivilege{};
+
+  DescribeAccountMaskingPrivilegeResponseBodyData() {}
+
+  explicit DescribeAccountMaskingPrivilegeResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userPrivilege) {
+      vector<boost::any> temp1;
+      for(auto item1:*userPrivilege){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UserPrivilege"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UserPrivilege") != m.end() && !m["UserPrivilege"].empty()) {
+      if (typeid(vector<boost::any>) == m["UserPrivilege"].type()) {
+        vector<DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UserPrivilege"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        userPrivilege = make_shared<vector<DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAccountMaskingPrivilegeResponseBodyData() = default;
+};
+class DescribeAccountMaskingPrivilegeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeAccountMaskingPrivilegeResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  DescribeAccountMaskingPrivilegeResponseBody() {}
+
+  explicit DescribeAccountMaskingPrivilegeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeAccountMaskingPrivilegeResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeAccountMaskingPrivilegeResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeAccountMaskingPrivilegeResponseBody() = default;
+};
+class DescribeAccountMaskingPrivilegeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeAccountMaskingPrivilegeResponseBody> body{};
+
+  DescribeAccountMaskingPrivilegeResponse() {}
+
+  explicit DescribeAccountMaskingPrivilegeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAccountMaskingPrivilegeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAccountMaskingPrivilegeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAccountMaskingPrivilegeResponse() = default;
 };
 class DescribeAccountsRequest : public Darabonba::Model {
 public:
@@ -39480,6 +40210,323 @@ public:
 
   virtual ~DescribeMarketingActivityResponse() = default;
 };
+class DescribeMaskingRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceName{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> ruleName{};
+
+  DescribeMaskingRulesRequest() {}
+
+  explicit DescribeMaskingRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceName) {
+      res["DBInstanceName"] = boost::any(*DBInstanceName);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
+      DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~DescribeMaskingRulesRequest() = default;
+};
+class DescribeMaskingRulesResponseBodyDataRulesRuleConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> columns{};
+  shared_ptr<vector<string>> databases{};
+  shared_ptr<vector<string>> tables{};
+
+  DescribeMaskingRulesResponseBodyDataRulesRuleConfig() {}
+
+  explicit DescribeMaskingRulesResponseBodyDataRulesRuleConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (columns) {
+      res["Columns"] = boost::any(*columns);
+    }
+    if (databases) {
+      res["Databases"] = boost::any(*databases);
+    }
+    if (tables) {
+      res["Tables"] = boost::any(*tables);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Columns") != m.end() && !m["Columns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Columns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Columns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      columns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Databases") != m.end() && !m["Databases"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Databases"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Databases"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      databases = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tables") != m.end() && !m["Tables"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Tables"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Tables"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tables = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeMaskingRulesResponseBodyDataRulesRuleConfig() = default;
+};
+class DescribeMaskingRulesResponseBodyDataRules : public Darabonba::Model {
+public:
+  shared_ptr<string> defaultAlgo{};
+  shared_ptr<string> enabled{};
+  shared_ptr<string> maskingAlgo{};
+  shared_ptr<DescribeMaskingRulesResponseBodyDataRulesRuleConfig> ruleConfig{};
+  shared_ptr<string> ruleName{};
+
+  DescribeMaskingRulesResponseBodyDataRules() {}
+
+  explicit DescribeMaskingRulesResponseBodyDataRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultAlgo) {
+      res["DefaultAlgo"] = boost::any(*defaultAlgo);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (maskingAlgo) {
+      res["MaskingAlgo"] = boost::any(*maskingAlgo);
+    }
+    if (ruleConfig) {
+      res["RuleConfig"] = ruleConfig ? boost::any(ruleConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultAlgo") != m.end() && !m["DefaultAlgo"].empty()) {
+      defaultAlgo = make_shared<string>(boost::any_cast<string>(m["DefaultAlgo"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<string>(boost::any_cast<string>(m["Enabled"]));
+    }
+    if (m.find("MaskingAlgo") != m.end() && !m["MaskingAlgo"].empty()) {
+      maskingAlgo = make_shared<string>(boost::any_cast<string>(m["MaskingAlgo"]));
+    }
+    if (m.find("RuleConfig") != m.end() && !m["RuleConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RuleConfig"].type()) {
+        DescribeMaskingRulesResponseBodyDataRulesRuleConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RuleConfig"]));
+        ruleConfig = make_shared<DescribeMaskingRulesResponseBodyDataRulesRuleConfig>(model1);
+      }
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~DescribeMaskingRulesResponseBodyDataRules() = default;
+};
+class DescribeMaskingRulesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeMaskingRulesResponseBodyDataRules>> rules{};
+
+  DescribeMaskingRulesResponseBodyData() {}
+
+  explicit DescribeMaskingRulesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Rules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(vector<boost::any>) == m["Rules"].type()) {
+        vector<DescribeMaskingRulesResponseBodyDataRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Rules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMaskingRulesResponseBodyDataRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rules = make_shared<vector<DescribeMaskingRulesResponseBodyDataRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMaskingRulesResponseBodyData() = default;
+};
+class DescribeMaskingRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeMaskingRulesResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  DescribeMaskingRulesResponseBody() {}
+
+  explicit DescribeMaskingRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeMaskingRulesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeMaskingRulesResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeMaskingRulesResponseBody() = default;
+};
+class DescribeMaskingRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeMaskingRulesResponseBody> body{};
+
+  DescribeMaskingRulesResponse() {}
+
+  explicit DescribeMaskingRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeMaskingRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeMaskingRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMaskingRulesResponse() = default;
+};
 class DescribeMetaListRequest : public Darabonba::Model {
 public:
   shared_ptr<long> backupSetID{};
@@ -56671,6 +57718,184 @@ public:
 
   virtual ~ModifyAccountDescriptionResponse() = default;
 };
+class ModifyAccountMaskingPrivilegeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceName{};
+  shared_ptr<string> expireTime{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> privilege{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> userName{};
+
+  ModifyAccountMaskingPrivilegeRequest() {}
+
+  explicit ModifyAccountMaskingPrivilegeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceName) {
+      res["DBInstanceName"] = boost::any(*DBInstanceName);
+    }
+    if (expireTime) {
+      res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (privilege) {
+      res["Privilege"] = boost::any(*privilege);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
+      DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
+    }
+    if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
+      expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("Privilege") != m.end() && !m["Privilege"].empty()) {
+      privilege = make_shared<string>(boost::any_cast<string>(m["Privilege"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~ModifyAccountMaskingPrivilegeRequest() = default;
+};
+class ModifyAccountMaskingPrivilegeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  ModifyAccountMaskingPrivilegeResponseBody() {}
+
+  explicit ModifyAccountMaskingPrivilegeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Data"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      data = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ModifyAccountMaskingPrivilegeResponseBody() = default;
+};
+class ModifyAccountMaskingPrivilegeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyAccountMaskingPrivilegeResponseBody> body{};
+
+  ModifyAccountMaskingPrivilegeResponse() {}
+
+  explicit ModifyAccountMaskingPrivilegeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyAccountMaskingPrivilegeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyAccountMaskingPrivilegeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyAccountMaskingPrivilegeResponse() = default;
+};
 class ModifyActionEventPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> enableEventLog{};
@@ -64324,6 +65549,351 @@ public:
 
 
   virtual ~ModifyInstanceCrossBackupPolicyResponse() = default;
+};
+class ModifyMaskingRulesRequestRuleConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> columns{};
+  shared_ptr<vector<string>> databases{};
+  shared_ptr<vector<string>> tables{};
+
+  ModifyMaskingRulesRequestRuleConfig() {}
+
+  explicit ModifyMaskingRulesRequestRuleConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (columns) {
+      res["Columns"] = boost::any(*columns);
+    }
+    if (databases) {
+      res["Databases"] = boost::any(*databases);
+    }
+    if (tables) {
+      res["Tables"] = boost::any(*tables);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Columns") != m.end() && !m["Columns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Columns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Columns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      columns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Databases") != m.end() && !m["Databases"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Databases"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Databases"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      databases = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tables") != m.end() && !m["Tables"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Tables"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Tables"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tables = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ModifyMaskingRulesRequestRuleConfig() = default;
+};
+class ModifyMaskingRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceName{};
+  shared_ptr<string> defaultAlgo{};
+  shared_ptr<string> enabled{};
+  shared_ptr<string> maskingAlgo{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<ModifyMaskingRulesRequestRuleConfig> ruleConfig{};
+  shared_ptr<string> ruleName{};
+
+  ModifyMaskingRulesRequest() {}
+
+  explicit ModifyMaskingRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceName) {
+      res["DBInstanceName"] = boost::any(*DBInstanceName);
+    }
+    if (defaultAlgo) {
+      res["DefaultAlgo"] = boost::any(*defaultAlgo);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (maskingAlgo) {
+      res["MaskingAlgo"] = boost::any(*maskingAlgo);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (ruleConfig) {
+      res["RuleConfig"] = ruleConfig ? boost::any(ruleConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
+      DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
+    }
+    if (m.find("DefaultAlgo") != m.end() && !m["DefaultAlgo"].empty()) {
+      defaultAlgo = make_shared<string>(boost::any_cast<string>(m["DefaultAlgo"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<string>(boost::any_cast<string>(m["Enabled"]));
+    }
+    if (m.find("MaskingAlgo") != m.end() && !m["MaskingAlgo"].empty()) {
+      maskingAlgo = make_shared<string>(boost::any_cast<string>(m["MaskingAlgo"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RuleConfig") != m.end() && !m["RuleConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RuleConfig"].type()) {
+        ModifyMaskingRulesRequestRuleConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RuleConfig"]));
+        ruleConfig = make_shared<ModifyMaskingRulesRequestRuleConfig>(model1);
+      }
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~ModifyMaskingRulesRequest() = default;
+};
+class ModifyMaskingRulesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceName{};
+  shared_ptr<string> defaultAlgo{};
+  shared_ptr<string> enabled{};
+  shared_ptr<string> maskingAlgo{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> ruleConfigShrink{};
+  shared_ptr<string> ruleName{};
+
+  ModifyMaskingRulesShrinkRequest() {}
+
+  explicit ModifyMaskingRulesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceName) {
+      res["DBInstanceName"] = boost::any(*DBInstanceName);
+    }
+    if (defaultAlgo) {
+      res["DefaultAlgo"] = boost::any(*defaultAlgo);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (maskingAlgo) {
+      res["MaskingAlgo"] = boost::any(*maskingAlgo);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (ruleConfigShrink) {
+      res["RuleConfig"] = boost::any(*ruleConfigShrink);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
+      DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
+    }
+    if (m.find("DefaultAlgo") != m.end() && !m["DefaultAlgo"].empty()) {
+      defaultAlgo = make_shared<string>(boost::any_cast<string>(m["DefaultAlgo"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<string>(boost::any_cast<string>(m["Enabled"]));
+    }
+    if (m.find("MaskingAlgo") != m.end() && !m["MaskingAlgo"].empty()) {
+      maskingAlgo = make_shared<string>(boost::any_cast<string>(m["MaskingAlgo"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RuleConfig") != m.end() && !m["RuleConfig"].empty()) {
+      ruleConfigShrink = make_shared<string>(boost::any_cast<string>(m["RuleConfig"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~ModifyMaskingRulesShrinkRequest() = default;
+};
+class ModifyMaskingRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  ModifyMaskingRulesResponseBody() {}
+
+  explicit ModifyMaskingRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Data"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      data = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ModifyMaskingRulesResponseBody() = default;
+};
+class ModifyMaskingRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyMaskingRulesResponseBody> body{};
+
+  ModifyMaskingRulesResponse() {}
+
+  explicit ModifyMaskingRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyMaskingRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyMaskingRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyMaskingRulesResponse() = default;
 };
 class ModifyPGHbaConfigRequestHbaItem : public Darabonba::Model {
 public:
@@ -73304,6 +74874,8 @@ public:
   CreateGADInstanceResponse createGADInstance(shared_ptr<CreateGADInstanceRequest> request);
   CreateGadInstanceMemberResponse createGadInstanceMemberWithOptions(shared_ptr<CreateGadInstanceMemberRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateGadInstanceMemberResponse createGadInstanceMember(shared_ptr<CreateGadInstanceMemberRequest> request);
+  CreateMaskingRulesResponse createMaskingRulesWithOptions(shared_ptr<CreateMaskingRulesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateMaskingRulesResponse createMaskingRules(shared_ptr<CreateMaskingRulesRequest> request);
   CreateMigrateTaskResponse createMigrateTaskWithOptions(shared_ptr<CreateMigrateTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateMigrateTaskResponse createMigrateTask(shared_ptr<CreateMigrateTaskRequest> request);
   CreateOnlineDatabaseTaskResponse createOnlineDatabaseTaskWithOptions(shared_ptr<CreateOnlineDatabaseTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -73346,6 +74918,8 @@ public:
   DeleteDatabaseResponse deleteDatabase(shared_ptr<DeleteDatabaseRequest> request);
   DeleteGadInstanceResponse deleteGadInstanceWithOptions(shared_ptr<DeleteGadInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteGadInstanceResponse deleteGadInstance(shared_ptr<DeleteGadInstanceRequest> request);
+  DeleteMaskingRulesResponse deleteMaskingRulesWithOptions(shared_ptr<DeleteMaskingRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteMaskingRulesResponse deleteMaskingRules(shared_ptr<DeleteMaskingRulesRequest> request);
   DeleteParameterGroupResponse deleteParameterGroupWithOptions(shared_ptr<DeleteParameterGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteParameterGroupResponse deleteParameterGroup(shared_ptr<DeleteParameterGroupRequest> request);
   DeletePostgresExtensionsResponse deletePostgresExtensionsWithOptions(shared_ptr<DeletePostgresExtensionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -73360,6 +74934,8 @@ public:
   DescibeImportsFromDatabaseResponse descibeImportsFromDatabase(shared_ptr<DescibeImportsFromDatabaseRequest> request);
   DescribeADInfoResponse describeADInfoWithOptions(shared_ptr<DescribeADInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeADInfoResponse describeADInfo(shared_ptr<DescribeADInfoRequest> request);
+  DescribeAccountMaskingPrivilegeResponse describeAccountMaskingPrivilegeWithOptions(shared_ptr<DescribeAccountMaskingPrivilegeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAccountMaskingPrivilegeResponse describeAccountMaskingPrivilege(shared_ptr<DescribeAccountMaskingPrivilegeRequest> request);
   DescribeAccountsResponse describeAccountsWithOptions(shared_ptr<DescribeAccountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAccountsResponse describeAccounts(shared_ptr<DescribeAccountsRequest> request);
   DescribeActionEventPolicyResponse describeActionEventPolicyWithOptions(shared_ptr<DescribeActionEventPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -73516,6 +75092,8 @@ public:
   DescribeLogBackupFilesResponse describeLogBackupFiles(shared_ptr<DescribeLogBackupFilesRequest> request);
   DescribeMarketingActivityResponse describeMarketingActivityWithOptions(shared_ptr<DescribeMarketingActivityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeMarketingActivityResponse describeMarketingActivity(shared_ptr<DescribeMarketingActivityRequest> request);
+  DescribeMaskingRulesResponse describeMaskingRulesWithOptions(shared_ptr<DescribeMaskingRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeMaskingRulesResponse describeMaskingRules(shared_ptr<DescribeMaskingRulesRequest> request);
   DescribeMetaListResponse describeMetaListWithOptions(shared_ptr<DescribeMetaListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeMetaListResponse describeMetaList(shared_ptr<DescribeMetaListRequest> request);
   DescribeMigrateTaskByIdResponse describeMigrateTaskByIdWithOptions(shared_ptr<DescribeMigrateTaskByIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -73632,6 +75210,8 @@ public:
   ModifyADInfoResponse modifyADInfo(shared_ptr<ModifyADInfoRequest> request);
   ModifyAccountDescriptionResponse modifyAccountDescriptionWithOptions(shared_ptr<ModifyAccountDescriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyAccountDescriptionResponse modifyAccountDescription(shared_ptr<ModifyAccountDescriptionRequest> request);
+  ModifyAccountMaskingPrivilegeResponse modifyAccountMaskingPrivilegeWithOptions(shared_ptr<ModifyAccountMaskingPrivilegeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyAccountMaskingPrivilegeResponse modifyAccountMaskingPrivilege(shared_ptr<ModifyAccountMaskingPrivilegeRequest> request);
   ModifyActionEventPolicyResponse modifyActionEventPolicyWithOptions(shared_ptr<ModifyActionEventPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyActionEventPolicyResponse modifyActionEventPolicy(shared_ptr<ModifyActionEventPolicyRequest> request);
   ModifyActiveOperationTasksResponse modifyActiveOperationTasksWithOptions(shared_ptr<ModifyActiveOperationTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -73712,6 +75292,8 @@ public:
   ModifyInstanceAutoRenewalAttributeResponse modifyInstanceAutoRenewalAttribute(shared_ptr<ModifyInstanceAutoRenewalAttributeRequest> request);
   ModifyInstanceCrossBackupPolicyResponse modifyInstanceCrossBackupPolicyWithOptions(shared_ptr<ModifyInstanceCrossBackupPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyInstanceCrossBackupPolicyResponse modifyInstanceCrossBackupPolicy(shared_ptr<ModifyInstanceCrossBackupPolicyRequest> request);
+  ModifyMaskingRulesResponse modifyMaskingRulesWithOptions(shared_ptr<ModifyMaskingRulesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyMaskingRulesResponse modifyMaskingRules(shared_ptr<ModifyMaskingRulesRequest> request);
   ModifyPGHbaConfigResponse modifyPGHbaConfigWithOptions(shared_ptr<ModifyPGHbaConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyPGHbaConfigResponse modifyPGHbaConfig(shared_ptr<ModifyPGHbaConfigRequest> request);
   ModifyParameterResponse modifyParameterWithOptions(shared_ptr<ModifyParameterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
