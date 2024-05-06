@@ -52220,6 +52220,7 @@ public:
 };
 class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry : public Darabonba::Model {
 public:
+  shared_ptr<string> eipAffinity{};
   shared_ptr<string> natGatewayId{};
   shared_ptr<string> snatEntryId{};
   shared_ptr<string> snatEntryName{};
@@ -52239,6 +52240,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (eipAffinity) {
+      res["EipAffinity"] = boost::any(*eipAffinity);
+    }
     if (natGatewayId) {
       res["NatGatewayId"] = boost::any(*natGatewayId);
     }
@@ -52267,6 +52271,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EipAffinity") != m.end() && !m["EipAffinity"].empty()) {
+      eipAffinity = make_shared<string>(boost::any_cast<string>(m["EipAffinity"]));
+    }
     if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
       natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
     }
@@ -63018,6 +63025,42 @@ public:
 
   virtual ~DescribeVpnGatewayRequest() = default;
 };
+class DescribeVpnGatewayResponseBodyEniInstanceIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> eniInstanceId{};
+
+  DescribeVpnGatewayResponseBodyEniInstanceIds() {}
+
+  explicit DescribeVpnGatewayResponseBodyEniInstanceIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eniInstanceId) {
+      res["EniInstanceId"] = boost::any(*eniInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EniInstanceId") != m.end() && !m["EniInstanceId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EniInstanceId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EniInstanceId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      eniInstanceId = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeVpnGatewayResponseBodyEniInstanceIds() = default;
+};
 class DescribeVpnGatewayResponseBodyReservationData : public Darabonba::Model {
 public:
   shared_ptr<string> reservationEndTime{};
@@ -63179,6 +63222,7 @@ public:
   shared_ptr<string> disasterRecoveryVSwitchId{};
   shared_ptr<bool> enableBgp{};
   shared_ptr<long> endTime{};
+  shared_ptr<DescribeVpnGatewayResponseBodyEniInstanceIds> eniInstanceIds{};
   shared_ptr<string> internetIp{};
   shared_ptr<string> ipsecVpn{};
   shared_ptr<string> name{};
@@ -63234,6 +63278,9 @@ public:
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (eniInstanceIds) {
+      res["EniInstanceIds"] = eniInstanceIds ? boost::any(eniInstanceIds->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (internetIp) {
       res["InternetIp"] = boost::any(*internetIp);
@@ -63319,6 +63366,13 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("EniInstanceIds") != m.end() && !m["EniInstanceIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EniInstanceIds"].type()) {
+        DescribeVpnGatewayResponseBodyEniInstanceIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EniInstanceIds"]));
+        eniInstanceIds = make_shared<DescribeVpnGatewayResponseBodyEniInstanceIds>(model1);
+      }
     }
     if (m.find("InternetIp") != m.end() && !m["InternetIp"].empty()) {
       internetIp = make_shared<string>(boost::any_cast<string>(m["InternetIp"]));
@@ -63825,6 +63879,42 @@ public:
 
   virtual ~DescribeVpnGatewaysRequest() = default;
 };
+class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> eniInstanceId{};
+
+  DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds() {}
+
+  explicit DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eniInstanceId) {
+      res["EniInstanceId"] = boost::any(*eniInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EniInstanceId") != m.end() && !m["EniInstanceId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EniInstanceId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EniInstanceId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      eniInstanceId = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds() = default;
+};
 class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData : public Darabonba::Model {
 public:
   shared_ptr<string> reservationEndTime{};
@@ -63986,6 +64076,7 @@ public:
   shared_ptr<string> disasterRecoveryVSwitchId{};
   shared_ptr<bool> enableBgp{};
   shared_ptr<long> endTime{};
+  shared_ptr<DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds> eniInstanceIds{};
   shared_ptr<string> internetIp{};
   shared_ptr<string> ipsecVpn{};
   shared_ptr<string> name{};
@@ -64040,6 +64131,9 @@ public:
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (eniInstanceIds) {
+      res["EniInstanceIds"] = eniInstanceIds ? boost::any(eniInstanceIds->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (internetIp) {
       res["InternetIp"] = boost::any(*internetIp);
@@ -64122,6 +64216,13 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("EniInstanceIds") != m.end() && !m["EniInstanceIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EniInstanceIds"].type()) {
+        DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EniInstanceIds"]));
+        eniInstanceIds = make_shared<DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds>(model1);
+      }
     }
     if (m.find("InternetIp") != m.end() && !m["InternetIp"].empty()) {
       internetIp = make_shared<string>(boost::any_cast<string>(m["InternetIp"]));
@@ -86872,6 +86973,7 @@ public:
 class ModifySnatEntryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<long> eipAffinity{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -86894,6 +86996,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (eipAffinity) {
+      res["EipAffinity"] = boost::any(*eipAffinity);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -86928,6 +87033,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("EipAffinity") != m.end() && !m["EipAffinity"].empty()) {
+      eipAffinity = make_shared<long>(boost::any_cast<long>(m["EipAffinity"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));

@@ -17486,6 +17486,9 @@ ModifySnatEntryResponse Alibabacloud_Vpc20160428::Client::modifySnatEntryWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->eipAffinity)) {
+    query->insert(pair<string, long>("EipAffinity", *request->eipAffinity));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
