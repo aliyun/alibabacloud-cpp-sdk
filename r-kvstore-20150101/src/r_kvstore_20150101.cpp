@@ -440,6 +440,9 @@ CreateCacheAnalysisTaskResponse Alibabacloud_R-kvstore20150101::Client::createCa
 CreateGlobalDistributeCacheResponse Alibabacloud_R-kvstore20150101::Client::createGlobalDistributeCacheWithOptions(shared_ptr<CreateGlobalDistributeCacheRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->effectiveTime)) {
+    query->insert(pair<string, string>("EffectiveTime", *request->effectiveTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -848,6 +851,9 @@ CreateTairInstanceResponse Alibabacloud_R-kvstore20150101::Client::createTairIns
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->restoreTime)) {
+    query->insert(pair<string, string>("RestoreTime", *request->restoreTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->secondaryZoneId)) {
     query->insert(pair<string, string>("SecondaryZoneId", *request->secondaryZoneId));
