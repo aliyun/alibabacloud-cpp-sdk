@@ -3933,6 +3933,7 @@ public:
   shared_ptr<string> displayName{};
   shared_ptr<string> emailStatus{};
   shared_ptr<string> folderId{};
+  shared_ptr<bool> hasSecureMobilePhone{};
   shared_ptr<string> identityInformation{};
   shared_ptr<string> joinMethod{};
   shared_ptr<string> joinTime{};
@@ -3968,6 +3969,9 @@ public:
     }
     if (folderId) {
       res["FolderId"] = boost::any(*folderId);
+    }
+    if (hasSecureMobilePhone) {
+      res["HasSecureMobilePhone"] = boost::any(*hasSecureMobilePhone);
     }
     if (identityInformation) {
       res["IdentityInformation"] = boost::any(*identityInformation);
@@ -4021,6 +4025,9 @@ public:
     }
     if (m.find("FolderId") != m.end() && !m["FolderId"].empty()) {
       folderId = make_shared<string>(boost::any_cast<string>(m["FolderId"]));
+    }
+    if (m.find("HasSecureMobilePhone") != m.end() && !m["HasSecureMobilePhone"].empty()) {
+      hasSecureMobilePhone = make_shared<bool>(boost::any_cast<bool>(m["HasSecureMobilePhone"]));
     }
     if (m.find("IdentityInformation") != m.end() && !m["IdentityInformation"].empty()) {
       identityInformation = make_shared<string>(boost::any_cast<string>(m["IdentityInformation"]));

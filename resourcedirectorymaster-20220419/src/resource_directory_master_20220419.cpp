@@ -16,6 +16,7 @@ using namespace std;
 using namespace Alibabacloud_ResourceDirectoryMaster20220419;
 
 Alibabacloud_ResourceDirectoryMaster20220419::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
+  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("");
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("resourcedirectorymaster"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
