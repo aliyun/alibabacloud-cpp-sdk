@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -1282,6 +1281,34 @@ GetUserSsoSettingsResponse Alibabacloud_Ims20190815::Client::getUserSsoSettingsW
 GetUserSsoSettingsResponse Alibabacloud_Ims20190815::Client::getUserSsoSettings() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getUserSsoSettingsWithOptions(runtime);
+}
+
+GetVerificationInfoResponse Alibabacloud_Ims20190815::Client::getVerificationInfoWithOptions(shared_ptr<GetVerificationInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->userPrincipalName)) {
+    query->insert(pair<string, string>("UserPrincipalName", *request->userPrincipalName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetVerificationInfo"))},
+    {"version", boost::any(string("2019-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetVerificationInfoResponse(callApi(params, req, runtime));
+}
+
+GetVerificationInfoResponse Alibabacloud_Ims20190815::Client::getVerificationInfo(shared_ptr<GetVerificationInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getVerificationInfoWithOptions(request, runtime);
 }
 
 ListAccessKeysResponse Alibabacloud_Ims20190815::Client::listAccessKeysWithOptions(shared_ptr<ListAccessKeysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
