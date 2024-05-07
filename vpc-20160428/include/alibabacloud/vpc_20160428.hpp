@@ -45197,6 +45197,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<bool> ecsMetricEnabled{};
   shared_ptr<string> eipBindMode{};
+  shared_ptr<string> enableSessionLog{};
   shared_ptr<string> expiredTime{};
   shared_ptr<DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayForwardTableIds> forwardTableIds{};
   shared_ptr<DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayFullNatTableIds> fullNatTableIds{};
@@ -45250,6 +45251,9 @@ public:
     }
     if (eipBindMode) {
       res["EipBindMode"] = boost::any(*eipBindMode);
+    }
+    if (enableSessionLog) {
+      res["EnableSessionLog"] = boost::any(*enableSessionLog);
     }
     if (expiredTime) {
       res["ExpiredTime"] = boost::any(*expiredTime);
@@ -45341,6 +45345,9 @@ public:
     }
     if (m.find("EipBindMode") != m.end() && !m["EipBindMode"].empty()) {
       eipBindMode = make_shared<string>(boost::any_cast<string>(m["EipBindMode"]));
+    }
+    if (m.find("EnableSessionLog") != m.end() && !m["EnableSessionLog"].empty()) {
+      enableSessionLog = make_shared<string>(boost::any_cast<string>(m["EnableSessionLog"]));
     }
     if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
       expiredTime = make_shared<string>(boost::any_cast<string>(m["ExpiredTime"]));
@@ -69254,6 +69261,56 @@ public:
 
   virtual ~GetNatGatewayAttributeResponseBodyIpList() = default;
 };
+class GetNatGatewayAttributeResponseBodyLogDelivery : public Darabonba::Model {
+public:
+  shared_ptr<string> deliverLogsErrorMessage{};
+  shared_ptr<string> deliveryStatus{};
+  shared_ptr<string> logDeliveryType{};
+  shared_ptr<string> logDestination{};
+
+  GetNatGatewayAttributeResponseBodyLogDelivery() {}
+
+  explicit GetNatGatewayAttributeResponseBodyLogDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliverLogsErrorMessage) {
+      res["DeliverLogsErrorMessage"] = boost::any(*deliverLogsErrorMessage);
+    }
+    if (deliveryStatus) {
+      res["DeliveryStatus"] = boost::any(*deliveryStatus);
+    }
+    if (logDeliveryType) {
+      res["LogDeliveryType"] = boost::any(*logDeliveryType);
+    }
+    if (logDestination) {
+      res["LogDestination"] = boost::any(*logDestination);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliverLogsErrorMessage") != m.end() && !m["DeliverLogsErrorMessage"].empty()) {
+      deliverLogsErrorMessage = make_shared<string>(boost::any_cast<string>(m["DeliverLogsErrorMessage"]));
+    }
+    if (m.find("DeliveryStatus") != m.end() && !m["DeliveryStatus"].empty()) {
+      deliveryStatus = make_shared<string>(boost::any_cast<string>(m["DeliveryStatus"]));
+    }
+    if (m.find("LogDeliveryType") != m.end() && !m["LogDeliveryType"].empty()) {
+      logDeliveryType = make_shared<string>(boost::any_cast<string>(m["LogDeliveryType"]));
+    }
+    if (m.find("LogDestination") != m.end() && !m["LogDestination"].empty()) {
+      logDestination = make_shared<string>(boost::any_cast<string>(m["LogDestination"]));
+    }
+  }
+
+
+  virtual ~GetNatGatewayAttributeResponseBodyLogDelivery() = default;
+};
 class GetNatGatewayAttributeResponseBodyPrivateInfo : public Darabonba::Model {
 public:
   shared_ptr<string> eniInstanceId{};
@@ -69355,10 +69412,12 @@ public:
   shared_ptr<GetNatGatewayAttributeResponseBodyDeletionProtectionInfo> deletionProtectionInfo{};
   shared_ptr<string> description{};
   shared_ptr<bool> ecsMetricEnabled{};
+  shared_ptr<bool> enableSessionLog{};
   shared_ptr<string> expiredTime{};
   shared_ptr<GetNatGatewayAttributeResponseBodyForwardTable> forwardTable{};
   shared_ptr<GetNatGatewayAttributeResponseBodyFullNatTable> fullNatTable{};
   shared_ptr<vector<GetNatGatewayAttributeResponseBodyIpList>> ipList{};
+  shared_ptr<GetNatGatewayAttributeResponseBodyLogDelivery> logDelivery{};
   shared_ptr<string> name{};
   shared_ptr<string> natGatewayId{};
   shared_ptr<string> natType{};
@@ -69401,6 +69460,9 @@ public:
     if (ecsMetricEnabled) {
       res["EcsMetricEnabled"] = boost::any(*ecsMetricEnabled);
     }
+    if (enableSessionLog) {
+      res["EnableSessionLog"] = boost::any(*enableSessionLog);
+    }
     if (expiredTime) {
       res["ExpiredTime"] = boost::any(*expiredTime);
     }
@@ -69416,6 +69478,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["IpList"] = boost::any(temp1);
+    }
+    if (logDelivery) {
+      res["LogDelivery"] = logDelivery ? boost::any(logDelivery->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -69486,6 +69551,9 @@ public:
     if (m.find("EcsMetricEnabled") != m.end() && !m["EcsMetricEnabled"].empty()) {
       ecsMetricEnabled = make_shared<bool>(boost::any_cast<bool>(m["EcsMetricEnabled"]));
     }
+    if (m.find("EnableSessionLog") != m.end() && !m["EnableSessionLog"].empty()) {
+      enableSessionLog = make_shared<bool>(boost::any_cast<bool>(m["EnableSessionLog"]));
+    }
     if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
       expiredTime = make_shared<string>(boost::any_cast<string>(m["ExpiredTime"]));
     }
@@ -69514,6 +69582,13 @@ public:
           }
         }
         ipList = make_shared<vector<GetNatGatewayAttributeResponseBodyIpList>>(expect1);
+      }
+    }
+    if (m.find("LogDelivery") != m.end() && !m["LogDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LogDelivery"].type()) {
+        GetNatGatewayAttributeResponseBodyLogDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LogDelivery"]));
+        logDelivery = make_shared<GetNatGatewayAttributeResponseBodyLogDelivery>(model1);
       }
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
@@ -85184,11 +85259,49 @@ public:
 
   virtual ~ModifyIpv6InternetBandwidthResponse() = default;
 };
+class ModifyNatGatewayAttributeRequestLogDelivery : public Darabonba::Model {
+public:
+  shared_ptr<string> logDeliveryType{};
+  shared_ptr<string> logDestination{};
+
+  ModifyNatGatewayAttributeRequestLogDelivery() {}
+
+  explicit ModifyNatGatewayAttributeRequestLogDelivery(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logDeliveryType) {
+      res["LogDeliveryType"] = boost::any(*logDeliveryType);
+    }
+    if (logDestination) {
+      res["LogDestination"] = boost::any(*logDestination);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogDeliveryType") != m.end() && !m["LogDeliveryType"].empty()) {
+      logDeliveryType = make_shared<string>(boost::any_cast<string>(m["LogDeliveryType"]));
+    }
+    if (m.find("LogDestination") != m.end() && !m["LogDestination"].empty()) {
+      logDestination = make_shared<string>(boost::any_cast<string>(m["LogDestination"]));
+    }
+  }
+
+
+  virtual ~ModifyNatGatewayAttributeRequestLogDelivery() = default;
+};
 class ModifyNatGatewayAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<string> eipBindMode{};
+  shared_ptr<bool> enableSessionLog{};
   shared_ptr<bool> icmpReplyEnabled{};
+  shared_ptr<ModifyNatGatewayAttributeRequestLogDelivery> logDelivery{};
   shared_ptr<string> name{};
   shared_ptr<string> natGatewayId{};
   shared_ptr<string> ownerAccount{};
@@ -85213,8 +85326,14 @@ public:
     if (eipBindMode) {
       res["EipBindMode"] = boost::any(*eipBindMode);
     }
+    if (enableSessionLog) {
+      res["EnableSessionLog"] = boost::any(*enableSessionLog);
+    }
     if (icmpReplyEnabled) {
       res["IcmpReplyEnabled"] = boost::any(*icmpReplyEnabled);
+    }
+    if (logDelivery) {
+      res["LogDelivery"] = logDelivery ? boost::any(logDelivery->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -85247,8 +85366,18 @@ public:
     if (m.find("EipBindMode") != m.end() && !m["EipBindMode"].empty()) {
       eipBindMode = make_shared<string>(boost::any_cast<string>(m["EipBindMode"]));
     }
+    if (m.find("EnableSessionLog") != m.end() && !m["EnableSessionLog"].empty()) {
+      enableSessionLog = make_shared<bool>(boost::any_cast<bool>(m["EnableSessionLog"]));
+    }
     if (m.find("IcmpReplyEnabled") != m.end() && !m["IcmpReplyEnabled"].empty()) {
       icmpReplyEnabled = make_shared<bool>(boost::any_cast<bool>(m["IcmpReplyEnabled"]));
+    }
+    if (m.find("LogDelivery") != m.end() && !m["LogDelivery"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LogDelivery"].type()) {
+        ModifyNatGatewayAttributeRequestLogDelivery model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LogDelivery"]));
+        logDelivery = make_shared<ModifyNatGatewayAttributeRequestLogDelivery>(model1);
+      }
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -85275,6 +85404,112 @@ public:
 
 
   virtual ~ModifyNatGatewayAttributeRequest() = default;
+};
+class ModifyNatGatewayAttributeShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> eipBindMode{};
+  shared_ptr<bool> enableSessionLog{};
+  shared_ptr<bool> icmpReplyEnabled{};
+  shared_ptr<string> logDeliveryShrink{};
+  shared_ptr<string> name{};
+  shared_ptr<string> natGatewayId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  ModifyNatGatewayAttributeShrinkRequest() {}
+
+  explicit ModifyNatGatewayAttributeShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (eipBindMode) {
+      res["EipBindMode"] = boost::any(*eipBindMode);
+    }
+    if (enableSessionLog) {
+      res["EnableSessionLog"] = boost::any(*enableSessionLog);
+    }
+    if (icmpReplyEnabled) {
+      res["IcmpReplyEnabled"] = boost::any(*icmpReplyEnabled);
+    }
+    if (logDeliveryShrink) {
+      res["LogDelivery"] = boost::any(*logDeliveryShrink);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (natGatewayId) {
+      res["NatGatewayId"] = boost::any(*natGatewayId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EipBindMode") != m.end() && !m["EipBindMode"].empty()) {
+      eipBindMode = make_shared<string>(boost::any_cast<string>(m["EipBindMode"]));
+    }
+    if (m.find("EnableSessionLog") != m.end() && !m["EnableSessionLog"].empty()) {
+      enableSessionLog = make_shared<bool>(boost::any_cast<bool>(m["EnableSessionLog"]));
+    }
+    if (m.find("IcmpReplyEnabled") != m.end() && !m["IcmpReplyEnabled"].empty()) {
+      icmpReplyEnabled = make_shared<bool>(boost::any_cast<bool>(m["IcmpReplyEnabled"]));
+    }
+    if (m.find("LogDelivery") != m.end() && !m["LogDelivery"].empty()) {
+      logDeliveryShrink = make_shared<string>(boost::any_cast<string>(m["LogDelivery"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
+      natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~ModifyNatGatewayAttributeShrinkRequest() = default;
 };
 class ModifyNatGatewayAttributeResponseBody : public Darabonba::Model {
 public:
@@ -102547,7 +102782,7 @@ public:
   ModifyIpv6GatewayAttributeResponse modifyIpv6GatewayAttribute(shared_ptr<ModifyIpv6GatewayAttributeRequest> request);
   ModifyIpv6InternetBandwidthResponse modifyIpv6InternetBandwidthWithOptions(shared_ptr<ModifyIpv6InternetBandwidthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyIpv6InternetBandwidthResponse modifyIpv6InternetBandwidth(shared_ptr<ModifyIpv6InternetBandwidthRequest> request);
-  ModifyNatGatewayAttributeResponse modifyNatGatewayAttributeWithOptions(shared_ptr<ModifyNatGatewayAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyNatGatewayAttributeResponse modifyNatGatewayAttributeWithOptions(shared_ptr<ModifyNatGatewayAttributeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyNatGatewayAttributeResponse modifyNatGatewayAttribute(shared_ptr<ModifyNatGatewayAttributeRequest> request);
   ModifyNatGatewaySpecResponse modifyNatGatewaySpecWithOptions(shared_ptr<ModifyNatGatewaySpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyNatGatewaySpecResponse modifyNatGatewaySpec(shared_ptr<ModifyNatGatewaySpecRequest> request);

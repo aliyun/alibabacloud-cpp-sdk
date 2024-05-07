@@ -16897,8 +16897,13 @@ ModifyIpv6InternetBandwidthResponse Alibabacloud_Vpc20160428::Client::modifyIpv6
   return modifyIpv6InternetBandwidthWithOptions(request, runtime);
 }
 
-ModifyNatGatewayAttributeResponse Alibabacloud_Vpc20160428::Client::modifyNatGatewayAttributeWithOptions(shared_ptr<ModifyNatGatewayAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ModifyNatGatewayAttributeResponse Alibabacloud_Vpc20160428::Client::modifyNatGatewayAttributeWithOptions(shared_ptr<ModifyNatGatewayAttributeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ModifyNatGatewayAttributeShrinkRequest> request = make_shared<ModifyNatGatewayAttributeShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ModifyNatGatewayAttributeRequestLogDelivery>(tmpReq->logDelivery)) {
+    request->logDeliveryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->logDelivery, make_shared<string>("LogDelivery"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
@@ -16906,8 +16911,14 @@ ModifyNatGatewayAttributeResponse Alibabacloud_Vpc20160428::Client::modifyNatGat
   if (!Darabonba_Util::Client::isUnset<string>(request->eipBindMode)) {
     query->insert(pair<string, string>("EipBindMode", *request->eipBindMode));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableSessionLog)) {
+    query->insert(pair<string, bool>("EnableSessionLog", *request->enableSessionLog));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->icmpReplyEnabled)) {
     query->insert(pair<string, bool>("IcmpReplyEnabled", *request->icmpReplyEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logDeliveryShrink)) {
+    query->insert(pair<string, string>("LogDelivery", *request->logDeliveryShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
