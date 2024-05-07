@@ -25185,6 +25185,7 @@ public:
   shared_ptr<string> namespace_{};
   shared_ptr<vector<GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList>> portTrafficPolicyList{};
   shared_ptr<vector<long>> ports{};
+  shared_ptr<string> serviceFQDN{};
   shared_ptr<string> serviceNameInRegistry{};
   shared_ptr<string> serviceProtocol{};
   shared_ptr<long> sourceId{};
@@ -25257,6 +25258,9 @@ public:
     }
     if (ports) {
       res["Ports"] = boost::any(*ports);
+    }
+    if (serviceFQDN) {
+      res["ServiceFQDN"] = boost::any(*serviceFQDN);
     }
     if (serviceNameInRegistry) {
       res["ServiceNameInRegistry"] = boost::any(*serviceNameInRegistry);
@@ -25373,6 +25377,9 @@ public:
         }
       }
       ports = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("ServiceFQDN") != m.end() && !m["ServiceFQDN"].empty()) {
+      serviceFQDN = make_shared<string>(boost::any_cast<string>(m["ServiceFQDN"]));
     }
     if (m.find("ServiceNameInRegistry") != m.end() && !m["ServiceNameInRegistry"].empty()) {
       serviceNameInRegistry = make_shared<string>(boost::any_cast<string>(m["ServiceNameInRegistry"]));
@@ -26880,6 +26887,7 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> type{};
+  shared_ptr<string> vpcId{};
 
   GetMseSourceRequest() {}
 
@@ -26900,6 +26908,9 @@ public:
     if (type) {
       res["Type"] = boost::any(*type);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
@@ -26912,6 +26923,9 @@ public:
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
@@ -44403,6 +44417,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
   shared_ptr<vector<long>> ports{};
+  shared_ptr<string> serviceFQDN{};
   shared_ptr<string> serviceNameInRegistry{};
   shared_ptr<long> servicePort{};
   shared_ptr<string> serviceProtocol{};
@@ -44468,6 +44483,9 @@ public:
     }
     if (ports) {
       res["Ports"] = boost::any(*ports);
+    }
+    if (serviceFQDN) {
+      res["ServiceFQDN"] = boost::any(*serviceFQDN);
     }
     if (serviceNameInRegistry) {
       res["ServiceNameInRegistry"] = boost::any(*serviceNameInRegistry);
@@ -44567,6 +44585,9 @@ public:
         }
       }
       ports = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("ServiceFQDN") != m.end() && !m["ServiceFQDN"].empty()) {
+      serviceFQDN = make_shared<string>(boost::any_cast<string>(m["ServiceFQDN"]));
     }
     if (m.find("ServiceNameInRegistry") != m.end() && !m["ServiceNameInRegistry"].empty()) {
       serviceNameInRegistry = make_shared<string>(boost::any_cast<string>(m["ServiceNameInRegistry"]));
