@@ -8114,7 +8114,6 @@ public:
   shared_ptr<DescribeAccessControlListAttributeResponseBodyAclEntrys> aclEntrys{};
   shared_ptr<string> aclId{};
   shared_ptr<string> aclName{};
-  shared_ptr<string> isUsed{};
   shared_ptr<string> requestId{};
 
   DescribeAccessControlListAttributeResponseBody() {}
@@ -8136,9 +8135,6 @@ public:
     if (aclName) {
       res["AclName"] = boost::any(*aclName);
     }
-    if (isUsed) {
-      res["IsUsed"] = boost::any(*isUsed);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -8158,9 +8154,6 @@ public:
     }
     if (m.find("AclName") != m.end() && !m["AclName"].empty()) {
       aclName = make_shared<string>(boost::any_cast<string>(m["AclName"]));
-    }
-    if (m.find("IsUsed") != m.end() && !m["IsUsed"].empty()) {
-      isUsed = make_shared<string>(boost::any_cast<string>(m["IsUsed"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -19132,6 +19125,332 @@ public:
 
   virtual ~DescribeApisByTrafficControlResponse() = default;
 };
+class DescribeApisByVpcAccessRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> vpcName{};
+
+  DescribeApisByVpcAccessRequest() {}
+
+  explicit DescribeApisByVpcAccessRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (vpcName) {
+      res["VpcName"] = boost::any(*vpcName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("VpcName") != m.end() && !m["VpcName"].empty()) {
+      vpcName = make_shared<string>(boost::any_cast<string>(m["VpcName"]));
+    }
+  }
+
+
+  virtual ~DescribeApisByVpcAccessRequest() = default;
+};
+class DescribeApisByVpcAccessResponseBodyApiVpcAccessInfosApiVpcAccessInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> apiId{};
+  shared_ptr<string> apiName{};
+  shared_ptr<string> description{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> method{};
+  shared_ptr<string> path{};
+  shared_ptr<long> port{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> stageId{};
+  shared_ptr<string> stageName{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<string> vpcName{};
+
+  DescribeApisByVpcAccessResponseBodyApiVpcAccessInfosApiVpcAccessInfo() {}
+
+  explicit DescribeApisByVpcAccessResponseBodyApiVpcAccessInfosApiVpcAccessInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiId) {
+      res["ApiId"] = boost::any(*apiId);
+    }
+    if (apiName) {
+      res["ApiName"] = boost::any(*apiName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (method) {
+      res["Method"] = boost::any(*method);
+    }
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (stageId) {
+      res["StageId"] = boost::any(*stageId);
+    }
+    if (stageName) {
+      res["StageName"] = boost::any(*stageName);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    if (vpcName) {
+      res["VpcName"] = boost::any(*vpcName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiId") != m.end() && !m["ApiId"].empty()) {
+      apiId = make_shared<string>(boost::any_cast<string>(m["ApiId"]));
+    }
+    if (m.find("ApiName") != m.end() && !m["ApiName"].empty()) {
+      apiName = make_shared<string>(boost::any_cast<string>(m["ApiName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Method") != m.end() && !m["Method"].empty()) {
+      method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StageId") != m.end() && !m["StageId"].empty()) {
+      stageId = make_shared<string>(boost::any_cast<string>(m["StageId"]));
+    }
+    if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
+      stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("VpcName") != m.end() && !m["VpcName"].empty()) {
+      vpcName = make_shared<string>(boost::any_cast<string>(m["VpcName"]));
+    }
+  }
+
+
+  virtual ~DescribeApisByVpcAccessResponseBodyApiVpcAccessInfosApiVpcAccessInfo() = default;
+};
+class DescribeApisByVpcAccessResponseBodyApiVpcAccessInfos : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeApisByVpcAccessResponseBodyApiVpcAccessInfosApiVpcAccessInfo>> apiVpcAccessInfo{};
+
+  DescribeApisByVpcAccessResponseBodyApiVpcAccessInfos() {}
+
+  explicit DescribeApisByVpcAccessResponseBodyApiVpcAccessInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiVpcAccessInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*apiVpcAccessInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ApiVpcAccessInfo"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiVpcAccessInfo") != m.end() && !m["ApiVpcAccessInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["ApiVpcAccessInfo"].type()) {
+        vector<DescribeApisByVpcAccessResponseBodyApiVpcAccessInfosApiVpcAccessInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ApiVpcAccessInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeApisByVpcAccessResponseBodyApiVpcAccessInfosApiVpcAccessInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        apiVpcAccessInfo = make_shared<vector<DescribeApisByVpcAccessResponseBodyApiVpcAccessInfosApiVpcAccessInfo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeApisByVpcAccessResponseBodyApiVpcAccessInfos() = default;
+};
+class DescribeApisByVpcAccessResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeApisByVpcAccessResponseBodyApiVpcAccessInfos> apiVpcAccessInfos{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeApisByVpcAccessResponseBody() {}
+
+  explicit DescribeApisByVpcAccessResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiVpcAccessInfos) {
+      res["ApiVpcAccessInfos"] = apiVpcAccessInfos ? boost::any(apiVpcAccessInfos->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiVpcAccessInfos") != m.end() && !m["ApiVpcAccessInfos"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ApiVpcAccessInfos"].type()) {
+        DescribeApisByVpcAccessResponseBodyApiVpcAccessInfos model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ApiVpcAccessInfos"]));
+        apiVpcAccessInfos = make_shared<DescribeApisByVpcAccessResponseBodyApiVpcAccessInfos>(model1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeApisByVpcAccessResponseBody() = default;
+};
+class DescribeApisByVpcAccessResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeApisByVpcAccessResponseBody> body{};
+
+  DescribeApisByVpcAccessResponse() {}
+
+  explicit DescribeApisByVpcAccessResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeApisByVpcAccessResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeApisByVpcAccessResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeApisByVpcAccessResponse() = default;
+};
 class DescribeApisWithStageNameIntegratedByAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiName{};
@@ -21236,6 +21555,7 @@ public:
 };
 class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp : public Darabonba::Model {
 public:
+  shared_ptr<string> appDescription{};
   shared_ptr<long> appId{};
   shared_ptr<string> appName{};
   shared_ptr<string> authVaildTime{};
@@ -21256,6 +21576,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appDescription) {
+      res["AppDescription"] = boost::any(*appDescription);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -21287,6 +21610,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppDescription") != m.end() && !m["AppDescription"].empty()) {
+      appDescription = make_shared<string>(boost::any_cast<string>(m["AppDescription"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<long>(boost::any_cast<long>(m["AppId"]));
     }
@@ -30174,6 +30500,85 @@ public:
 
   virtual ~DescribeInstancesResponseBodyInstancesInstanceAttributePrivateDnsList() = default;
 };
+class DescribeInstancesResponseBodyInstancesInstanceAttributeTagsTagInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeInstancesResponseBodyInstancesInstanceAttributeTagsTagInfo() {}
+
+  explicit DescribeInstancesResponseBodyInstancesInstanceAttributeTagsTagInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeInstancesResponseBodyInstancesInstanceAttributeTagsTagInfo() = default;
+};
+class DescribeInstancesResponseBodyInstancesInstanceAttributeTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeInstancesResponseBodyInstancesInstanceAttributeTagsTagInfo>> tagInfo{};
+
+  DescribeInstancesResponseBodyInstancesInstanceAttributeTags() {}
+
+  explicit DescribeInstancesResponseBodyInstancesInstanceAttributeTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagInfo"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagInfo") != m.end() && !m["TagInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagInfo"].type()) {
+        vector<DescribeInstancesResponseBodyInstancesInstanceAttributeTagsTagInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeInstancesResponseBodyInstancesInstanceAttributeTagsTagInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagInfo = make_shared<vector<DescribeInstancesResponseBodyInstancesInstanceAttributeTagsTagInfo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeInstancesResponseBodyInstancesInstanceAttributeTags() = default;
+};
 class DescribeInstancesResponseBodyInstancesInstanceAttribute : public Darabonba::Model {
 public:
   shared_ptr<string> aclId{};
@@ -30210,6 +30615,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
   shared_ptr<bool> supportIpv6{};
+  shared_ptr<DescribeInstancesResponseBodyInstancesInstanceAttributeTags> tags{};
   shared_ptr<string> userVpcId{};
   shared_ptr<string> userVswitchId{};
   shared_ptr<string> vpcEgressAddress{};
@@ -30330,6 +30736,9 @@ public:
     }
     if (supportIpv6) {
       res["SupportIpv6"] = boost::any(*supportIpv6);
+    }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (userVpcId) {
       res["UserVpcId"] = boost::any(*userVpcId);
@@ -30472,6 +30881,13 @@ public:
     }
     if (m.find("SupportIpv6") != m.end() && !m["SupportIpv6"].empty()) {
       supportIpv6 = make_shared<bool>(boost::any_cast<bool>(m["SupportIpv6"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        DescribeInstancesResponseBodyInstancesInstanceAttributeTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<DescribeInstancesResponseBodyInstancesInstanceAttributeTags>(model1);
+      }
     }
     if (m.find("UserVpcId") != m.end() && !m["UserVpcId"].empty()) {
       userVpcId = make_shared<string>(boost::any_cast<string>(m["UserVpcId"]));
@@ -50003,6 +50419,8 @@ public:
   DescribeApisBySignatureResponse describeApisBySignature(shared_ptr<DescribeApisBySignatureRequest> request);
   DescribeApisByTrafficControlResponse describeApisByTrafficControlWithOptions(shared_ptr<DescribeApisByTrafficControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeApisByTrafficControlResponse describeApisByTrafficControl(shared_ptr<DescribeApisByTrafficControlRequest> request);
+  DescribeApisByVpcAccessResponse describeApisByVpcAccessWithOptions(shared_ptr<DescribeApisByVpcAccessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeApisByVpcAccessResponse describeApisByVpcAccess(shared_ptr<DescribeApisByVpcAccessRequest> request);
   DescribeApisWithStageNameIntegratedByAppResponse describeApisWithStageNameIntegratedByAppWithOptions(shared_ptr<DescribeApisWithStageNameIntegratedByAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeApisWithStageNameIntegratedByAppResponse describeApisWithStageNameIntegratedByApp(shared_ptr<DescribeApisWithStageNameIntegratedByAppRequest> request);
   DescribeAppResponse describeAppWithOptions(shared_ptr<DescribeAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
