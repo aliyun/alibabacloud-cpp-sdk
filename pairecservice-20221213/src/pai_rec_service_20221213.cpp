@@ -943,6 +943,105 @@ CreateParamResponse Alibabacloud_PaiRecService20221213::Client::createParam(shar
   return createParamWithOptions(request, headers, runtime);
 }
 
+CreateResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::createResourceRuleWithOptions(shared_ptr<CreateResourceRuleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metricOperationType)) {
+    body->insert(pair<string, string>("MetricOperationType", *request->metricOperationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metricPullInfo)) {
+    body->insert(pair<string, string>("MetricPullInfo", *request->metricPullInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metricPullPeriod)) {
+    body->insert(pair<string, string>("MetricPullPeriod", *request->metricPullPeriod));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleComputingDefinition)) {
+    body->insert(pair<string, string>("RuleComputingDefinition", *request->ruleComputingDefinition));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateResourceRuleRequestRuleItems>>(request->ruleItems)) {
+    body->insert(pair<string, vector<CreateResourceRuleRequestRuleItems>>("RuleItems", *request->ruleItems));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateResourceRule"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/resourcerules"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateResourceRuleResponse(callApi(params, req, runtime));
+}
+
+CreateResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::createResourceRule(shared_ptr<CreateResourceRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createResourceRuleWithOptions(request, headers, runtime);
+}
+
+CreateResourceRuleItemResponse Alibabacloud_PaiRecService20221213::Client::createResourceRuleItemWithOptions(shared_ptr<string> ResourceRuleId,
+                                                                                                             shared_ptr<CreateResourceRuleItemRequest> request,
+                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->maxValue)) {
+    body->insert(pair<string, double>("MaxValue", *request->maxValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->minValue)) {
+    body->insert(pair<string, double>("MinValue", *request->minValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->value)) {
+    body->insert(pair<string, double>("Value", *request->value));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateResourceRuleItem"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/resourcerules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ResourceRuleId)) + string("/items"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateResourceRuleItemResponse(callApi(params, req, runtime));
+}
+
+CreateResourceRuleItemResponse Alibabacloud_PaiRecService20221213::Client::createResourceRuleItem(shared_ptr<string> ResourceRuleId, shared_ptr<CreateResourceRuleItemRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createResourceRuleItemWithOptions(ResourceRuleId, request, headers, runtime);
+}
+
 CreateSceneResponse Alibabacloud_PaiRecService20221213::Client::createSceneWithOptions(shared_ptr<CreateSceneRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1067,6 +1166,50 @@ CreateTableMetaResponse Alibabacloud_PaiRecService20221213::Client::createTableM
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return createTableMetaWithOptions(request, headers, runtime);
+}
+
+DebugResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::debugResourceRuleWithOptions(shared_ptr<string> ResourceRuleId,
+                                                                                                   shared_ptr<DebugResourceRuleRequest> tmpReq,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DebugResourceRuleShrinkRequest> request = make_shared<DebugResourceRuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->metricInfo)) {
+    request->metricInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->metricInfo, make_shared<string>("MetricInfo"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metricInfoShrink)) {
+    query->insert(pair<string, string>("MetricInfo", *request->metricInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DebugResourceRule"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/resourcerules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ResourceRuleId)) + string("/action/debug"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DebugResourceRuleResponse(callApi(params, req, runtime));
+}
+
+DebugResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::debugResourceRule(shared_ptr<string> ResourceRuleId, shared_ptr<DebugResourceRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return debugResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
 }
 
 DeleteABMetricResponse Alibabacloud_PaiRecService20221213::Client::deleteABMetricWithOptions(shared_ptr<string> ABMetricId,
@@ -1358,6 +1501,73 @@ DeleteParamResponse Alibabacloud_PaiRecService20221213::Client::deleteParam(shar
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return deleteParamWithOptions(ParamId, request, headers, runtime);
+}
+
+DeleteResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::deleteResourceRuleWithOptions(shared_ptr<string> ResourceRuleId,
+                                                                                                     shared_ptr<DeleteResourceRuleRequest> request,
+                                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteResourceRule"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/resourcerules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ResourceRuleId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteResourceRuleResponse(callApi(params, req, runtime));
+}
+
+DeleteResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::deleteResourceRule(shared_ptr<string> ResourceRuleId, shared_ptr<DeleteResourceRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
+}
+
+DeleteResourceRuleItemResponse Alibabacloud_PaiRecService20221213::Client::deleteResourceRuleItemWithOptions(shared_ptr<string> ResourceRuleId,
+                                                                                                             shared_ptr<string> ResourceRuleItemId,
+                                                                                                             shared_ptr<DeleteResourceRuleItemRequest> request,
+                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteResourceRuleItem"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/resourcerules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ResourceRuleId)) + string("/items/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ResourceRuleItemId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteResourceRuleItemResponse(callApi(params, req, runtime));
+}
+
+DeleteResourceRuleItemResponse Alibabacloud_PaiRecService20221213::Client::deleteResourceRuleItem(shared_ptr<string> ResourceRuleId, shared_ptr<string> ResourceRuleItemId, shared_ptr<DeleteResourceRuleItemRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteResourceRuleItemWithOptions(ResourceRuleId, ResourceRuleItemId, request, headers, runtime);
 }
 
 DeleteSceneResponse Alibabacloud_PaiRecService20221213::Client::deleteSceneWithOptions(shared_ptr<string> SceneId,
@@ -1834,6 +2044,39 @@ GetLayerResponse Alibabacloud_PaiRecService20221213::Client::getLayer(shared_ptr
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getLayerWithOptions(LayerId, request, headers, runtime);
+}
+
+GetResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::getResourceRuleWithOptions(shared_ptr<string> ResourceRuleId,
+                                                                                               shared_ptr<GetResourceRuleRequest> request,
+                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetResourceRule"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/resourcerules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ResourceRuleId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetResourceRuleResponse(callApi(params, req, runtime));
+}
+
+GetResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::getResourceRule(shared_ptr<string> ResourceRuleId, shared_ptr<GetResourceRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
 }
 
 GetSceneResponse Alibabacloud_PaiRecService20221213::Client::getSceneWithOptions(shared_ptr<string> SceneId,
@@ -2589,6 +2832,57 @@ ListParamsResponse Alibabacloud_PaiRecService20221213::Client::listParams(shared
   return listParamsWithOptions(request, headers, runtime);
 }
 
+ListResourceRulesResponse Alibabacloud_PaiRecService20221213::Client::listResourceRulesWithOptions(shared_ptr<ListResourceRulesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->all)) {
+    query->insert(pair<string, bool>("All", *request->all));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    query->insert(pair<string, string>("Order", *request->order));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceRuleId)) {
+    query->insert(pair<string, string>("ResourceRuleId", *request->resourceRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceRuleName)) {
+    query->insert(pair<string, string>("ResourceRuleName", *request->resourceRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
+    query->insert(pair<string, string>("SortBy", *request->sortBy));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListResourceRules"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/resourcerules"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListResourceRulesResponse(callApi(params, req, runtime));
+}
+
+ListResourceRulesResponse Alibabacloud_PaiRecService20221213::Client::listResourceRules(shared_ptr<ListResourceRulesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listResourceRulesWithOptions(request, headers, runtime);
+}
+
 ListScenesResponse Alibabacloud_PaiRecService20221213::Client::listScenesWithOptions(shared_ptr<ListScenesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2929,6 +3223,47 @@ PushAllExperimentResponse Alibabacloud_PaiRecService20221213::Client::pushAllExp
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return pushAllExperimentWithOptions(ExperimentId, request, headers, runtime);
+}
+
+PushResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::pushResourceRuleWithOptions(shared_ptr<string> ResourceRuleId,
+                                                                                                 shared_ptr<PushResourceRuleRequest> tmpReq,
+                                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<PushResourceRuleShrinkRequest> request = make_shared<PushResourceRuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->metricInfo)) {
+    request->metricInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->metricInfo, make_shared<string>("MetricInfo"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metricInfoShrink)) {
+    query->insert(pair<string, string>("MetricInfo", *request->metricInfoShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PushResourceRule"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/resourcerules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ResourceRuleId)) + string("/action/push"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PushResourceRuleResponse(callApi(params, req, runtime));
+}
+
+PushResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::pushResourceRule(shared_ptr<string> ResourceRuleId, shared_ptr<PushResourceRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return pushResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
 }
 
 ReportABMetricGroupResponse Alibabacloud_PaiRecService20221213::Client::reportABMetricGroupWithOptions(shared_ptr<string> ABMetricGroupId,
@@ -3665,6 +4000,106 @@ UpdateParamResponse Alibabacloud_PaiRecService20221213::Client::updateParam(shar
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateParamWithOptions(ParamId, request, headers, runtime);
+}
+
+UpdateResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::updateResourceRuleWithOptions(shared_ptr<string> ResourceRuleId,
+                                                                                                     shared_ptr<UpdateResourceRuleRequest> request,
+                                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metricOperationType)) {
+    body->insert(pair<string, string>("MetricOperationType", *request->metricOperationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metricPullInfo)) {
+    body->insert(pair<string, string>("MetricPullInfo", *request->metricPullInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metricPullPeriod)) {
+    body->insert(pair<string, string>("MetricPullPeriod", *request->metricPullPeriod));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleComputingDefinition)) {
+    body->insert(pair<string, string>("RuleComputingDefinition", *request->ruleComputingDefinition));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateResourceRule"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/resourcerules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ResourceRuleId)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateResourceRuleResponse(callApi(params, req, runtime));
+}
+
+UpdateResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::updateResourceRule(shared_ptr<string> ResourceRuleId, shared_ptr<UpdateResourceRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
+}
+
+UpdateResourceRuleItemResponse Alibabacloud_PaiRecService20221213::Client::updateResourceRuleItemWithOptions(shared_ptr<string> ResourceRuleId,
+                                                                                                             shared_ptr<string> ResourceRuleItemId,
+                                                                                                             shared_ptr<UpdateResourceRuleItemRequest> request,
+                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->maxValue)) {
+    body->insert(pair<string, double>("MaxValue", *request->maxValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->minValue)) {
+    body->insert(pair<string, double>("MinValue", *request->minValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->value)) {
+    body->insert(pair<string, double>("Value", *request->value));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateResourceRuleItem"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/resourcerules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ResourceRuleId)) + string("/items/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ResourceRuleItemId)))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateResourceRuleItemResponse(callApi(params, req, runtime));
+}
+
+UpdateResourceRuleItemResponse Alibabacloud_PaiRecService20221213::Client::updateResourceRuleItem(shared_ptr<string> ResourceRuleId, shared_ptr<string> ResourceRuleItemId, shared_ptr<UpdateResourceRuleItemRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateResourceRuleItemWithOptions(ResourceRuleId, ResourceRuleItemId, request, headers, runtime);
 }
 
 UpdateSceneResponse Alibabacloud_PaiRecService20221213::Client::updateSceneWithOptions(shared_ptr<string> SceneId,
