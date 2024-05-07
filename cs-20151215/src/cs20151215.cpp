@@ -1731,9 +1731,18 @@ DescribeClusterNodePoolDetailResponse Alibabacloud_CS20151215::Client::describeC
   return describeClusterNodePoolDetailWithOptions(ClusterId, NodepoolId, headers, runtime);
 }
 
-DescribeClusterNodePoolsResponse Alibabacloud_CS20151215::Client::describeClusterNodePoolsWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+DescribeClusterNodePoolsResponse Alibabacloud_CS20151215::Client::describeClusterNodePoolsWithOptions(shared_ptr<string> ClusterId,
+                                                                                                      shared_ptr<DescribeClusterNodePoolsRequest> request,
+                                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodepoolName)) {
+    query->insert(pair<string, string>("NodepoolName", *request->nodepoolName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeClusterNodePools"))},
@@ -1749,10 +1758,10 @@ DescribeClusterNodePoolsResponse Alibabacloud_CS20151215::Client::describeCluste
   return DescribeClusterNodePoolsResponse(callApi(params, req, runtime));
 }
 
-DescribeClusterNodePoolsResponse Alibabacloud_CS20151215::Client::describeClusterNodePools(shared_ptr<string> ClusterId) {
+DescribeClusterNodePoolsResponse Alibabacloud_CS20151215::Client::describeClusterNodePools(shared_ptr<string> ClusterId, shared_ptr<DescribeClusterNodePoolsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeClusterNodePoolsWithOptions(ClusterId, headers, runtime);
+  return describeClusterNodePoolsWithOptions(ClusterId, request, headers, runtime);
 }
 
 DescribeClusterNodesResponse Alibabacloud_CS20151215::Client::describeClusterNodesWithOptions(shared_ptr<string> ClusterId,

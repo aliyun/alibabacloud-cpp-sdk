@@ -10362,6 +10362,35 @@ public:
 
   virtual ~DescribeClusterNodePoolDetailResponse() = default;
 };
+class DescribeClusterNodePoolsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> nodepoolName{};
+
+  DescribeClusterNodePoolsRequest() {}
+
+  explicit DescribeClusterNodePoolsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nodepoolName) {
+      res["NodepoolName"] = boost::any(*nodepoolName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NodepoolName") != m.end() && !m["NodepoolName"].empty()) {
+      nodepoolName = make_shared<string>(boost::any_cast<string>(m["NodepoolName"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterNodePoolsRequest() = default;
+};
 class DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling : public Darabonba::Model {
 public:
   shared_ptr<long> eipBandwidth{};
@@ -27452,8 +27481,11 @@ public:
                                                                                  shared_ptr<map<string, string>> headers,
                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeClusterNodePoolDetailResponse describeClusterNodePoolDetail(shared_ptr<string> ClusterId, shared_ptr<string> NodepoolId);
-  DescribeClusterNodePoolsResponse describeClusterNodePoolsWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeClusterNodePoolsResponse describeClusterNodePools(shared_ptr<string> ClusterId);
+  DescribeClusterNodePoolsResponse describeClusterNodePoolsWithOptions(shared_ptr<string> ClusterId,
+                                                                       shared_ptr<DescribeClusterNodePoolsRequest> request,
+                                                                       shared_ptr<map<string, string>> headers,
+                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeClusterNodePoolsResponse describeClusterNodePools(shared_ptr<string> ClusterId, shared_ptr<DescribeClusterNodePoolsRequest> request);
   DescribeClusterNodesResponse describeClusterNodesWithOptions(shared_ptr<string> ClusterId,
                                                                shared_ptr<DescribeClusterNodesRequest> request,
                                                                shared_ptr<map<string, string>> headers,
