@@ -1475,6 +1475,165 @@ public:
 
   virtual ~AddUsersToSkillGroupResponse() = default;
 };
+class AnalyzeConversationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> contactId{};
+  shared_ptr<string> fieldListJson{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> taskListJson{};
+
+  AnalyzeConversationRequest() {}
+
+  explicit AnalyzeConversationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contactId) {
+      res["ContactId"] = boost::any(*contactId);
+    }
+    if (fieldListJson) {
+      res["FieldListJson"] = boost::any(*fieldListJson);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (taskListJson) {
+      res["TaskListJson"] = boost::any(*taskListJson);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContactId") != m.end() && !m["ContactId"].empty()) {
+      contactId = make_shared<string>(boost::any_cast<string>(m["ContactId"]));
+    }
+    if (m.find("FieldListJson") != m.end() && !m["FieldListJson"].empty()) {
+      fieldListJson = make_shared<string>(boost::any_cast<string>(m["FieldListJson"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("TaskListJson") != m.end() && !m["TaskListJson"].empty()) {
+      taskListJson = make_shared<string>(boost::any_cast<string>(m["TaskListJson"]));
+    }
+  }
+
+
+  virtual ~AnalyzeConversationRequest() = default;
+};
+class AnalyzeConversationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  AnalyzeConversationResponseBody() {}
+
+  explicit AnalyzeConversationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AnalyzeConversationResponseBody() = default;
+};
+class AnalyzeConversationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AnalyzeConversationResponseBody> body{};
+
+  AnalyzeConversationResponse() {}
+
+  explicit AnalyzeConversationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AnalyzeConversationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AnalyzeConversationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AnalyzeConversationResponse() = default;
+};
 class AnswerCallRequest : public Darabonba::Model {
 public:
   shared_ptr<string> deviceId{};
@@ -61135,6 +61294,8 @@ public:
   AddSkillGroupsToUserResponse addSkillGroupsToUser(shared_ptr<AddSkillGroupsToUserRequest> request);
   AddUsersToSkillGroupResponse addUsersToSkillGroupWithOptions(shared_ptr<AddUsersToSkillGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddUsersToSkillGroupResponse addUsersToSkillGroup(shared_ptr<AddUsersToSkillGroupRequest> request);
+  AnalyzeConversationResponse analyzeConversationWithOptions(shared_ptr<AnalyzeConversationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AnalyzeConversationResponse analyzeConversation(shared_ptr<AnalyzeConversationRequest> request);
   AnswerCallResponse answerCallWithOptions(shared_ptr<AnswerCallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AnswerCallResponse answerCall(shared_ptr<AnswerCallRequest> request);
   AppendCasesResponse appendCasesWithOptions(shared_ptr<AppendCasesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
