@@ -1282,6 +1282,9 @@ CreateOrUpdateAlertRuleResponse Alibabacloud_ARMS20190808::Client::createOrUpdat
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoAddNewApplication)) {
     body->insert(pair<string, bool>("AutoAddNewApplication", *request->autoAddNewApplication));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->autoAddTargetConfig)) {
+    body->insert(pair<string, string>("AutoAddTargetConfig", *request->autoAddTargetConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     body->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
@@ -1323,6 +1326,9 @@ CreateOrUpdateAlertRuleResponse Alibabacloud_ARMS20190808::Client::createOrUpdat
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pids)) {
     body->insert(pair<string, string>("Pids", *request->pids));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->product)) {
+    body->insert(pair<string, string>("Product", *request->product));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->promQL)) {
     body->insert(pair<string, string>("PromQL", *request->promQL));
@@ -3599,6 +3605,9 @@ DescribeEnvironmentResponse Alibabacloud_ARMS20190808::Client::describeEnvironme
 DescribeEnvironmentFeatureResponse Alibabacloud_ARMS20190808::Client::describeEnvironmentFeatureWithOptions(shared_ptr<DescribeEnvironmentFeatureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliyunLang)) {
+    query->insert(pair<string, string>("AliyunLang", *request->aliyunLang));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->environmentId)) {
     query->insert(pair<string, string>("EnvironmentId", *request->environmentId));
   }
@@ -5814,6 +5823,9 @@ ListEnvironmentsResponse Alibabacloud_ARMS20190808::Client::listEnvironmentsWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->environmentType)) {
     query->insert(pair<string, string>("EnvironmentType", *request->environmentType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->feePackage)) {
+    query->insert(pair<string, string>("FeePackage", *request->feePackage));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));

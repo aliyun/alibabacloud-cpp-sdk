@@ -7844,6 +7844,7 @@ public:
   shared_ptr<string> alertType{};
   shared_ptr<string> annotations{};
   shared_ptr<bool> autoAddNewApplication{};
+  shared_ptr<string> autoAddTargetConfig{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> dataConfig{};
   shared_ptr<long> duration{};
@@ -7858,6 +7859,7 @@ public:
   shared_ptr<string> notifyMode{};
   shared_ptr<string> notifyStrategy{};
   shared_ptr<string> pids{};
+  shared_ptr<string> product{};
   shared_ptr<string> promQL{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<CreateOrUpdateAlertRuleRequestTags>> tags{};
@@ -7901,6 +7903,9 @@ public:
     }
     if (autoAddNewApplication) {
       res["AutoAddNewApplication"] = boost::any(*autoAddNewApplication);
+    }
+    if (autoAddTargetConfig) {
+      res["AutoAddTargetConfig"] = boost::any(*autoAddTargetConfig);
     }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
@@ -7948,6 +7953,9 @@ public:
     if (pids) {
       res["Pids"] = boost::any(*pids);
     }
+    if (product) {
+      res["Product"] = boost::any(*product);
+    }
     if (promQL) {
       res["PromQL"] = boost::any(*promQL);
     }
@@ -7994,6 +8002,9 @@ public:
     }
     if (m.find("AutoAddNewApplication") != m.end() && !m["AutoAddNewApplication"].empty()) {
       autoAddNewApplication = make_shared<bool>(boost::any_cast<bool>(m["AutoAddNewApplication"]));
+    }
+    if (m.find("AutoAddTargetConfig") != m.end() && !m["AutoAddTargetConfig"].empty()) {
+      autoAddTargetConfig = make_shared<string>(boost::any_cast<string>(m["AutoAddTargetConfig"]));
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
@@ -8046,6 +8057,9 @@ public:
     }
     if (m.find("Pids") != m.end() && !m["Pids"].empty()) {
       pids = make_shared<string>(boost::any_cast<string>(m["Pids"]));
+    }
+    if (m.find("Product") != m.end() && !m["Product"].empty()) {
+      product = make_shared<string>(boost::any_cast<string>(m["Product"]));
     }
     if (m.find("PromQL") != m.end() && !m["PromQL"].empty()) {
       promQL = make_shared<string>(boost::any_cast<string>(m["PromQL"]));
@@ -23400,6 +23414,7 @@ public:
 };
 class DescribeEnvironmentFeatureRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> aliyunLang{};
   shared_ptr<string> environmentId{};
   shared_ptr<string> featureName{};
   shared_ptr<string> regionId{};
@@ -23414,6 +23429,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aliyunLang) {
+      res["AliyunLang"] = boost::any(*aliyunLang);
+    }
     if (environmentId) {
       res["EnvironmentId"] = boost::any(*environmentId);
     }
@@ -23427,6 +23445,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunLang") != m.end() && !m["AliyunLang"].empty()) {
+      aliyunLang = make_shared<string>(boost::any_cast<string>(m["AliyunLang"]));
+    }
     if (m.find("EnvironmentId") != m.end() && !m["EnvironmentId"].empty()) {
       environmentId = make_shared<string>(boost::any_cast<string>(m["EnvironmentId"]));
     }
@@ -23597,10 +23618,13 @@ public:
 };
 class DescribeEnvironmentFeatureResponseBodyDataFeatureStatus : public Darabonba::Model {
 public:
+  shared_ptr<string> bindResourceId{};
   shared_ptr<vector<DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureContainers>> featureContainers{};
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
+  shared_ptr<string> securityGroupId{};
   shared_ptr<string> status{};
+  shared_ptr<string> vSwitchId{};
 
   DescribeEnvironmentFeatureResponseBodyDataFeatureStatus() {}
 
@@ -23612,6 +23636,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bindResourceId) {
+      res["BindResourceId"] = boost::any(*bindResourceId);
+    }
     if (featureContainers) {
       vector<boost::any> temp1;
       for(auto item1:*featureContainers){
@@ -23625,13 +23652,22 @@ public:
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
     }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BindResourceId") != m.end() && !m["BindResourceId"].empty()) {
+      bindResourceId = make_shared<string>(boost::any_cast<string>(m["BindResourceId"]));
+    }
     if (m.find("FeatureContainers") != m.end() && !m["FeatureContainers"].empty()) {
       if (typeid(vector<boost::any>) == m["FeatureContainers"].type()) {
         vector<DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureContainers> expect1;
@@ -23651,8 +23687,14 @@ public:
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
   }
 
@@ -43527,6 +43569,7 @@ public:
   shared_ptr<string> addonName{};
   shared_ptr<string> bindResourceId{};
   shared_ptr<string> environmentType{};
+  shared_ptr<string> feePackage{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<ListEnvironmentsRequestTag>> tag{};
@@ -43549,6 +43592,9 @@ public:
     }
     if (environmentType) {
       res["EnvironmentType"] = boost::any(*environmentType);
+    }
+    if (feePackage) {
+      res["FeePackage"] = boost::any(*feePackage);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -43575,6 +43621,9 @@ public:
     }
     if (m.find("EnvironmentType") != m.end() && !m["EnvironmentType"].empty()) {
       environmentType = make_shared<string>(boost::any_cast<string>(m["EnvironmentType"]));
+    }
+    if (m.find("FeePackage") != m.end() && !m["FeePackage"].empty()) {
+      feePackage = make_shared<string>(boost::any_cast<string>(m["FeePackage"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -43605,6 +43654,7 @@ public:
   shared_ptr<string> addonName{};
   shared_ptr<string> bindResourceId{};
   shared_ptr<string> environmentType{};
+  shared_ptr<string> feePackage{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> tagShrink{};
@@ -43628,6 +43678,9 @@ public:
     if (environmentType) {
       res["EnvironmentType"] = boost::any(*environmentType);
     }
+    if (feePackage) {
+      res["FeePackage"] = boost::any(*feePackage);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -43649,6 +43702,9 @@ public:
     }
     if (m.find("EnvironmentType") != m.end() && !m["EnvironmentType"].empty()) {
       environmentType = make_shared<string>(boost::any_cast<string>(m["EnvironmentType"]));
+    }
+    if (m.find("FeePackage") != m.end() && !m["FeePackage"].empty()) {
+      feePackage = make_shared<string>(boost::any_cast<string>(m["FeePackage"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -43813,6 +43869,7 @@ public:
   shared_ptr<string> environmentName{};
   shared_ptr<string> environmentType{};
   shared_ptr<vector<ListEnvironmentsResponseBodyDataEnvironmentsFeatures>> features{};
+  shared_ptr<string> feePackage{};
   shared_ptr<string> grafanaDatasourceUid{};
   shared_ptr<string> grafanaFolderTitle{};
   shared_ptr<string> grafanaFolderUid{};
@@ -43876,6 +43933,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Features"] = boost::any(temp1);
+    }
+    if (feePackage) {
+      res["FeePackage"] = boost::any(*feePackage);
     }
     if (grafanaDatasourceUid) {
       res["GrafanaDatasourceUid"] = boost::any(*grafanaDatasourceUid);
@@ -43973,6 +44033,9 @@ public:
         }
         features = make_shared<vector<ListEnvironmentsResponseBodyDataEnvironmentsFeatures>>(expect1);
       }
+    }
+    if (m.find("FeePackage") != m.end() && !m["FeePackage"].empty()) {
+      feePackage = make_shared<string>(boost::any_cast<string>(m["FeePackage"]));
     }
     if (m.find("GrafanaDatasourceUid") != m.end() && !m["GrafanaDatasourceUid"].empty()) {
       grafanaDatasourceUid = make_shared<string>(boost::any_cast<string>(m["GrafanaDatasourceUid"]));
