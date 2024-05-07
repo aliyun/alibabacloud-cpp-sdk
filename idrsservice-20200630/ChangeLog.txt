@@ -1,0 +1,5 @@
+2024-05-07 Version: 1.0.0
+- Update API UploadReport: add param Role.
+- Update API UploadReport: add param VideoType.
+
+
