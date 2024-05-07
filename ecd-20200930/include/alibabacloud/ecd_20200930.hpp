@@ -15546,6 +15546,7 @@ class DescribeDesktopInfoResponseBodyDesktops : public Darabonba::Model {
 public:
   shared_ptr<string> connectionStatus{};
   shared_ptr<string> currentAppVersion{};
+  shared_ptr<string> desktopGroupId{};
   shared_ptr<string> desktopId{};
   shared_ptr<string> desktopStatus{};
   shared_ptr<vector<string>> managementFlag{};
@@ -15569,6 +15570,9 @@ public:
     }
     if (currentAppVersion) {
       res["CurrentAppVersion"] = boost::any(*currentAppVersion);
+    }
+    if (desktopGroupId) {
+      res["DesktopGroupId"] = boost::any(*desktopGroupId);
     }
     if (desktopId) {
       res["DesktopId"] = boost::any(*desktopId);
@@ -15600,6 +15604,9 @@ public:
     }
     if (m.find("CurrentAppVersion") != m.end() && !m["CurrentAppVersion"].empty()) {
       currentAppVersion = make_shared<string>(boost::any_cast<string>(m["CurrentAppVersion"]));
+    }
+    if (m.find("DesktopGroupId") != m.end() && !m["DesktopGroupId"].empty()) {
+      desktopGroupId = make_shared<string>(boost::any_cast<string>(m["DesktopGroupId"]));
     }
     if (m.find("DesktopId") != m.end() && !m["DesktopId"].empty()) {
       desktopId = make_shared<string>(boost::any_cast<string>(m["DesktopId"]));
