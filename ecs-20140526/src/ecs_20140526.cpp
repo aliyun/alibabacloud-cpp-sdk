@@ -3595,6 +3595,9 @@ CreateNetworkInterfaceResponse Alibabacloud_Ecs20140526::Client::createNetworkIn
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateNetworkInterfaceRequestConnectionTrackingConfiguration>(request->connectionTrackingConfiguration)) {
+    query->insert(pair<string, CreateNetworkInterfaceRequestConnectionTrackingConfiguration>("ConnectionTrackingConfiguration", *request->connectionTrackingConfiguration));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->deleteOnRelease)) {
     query->insert(pair<string, bool>("DeleteOnRelease", *request->deleteOnRelease));
   }
@@ -16864,6 +16867,9 @@ ModifyManagedInstanceResponse Alibabacloud_Ecs20140526::Client::modifyManagedIns
 ModifyNetworkInterfaceAttributeResponse Alibabacloud_Ecs20140526::Client::modifyNetworkInterfaceAttributeWithOptions(shared_ptr<ModifyNetworkInterfaceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration>(request->connectionTrackingConfiguration)) {
+    query->insert(pair<string, ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration>("ConnectionTrackingConfiguration", *request->connectionTrackingConfiguration));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->deleteOnRelease)) {
     query->insert(pair<string, bool>("DeleteOnRelease", *request->deleteOnRelease));
   }
