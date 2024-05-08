@@ -1285,6 +1285,7 @@ public:
 };
 class CreateAccessControlListResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> aclId{};
   shared_ptr<string> requestId{};
 
   CreateAccessControlListResponseBody() {}
@@ -1297,6 +1298,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -1304,6 +1308,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -8114,6 +8121,7 @@ public:
   shared_ptr<DescribeAccessControlListAttributeResponseBodyAclEntrys> aclEntrys{};
   shared_ptr<string> aclId{};
   shared_ptr<string> aclName{};
+  shared_ptr<string> addressIPVersion{};
   shared_ptr<string> requestId{};
 
   DescribeAccessControlListAttributeResponseBody() {}
@@ -8135,6 +8143,9 @@ public:
     if (aclName) {
       res["AclName"] = boost::any(*aclName);
     }
+    if (addressIPVersion) {
+      res["AddressIPVersion"] = boost::any(*addressIPVersion);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -8154,6 +8165,9 @@ public:
     }
     if (m.find("AclName") != m.end() && !m["AclName"].empty()) {
       aclName = make_shared<string>(boost::any_cast<string>(m["AclName"]));
+    }
+    if (m.find("AddressIPVersion") != m.end() && !m["AddressIPVersion"].empty()) {
+      addressIPVersion = make_shared<string>(boost::any_cast<string>(m["AddressIPVersion"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
