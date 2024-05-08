@@ -2243,7 +2243,9 @@ public:
   shared_ptr<long> maxMessageSize{};
   shared_ptr<long> messageCount{};
   shared_ptr<long> messageRetentionPeriod{};
+  shared_ptr<string> topicInnerUrl{};
   shared_ptr<string> topicName{};
+  shared_ptr<string> topicUrl{};
 
   ListTopicResponseBodyDataPageData() {}
 
@@ -2273,8 +2275,14 @@ public:
     if (messageRetentionPeriod) {
       res["MessageRetentionPeriod"] = boost::any(*messageRetentionPeriod);
     }
+    if (topicInnerUrl) {
+      res["TopicInnerUrl"] = boost::any(*topicInnerUrl);
+    }
     if (topicName) {
       res["TopicName"] = boost::any(*topicName);
+    }
+    if (topicUrl) {
+      res["TopicUrl"] = boost::any(*topicUrl);
     }
     return res;
   }
@@ -2298,8 +2306,14 @@ public:
     if (m.find("MessageRetentionPeriod") != m.end() && !m["MessageRetentionPeriod"].empty()) {
       messageRetentionPeriod = make_shared<long>(boost::any_cast<long>(m["MessageRetentionPeriod"]));
     }
+    if (m.find("TopicInnerUrl") != m.end() && !m["TopicInnerUrl"].empty()) {
+      topicInnerUrl = make_shared<string>(boost::any_cast<string>(m["TopicInnerUrl"]));
+    }
     if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
       topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
+    }
+    if (m.find("TopicUrl") != m.end() && !m["TopicUrl"].empty()) {
+      topicUrl = make_shared<string>(boost::any_cast<string>(m["TopicUrl"]));
     }
   }
 
