@@ -9200,6 +9200,9 @@ SyncDingTypeResponse Alibabacloud_Aliding20230426::Client::syncDingTypeWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->dingType)) {
     body->insert(pair<string, string>("DingType", *request->dingType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isDimission)) {
+    body->insert(pair<string, string>("IsDimission", *request->isDimission));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     body->insert(pair<string, string>("Source", *request->source));
   }

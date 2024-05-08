@@ -70593,6 +70593,7 @@ public:
 class SyncDingTypeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dingType{};
+  shared_ptr<string> isDimission{};
   shared_ptr<string> source{};
   shared_ptr<SyncDingTypeRequestTenantContext> tenantContext{};
   shared_ptr<string> workNo{};
@@ -70610,6 +70611,9 @@ public:
     if (dingType) {
       res["DingType"] = boost::any(*dingType);
     }
+    if (isDimission) {
+      res["IsDimission"] = boost::any(*isDimission);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -70625,6 +70629,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DingType") != m.end() && !m["DingType"].empty()) {
       dingType = make_shared<string>(boost::any_cast<string>(m["DingType"]));
+    }
+    if (m.find("IsDimission") != m.end() && !m["IsDimission"].empty()) {
+      isDimission = make_shared<string>(boost::any_cast<string>(m["IsDimission"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -70647,6 +70654,7 @@ public:
 class SyncDingTypeShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dingType{};
+  shared_ptr<string> isDimission{};
   shared_ptr<string> source{};
   shared_ptr<string> tenantContextShrink{};
   shared_ptr<string> workNo{};
@@ -70664,6 +70672,9 @@ public:
     if (dingType) {
       res["DingType"] = boost::any(*dingType);
     }
+    if (isDimission) {
+      res["IsDimission"] = boost::any(*isDimission);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -70679,6 +70690,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DingType") != m.end() && !m["DingType"].empty()) {
       dingType = make_shared<string>(boost::any_cast<string>(m["DingType"]));
+    }
+    if (m.find("IsDimission") != m.end() && !m["IsDimission"].empty()) {
+      isDimission = make_shared<string>(boost::any_cast<string>(m["IsDimission"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
