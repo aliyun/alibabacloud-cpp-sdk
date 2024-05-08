@@ -2114,6 +2114,7 @@ public:
   shared_ptr<string> keySpec{};
   shared_ptr<string> keyUsage{};
   shared_ptr<string> origin{};
+  shared_ptr<string> policy{};
   shared_ptr<string> protectionLevel{};
   shared_ptr<string> rotationInterval{};
   shared_ptr<string> tags{};
@@ -2146,6 +2147,9 @@ public:
     if (origin) {
       res["Origin"] = boost::any(*origin);
     }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
     if (protectionLevel) {
       res["ProtectionLevel"] = boost::any(*protectionLevel);
     }
@@ -2176,6 +2180,9 @@ public:
     }
     if (m.find("Origin") != m.end() && !m["Origin"].empty()) {
       origin = make_shared<string>(boost::any_cast<string>(m["Origin"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
     }
     if (m.find("ProtectionLevel") != m.end() && !m["ProtectionLevel"].empty()) {
       protectionLevel = make_shared<string>(boost::any_cast<string>(m["ProtectionLevel"]));
@@ -2962,6 +2969,7 @@ public:
   shared_ptr<bool> enableAutomaticRotation{};
   shared_ptr<string> encryptionKeyId{};
   shared_ptr<map<string, boost::any>> extendedConfig{};
+  shared_ptr<string> policy{};
   shared_ptr<string> rotationInterval{};
   shared_ptr<string> secretData{};
   shared_ptr<string> secretDataType{};
@@ -2994,6 +3002,9 @@ public:
     }
     if (extendedConfig) {
       res["ExtendedConfig"] = boost::any(*extendedConfig);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
     }
     if (rotationInterval) {
       res["RotationInterval"] = boost::any(*rotationInterval);
@@ -3040,6 +3051,9 @@ public:
       }
       extendedConfig = make_shared<map<string, boost::any>>(toMap1);
     }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
     if (m.find("RotationInterval") != m.end() && !m["RotationInterval"].empty()) {
       rotationInterval = make_shared<string>(boost::any_cast<string>(m["RotationInterval"]));
     }
@@ -3073,6 +3087,7 @@ public:
   shared_ptr<bool> enableAutomaticRotation{};
   shared_ptr<string> encryptionKeyId{};
   shared_ptr<string> extendedConfigShrink{};
+  shared_ptr<string> policy{};
   shared_ptr<string> rotationInterval{};
   shared_ptr<string> secretData{};
   shared_ptr<string> secretDataType{};
@@ -3105,6 +3120,9 @@ public:
     }
     if (extendedConfigShrink) {
       res["ExtendedConfig"] = boost::any(*extendedConfigShrink);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
     }
     if (rotationInterval) {
       res["RotationInterval"] = boost::any(*rotationInterval);
@@ -3145,6 +3163,9 @@ public:
     }
     if (m.find("ExtendedConfig") != m.end() && !m["ExtendedConfig"].empty()) {
       extendedConfigShrink = make_shared<string>(boost::any_cast<string>(m["ExtendedConfig"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
     }
     if (m.find("RotationInterval") != m.end() && !m["RotationInterval"].empty()) {
       rotationInterval = make_shared<string>(boost::any_cast<string>(m["RotationInterval"]));
@@ -7726,6 +7747,130 @@ public:
 
   virtual ~GetClientKeyResponse() = default;
 };
+class GetKeyPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> keyId{};
+  shared_ptr<string> policyName{};
+
+  GetKeyPolicyRequest() {}
+
+  explicit GetKeyPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keyId) {
+      res["KeyId"] = boost::any(*keyId);
+    }
+    if (policyName) {
+      res["PolicyName"] = boost::any(*policyName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("KeyId") != m.end() && !m["KeyId"].empty()) {
+      keyId = make_shared<string>(boost::any_cast<string>(m["KeyId"]));
+    }
+    if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
+      policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+  }
+
+
+  virtual ~GetKeyPolicyRequest() = default;
+};
+class GetKeyPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> policy{};
+  shared_ptr<string> requestId{};
+
+  GetKeyPolicyResponseBody() {}
+
+  explicit GetKeyPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetKeyPolicyResponseBody() = default;
+};
+class GetKeyPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetKeyPolicyResponseBody> body{};
+
+  GetKeyPolicyResponse() {}
+
+  explicit GetKeyPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetKeyPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetKeyPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetKeyPolicyResponse() = default;
+};
 class GetKmsInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> kmsInstanceId{};
@@ -8519,6 +8664,130 @@ public:
 
 
   virtual ~GetRandomPasswordResponse() = default;
+};
+class GetSecretPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> policyName{};
+  shared_ptr<string> secretName{};
+
+  GetSecretPolicyRequest() {}
+
+  explicit GetSecretPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyName) {
+      res["PolicyName"] = boost::any(*policyName);
+    }
+    if (secretName) {
+      res["SecretName"] = boost::any(*secretName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
+      policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+    if (m.find("SecretName") != m.end() && !m["SecretName"].empty()) {
+      secretName = make_shared<string>(boost::any_cast<string>(m["SecretName"]));
+    }
+  }
+
+
+  virtual ~GetSecretPolicyRequest() = default;
+};
+class GetSecretPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> policy{};
+  shared_ptr<string> requestId{};
+
+  GetSecretPolicyResponseBody() {}
+
+  explicit GetSecretPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetSecretPolicyResponseBody() = default;
+};
+class GetSecretPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetSecretPolicyResponseBody> body{};
+
+  GetSecretPolicyResponse() {}
+
+  explicit GetSecretPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSecretPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSecretPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSecretPolicyResponse() = default;
 };
 class GetSecretValueRequest : public Darabonba::Model {
 public:
@@ -13166,6 +13435,254 @@ public:
 
   virtual ~SetDeletionProtectionResponse() = default;
 };
+class SetKeyPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> keyId{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> policyName{};
+
+  SetKeyPolicyRequest() {}
+
+  explicit SetKeyPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keyId) {
+      res["KeyId"] = boost::any(*keyId);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (policyName) {
+      res["PolicyName"] = boost::any(*policyName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("KeyId") != m.end() && !m["KeyId"].empty()) {
+      keyId = make_shared<string>(boost::any_cast<string>(m["KeyId"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
+      policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+  }
+
+
+  virtual ~SetKeyPolicyRequest() = default;
+};
+class SetKeyPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SetKeyPolicyResponseBody() {}
+
+  explicit SetKeyPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetKeyPolicyResponseBody() = default;
+};
+class SetKeyPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetKeyPolicyResponseBody> body{};
+
+  SetKeyPolicyResponse() {}
+
+  explicit SetKeyPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetKeyPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetKeyPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetKeyPolicyResponse() = default;
+};
+class SetSecretPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> policy{};
+  shared_ptr<string> policyName{};
+  shared_ptr<string> secretName{};
+
+  SetSecretPolicyRequest() {}
+
+  explicit SetSecretPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (policyName) {
+      res["PolicyName"] = boost::any(*policyName);
+    }
+    if (secretName) {
+      res["SecretName"] = boost::any(*secretName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
+      policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+    if (m.find("SecretName") != m.end() && !m["SecretName"].empty()) {
+      secretName = make_shared<string>(boost::any_cast<string>(m["SecretName"]));
+    }
+  }
+
+
+  virtual ~SetSecretPolicyRequest() = default;
+};
+class SetSecretPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SetSecretPolicyResponseBody() {}
+
+  explicit SetSecretPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetSecretPolicyResponseBody() = default;
+};
+class SetSecretPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetSecretPolicyResponseBody> body{};
+
+  SetSecretPolicyResponse() {}
+
+  explicit SetSecretPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetSecretPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetSecretPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetSecretPolicyResponse() = default;
+};
 class TagResourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> certificateId{};
@@ -15486,6 +16003,8 @@ public:
   GetCertificateResponse getCertificate(shared_ptr<GetCertificateRequest> request);
   GetClientKeyResponse getClientKeyWithOptions(shared_ptr<GetClientKeyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetClientKeyResponse getClientKey(shared_ptr<GetClientKeyRequest> request);
+  GetKeyPolicyResponse getKeyPolicyWithOptions(shared_ptr<GetKeyPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetKeyPolicyResponse getKeyPolicy(shared_ptr<GetKeyPolicyRequest> request);
   GetKmsInstanceResponse getKmsInstanceWithOptions(shared_ptr<GetKmsInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetKmsInstanceResponse getKmsInstance(shared_ptr<GetKmsInstanceRequest> request);
   GetParametersForImportResponse getParametersForImportWithOptions(shared_ptr<GetParametersForImportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -15494,6 +16013,8 @@ public:
   GetPublicKeyResponse getPublicKey(shared_ptr<GetPublicKeyRequest> request);
   GetRandomPasswordResponse getRandomPasswordWithOptions(shared_ptr<GetRandomPasswordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetRandomPasswordResponse getRandomPassword(shared_ptr<GetRandomPasswordRequest> request);
+  GetSecretPolicyResponse getSecretPolicyWithOptions(shared_ptr<GetSecretPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSecretPolicyResponse getSecretPolicy(shared_ptr<GetSecretPolicyRequest> request);
   GetSecretValueResponse getSecretValueWithOptions(shared_ptr<GetSecretValueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetSecretValueResponse getSecretValue(shared_ptr<GetSecretValueRequest> request);
   ImportKeyMaterialResponse importKeyMaterialWithOptions(shared_ptr<ImportKeyMaterialRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -15538,6 +16059,10 @@ public:
   ScheduleKeyDeletionResponse scheduleKeyDeletion(shared_ptr<ScheduleKeyDeletionRequest> request);
   SetDeletionProtectionResponse setDeletionProtectionWithOptions(shared_ptr<SetDeletionProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetDeletionProtectionResponse setDeletionProtection(shared_ptr<SetDeletionProtectionRequest> request);
+  SetKeyPolicyResponse setKeyPolicyWithOptions(shared_ptr<SetKeyPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetKeyPolicyResponse setKeyPolicy(shared_ptr<SetKeyPolicyRequest> request);
+  SetSecretPolicyResponse setSecretPolicyWithOptions(shared_ptr<SetSecretPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetSecretPolicyResponse setSecretPolicy(shared_ptr<SetSecretPolicyRequest> request);
   TagResourceResponse tagResourceWithOptions(shared_ptr<TagResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TagResourceResponse tagResource(shared_ptr<TagResourceRequest> request);
   TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

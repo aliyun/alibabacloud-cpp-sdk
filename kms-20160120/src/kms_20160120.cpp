@@ -569,6 +569,9 @@ CreateKeyResponse Alibabacloud_Kms20160120::Client::createKeyWithOptions(shared_
   if (!Darabonba_Util::Client::isUnset<string>(request->origin)) {
     query->insert(pair<string, string>("Origin", *request->origin));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
+    query->insert(pair<string, string>("Policy", *request->policy));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->protectionLevel)) {
     query->insert(pair<string, string>("ProtectionLevel", *request->protectionLevel));
   }
@@ -730,6 +733,9 @@ CreateSecretResponse Alibabacloud_Kms20160120::Client::createSecretWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->extendedConfigShrink)) {
     query->insert(pair<string, string>("ExtendedConfig", *request->extendedConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
+    query->insert(pair<string, string>("Policy", *request->policy));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->rotationInterval)) {
     query->insert(pair<string, string>("RotationInterval", *request->rotationInterval));
@@ -1612,6 +1618,37 @@ GetClientKeyResponse Alibabacloud_Kms20160120::Client::getClientKey(shared_ptr<G
   return getClientKeyWithOptions(request, runtime);
 }
 
+GetKeyPolicyResponse Alibabacloud_Kms20160120::Client::getKeyPolicyWithOptions(shared_ptr<GetKeyPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyId)) {
+    query->insert(pair<string, string>("KeyId", *request->keyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyName)) {
+    query->insert(pair<string, string>("PolicyName", *request->policyName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetKeyPolicy"))},
+    {"version", boost::any(string("2016-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetKeyPolicyResponse(callApi(params, req, runtime));
+}
+
+GetKeyPolicyResponse Alibabacloud_Kms20160120::Client::getKeyPolicy(shared_ptr<GetKeyPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getKeyPolicyWithOptions(request, runtime);
+}
+
 GetKmsInstanceResponse Alibabacloud_Kms20160120::Client::getKmsInstanceWithOptions(shared_ptr<GetKmsInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1749,6 +1786,37 @@ GetRandomPasswordResponse Alibabacloud_Kms20160120::Client::getRandomPasswordWit
 GetRandomPasswordResponse Alibabacloud_Kms20160120::Client::getRandomPassword(shared_ptr<GetRandomPasswordRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getRandomPasswordWithOptions(request, runtime);
+}
+
+GetSecretPolicyResponse Alibabacloud_Kms20160120::Client::getSecretPolicyWithOptions(shared_ptr<GetSecretPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyName)) {
+    query->insert(pair<string, string>("PolicyName", *request->policyName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->secretName)) {
+    query->insert(pair<string, string>("SecretName", *request->secretName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSecretPolicy"))},
+    {"version", boost::any(string("2016-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSecretPolicyResponse(callApi(params, req, runtime));
+}
+
+GetSecretPolicyResponse Alibabacloud_Kms20160120::Client::getSecretPolicy(shared_ptr<GetSecretPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getSecretPolicyWithOptions(request, runtime);
 }
 
 GetSecretValueResponse Alibabacloud_Kms20160120::Client::getSecretValueWithOptions(shared_ptr<GetSecretValueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2486,6 +2554,74 @@ SetDeletionProtectionResponse Alibabacloud_Kms20160120::Client::setDeletionProte
 SetDeletionProtectionResponse Alibabacloud_Kms20160120::Client::setDeletionProtection(shared_ptr<SetDeletionProtectionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return setDeletionProtectionWithOptions(request, runtime);
+}
+
+SetKeyPolicyResponse Alibabacloud_Kms20160120::Client::setKeyPolicyWithOptions(shared_ptr<SetKeyPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyId)) {
+    query->insert(pair<string, string>("KeyId", *request->keyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
+    query->insert(pair<string, string>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyName)) {
+    query->insert(pair<string, string>("PolicyName", *request->policyName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetKeyPolicy"))},
+    {"version", boost::any(string("2016-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetKeyPolicyResponse(callApi(params, req, runtime));
+}
+
+SetKeyPolicyResponse Alibabacloud_Kms20160120::Client::setKeyPolicy(shared_ptr<SetKeyPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setKeyPolicyWithOptions(request, runtime);
+}
+
+SetSecretPolicyResponse Alibabacloud_Kms20160120::Client::setSecretPolicyWithOptions(shared_ptr<SetSecretPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
+    query->insert(pair<string, string>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyName)) {
+    query->insert(pair<string, string>("PolicyName", *request->policyName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->secretName)) {
+    query->insert(pair<string, string>("SecretName", *request->secretName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetSecretPolicy"))},
+    {"version", boost::any(string("2016-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetSecretPolicyResponse(callApi(params, req, runtime));
+}
+
+SetSecretPolicyResponse Alibabacloud_Kms20160120::Client::setSecretPolicy(shared_ptr<SetSecretPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setSecretPolicyWithOptions(request, runtime);
 }
 
 TagResourceResponse Alibabacloud_Kms20160120::Client::tagResourceWithOptions(shared_ptr<TagResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
