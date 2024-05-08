@@ -2150,6 +2150,9 @@ DescribeHistoryMonitorValuesResponse Alibabacloud_R-kvstore20150101::Client::des
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeId)) {
     query->insert(pair<string, string>("NodeId", *request->nodeId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeRole)) {
+    query->insert(pair<string, string>("NodeRole", *request->nodeRole));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }

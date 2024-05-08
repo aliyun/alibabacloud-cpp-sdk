@@ -11335,6 +11335,7 @@ public:
   shared_ptr<string> intervalForHistory{};
   shared_ptr<string> monitorKeys{};
   shared_ptr<string> nodeId{};
+  shared_ptr<string> nodeRole{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -11366,6 +11367,9 @@ public:
     }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
+    }
+    if (nodeRole) {
+      res["NodeRole"] = boost::any(*nodeRole);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -11403,6 +11407,9 @@ public:
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+    if (m.find("NodeRole") != m.end() && !m["NodeRole"].empty()) {
+      nodeRole = make_shared<string>(boost::any_cast<string>(m["NodeRole"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
