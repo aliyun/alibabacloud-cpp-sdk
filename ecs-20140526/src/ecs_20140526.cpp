@@ -781,6 +781,9 @@ AttachDiskResponse Alibabacloud_Ecs20140526::Client::attachDiskWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->diskId)) {
     query->insert(pair<string, string>("DiskId", *request->diskId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("Force", *request->force));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
