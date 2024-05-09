@@ -6091,8 +6091,45 @@ public:
 
   virtual ~DeleteAlertContactGroupResponse() = default;
 };
+class DeleteClusterRequestDeleteOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> deleteMode{};
+  shared_ptr<string> resourceType{};
+
+  DeleteClusterRequestDeleteOptions() {}
+
+  explicit DeleteClusterRequestDeleteOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deleteMode) {
+      res["delete_mode"] = boost::any(*deleteMode);
+    }
+    if (resourceType) {
+      res["resource_type"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("delete_mode") != m.end() && !m["delete_mode"].empty()) {
+      deleteMode = make_shared<string>(boost::any_cast<string>(m["delete_mode"]));
+    }
+    if (m.find("resource_type") != m.end() && !m["resource_type"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["resource_type"]));
+    }
+  }
+
+
+  virtual ~DeleteClusterRequestDeleteOptions() = default;
+};
 class DeleteClusterRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<DeleteClusterRequestDeleteOptions>> deleteOptions{};
   shared_ptr<bool> keepSlb{};
   shared_ptr<bool> retainAllResources{};
   shared_ptr<vector<string>> retainResources{};
@@ -6107,6 +6144,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (deleteOptions) {
+      vector<boost::any> temp1;
+      for(auto item1:*deleteOptions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["delete_options"] = boost::any(temp1);
+    }
     if (keepSlb) {
       res["keep_slb"] = boost::any(*keepSlb);
     }
@@ -6120,6 +6164,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("delete_options") != m.end() && !m["delete_options"].empty()) {
+      if (typeid(vector<boost::any>) == m["delete_options"].type()) {
+        vector<DeleteClusterRequestDeleteOptions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["delete_options"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DeleteClusterRequestDeleteOptions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deleteOptions = make_shared<vector<DeleteClusterRequestDeleteOptions>>(expect1);
+      }
+    }
     if (m.find("keep_slb") != m.end() && !m["keep_slb"].empty()) {
       keepSlb = make_shared<bool>(boost::any_cast<bool>(m["keep_slb"]));
     }
@@ -6143,6 +6200,7 @@ public:
 };
 class DeleteClusterShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> deleteOptionsShrink{};
   shared_ptr<bool> keepSlb{};
   shared_ptr<bool> retainAllResources{};
   shared_ptr<string> retainResourcesShrink{};
@@ -6157,6 +6215,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (deleteOptionsShrink) {
+      res["delete_options"] = boost::any(*deleteOptionsShrink);
+    }
     if (keepSlb) {
       res["keep_slb"] = boost::any(*keepSlb);
     }
@@ -6170,6 +6231,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("delete_options") != m.end() && !m["delete_options"].empty()) {
+      deleteOptionsShrink = make_shared<string>(boost::any_cast<string>(m["delete_options"]));
+    }
     if (m.find("keep_slb") != m.end() && !m["keep_slb"].empty()) {
       keepSlb = make_shared<bool>(boost::any_cast<bool>(m["keep_slb"]));
     }

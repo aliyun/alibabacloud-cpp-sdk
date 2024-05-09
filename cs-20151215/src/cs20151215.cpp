@@ -1010,10 +1010,16 @@ DeleteClusterResponse Alibabacloud_CS20151215::Client::deleteClusterWithOptions(
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<DeleteClusterShrinkRequest> request = make_shared<DeleteClusterShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<DeleteClusterRequestDeleteOptions>>(tmpReq->deleteOptions)) {
+    request->deleteOptionsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->deleteOptions, make_shared<string>("delete_options"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->retainResources)) {
     request->retainResourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->retainResources, make_shared<string>("retain_resources"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deleteOptionsShrink)) {
+    query->insert(pair<string, string>("delete_options", *request->deleteOptionsShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->keepSlb)) {
     query->insert(pair<string, bool>("keep_slb", *request->keepSlb));
   }
