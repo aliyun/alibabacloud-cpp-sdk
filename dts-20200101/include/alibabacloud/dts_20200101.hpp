@@ -29991,6 +29991,278 @@ public:
 
   virtual ~DescribeSubscriptionMetaResponse() = default;
 };
+class DescribeSyncStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> direction{};
+  shared_ptr<string> dtsInstanceId{};
+  shared_ptr<string> dtsJobId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+
+  DescribeSyncStatusRequest() {}
+
+  explicit DescribeSyncStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (dtsInstanceId) {
+      res["DtsInstanceId"] = boost::any(*dtsInstanceId);
+    }
+    if (dtsJobId) {
+      res["DtsJobId"] = boost::any(*dtsJobId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("DtsInstanceId") != m.end() && !m["DtsInstanceId"].empty()) {
+      dtsInstanceId = make_shared<string>(boost::any_cast<string>(m["DtsInstanceId"]));
+    }
+    if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
+      dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeSyncStatusRequest() = default;
+};
+class DescribeSyncStatusResponseBodySyncStatusList : public Darabonba::Model {
+public:
+  shared_ptr<long> checkpoint{};
+  shared_ptr<string> code{};
+  shared_ptr<long> delay{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> rate{};
+  shared_ptr<string> status{};
+
+  DescribeSyncStatusResponseBodySyncStatusList() {}
+
+  explicit DescribeSyncStatusResponseBodySyncStatusList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkpoint) {
+      res["Checkpoint"] = boost::any(*checkpoint);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (delay) {
+      res["Delay"] = boost::any(*delay);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (rate) {
+      res["Rate"] = boost::any(*rate);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Checkpoint") != m.end() && !m["Checkpoint"].empty()) {
+      checkpoint = make_shared<long>(boost::any_cast<long>(m["Checkpoint"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Delay") != m.end() && !m["Delay"].empty()) {
+      delay = make_shared<long>(boost::any_cast<long>(m["Delay"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Rate") != m.end() && !m["Rate"].empty()) {
+      rate = make_shared<string>(boost::any_cast<string>(m["Rate"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeSyncStatusResponseBodySyncStatusList() = default;
+};
+class DescribeSyncStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<vector<DescribeSyncStatusResponseBodySyncStatusList>> syncStatusList{};
+
+  DescribeSyncStatusResponseBody() {}
+
+  explicit DescribeSyncStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (errCode) {
+      res["ErrCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["ErrMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (syncStatusList) {
+      vector<boost::any> temp1;
+      for(auto item1:*syncStatusList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SyncStatusList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("ErrCode") != m.end() && !m["ErrCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["ErrCode"]));
+    }
+    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("SyncStatusList") != m.end() && !m["SyncStatusList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SyncStatusList"].type()) {
+        vector<DescribeSyncStatusResponseBodySyncStatusList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SyncStatusList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSyncStatusResponseBodySyncStatusList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        syncStatusList = make_shared<vector<DescribeSyncStatusResponseBodySyncStatusList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSyncStatusResponseBody() = default;
+};
+class DescribeSyncStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSyncStatusResponseBody> body{};
+
+  DescribeSyncStatusResponse() {}
+
+  explicit DescribeSyncStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSyncStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSyncStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSyncStatusResponse() = default;
+};
 class DescribeSynchronizationJobAlertRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -36346,6 +36618,7 @@ public:
   shared_ptr<string> endpointIp{};
   shared_ptr<string> endpointPort{};
   shared_ptr<string> endpointRegionId{};
+  shared_ptr<bool> modifyAccount{};
   shared_ptr<string> password{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -36397,6 +36670,9 @@ public:
     }
     if (endpointRegionId) {
       res["EndpointRegionId"] = boost::any(*endpointRegionId);
+    }
+    if (modifyAccount) {
+      res["ModifyAccount"] = boost::any(*modifyAccount);
     }
     if (password) {
       res["Password"] = boost::any(*password);
@@ -36458,6 +36734,9 @@ public:
     }
     if (m.find("EndpointRegionId") != m.end() && !m["EndpointRegionId"].empty()) {
       endpointRegionId = make_shared<string>(boost::any_cast<string>(m["EndpointRegionId"]));
+    }
+    if (m.find("ModifyAccount") != m.end() && !m["ModifyAccount"].empty()) {
+      modifyAccount = make_shared<bool>(boost::any_cast<bool>(m["ModifyAccount"]));
     }
     if (m.find("Password") != m.end() && !m["Password"].empty()) {
       password = make_shared<string>(boost::any_cast<string>(m["Password"]));
@@ -43223,6 +43502,8 @@ public:
   DescribeSubscriptionInstancesResponse describeSubscriptionInstances(shared_ptr<DescribeSubscriptionInstancesRequest> request);
   DescribeSubscriptionMetaResponse describeSubscriptionMetaWithOptions(shared_ptr<DescribeSubscriptionMetaRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSubscriptionMetaResponse describeSubscriptionMeta(shared_ptr<DescribeSubscriptionMetaRequest> request);
+  DescribeSyncStatusResponse describeSyncStatusWithOptions(shared_ptr<DescribeSyncStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSyncStatusResponse describeSyncStatus(shared_ptr<DescribeSyncStatusRequest> request);
   DescribeSynchronizationJobAlertResponse describeSynchronizationJobAlertWithOptions(shared_ptr<DescribeSynchronizationJobAlertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSynchronizationJobAlertResponse describeSynchronizationJobAlert(shared_ptr<DescribeSynchronizationJobAlertRequest> request);
   DescribeSynchronizationJobReplicatorCompareResponse describeSynchronizationJobReplicatorCompareWithOptions(shared_ptr<DescribeSynchronizationJobReplicatorCompareRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

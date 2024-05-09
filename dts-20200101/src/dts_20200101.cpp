@@ -3276,6 +3276,46 @@ DescribeSubscriptionMetaResponse Alibabacloud_Dts20200101::Client::describeSubsc
   return describeSubscriptionMetaWithOptions(request, runtime);
 }
 
+DescribeSyncStatusResponse Alibabacloud_Dts20200101::Client::describeSyncStatusWithOptions(shared_ptr<DescribeSyncStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->direction)) {
+    query->insert(pair<string, string>("Direction", *request->direction));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dtsInstanceId)) {
+    query->insert(pair<string, string>("DtsInstanceId", *request->dtsInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dtsJobId)) {
+    query->insert(pair<string, string>("DtsJobId", *request->dtsJobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeSyncStatus"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeSyncStatusResponse(callApi(params, req, runtime));
+}
+
+DescribeSyncStatusResponse Alibabacloud_Dts20200101::Client::describeSyncStatus(shared_ptr<DescribeSyncStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeSyncStatusWithOptions(request, runtime);
+}
+
 DescribeSynchronizationJobAlertResponse Alibabacloud_Dts20200101::Client::describeSynchronizationJobAlertWithOptions(shared_ptr<DescribeSynchronizationJobAlertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4290,6 +4330,9 @@ ModifyDtsJobEndpointResponse Alibabacloud_Dts20200101::Client::modifyDtsJobEndpo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointRegionId)) {
     query->insert(pair<string, string>("EndpointRegionId", *request->endpointRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->modifyAccount)) {
+    query->insert(pair<string, bool>("ModifyAccount", *request->modifyAccount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
     query->insert(pair<string, string>("Password", *request->password));
