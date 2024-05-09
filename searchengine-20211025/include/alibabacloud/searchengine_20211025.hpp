@@ -7444,6 +7444,7 @@ public:
   shared_ptr<long> partitionCount{};
   shared_ptr<string> primaryKey{};
   shared_ptr<string> rawSchema{};
+  shared_ptr<string> status{};
   shared_ptr<vector<GetTableResponseBodyResultVectorIndex>> vectorIndex{};
 
   GetTableResponseBodyResult() {}
@@ -7483,6 +7484,9 @@ public:
     }
     if (rawSchema) {
       res["rawSchema"] = boost::any(*rawSchema);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
     }
     if (vectorIndex) {
       vector<boost::any> temp1;
@@ -7537,6 +7541,9 @@ public:
     }
     if (m.find("rawSchema") != m.end() && !m["rawSchema"].empty()) {
       rawSchema = make_shared<string>(boost::any_cast<string>(m["rawSchema"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
     }
     if (m.find("vectorIndex") != m.end() && !m["vectorIndex"].empty()) {
       if (typeid(vector<boost::any>) == m["vectorIndex"].type()) {
@@ -11662,6 +11669,7 @@ class ListTablesResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<string> indexStatus{};
   shared_ptr<string> name{};
+  shared_ptr<string> status{};
 
   ListTablesResponseBodyResult() {}
 
@@ -11679,6 +11687,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
     return res;
   }
 
@@ -11688,6 +11699,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
     }
   }
 
