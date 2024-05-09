@@ -1377,6 +1377,9 @@ CreateOrUpdateContactResponse Alibabacloud_ARMS20190808::Client::createOrUpdateC
   if (!Darabonba_Util::Client::isUnset<string>(request->contactName)) {
     body->insert(pair<string, string>("ContactName", *request->contactName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->corpUserId)) {
+    body->insert(pair<string, string>("CorpUserId", *request->corpUserId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->email)) {
     body->insert(pair<string, string>("Email", *request->email));
   }
@@ -1911,6 +1914,107 @@ CreateRetcodeAppResponse Alibabacloud_ARMS20190808::Client::createRetcodeAppWith
 CreateRetcodeAppResponse Alibabacloud_ARMS20190808::Client::createRetcodeApp(shared_ptr<CreateRetcodeAppRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createRetcodeAppWithOptions(request, runtime);
+}
+
+CreateRumAppResponse Alibabacloud_ARMS20190808::Client::createRumAppWithOptions(shared_ptr<CreateRumAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appGroup)) {
+    query->insert(pair<string, string>("AppGroup", *request->appGroup));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->packageName)) {
+    query->insert(pair<string, string>("PackageName", *request->packageName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->siteType)) {
+    query->insert(pair<string, string>("SiteType", *request->siteType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateRumAppRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateRumAppRequestTag>>("Tag", *request->tag));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateRumApp"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateRumAppResponse(callApi(params, req, runtime));
+}
+
+CreateRumAppResponse Alibabacloud_ARMS20190808::Client::createRumApp(shared_ptr<CreateRumAppRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createRumAppWithOptions(request, runtime);
+}
+
+CreateRumUploadFileUrlResponse Alibabacloud_ARMS20190808::Client::createRumUploadFileUrlWithOptions(shared_ptr<CreateRumUploadFileUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->contentType)) {
+    query->insert(pair<string, string>("ContentType", *request->contentType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    query->insert(pair<string, string>("FileName", *request->fileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
+    query->insert(pair<string, string>("Pid", *request->pid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourcemapType)) {
+    query->insert(pair<string, string>("SourcemapType", *request->sourcemapType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    query->insert(pair<string, string>("Uuid", *request->uuid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->versionId)) {
+    query->insert(pair<string, string>("VersionId", *request->versionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateRumUploadFileUrl"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateRumUploadFileUrlResponse(callApi(params, req, runtime));
+}
+
+CreateRumUploadFileUrlResponse Alibabacloud_ARMS20190808::Client::createRumUploadFileUrl(shared_ptr<CreateRumUploadFileUrlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createRumUploadFileUrlWithOptions(request, runtime);
 }
 
 CreateSyntheticTaskResponse Alibabacloud_ARMS20190808::Client::createSyntheticTaskWithOptions(shared_ptr<CreateSyntheticTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3065,6 +3169,80 @@ DeleteRetcodeAppResponse Alibabacloud_ARMS20190808::Client::deleteRetcodeAppWith
 DeleteRetcodeAppResponse Alibabacloud_ARMS20190808::Client::deleteRetcodeApp(shared_ptr<DeleteRetcodeAppRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteRetcodeAppWithOptions(request, runtime);
+}
+
+DeleteRumAppResponse Alibabacloud_ARMS20190808::Client::deleteRumAppWithOptions(shared_ptr<DeleteRumAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appGroup)) {
+    query->insert(pair<string, string>("AppGroup", *request->appGroup));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteRumApp"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteRumAppResponse(callApi(params, req, runtime));
+}
+
+DeleteRumAppResponse Alibabacloud_ARMS20190808::Client::deleteRumApp(shared_ptr<DeleteRumAppRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteRumAppWithOptions(request, runtime);
+}
+
+DeleteRumUploadFileResponse Alibabacloud_ARMS20190808::Client::deleteRumUploadFileWithOptions(shared_ptr<DeleteRumUploadFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    query->insert(pair<string, string>("FileName", *request->fileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
+    query->insert(pair<string, string>("Pid", *request->pid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    query->insert(pair<string, string>("Uuid", *request->uuid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->versionId)) {
+    query->insert(pair<string, string>("VersionId", *request->versionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteRumUploadFile"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteRumUploadFileResponse(callApi(params, req, runtime));
+}
+
+DeleteRumUploadFileResponse Alibabacloud_ARMS20190808::Client::deleteRumUploadFile(shared_ptr<DeleteRumUploadFileRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteRumUploadFileWithOptions(request, runtime);
 }
 
 DeleteScenarioResponse Alibabacloud_ARMS20190808::Client::deleteScenarioWithOptions(shared_ptr<DeleteScenarioRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4627,6 +4805,206 @@ GetRetcodeShareUrlResponse Alibabacloud_ARMS20190808::Client::getRetcodeShareUrl
 GetRetcodeShareUrlResponse Alibabacloud_ARMS20190808::Client::getRetcodeShareUrl(shared_ptr<GetRetcodeShareUrlRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getRetcodeShareUrlWithOptions(request, runtime);
+}
+
+GetRumAppInfoResponse Alibabacloud_ARMS20190808::Client::getRumAppInfoWithOptions(shared_ptr<GetRumAppInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appGroup)) {
+    query->insert(pair<string, string>("AppGroup", *request->appGroup));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
+    query->insert(pair<string, string>("Pid", *request->pid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetRumAppInfo"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetRumAppInfoResponse(callApi(params, req, runtime));
+}
+
+GetRumAppInfoResponse Alibabacloud_ARMS20190808::Client::getRumAppInfo(shared_ptr<GetRumAppInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getRumAppInfoWithOptions(request, runtime);
+}
+
+GetRumAppsResponse Alibabacloud_ARMS20190808::Client::getRumAppsWithOptions(shared_ptr<GetRumAppsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appGroup)) {
+    query->insert(pair<string, string>("AppGroup", *request->appGroup));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<GetRumAppsRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<GetRumAppsRequestTags>>("Tags", *request->tags));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetRumApps"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetRumAppsResponse(callApi(params, req, runtime));
+}
+
+GetRumAppsResponse Alibabacloud_ARMS20190808::Client::getRumApps(shared_ptr<GetRumAppsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getRumAppsWithOptions(request, runtime);
+}
+
+GetRumDataForPageResponse Alibabacloud_ARMS20190808::Client::getRumDataForPageWithOptions(shared_ptr<GetRumDataForPageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appGroup)) {
+    query->insert(pair<string, string>("AppGroup", *request->appGroup));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
+    query->insert(pair<string, string>("Pid", *request->pid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
+    query->insert(pair<string, string>("Query", *request->query));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetRumDataForPage"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetRumDataForPageResponse(callApi(params, req, runtime));
+}
+
+GetRumDataForPageResponse Alibabacloud_ARMS20190808::Client::getRumDataForPage(shared_ptr<GetRumDataForPageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getRumDataForPageWithOptions(request, runtime);
+}
+
+GetRumExceptionStackResponse Alibabacloud_ARMS20190808::Client::getRumExceptionStackWithOptions(shared_ptr<GetRumExceptionStackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->exceptionBinaryImages)) {
+    query->insert(pair<string, string>("ExceptionBinaryImages", *request->exceptionBinaryImages));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->exceptionStack)) {
+    query->insert(pair<string, string>("ExceptionStack", *request->exceptionStack));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->exceptionThreadId)) {
+    query->insert(pair<string, string>("ExceptionThreadId", *request->exceptionThreadId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
+    query->insert(pair<string, string>("Pid", *request->pid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetRumExceptionStack"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetRumExceptionStackResponse(callApi(params, req, runtime));
+}
+
+GetRumExceptionStackResponse Alibabacloud_ARMS20190808::Client::getRumExceptionStack(shared_ptr<GetRumExceptionStackRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getRumExceptionStackWithOptions(request, runtime);
+}
+
+GetRumUploadFilesResponse Alibabacloud_ARMS20190808::Client::getRumUploadFilesWithOptions(shared_ptr<GetRumUploadFilesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appType)) {
+    query->insert(pair<string, string>("AppType", *request->appType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
+    query->insert(pair<string, string>("Pid", *request->pid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetRumUploadFiles"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetRumUploadFilesResponse(callApi(params, req, runtime));
+}
+
+GetRumUploadFilesResponse Alibabacloud_ARMS20190808::Client::getRumUploadFiles(shared_ptr<GetRumUploadFilesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getRumUploadFilesWithOptions(request, runtime);
 }
 
 GetSourceMapInfoResponse Alibabacloud_ARMS20190808::Client::getSourceMapInfoWithOptions(shared_ptr<GetSourceMapInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -8929,6 +9307,104 @@ UpdatePrometheusRemoteWriteResponse Alibabacloud_ARMS20190808::Client::updatePro
 UpdatePrometheusRemoteWriteResponse Alibabacloud_ARMS20190808::Client::updatePrometheusRemoteWrite(shared_ptr<UpdatePrometheusRemoteWriteRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updatePrometheusRemoteWriteWithOptions(request, runtime);
+}
+
+UpdateRumAppResponse Alibabacloud_ARMS20190808::Client::updateRumAppWithOptions(shared_ptr<UpdateRumAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRestart)) {
+    query->insert(pair<string, bool>("AutoRestart", *request->autoRestart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isSubscribe)) {
+    query->insert(pair<string, bool>("IsSubscribe", *request->isSubscribe));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nickname)) {
+    query->insert(pair<string, string>("Nickname", *request->nickname));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
+    query->insert(pair<string, string>("Pid", *request->pid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->restart)) {
+    query->insert(pair<string, bool>("Restart", *request->restart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceDomainOperationJson)) {
+    query->insert(pair<string, string>("ServiceDomainOperationJson", *request->serviceDomainOperationJson));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->stop)) {
+    query->insert(pair<string, bool>("Stop", *request->stop));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateRumApp"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateRumAppResponse(callApi(params, req, runtime));
+}
+
+UpdateRumAppResponse Alibabacloud_ARMS20190808::Client::updateRumApp(shared_ptr<UpdateRumAppRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateRumAppWithOptions(request, runtime);
+}
+
+UpdateRumFileStatusResponse Alibabacloud_ARMS20190808::Client::updateRumFileStatusWithOptions(shared_ptr<UpdateRumFileStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    query->insert(pair<string, string>("FileName", *request->fileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
+    query->insert(pair<string, string>("Pid", *request->pid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->size)) {
+    query->insert(pair<string, string>("Size", *request->size));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    query->insert(pair<string, string>("Uuid", *request->uuid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->versionId)) {
+    query->insert(pair<string, string>("VersionId", *request->versionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateRumFileStatus"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateRumFileStatusResponse(callApi(params, req, runtime));
+}
+
+UpdateRumFileStatusResponse Alibabacloud_ARMS20190808::Client::updateRumFileStatus(shared_ptr<UpdateRumFileStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateRumFileStatusWithOptions(request, runtime);
 }
 
 UpdateTimingSyntheticTaskResponse Alibabacloud_ARMS20190808::Client::updateTimingSyntheticTaskWithOptions(shared_ptr<UpdateTimingSyntheticTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
