@@ -5,7 +5,6 @@
 
 #include <alibabacloud/open_api.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -212,17 +211,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -386,17 +375,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -541,17 +520,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -760,17 +729,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -920,17 +879,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1108,17 +1057,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1268,17 +1207,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1527,17 +1456,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1576,6 +1495,241 @@ public:
 
 
   virtual ~SubmitConvertImageToExcelJobResponse() = default;
+};
+class SubmitConvertImageToMarkdownJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageNameExtension{};
+  shared_ptr<vector<string>> imageNames{};
+  shared_ptr<vector<string>> imageUrls{};
+
+  SubmitConvertImageToMarkdownJobRequest() {}
+
+  explicit SubmitConvertImageToMarkdownJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageNameExtension) {
+      res["ImageNameExtension"] = boost::any(*imageNameExtension);
+    }
+    if (imageNames) {
+      res["ImageNames"] = boost::any(*imageNames);
+    }
+    if (imageUrls) {
+      res["ImageUrls"] = boost::any(*imageUrls);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageNameExtension") != m.end() && !m["ImageNameExtension"].empty()) {
+      imageNameExtension = make_shared<string>(boost::any_cast<string>(m["ImageNameExtension"]));
+    }
+    if (m.find("ImageNames") != m.end() && !m["ImageNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ImageNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ImageNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      imageNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ImageUrls") != m.end() && !m["ImageUrls"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ImageUrls"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ImageUrls"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      imageUrls = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~SubmitConvertImageToMarkdownJobRequest() = default;
+};
+class SubmitConvertImageToMarkdownJobShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageNameExtension{};
+  shared_ptr<string> imageNamesShrink{};
+  shared_ptr<string> imageUrlsShrink{};
+
+  SubmitConvertImageToMarkdownJobShrinkRequest() {}
+
+  explicit SubmitConvertImageToMarkdownJobShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageNameExtension) {
+      res["ImageNameExtension"] = boost::any(*imageNameExtension);
+    }
+    if (imageNamesShrink) {
+      res["ImageNames"] = boost::any(*imageNamesShrink);
+    }
+    if (imageUrlsShrink) {
+      res["ImageUrls"] = boost::any(*imageUrlsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageNameExtension") != m.end() && !m["ImageNameExtension"].empty()) {
+      imageNameExtension = make_shared<string>(boost::any_cast<string>(m["ImageNameExtension"]));
+    }
+    if (m.find("ImageNames") != m.end() && !m["ImageNames"].empty()) {
+      imageNamesShrink = make_shared<string>(boost::any_cast<string>(m["ImageNames"]));
+    }
+    if (m.find("ImageUrls") != m.end() && !m["ImageUrls"].empty()) {
+      imageUrlsShrink = make_shared<string>(boost::any_cast<string>(m["ImageUrls"]));
+    }
+  }
+
+
+  virtual ~SubmitConvertImageToMarkdownJobShrinkRequest() = default;
+};
+class SubmitConvertImageToMarkdownJobResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+
+  SubmitConvertImageToMarkdownJobResponseBodyData() {}
+
+  explicit SubmitConvertImageToMarkdownJobResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+  }
+
+
+  virtual ~SubmitConvertImageToMarkdownJobResponseBodyData() = default;
+};
+class SubmitConvertImageToMarkdownJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<SubmitConvertImageToMarkdownJobResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  SubmitConvertImageToMarkdownJobResponseBody() {}
+
+  explicit SubmitConvertImageToMarkdownJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        SubmitConvertImageToMarkdownJobResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<SubmitConvertImageToMarkdownJobResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SubmitConvertImageToMarkdownJobResponseBody() = default;
+};
+class SubmitConvertImageToMarkdownJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitConvertImageToMarkdownJobResponseBody> body{};
+
+  SubmitConvertImageToMarkdownJobResponse() {}
+
+  explicit SubmitConvertImageToMarkdownJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitConvertImageToMarkdownJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitConvertImageToMarkdownJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitConvertImageToMarkdownJobResponse() = default;
 };
 class SubmitConvertImageToPdfJobRequest : public Darabonba::Model {
 public:
@@ -1772,17 +1926,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2017,17 +2161,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2262,17 +2396,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2479,17 +2603,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2528,6 +2642,213 @@ public:
 
 
   virtual ~SubmitConvertPdfToImageJobResponse() = default;
+};
+class SubmitConvertPdfToMarkdownJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> fileName{};
+  shared_ptr<string> fileUrl{};
+
+  SubmitConvertPdfToMarkdownJobRequest() {}
+
+  explicit SubmitConvertPdfToMarkdownJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+  }
+
+
+  virtual ~SubmitConvertPdfToMarkdownJobRequest() = default;
+};
+class SubmitConvertPdfToMarkdownJobAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> fileName{};
+  shared_ptr<Darabonba::Stream> fileUrlObject{};
+
+  SubmitConvertPdfToMarkdownJobAdvanceRequest() {}
+
+  explicit SubmitConvertPdfToMarkdownJobAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileUrlObject) {
+      res["FileUrl"] = boost::any(*fileUrlObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+  }
+
+
+  virtual ~SubmitConvertPdfToMarkdownJobAdvanceRequest() = default;
+};
+class SubmitConvertPdfToMarkdownJobResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+
+  SubmitConvertPdfToMarkdownJobResponseBodyData() {}
+
+  explicit SubmitConvertPdfToMarkdownJobResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+  }
+
+
+  virtual ~SubmitConvertPdfToMarkdownJobResponseBodyData() = default;
+};
+class SubmitConvertPdfToMarkdownJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<SubmitConvertPdfToMarkdownJobResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  SubmitConvertPdfToMarkdownJobResponseBody() {}
+
+  explicit SubmitConvertPdfToMarkdownJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        SubmitConvertPdfToMarkdownJobResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<SubmitConvertPdfToMarkdownJobResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SubmitConvertPdfToMarkdownJobResponseBody() = default;
+};
+class SubmitConvertPdfToMarkdownJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitConvertPdfToMarkdownJobResponseBody> body{};
+
+  SubmitConvertPdfToMarkdownJobResponse() {}
+
+  explicit SubmitConvertPdfToMarkdownJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitConvertPdfToMarkdownJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitConvertPdfToMarkdownJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitConvertPdfToMarkdownJobResponse() = default;
 };
 class SubmitConvertPdfToWordJobRequest : public Darabonba::Model {
 public:
@@ -2710,17 +3031,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2950,17 +3261,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3005,6 +3306,7 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileNameExtension{};
   shared_ptr<string> fileUrl{};
+  shared_ptr<bool> formulaEnhancement{};
   shared_ptr<string> structureType{};
 
   SubmitDocStructureJobRequest() {}
@@ -3026,6 +3328,9 @@ public:
     if (fileUrl) {
       res["FileUrl"] = boost::any(*fileUrl);
     }
+    if (formulaEnhancement) {
+      res["FormulaEnhancement"] = boost::any(*formulaEnhancement);
+    }
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
     }
@@ -3042,6 +3347,9 @@ public:
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
     }
+    if (m.find("FormulaEnhancement") != m.end() && !m["FormulaEnhancement"].empty()) {
+      formulaEnhancement = make_shared<bool>(boost::any_cast<bool>(m["FormulaEnhancement"]));
+    }
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
     }
@@ -3055,6 +3363,7 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileNameExtension{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<bool> formulaEnhancement{};
   shared_ptr<string> structureType{};
 
   SubmitDocStructureJobAdvanceRequest() {}
@@ -3076,6 +3385,9 @@ public:
     if (fileUrlObject) {
       res["FileUrl"] = boost::any(*fileUrlObject);
     }
+    if (formulaEnhancement) {
+      res["FormulaEnhancement"] = boost::any(*formulaEnhancement);
+    }
     if (structureType) {
       res["StructureType"] = boost::any(*structureType);
     }
@@ -3091,6 +3403,9 @@ public:
     }
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("FormulaEnhancement") != m.end() && !m["FormulaEnhancement"].empty()) {
+      formulaEnhancement = make_shared<bool>(boost::any_cast<bool>(m["FormulaEnhancement"]));
     }
     if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
       structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
@@ -3195,17 +3510,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3390,17 +3695,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3621,17 +3916,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3852,17 +4137,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3928,6 +4203,8 @@ public:
   GetTableUnderstandingResultResponse getTableUnderstandingResult(shared_ptr<GetTableUnderstandingResultRequest> request);
   SubmitConvertImageToExcelJobResponse submitConvertImageToExcelJobWithOptions(shared_ptr<SubmitConvertImageToExcelJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitConvertImageToExcelJobResponse submitConvertImageToExcelJob(shared_ptr<SubmitConvertImageToExcelJobRequest> request);
+  SubmitConvertImageToMarkdownJobResponse submitConvertImageToMarkdownJobWithOptions(shared_ptr<SubmitConvertImageToMarkdownJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitConvertImageToMarkdownJobResponse submitConvertImageToMarkdownJob(shared_ptr<SubmitConvertImageToMarkdownJobRequest> request);
   SubmitConvertImageToPdfJobResponse submitConvertImageToPdfJobWithOptions(shared_ptr<SubmitConvertImageToPdfJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitConvertImageToPdfJobResponse submitConvertImageToPdfJob(shared_ptr<SubmitConvertImageToPdfJobRequest> request);
   SubmitConvertImageToWordJobResponse submitConvertImageToWordJobWithOptions(shared_ptr<SubmitConvertImageToWordJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -3938,6 +4215,9 @@ public:
   SubmitConvertPdfToImageJobResponse submitConvertPdfToImageJobWithOptions(shared_ptr<SubmitConvertPdfToImageJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitConvertPdfToImageJobResponse submitConvertPdfToImageJob(shared_ptr<SubmitConvertPdfToImageJobRequest> request);
   SubmitConvertPdfToImageJobResponse submitConvertPdfToImageJobAdvance(shared_ptr<SubmitConvertPdfToImageJobAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitConvertPdfToMarkdownJobResponse submitConvertPdfToMarkdownJobWithOptions(shared_ptr<SubmitConvertPdfToMarkdownJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitConvertPdfToMarkdownJobResponse submitConvertPdfToMarkdownJob(shared_ptr<SubmitConvertPdfToMarkdownJobRequest> request);
+  SubmitConvertPdfToMarkdownJobResponse submitConvertPdfToMarkdownJobAdvance(shared_ptr<SubmitConvertPdfToMarkdownJobAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitConvertPdfToWordJobResponse submitConvertPdfToWordJobWithOptions(shared_ptr<SubmitConvertPdfToWordJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitConvertPdfToWordJobResponse submitConvertPdfToWordJob(shared_ptr<SubmitConvertPdfToWordJobRequest> request);
   SubmitConvertPdfToWordJobResponse submitConvertPdfToWordJobAdvance(shared_ptr<SubmitConvertPdfToWordJobAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
