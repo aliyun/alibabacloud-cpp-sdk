@@ -556,6 +556,7 @@ public:
   shared_ptr<string> domain{};
   shared_ptr<string> policy{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<long> upstreamRetry{};
 
   ConfigL7RsPolicyRequest() {}
 
@@ -576,6 +577,9 @@ public:
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
+    if (upstreamRetry) {
+      res["UpstreamRetry"] = boost::any(*upstreamRetry);
+    }
     return res;
   }
 
@@ -588,6 +592,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("UpstreamRetry") != m.end() && !m["UpstreamRetry"].empty()) {
+      upstreamRetry = make_shared<long>(boost::any_cast<long>(m["UpstreamRetry"]));
     }
   }
 
@@ -14246,6 +14253,12 @@ public:
 };
 class DescribeL7RsPolicyResponseBodyAttributesAttribute : public Darabonba::Model {
 public:
+  shared_ptr<long> connectTimeout{};
+  shared_ptr<long> failTimeout{};
+  shared_ptr<long> maxFails{};
+  shared_ptr<string> mode{};
+  shared_ptr<long> readTimeout{};
+  shared_ptr<long> sendTimeout{};
   shared_ptr<long> weight{};
 
   DescribeL7RsPolicyResponseBodyAttributesAttribute() {}
@@ -14258,6 +14271,24 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (connectTimeout) {
+      res["ConnectTimeout"] = boost::any(*connectTimeout);
+    }
+    if (failTimeout) {
+      res["FailTimeout"] = boost::any(*failTimeout);
+    }
+    if (maxFails) {
+      res["MaxFails"] = boost::any(*maxFails);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (readTimeout) {
+      res["ReadTimeout"] = boost::any(*readTimeout);
+    }
+    if (sendTimeout) {
+      res["SendTimeout"] = boost::any(*sendTimeout);
+    }
     if (weight) {
       res["Weight"] = boost::any(*weight);
     }
@@ -14265,6 +14296,24 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectTimeout") != m.end() && !m["ConnectTimeout"].empty()) {
+      connectTimeout = make_shared<long>(boost::any_cast<long>(m["ConnectTimeout"]));
+    }
+    if (m.find("FailTimeout") != m.end() && !m["FailTimeout"].empty()) {
+      failTimeout = make_shared<long>(boost::any_cast<long>(m["FailTimeout"]));
+    }
+    if (m.find("MaxFails") != m.end() && !m["MaxFails"].empty()) {
+      maxFails = make_shared<long>(boost::any_cast<long>(m["MaxFails"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("ReadTimeout") != m.end() && !m["ReadTimeout"].empty()) {
+      readTimeout = make_shared<long>(boost::any_cast<long>(m["ReadTimeout"]));
+    }
+    if (m.find("SendTimeout") != m.end() && !m["SendTimeout"].empty()) {
+      sendTimeout = make_shared<long>(boost::any_cast<long>(m["SendTimeout"]));
+    }
     if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
       weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
     }
@@ -14325,6 +14374,7 @@ public:
   shared_ptr<vector<DescribeL7RsPolicyResponseBodyAttributes>> attributes{};
   shared_ptr<string> proxyMode{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> upstreamRetry{};
 
   DescribeL7RsPolicyResponseBody() {}
 
@@ -14349,6 +14399,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (upstreamRetry) {
+      res["UpstreamRetry"] = boost::any(*upstreamRetry);
+    }
     return res;
   }
 
@@ -14371,6 +14424,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("UpstreamRetry") != m.end() && !m["UpstreamRetry"].empty()) {
+      upstreamRetry = make_shared<long>(boost::any_cast<long>(m["UpstreamRetry"]));
     }
   }
 

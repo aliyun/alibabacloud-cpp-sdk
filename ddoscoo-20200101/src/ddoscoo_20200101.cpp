@@ -200,6 +200,9 @@ ConfigL7RsPolicyResponse Alibabacloud_Ddoscoo20200101::Client::configL7RsPolicyW
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->upstreamRetry)) {
+    query->insert(pair<string, long>("UpstreamRetry", *request->upstreamRetry));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
