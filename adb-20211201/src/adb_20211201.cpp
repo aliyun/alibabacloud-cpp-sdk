@@ -337,8 +337,17 @@ CreateDBClusterResponse Alibabacloud_Adb20211201::Client::createDBClusterWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->period)) {
     query->insert(pair<string, string>("Period", *request->period));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productForm)) {
+    query->insert(pair<string, string>("ProductForm", *request->productForm));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->reservedNodeCount)) {
+    query->insert(pair<string, long>("ReservedNodeCount", *request->reservedNodeCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reservedNodeSize)) {
+    query->insert(pair<string, string>("ReservedNodeSize", *request->reservedNodeSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
@@ -1767,11 +1776,17 @@ DescribeDBClustersResponse Alibabacloud_Adb20211201::Client::describeDBClustersW
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterStatus)) {
     query->insert(pair<string, string>("DBClusterStatus", *request->DBClusterStatus));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterVersion)) {
+    query->insert(pair<string, string>("DBClusterVersion", *request->DBClusterVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productVersion)) {
+    query->insert(pair<string, string>("ProductVersion", *request->productVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -4143,6 +4158,12 @@ ModifyDBClusterResponse Alibabacloud_Adb20211201::Client::modifyDBClusterWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->reservedNodeCount)) {
+    query->insert(pair<string, long>("ReservedNodeCount", *request->reservedNodeCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reservedNodeSize)) {
+    query->insert(pair<string, string>("ReservedNodeSize", *request->reservedNodeSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));

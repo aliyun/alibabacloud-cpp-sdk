@@ -3217,7 +3217,10 @@ public:
   shared_ptr<bool> enableDefaultResourcePool{};
   shared_ptr<string> payType{};
   shared_ptr<string> period{};
+  shared_ptr<string> productForm{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> reservedNodeCount{};
+  shared_ptr<string> reservedNodeSize{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> restoreToTime{};
   shared_ptr<string> restoreType{};
@@ -3263,8 +3266,17 @@ public:
     if (period) {
       res["Period"] = boost::any(*period);
     }
+    if (productForm) {
+      res["ProductForm"] = boost::any(*productForm);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (reservedNodeCount) {
+      res["ReservedNodeCount"] = boost::any(*reservedNodeCount);
+    }
+    if (reservedNodeSize) {
+      res["ReservedNodeSize"] = boost::any(*reservedNodeSize);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -3328,8 +3340,17 @@ public:
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<string>(boost::any_cast<string>(m["Period"]));
     }
+    if (m.find("ProductForm") != m.end() && !m["ProductForm"].empty()) {
+      productForm = make_shared<string>(boost::any_cast<string>(m["ProductForm"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ReservedNodeCount") != m.end() && !m["ReservedNodeCount"].empty()) {
+      reservedNodeCount = make_shared<long>(boost::any_cast<long>(m["ReservedNodeCount"]));
+    }
+    if (m.find("ReservedNodeSize") != m.end() && !m["ReservedNodeSize"].empty()) {
+      reservedNodeSize = make_shared<string>(boost::any_cast<string>(m["ReservedNodeSize"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -10531,8 +10552,11 @@ public:
   shared_ptr<string> mode{};
   shared_ptr<string> payType{};
   shared_ptr<long> port{};
+  shared_ptr<string> productForm{};
   shared_ptr<string> regionId{};
   shared_ptr<string> reservedACU{};
+  shared_ptr<long> reservedNodeCount{};
+  shared_ptr<string> reservedNodeSize{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> storageResource{};
   shared_ptr<string> storageResourceTotal{};
@@ -10616,11 +10640,20 @@ public:
     if (port) {
       res["Port"] = boost::any(*port);
     }
+    if (productForm) {
+      res["ProductForm"] = boost::any(*productForm);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
     if (reservedACU) {
       res["ReservedACU"] = boost::any(*reservedACU);
+    }
+    if (reservedNodeCount) {
+      res["ReservedNodeCount"] = boost::any(*reservedNodeCount);
+    }
+    if (reservedNodeSize) {
+      res["ReservedNodeSize"] = boost::any(*reservedNodeSize);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -10716,11 +10749,20 @@ public:
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<long>(boost::any_cast<long>(m["Port"]));
     }
+    if (m.find("ProductForm") != m.end() && !m["ProductForm"].empty()) {
+      productForm = make_shared<string>(boost::any_cast<string>(m["ProductForm"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ReservedACU") != m.end() && !m["ReservedACU"].empty()) {
       reservedACU = make_shared<string>(boost::any_cast<string>(m["ReservedACU"]));
+    }
+    if (m.find("ReservedNodeCount") != m.end() && !m["ReservedNodeCount"].empty()) {
+      reservedNodeCount = make_shared<long>(boost::any_cast<long>(m["ReservedNodeCount"]));
+    }
+    if (m.find("ReservedNodeSize") != m.end() && !m["ReservedNodeSize"].empty()) {
+      reservedNodeSize = make_shared<string>(boost::any_cast<string>(m["ReservedNodeSize"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -12053,8 +12095,10 @@ public:
   shared_ptr<string> DBClusterDescription{};
   shared_ptr<string> DBClusterIds{};
   shared_ptr<string> DBClusterStatus{};
+  shared_ptr<string> DBClusterVersion{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> productVersion{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<DescribeDBClustersRequestTag>> tag{};
@@ -12078,11 +12122,17 @@ public:
     if (DBClusterStatus) {
       res["DBClusterStatus"] = boost::any(*DBClusterStatus);
     }
+    if (DBClusterVersion) {
+      res["DBClusterVersion"] = boost::any(*DBClusterVersion);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (productVersion) {
+      res["ProductVersion"] = boost::any(*productVersion);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -12110,11 +12160,17 @@ public:
     if (m.find("DBClusterStatus") != m.end() && !m["DBClusterStatus"].empty()) {
       DBClusterStatus = make_shared<string>(boost::any_cast<string>(m["DBClusterStatus"]));
     }
+    if (m.find("DBClusterVersion") != m.end() && !m["DBClusterVersion"].empty()) {
+      DBClusterVersion = make_shared<string>(boost::any_cast<string>(m["DBClusterVersion"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProductVersion") != m.end() && !m["ProductVersion"].empty()) {
+      productVersion = make_shared<string>(boost::any_cast<string>(m["ProductVersion"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -12219,8 +12275,170 @@ public:
 
   virtual ~DescribeDBClustersResponseBodyItemsDBClusterTags() = default;
 };
+class DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepListStepList : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> stepDesc{};
+  shared_ptr<string> stepName{};
+  shared_ptr<string> stepProgress{};
+  shared_ptr<string> stepStatus{};
+
+  DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepListStepList() {}
+
+  explicit DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepListStepList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (stepDesc) {
+      res["StepDesc"] = boost::any(*stepDesc);
+    }
+    if (stepName) {
+      res["StepName"] = boost::any(*stepName);
+    }
+    if (stepProgress) {
+      res["StepProgress"] = boost::any(*stepProgress);
+    }
+    if (stepStatus) {
+      res["StepStatus"] = boost::any(*stepStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StepDesc") != m.end() && !m["StepDesc"].empty()) {
+      stepDesc = make_shared<string>(boost::any_cast<string>(m["StepDesc"]));
+    }
+    if (m.find("StepName") != m.end() && !m["StepName"].empty()) {
+      stepName = make_shared<string>(boost::any_cast<string>(m["StepName"]));
+    }
+    if (m.find("StepProgress") != m.end() && !m["StepProgress"].empty()) {
+      stepProgress = make_shared<string>(boost::any_cast<string>(m["StepProgress"]));
+    }
+    if (m.find("StepStatus") != m.end() && !m["StepStatus"].empty()) {
+      stepStatus = make_shared<string>(boost::any_cast<string>(m["StepStatus"]));
+    }
+  }
+
+
+  virtual ~DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepListStepList() = default;
+};
+class DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepList : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepListStepList>> stepList{};
+
+  DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepList() {}
+
+  explicit DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (stepList) {
+      vector<boost::any> temp1;
+      for(auto item1:*stepList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["StepList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StepList") != m.end() && !m["StepList"].empty()) {
+      if (typeid(vector<boost::any>) == m["StepList"].type()) {
+        vector<DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepListStepList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["StepList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepListStepList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        stepList = make_shared<vector<DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepListStepList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepList() = default;
+};
+class DescribeDBClustersResponseBodyItemsDBClusterTaskInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> progress{};
+  shared_ptr<string> status{};
+  shared_ptr<DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepList> stepList{};
+
+  DescribeDBClustersResponseBodyItemsDBClusterTaskInfo() {}
+
+  explicit DescribeDBClustersResponseBodyItemsDBClusterTaskInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (stepList) {
+      res["StepList"] = stepList ? boost::any(stepList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StepList") != m.end() && !m["StepList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StepList"].type()) {
+        DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StepList"]));
+        stepList = make_shared<DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepList>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDBClustersResponseBodyItemsDBClusterTaskInfo() = default;
+};
 class DescribeDBClustersResponseBodyItemsDBCluster : public Darabonba::Model {
 public:
+  shared_ptr<string> category{};
   shared_ptr<string> commodityCode{};
   shared_ptr<string> computeResource{};
   shared_ptr<string> connectionString{};
@@ -12230,20 +12448,35 @@ public:
   shared_ptr<string> DBClusterNetworkType{};
   shared_ptr<string> DBClusterStatus{};
   shared_ptr<string> DBClusterType{};
+  shared_ptr<string> DBNodeClass{};
+  shared_ptr<long> DBNodeCount{};
+  shared_ptr<long> DBNodeStorage{};
   shared_ptr<string> DBVersion{};
+  shared_ptr<string> diskType{};
+  shared_ptr<string> dtsJobId{};
+  shared_ptr<long> elasticIOResource{};
   shared_ptr<string> engine{};
+  shared_ptr<string> executorCount{};
   shared_ptr<string> expireTime{};
   shared_ptr<string> expired{};
+  shared_ptr<string> innerIp{};
+  shared_ptr<string> innerPort{};
   shared_ptr<string> lockMode{};
   shared_ptr<string> lockReason{};
   shared_ptr<string> mode{};
   shared_ptr<string> payType{};
   shared_ptr<string> port{};
+  shared_ptr<string> productForm{};
+  shared_ptr<string> rdsInstanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> reservedACU{};
+  shared_ptr<long> reservedNodeCount{};
+  shared_ptr<string> reservedNodeSize{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> storageResource{};
   shared_ptr<DescribeDBClustersResponseBodyItemsDBClusterTags> tags{};
+  shared_ptr<DescribeDBClustersResponseBodyItemsDBClusterTaskInfo> taskInfo{};
+  shared_ptr<string> VPCCloudInstanceId{};
   shared_ptr<string> VPCId{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> zoneId{};
@@ -12258,6 +12491,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
     if (commodityCode) {
       res["CommodityCode"] = boost::any(*commodityCode);
     }
@@ -12285,17 +12521,44 @@ public:
     if (DBClusterType) {
       res["DBClusterType"] = boost::any(*DBClusterType);
     }
+    if (DBNodeClass) {
+      res["DBNodeClass"] = boost::any(*DBNodeClass);
+    }
+    if (DBNodeCount) {
+      res["DBNodeCount"] = boost::any(*DBNodeCount);
+    }
+    if (DBNodeStorage) {
+      res["DBNodeStorage"] = boost::any(*DBNodeStorage);
+    }
     if (DBVersion) {
       res["DBVersion"] = boost::any(*DBVersion);
     }
+    if (diskType) {
+      res["DiskType"] = boost::any(*diskType);
+    }
+    if (dtsJobId) {
+      res["DtsJobId"] = boost::any(*dtsJobId);
+    }
+    if (elasticIOResource) {
+      res["ElasticIOResource"] = boost::any(*elasticIOResource);
+    }
     if (engine) {
       res["Engine"] = boost::any(*engine);
+    }
+    if (executorCount) {
+      res["ExecutorCount"] = boost::any(*executorCount);
     }
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
     }
     if (expired) {
       res["Expired"] = boost::any(*expired);
+    }
+    if (innerIp) {
+      res["InnerIp"] = boost::any(*innerIp);
+    }
+    if (innerPort) {
+      res["InnerPort"] = boost::any(*innerPort);
     }
     if (lockMode) {
       res["LockMode"] = boost::any(*lockMode);
@@ -12312,11 +12575,23 @@ public:
     if (port) {
       res["Port"] = boost::any(*port);
     }
+    if (productForm) {
+      res["ProductForm"] = boost::any(*productForm);
+    }
+    if (rdsInstanceId) {
+      res["RdsInstanceId"] = boost::any(*rdsInstanceId);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
     if (reservedACU) {
       res["ReservedACU"] = boost::any(*reservedACU);
+    }
+    if (reservedNodeCount) {
+      res["ReservedNodeCount"] = boost::any(*reservedNodeCount);
+    }
+    if (reservedNodeSize) {
+      res["ReservedNodeSize"] = boost::any(*reservedNodeSize);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -12326,6 +12601,12 @@ public:
     }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (taskInfo) {
+      res["TaskInfo"] = taskInfo ? boost::any(taskInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (VPCCloudInstanceId) {
+      res["VPCCloudInstanceId"] = boost::any(*VPCCloudInstanceId);
     }
     if (VPCId) {
       res["VPCId"] = boost::any(*VPCId);
@@ -12340,6 +12621,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
     if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
       commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
     }
@@ -12367,17 +12651,44 @@ public:
     if (m.find("DBClusterType") != m.end() && !m["DBClusterType"].empty()) {
       DBClusterType = make_shared<string>(boost::any_cast<string>(m["DBClusterType"]));
     }
+    if (m.find("DBNodeClass") != m.end() && !m["DBNodeClass"].empty()) {
+      DBNodeClass = make_shared<string>(boost::any_cast<string>(m["DBNodeClass"]));
+    }
+    if (m.find("DBNodeCount") != m.end() && !m["DBNodeCount"].empty()) {
+      DBNodeCount = make_shared<long>(boost::any_cast<long>(m["DBNodeCount"]));
+    }
+    if (m.find("DBNodeStorage") != m.end() && !m["DBNodeStorage"].empty()) {
+      DBNodeStorage = make_shared<long>(boost::any_cast<long>(m["DBNodeStorage"]));
+    }
     if (m.find("DBVersion") != m.end() && !m["DBVersion"].empty()) {
       DBVersion = make_shared<string>(boost::any_cast<string>(m["DBVersion"]));
     }
+    if (m.find("DiskType") != m.end() && !m["DiskType"].empty()) {
+      diskType = make_shared<string>(boost::any_cast<string>(m["DiskType"]));
+    }
+    if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
+      dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
+    }
+    if (m.find("ElasticIOResource") != m.end() && !m["ElasticIOResource"].empty()) {
+      elasticIOResource = make_shared<long>(boost::any_cast<long>(m["ElasticIOResource"]));
+    }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("ExecutorCount") != m.end() && !m["ExecutorCount"].empty()) {
+      executorCount = make_shared<string>(boost::any_cast<string>(m["ExecutorCount"]));
     }
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
     }
     if (m.find("Expired") != m.end() && !m["Expired"].empty()) {
       expired = make_shared<string>(boost::any_cast<string>(m["Expired"]));
+    }
+    if (m.find("InnerIp") != m.end() && !m["InnerIp"].empty()) {
+      innerIp = make_shared<string>(boost::any_cast<string>(m["InnerIp"]));
+    }
+    if (m.find("InnerPort") != m.end() && !m["InnerPort"].empty()) {
+      innerPort = make_shared<string>(boost::any_cast<string>(m["InnerPort"]));
     }
     if (m.find("LockMode") != m.end() && !m["LockMode"].empty()) {
       lockMode = make_shared<string>(boost::any_cast<string>(m["LockMode"]));
@@ -12394,11 +12705,23 @@ public:
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<string>(boost::any_cast<string>(m["Port"]));
     }
+    if (m.find("ProductForm") != m.end() && !m["ProductForm"].empty()) {
+      productForm = make_shared<string>(boost::any_cast<string>(m["ProductForm"]));
+    }
+    if (m.find("RdsInstanceId") != m.end() && !m["RdsInstanceId"].empty()) {
+      rdsInstanceId = make_shared<string>(boost::any_cast<string>(m["RdsInstanceId"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ReservedACU") != m.end() && !m["ReservedACU"].empty()) {
       reservedACU = make_shared<string>(boost::any_cast<string>(m["ReservedACU"]));
+    }
+    if (m.find("ReservedNodeCount") != m.end() && !m["ReservedNodeCount"].empty()) {
+      reservedNodeCount = make_shared<long>(boost::any_cast<long>(m["ReservedNodeCount"]));
+    }
+    if (m.find("ReservedNodeSize") != m.end() && !m["ReservedNodeSize"].empty()) {
+      reservedNodeSize = make_shared<string>(boost::any_cast<string>(m["ReservedNodeSize"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -12412,6 +12735,16 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
         tags = make_shared<DescribeDBClustersResponseBodyItemsDBClusterTags>(model1);
       }
+    }
+    if (m.find("TaskInfo") != m.end() && !m["TaskInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TaskInfo"].type()) {
+        DescribeDBClustersResponseBodyItemsDBClusterTaskInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TaskInfo"]));
+        taskInfo = make_shared<DescribeDBClustersResponseBodyItemsDBClusterTaskInfo>(model1);
+      }
+    }
+    if (m.find("VPCCloudInstanceId") != m.end() && !m["VPCCloudInstanceId"].empty()) {
+      VPCCloudInstanceId = make_shared<string>(boost::any_cast<string>(m["VPCCloudInstanceId"]));
     }
     if (m.find("VPCId") != m.end() && !m["VPCId"].empty()) {
       VPCId = make_shared<string>(boost::any_cast<string>(m["VPCId"]));
@@ -24973,6 +25306,8 @@ public:
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> reservedNodeCount{};
+  shared_ptr<string> reservedNodeSize{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<string> storageResource{};
 
@@ -25004,6 +25339,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (reservedNodeCount) {
+      res["ReservedNodeCount"] = boost::any(*reservedNodeCount);
+    }
+    if (reservedNodeSize) {
+      res["ReservedNodeSize"] = boost::any(*reservedNodeSize);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -25031,6 +25372,12 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ReservedNodeCount") != m.end() && !m["ReservedNodeCount"].empty()) {
+      reservedNodeCount = make_shared<long>(boost::any_cast<long>(m["ReservedNodeCount"]));
+    }
+    if (m.find("ReservedNodeSize") != m.end() && !m["ReservedNodeSize"].empty()) {
+      reservedNodeSize = make_shared<string>(boost::any_cast<string>(m["ReservedNodeSize"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
