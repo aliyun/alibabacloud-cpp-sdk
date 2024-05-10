@@ -18,15 +18,7 @@ using namespace Alibabacloud_Vpc20160428;
 Alibabacloud_Vpc20160428::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
-    {"cn-qingdao", "vpc.aliyuncs.com"},
-    {"cn-beijing", "vpc.aliyuncs.com"},
     {"cn-hangzhou", "vpc.aliyuncs.com"},
-    {"cn-shanghai", "vpc.aliyuncs.com"},
-    {"cn-shenzhen", "vpc.aliyuncs.com"},
-    {"cn-hongkong", "vpc.aliyuncs.com"},
-    {"ap-southeast-1", "vpc.aliyuncs.com"},
-    {"us-east-1", "vpc.aliyuncs.com"},
-    {"us-west-1", "vpc.aliyuncs.com"},
     {"cn-shanghai-finance-1", "vpc.aliyuncs.com"},
     {"cn-shenzhen-finance-1", "vpc.aliyuncs.com"},
     {"cn-north-2-gov-1", "vpc.aliyuncs.com"},
@@ -40,17 +32,17 @@ Alibabacloud_Vpc20160428::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"cn-hangzhou-bj-b01", "vpc.aliyuncs.com"},
     {"cn-hangzhou-finance", "vpc.aliyuncs.com"},
     {"cn-hangzhou-internal-prod-1", "vpc.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-1", "vpc.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-2", "vpc.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-3", "vpc.aliyuncs.com"},
-    {"cn-hangzhou-test-306", "vpc.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-1", "vpc-pre.cn-hangzhou.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-2", "vpc-inner-pre.cn-hangzhou.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-3", "vpc-pre.cn-hangzhou.aliyuncs.com"},
+    {"cn-hangzhou-test-306", "vpc-pre.cn-hangzhou.aliyuncs.com"},
     {"cn-hongkong-finance-pop", "vpc.aliyuncs.com"},
     {"cn-huhehaote-nebula-1", "vpc-nebula.cn-qingdao-nebula.aliyuncs.com"},
     {"cn-qingdao-nebula", "vpc-nebula.cn-qingdao-nebula.aliyuncs.com"},
-    {"cn-shanghai-et15-b01", "vpc.aliyuncs.com"},
+    {"cn-shanghai-et15-b01", "vpc-pre.cn-hangzhou.aliyuncs.com"},
     {"cn-shanghai-et2-b01", "vpc.aliyuncs.com"},
     {"cn-shanghai-inner", "vpc.aliyuncs.com"},
-    {"cn-shanghai-internal-test-1", "vpc.aliyuncs.com"},
+    {"cn-shanghai-internal-test-1", "vpc-pre.cn-hangzhou.aliyuncs.com"},
     {"cn-shenzhen-inner", "vpc.aliyuncs.com"},
     {"cn-shenzhen-st4-d01", "vpc.aliyuncs.com"},
     {"cn-shenzhen-su18-b01", "vpc.aliyuncs.com"},
@@ -4699,6 +4691,9 @@ CreateSslVpnServerResponse Alibabacloud_Vpc20160428::Client::createSslVpnServerW
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableMultiFactorAuth)) {
     query->insert(pair<string, bool>("EnableMultiFactorAuth", *request->enableMultiFactorAuth));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->IDaaSApplicationId)) {
+    query->insert(pair<string, string>("IDaaSApplicationId", *request->IDaaSApplicationId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->IDaaSInstanceId)) {
     query->insert(pair<string, string>("IDaaSInstanceId", *request->IDaaSInstanceId));
@@ -17615,6 +17610,9 @@ ModifySslVpnServerResponse Alibabacloud_Vpc20160428::Client::modifySslVpnServerW
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableMultiFactorAuth)) {
     query->insert(pair<string, bool>("EnableMultiFactorAuth", *request->enableMultiFactorAuth));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->IDaaSApplicationId)) {
+    query->insert(pair<string, string>("IDaaSApplicationId", *request->IDaaSApplicationId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->IDaaSInstanceId)) {
     query->insert(pair<string, string>("IDaaSInstanceId", *request->IDaaSInstanceId));

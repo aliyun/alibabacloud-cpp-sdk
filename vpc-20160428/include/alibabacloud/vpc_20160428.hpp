@@ -16671,6 +16671,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> compress{};
   shared_ptr<bool> enableMultiFactorAuth{};
+  shared_ptr<string> IDaaSApplicationId{};
   shared_ptr<string> IDaaSInstanceId{};
   shared_ptr<string> IDaaSRegionId{};
   shared_ptr<string> localSubnet{};
@@ -16708,6 +16709,9 @@ public:
     }
     if (enableMultiFactorAuth) {
       res["EnableMultiFactorAuth"] = boost::any(*enableMultiFactorAuth);
+    }
+    if (IDaaSApplicationId) {
+      res["IDaaSApplicationId"] = boost::any(*IDaaSApplicationId);
     }
     if (IDaaSInstanceId) {
       res["IDaaSInstanceId"] = boost::any(*IDaaSInstanceId);
@@ -16763,6 +16767,9 @@ public:
     }
     if (m.find("EnableMultiFactorAuth") != m.end() && !m["EnableMultiFactorAuth"].empty()) {
       enableMultiFactorAuth = make_shared<bool>(boost::any_cast<bool>(m["EnableMultiFactorAuth"]));
+    }
+    if (m.find("IDaaSApplicationId") != m.end() && !m["IDaaSApplicationId"].empty()) {
+      IDaaSApplicationId = make_shared<string>(boost::any_cast<string>(m["IDaaSApplicationId"]));
     }
     if (m.find("IDaaSInstanceId") != m.end() && !m["IDaaSInstanceId"].empty()) {
       IDaaSInstanceId = make_shared<string>(boost::any_cast<string>(m["IDaaSInstanceId"]));
@@ -53428,7 +53435,9 @@ public:
   shared_ptr<long> connections{};
   shared_ptr<long> createTime{};
   shared_ptr<bool> enableMultiFactorAuth{};
+  shared_ptr<string> IDaaSApplicationId{};
   shared_ptr<string> IDaaSInstanceId{};
+  shared_ptr<string> IDaaSInstanceVersion{};
   shared_ptr<string> IDaaSRegionId{};
   shared_ptr<string> internetIp{};
   shared_ptr<string> localSubnet{};
@@ -53469,8 +53478,14 @@ public:
     if (enableMultiFactorAuth) {
       res["EnableMultiFactorAuth"] = boost::any(*enableMultiFactorAuth);
     }
+    if (IDaaSApplicationId) {
+      res["IDaaSApplicationId"] = boost::any(*IDaaSApplicationId);
+    }
     if (IDaaSInstanceId) {
       res["IDaaSInstanceId"] = boost::any(*IDaaSInstanceId);
+    }
+    if (IDaaSInstanceVersion) {
+      res["IDaaSInstanceVersion"] = boost::any(*IDaaSInstanceVersion);
     }
     if (IDaaSRegionId) {
       res["IDaaSRegionId"] = boost::any(*IDaaSRegionId);
@@ -53527,8 +53542,14 @@ public:
     if (m.find("EnableMultiFactorAuth") != m.end() && !m["EnableMultiFactorAuth"].empty()) {
       enableMultiFactorAuth = make_shared<bool>(boost::any_cast<bool>(m["EnableMultiFactorAuth"]));
     }
+    if (m.find("IDaaSApplicationId") != m.end() && !m["IDaaSApplicationId"].empty()) {
+      IDaaSApplicationId = make_shared<string>(boost::any_cast<string>(m["IDaaSApplicationId"]));
+    }
     if (m.find("IDaaSInstanceId") != m.end() && !m["IDaaSInstanceId"].empty()) {
       IDaaSInstanceId = make_shared<string>(boost::any_cast<string>(m["IDaaSInstanceId"]));
+    }
+    if (m.find("IDaaSInstanceVersion") != m.end() && !m["IDaaSInstanceVersion"].empty()) {
+      IDaaSInstanceVersion = make_shared<string>(boost::any_cast<string>(m["IDaaSInstanceVersion"]));
     }
     if (m.find("IDaaSRegionId") != m.end() && !m["IDaaSRegionId"].empty()) {
       IDaaSRegionId = make_shared<string>(boost::any_cast<string>(m["IDaaSRegionId"]));
@@ -87565,6 +87586,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> compress{};
   shared_ptr<bool> enableMultiFactorAuth{};
+  shared_ptr<string> IDaaSApplicationId{};
   shared_ptr<string> IDaaSInstanceId{};
   shared_ptr<string> IDaaSRegionId{};
   shared_ptr<string> localSubnet{};
@@ -87602,6 +87624,9 @@ public:
     }
     if (enableMultiFactorAuth) {
       res["EnableMultiFactorAuth"] = boost::any(*enableMultiFactorAuth);
+    }
+    if (IDaaSApplicationId) {
+      res["IDaaSApplicationId"] = boost::any(*IDaaSApplicationId);
     }
     if (IDaaSInstanceId) {
       res["IDaaSInstanceId"] = boost::any(*IDaaSInstanceId);
@@ -87658,6 +87683,9 @@ public:
     if (m.find("EnableMultiFactorAuth") != m.end() && !m["EnableMultiFactorAuth"].empty()) {
       enableMultiFactorAuth = make_shared<bool>(boost::any_cast<bool>(m["EnableMultiFactorAuth"]));
     }
+    if (m.find("IDaaSApplicationId") != m.end() && !m["IDaaSApplicationId"].empty()) {
+      IDaaSApplicationId = make_shared<string>(boost::any_cast<string>(m["IDaaSApplicationId"]));
+    }
     if (m.find("IDaaSInstanceId") != m.end() && !m["IDaaSInstanceId"].empty()) {
       IDaaSInstanceId = make_shared<string>(boost::any_cast<string>(m["IDaaSInstanceId"]));
     }
@@ -87707,7 +87735,9 @@ public:
   shared_ptr<long> connections{};
   shared_ptr<long> createTime{};
   shared_ptr<bool> enableMultiFactorAuth{};
+  shared_ptr<string> IDaaSApplicationId{};
   shared_ptr<string> IDaaSInstanceId{};
+  shared_ptr<string> IDaaSInstanceVersion{};
   shared_ptr<string> internetIp{};
   shared_ptr<string> localSubnet{};
   shared_ptr<long> maxConnections{};
@@ -87748,8 +87778,14 @@ public:
     if (enableMultiFactorAuth) {
       res["EnableMultiFactorAuth"] = boost::any(*enableMultiFactorAuth);
     }
+    if (IDaaSApplicationId) {
+      res["IDaaSApplicationId"] = boost::any(*IDaaSApplicationId);
+    }
     if (IDaaSInstanceId) {
       res["IDaaSInstanceId"] = boost::any(*IDaaSInstanceId);
+    }
+    if (IDaaSInstanceVersion) {
+      res["IDaaSInstanceVersion"] = boost::any(*IDaaSInstanceVersion);
     }
     if (internetIp) {
       res["InternetIp"] = boost::any(*internetIp);
@@ -87806,8 +87842,14 @@ public:
     if (m.find("EnableMultiFactorAuth") != m.end() && !m["EnableMultiFactorAuth"].empty()) {
       enableMultiFactorAuth = make_shared<bool>(boost::any_cast<bool>(m["EnableMultiFactorAuth"]));
     }
+    if (m.find("IDaaSApplicationId") != m.end() && !m["IDaaSApplicationId"].empty()) {
+      IDaaSApplicationId = make_shared<string>(boost::any_cast<string>(m["IDaaSApplicationId"]));
+    }
     if (m.find("IDaaSInstanceId") != m.end() && !m["IDaaSInstanceId"].empty()) {
       IDaaSInstanceId = make_shared<string>(boost::any_cast<string>(m["IDaaSInstanceId"]));
+    }
+    if (m.find("IDaaSInstanceVersion") != m.end() && !m["IDaaSInstanceVersion"].empty()) {
+      IDaaSInstanceVersion = make_shared<string>(boost::any_cast<string>(m["IDaaSInstanceVersion"]));
     }
     if (m.find("InternetIp") != m.end() && !m["InternetIp"].empty()) {
       internetIp = make_shared<string>(boost::any_cast<string>(m["InternetIp"]));
