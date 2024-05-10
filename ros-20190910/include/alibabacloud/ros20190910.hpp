@@ -9779,6 +9779,7 @@ class GetStackGroupResponseBodyStackGroup : public Darabonba::Model {
 public:
   shared_ptr<string> administrationRoleName{};
   shared_ptr<GetStackGroupResponseBodyStackGroupAutoDeployment> autoDeployment{};
+  shared_ptr<string> createTime{};
   shared_ptr<string> description{};
   shared_ptr<string> executionRoleName{};
   shared_ptr<vector<GetStackGroupResponseBodyStackGroupParameters>> parameters{};
@@ -9791,6 +9792,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateContent{};
+  shared_ptr<string> updateTime{};
 
   GetStackGroupResponseBodyStackGroup() {}
 
@@ -9807,6 +9809,9 @@ public:
     }
     if (autoDeployment) {
       res["AutoDeployment"] = autoDeployment ? boost::any(autoDeployment->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -9848,6 +9853,9 @@ public:
     if (templateContent) {
       res["TemplateContent"] = boost::any(*templateContent);
     }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
     return res;
   }
 
@@ -9861,6 +9869,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AutoDeployment"]));
         autoDeployment = make_shared<GetStackGroupResponseBodyStackGroupAutoDeployment>(model1);
       }
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -9918,6 +9929,9 @@ public:
     }
     if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
       templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
     }
   }
 
@@ -16051,6 +16065,7 @@ public:
 class ListStackGroupsResponseBodyStackGroups : public Darabonba::Model {
 public:
   shared_ptr<ListStackGroupsResponseBodyStackGroupsAutoDeployment> autoDeployment{};
+  shared_ptr<string> createTime{};
   shared_ptr<string> description{};
   shared_ptr<string> driftDetectionTime{};
   shared_ptr<string> permissionModel{};
@@ -16060,6 +16075,7 @@ public:
   shared_ptr<string> stackGroupName{};
   shared_ptr<string> status{};
   shared_ptr<vector<ListStackGroupsResponseBodyStackGroupsTags>> tags{};
+  shared_ptr<string> updateTime{};
 
   ListStackGroupsResponseBodyStackGroups() {}
 
@@ -16073,6 +16089,9 @@ public:
     map<string, boost::any> res;
     if (autoDeployment) {
       res["AutoDeployment"] = autoDeployment ? boost::any(autoDeployment->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -16105,6 +16124,9 @@ public:
       }
       res["Tags"] = boost::any(temp1);
     }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
     return res;
   }
 
@@ -16115,6 +16137,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AutoDeployment"]));
         autoDeployment = make_shared<ListStackGroupsResponseBodyStackGroupsAutoDeployment>(model1);
       }
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -16152,6 +16177,9 @@ public:
         }
         tags = make_shared<vector<ListStackGroupsResponseBodyStackGroupsTags>>(expect1);
       }
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
     }
   }
 
