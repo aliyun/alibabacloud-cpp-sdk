@@ -2019,6 +2019,96 @@ public:
 
   virtual ~ImageModerationRequest() = default;
 };
+class ImageModerationResponseBodyDataExtOcrResultLocation : public Darabonba::Model {
+public:
+  shared_ptr<long> h{};
+  shared_ptr<long> w{};
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  ImageModerationResponseBodyDataExtOcrResultLocation() {}
+
+  explicit ImageModerationResponseBodyDataExtOcrResultLocation(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (h) {
+      res["H"] = boost::any(*h);
+    }
+    if (w) {
+      res["W"] = boost::any(*w);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("H") != m.end() && !m["H"].empty()) {
+      h = make_shared<long>(boost::any_cast<long>(m["H"]));
+    }
+    if (m.find("W") != m.end() && !m["W"].empty()) {
+      w = make_shared<long>(boost::any_cast<long>(m["W"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtOcrResultLocation() = default;
+};
+class ImageModerationResponseBodyDataExtOcrResult : public Darabonba::Model {
+public:
+  shared_ptr<ImageModerationResponseBodyDataExtOcrResultLocation> location{};
+  shared_ptr<string> text{};
+
+  ImageModerationResponseBodyDataExtOcrResult() {}
+
+  explicit ImageModerationResponseBodyDataExtOcrResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (location) {
+      res["Location"] = location ? boost::any(location->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Location"].type()) {
+        ImageModerationResponseBodyDataExtOcrResultLocation model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Location"]));
+        location = make_shared<ImageModerationResponseBodyDataExtOcrResultLocation>(model1);
+      }
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtOcrResult() = default;
+};
 class ImageModerationResponseBodyDataExtRecognition : public Darabonba::Model {
 public:
   shared_ptr<string> classification{};
@@ -2057,6 +2147,7 @@ public:
 };
 class ImageModerationResponseBodyDataExt : public Darabonba::Model {
 public:
+  shared_ptr<vector<ImageModerationResponseBodyDataExtOcrResult>> ocrResult{};
   shared_ptr<vector<ImageModerationResponseBodyDataExtRecognition>> recognition{};
 
   ImageModerationResponseBodyDataExt() {}
@@ -2069,6 +2160,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ocrResult) {
+      vector<boost::any> temp1;
+      for(auto item1:*ocrResult){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OcrResult"] = boost::any(temp1);
+    }
     if (recognition) {
       vector<boost::any> temp1;
       for(auto item1:*recognition){
@@ -2080,6 +2178,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("OcrResult") != m.end() && !m["OcrResult"].empty()) {
+      if (typeid(vector<boost::any>) == m["OcrResult"].type()) {
+        vector<ImageModerationResponseBodyDataExtOcrResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OcrResult"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImageModerationResponseBodyDataExtOcrResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ocrResult = make_shared<vector<ImageModerationResponseBodyDataExtOcrResult>>(expect1);
+      }
+    }
     if (m.find("Recognition") != m.end() && !m["Recognition"].empty()) {
       if (typeid(vector<boost::any>) == m["Recognition"].type()) {
         vector<ImageModerationResponseBodyDataExtRecognition> expect1;
