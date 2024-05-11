@@ -37192,6 +37192,7 @@ public:
 };
 class DescribeVpcAccessesRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> accurateQuery{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> name{};
   shared_ptr<long> pageNumber{};
@@ -37212,6 +37213,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accurateQuery) {
+      res["AccurateQuery"] = boost::any(*accurateQuery);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -37247,6 +37251,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccurateQuery") != m.end() && !m["AccurateQuery"].empty()) {
+      accurateQuery = make_shared<bool>(boost::any_cast<bool>(m["AccurateQuery"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
