@@ -644,6 +644,113 @@ EnableRuleResponse Alibabacloud_Eventbridge20200401::Client::enableRule(shared_p
   return enableRuleWithOptions(request, runtime);
 }
 
+EventCenterCheckEnabledOnDefaultBusResponse Alibabacloud_Eventbridge20200401::Client::eventCenterCheckEnabledOnDefaultBusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EventCenterCheckEnabledOnDefaultBus"))},
+    {"version", boost::any(string("2020-04-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EventCenterCheckEnabledOnDefaultBusResponse(callApi(params, req, runtime));
+}
+
+EventCenterCheckEnabledOnDefaultBusResponse Alibabacloud_Eventbridge20200401::Client::eventCenterCheckEnabledOnDefaultBus() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return eventCenterCheckEnabledOnDefaultBusWithOptions(runtime);
+}
+
+EventCenterDisableOnDefaultBusResponse Alibabacloud_Eventbridge20200401::Client::eventCenterDisableOnDefaultBusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EventCenterDisableOnDefaultBus"))},
+    {"version", boost::any(string("2020-04-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EventCenterDisableOnDefaultBusResponse(callApi(params, req, runtime));
+}
+
+EventCenterDisableOnDefaultBusResponse Alibabacloud_Eventbridge20200401::Client::eventCenterDisableOnDefaultBus() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return eventCenterDisableOnDefaultBusWithOptions(runtime);
+}
+
+EventCenterEnableOnDefaultBusResponse Alibabacloud_Eventbridge20200401::Client::eventCenterEnableOnDefaultBusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EventCenterEnableOnDefaultBus"))},
+    {"version", boost::any(string("2020-04-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EventCenterEnableOnDefaultBusResponse(callApi(params, req, runtime));
+}
+
+EventCenterEnableOnDefaultBusResponse Alibabacloud_Eventbridge20200401::Client::eventCenterEnableOnDefaultBus() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return eventCenterEnableOnDefaultBusWithOptions(runtime);
+}
+
+EventCenterQueryEventsResponse Alibabacloud_Eventbridge20200401::Client::eventCenterQueryEventsWithOptions(shared_ptr<EventCenterQueryEventsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<EventCenterQueryEventsShrinkRequest> request = make_shared<EventCenterQueryEventsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<EventCenterQueryEventsRequestBody>(tmpReq->body)) {
+    request->bodyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->body, make_shared<string>("Body"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->busName)) {
+    query->insert(pair<string, string>("BusName", *request->busName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bodyShrink)) {
+    body->insert(pair<string, string>("Body", *request->bodyShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EventCenterQueryEvents"))},
+    {"version", boost::any(string("2020-04-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EventCenterQueryEventsResponse(callApi(params, req, runtime));
+}
+
+EventCenterQueryEventsResponse Alibabacloud_Eventbridge20200401::Client::eventCenterQueryEvents(shared_ptr<EventCenterQueryEventsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return eventCenterQueryEventsWithOptions(request, runtime);
+}
+
 GetApiDestinationResponse Alibabacloud_Eventbridge20200401::Client::getApiDestinationWithOptions(shared_ptr<GetApiDestinationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
