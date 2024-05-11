@@ -5732,6 +5732,9 @@ ListAlertEventsResponse Alibabacloud_ARMS20190808::Client::listAlertEventsWithOp
   if (!Darabonba_Util::Client::isUnset<long>(request->page)) {
     query->insert(pair<string, long>("Page", *request->page));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->showNotificationPolicies)) {
+    query->insert(pair<string, bool>("ShowNotificationPolicies", *request->showNotificationPolicies));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->size)) {
     query->insert(pair<string, long>("Size", *request->size));
   }

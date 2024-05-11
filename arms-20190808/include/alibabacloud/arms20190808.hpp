@@ -42037,6 +42037,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<string> matchingConditions{};
   shared_ptr<long> page{};
+  shared_ptr<bool> showNotificationPolicies{};
   shared_ptr<long> size{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
@@ -42063,6 +42064,9 @@ public:
     if (page) {
       res["Page"] = boost::any(*page);
     }
+    if (showNotificationPolicies) {
+      res["ShowNotificationPolicies"] = boost::any(*showNotificationPolicies);
+    }
     if (size) {
       res["Size"] = boost::any(*size);
     }
@@ -42087,6 +42091,9 @@ public:
     }
     if (m.find("Page") != m.end() && !m["Page"].empty()) {
       page = make_shared<long>(boost::any_cast<long>(m["Page"]));
+    }
+    if (m.find("ShowNotificationPolicies") != m.end() && !m["ShowNotificationPolicies"].empty()) {
+      showNotificationPolicies = make_shared<bool>(boost::any_cast<bool>(m["ShowNotificationPolicies"]));
     }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
@@ -42152,6 +42159,42 @@ public:
 
   virtual ~ListAlertEventsResponseBodyPageBeanEventsAlarms() = default;
 };
+class ListAlertEventsResponseBodyPageBeanEventsNotificationPolicies : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+
+  ListAlertEventsResponseBodyPageBeanEventsNotificationPolicies() {}
+
+  explicit ListAlertEventsResponseBodyPageBeanEventsNotificationPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~ListAlertEventsResponseBodyPageBeanEventsNotificationPolicies() = default;
+};
 class ListAlertEventsResponseBodyPageBeanEvents : public Darabonba::Model {
 public:
   shared_ptr<vector<ListAlertEventsResponseBodyPageBeanEventsAlarms>> alarms{};
@@ -42164,10 +42207,12 @@ public:
   shared_ptr<string> integrationName{};
   shared_ptr<string> integrationType{};
   shared_ptr<string> labels{};
+  shared_ptr<vector<ListAlertEventsResponseBodyPageBeanEventsNotificationPolicies>> notificationPolicies{};
   shared_ptr<string> receiveTime{};
   shared_ptr<string> severity{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
+  shared_ptr<long> triggerCount{};
 
   ListAlertEventsResponseBodyPageBeanEvents() {}
 
@@ -42213,6 +42258,13 @@ public:
     if (labels) {
       res["Labels"] = boost::any(*labels);
     }
+    if (notificationPolicies) {
+      vector<boost::any> temp1;
+      for(auto item1:*notificationPolicies){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NotificationPolicies"] = boost::any(temp1);
+    }
     if (receiveTime) {
       res["ReceiveTime"] = boost::any(*receiveTime);
     }
@@ -42224,6 +42276,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (triggerCount) {
+      res["TriggerCount"] = boost::any(*triggerCount);
     }
     return res;
   }
@@ -42269,6 +42324,19 @@ public:
     if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
       labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
     }
+    if (m.find("NotificationPolicies") != m.end() && !m["NotificationPolicies"].empty()) {
+      if (typeid(vector<boost::any>) == m["NotificationPolicies"].type()) {
+        vector<ListAlertEventsResponseBodyPageBeanEventsNotificationPolicies> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NotificationPolicies"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAlertEventsResponseBodyPageBeanEventsNotificationPolicies model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        notificationPolicies = make_shared<vector<ListAlertEventsResponseBodyPageBeanEventsNotificationPolicies>>(expect1);
+      }
+    }
     if (m.find("ReceiveTime") != m.end() && !m["ReceiveTime"].empty()) {
       receiveTime = make_shared<string>(boost::any_cast<string>(m["ReceiveTime"]));
     }
@@ -42280,6 +42348,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TriggerCount") != m.end() && !m["TriggerCount"].empty()) {
+      triggerCount = make_shared<long>(boost::any_cast<long>(m["TriggerCount"]));
     }
   }
 
