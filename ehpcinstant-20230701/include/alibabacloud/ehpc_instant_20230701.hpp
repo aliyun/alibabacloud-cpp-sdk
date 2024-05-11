@@ -1103,10 +1103,54 @@ public:
 
   virtual ~CreateJobShrinkRequest() = default;
 };
+class CreateJobResponseBodyTasks : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> executorIds{};
+  shared_ptr<string> taskName{};
+
+  CreateJobResponseBodyTasks() {}
+
+  explicit CreateJobResponseBodyTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (executorIds) {
+      res["ExecutorIds"] = boost::any(*executorIds);
+    }
+    if (taskName) {
+      res["TaskName"] = boost::any(*taskName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExecutorIds") != m.end() && !m["ExecutorIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExecutorIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExecutorIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      executorIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
+      taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
+    }
+  }
+
+
+  virtual ~CreateJobResponseBodyTasks() = default;
+};
 class CreateJobResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> jobId{};
   shared_ptr<string> requestId{};
+  shared_ptr<vector<CreateJobResponseBodyTasks>> tasks{};
 
   CreateJobResponseBody() {}
 
@@ -1124,6 +1168,13 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (tasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*tasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tasks"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1133,6 +1184,19 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tasks"].type()) {
+        vector<CreateJobResponseBodyTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateJobResponseBodyTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tasks = make_shared<vector<CreateJobResponseBodyTasks>>(expect1);
+      }
     }
   }
 
