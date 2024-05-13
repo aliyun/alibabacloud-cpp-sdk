@@ -11184,6 +11184,9 @@ DescribeSuspEventsResponse Alibabacloud_Sas20181203::Client::describeSuspEventsW
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->strictMode)) {
+    query->insert(pair<string, string>("StrictMode", *request->strictMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
     query->insert(pair<string, string>("TargetType", *request->targetType));
   }
