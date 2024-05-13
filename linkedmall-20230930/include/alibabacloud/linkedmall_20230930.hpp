@@ -1891,6 +1891,42 @@ public:
 
   virtual ~OrderRenderResult() = default;
 };
+class ProductExtendProperty : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ProductExtendProperty() {}
+
+  explicit ProductExtendProperty(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["key"] = boost::any(*key);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~ProductExtendProperty() = default;
+};
 class ProductSpecValue : public Darabonba::Model {
 public:
   shared_ptr<string> value{};
@@ -2240,6 +2276,7 @@ public:
   shared_ptr<long> categoryLeafId{};
   shared_ptr<string> descPath{};
   shared_ptr<string> divisionCode{};
+  shared_ptr<vector<ProductExtendProperty>> extendProperties{};
   shared_ptr<string> fuzzyQuantity{};
   shared_ptr<vector<string>> images{};
   shared_ptr<string> picUrl{};
@@ -2288,6 +2325,13 @@ public:
     }
     if (divisionCode) {
       res["divisionCode"] = boost::any(*divisionCode);
+    }
+    if (extendProperties) {
+      vector<boost::any> temp1;
+      for(auto item1:*extendProperties){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["extendProperties"] = boost::any(temp1);
     }
     if (fuzzyQuantity) {
       res["fuzzyQuantity"] = boost::any(*fuzzyQuantity);
@@ -2380,6 +2424,19 @@ public:
     }
     if (m.find("divisionCode") != m.end() && !m["divisionCode"].empty()) {
       divisionCode = make_shared<string>(boost::any_cast<string>(m["divisionCode"]));
+    }
+    if (m.find("extendProperties") != m.end() && !m["extendProperties"].empty()) {
+      if (typeid(vector<boost::any>) == m["extendProperties"].type()) {
+        vector<ProductExtendProperty> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["extendProperties"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ProductExtendProperty model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        extendProperties = make_shared<vector<ProductExtendProperty>>(expect1);
+      }
     }
     if (m.find("fuzzyQuantity") != m.end() && !m["fuzzyQuantity"].empty()) {
       fuzzyQuantity = make_shared<string>(boost::any_cast<string>(m["fuzzyQuantity"]));
