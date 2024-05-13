@@ -3926,6 +3926,7 @@ class CreateDataArchiveOrderRequestParam : public Darabonba::Model {
 public:
   shared_ptr<string> archiveMethod{};
   shared_ptr<string> cronStr{};
+  shared_ptr<string> databaseId{};
   shared_ptr<bool> logic{};
   shared_ptr<vector<string>> orderAfter{};
   shared_ptr<string> runMethod{};
@@ -3952,6 +3953,9 @@ public:
     }
     if (cronStr) {
       res["CronStr"] = boost::any(*cronStr);
+    }
+    if (databaseId) {
+      res["DatabaseId"] = boost::any(*databaseId);
     }
     if (logic) {
       res["Logic"] = boost::any(*logic);
@@ -4000,6 +4004,9 @@ public:
     }
     if (m.find("CronStr") != m.end() && !m["CronStr"].empty()) {
       cronStr = make_shared<string>(boost::any_cast<string>(m["CronStr"]));
+    }
+    if (m.find("DatabaseId") != m.end() && !m["DatabaseId"].empty()) {
+      databaseId = make_shared<string>(boost::any_cast<string>(m["DatabaseId"]));
     }
     if (m.find("Logic") != m.end() && !m["Logic"].empty()) {
       logic = make_shared<bool>(boost::any_cast<bool>(m["Logic"]));
