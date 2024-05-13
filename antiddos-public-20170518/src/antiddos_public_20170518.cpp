@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -17,7 +16,67 @@ using namespace std;
 using namespace Alibabacloud_Antiddos-public20170518;
 
 Alibabacloud_Antiddos-public20170518::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
-  _endpointRule = make_shared<string>("");
+  _endpointRule = make_shared<string>("regional");
+  _endpointMap = make_shared<map<string, string>>(map<string, string>({
+    {"ap-northeast-1", "antiddos-openapi.ap-northeast-1.aliyuncs.com"},
+    {"ap-northeast-2-pop", "antiddos.aliyuncs.com"},
+    {"ap-south-1", "antiddos-openapi.ap-south-1.aliyuncs.com"},
+    {"ap-southeast-1", "antiddos.aliyuncs.com"},
+    {"ap-southeast-2", "antiddos-openapi.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-3", "antiddos-openapi.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-5", "antiddos-openapi-vpc.ap-southeast-5.aliyuncs.com"},
+    {"cn-beijing", "antiddos-openapi-vpc.cn-beijing.aliyuncs.com"},
+    {"cn-beijing-finance-1", "antiddos.aliyuncs.com"},
+    {"cn-beijing-finance-pop", "antiddos.aliyuncs.com"},
+    {"cn-beijing-gov-1", "antiddos.aliyuncs.com"},
+    {"cn-beijing-nu16-b01", "antiddos.aliyuncs.com"},
+    {"cn-chengdu", "antiddos-openapi.cn-chengdu.aliyuncs.com"},
+    {"cn-edge-1", "antiddos.aliyuncs.com"},
+    {"cn-fujian", "antiddos.aliyuncs.com"},
+    {"cn-haidian-cm12-c01", "antiddos.aliyuncs.com"},
+    {"cn-hangzhou", "antiddos-openapi-vpc.cn-hangzhou.aliyuncs.com"},
+    {"cn-hangzhou-bj-b01", "antiddos.aliyuncs.com"},
+    {"cn-hangzhou-finance", "antiddos.aliyuncs.com"},
+    {"cn-hangzhou-internal-prod-1", "antiddos.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-1", "antiddos.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-2", "antiddos.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-3", "antiddos.aliyuncs.com"},
+    {"cn-hangzhou-test-306", "antiddos.aliyuncs.com"},
+    {"cn-hongkong", "antiddos-openapi-vpc.cn-hongkong.aliyuncs.com"},
+    {"cn-hongkong-finance-pop", "antiddos.aliyuncs.com"},
+    {"cn-huhehaote", "antiddos-openapi.cn-huhehaote.aliyuncs.com"},
+    {"cn-huhehaote-nebula-1", "antiddos.aliyuncs.com"},
+    {"cn-north-2-gov-1", "antiddos.aliyuncs.com"},
+    {"cn-qingdao", "antiddos-openapi-vpc.cn-qingdao.aliyuncs.com"},
+    {"cn-qingdao-nebula", "antiddos.aliyuncs.com"},
+    {"cn-shanghai", "antiddos-openapi-vpc.cn-shanghai.aliyuncs.com"},
+    {"cn-shanghai-et15-b01", "antiddos.aliyuncs.com"},
+    {"cn-shanghai-et2-b01", "antiddos.aliyuncs.com"},
+    {"cn-shanghai-finance-1", "antiddos.aliyuncs.com"},
+    {"cn-shanghai-inner", "antiddos.aliyuncs.com"},
+    {"cn-shanghai-internal-test-1", "antiddos.aliyuncs.com"},
+    {"cn-shenzhen", "antiddos.aliyuncs.com"},
+    {"cn-shenzhen-finance-1", "antiddos.aliyuncs.com"},
+    {"cn-shenzhen-inner", "antiddos.aliyuncs.com"},
+    {"cn-shenzhen-st4-d01", "antiddos.aliyuncs.com"},
+    {"cn-shenzhen-su18-b01", "antiddos.aliyuncs.com"},
+    {"cn-wuhan", "antiddos.aliyuncs.com"},
+    {"cn-wulanchabu", "antiddos-openapi.cn-wulanchabu.aliyuncs.com"},
+    {"cn-yushanfang", "antiddos.aliyuncs.com"},
+    {"cn-zhangbei", "antiddos.aliyuncs.com"},
+    {"cn-zhangbei-na61-b01", "antiddos.aliyuncs.com"},
+    {"cn-zhangjiakou", "antiddos-openapi.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-zhangjiakou-na62-a01", "antiddos.aliyuncs.com"},
+    {"cn-zhengzhou-nebula-1", "antiddos.aliyuncs.com"},
+    {"eu-central-1", "antiddos-openapi.eu-central-1.aliyuncs.com"},
+    {"eu-west-1", "antiddos-openapi.eu-west-1.aliyuncs.com"},
+    {"eu-west-1-oxs", "antiddos.aliyuncs.com"},
+    {"me-east-1", "antiddos-openapi.me-east-1.aliyuncs.com"},
+    {"rus-west-1-pop", "antiddos.aliyuncs.com"},
+    {"us-east-1", "antiddos.aliyuncs.com"},
+    {"us-west-1", "antiddos.aliyuncs.com"}
+  })
+);
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("antiddos-public"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
 };
@@ -435,43 +494,6 @@ DescribeRegionsResponse Alibabacloud_Antiddos-public20170518::Client::describeRe
   return describeRegionsWithOptions(runtime);
 }
 
-ModifyDdosStatusResponse Alibabacloud_Antiddos-public20170518::Client::modifyDdosStatusWithOptions(shared_ptr<ModifyDdosStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->ddosRegionId)) {
-    query->insert(pair<string, string>("DdosRegionId", *request->ddosRegionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
-    query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
-    query->insert(pair<string, string>("InstanceType", *request->instanceType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->internetIp)) {
-    query->insert(pair<string, string>("InternetIp", *request->internetIp));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ModifyDdosStatus"))},
-    {"version", boost::any(string("2017-05-18"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ModifyDdosStatusResponse(callApi(params, req, runtime));
-}
-
-ModifyDdosStatusResponse Alibabacloud_Antiddos-public20170518::Client::modifyDdosStatus(shared_ptr<ModifyDdosStatusRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return modifyDdosStatusWithOptions(request, runtime);
-}
-
 ModifyDefenseThresholdResponse Alibabacloud_Antiddos-public20170518::Client::modifyDefenseThresholdWithOptions(shared_ptr<ModifyDefenseThresholdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -516,5 +538,51 @@ ModifyDefenseThresholdResponse Alibabacloud_Antiddos-public20170518::Client::mod
 ModifyDefenseThresholdResponse Alibabacloud_Antiddos-public20170518::Client::modifyDefenseThreshold(shared_ptr<ModifyDefenseThresholdRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyDefenseThresholdWithOptions(request, runtime);
+}
+
+ModifyIpDefenseThresholdResponse Alibabacloud_Antiddos-public20170518::Client::modifyIpDefenseThresholdWithOptions(shared_ptr<ModifyIpDefenseThresholdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->bps)) {
+    query->insert(pair<string, long>("Bps", *request->bps));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ddosRegionId)) {
+    query->insert(pair<string, string>("DdosRegionId", *request->ddosRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
+    query->insert(pair<string, string>("InstanceType", *request->instanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->internetIp)) {
+    query->insert(pair<string, string>("InternetIp", *request->internetIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isAuto)) {
+    query->insert(pair<string, bool>("IsAuto", *request->isAuto));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pps)) {
+    query->insert(pair<string, long>("Pps", *request->pps));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyIpDefenseThreshold"))},
+    {"version", boost::any(string("2017-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyIpDefenseThresholdResponse(callApi(params, req, runtime));
+}
+
+ModifyIpDefenseThresholdResponse Alibabacloud_Antiddos-public20170518::Client::modifyIpDefenseThreshold(shared_ptr<ModifyIpDefenseThresholdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyIpDefenseThresholdWithOptions(request, runtime);
 }
 
