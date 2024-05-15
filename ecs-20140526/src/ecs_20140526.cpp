@@ -14166,6 +14166,9 @@ InvokeCommandResponse Alibabacloud_Ecs20140526::Client::invokeCommandWithOptions
   if (!Darabonba_Util::Client::isUnset<vector<InvokeCommandShrinkRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<InvokeCommandShrinkRequestTag>>("Tag", *request->tag));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->terminationMode)) {
+    query->insert(pair<string, string>("TerminationMode", *request->terminationMode));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->timed)) {
     query->insert(pair<string, bool>("Timed", *request->timed));
   }
@@ -19663,6 +19666,9 @@ RunCommandResponse Alibabacloud_Ecs20140526::Client::runCommandWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<vector<RunCommandShrinkRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<RunCommandShrinkRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->terminationMode)) {
+    query->insert(pair<string, string>("TerminationMode", *request->terminationMode));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->timed)) {
     query->insert(pair<string, bool>("Timed", *request->timed));
