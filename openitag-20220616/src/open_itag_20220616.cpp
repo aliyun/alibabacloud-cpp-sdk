@@ -75,6 +75,36 @@ AddWorkNodeWorkforceResponse Alibabacloud_OpenITag20220616::Client::addWorkNodeW
   return addWorkNodeWorkforceWithOptions(TenantId, TaskId, WorkNodeId, request, headers, runtime);
 }
 
+AppendAllDataToTaskResponse Alibabacloud_OpenITag20220616::Client::appendAllDataToTaskWithOptions(shared_ptr<string> TenantId,
+                                                                                                  shared_ptr<string> TaskId,
+                                                                                                  shared_ptr<AppendAllDataToTaskRequest> request,
+                                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AppendAllDataToTask"))},
+    {"version", boost::any(string("2022-06-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/api/v1/tenants/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TenantId)) + string("/tasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TaskId)) + string("/appendAllDataToTask"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AppendAllDataToTaskResponse(callApi(params, req, runtime));
+}
+
+AppendAllDataToTaskResponse Alibabacloud_OpenITag20220616::Client::appendAllDataToTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<AppendAllDataToTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return appendAllDataToTaskWithOptions(TenantId, TaskId, request, headers, runtime);
+}
+
 CreateTaskResponse Alibabacloud_OpenITag20220616::Client::createTaskWithOptions(shared_ptr<string> TenantId,
                                                                                 shared_ptr<CreateTaskRequest> request,
                                                                                 shared_ptr<map<string, string>> headers,

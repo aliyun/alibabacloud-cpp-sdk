@@ -4180,6 +4180,155 @@ public:
 
   virtual ~AddWorkNodeWorkforceResponse() = default;
 };
+class AppendAllDataToTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<OpenDatasetProxyAppendDataRequest> body{};
+
+  AppendAllDataToTaskRequest() {}
+
+  explicit AppendAllDataToTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        OpenDatasetProxyAppendDataRequest model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<OpenDatasetProxyAppendDataRequest>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AppendAllDataToTaskRequest() = default;
+};
+class AppendAllDataToTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> details{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AppendAllDataToTaskResponseBody() {}
+
+  explicit AppendAllDataToTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (details) {
+      res["Details"] = boost::any(*details);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Details") != m.end() && !m["Details"].empty()) {
+      details = make_shared<string>(boost::any_cast<string>(m["Details"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AppendAllDataToTaskResponseBody() = default;
+};
+class AppendAllDataToTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AppendAllDataToTaskResponseBody> body{};
+
+  AppendAllDataToTaskResponse() {}
+
+  explicit AppendAllDataToTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AppendAllDataToTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AppendAllDataToTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AppendAllDataToTaskResponse() = default;
+};
 class CreateTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateTaskDetail> body{};
@@ -9905,6 +10054,12 @@ public:
                                                     shared_ptr<string> TaskId,
                                                     shared_ptr<string> WorkNodeId,
                                                     shared_ptr<AddWorkNodeWorkforceRequest> request);
+  AppendAllDataToTaskResponse appendAllDataToTaskWithOptions(shared_ptr<string> TenantId,
+                                                             shared_ptr<string> TaskId,
+                                                             shared_ptr<AppendAllDataToTaskRequest> request,
+                                                             shared_ptr<map<string, string>> headers,
+                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AppendAllDataToTaskResponse appendAllDataToTask(shared_ptr<string> TenantId, shared_ptr<string> TaskId, shared_ptr<AppendAllDataToTaskRequest> request);
   CreateTaskResponse createTaskWithOptions(shared_ptr<string> TenantId,
                                            shared_ptr<CreateTaskRequest> request,
                                            shared_ptr<map<string, string>> headers,
