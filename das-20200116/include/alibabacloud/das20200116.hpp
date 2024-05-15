@@ -28749,6 +28749,7 @@ public:
   shared_ptr<long> dataSize{};
   shared_ptr<string> dbName{};
   shared_ptr<string> engine{};
+  shared_ptr<long> fragmentSize{};
   shared_ptr<long> indexSize{};
   shared_ptr<long> phyTotalSize{};
   shared_ptr<long> physicalFileSize{};
@@ -28781,6 +28782,9 @@ public:
     }
     if (engine) {
       res["Engine"] = boost::any(*engine);
+    }
+    if (fragmentSize) {
+      res["FragmentSize"] = boost::any(*fragmentSize);
     }
     if (indexSize) {
       res["IndexSize"] = boost::any(*indexSize);
@@ -28821,6 +28825,9 @@ public:
     }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("FragmentSize") != m.end() && !m["FragmentSize"].empty()) {
+      fragmentSize = make_shared<long>(boost::any_cast<long>(m["FragmentSize"]));
     }
     if (m.find("IndexSize") != m.end() && !m["IndexSize"].empty()) {
       indexSize = make_shared<long>(boost::any_cast<long>(m["IndexSize"]));
