@@ -15303,6 +15303,7 @@ public:
   shared_ptr<string> kubernetesVersion{};
   shared_ptr<string> mode{};
   shared_ptr<string> profile{};
+  shared_ptr<bool> queryUpgradableVersion{};
   shared_ptr<string> region{};
   shared_ptr<string> runtime{};
 
@@ -15328,6 +15329,9 @@ public:
     if (profile) {
       res["Profile"] = boost::any(*profile);
     }
+    if (queryUpgradableVersion) {
+      res["QueryUpgradableVersion"] = boost::any(*queryUpgradableVersion);
+    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -15349,6 +15353,9 @@ public:
     }
     if (m.find("Profile") != m.end() && !m["Profile"].empty()) {
       profile = make_shared<string>(boost::any_cast<string>(m["Profile"]));
+    }
+    if (m.find("QueryUpgradableVersion") != m.end() && !m["QueryUpgradableVersion"].empty()) {
+      queryUpgradableVersion = make_shared<bool>(boost::any_cast<bool>(m["QueryUpgradableVersion"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -15449,6 +15456,7 @@ public:
   shared_ptr<string> releaseDate{};
   shared_ptr<string> expirationDate{};
   shared_ptr<bool> creatable{};
+  shared_ptr<vector<string>> upgradableVersions{};
 
   DescribeKubernetesVersionMetadataResponseBody() {}
 
@@ -15491,6 +15499,9 @@ public:
     }
     if (creatable) {
       res["creatable"] = boost::any(*creatable);
+    }
+    if (upgradableVersions) {
+      res["upgradable_versions"] = boost::any(*upgradableVersions);
     }
     return res;
   }
@@ -15549,6 +15560,16 @@ public:
     }
     if (m.find("creatable") != m.end() && !m["creatable"].empty()) {
       creatable = make_shared<bool>(boost::any_cast<bool>(m["creatable"]));
+    }
+    if (m.find("upgradable_versions") != m.end() && !m["upgradable_versions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["upgradable_versions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["upgradable_versions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      upgradableVersions = make_shared<vector<string>>(toVec1);
     }
   }
 

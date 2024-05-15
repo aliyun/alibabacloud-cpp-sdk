@@ -2268,6 +2268,9 @@ DescribeKubernetesVersionMetadataResponse Alibabacloud_CS20151215::Client::descr
   if (!Darabonba_Util::Client::isUnset<string>(request->profile)) {
     query->insert(pair<string, string>("Profile", *request->profile));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->queryUpgradableVersion)) {
+    query->insert(pair<string, bool>("QueryUpgradableVersion", *request->queryUpgradableVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
   }
