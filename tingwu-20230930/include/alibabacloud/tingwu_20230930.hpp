@@ -91,6 +91,99 @@ public:
 
   virtual ~CreateTaskRequestInput() = default;
 };
+class CreateTaskRequestParametersCustomPromptContents : public Darabonba::Model {
+public:
+  shared_ptr<string> model{};
+  shared_ptr<string> name{};
+  shared_ptr<string> prompt{};
+  shared_ptr<string> transType{};
+
+  CreateTaskRequestParametersCustomPromptContents() {}
+
+  explicit CreateTaskRequestParametersCustomPromptContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (prompt) {
+      res["Prompt"] = boost::any(*prompt);
+    }
+    if (transType) {
+      res["TransType"] = boost::any(*transType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Prompt") != m.end() && !m["Prompt"].empty()) {
+      prompt = make_shared<string>(boost::any_cast<string>(m["Prompt"]));
+    }
+    if (m.find("TransType") != m.end() && !m["TransType"].empty()) {
+      transType = make_shared<string>(boost::any_cast<string>(m["TransType"]));
+    }
+  }
+
+
+  virtual ~CreateTaskRequestParametersCustomPromptContents() = default;
+};
+class CreateTaskRequestParametersCustomPrompt : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateTaskRequestParametersCustomPromptContents>> contents{};
+
+  CreateTaskRequestParametersCustomPrompt() {}
+
+  explicit CreateTaskRequestParametersCustomPrompt(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contents) {
+      vector<boost::any> temp1;
+      for(auto item1:*contents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Contents"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Contents") != m.end() && !m["Contents"].empty()) {
+      if (typeid(vector<boost::any>) == m["Contents"].type()) {
+        vector<CreateTaskRequestParametersCustomPromptContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Contents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateTaskRequestParametersCustomPromptContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        contents = make_shared<vector<CreateTaskRequestParametersCustomPromptContents>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateTaskRequestParametersCustomPrompt() = default;
+};
 class CreateTaskRequestParametersExtraParams : public Darabonba::Model {
 public:
   shared_ptr<bool> nfixEnabled{};
@@ -392,6 +485,8 @@ public:
 class CreateTaskRequestParameters : public Darabonba::Model {
 public:
   shared_ptr<bool> autoChaptersEnabled{};
+  shared_ptr<CreateTaskRequestParametersCustomPrompt> customPrompt{};
+  shared_ptr<bool> customPromptEnabled{};
   shared_ptr<CreateTaskRequestParametersExtraParams> extraParams{};
   shared_ptr<CreateTaskRequestParametersMeetingAssistance> meetingAssistance{};
   shared_ptr<bool> meetingAssistanceEnabled{};
@@ -416,6 +511,12 @@ public:
     map<string, boost::any> res;
     if (autoChaptersEnabled) {
       res["AutoChaptersEnabled"] = boost::any(*autoChaptersEnabled);
+    }
+    if (customPrompt) {
+      res["CustomPrompt"] = customPrompt ? boost::any(customPrompt->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customPromptEnabled) {
+      res["CustomPromptEnabled"] = boost::any(*customPromptEnabled);
     }
     if (extraParams) {
       res["ExtraParams"] = extraParams ? boost::any(extraParams->toMap()) : boost::any(map<string,boost::any>({}));
@@ -456,6 +557,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoChaptersEnabled") != m.end() && !m["AutoChaptersEnabled"].empty()) {
       autoChaptersEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoChaptersEnabled"]));
+    }
+    if (m.find("CustomPrompt") != m.end() && !m["CustomPrompt"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomPrompt"].type()) {
+        CreateTaskRequestParametersCustomPrompt model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomPrompt"]));
+        customPrompt = make_shared<CreateTaskRequestParametersCustomPrompt>(model1);
+      }
+    }
+    if (m.find("CustomPromptEnabled") != m.end() && !m["CustomPromptEnabled"].empty()) {
+      customPromptEnabled = make_shared<bool>(boost::any_cast<bool>(m["CustomPromptEnabled"]));
     }
     if (m.find("ExtraParams") != m.end() && !m["ExtraParams"].empty()) {
       if (typeid(map<string, boost::any>) == m["ExtraParams"].type()) {
