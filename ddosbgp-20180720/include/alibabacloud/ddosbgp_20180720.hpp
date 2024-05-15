@@ -4579,6 +4579,8 @@ class DescribePackIpListResponseBodyIpList : public Darabonba::Model {
 public:
   shared_ptr<string> ip{};
   shared_ptr<string> memberUid{};
+  shared_ptr<long> nsmExpireAt{};
+  shared_ptr<long> nsmStartAt{};
   shared_ptr<long> nsmStatus{};
   shared_ptr<string> product{};
   shared_ptr<string> region{};
@@ -4600,6 +4602,12 @@ public:
     }
     if (memberUid) {
       res["MemberUid"] = boost::any(*memberUid);
+    }
+    if (nsmExpireAt) {
+      res["NsmExpireAt"] = boost::any(*nsmExpireAt);
+    }
+    if (nsmStartAt) {
+      res["NsmStartAt"] = boost::any(*nsmStartAt);
     }
     if (nsmStatus) {
       res["NsmStatus"] = boost::any(*nsmStatus);
@@ -4625,6 +4633,12 @@ public:
     }
     if (m.find("MemberUid") != m.end() && !m["MemberUid"].empty()) {
       memberUid = make_shared<string>(boost::any_cast<string>(m["MemberUid"]));
+    }
+    if (m.find("NsmExpireAt") != m.end() && !m["NsmExpireAt"].empty()) {
+      nsmExpireAt = make_shared<long>(boost::any_cast<long>(m["NsmExpireAt"]));
+    }
+    if (m.find("NsmStartAt") != m.end() && !m["NsmStartAt"].empty()) {
+      nsmStartAt = make_shared<long>(boost::any_cast<long>(m["NsmStartAt"]));
     }
     if (m.find("NsmStatus") != m.end() && !m["NsmStatus"].empty()) {
       nsmStatus = make_shared<long>(boost::any_cast<long>(m["NsmStatus"]));
