@@ -831,9 +831,9 @@ class AddImageRequest : public Darabonba::Model {
 public:
   shared_ptr<AddImageRequestContainerImageSpec> containerImageSpec{};
   shared_ptr<string> description{};
+  shared_ptr<string> imageVersion{};
   shared_ptr<string> name{};
   shared_ptr<AddImageRequestVMImageSpec> VMImageSpec{};
-  shared_ptr<string> version{};
 
   AddImageRequest() {}
 
@@ -851,14 +851,14 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (imageVersion) {
+      res["ImageVersion"] = boost::any(*imageVersion);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
     if (VMImageSpec) {
       res["VMImageSpec"] = VMImageSpec ? boost::any(VMImageSpec->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (version) {
-      res["Version"] = boost::any(*version);
     }
     return res;
   }
@@ -874,6 +874,9 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ImageVersion") != m.end() && !m["ImageVersion"].empty()) {
+      imageVersion = make_shared<string>(boost::any_cast<string>(m["ImageVersion"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -884,9 +887,6 @@ public:
         VMImageSpec = make_shared<AddImageRequestVMImageSpec>(model1);
       }
     }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
-    }
   }
 
 
@@ -896,9 +896,9 @@ class AddImageShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> containerImageSpecShrink{};
   shared_ptr<string> description{};
+  shared_ptr<string> imageVersion{};
   shared_ptr<string> name{};
   shared_ptr<string> VMImageSpecShrink{};
-  shared_ptr<string> version{};
 
   AddImageShrinkRequest() {}
 
@@ -916,14 +916,14 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (imageVersion) {
+      res["ImageVersion"] = boost::any(*imageVersion);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
     if (VMImageSpecShrink) {
       res["VMImageSpec"] = boost::any(*VMImageSpecShrink);
-    }
-    if (version) {
-      res["Version"] = boost::any(*version);
     }
     return res;
   }
@@ -935,14 +935,14 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ImageVersion") != m.end() && !m["ImageVersion"].empty()) {
+      imageVersion = make_shared<string>(boost::any_cast<string>(m["ImageVersion"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
     if (m.find("VMImageSpec") != m.end() && !m["VMImageSpec"].empty()) {
       VMImageSpecShrink = make_shared<string>(boost::any_cast<string>(m["VMImageSpec"]));
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
     }
   }
 

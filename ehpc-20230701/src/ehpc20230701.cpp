@@ -54,14 +54,14 @@ AddImageResponse Alibabacloud_EHPC20230701::Client::addImageWithOptions(shared_p
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageVersion)) {
+    query->insert(pair<string, string>("ImageVersion", *request->imageVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->VMImageSpecShrink)) {
     query->insert(pair<string, string>("VMImageSpec", *request->VMImageSpecShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
-    query->insert(pair<string, string>("Version", *request->version));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
