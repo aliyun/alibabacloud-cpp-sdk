@@ -653,6 +653,7 @@ public:
 };
 class CreateJobRequestTasksTaskSpecTaskExecutorContainer : public Darabonba::Model {
 public:
+  shared_ptr<string> appId{};
   shared_ptr<vector<string>> command{};
   shared_ptr<vector<CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars>> environmentVars{};
   shared_ptr<string> image{};
@@ -668,6 +669,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
     if (command) {
       res["Command"] = boost::any(*command);
     }
@@ -688,6 +692,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
     if (m.find("Command") != m.end() && !m["Command"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["Command"].type()) {
@@ -724,6 +731,7 @@ public:
 };
 class CreateJobRequestTasksTaskSpecTaskExecutorVM : public Darabonba::Model {
 public:
+  shared_ptr<string> appId{};
   shared_ptr<string> image{};
   shared_ptr<string> prologScript{};
   shared_ptr<string> script{};
@@ -738,6 +746,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
     if (image) {
       res["Image"] = boost::any(*image);
     }
@@ -751,6 +762,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
     if (m.find("Image") != m.end() && !m["Image"].empty()) {
       image = make_shared<string>(boost::any_cast<string>(m["Image"]));
     }
@@ -1957,7 +1971,9 @@ public:
 };
 class GetImageRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> imageCategory{};
   shared_ptr<string> imageId{};
+  shared_ptr<string> imageType{};
 
   GetImageRequest() {}
 
@@ -1969,15 +1985,27 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (imageCategory) {
+      res["ImageCategory"] = boost::any(*imageCategory);
+    }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
+    }
+    if (imageType) {
+      res["ImageType"] = boost::any(*imageType);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageCategory") != m.end() && !m["ImageCategory"].empty()) {
+      imageCategory = make_shared<string>(boost::any_cast<string>(m["ImageCategory"]));
+    }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
+      imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
     }
   }
 
@@ -2140,12 +2168,14 @@ public:
 };
 class GetImageResponseBodyImage : public Darabonba::Model {
 public:
+  shared_ptr<string> appId{};
   shared_ptr<GetImageResponseBodyImageContainerImageSpec> containerImageSpec{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
   shared_ptr<string> imageType{};
   shared_ptr<string> name{};
   shared_ptr<string> size{};
+  shared_ptr<string> status{};
   shared_ptr<GetImageResponseBodyImageVMImageSpec> VMImageSpec{};
   shared_ptr<string> version{};
 
@@ -2159,6 +2189,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
     if (containerImageSpec) {
       res["ContainerImageSpec"] = containerImageSpec ? boost::any(containerImageSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -2177,6 +2210,9 @@ public:
     if (size) {
       res["Size"] = boost::any(*size);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (VMImageSpec) {
       res["VMImageSpec"] = VMImageSpec ? boost::any(VMImageSpec->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -2187,6 +2223,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
     if (m.find("ContainerImageSpec") != m.end() && !m["ContainerImageSpec"].empty()) {
       if (typeid(map<string, boost::any>) == m["ContainerImageSpec"].type()) {
         GetImageResponseBodyImageContainerImageSpec model1;
@@ -2208,6 +2247,9 @@ public:
     }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<string>(boost::any_cast<string>(m["Size"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("VMImageSpec") != m.end() && !m["VMImageSpec"].empty()) {
       if (typeid(map<string, boost::any>) == m["VMImageSpec"].type()) {
@@ -3478,8 +3520,10 @@ public:
 };
 class ListImagesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> imageCategory{};
   shared_ptr<vector<string>> imageIds{};
   shared_ptr<vector<string>> imageNames{};
+  shared_ptr<string> imageType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
 
@@ -3493,11 +3537,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (imageCategory) {
+      res["ImageCategory"] = boost::any(*imageCategory);
+    }
     if (imageIds) {
       res["ImageIds"] = boost::any(*imageIds);
     }
     if (imageNames) {
       res["ImageNames"] = boost::any(*imageNames);
+    }
+    if (imageType) {
+      res["ImageType"] = boost::any(*imageType);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -3509,6 +3559,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageCategory") != m.end() && !m["ImageCategory"].empty()) {
+      imageCategory = make_shared<string>(boost::any_cast<string>(m["ImageCategory"]));
+    }
     if (m.find("ImageIds") != m.end() && !m["ImageIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ImageIds"].type()) {
@@ -3529,6 +3582,9 @@ public:
       }
       imageNames = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
+      imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -3542,8 +3598,10 @@ public:
 };
 class ListImagesShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> imageCategory{};
   shared_ptr<string> imageIdsShrink{};
   shared_ptr<string> imageNamesShrink{};
+  shared_ptr<string> imageType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
 
@@ -3557,11 +3615,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (imageCategory) {
+      res["ImageCategory"] = boost::any(*imageCategory);
+    }
     if (imageIdsShrink) {
       res["ImageIds"] = boost::any(*imageIdsShrink);
     }
     if (imageNamesShrink) {
       res["ImageNames"] = boost::any(*imageNamesShrink);
+    }
+    if (imageType) {
+      res["ImageType"] = boost::any(*imageType);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -3573,11 +3637,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageCategory") != m.end() && !m["ImageCategory"].empty()) {
+      imageCategory = make_shared<string>(boost::any_cast<string>(m["ImageCategory"]));
+    }
     if (m.find("ImageIds") != m.end() && !m["ImageIds"].empty()) {
       imageIdsShrink = make_shared<string>(boost::any_cast<string>(m["ImageIds"]));
     }
     if (m.find("ImageNames") != m.end() && !m["ImageNames"].empty()) {
       imageNamesShrink = make_shared<string>(boost::any_cast<string>(m["ImageNames"]));
+    }
+    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
+      imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -3592,6 +3662,7 @@ public:
 };
 class ListImagesResponseBodyImages : public Darabonba::Model {
 public:
+  shared_ptr<string> appId{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
   shared_ptr<string> imageId{};
@@ -3609,6 +3680,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -3631,6 +3705,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }

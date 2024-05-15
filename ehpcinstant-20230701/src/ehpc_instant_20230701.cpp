@@ -253,8 +253,14 @@ DescribeJobMetricLastResponse Alibabacloud_EhpcInstant20230701::Client::describe
 GetImageResponse Alibabacloud_EhpcInstant20230701::Client::getImageWithOptions(shared_ptr<GetImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageCategory)) {
+    query->insert(pair<string, string>("ImageCategory", *request->imageCategory));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     query->insert(pair<string, string>("ImageId", *request->imageId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageType)) {
+    query->insert(pair<string, string>("ImageType", *request->imageType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -356,11 +362,17 @@ ListImagesResponse Alibabacloud_EhpcInstant20230701::Client::listImagesWithOptio
     request->imageNamesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->imageNames, make_shared<string>("ImageNames"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageCategory)) {
+    query->insert(pair<string, string>("ImageCategory", *request->imageCategory));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageIdsShrink)) {
     query->insert(pair<string, string>("ImageIds", *request->imageIdsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageNamesShrink)) {
     query->insert(pair<string, string>("ImageNames", *request->imageNamesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageType)) {
+    query->insert(pair<string, string>("ImageType", *request->imageType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
