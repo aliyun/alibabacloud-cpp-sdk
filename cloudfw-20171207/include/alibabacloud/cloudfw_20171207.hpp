@@ -3827,6 +3827,123 @@ public:
 
   virtual ~DeleteNatFirewallControlPolicyBatchResponse() = default;
 };
+class DeleteSecurityProxyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> lang{};
+  shared_ptr<string> proxyId{};
+
+  DeleteSecurityProxyRequest() {}
+
+  explicit DeleteSecurityProxyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (proxyId) {
+      res["ProxyId"] = boost::any(*proxyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("ProxyId") != m.end() && !m["ProxyId"].empty()) {
+      proxyId = make_shared<string>(boost::any_cast<string>(m["ProxyId"]));
+    }
+  }
+
+
+  virtual ~DeleteSecurityProxyRequest() = default;
+};
+class DeleteSecurityProxyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteSecurityProxyResponseBody() {}
+
+  explicit DeleteSecurityProxyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteSecurityProxyResponseBody() = default;
+};
+class DeleteSecurityProxyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteSecurityProxyResponseBody> body{};
+
+  DeleteSecurityProxyResponse() {}
+
+  explicit DeleteSecurityProxyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteSecurityProxyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteSecurityProxyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteSecurityProxyResponse() = default;
+};
 class DeleteTrFirewallV2Request : public Darabonba::Model {
 public:
   shared_ptr<string> firewallId{};
@@ -9470,6 +9587,313 @@ public:
 
 
   virtual ~DescribeNatFirewallControlPolicyResponse() = default;
+};
+class DescribeNatFirewallListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> lang{};
+  shared_ptr<long> memberUid{};
+  shared_ptr<string> natGatewayId{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> proxyId{};
+  shared_ptr<string> proxyName{};
+  shared_ptr<string> regionNo{};
+  shared_ptr<string> status{};
+  shared_ptr<string> vpcId{};
+
+  DescribeNatFirewallListRequest() {}
+
+  explicit DescribeNatFirewallListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (memberUid) {
+      res["MemberUid"] = boost::any(*memberUid);
+    }
+    if (natGatewayId) {
+      res["NatGatewayId"] = boost::any(*natGatewayId);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (proxyId) {
+      res["ProxyId"] = boost::any(*proxyId);
+    }
+    if (proxyName) {
+      res["ProxyName"] = boost::any(*proxyName);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("MemberUid") != m.end() && !m["MemberUid"].empty()) {
+      memberUid = make_shared<long>(boost::any_cast<long>(m["MemberUid"]));
+    }
+    if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
+      natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProxyId") != m.end() && !m["ProxyId"].empty()) {
+      proxyId = make_shared<string>(boost::any_cast<string>(m["ProxyId"]));
+    }
+    if (m.find("ProxyName") != m.end() && !m["ProxyName"].empty()) {
+      proxyName = make_shared<string>(boost::any_cast<string>(m["ProxyName"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~DescribeNatFirewallListRequest() = default;
+};
+class DescribeNatFirewallListResponseBodyNatFirewallList : public Darabonba::Model {
+public:
+  shared_ptr<long> aliUid{};
+  shared_ptr<string> errorDetail{};
+  shared_ptr<long> memberUid{};
+  shared_ptr<string> natGatewayId{};
+  shared_ptr<string> natGatewayName{};
+  shared_ptr<string> proxyId{};
+  shared_ptr<string> proxyName{};
+  shared_ptr<string> proxyStatus{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> strictMode{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<string> vpcName{};
+
+  DescribeNatFirewallListResponseBodyNatFirewallList() {}
+
+  explicit DescribeNatFirewallListResponseBodyNatFirewallList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliUid) {
+      res["AliUid"] = boost::any(*aliUid);
+    }
+    if (errorDetail) {
+      res["ErrorDetail"] = boost::any(*errorDetail);
+    }
+    if (memberUid) {
+      res["MemberUid"] = boost::any(*memberUid);
+    }
+    if (natGatewayId) {
+      res["NatGatewayId"] = boost::any(*natGatewayId);
+    }
+    if (natGatewayName) {
+      res["NatGatewayName"] = boost::any(*natGatewayName);
+    }
+    if (proxyId) {
+      res["ProxyId"] = boost::any(*proxyId);
+    }
+    if (proxyName) {
+      res["ProxyName"] = boost::any(*proxyName);
+    }
+    if (proxyStatus) {
+      res["ProxyStatus"] = boost::any(*proxyStatus);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (strictMode) {
+      res["StrictMode"] = boost::any(*strictMode);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    if (vpcName) {
+      res["VpcName"] = boost::any(*vpcName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliUid") != m.end() && !m["AliUid"].empty()) {
+      aliUid = make_shared<long>(boost::any_cast<long>(m["AliUid"]));
+    }
+    if (m.find("ErrorDetail") != m.end() && !m["ErrorDetail"].empty()) {
+      errorDetail = make_shared<string>(boost::any_cast<string>(m["ErrorDetail"]));
+    }
+    if (m.find("MemberUid") != m.end() && !m["MemberUid"].empty()) {
+      memberUid = make_shared<long>(boost::any_cast<long>(m["MemberUid"]));
+    }
+    if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
+      natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+    if (m.find("NatGatewayName") != m.end() && !m["NatGatewayName"].empty()) {
+      natGatewayName = make_shared<string>(boost::any_cast<string>(m["NatGatewayName"]));
+    }
+    if (m.find("ProxyId") != m.end() && !m["ProxyId"].empty()) {
+      proxyId = make_shared<string>(boost::any_cast<string>(m["ProxyId"]));
+    }
+    if (m.find("ProxyName") != m.end() && !m["ProxyName"].empty()) {
+      proxyName = make_shared<string>(boost::any_cast<string>(m["ProxyName"]));
+    }
+    if (m.find("ProxyStatus") != m.end() && !m["ProxyStatus"].empty()) {
+      proxyStatus = make_shared<string>(boost::any_cast<string>(m["ProxyStatus"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StrictMode") != m.end() && !m["StrictMode"].empty()) {
+      strictMode = make_shared<long>(boost::any_cast<long>(m["StrictMode"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("VpcName") != m.end() && !m["VpcName"].empty()) {
+      vpcName = make_shared<string>(boost::any_cast<string>(m["VpcName"]));
+    }
+  }
+
+
+  virtual ~DescribeNatFirewallListResponseBodyNatFirewallList() = default;
+};
+class DescribeNatFirewallListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeNatFirewallListResponseBodyNatFirewallList>> natFirewallList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeNatFirewallListResponseBody() {}
+
+  explicit DescribeNatFirewallListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (natFirewallList) {
+      vector<boost::any> temp1;
+      for(auto item1:*natFirewallList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NatFirewallList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NatFirewallList") != m.end() && !m["NatFirewallList"].empty()) {
+      if (typeid(vector<boost::any>) == m["NatFirewallList"].type()) {
+        vector<DescribeNatFirewallListResponseBodyNatFirewallList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NatFirewallList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNatFirewallListResponseBodyNatFirewallList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        natFirewallList = make_shared<vector<DescribeNatFirewallListResponseBodyNatFirewallList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeNatFirewallListResponseBody() = default;
+};
+class DescribeNatFirewallListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeNatFirewallListResponseBody> body{};
+
+  DescribeNatFirewallListResponse() {}
+
+  explicit DescribeNatFirewallListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeNatFirewallListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeNatFirewallListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNatFirewallListResponse() = default;
 };
 class DescribeNatFirewallPolicyPriorUsedRequest : public Darabonba::Model {
 public:
@@ -23746,6 +24170,130 @@ public:
 
   virtual ~ResetVpcFirewallRuleHitCountResponse() = default;
 };
+class SwitchSecurityProxyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> lang{};
+  shared_ptr<string> proxyId{};
+  shared_ptr<string> switch_{};
+
+  SwitchSecurityProxyRequest() {}
+
+  explicit SwitchSecurityProxyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (proxyId) {
+      res["ProxyId"] = boost::any(*proxyId);
+    }
+    if (switch_) {
+      res["Switch"] = boost::any(*switch_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("ProxyId") != m.end() && !m["ProxyId"].empty()) {
+      proxyId = make_shared<string>(boost::any_cast<string>(m["ProxyId"]));
+    }
+    if (m.find("Switch") != m.end() && !m["Switch"].empty()) {
+      switch_ = make_shared<string>(boost::any_cast<string>(m["Switch"]));
+    }
+  }
+
+
+  virtual ~SwitchSecurityProxyRequest() = default;
+};
+class SwitchSecurityProxyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SwitchSecurityProxyResponseBody() {}
+
+  explicit SwitchSecurityProxyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SwitchSecurityProxyResponseBody() = default;
+};
+class SwitchSecurityProxyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SwitchSecurityProxyResponseBody> body{};
+
+  SwitchSecurityProxyResponse() {}
+
+  explicit SwitchSecurityProxyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SwitchSecurityProxyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SwitchSecurityProxyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SwitchSecurityProxyResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -23798,6 +24346,8 @@ public:
   DeleteNatFirewallControlPolicyResponse deleteNatFirewallControlPolicy(shared_ptr<DeleteNatFirewallControlPolicyRequest> request);
   DeleteNatFirewallControlPolicyBatchResponse deleteNatFirewallControlPolicyBatchWithOptions(shared_ptr<DeleteNatFirewallControlPolicyBatchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteNatFirewallControlPolicyBatchResponse deleteNatFirewallControlPolicyBatch(shared_ptr<DeleteNatFirewallControlPolicyBatchRequest> request);
+  DeleteSecurityProxyResponse deleteSecurityProxyWithOptions(shared_ptr<DeleteSecurityProxyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteSecurityProxyResponse deleteSecurityProxy(shared_ptr<DeleteSecurityProxyRequest> request);
   DeleteTrFirewallV2Response deleteTrFirewallV2WithOptions(shared_ptr<DeleteTrFirewallV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteTrFirewallV2Response deleteTrFirewallV2(shared_ptr<DeleteTrFirewallV2Request> request);
   DeleteVpcFirewallCenConfigureResponse deleteVpcFirewallCenConfigureWithOptions(shared_ptr<DeleteVpcFirewallCenConfigureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23840,6 +24390,8 @@ public:
   DescribeNatAclPageStatusResponse describeNatAclPageStatus(shared_ptr<DescribeNatAclPageStatusRequest> request);
   DescribeNatFirewallControlPolicyResponse describeNatFirewallControlPolicyWithOptions(shared_ptr<DescribeNatFirewallControlPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeNatFirewallControlPolicyResponse describeNatFirewallControlPolicy(shared_ptr<DescribeNatFirewallControlPolicyRequest> request);
+  DescribeNatFirewallListResponse describeNatFirewallListWithOptions(shared_ptr<DescribeNatFirewallListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeNatFirewallListResponse describeNatFirewallList(shared_ptr<DescribeNatFirewallListRequest> request);
   DescribeNatFirewallPolicyPriorUsedResponse describeNatFirewallPolicyPriorUsedWithOptions(shared_ptr<DescribeNatFirewallPolicyPriorUsedRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeNatFirewallPolicyPriorUsedResponse describeNatFirewallPolicyPriorUsed(shared_ptr<DescribeNatFirewallPolicyPriorUsedRequest> request);
   DescribeOutgoingDestinationIPResponse describeOutgoingDestinationIPWithOptions(shared_ptr<DescribeOutgoingDestinationIPRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23954,6 +24506,8 @@ public:
   ResetNatFirewallRuleHitCountResponse resetNatFirewallRuleHitCount(shared_ptr<ResetNatFirewallRuleHitCountRequest> request);
   ResetVpcFirewallRuleHitCountResponse resetVpcFirewallRuleHitCountWithOptions(shared_ptr<ResetVpcFirewallRuleHitCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResetVpcFirewallRuleHitCountResponse resetVpcFirewallRuleHitCount(shared_ptr<ResetVpcFirewallRuleHitCountRequest> request);
+  SwitchSecurityProxyResponse switchSecurityProxyWithOptions(shared_ptr<SwitchSecurityProxyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SwitchSecurityProxyResponse switchSecurityProxy(shared_ptr<SwitchSecurityProxyRequest> request);
 
   virtual ~Client() = default;
 };
