@@ -16101,6 +16101,313 @@ public:
 
   virtual ~DescribeNotificationTypesResponse() = default;
 };
+class DescribePatternTypesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> architecture{};
+  shared_ptr<string> burstablePerformance{};
+  shared_ptr<long> channelId{};
+  shared_ptr<long> cores{};
+  shared_ptr<vector<long>> coresList{};
+  shared_ptr<vector<string>> excludedInstanceType{};
+  shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<double> maxPrice{};
+  shared_ptr<double> memory{};
+  shared_ptr<vector<double>> memoryList{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> spotStrategy{};
+  shared_ptr<vector<string>> vSwitchId{};
+
+  DescribePatternTypesRequest() {}
+
+  explicit DescribePatternTypesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (architecture) {
+      res["Architecture"] = boost::any(*architecture);
+    }
+    if (burstablePerformance) {
+      res["BurstablePerformance"] = boost::any(*burstablePerformance);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (cores) {
+      res["Cores"] = boost::any(*cores);
+    }
+    if (coresList) {
+      res["CoresList"] = boost::any(*coresList);
+    }
+    if (excludedInstanceType) {
+      res["ExcludedInstanceType"] = boost::any(*excludedInstanceType);
+    }
+    if (instanceFamilyLevel) {
+      res["InstanceFamilyLevel"] = boost::any(*instanceFamilyLevel);
+    }
+    if (maxPrice) {
+      res["MaxPrice"] = boost::any(*maxPrice);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (memoryList) {
+      res["MemoryList"] = boost::any(*memoryList);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (spotStrategy) {
+      res["SpotStrategy"] = boost::any(*spotStrategy);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Architecture") != m.end() && !m["Architecture"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Architecture"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Architecture"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      architecture = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BurstablePerformance") != m.end() && !m["BurstablePerformance"].empty()) {
+      burstablePerformance = make_shared<string>(boost::any_cast<string>(m["BurstablePerformance"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<long>(boost::any_cast<long>(m["ChannelId"]));
+    }
+    if (m.find("Cores") != m.end() && !m["Cores"].empty()) {
+      cores = make_shared<long>(boost::any_cast<long>(m["Cores"]));
+    }
+    if (m.find("CoresList") != m.end() && !m["CoresList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["CoresList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CoresList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      coresList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("ExcludedInstanceType") != m.end() && !m["ExcludedInstanceType"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludedInstanceType"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludedInstanceType"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludedInstanceType = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceFamilyLevel") != m.end() && !m["InstanceFamilyLevel"].empty()) {
+      instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["InstanceFamilyLevel"]));
+    }
+    if (m.find("MaxPrice") != m.end() && !m["MaxPrice"].empty()) {
+      maxPrice = make_shared<double>(boost::any_cast<double>(m["MaxPrice"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+    if (m.find("MemoryList") != m.end() && !m["MemoryList"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["MemoryList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MemoryList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      memoryList = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
+      spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VSwitchId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VSwitchId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vSwitchId = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribePatternTypesRequest() = default;
+};
+class DescribePatternTypesResponseBodyPatternTypes : public Darabonba::Model {
+public:
+  shared_ptr<long> cores{};
+  shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> instanceTypeFamily{};
+  shared_ptr<double> memory{};
+
+  DescribePatternTypesResponseBodyPatternTypes() {}
+
+  explicit DescribePatternTypesResponseBodyPatternTypes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cores) {
+      res["Cores"] = boost::any(*cores);
+    }
+    if (instanceFamilyLevel) {
+      res["InstanceFamilyLevel"] = boost::any(*instanceFamilyLevel);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (instanceTypeFamily) {
+      res["InstanceTypeFamily"] = boost::any(*instanceTypeFamily);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cores") != m.end() && !m["Cores"].empty()) {
+      cores = make_shared<long>(boost::any_cast<long>(m["Cores"]));
+    }
+    if (m.find("InstanceFamilyLevel") != m.end() && !m["InstanceFamilyLevel"].empty()) {
+      instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["InstanceFamilyLevel"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("InstanceTypeFamily") != m.end() && !m["InstanceTypeFamily"].empty()) {
+      instanceTypeFamily = make_shared<string>(boost::any_cast<string>(m["InstanceTypeFamily"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+  }
+
+
+  virtual ~DescribePatternTypesResponseBodyPatternTypes() = default;
+};
+class DescribePatternTypesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribePatternTypesResponseBodyPatternTypes>> patternTypes{};
+  shared_ptr<string> requestId{};
+
+  DescribePatternTypesResponseBody() {}
+
+  explicit DescribePatternTypesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (patternTypes) {
+      vector<boost::any> temp1;
+      for(auto item1:*patternTypes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PatternTypes"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PatternTypes") != m.end() && !m["PatternTypes"].empty()) {
+      if (typeid(vector<boost::any>) == m["PatternTypes"].type()) {
+        vector<DescribePatternTypesResponseBodyPatternTypes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PatternTypes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribePatternTypesResponseBodyPatternTypes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        patternTypes = make_shared<vector<DescribePatternTypesResponseBodyPatternTypes>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribePatternTypesResponseBody() = default;
+};
+class DescribePatternTypesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribePatternTypesResponseBody> body{};
+
+  DescribePatternTypesResponse() {}
+
+  explicit DescribePatternTypesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribePatternTypesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribePatternTypesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribePatternTypesResponse() = default;
+};
 class DescribeRegionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -34128,6 +34435,8 @@ public:
   DescribeNotificationConfigurationsResponse describeNotificationConfigurations(shared_ptr<DescribeNotificationConfigurationsRequest> request);
   DescribeNotificationTypesResponse describeNotificationTypesWithOptions(shared_ptr<DescribeNotificationTypesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeNotificationTypesResponse describeNotificationTypes(shared_ptr<DescribeNotificationTypesRequest> request);
+  DescribePatternTypesResponse describePatternTypesWithOptions(shared_ptr<DescribePatternTypesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribePatternTypesResponse describePatternTypes(shared_ptr<DescribePatternTypesRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DescribeScalingActivitiesResponse describeScalingActivitiesWithOptions(shared_ptr<DescribeScalingActivitiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
