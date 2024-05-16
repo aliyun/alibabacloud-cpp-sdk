@@ -55411,6 +55411,7 @@ public:
 class DescribeVSwitchesRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> dryRun{};
+  shared_ptr<bool> enableIpv6{};
   shared_ptr<bool> isDefault{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -55440,6 +55441,9 @@ public:
     map<string, boost::any> res;
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
+    }
+    if (enableIpv6) {
+      res["EnableIpv6"] = boost::any(*enableIpv6);
     }
     if (isDefault) {
       res["IsDefault"] = boost::any(*isDefault);
@@ -55499,6 +55503,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EnableIpv6") != m.end() && !m["EnableIpv6"].empty()) {
+      enableIpv6 = make_shared<bool>(boost::any_cast<bool>(m["EnableIpv6"]));
     }
     if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
       isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
@@ -58941,6 +58948,7 @@ class DescribeVpcsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dhcpOptionsSetId{};
   shared_ptr<bool> dryRun{};
+  shared_ptr<bool> enableIpv6{};
   shared_ptr<bool> isDefault{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -58970,6 +58978,9 @@ public:
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
+    }
+    if (enableIpv6) {
+      res["EnableIpv6"] = boost::any(*enableIpv6);
     }
     if (isDefault) {
       res["IsDefault"] = boost::any(*isDefault);
@@ -59023,6 +59034,9 @@ public:
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EnableIpv6") != m.end() && !m["EnableIpv6"].empty()) {
+      enableIpv6 = make_shared<bool>(boost::any_cast<bool>(m["EnableIpv6"]));
     }
     if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
       isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));

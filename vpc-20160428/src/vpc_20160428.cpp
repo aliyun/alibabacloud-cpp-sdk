@@ -11876,6 +11876,9 @@ DescribeVSwitchesResponse Alibabacloud_Vpc20160428::Client::describeVSwitchesWit
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableIpv6)) {
+    query->insert(pair<string, bool>("EnableIpv6", *request->enableIpv6));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isDefault)) {
     query->insert(pair<string, bool>("IsDefault", *request->isDefault));
   }
@@ -12211,6 +12214,9 @@ DescribeVpcsResponse Alibabacloud_Vpc20160428::Client::describeVpcsWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableIpv6)) {
+    query->insert(pair<string, bool>("EnableIpv6", *request->enableIpv6));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isDefault)) {
     query->insert(pair<string, bool>("IsDefault", *request->isDefault));
