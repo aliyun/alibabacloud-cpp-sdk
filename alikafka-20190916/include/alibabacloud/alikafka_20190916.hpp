@@ -1991,6 +1991,327 @@ public:
 
   virtual ~CreateSaslUserResponse() = default;
 };
+class CreateScheduledScalingRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> durationMinutes{};
+  shared_ptr<bool> enable{};
+  shared_ptr<long> firstScheduledTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> repeatType{};
+  shared_ptr<long> reservedPubFlow{};
+  shared_ptr<long> reservedSubFlow{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> scheduleType{};
+  shared_ptr<string> timeZone{};
+  shared_ptr<vector<string>> weeklyTypes{};
+
+  CreateScheduledScalingRuleRequest() {}
+
+  explicit CreateScheduledScalingRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (durationMinutes) {
+      res["DurationMinutes"] = boost::any(*durationMinutes);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (firstScheduledTime) {
+      res["FirstScheduledTime"] = boost::any(*firstScheduledTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
+    if (reservedPubFlow) {
+      res["ReservedPubFlow"] = boost::any(*reservedPubFlow);
+    }
+    if (reservedSubFlow) {
+      res["ReservedSubFlow"] = boost::any(*reservedSubFlow);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (scheduleType) {
+      res["ScheduleType"] = boost::any(*scheduleType);
+    }
+    if (timeZone) {
+      res["TimeZone"] = boost::any(*timeZone);
+    }
+    if (weeklyTypes) {
+      res["WeeklyTypes"] = boost::any(*weeklyTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DurationMinutes") != m.end() && !m["DurationMinutes"].empty()) {
+      durationMinutes = make_shared<long>(boost::any_cast<long>(m["DurationMinutes"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("FirstScheduledTime") != m.end() && !m["FirstScheduledTime"].empty()) {
+      firstScheduledTime = make_shared<long>(boost::any_cast<long>(m["FirstScheduledTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
+    }
+    if (m.find("ReservedPubFlow") != m.end() && !m["ReservedPubFlow"].empty()) {
+      reservedPubFlow = make_shared<long>(boost::any_cast<long>(m["ReservedPubFlow"]));
+    }
+    if (m.find("ReservedSubFlow") != m.end() && !m["ReservedSubFlow"].empty()) {
+      reservedSubFlow = make_shared<long>(boost::any_cast<long>(m["ReservedSubFlow"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("ScheduleType") != m.end() && !m["ScheduleType"].empty()) {
+      scheduleType = make_shared<string>(boost::any_cast<string>(m["ScheduleType"]));
+    }
+    if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
+    }
+    if (m.find("WeeklyTypes") != m.end() && !m["WeeklyTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WeeklyTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WeeklyTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      weeklyTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateScheduledScalingRuleRequest() = default;
+};
+class CreateScheduledScalingRuleShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> durationMinutes{};
+  shared_ptr<bool> enable{};
+  shared_ptr<long> firstScheduledTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> repeatType{};
+  shared_ptr<long> reservedPubFlow{};
+  shared_ptr<long> reservedSubFlow{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> scheduleType{};
+  shared_ptr<string> timeZone{};
+  shared_ptr<string> weeklyTypesShrink{};
+
+  CreateScheduledScalingRuleShrinkRequest() {}
+
+  explicit CreateScheduledScalingRuleShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (durationMinutes) {
+      res["DurationMinutes"] = boost::any(*durationMinutes);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (firstScheduledTime) {
+      res["FirstScheduledTime"] = boost::any(*firstScheduledTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
+    if (reservedPubFlow) {
+      res["ReservedPubFlow"] = boost::any(*reservedPubFlow);
+    }
+    if (reservedSubFlow) {
+      res["ReservedSubFlow"] = boost::any(*reservedSubFlow);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (scheduleType) {
+      res["ScheduleType"] = boost::any(*scheduleType);
+    }
+    if (timeZone) {
+      res["TimeZone"] = boost::any(*timeZone);
+    }
+    if (weeklyTypesShrink) {
+      res["WeeklyTypes"] = boost::any(*weeklyTypesShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DurationMinutes") != m.end() && !m["DurationMinutes"].empty()) {
+      durationMinutes = make_shared<long>(boost::any_cast<long>(m["DurationMinutes"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("FirstScheduledTime") != m.end() && !m["FirstScheduledTime"].empty()) {
+      firstScheduledTime = make_shared<long>(boost::any_cast<long>(m["FirstScheduledTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
+    }
+    if (m.find("ReservedPubFlow") != m.end() && !m["ReservedPubFlow"].empty()) {
+      reservedPubFlow = make_shared<long>(boost::any_cast<long>(m["ReservedPubFlow"]));
+    }
+    if (m.find("ReservedSubFlow") != m.end() && !m["ReservedSubFlow"].empty()) {
+      reservedSubFlow = make_shared<long>(boost::any_cast<long>(m["ReservedSubFlow"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("ScheduleType") != m.end() && !m["ScheduleType"].empty()) {
+      scheduleType = make_shared<string>(boost::any_cast<string>(m["ScheduleType"]));
+    }
+    if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
+    }
+    if (m.find("WeeklyTypes") != m.end() && !m["WeeklyTypes"].empty()) {
+      weeklyTypesShrink = make_shared<string>(boost::any_cast<string>(m["WeeklyTypes"]));
+    }
+  }
+
+
+  virtual ~CreateScheduledScalingRuleShrinkRequest() = default;
+};
+class CreateScheduledScalingRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateScheduledScalingRuleResponseBody() {}
+
+  explicit CreateScheduledScalingRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateScheduledScalingRuleResponseBody() = default;
+};
+class CreateScheduledScalingRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateScheduledScalingRuleResponseBody> body{};
+
+  CreateScheduledScalingRuleResponse() {}
+
+  explicit CreateScheduledScalingRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateScheduledScalingRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateScheduledScalingRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateScheduledScalingRuleResponse() = default;
+};
 class CreateTopicRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -2877,6 +3198,151 @@ public:
 
 
   virtual ~DeleteSaslUserResponse() = default;
+};
+class DeleteScheduledScalingRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> ruleName{};
+
+  DeleteScheduledScalingRuleRequest() {}
+
+  explicit DeleteScheduledScalingRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~DeleteScheduledScalingRuleRequest() = default;
+};
+class DeleteScheduledScalingRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteScheduledScalingRuleResponseBody() {}
+
+  explicit DeleteScheduledScalingRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteScheduledScalingRuleResponseBody() = default;
+};
+class DeleteScheduledScalingRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteScheduledScalingRuleResponseBody> body{};
+
+  DeleteScheduledScalingRuleResponse() {}
+
+  explicit DeleteScheduledScalingRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteScheduledScalingRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteScheduledScalingRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteScheduledScalingRuleResponse() = default;
 };
 class DeleteTopicRequest : public Darabonba::Model {
 public:
@@ -4346,6 +4812,384 @@ public:
 
 
   virtual ~GetAllowedIpListResponse() = default;
+};
+class GetAutoScalingConfigurationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+
+  GetAutoScalingConfigurationRequest() {}
+
+  explicit GetAutoScalingConfigurationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetAutoScalingConfigurationRequest() = default;
+};
+class GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRulesWeeklyTypes : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> weeklyTypes{};
+
+  GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRulesWeeklyTypes() {}
+
+  explicit GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRulesWeeklyTypes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (weeklyTypes) {
+      res["WeeklyTypes"] = boost::any(*weeklyTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WeeklyTypes") != m.end() && !m["WeeklyTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WeeklyTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WeeklyTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      weeklyTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRulesWeeklyTypes() = default;
+};
+class GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRules : public Darabonba::Model {
+public:
+  shared_ptr<long> durationMinutes{};
+  shared_ptr<bool> enable{};
+  shared_ptr<long> estimatedElasticScalingDownTimeSecs{};
+  shared_ptr<long> estimatedElasticScalingUpTimeSecs{};
+  shared_ptr<long> firstScheduledTime{};
+  shared_ptr<string> repeatType{};
+  shared_ptr<long> reservedPubFlow{};
+  shared_ptr<long> reservedSubFlow{};
+  shared_ptr<long> ruleId{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> scheduleType{};
+  shared_ptr<string> timeZone{};
+  shared_ptr<GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRulesWeeklyTypes> weeklyTypes{};
+
+  GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRules() {}
+
+  explicit GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (durationMinutes) {
+      res["DurationMinutes"] = boost::any(*durationMinutes);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (estimatedElasticScalingDownTimeSecs) {
+      res["EstimatedElasticScalingDownTimeSecs"] = boost::any(*estimatedElasticScalingDownTimeSecs);
+    }
+    if (estimatedElasticScalingUpTimeSecs) {
+      res["EstimatedElasticScalingUpTimeSecs"] = boost::any(*estimatedElasticScalingUpTimeSecs);
+    }
+    if (firstScheduledTime) {
+      res["FirstScheduledTime"] = boost::any(*firstScheduledTime);
+    }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
+    if (reservedPubFlow) {
+      res["ReservedPubFlow"] = boost::any(*reservedPubFlow);
+    }
+    if (reservedSubFlow) {
+      res["ReservedSubFlow"] = boost::any(*reservedSubFlow);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (scheduleType) {
+      res["ScheduleType"] = boost::any(*scheduleType);
+    }
+    if (timeZone) {
+      res["TimeZone"] = boost::any(*timeZone);
+    }
+    if (weeklyTypes) {
+      res["WeeklyTypes"] = weeklyTypes ? boost::any(weeklyTypes->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DurationMinutes") != m.end() && !m["DurationMinutes"].empty()) {
+      durationMinutes = make_shared<long>(boost::any_cast<long>(m["DurationMinutes"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("EstimatedElasticScalingDownTimeSecs") != m.end() && !m["EstimatedElasticScalingDownTimeSecs"].empty()) {
+      estimatedElasticScalingDownTimeSecs = make_shared<long>(boost::any_cast<long>(m["EstimatedElasticScalingDownTimeSecs"]));
+    }
+    if (m.find("EstimatedElasticScalingUpTimeSecs") != m.end() && !m["EstimatedElasticScalingUpTimeSecs"].empty()) {
+      estimatedElasticScalingUpTimeSecs = make_shared<long>(boost::any_cast<long>(m["EstimatedElasticScalingUpTimeSecs"]));
+    }
+    if (m.find("FirstScheduledTime") != m.end() && !m["FirstScheduledTime"].empty()) {
+      firstScheduledTime = make_shared<long>(boost::any_cast<long>(m["FirstScheduledTime"]));
+    }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
+    }
+    if (m.find("ReservedPubFlow") != m.end() && !m["ReservedPubFlow"].empty()) {
+      reservedPubFlow = make_shared<long>(boost::any_cast<long>(m["ReservedPubFlow"]));
+    }
+    if (m.find("ReservedSubFlow") != m.end() && !m["ReservedSubFlow"].empty()) {
+      reservedSubFlow = make_shared<long>(boost::any_cast<long>(m["ReservedSubFlow"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("ScheduleType") != m.end() && !m["ScheduleType"].empty()) {
+      scheduleType = make_shared<string>(boost::any_cast<string>(m["ScheduleType"]));
+    }
+    if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
+    }
+    if (m.find("WeeklyTypes") != m.end() && !m["WeeklyTypes"].empty()) {
+      if (typeid(map<string, boost::any>) == m["WeeklyTypes"].type()) {
+        GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRulesWeeklyTypes model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["WeeklyTypes"]));
+        weeklyTypes = make_shared<GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRulesWeeklyTypes>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRules() = default;
+};
+class GetAutoScalingConfigurationResponseBodyDataScheduledScalingRules : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRules>> scheduledScalingRules{};
+
+  GetAutoScalingConfigurationResponseBodyDataScheduledScalingRules() {}
+
+  explicit GetAutoScalingConfigurationResponseBodyDataScheduledScalingRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (scheduledScalingRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*scheduledScalingRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ScheduledScalingRules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ScheduledScalingRules") != m.end() && !m["ScheduledScalingRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["ScheduledScalingRules"].type()) {
+        vector<GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ScheduledScalingRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        scheduledScalingRules = make_shared<vector<GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetAutoScalingConfigurationResponseBodyDataScheduledScalingRules() = default;
+};
+class GetAutoScalingConfigurationResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<GetAutoScalingConfigurationResponseBodyDataScheduledScalingRules> scheduledScalingRules{};
+
+  GetAutoScalingConfigurationResponseBodyData() {}
+
+  explicit GetAutoScalingConfigurationResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (scheduledScalingRules) {
+      res["ScheduledScalingRules"] = scheduledScalingRules ? boost::any(scheduledScalingRules->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ScheduledScalingRules") != m.end() && !m["ScheduledScalingRules"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ScheduledScalingRules"].type()) {
+        GetAutoScalingConfigurationResponseBodyDataScheduledScalingRules model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ScheduledScalingRules"]));
+        scheduledScalingRules = make_shared<GetAutoScalingConfigurationResponseBodyDataScheduledScalingRules>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAutoScalingConfigurationResponseBodyData() = default;
+};
+class GetAutoScalingConfigurationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<GetAutoScalingConfigurationResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetAutoScalingConfigurationResponseBody() {}
+
+  explicit GetAutoScalingConfigurationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetAutoScalingConfigurationResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetAutoScalingConfigurationResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetAutoScalingConfigurationResponseBody() = default;
+};
+class GetAutoScalingConfigurationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAutoScalingConfigurationResponseBody> body{};
+
+  GetAutoScalingConfigurationResponse() {}
+
+  explicit GetAutoScalingConfigurationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAutoScalingConfigurationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAutoScalingConfigurationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAutoScalingConfigurationResponse() = default;
 };
 class GetConsumerListRequest : public Darabonba::Model {
 public:
@@ -6491,6 +7335,7 @@ public:
   shared_ptr<string> statusName{};
   shared_ptr<GetTopicListResponseBodyTopicListTopicVOTags> tags{};
   shared_ptr<string> topic{};
+  shared_ptr<string> topicConfig{};
 
   GetTopicListResponseBodyTopicListTopicVO() {}
 
@@ -6538,6 +7383,9 @@ public:
     if (topic) {
       res["Topic"] = boost::any(*topic);
     }
+    if (topicConfig) {
+      res["TopicConfig"] = boost::any(*topicConfig);
+    }
     return res;
   }
 
@@ -6581,6 +7429,9 @@ public:
     }
     if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
       topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+    if (m.find("TopicConfig") != m.end() && !m["TopicConfig"].empty()) {
+      topicConfig = make_shared<string>(boost::any_cast<string>(m["TopicConfig"]));
     }
   }
 
@@ -7868,6 +8719,158 @@ public:
 
 
   virtual ~ModifyPartitionNumResponse() = default;
+};
+class ModifyScheduledScalingRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> ruleName{};
+
+  ModifyScheduledScalingRuleRequest() {}
+
+  explicit ModifyScheduledScalingRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+  }
+
+
+  virtual ~ModifyScheduledScalingRuleRequest() = default;
+};
+class ModifyScheduledScalingRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ModifyScheduledScalingRuleResponseBody() {}
+
+  explicit ModifyScheduledScalingRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ModifyScheduledScalingRuleResponseBody() = default;
+};
+class ModifyScheduledScalingRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyScheduledScalingRuleResponseBody> body{};
+
+  ModifyScheduledScalingRuleResponse() {}
+
+  explicit ModifyScheduledScalingRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyScheduledScalingRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyScheduledScalingRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyScheduledScalingRuleResponse() = default;
 };
 class ModifyTopicRemarkRequest : public Darabonba::Model {
 public:
@@ -11134,6 +12137,8 @@ public:
   CreatePrePayOrderResponse createPrePayOrder(shared_ptr<CreatePrePayOrderRequest> request);
   CreateSaslUserResponse createSaslUserWithOptions(shared_ptr<CreateSaslUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSaslUserResponse createSaslUser(shared_ptr<CreateSaslUserRequest> request);
+  CreateScheduledScalingRuleResponse createScheduledScalingRuleWithOptions(shared_ptr<CreateScheduledScalingRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateScheduledScalingRuleResponse createScheduledScalingRule(shared_ptr<CreateScheduledScalingRuleRequest> request);
   CreateTopicResponse createTopicWithOptions(shared_ptr<CreateTopicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTopicResponse createTopic(shared_ptr<CreateTopicRequest> request);
   DeleteAclResponse deleteAclWithOptions(shared_ptr<DeleteAclRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11144,6 +12149,8 @@ public:
   DeleteInstanceResponse deleteInstance(shared_ptr<DeleteInstanceRequest> request);
   DeleteSaslUserResponse deleteSaslUserWithOptions(shared_ptr<DeleteSaslUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSaslUserResponse deleteSaslUser(shared_ptr<DeleteSaslUserRequest> request);
+  DeleteScheduledScalingRuleResponse deleteScheduledScalingRuleWithOptions(shared_ptr<DeleteScheduledScalingRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteScheduledScalingRuleResponse deleteScheduledScalingRule(shared_ptr<DeleteScheduledScalingRuleRequest> request);
   DeleteTopicResponse deleteTopicWithOptions(shared_ptr<DeleteTopicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteTopicResponse deleteTopic(shared_ptr<DeleteTopicRequest> request);
   DescribeAclsResponse describeAclsWithOptions(shared_ptr<DescribeAclsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11158,6 +12165,8 @@ public:
   GetAllInstanceIdListResponse getAllInstanceIdList(shared_ptr<GetAllInstanceIdListRequest> request);
   GetAllowedIpListResponse getAllowedIpListWithOptions(shared_ptr<GetAllowedIpListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAllowedIpListResponse getAllowedIpList(shared_ptr<GetAllowedIpListRequest> request);
+  GetAutoScalingConfigurationResponse getAutoScalingConfigurationWithOptions(shared_ptr<GetAutoScalingConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAutoScalingConfigurationResponse getAutoScalingConfiguration(shared_ptr<GetAutoScalingConfigurationRequest> request);
   GetConsumerListResponse getConsumerListWithOptions(shared_ptr<GetConsumerListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetConsumerListResponse getConsumerList(shared_ptr<GetConsumerListRequest> request);
   GetConsumerProgressResponse getConsumerProgressWithOptions(shared_ptr<GetConsumerProgressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11178,6 +12187,8 @@ public:
   ModifyInstanceNameResponse modifyInstanceName(shared_ptr<ModifyInstanceNameRequest> request);
   ModifyPartitionNumResponse modifyPartitionNumWithOptions(shared_ptr<ModifyPartitionNumRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyPartitionNumResponse modifyPartitionNum(shared_ptr<ModifyPartitionNumRequest> request);
+  ModifyScheduledScalingRuleResponse modifyScheduledScalingRuleWithOptions(shared_ptr<ModifyScheduledScalingRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyScheduledScalingRuleResponse modifyScheduledScalingRule(shared_ptr<ModifyScheduledScalingRuleRequest> request);
   ModifyTopicRemarkResponse modifyTopicRemarkWithOptions(shared_ptr<ModifyTopicRemarkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyTopicRemarkResponse modifyTopicRemark(shared_ptr<ModifyTopicRemarkRequest> request);
   QueryMessageResponse queryMessageWithOptions(shared_ptr<QueryMessageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
