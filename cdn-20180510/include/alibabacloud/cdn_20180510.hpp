@@ -710,6 +710,7 @@ public:
 class BatchDescribeCdnIpInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ipAddrList{};
+  shared_ptr<string> language{};
 
   BatchDescribeCdnIpInfoRequest() {}
 
@@ -724,12 +725,18 @@ public:
     if (ipAddrList) {
       res["IpAddrList"] = boost::any(*ipAddrList);
     }
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("IpAddrList") != m.end() && !m["IpAddrList"].empty()) {
       ipAddrList = make_shared<string>(boost::any_cast<string>(m["IpAddrList"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
   }
 

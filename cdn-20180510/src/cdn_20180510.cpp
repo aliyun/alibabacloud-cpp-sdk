@@ -258,6 +258,9 @@ BatchDescribeCdnIpInfoResponse Alibabacloud_Cdn20180510::Client::batchDescribeCd
   if (!Darabonba_Util::Client::isUnset<string>(request->ipAddrList)) {
     query->insert(pair<string, string>("IpAddrList", *request->ipAddrList));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("Language", *request->language));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
