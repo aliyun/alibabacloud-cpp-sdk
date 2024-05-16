@@ -8310,12 +8310,14 @@ public:
   shared_ptr<long> avgTotalBps{};
   shared_ptr<vector<DescribeInternetTrafficTrendResponseBodyDataList>> dataList{};
   shared_ptr<long> maxBandwidthTime{};
+  shared_ptr<long> maxDayExceedBytes{};
   shared_ptr<long> maxInBps{};
   shared_ptr<long> maxOutBps{};
   shared_ptr<long> maxSession{};
   shared_ptr<long> maxTotalBps{};
   shared_ptr<string> requestId{};
   shared_ptr<long> totalBytes{};
+  shared_ptr<long> totalExceedBytes{};
   shared_ptr<long> totalInBytes{};
   shared_ptr<long> totalOutBytes{};
   shared_ptr<long> totalSession{};
@@ -8352,6 +8354,9 @@ public:
     if (maxBandwidthTime) {
       res["MaxBandwidthTime"] = boost::any(*maxBandwidthTime);
     }
+    if (maxDayExceedBytes) {
+      res["MaxDayExceedBytes"] = boost::any(*maxDayExceedBytes);
+    }
     if (maxInBps) {
       res["MaxInBps"] = boost::any(*maxInBps);
     }
@@ -8369,6 +8374,9 @@ public:
     }
     if (totalBytes) {
       res["TotalBytes"] = boost::any(*totalBytes);
+    }
+    if (totalExceedBytes) {
+      res["TotalExceedBytes"] = boost::any(*totalExceedBytes);
     }
     if (totalInBytes) {
       res["TotalInBytes"] = boost::any(*totalInBytes);
@@ -8411,6 +8419,9 @@ public:
     if (m.find("MaxBandwidthTime") != m.end() && !m["MaxBandwidthTime"].empty()) {
       maxBandwidthTime = make_shared<long>(boost::any_cast<long>(m["MaxBandwidthTime"]));
     }
+    if (m.find("MaxDayExceedBytes") != m.end() && !m["MaxDayExceedBytes"].empty()) {
+      maxDayExceedBytes = make_shared<long>(boost::any_cast<long>(m["MaxDayExceedBytes"]));
+    }
     if (m.find("MaxInBps") != m.end() && !m["MaxInBps"].empty()) {
       maxInBps = make_shared<long>(boost::any_cast<long>(m["MaxInBps"]));
     }
@@ -8428,6 +8439,9 @@ public:
     }
     if (m.find("TotalBytes") != m.end() && !m["TotalBytes"].empty()) {
       totalBytes = make_shared<long>(boost::any_cast<long>(m["TotalBytes"]));
+    }
+    if (m.find("TotalExceedBytes") != m.end() && !m["TotalExceedBytes"].empty()) {
+      totalExceedBytes = make_shared<long>(boost::any_cast<long>(m["TotalExceedBytes"]));
     }
     if (m.find("TotalInBytes") != m.end() && !m["TotalInBytes"].empty()) {
       totalInBytes = make_shared<long>(boost::any_cast<long>(m["TotalInBytes"]));
