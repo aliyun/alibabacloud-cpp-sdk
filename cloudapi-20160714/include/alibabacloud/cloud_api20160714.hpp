@@ -2353,6 +2353,247 @@ public:
 
   virtual ~CreateAppResponse() = default;
 };
+class CreateAppCodeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appCode{};
+  shared_ptr<string> appId{};
+
+  CreateAppCodeRequest() {}
+
+  explicit CreateAppCodeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appCode) {
+      res["AppCode"] = boost::any(*appCode);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppCode") != m.end() && !m["AppCode"].empty()) {
+      appCode = make_shared<string>(boost::any_cast<string>(m["AppCode"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+  }
+
+
+  virtual ~CreateAppCodeRequest() = default;
+};
+class CreateAppCodeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateAppCodeResponseBody() {}
+
+  explicit CreateAppCodeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateAppCodeResponseBody() = default;
+};
+class CreateAppCodeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateAppCodeResponseBody> body{};
+
+  CreateAppCodeResponse() {}
+
+  explicit CreateAppCodeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateAppCodeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAppCodeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAppCodeResponse() = default;
+};
+class CreateAppKeyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> appKey{};
+  shared_ptr<string> appSecret{};
+
+  CreateAppKeyRequest() {}
+
+  explicit CreateAppKeyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
+    if (appSecret) {
+      res["AppSecret"] = boost::any(*appSecret);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("AppSecret") != m.end() && !m["AppSecret"].empty()) {
+      appSecret = make_shared<string>(boost::any_cast<string>(m["AppSecret"]));
+    }
+  }
+
+
+  virtual ~CreateAppKeyRequest() = default;
+};
+class CreateAppKeyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateAppKeyResponseBody() {}
+
+  explicit CreateAppKeyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateAppKeyResponseBody() = default;
+};
+class CreateAppKeyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateAppKeyResponseBody> body{};
+
+  CreateAppKeyResponse() {}
+
+  explicit CreateAppKeyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateAppKeyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAppKeyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAppKeyResponse() = default;
+};
 class CreateBackendRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -5681,6 +5922,240 @@ public:
 
 
   virtual ~DeleteAppResponse() = default;
+};
+class DeleteAppCodeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appCode{};
+  shared_ptr<string> appId{};
+
+  DeleteAppCodeRequest() {}
+
+  explicit DeleteAppCodeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appCode) {
+      res["AppCode"] = boost::any(*appCode);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppCode") != m.end() && !m["AppCode"].empty()) {
+      appCode = make_shared<string>(boost::any_cast<string>(m["AppCode"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+  }
+
+
+  virtual ~DeleteAppCodeRequest() = default;
+};
+class DeleteAppCodeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteAppCodeResponseBody() {}
+
+  explicit DeleteAppCodeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteAppCodeResponseBody() = default;
+};
+class DeleteAppCodeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAppCodeResponseBody> body{};
+
+  DeleteAppCodeResponse() {}
+
+  explicit DeleteAppCodeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAppCodeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAppCodeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAppCodeResponse() = default;
+};
+class DeleteAppKeyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> appKey{};
+
+  DeleteAppKeyRequest() {}
+
+  explicit DeleteAppKeyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+  }
+
+
+  virtual ~DeleteAppKeyRequest() = default;
+};
+class DeleteAppKeyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteAppKeyResponseBody() {}
+
+  explicit DeleteAppKeyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteAppKeyResponseBody() = default;
+};
+class DeleteAppKeyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAppKeyResponseBody> body{};
+
+  DeleteAppKeyResponse() {}
+
+  explicit DeleteAppKeyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAppKeyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAppKeyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAppKeyResponse() = default;
 };
 class DeleteBackendRequest : public Darabonba::Model {
 public:
@@ -50318,6 +50793,10 @@ public:
   CreateApiStageVariableResponse createApiStageVariable(shared_ptr<CreateApiStageVariableRequest> request);
   CreateAppResponse createAppWithOptions(shared_ptr<CreateAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAppResponse createApp(shared_ptr<CreateAppRequest> request);
+  CreateAppCodeResponse createAppCodeWithOptions(shared_ptr<CreateAppCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAppCodeResponse createAppCode(shared_ptr<CreateAppCodeRequest> request);
+  CreateAppKeyResponse createAppKeyWithOptions(shared_ptr<CreateAppKeyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAppKeyResponse createAppKey(shared_ptr<CreateAppKeyRequest> request);
   CreateBackendResponse createBackendWithOptions(shared_ptr<CreateBackendRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBackendResponse createBackend(shared_ptr<CreateBackendRequest> request);
   CreateBackendModelResponse createBackendModelWithOptions(shared_ptr<CreateBackendModelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -50358,6 +50837,10 @@ public:
   DeleteApiStageVariableResponse deleteApiStageVariable(shared_ptr<DeleteApiStageVariableRequest> request);
   DeleteAppResponse deleteAppWithOptions(shared_ptr<DeleteAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAppResponse deleteApp(shared_ptr<DeleteAppRequest> request);
+  DeleteAppCodeResponse deleteAppCodeWithOptions(shared_ptr<DeleteAppCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAppCodeResponse deleteAppCode(shared_ptr<DeleteAppCodeRequest> request);
+  DeleteAppKeyResponse deleteAppKeyWithOptions(shared_ptr<DeleteAppKeyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAppKeyResponse deleteAppKey(shared_ptr<DeleteAppKeyRequest> request);
   DeleteBackendResponse deleteBackendWithOptions(shared_ptr<DeleteBackendRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteBackendResponse deleteBackend(shared_ptr<DeleteBackendRequest> request);
   DeleteBackendModelResponse deleteBackendModelWithOptions(shared_ptr<DeleteBackendModelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
