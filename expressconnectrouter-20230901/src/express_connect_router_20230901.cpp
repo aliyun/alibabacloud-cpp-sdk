@@ -141,6 +141,9 @@ CreateExpressConnectRouterResponse Alibabacloud_ExpressConnectRouter20230901::Cl
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateExpressConnectRouterRequestTags>>(request->tags)) {
+    body->insert(pair<string, vector<CreateExpressConnectRouterRequestTags>>("Tags", *request->tags));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
