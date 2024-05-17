@@ -47139,9 +47139,11 @@ public:
   shared_ptr<long> callsBlindTransferOut{};
   shared_ptr<long> callsHandled{};
   shared_ptr<long> callsOffered{};
+  shared_ptr<long> callsQueuingTimeout{};
   shared_ptr<long> callsServiceLevel10{};
   shared_ptr<long> callsServiceLevel20{};
   shared_ptr<long> callsServiceLevel30{};
+  shared_ptr<long> callsTimeout{};
   shared_ptr<long> giveUpByAgentOfQueueCount{};
   shared_ptr<double> handleRate{};
   shared_ptr<long> inComingQueueOfQueueCount{};
@@ -47202,6 +47204,9 @@ public:
     if (callsOffered) {
       res["CallsOffered"] = boost::any(*callsOffered);
     }
+    if (callsQueuingTimeout) {
+      res["CallsQueuingTimeout"] = boost::any(*callsQueuingTimeout);
+    }
     if (callsServiceLevel10) {
       res["CallsServiceLevel10"] = boost::any(*callsServiceLevel10);
     }
@@ -47210,6 +47215,9 @@ public:
     }
     if (callsServiceLevel30) {
       res["CallsServiceLevel30"] = boost::any(*callsServiceLevel30);
+    }
+    if (callsTimeout) {
+      res["CallsTimeout"] = boost::any(*callsTimeout);
     }
     if (giveUpByAgentOfQueueCount) {
       res["GiveUpByAgentOfQueueCount"] = boost::any(*giveUpByAgentOfQueueCount);
@@ -47296,6 +47304,9 @@ public:
     if (m.find("CallsOffered") != m.end() && !m["CallsOffered"].empty()) {
       callsOffered = make_shared<long>(boost::any_cast<long>(m["CallsOffered"]));
     }
+    if (m.find("CallsQueuingTimeout") != m.end() && !m["CallsQueuingTimeout"].empty()) {
+      callsQueuingTimeout = make_shared<long>(boost::any_cast<long>(m["CallsQueuingTimeout"]));
+    }
     if (m.find("CallsServiceLevel10") != m.end() && !m["CallsServiceLevel10"].empty()) {
       callsServiceLevel10 = make_shared<long>(boost::any_cast<long>(m["CallsServiceLevel10"]));
     }
@@ -47304,6 +47315,9 @@ public:
     }
     if (m.find("CallsServiceLevel30") != m.end() && !m["CallsServiceLevel30"].empty()) {
       callsServiceLevel30 = make_shared<long>(boost::any_cast<long>(m["CallsServiceLevel30"]));
+    }
+    if (m.find("CallsTimeout") != m.end() && !m["CallsTimeout"].empty()) {
+      callsTimeout = make_shared<long>(boost::any_cast<long>(m["CallsTimeout"]));
     }
     if (m.find("GiveUpByAgentOfQueueCount") != m.end() && !m["GiveUpByAgentOfQueueCount"].empty()) {
       giveUpByAgentOfQueueCount = make_shared<long>(boost::any_cast<long>(m["GiveUpByAgentOfQueueCount"]));
