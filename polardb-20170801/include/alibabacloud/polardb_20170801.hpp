@@ -12512,6 +12512,9 @@ public:
   shared_ptr<string> scaleRoNumMax{};
   shared_ptr<string> scaleRoNumMin{};
   shared_ptr<string> secondsUntilAutoPause{};
+  shared_ptr<string> serverlessRuleCpuEnlargeThreshold{};
+  shared_ptr<string> serverlessRuleCpuShrinkThreshold{};
+  shared_ptr<string> serverlessRuleMode{};
   shared_ptr<string> switchs{};
 
   DescribeDBClusterServerlessConfResponseBody() {}
@@ -12554,6 +12557,15 @@ public:
     if (secondsUntilAutoPause) {
       res["SecondsUntilAutoPause"] = boost::any(*secondsUntilAutoPause);
     }
+    if (serverlessRuleCpuEnlargeThreshold) {
+      res["ServerlessRuleCpuEnlargeThreshold"] = boost::any(*serverlessRuleCpuEnlargeThreshold);
+    }
+    if (serverlessRuleCpuShrinkThreshold) {
+      res["ServerlessRuleCpuShrinkThreshold"] = boost::any(*serverlessRuleCpuShrinkThreshold);
+    }
+    if (serverlessRuleMode) {
+      res["ServerlessRuleMode"] = boost::any(*serverlessRuleMode);
+    }
     if (switchs) {
       res["Switchs"] = boost::any(*switchs);
     }
@@ -12590,6 +12602,15 @@ public:
     }
     if (m.find("SecondsUntilAutoPause") != m.end() && !m["SecondsUntilAutoPause"].empty()) {
       secondsUntilAutoPause = make_shared<string>(boost::any_cast<string>(m["SecondsUntilAutoPause"]));
+    }
+    if (m.find("ServerlessRuleCpuEnlargeThreshold") != m.end() && !m["ServerlessRuleCpuEnlargeThreshold"].empty()) {
+      serverlessRuleCpuEnlargeThreshold = make_shared<string>(boost::any_cast<string>(m["ServerlessRuleCpuEnlargeThreshold"]));
+    }
+    if (m.find("ServerlessRuleCpuShrinkThreshold") != m.end() && !m["ServerlessRuleCpuShrinkThreshold"].empty()) {
+      serverlessRuleCpuShrinkThreshold = make_shared<string>(boost::any_cast<string>(m["ServerlessRuleCpuShrinkThreshold"]));
+    }
+    if (m.find("ServerlessRuleMode") != m.end() && !m["ServerlessRuleMode"].empty()) {
+      serverlessRuleMode = make_shared<string>(boost::any_cast<string>(m["ServerlessRuleMode"]));
     }
     if (m.find("Switchs") != m.end() && !m["Switchs"].empty()) {
       switchs = make_shared<string>(boost::any_cast<string>(m["Switchs"]));
@@ -27398,6 +27419,9 @@ public:
   shared_ptr<string> scaleRoNumMax{};
   shared_ptr<string> scaleRoNumMin{};
   shared_ptr<string> secondsUntilAutoPause{};
+  shared_ptr<string> serverlessRuleCpuEnlargeThreshold{};
+  shared_ptr<string> serverlessRuleCpuShrinkThreshold{};
+  shared_ptr<string> serverlessRuleMode{};
 
   ModifyDBClusterServerlessConfRequest() {}
 
@@ -27457,6 +27481,15 @@ public:
     if (secondsUntilAutoPause) {
       res["SecondsUntilAutoPause"] = boost::any(*secondsUntilAutoPause);
     }
+    if (serverlessRuleCpuEnlargeThreshold) {
+      res["ServerlessRuleCpuEnlargeThreshold"] = boost::any(*serverlessRuleCpuEnlargeThreshold);
+    }
+    if (serverlessRuleCpuShrinkThreshold) {
+      res["ServerlessRuleCpuShrinkThreshold"] = boost::any(*serverlessRuleCpuShrinkThreshold);
+    }
+    if (serverlessRuleMode) {
+      res["ServerlessRuleMode"] = boost::any(*serverlessRuleMode);
+    }
     return res;
   }
 
@@ -27508,6 +27541,15 @@ public:
     }
     if (m.find("SecondsUntilAutoPause") != m.end() && !m["SecondsUntilAutoPause"].empty()) {
       secondsUntilAutoPause = make_shared<string>(boost::any_cast<string>(m["SecondsUntilAutoPause"]));
+    }
+    if (m.find("ServerlessRuleCpuEnlargeThreshold") != m.end() && !m["ServerlessRuleCpuEnlargeThreshold"].empty()) {
+      serverlessRuleCpuEnlargeThreshold = make_shared<string>(boost::any_cast<string>(m["ServerlessRuleCpuEnlargeThreshold"]));
+    }
+    if (m.find("ServerlessRuleCpuShrinkThreshold") != m.end() && !m["ServerlessRuleCpuShrinkThreshold"].empty()) {
+      serverlessRuleCpuShrinkThreshold = make_shared<string>(boost::any_cast<string>(m["ServerlessRuleCpuShrinkThreshold"]));
+    }
+    if (m.find("ServerlessRuleMode") != m.end() && !m["ServerlessRuleMode"].empty()) {
+      serverlessRuleMode = make_shared<string>(boost::any_cast<string>(m["ServerlessRuleMode"]));
     }
   }
 

@@ -5778,6 +5778,15 @@ ModifyDBClusterServerlessConfResponse Alibabacloud_Polardb20170801::Client::modi
   if (!Darabonba_Util::Client::isUnset<string>(request->secondsUntilAutoPause)) {
     query->insert(pair<string, string>("SecondsUntilAutoPause", *request->secondsUntilAutoPause));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverlessRuleCpuEnlargeThreshold)) {
+    query->insert(pair<string, string>("ServerlessRuleCpuEnlargeThreshold", *request->serverlessRuleCpuEnlargeThreshold));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverlessRuleCpuShrinkThreshold)) {
+    query->insert(pair<string, string>("ServerlessRuleCpuShrinkThreshold", *request->serverlessRuleCpuShrinkThreshold));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverlessRuleMode)) {
+    query->insert(pair<string, string>("ServerlessRuleMode", *request->serverlessRuleMode));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
