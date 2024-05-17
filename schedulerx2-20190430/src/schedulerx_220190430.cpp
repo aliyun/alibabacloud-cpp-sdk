@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -340,6 +339,9 @@ CreateJobResponse Alibabacloud_Schedulerx220190430::Client::createJobWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->timeoutKillEnable)) {
     body->insert(pair<string, bool>("TimeoutKillEnable", *request->timeoutKillEnable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timezone)) {
+    body->insert(pair<string, string>("Timezone", *request->timezone));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->XAttrs)) {
     body->insert(pair<string, string>("XAttrs", *request->XAttrs));
@@ -962,6 +964,55 @@ GetLogResponse Alibabacloud_Schedulerx220190430::Client::getLog(shared_ptr<GetLo
   return getLogWithOptions(request, runtime);
 }
 
+GetOverviewResponse Alibabacloud_Schedulerx220190430::Client::getOverviewWithOptions(shared_ptr<GetOverviewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->metricType)) {
+    query->insert(pair<string, long>("MetricType", *request->metricType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespaceSource)) {
+    query->insert(pair<string, string>("NamespaceSource", *request->namespaceSource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operate)) {
+    query->insert(pair<string, string>("Operate", *request->operate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetOverview"))},
+    {"version", boost::any(string("2019-04-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetOverviewResponse(callApi(params, req, runtime));
+}
+
+GetOverviewResponse Alibabacloud_Schedulerx220190430::Client::getOverview(shared_ptr<GetOverviewRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getOverviewWithOptions(request, runtime);
+}
+
 GetWorkFlowResponse Alibabacloud_Schedulerx220190430::Client::getWorkFlowWithOptions(shared_ptr<GetWorkFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -1085,7 +1136,19 @@ GrantPermissionResponse Alibabacloud_Schedulerx220190430::Client::grantPermissio
 
 ListGroupsResponse Alibabacloud_Schedulerx220190430::Client::listGroupsWithOptions(shared_ptr<ListGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appGroupName)) {
+    query->insert(pair<string, string>("AppGroupName", *request->appGroupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespaceSource)) {
+    query->insert(pair<string, string>("NamespaceSource", *request->namespaceSource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1094,7 +1157,7 @@ ListGroupsResponse Alibabacloud_Schedulerx220190430::Client::listGroupsWithOptio
     {"version", boost::any(string("2019-04-30"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
@@ -1135,7 +1198,16 @@ ListJobsResponse Alibabacloud_Schedulerx220190430::Client::listJobs(shared_ptr<L
 
 ListNamespacesResponse Alibabacloud_Schedulerx220190430::Client::listNamespacesWithOptions(shared_ptr<ListNamespacesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespaceName)) {
+    query->insert(pair<string, string>("NamespaceName", *request->namespaceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1144,7 +1216,7 @@ ListNamespacesResponse Alibabacloud_Schedulerx220190430::Client::listNamespacesW
     {"version", boost::any(string("2019-04-30"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
@@ -1557,6 +1629,9 @@ UpdateJobResponse Alibabacloud_Schedulerx220190430::Client::updateJobWithOptions
   if (!Darabonba_Util::Client::isUnset<long>(request->taskMaxAttempt)) {
     body->insert(pair<string, long>("TaskMaxAttempt", *request->taskMaxAttempt));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->template_)) {
+    body->insert(pair<string, string>("Template_", *request->template_));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->timeExpression)) {
     body->insert(pair<string, string>("TimeExpression", *request->timeExpression));
   }
@@ -1571,6 +1646,12 @@ UpdateJobResponse Alibabacloud_Schedulerx220190430::Client::updateJobWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->timeoutKillEnable)) {
     body->insert(pair<string, bool>("TimeoutKillEnable", *request->timeoutKillEnable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timezone)) {
+    body->insert(pair<string, string>("Timezone", *request->timezone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->XAttrs)) {
+    body->insert(pair<string, string>("XAttrs", *request->XAttrs));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
