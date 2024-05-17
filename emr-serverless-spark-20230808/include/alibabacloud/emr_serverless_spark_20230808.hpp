@@ -287,6 +287,92 @@ public:
 
   virtual ~Configuration() = default;
 };
+class ConfigurationOverridesConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> configFileName{};
+  shared_ptr<string> configItemKey{};
+  shared_ptr<string> configItemValue{};
+
+  ConfigurationOverridesConfigurations() {}
+
+  explicit ConfigurationOverridesConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configFileName) {
+      res["configFileName"] = boost::any(*configFileName);
+    }
+    if (configItemKey) {
+      res["configItemKey"] = boost::any(*configItemKey);
+    }
+    if (configItemValue) {
+      res["configItemValue"] = boost::any(*configItemValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("configFileName") != m.end() && !m["configFileName"].empty()) {
+      configFileName = make_shared<string>(boost::any_cast<string>(m["configFileName"]));
+    }
+    if (m.find("configItemKey") != m.end() && !m["configItemKey"].empty()) {
+      configItemKey = make_shared<string>(boost::any_cast<string>(m["configItemKey"]));
+    }
+    if (m.find("configItemValue") != m.end() && !m["configItemValue"].empty()) {
+      configItemValue = make_shared<string>(boost::any_cast<string>(m["configItemValue"]));
+    }
+  }
+
+
+  virtual ~ConfigurationOverridesConfigurations() = default;
+};
+class ConfigurationOverrides : public Darabonba::Model {
+public:
+  shared_ptr<vector<ConfigurationOverridesConfigurations>> configurations{};
+
+  ConfigurationOverrides() {}
+
+  explicit ConfigurationOverrides(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*configurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["configurations"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("configurations") != m.end() && !m["configurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["configurations"].type()) {
+        vector<ConfigurationOverridesConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["configurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ConfigurationOverridesConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        configurations = make_shared<vector<ConfigurationOverridesConfigurations>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ConfigurationOverrides() = default;
+};
 class JobDriverSparkSubmit : public Darabonba::Model {
 public:
   shared_ptr<string> entryPoint{};
@@ -451,8 +537,10 @@ public:
 };
 class RunLog : public Darabonba::Model {
 public:
+  shared_ptr<string> driverStartup{};
   shared_ptr<string> driverStdError{};
   shared_ptr<string> driverStdOut{};
+  shared_ptr<string> driverSyslog{};
 
   RunLog() {}
 
@@ -464,21 +552,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (driverStartup) {
+      res["driverStartup"] = boost::any(*driverStartup);
+    }
     if (driverStdError) {
       res["driverStdError"] = boost::any(*driverStdError);
     }
     if (driverStdOut) {
       res["driverStdOut"] = boost::any(*driverStdOut);
     }
+    if (driverSyslog) {
+      res["driverSyslog"] = boost::any(*driverSyslog);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("driverStartup") != m.end() && !m["driverStartup"].empty()) {
+      driverStartup = make_shared<string>(boost::any_cast<string>(m["driverStartup"]));
+    }
     if (m.find("driverStdError") != m.end() && !m["driverStdError"].empty()) {
       driverStdError = make_shared<string>(boost::any_cast<string>(m["driverStdError"]));
     }
     if (m.find("driverStdOut") != m.end() && !m["driverStdOut"].empty()) {
       driverStdOut = make_shared<string>(boost::any_cast<string>(m["driverStdOut"]));
+    }
+    if (m.find("driverSyslog") != m.end() && !m["driverSyslog"].empty()) {
+      driverSyslog = make_shared<string>(boost::any_cast<string>(m["driverSyslog"]));
     }
   }
 
@@ -735,6 +835,7 @@ public:
 };
 class Task : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> archives{};
   shared_ptr<string> artifactUrl{};
   shared_ptr<string> bizId{};
   shared_ptr<string> categoryBizId{};
@@ -745,10 +846,13 @@ public:
   shared_ptr<string> defaultResourceQueueId{};
   shared_ptr<string> defaultSqlComputeId{};
   shared_ptr<vector<string>> extraArtifactIds{};
+  shared_ptr<string> extraSparkSubmitParams{};
+  shared_ptr<vector<string>> files{};
   shared_ptr<string> gmtCreated{};
   shared_ptr<string> gmtModified{};
   shared_ptr<bool> hasChanged{};
   shared_ptr<bool> hasCommited{};
+  shared_ptr<vector<string>> jars{};
   shared_ptr<string> lastRunResourceQueueId{};
   shared_ptr<long> modifier{};
   shared_ptr<string> name{};
@@ -776,6 +880,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (archives) {
+      res["archives"] = boost::any(*archives);
+    }
     if (artifactUrl) {
       res["artifactUrl"] = boost::any(*artifactUrl);
     }
@@ -806,6 +913,12 @@ public:
     if (extraArtifactIds) {
       res["extraArtifactIds"] = boost::any(*extraArtifactIds);
     }
+    if (extraSparkSubmitParams) {
+      res["extraSparkSubmitParams"] = boost::any(*extraSparkSubmitParams);
+    }
+    if (files) {
+      res["files"] = boost::any(*files);
+    }
     if (gmtCreated) {
       res["gmtCreated"] = boost::any(*gmtCreated);
     }
@@ -817,6 +930,9 @@ public:
     }
     if (hasCommited) {
       res["hasCommited"] = boost::any(*hasCommited);
+    }
+    if (jars) {
+      res["jars"] = boost::any(*jars);
     }
     if (lastRunResourceQueueId) {
       res["lastRunResourceQueueId"] = boost::any(*lastRunResourceQueueId);
@@ -874,6 +990,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("archives") != m.end() && !m["archives"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["archives"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["archives"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      archives = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("artifactUrl") != m.end() && !m["artifactUrl"].empty()) {
       artifactUrl = make_shared<string>(boost::any_cast<string>(m["artifactUrl"]));
     }
@@ -911,6 +1037,19 @@ public:
       }
       extraArtifactIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("extraSparkSubmitParams") != m.end() && !m["extraSparkSubmitParams"].empty()) {
+      extraSparkSubmitParams = make_shared<string>(boost::any_cast<string>(m["extraSparkSubmitParams"]));
+    }
+    if (m.find("files") != m.end() && !m["files"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["files"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["files"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      files = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("gmtCreated") != m.end() && !m["gmtCreated"].empty()) {
       gmtCreated = make_shared<string>(boost::any_cast<string>(m["gmtCreated"]));
     }
@@ -922,6 +1061,16 @@ public:
     }
     if (m.find("hasCommited") != m.end() && !m["hasCommited"].empty()) {
       hasCommited = make_shared<bool>(boost::any_cast<bool>(m["hasCommited"]));
+    }
+    if (m.find("jars") != m.end() && !m["jars"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["jars"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["jars"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      jars = make_shared<vector<string>>(toVec1);
     }
     if (m.find("lastRunResourceQueueId") != m.end() && !m["lastRunResourceQueueId"].empty()) {
       lastRunResourceQueueId = make_shared<string>(boost::any_cast<string>(m["lastRunResourceQueueId"]));
