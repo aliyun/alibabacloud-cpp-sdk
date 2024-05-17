@@ -3631,6 +3631,9 @@ CreateNetworkInterfaceResponse Alibabacloud_Ecs20140526::Client::createNetworkIn
   if (!Darabonba_Util::Client::isUnset<string>(request->networkInterfaceName)) {
     query->insert(pair<string, string>("NetworkInterfaceName", *request->networkInterfaceName));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateNetworkInterfaceRequestNetworkInterfaceTrafficConfig>(request->networkInterfaceTrafficConfig)) {
+    query->insert(pair<string, CreateNetworkInterfaceRequestNetworkInterfaceTrafficConfig>("NetworkInterfaceTrafficConfig", *request->networkInterfaceTrafficConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkInterfaceTrafficMode)) {
     query->insert(pair<string, string>("NetworkInterfaceTrafficMode", *request->networkInterfaceTrafficMode));
   }
@@ -16887,6 +16890,9 @@ ModifyNetworkInterfaceAttributeResponse Alibabacloud_Ecs20140526::Client::modify
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkInterfaceName)) {
     query->insert(pair<string, string>("NetworkInterfaceName", *request->networkInterfaceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTrafficConfig>(request->networkInterfaceTrafficConfig)) {
+    query->insert(pair<string, ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTrafficConfig>("NetworkInterfaceTrafficConfig", *request->networkInterfaceTrafficConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
