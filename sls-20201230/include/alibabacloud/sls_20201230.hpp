@@ -4975,10 +4975,12 @@ public:
 class Project : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<string> dataRedundancyType{};
   shared_ptr<string> description{};
   shared_ptr<string> lastModifyTime{};
   shared_ptr<string> owner{};
   shared_ptr<string> projectName{};
+  shared_ptr<map<string, boost::any>> quota{};
   shared_ptr<string> region{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
@@ -4996,6 +4998,9 @@ public:
     if (createTime) {
       res["createTime"] = boost::any(*createTime);
     }
+    if (dataRedundancyType) {
+      res["dataRedundancyType"] = boost::any(*dataRedundancyType);
+    }
     if (description) {
       res["description"] = boost::any(*description);
     }
@@ -5007,6 +5012,9 @@ public:
     }
     if (projectName) {
       res["projectName"] = boost::any(*projectName);
+    }
+    if (quota) {
+      res["quota"] = boost::any(*quota);
     }
     if (region) {
       res["region"] = boost::any(*region);
@@ -5024,6 +5032,9 @@ public:
     if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
     }
+    if (m.find("dataRedundancyType") != m.end() && !m["dataRedundancyType"].empty()) {
+      dataRedundancyType = make_shared<string>(boost::any_cast<string>(m["dataRedundancyType"]));
+    }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
     }
@@ -5035,6 +5046,14 @@ public:
     }
     if (m.find("projectName") != m.end() && !m["projectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["projectName"]));
+    }
+    if (m.find("quota") != m.end() && !m["quota"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["quota"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      quota = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("region") != m.end() && !m["region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["region"]));
@@ -16823,6 +16842,7 @@ public:
 };
 class ListProjectRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> fetchQuota{};
   shared_ptr<long> offset{};
   shared_ptr<string> projectName{};
   shared_ptr<string> resourceGroupId{};
@@ -16838,6 +16858,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (fetchQuota) {
+      res["fetchQuota"] = boost::any(*fetchQuota);
+    }
     if (offset) {
       res["offset"] = boost::any(*offset);
     }
@@ -16854,6 +16877,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("fetchQuota") != m.end() && !m["fetchQuota"].empty()) {
+      fetchQuota = make_shared<bool>(boost::any_cast<bool>(m["fetchQuota"]));
+    }
     if (m.find("offset") != m.end() && !m["offset"].empty()) {
       offset = make_shared<long>(boost::any_cast<long>(m["offset"]));
     }

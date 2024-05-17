@@ -4129,6 +4129,9 @@ ListOSSIngestionsResponse Alibabacloud_Sls20201230::Client::listOSSIngestions(sh
 ListProjectResponse Alibabacloud_Sls20201230::Client::listProjectWithOptions(shared_ptr<ListProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->fetchQuota)) {
+    query->insert(pair<string, bool>("fetchQuota", *request->fetchQuota));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->offset)) {
     query->insert(pair<string, long>("offset", *request->offset));
   }
