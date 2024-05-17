@@ -1325,6 +1325,7 @@ public:
   shared_ptr<string> filterKey{};
   shared_ptr<string> filterType{};
   shared_ptr<string> filterValue{};
+  shared_ptr<string> policyId{};
   shared_ptr<string> retentionType{};
   shared_ptr<string> retentionValue{};
   shared_ptr<string> srcRegion{};
@@ -1364,6 +1365,9 @@ public:
     }
     if (filterValue) {
       res["FilterValue"] = boost::any(*filterValue);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
     }
     if (retentionType) {
       res["RetentionType"] = boost::any(*retentionType);
@@ -1407,6 +1411,9 @@ public:
     }
     if (m.find("FilterValue") != m.end() && !m["FilterValue"].empty()) {
       filterValue = make_shared<string>(boost::any_cast<string>(m["FilterValue"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
     }
     if (m.find("RetentionType") != m.end() && !m["RetentionType"].empty()) {
       retentionType = make_shared<string>(boost::any_cast<string>(m["RetentionType"]));
