@@ -337,6 +337,49 @@ CopyMcdpGroupResponse Alibabacloud_MPaaS20201028::Client::copyMcdpGroup(shared_p
   return copyMcdpGroupWithOptions(request, runtime);
 }
 
+CreateLinkResponse Alibabacloud_MPaaS20201028::Client::createLinkWithOptions(shared_ptr<CreateLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    body->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cors)) {
+    body->insert(pair<string, string>("Cors", *request->cors));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    body->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dynamicfield)) {
+    body->insert(pair<string, string>("Dynamicfield", *request->dynamicfield));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetUrl)) {
+    body->insert(pair<string, string>("TargetUrl", *request->targetUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateLink"))},
+    {"version", boost::any(string("2020-10-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateLinkResponse(callApi(params, req, runtime));
+}
+
+CreateLinkResponse Alibabacloud_MPaaS20201028::Client::createLink(shared_ptr<CreateLinkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createLinkWithOptions(request, runtime);
+}
+
 CreateMasCrowdResponse Alibabacloud_MPaaS20201028::Client::createMasCrowdWithOptions(shared_ptr<CreateMasCrowdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4021,6 +4064,40 @@ QueryInfoFromMdpResponse Alibabacloud_MPaaS20201028::Client::queryInfoFromMdpWit
 QueryInfoFromMdpResponse Alibabacloud_MPaaS20201028::Client::queryInfoFromMdp(shared_ptr<QueryInfoFromMdpRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryInfoFromMdpWithOptions(request, runtime);
+}
+
+QueryLinkResponse Alibabacloud_MPaaS20201028::Client::queryLinkWithOptions(shared_ptr<QueryLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    body->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    body->insert(pair<string, string>("Url", *request->url));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryLink"))},
+    {"version", boost::any(string("2020-10-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryLinkResponse(callApi(params, req, runtime));
+}
+
+QueryLinkResponse Alibabacloud_MPaaS20201028::Client::queryLink(shared_ptr<QueryLinkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryLinkWithOptions(request, runtime);
 }
 
 QueryMappCenterAppResponse Alibabacloud_MPaaS20201028::Client::queryMappCenterAppWithOptions(shared_ptr<QueryMappCenterAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
