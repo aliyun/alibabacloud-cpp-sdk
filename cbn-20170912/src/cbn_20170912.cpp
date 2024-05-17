@@ -7232,6 +7232,9 @@ SetCenInterRegionBandwidthLimitResponse Alibabacloud_Cbn20170912::Client::setCen
   if (!Darabonba_Util::Client::isUnset<long>(request->bandwidthLimit)) {
     query->insert(pair<string, long>("BandwidthLimit", *request->bandwidthLimit));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bandwidthType)) {
+    query->insert(pair<string, string>("BandwidthType", *request->bandwidthType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cenId)) {
     query->insert(pair<string, string>("CenId", *request->cenId));
   }

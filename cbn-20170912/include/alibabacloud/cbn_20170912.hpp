@@ -13703,6 +13703,7 @@ class DescribeCenInterRegionBandwidthLimitsResponseBodyCenInterRegionBandwidthLi
 public:
   shared_ptr<long> bandwidthLimit{};
   shared_ptr<string> bandwidthPackageId{};
+  shared_ptr<string> bandwidthType{};
   shared_ptr<string> cenId{};
   shared_ptr<string> geographicSpanId{};
   shared_ptr<string> localRegionId{};
@@ -13724,6 +13725,9 @@ public:
     }
     if (bandwidthPackageId) {
       res["BandwidthPackageId"] = boost::any(*bandwidthPackageId);
+    }
+    if (bandwidthType) {
+      res["BandwidthType"] = boost::any(*bandwidthType);
     }
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
@@ -13749,6 +13753,9 @@ public:
     }
     if (m.find("BandwidthPackageId") != m.end() && !m["BandwidthPackageId"].empty()) {
       bandwidthPackageId = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageId"]));
+    }
+    if (m.find("BandwidthType") != m.end() && !m["BandwidthType"].empty()) {
+      bandwidthType = make_shared<string>(boost::any_cast<string>(m["BandwidthType"]));
     }
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
@@ -34104,6 +34111,7 @@ public:
 class SetCenInterRegionBandwidthLimitRequest : public Darabonba::Model {
 public:
   shared_ptr<long> bandwidthLimit{};
+  shared_ptr<string> bandwidthType{};
   shared_ptr<string> cenId{};
   shared_ptr<string> localRegionId{};
   shared_ptr<string> oppositeRegionId{};
@@ -34124,6 +34132,9 @@ public:
     map<string, boost::any> res;
     if (bandwidthLimit) {
       res["BandwidthLimit"] = boost::any(*bandwidthLimit);
+    }
+    if (bandwidthType) {
+      res["BandwidthType"] = boost::any(*bandwidthType);
     }
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
@@ -34152,6 +34163,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BandwidthLimit") != m.end() && !m["BandwidthLimit"].empty()) {
       bandwidthLimit = make_shared<long>(boost::any_cast<long>(m["BandwidthLimit"]));
+    }
+    if (m.find("BandwidthType") != m.end() && !m["BandwidthType"].empty()) {
+      bandwidthType = make_shared<string>(boost::any_cast<string>(m["BandwidthType"]));
     }
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
