@@ -12593,6 +12593,7 @@ public:
   shared_ptr<vector<string>> dlpStatuses{};
   shared_ptr<string> hostname{};
   shared_ptr<vector<string>> iaStatuses{};
+  shared_ptr<string> innerIp{};
   shared_ptr<string> mac{};
   shared_ptr<vector<string>> nacStatuses{};
   shared_ptr<vector<string>> paStatuses{};
@@ -12641,6 +12642,9 @@ public:
     }
     if (iaStatuses) {
       res["IaStatuses"] = boost::any(*iaStatuses);
+    }
+    if (innerIp) {
+      res["InnerIp"] = boost::any(*innerIp);
     }
     if (mac) {
       res["Mac"] = boost::any(*mac);
@@ -12741,6 +12745,9 @@ public:
         }
       }
       iaStatuses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InnerIp") != m.end() && !m["InnerIp"].empty()) {
+      innerIp = make_shared<string>(boost::any_cast<string>(m["InnerIp"]));
     }
     if (m.find("Mac") != m.end() && !m["Mac"].empty()) {
       mac = make_shared<string>(boost::any_cast<string>(m["Mac"]));
