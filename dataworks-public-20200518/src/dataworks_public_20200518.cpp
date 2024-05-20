@@ -3341,6 +3341,39 @@ DesensitizeDataResponse Alibabacloud_Dataworks-public20200518::Client::desensiti
   return desensitizeDataWithOptions(request, runtime);
 }
 
+DsgDesensPlanAddOrUpdateResponse Alibabacloud_Dataworks-public20200518::Client::dsgDesensPlanAddOrUpdateWithOptions(shared_ptr<DsgDesensPlanAddOrUpdateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DsgDesensPlanAddOrUpdateShrinkRequest> request = make_shared<DsgDesensPlanAddOrUpdateShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<DsgDesensPlanAddOrUpdateRequestDesensRules>>(tmpReq->desensRules)) {
+    request->desensRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->desensRules, make_shared<string>("DesensRules"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->desensRulesShrink)) {
+    query->insert(pair<string, string>("DesensRules", *request->desensRulesShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DsgDesensPlanAddOrUpdate"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DsgDesensPlanAddOrUpdateResponse(callApi(params, req, runtime));
+}
+
+DsgDesensPlanAddOrUpdateResponse Alibabacloud_Dataworks-public20200518::Client::dsgDesensPlanAddOrUpdate(shared_ptr<DsgDesensPlanAddOrUpdateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return dsgDesensPlanAddOrUpdateWithOptions(request, runtime);
+}
+
 DsgDesensPlanDeleteResponse Alibabacloud_Dataworks-public20200518::Client::dsgDesensPlanDeleteWithOptions(shared_ptr<DsgDesensPlanDeleteRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<DsgDesensPlanDeleteShrinkRequest> request = make_shared<DsgDesensPlanDeleteShrinkRequest>();
@@ -3630,6 +3663,64 @@ DsgSceneAddOrUpdateSceneResponse Alibabacloud_Dataworks-public20200518::Client::
   return dsgSceneAddOrUpdateSceneWithOptions(request, runtime);
 }
 
+DsgSceneQuerySceneListByNameResponse Alibabacloud_Dataworks-public20200518::Client::dsgSceneQuerySceneListByNameWithOptions(shared_ptr<DsgSceneQuerySceneListByNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DsgSceneQuerySceneListByName"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DsgSceneQuerySceneListByNameResponse(callApi(params, req, runtime));
+}
+
+DsgSceneQuerySceneListByNameResponse Alibabacloud_Dataworks-public20200518::Client::dsgSceneQuerySceneListByName(shared_ptr<DsgSceneQuerySceneListByNameRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return dsgSceneQuerySceneListByNameWithOptions(request, runtime);
+}
+
+DsgScenedDeleteSceneResponse Alibabacloud_Dataworks-public20200518::Client::dsgScenedDeleteSceneWithOptions(shared_ptr<DsgScenedDeleteSceneRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DsgScenedDeleteSceneShrinkRequest> request = make_shared<DsgScenedDeleteSceneShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->ids)) {
+    request->idsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ids, make_shared<string>("Ids"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->idsShrink)) {
+    query->insert(pair<string, string>("Ids", *request->idsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DsgScenedDeleteScene"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DsgScenedDeleteSceneResponse(callApi(params, req, runtime));
+}
+
+DsgScenedDeleteSceneResponse Alibabacloud_Dataworks-public20200518::Client::dsgScenedDeleteScene(shared_ptr<DsgScenedDeleteSceneRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return dsgScenedDeleteSceneWithOptions(request, runtime);
+}
+
 DsgStopSensIdentifyResponse Alibabacloud_Dataworks-public20200518::Client::dsgStopSensIdentifyWithOptions(shared_ptr<DsgStopSensIdentifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3796,6 +3887,72 @@ DsgUserGroupQueryUserListResponse Alibabacloud_Dataworks-public20200518::Client:
 DsgUserGroupQueryUserListResponse Alibabacloud_Dataworks-public20200518::Client::dsgUserGroupQueryUserList() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return dsgUserGroupQueryUserListWithOptions(runtime);
+}
+
+DsgWhiteListAddOrUpdateResponse Alibabacloud_Dataworks-public20200518::Client::dsgWhiteListAddOrUpdateWithOptions(shared_ptr<DsgWhiteListAddOrUpdateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DsgWhiteListAddOrUpdateShrinkRequest> request = make_shared<DsgWhiteListAddOrUpdateShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<DsgWhiteListAddOrUpdateRequestWhiteLists>>(tmpReq->whiteLists)) {
+    request->whiteListsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->whiteLists, make_shared<string>("WhiteLists"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->whiteListsShrink)) {
+    query->insert(pair<string, string>("WhiteLists", *request->whiteListsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DsgWhiteListAddOrUpdate"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DsgWhiteListAddOrUpdateResponse(callApi(params, req, runtime));
+}
+
+DsgWhiteListAddOrUpdateResponse Alibabacloud_Dataworks-public20200518::Client::dsgWhiteListAddOrUpdate(shared_ptr<DsgWhiteListAddOrUpdateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return dsgWhiteListAddOrUpdateWithOptions(request, runtime);
+}
+
+DsgWhiteListDeleteListResponse Alibabacloud_Dataworks-public20200518::Client::dsgWhiteListDeleteListWithOptions(shared_ptr<DsgWhiteListDeleteListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DsgWhiteListDeleteListShrinkRequest> request = make_shared<DsgWhiteListDeleteListShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->ids)) {
+    request->idsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ids, make_shared<string>("Ids"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->idsShrink)) {
+    query->insert(pair<string, string>("Ids", *request->idsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DsgWhiteListDeleteList"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DsgWhiteListDeleteListResponse(callApi(params, req, runtime));
+}
+
+DsgWhiteListDeleteListResponse Alibabacloud_Dataworks-public20200518::Client::dsgWhiteListDeleteList(shared_ptr<DsgWhiteListDeleteListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return dsgWhiteListDeleteListWithOptions(request, runtime);
 }
 
 DsgWhiteListQueryListResponse Alibabacloud_Dataworks-public20200518::Client::dsgWhiteListQueryListWithOptions(shared_ptr<DsgWhiteListQueryListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
