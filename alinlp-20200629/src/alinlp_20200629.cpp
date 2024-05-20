@@ -175,6 +175,9 @@ DeleteServiceDataByConditionsResponse Alibabacloud_Alinlp20200629::Client::delet
   if (!Darabonba_Util::Client::isUnset<long>(request->serviceId)) {
     body->insert(pair<string, long>("ServiceId", *request->serviceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->xDashScopeOpenAPISource)) {
+    body->insert(pair<string, string>("X-DashScope-OpenAPISource", *request->xDashScopeOpenAPISource));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -2099,11 +2102,11 @@ PostISConvRewriterResponse Alibabacloud_Alinlp20200629::Client::postISConvRewrit
   if (!Darabonba_Util::Client::isUnset<string>(request->inputShrink)) {
     body->insert(pair<string, string>("Input", *request->inputShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->model)) {
+    body->insert(pair<string, string>("Model", *request->model));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->parametersShrink)) {
     body->insert(pair<string, string>("Parameters", *request->parametersShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
-    body->insert(pair<string, string>("Version", *request->version));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -2151,8 +2154,8 @@ PostISRetrieveRouterResponse Alibabacloud_Alinlp20200629::Client::postISRetrieve
   if (!Darabonba_Util::Client::isUnset<string>(request->algorithm)) {
     body->insert(pair<string, string>("Algorithm", *request->algorithm));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
-    body->insert(pair<string, string>("Version", *request->version));
+  if (!Darabonba_Util::Client::isUnset<string>(request->model)) {
+    body->insert(pair<string, string>("Model", *request->model));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
@@ -2214,6 +2217,9 @@ PostMSDataProcessingCountResponse Alibabacloud_Alinlp20200629::Client::postMSDat
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->serviceId)) {
     body->insert(pair<string, long>("ServiceId", *request->serviceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->xDashScopeOpenAPISource)) {
+    body->insert(pair<string, string>("X-DashScope-OpenAPISource", *request->xDashScopeOpenAPISource));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -2295,6 +2301,9 @@ PostMSSearchEnhanceResponse Alibabacloud_Alinlp20200629::Client::postMSSearchEnh
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->uq)) {
     body->insert(pair<string, string>("Uq", *request->uq));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->xDashScopeOpenAPISource)) {
+    body->insert(pair<string, string>("X-DashScope-OpenAPISource", *request->xDashScopeOpenAPISource));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}

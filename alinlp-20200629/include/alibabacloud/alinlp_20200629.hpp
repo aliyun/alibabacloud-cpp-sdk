@@ -564,6 +564,7 @@ class DeleteServiceDataByConditionsRequest : public Darabonba::Model {
 public:
   shared_ptr<map<string, boost::any>> conditions{};
   shared_ptr<long> serviceId{};
+  shared_ptr<string> xDashScopeOpenAPISource{};
 
   DeleteServiceDataByConditionsRequest() {}
 
@@ -581,6 +582,9 @@ public:
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
+    if (xDashScopeOpenAPISource) {
+      res["X-DashScope-OpenAPISource"] = boost::any(*xDashScopeOpenAPISource);
+    }
     return res;
   }
 
@@ -596,6 +600,9 @@ public:
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
     }
+    if (m.find("X-DashScope-OpenAPISource") != m.end() && !m["X-DashScope-OpenAPISource"].empty()) {
+      xDashScopeOpenAPISource = make_shared<string>(boost::any_cast<string>(m["X-DashScope-OpenAPISource"]));
+    }
   }
 
 
@@ -605,6 +612,7 @@ class DeleteServiceDataByConditionsShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> conditionsShrink{};
   shared_ptr<long> serviceId{};
+  shared_ptr<string> xDashScopeOpenAPISource{};
 
   DeleteServiceDataByConditionsShrinkRequest() {}
 
@@ -622,6 +630,9 @@ public:
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
+    if (xDashScopeOpenAPISource) {
+      res["X-DashScope-OpenAPISource"] = boost::any(*xDashScopeOpenAPISource);
+    }
     return res;
   }
 
@@ -631,6 +642,9 @@ public:
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
+    }
+    if (m.find("X-DashScope-OpenAPISource") != m.end() && !m["X-DashScope-OpenAPISource"].empty()) {
+      xDashScopeOpenAPISource = make_shared<string>(boost::any_cast<string>(m["X-DashScope-OpenAPISource"]));
     }
   }
 
@@ -8238,8 +8252,8 @@ public:
   shared_ptr<string> algorithm{};
   shared_ptr<bool> debug{};
   shared_ptr<map<string, boost::any>> input{};
+  shared_ptr<string> model{};
   shared_ptr<map<string, boost::any>> parameters{};
-  shared_ptr<string> version{};
 
   PostISConvRewriterRequest() {}
 
@@ -8260,11 +8274,11 @@ public:
     if (input) {
       res["Input"] = boost::any(*input);
     }
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
     if (parameters) {
       res["Parameters"] = boost::any(*parameters);
-    }
-    if (version) {
-      res["Version"] = boost::any(*version);
     }
     return res;
   }
@@ -8284,6 +8298,9 @@ public:
       }
       input = make_shared<map<string, boost::any>>(toMap1);
     }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
     if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Parameters"]);
       map<string, boost::any> toMap1;
@@ -8291,9 +8308,6 @@ public:
          toMap1[item.first] = item.second;
       }
       parameters = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
     }
   }
 
@@ -8305,8 +8319,8 @@ public:
   shared_ptr<string> algorithm{};
   shared_ptr<bool> debug{};
   shared_ptr<string> inputShrink{};
+  shared_ptr<string> model{};
   shared_ptr<string> parametersShrink{};
-  shared_ptr<string> version{};
 
   PostISConvRewriterShrinkRequest() {}
 
@@ -8327,11 +8341,11 @@ public:
     if (inputShrink) {
       res["Input"] = boost::any(*inputShrink);
     }
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
     if (parametersShrink) {
       res["Parameters"] = boost::any(*parametersShrink);
-    }
-    if (version) {
-      res["Version"] = boost::any(*version);
     }
     return res;
   }
@@ -8346,11 +8360,11 @@ public:
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       inputShrink = make_shared<string>(boost::any_cast<string>(m["Input"]));
     }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
     if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
       parametersShrink = make_shared<string>(boost::any_cast<string>(m["Parameters"]));
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
     }
   }
 
@@ -8481,8 +8495,8 @@ public:
   shared_ptr<string> algorithm{};
   shared_ptr<bool> debug{};
   shared_ptr<map<string, boost::any>> input{};
+  shared_ptr<string> model{};
   shared_ptr<map<string, boost::any>> parameters{};
-  shared_ptr<string> version{};
 
   PostISRetrieveRouterRequest() {}
 
@@ -8503,11 +8517,11 @@ public:
     if (input) {
       res["Input"] = boost::any(*input);
     }
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
     if (parameters) {
       res["Parameters"] = boost::any(*parameters);
-    }
-    if (version) {
-      res["Version"] = boost::any(*version);
     }
     return res;
   }
@@ -8527,6 +8541,9 @@ public:
       }
       input = make_shared<map<string, boost::any>>(toMap1);
     }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
     if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Parameters"]);
       map<string, boost::any> toMap1;
@@ -8534,9 +8551,6 @@ public:
          toMap1[item.first] = item.second;
       }
       parameters = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
     }
   }
 
@@ -8548,8 +8562,8 @@ public:
   shared_ptr<string> algorithm{};
   shared_ptr<bool> debug{};
   shared_ptr<string> inputShrink{};
+  shared_ptr<string> model{};
   shared_ptr<string> parametersShrink{};
-  shared_ptr<string> version{};
 
   PostISRetrieveRouterShrinkRequest() {}
 
@@ -8570,11 +8584,11 @@ public:
     if (inputShrink) {
       res["Input"] = boost::any(*inputShrink);
     }
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
     if (parametersShrink) {
       res["Parameters"] = boost::any(*parametersShrink);
-    }
-    if (version) {
-      res["Version"] = boost::any(*version);
     }
     return res;
   }
@@ -8589,11 +8603,11 @@ public:
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       inputShrink = make_shared<string>(boost::any_cast<string>(m["Input"]));
     }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
     if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
       parametersShrink = make_shared<string>(boost::any_cast<string>(m["Parameters"]));
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
     }
   }
 
@@ -8840,6 +8854,7 @@ public:
   shared_ptr<vector<string>> dataIds{};
   shared_ptr<long> dataImportId{};
   shared_ptr<long> serviceId{};
+  shared_ptr<string> xDashScopeOpenAPISource{};
 
   PostMSDataProcessingCountRequest() {}
 
@@ -8859,6 +8874,9 @@ public:
     }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (xDashScopeOpenAPISource) {
+      res["X-DashScope-OpenAPISource"] = boost::any(*xDashScopeOpenAPISource);
     }
     return res;
   }
@@ -8880,6 +8898,9 @@ public:
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
     }
+    if (m.find("X-DashScope-OpenAPISource") != m.end() && !m["X-DashScope-OpenAPISource"].empty()) {
+      xDashScopeOpenAPISource = make_shared<string>(boost::any_cast<string>(m["X-DashScope-OpenAPISource"]));
+    }
   }
 
 
@@ -8890,6 +8911,7 @@ public:
   shared_ptr<string> dataIdsShrink{};
   shared_ptr<long> dataImportId{};
   shared_ptr<long> serviceId{};
+  shared_ptr<string> xDashScopeOpenAPISource{};
 
   PostMSDataProcessingCountShrinkRequest() {}
 
@@ -8910,6 +8932,9 @@ public:
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
+    if (xDashScopeOpenAPISource) {
+      res["X-DashScope-OpenAPISource"] = boost::any(*xDashScopeOpenAPISource);
+    }
     return res;
   }
 
@@ -8922,6 +8947,9 @@ public:
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
+    }
+    if (m.find("X-DashScope-OpenAPISource") != m.end() && !m["X-DashScope-OpenAPISource"].empty()) {
+      xDashScopeOpenAPISource = make_shared<string>(boost::any_cast<string>(m["X-DashScope-OpenAPISource"]));
     }
   }
 
@@ -9240,6 +9268,7 @@ public:
   shared_ptr<vector<string>> sort{};
   shared_ptr<string> type{};
   shared_ptr<string> uq{};
+  shared_ptr<string> xDashScopeOpenAPISource{};
 
   PostMSSearchEnhanceRequest() {}
 
@@ -9292,6 +9321,9 @@ public:
     }
     if (uq) {
       res["Uq"] = boost::any(*uq);
+    }
+    if (xDashScopeOpenAPISource) {
+      res["X-DashScope-OpenAPISource"] = boost::any(*xDashScopeOpenAPISource);
     }
     return res;
   }
@@ -9363,6 +9395,9 @@ public:
     if (m.find("Uq") != m.end() && !m["Uq"].empty()) {
       uq = make_shared<string>(boost::any_cast<string>(m["Uq"]));
     }
+    if (m.find("X-DashScope-OpenAPISource") != m.end() && !m["X-DashScope-OpenAPISource"].empty()) {
+      xDashScopeOpenAPISource = make_shared<string>(boost::any_cast<string>(m["X-DashScope-OpenAPISource"]));
+    }
   }
 
 
@@ -9384,6 +9419,7 @@ public:
   shared_ptr<string> sortShrink{};
   shared_ptr<string> type{};
   shared_ptr<string> uq{};
+  shared_ptr<string> xDashScopeOpenAPISource{};
 
   PostMSSearchEnhanceShrinkRequest() {}
 
@@ -9437,6 +9473,9 @@ public:
     if (uq) {
       res["Uq"] = boost::any(*uq);
     }
+    if (xDashScopeOpenAPISource) {
+      res["X-DashScope-OpenAPISource"] = boost::any(*xDashScopeOpenAPISource);
+    }
     return res;
   }
 
@@ -9482,6 +9521,9 @@ public:
     }
     if (m.find("Uq") != m.end() && !m["Uq"].empty()) {
       uq = make_shared<string>(boost::any_cast<string>(m["Uq"]));
+    }
+    if (m.find("X-DashScope-OpenAPISource") != m.end() && !m["X-DashScope-OpenAPISource"].empty()) {
+      xDashScopeOpenAPISource = make_shared<string>(boost::any_cast<string>(m["X-DashScope-OpenAPISource"]));
     }
   }
 
