@@ -1411,6 +1411,12 @@ DescribeAppServiceDetailResponse Alibabacloud_Sae20190506::Client::describeAppSe
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nacosInstanceId)) {
+    query->insert(pair<string, string>("NacosInstanceId", *request->nacosInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nacosNamespaceId)) {
+    query->insert(pair<string, string>("NacosNamespaceId", *request->nacosNamespaceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceGroup)) {
     query->insert(pair<string, string>("ServiceGroup", *request->serviceGroup));
   }
