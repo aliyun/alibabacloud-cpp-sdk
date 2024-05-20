@@ -193,6 +193,165 @@ public:
 
   virtual ~ChangeResourceGroupResponse() = default;
 };
+class CreateAdvancedPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> regionCode{};
+
+  CreateAdvancedPolicyRequest() {}
+
+  explicit CreateAdvancedPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (regionCode) {
+      res["RegionCode"] = boost::any(*regionCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("RegionCode") != m.end() && !m["RegionCode"].empty()) {
+      regionCode = make_shared<string>(boost::any_cast<string>(m["RegionCode"]));
+    }
+  }
+
+
+  virtual ~CreateAdvancedPolicyRequest() = default;
+};
+class CreateAdvancedPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  CreateAdvancedPolicyResponseBody() {}
+
+  explicit CreateAdvancedPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errCode) {
+      res["ErrCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["ErrMessage"] = boost::any(*errMessage);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("ErrCode") != m.end() && !m["ErrCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["ErrCode"]));
+    }
+    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateAdvancedPolicyResponseBody() = default;
+};
+class CreateAdvancedPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateAdvancedPolicyResponseBody> body{};
+
+  CreateAdvancedPolicyResponse() {}
+
+  explicit CreateAdvancedPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateAdvancedPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAdvancedPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAdvancedPolicyResponse() = default;
+};
 class CreateDownloadRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bakSetId{};
@@ -3688,6 +3847,473 @@ public:
 
   virtual ~DescribeSandboxRecoveryTimeResponse() = default;
 };
+class ModifyBackupPolicyRequestAdvanceDataPolicies : public Darabonba::Model {
+public:
+  shared_ptr<string> actionType{};
+  shared_ptr<string> destRegion{};
+  shared_ptr<string> destType{};
+  shared_ptr<string> filterKey{};
+  shared_ptr<string> filterType{};
+  shared_ptr<string> filterTypeCopy{};
+  shared_ptr<string> filterValue{};
+  shared_ptr<string> policyId{};
+  shared_ptr<string> retentionType{};
+  shared_ptr<string> retentionValue{};
+  shared_ptr<string> srcRegion{};
+  shared_ptr<string> srcType{};
+
+  ModifyBackupPolicyRequestAdvanceDataPolicies() {}
+
+  explicit ModifyBackupPolicyRequestAdvanceDataPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (actionType) {
+      res["ActionType"] = boost::any(*actionType);
+    }
+    if (destRegion) {
+      res["DestRegion"] = boost::any(*destRegion);
+    }
+    if (destType) {
+      res["DestType"] = boost::any(*destType);
+    }
+    if (filterKey) {
+      res["FilterKey"] = boost::any(*filterKey);
+    }
+    if (filterType) {
+      res["FilterType"] = boost::any(*filterType);
+    }
+    if (filterTypeCopy) {
+      res["FilterType-copy"] = boost::any(*filterTypeCopy);
+    }
+    if (filterValue) {
+      res["FilterValue"] = boost::any(*filterValue);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (retentionType) {
+      res["RetentionType"] = boost::any(*retentionType);
+    }
+    if (retentionValue) {
+      res["RetentionValue"] = boost::any(*retentionValue);
+    }
+    if (srcRegion) {
+      res["SrcRegion"] = boost::any(*srcRegion);
+    }
+    if (srcType) {
+      res["SrcType"] = boost::any(*srcType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActionType") != m.end() && !m["ActionType"].empty()) {
+      actionType = make_shared<string>(boost::any_cast<string>(m["ActionType"]));
+    }
+    if (m.find("DestRegion") != m.end() && !m["DestRegion"].empty()) {
+      destRegion = make_shared<string>(boost::any_cast<string>(m["DestRegion"]));
+    }
+    if (m.find("DestType") != m.end() && !m["DestType"].empty()) {
+      destType = make_shared<string>(boost::any_cast<string>(m["DestType"]));
+    }
+    if (m.find("FilterKey") != m.end() && !m["FilterKey"].empty()) {
+      filterKey = make_shared<string>(boost::any_cast<string>(m["FilterKey"]));
+    }
+    if (m.find("FilterType") != m.end() && !m["FilterType"].empty()) {
+      filterType = make_shared<string>(boost::any_cast<string>(m["FilterType"]));
+    }
+    if (m.find("FilterType-copy") != m.end() && !m["FilterType-copy"].empty()) {
+      filterTypeCopy = make_shared<string>(boost::any_cast<string>(m["FilterType-copy"]));
+    }
+    if (m.find("FilterValue") != m.end() && !m["FilterValue"].empty()) {
+      filterValue = make_shared<string>(boost::any_cast<string>(m["FilterValue"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("RetentionType") != m.end() && !m["RetentionType"].empty()) {
+      retentionType = make_shared<string>(boost::any_cast<string>(m["RetentionType"]));
+    }
+    if (m.find("RetentionValue") != m.end() && !m["RetentionValue"].empty()) {
+      retentionValue = make_shared<string>(boost::any_cast<string>(m["RetentionValue"]));
+    }
+    if (m.find("SrcRegion") != m.end() && !m["SrcRegion"].empty()) {
+      srcRegion = make_shared<string>(boost::any_cast<string>(m["SrcRegion"]));
+    }
+    if (m.find("SrcType") != m.end() && !m["SrcType"].empty()) {
+      srcType = make_shared<string>(boost::any_cast<string>(m["SrcType"]));
+    }
+  }
+
+
+  virtual ~ModifyBackupPolicyRequestAdvanceDataPolicies() = default;
+};
+class ModifyBackupPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<ModifyBackupPolicyRequestAdvanceDataPolicies>> advanceDataPolicies{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> preferredBackupWindowBegin{};
+  shared_ptr<string> regionCode{};
+
+  ModifyBackupPolicyRequest() {}
+
+  explicit ModifyBackupPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (advanceDataPolicies) {
+      vector<boost::any> temp1;
+      for(auto item1:*advanceDataPolicies){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AdvanceDataPolicies"] = boost::any(temp1);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (preferredBackupWindowBegin) {
+      res["PreferredBackupWindowBegin"] = boost::any(*preferredBackupWindowBegin);
+    }
+    if (regionCode) {
+      res["RegionCode"] = boost::any(*regionCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdvanceDataPolicies") != m.end() && !m["AdvanceDataPolicies"].empty()) {
+      if (typeid(vector<boost::any>) == m["AdvanceDataPolicies"].type()) {
+        vector<ModifyBackupPolicyRequestAdvanceDataPolicies> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AdvanceDataPolicies"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyBackupPolicyRequestAdvanceDataPolicies model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        advanceDataPolicies = make_shared<vector<ModifyBackupPolicyRequestAdvanceDataPolicies>>(expect1);
+      }
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("PreferredBackupWindowBegin") != m.end() && !m["PreferredBackupWindowBegin"].empty()) {
+      preferredBackupWindowBegin = make_shared<string>(boost::any_cast<string>(m["PreferredBackupWindowBegin"]));
+    }
+    if (m.find("RegionCode") != m.end() && !m["RegionCode"].empty()) {
+      regionCode = make_shared<string>(boost::any_cast<string>(m["RegionCode"]));
+    }
+  }
+
+
+  virtual ~ModifyBackupPolicyRequest() = default;
+};
+class ModifyBackupPolicyResponseBodyDataAdvanceDataPolicies : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoCreated{};
+  shared_ptr<string> bakType{};
+  shared_ptr<string> destRegion{};
+  shared_ptr<string> destType{};
+  shared_ptr<string> dumpAction{};
+  shared_ptr<string> filterKey{};
+  shared_ptr<string> filterType{};
+  shared_ptr<string> filterValue{};
+  shared_ptr<string> policyId{};
+  shared_ptr<string> retentionType{};
+  shared_ptr<string> retentionValue{};
+  shared_ptr<string> srcRegion{};
+  shared_ptr<string> srcType{};
+
+  ModifyBackupPolicyResponseBodyDataAdvanceDataPolicies() {}
+
+  explicit ModifyBackupPolicyResponseBodyDataAdvanceDataPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoCreated) {
+      res["AutoCreated"] = boost::any(*autoCreated);
+    }
+    if (bakType) {
+      res["BakType"] = boost::any(*bakType);
+    }
+    if (destRegion) {
+      res["DestRegion"] = boost::any(*destRegion);
+    }
+    if (destType) {
+      res["DestType"] = boost::any(*destType);
+    }
+    if (dumpAction) {
+      res["DumpAction"] = boost::any(*dumpAction);
+    }
+    if (filterKey) {
+      res["FilterKey"] = boost::any(*filterKey);
+    }
+    if (filterType) {
+      res["FilterType"] = boost::any(*filterType);
+    }
+    if (filterValue) {
+      res["FilterValue"] = boost::any(*filterValue);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (retentionType) {
+      res["RetentionType"] = boost::any(*retentionType);
+    }
+    if (retentionValue) {
+      res["RetentionValue"] = boost::any(*retentionValue);
+    }
+    if (srcRegion) {
+      res["SrcRegion"] = boost::any(*srcRegion);
+    }
+    if (srcType) {
+      res["SrcType"] = boost::any(*srcType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoCreated") != m.end() && !m["AutoCreated"].empty()) {
+      autoCreated = make_shared<bool>(boost::any_cast<bool>(m["AutoCreated"]));
+    }
+    if (m.find("BakType") != m.end() && !m["BakType"].empty()) {
+      bakType = make_shared<string>(boost::any_cast<string>(m["BakType"]));
+    }
+    if (m.find("DestRegion") != m.end() && !m["DestRegion"].empty()) {
+      destRegion = make_shared<string>(boost::any_cast<string>(m["DestRegion"]));
+    }
+    if (m.find("DestType") != m.end() && !m["DestType"].empty()) {
+      destType = make_shared<string>(boost::any_cast<string>(m["DestType"]));
+    }
+    if (m.find("DumpAction") != m.end() && !m["DumpAction"].empty()) {
+      dumpAction = make_shared<string>(boost::any_cast<string>(m["DumpAction"]));
+    }
+    if (m.find("FilterKey") != m.end() && !m["FilterKey"].empty()) {
+      filterKey = make_shared<string>(boost::any_cast<string>(m["FilterKey"]));
+    }
+    if (m.find("FilterType") != m.end() && !m["FilterType"].empty()) {
+      filterType = make_shared<string>(boost::any_cast<string>(m["FilterType"]));
+    }
+    if (m.find("FilterValue") != m.end() && !m["FilterValue"].empty()) {
+      filterValue = make_shared<string>(boost::any_cast<string>(m["FilterValue"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("RetentionType") != m.end() && !m["RetentionType"].empty()) {
+      retentionType = make_shared<string>(boost::any_cast<string>(m["RetentionType"]));
+    }
+    if (m.find("RetentionValue") != m.end() && !m["RetentionValue"].empty()) {
+      retentionValue = make_shared<string>(boost::any_cast<string>(m["RetentionValue"]));
+    }
+    if (m.find("SrcRegion") != m.end() && !m["SrcRegion"].empty()) {
+      srcRegion = make_shared<string>(boost::any_cast<string>(m["SrcRegion"]));
+    }
+    if (m.find("SrcType") != m.end() && !m["SrcType"].empty()) {
+      srcType = make_shared<string>(boost::any_cast<string>(m["SrcType"]));
+    }
+  }
+
+
+  virtual ~ModifyBackupPolicyResponseBodyDataAdvanceDataPolicies() = default;
+};
+class ModifyBackupPolicyResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ModifyBackupPolicyResponseBodyDataAdvanceDataPolicies>> advanceDataPolicies{};
+  shared_ptr<string> preferredBackupWindow{};
+  shared_ptr<string> preferredBackupWindowBegin{};
+
+  ModifyBackupPolicyResponseBodyData() {}
+
+  explicit ModifyBackupPolicyResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (advanceDataPolicies) {
+      vector<boost::any> temp1;
+      for(auto item1:*advanceDataPolicies){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AdvanceDataPolicies"] = boost::any(temp1);
+    }
+    if (preferredBackupWindow) {
+      res["PreferredBackupWindow"] = boost::any(*preferredBackupWindow);
+    }
+    if (preferredBackupWindowBegin) {
+      res["PreferredBackupWindowBegin"] = boost::any(*preferredBackupWindowBegin);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdvanceDataPolicies") != m.end() && !m["AdvanceDataPolicies"].empty()) {
+      if (typeid(vector<boost::any>) == m["AdvanceDataPolicies"].type()) {
+        vector<ModifyBackupPolicyResponseBodyDataAdvanceDataPolicies> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AdvanceDataPolicies"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyBackupPolicyResponseBodyDataAdvanceDataPolicies model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        advanceDataPolicies = make_shared<vector<ModifyBackupPolicyResponseBodyDataAdvanceDataPolicies>>(expect1);
+      }
+    }
+    if (m.find("PreferredBackupWindow") != m.end() && !m["PreferredBackupWindow"].empty()) {
+      preferredBackupWindow = make_shared<string>(boost::any_cast<string>(m["PreferredBackupWindow"]));
+    }
+    if (m.find("PreferredBackupWindowBegin") != m.end() && !m["PreferredBackupWindowBegin"].empty()) {
+      preferredBackupWindowBegin = make_shared<string>(boost::any_cast<string>(m["PreferredBackupWindowBegin"]));
+    }
+  }
+
+
+  virtual ~ModifyBackupPolicyResponseBodyData() = default;
+};
+class ModifyBackupPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ModifyBackupPolicyResponseBodyData> data{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  ModifyBackupPolicyResponseBody() {}
+
+  explicit ModifyBackupPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errCode) {
+      res["ErrCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["ErrMessage"] = boost::any(*errMessage);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ModifyBackupPolicyResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ModifyBackupPolicyResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrCode") != m.end() && !m["ErrCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["ErrCode"]));
+    }
+    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ModifyBackupPolicyResponseBody() = default;
+};
+class ModifyBackupPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyBackupPolicyResponseBody> body{};
+
+  ModifyBackupPolicyResponse() {}
+
+  explicit ModifyBackupPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyBackupPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyBackupPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyBackupPolicyResponse() = default;
+};
 class ModifyDBTablesRecoveryStateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
@@ -4032,6 +4658,8 @@ public:
                      shared_ptr<string> endpoint);
   ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
+  CreateAdvancedPolicyResponse createAdvancedPolicyWithOptions(shared_ptr<CreateAdvancedPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAdvancedPolicyResponse createAdvancedPolicy(shared_ptr<CreateAdvancedPolicyRequest> request);
   CreateDownloadResponse createDownloadWithOptions(shared_ptr<CreateDownloadRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDownloadResponse createDownload(shared_ptr<CreateDownloadRequest> request);
   DeleteSandboxInstanceResponse deleteSandboxInstanceWithOptions(shared_ptr<DeleteSandboxInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -4058,6 +4686,8 @@ public:
   DescribeSandboxInstancesResponse describeSandboxInstances(shared_ptr<DescribeSandboxInstancesRequest> request);
   DescribeSandboxRecoveryTimeResponse describeSandboxRecoveryTimeWithOptions(shared_ptr<DescribeSandboxRecoveryTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSandboxRecoveryTimeResponse describeSandboxRecoveryTime(shared_ptr<DescribeSandboxRecoveryTimeRequest> request);
+  ModifyBackupPolicyResponse modifyBackupPolicyWithOptions(shared_ptr<ModifyBackupPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyBackupPolicyResponse modifyBackupPolicy(shared_ptr<ModifyBackupPolicyRequest> request);
   ModifyDBTablesRecoveryStateResponse modifyDBTablesRecoveryStateWithOptions(shared_ptr<ModifyDBTablesRecoveryStateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBTablesRecoveryStateResponse modifyDBTablesRecoveryState(shared_ptr<ModifyDBTablesRecoveryStateRequest> request);
   SupportDBTableRecoveryResponse supportDBTableRecoveryWithOptions(shared_ptr<SupportDBTableRecoveryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
