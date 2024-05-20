@@ -18,6 +18,7 @@ public:
   shared_ptr<string> fileUrl{};
   shared_ptr<string> format{};
   shared_ptr<bool> multipleStreamsEnabled{};
+  shared_ptr<string> outputPath{};
   shared_ptr<bool> progressiveCallbacksEnabled{};
   shared_ptr<long> sampleRate{};
   shared_ptr<string> sourceLanguage{};
@@ -42,6 +43,9 @@ public:
     }
     if (multipleStreamsEnabled) {
       res["MultipleStreamsEnabled"] = boost::any(*multipleStreamsEnabled);
+    }
+    if (outputPath) {
+      res["OutputPath"] = boost::any(*outputPath);
     }
     if (progressiveCallbacksEnabled) {
       res["ProgressiveCallbacksEnabled"] = boost::any(*progressiveCallbacksEnabled);
@@ -70,6 +74,9 @@ public:
     }
     if (m.find("MultipleStreamsEnabled") != m.end() && !m["MultipleStreamsEnabled"].empty()) {
       multipleStreamsEnabled = make_shared<bool>(boost::any_cast<bool>(m["MultipleStreamsEnabled"]));
+    }
+    if (m.find("OutputPath") != m.end() && !m["OutputPath"].empty()) {
+      outputPath = make_shared<string>(boost::any_cast<string>(m["OutputPath"]));
     }
     if (m.find("ProgressiveCallbacksEnabled") != m.end() && !m["ProgressiveCallbacksEnabled"].empty()) {
       progressiveCallbacksEnabled = make_shared<bool>(boost::any_cast<bool>(m["ProgressiveCallbacksEnabled"]));
@@ -186,6 +193,7 @@ public:
 };
 class CreateTaskRequestParametersExtraParams : public Darabonba::Model {
 public:
+  shared_ptr<long> maxKeywords{};
   shared_ptr<bool> nfixEnabled{};
 
   CreateTaskRequestParametersExtraParams() {}
@@ -198,6 +206,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (maxKeywords) {
+      res["MaxKeywords"] = boost::any(*maxKeywords);
+    }
     if (nfixEnabled) {
       res["NfixEnabled"] = boost::any(*nfixEnabled);
     }
@@ -205,6 +216,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxKeywords") != m.end() && !m["MaxKeywords"].empty()) {
+      maxKeywords = make_shared<long>(boost::any_cast<long>(m["MaxKeywords"]));
+    }
     if (m.find("NfixEnabled") != m.end() && !m["NfixEnabled"].empty()) {
       nfixEnabled = make_shared<bool>(boost::any_cast<bool>(m["NfixEnabled"]));
     }
