@@ -130,6 +130,7 @@ public:
 };
 class GetOrderInfoRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> listReleased{};
   shared_ptr<string> relService{};
   shared_ptr<long> resourceType{};
 
@@ -143,6 +144,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (listReleased) {
+      res["ListReleased"] = boost::any(*listReleased);
+    }
     if (relService) {
       res["RelService"] = boost::any(*relService);
     }
@@ -153,6 +157,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ListReleased") != m.end() && !m["ListReleased"].empty()) {
+      listReleased = make_shared<bool>(boost::any_cast<bool>(m["ListReleased"]));
+    }
     if (m.find("RelService") != m.end() && !m["RelService"].empty()) {
       relService = make_shared<string>(boost::any_cast<string>(m["RelService"]));
     }

@@ -61,6 +61,9 @@ GetOpenStatusResponse Alibabacloud_Opt20210730::Client::getOpenStatus() {
 GetOrderInfoResponse Alibabacloud_Opt20210730::Client::getOrderInfoWithOptions(shared_ptr<GetOrderInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->listReleased)) {
+    query->insert(pair<string, bool>("ListReleased", *request->listReleased));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->relService)) {
     query->insert(pair<string, string>("RelService", *request->relService));
   }
