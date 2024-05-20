@@ -13879,6 +13879,8 @@ public:
 };
 class CreateSubscribedCalendarRequestSubscribeScope : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> corpIds{};
+  shared_ptr<vector<string>> openConversationIds{};
   shared_ptr<vector<string>> userIds{};
 
   CreateSubscribedCalendarRequestSubscribeScope() {}
@@ -13891,6 +13893,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (corpIds) {
+      res["CorpIds"] = boost::any(*corpIds);
+    }
+    if (openConversationIds) {
+      res["OpenConversationIds"] = boost::any(*openConversationIds);
+    }
     if (userIds) {
       res["UserIds"] = boost::any(*userIds);
     }
@@ -13898,6 +13906,26 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CorpIds") != m.end() && !m["CorpIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CorpIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CorpIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      corpIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OpenConversationIds") != m.end() && !m["OpenConversationIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OpenConversationIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OpenConversationIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      openConversationIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("UserIds") != m.end() && !m["UserIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["UserIds"].type()) {
