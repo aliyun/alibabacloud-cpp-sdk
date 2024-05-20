@@ -2667,7 +2667,9 @@ public:
   shared_ptr<string> endDate{};
   shared_ptr<string> meta{};
   shared_ptr<string> startDate{};
+  shared_ptr<vector<long>> tagIds{};
   shared_ptr<string> title{};
+  shared_ptr<string> url{};
 
   CreateDocRequest() {}
 
@@ -2700,8 +2702,14 @@ public:
     if (startDate) {
       res["StartDate"] = boost::any(*startDate);
     }
+    if (tagIds) {
+      res["TagIds"] = boost::any(*tagIds);
+    }
     if (title) {
       res["Title"] = boost::any(*title);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
     }
     return res;
   }
@@ -2728,13 +2736,118 @@ public:
     if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
       startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
     }
+    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["TagIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TagIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      tagIds = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
   }
 
 
   virtual ~CreateDocRequest() = default;
+};
+class CreateDocShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<long> categoryId{};
+  shared_ptr<string> config{};
+  shared_ptr<string> content{};
+  shared_ptr<string> endDate{};
+  shared_ptr<string> meta{};
+  shared_ptr<string> startDate{};
+  shared_ptr<string> tagIdsShrink{};
+  shared_ptr<string> title{};
+  shared_ptr<string> url{};
+
+  CreateDocShrinkRequest() {}
+
+  explicit CreateDocShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (categoryId) {
+      res["CategoryId"] = boost::any(*categoryId);
+    }
+    if (config) {
+      res["Config"] = boost::any(*config);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (meta) {
+      res["Meta"] = boost::any(*meta);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    if (tagIdsShrink) {
+      res["TagIds"] = boost::any(*tagIdsShrink);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
+      categoryId = make_shared<long>(boost::any_cast<long>(m["CategoryId"]));
+    }
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
+    }
+    if (m.find("Meta") != m.end() && !m["Meta"].empty()) {
+      meta = make_shared<string>(boost::any_cast<string>(m["Meta"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
+      tagIdsShrink = make_shared<string>(boost::any_cast<string>(m["TagIds"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~CreateDocShrinkRequest() = default;
 };
 class CreateDocResponseBody : public Darabonba::Model {
 public:
@@ -6940,6 +7053,63 @@ public:
 
   virtual ~DescribeDocResponseBodyDocInfo() = default;
 };
+class DescribeDocResponseBodyDocTags : public Darabonba::Model {
+public:
+  shared_ptr<bool> defaultTag{};
+  shared_ptr<long> groupId{};
+  shared_ptr<string> groupName{};
+  shared_ptr<long> tagId{};
+  shared_ptr<string> tagName{};
+
+  DescribeDocResponseBodyDocTags() {}
+
+  explicit DescribeDocResponseBodyDocTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultTag) {
+      res["DefaultTag"] = boost::any(*defaultTag);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (tagId) {
+      res["TagId"] = boost::any(*tagId);
+    }
+    if (tagName) {
+      res["TagName"] = boost::any(*tagName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultTag") != m.end() && !m["DefaultTag"].empty()) {
+      defaultTag = make_shared<bool>(boost::any_cast<bool>(m["DefaultTag"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("TagId") != m.end() && !m["TagId"].empty()) {
+      tagId = make_shared<long>(boost::any_cast<long>(m["TagId"]));
+    }
+    if (m.find("TagName") != m.end() && !m["TagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["TagName"]));
+    }
+  }
+
+
+  virtual ~DescribeDocResponseBodyDocTags() = default;
+};
 class DescribeDocResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> bizCode{};
@@ -6950,6 +7120,7 @@ public:
   shared_ptr<string> createUserName{};
   shared_ptr<DescribeDocResponseBodyDocInfo> docInfo{};
   shared_ptr<string> docName{};
+  shared_ptr<vector<DescribeDocResponseBodyDocTags>> docTags{};
   shared_ptr<long> effectStatus{};
   shared_ptr<string> endDate{};
   shared_ptr<long> knowledgeId{};
@@ -6999,6 +7170,13 @@ public:
     }
     if (docName) {
       res["DocName"] = boost::any(*docName);
+    }
+    if (docTags) {
+      vector<boost::any> temp1;
+      for(auto item1:*docTags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DocTags"] = boost::any(temp1);
     }
     if (effectStatus) {
       res["EffectStatus"] = boost::any(*effectStatus);
@@ -7076,6 +7254,19 @@ public:
     }
     if (m.find("DocName") != m.end() && !m["DocName"].empty()) {
       docName = make_shared<string>(boost::any_cast<string>(m["DocName"]));
+    }
+    if (m.find("DocTags") != m.end() && !m["DocTags"].empty()) {
+      if (typeid(vector<boost::any>) == m["DocTags"].type()) {
+        vector<DescribeDocResponseBodyDocTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DocTags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDocResponseBodyDocTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        docTags = make_shared<vector<DescribeDocResponseBodyDocTags>>(expect1);
+      }
     }
     if (m.find("EffectStatus") != m.end() && !m["EffectStatus"].empty()) {
       effectStatus = make_shared<long>(boost::any_cast<long>(m["EffectStatus"]));
@@ -9627,7 +9818,6 @@ public:
   shared_ptr<string> goodsCodes{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
-  shared_ptr<string> productCode{};
 
   ListAgentRequest() {}
 
@@ -9651,9 +9841,6 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
-    if (productCode) {
-      res["ProductCode"] = boost::any(*productCode);
-    }
     return res;
   }
 
@@ -9670,9 +9857,6 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
-    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
-      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
-    }
   }
 
 
@@ -9683,7 +9867,6 @@ public:
   shared_ptr<long> agentId{};
   shared_ptr<string> agentKey{};
   shared_ptr<string> agentName{};
-  shared_ptr<bool> defaultAgent{};
   shared_ptr<map<string, boost::any>> instanceInfos{};
 
   ListAgentResponseBodyData() {}
@@ -9705,9 +9888,6 @@ public:
     if (agentName) {
       res["AgentName"] = boost::any(*agentName);
     }
-    if (defaultAgent) {
-      res["DefaultAgent"] = boost::any(*defaultAgent);
-    }
     if (instanceInfos) {
       res["InstanceInfos"] = boost::any(*instanceInfos);
     }
@@ -9723,9 +9903,6 @@ public:
     }
     if (m.find("AgentName") != m.end() && !m["AgentName"].empty()) {
       agentName = make_shared<string>(boost::any_cast<string>(m["AgentName"]));
-    }
-    if (m.find("DefaultAgent") != m.end() && !m["DefaultAgent"].empty()) {
-      defaultAgent = make_shared<bool>(boost::any_cast<bool>(m["DefaultAgent"]));
     }
     if (m.find("InstanceInfos") != m.end() && !m["InstanceInfos"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InstanceInfos"]);
@@ -13892,6 +14069,7 @@ public:
   shared_ptr<string> startTimeBegin{};
   shared_ptr<string> startTimeEnd{};
   shared_ptr<long> status{};
+  shared_ptr<vector<long>> tagIds{};
 
   SearchDocRequest() {}
 
@@ -13956,6 +14134,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tagIds) {
+      res["TagIds"] = boost::any(*tagIds);
     }
     return res;
   }
@@ -14022,6 +14203,16 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
     }
+    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["TagIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TagIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      tagIds = make_shared<vector<long>>(toVec1);
+    }
   }
 
 
@@ -14047,6 +14238,7 @@ public:
   shared_ptr<string> startTimeBegin{};
   shared_ptr<string> startTimeEnd{};
   shared_ptr<long> status{};
+  shared_ptr<string> tagIdsShrink{};
 
   SearchDocShrinkRequest() {}
 
@@ -14112,6 +14304,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tagIdsShrink) {
+      res["TagIds"] = boost::any(*tagIdsShrink);
+    }
     return res;
   }
 
@@ -14170,10 +14365,70 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
     }
+    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
+      tagIdsShrink = make_shared<string>(boost::any_cast<string>(m["TagIds"]));
+    }
   }
 
 
   virtual ~SearchDocShrinkRequest() = default;
+};
+class SearchDocResponseBodyDocHitsDocTags : public Darabonba::Model {
+public:
+  shared_ptr<bool> defaultTag{};
+  shared_ptr<long> groupId{};
+  shared_ptr<string> groupName{};
+  shared_ptr<long> tagId{};
+  shared_ptr<string> tagName{};
+
+  SearchDocResponseBodyDocHitsDocTags() {}
+
+  explicit SearchDocResponseBodyDocHitsDocTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultTag) {
+      res["DefaultTag"] = boost::any(*defaultTag);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (tagId) {
+      res["TagId"] = boost::any(*tagId);
+    }
+    if (tagName) {
+      res["TagName"] = boost::any(*tagName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultTag") != m.end() && !m["DefaultTag"].empty()) {
+      defaultTag = make_shared<bool>(boost::any_cast<bool>(m["DefaultTag"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("TagId") != m.end() && !m["TagId"].empty()) {
+      tagId = make_shared<long>(boost::any_cast<long>(m["TagId"]));
+    }
+    if (m.find("TagName") != m.end() && !m["TagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["TagName"]));
+    }
+  }
+
+
+  virtual ~SearchDocResponseBodyDocHitsDocTags() = default;
 };
 class SearchDocResponseBodyDocHits : public Darabonba::Model {
 public:
@@ -14184,6 +14439,7 @@ public:
   shared_ptr<long> createUserId{};
   shared_ptr<string> createUserName{};
   shared_ptr<string> docName{};
+  shared_ptr<vector<SearchDocResponseBodyDocHitsDocTags>> docTags{};
   shared_ptr<long> effectStatus{};
   shared_ptr<string> endDate{};
   shared_ptr<long> knowledgeId{};
@@ -14228,6 +14484,13 @@ public:
     }
     if (docName) {
       res["DocName"] = boost::any(*docName);
+    }
+    if (docTags) {
+      vector<boost::any> temp1;
+      for(auto item1:*docTags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DocTags"] = boost::any(temp1);
     }
     if (effectStatus) {
       res["EffectStatus"] = boost::any(*effectStatus);
@@ -14292,6 +14555,19 @@ public:
     }
     if (m.find("DocName") != m.end() && !m["DocName"].empty()) {
       docName = make_shared<string>(boost::any_cast<string>(m["DocName"]));
+    }
+    if (m.find("DocTags") != m.end() && !m["DocTags"].empty()) {
+      if (typeid(vector<boost::any>) == m["DocTags"].type()) {
+        vector<SearchDocResponseBodyDocHitsDocTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DocTags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SearchDocResponseBodyDocHitsDocTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        docTags = make_shared<vector<SearchDocResponseBodyDocHitsDocTags>>(expect1);
+      }
     }
     if (m.find("EffectStatus") != m.end() && !m["EffectStatus"].empty()) {
       effectStatus = make_shared<long>(boost::any_cast<long>(m["EffectStatus"]));
@@ -15633,6 +15909,7 @@ public:
   shared_ptr<long> knowledgeId{};
   shared_ptr<string> meta{};
   shared_ptr<string> startDate{};
+  shared_ptr<vector<long>> tagIds{};
   shared_ptr<string> title{};
 
   UpdateDocRequest() {}
@@ -15672,6 +15949,9 @@ public:
     if (startDate) {
       res["StartDate"] = boost::any(*startDate);
     }
+    if (tagIds) {
+      res["TagIds"] = boost::any(*tagIds);
+    }
     if (title) {
       res["Title"] = boost::any(*title);
     }
@@ -15706,6 +15986,16 @@ public:
     if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
       startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
     }
+    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["TagIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TagIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      tagIds = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
     }
@@ -15713,6 +16003,105 @@ public:
 
 
   virtual ~UpdateDocRequest() = default;
+};
+class UpdateDocShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<long> categoryId{};
+  shared_ptr<string> config{};
+  shared_ptr<string> content{};
+  shared_ptr<string> docName{};
+  shared_ptr<string> endDate{};
+  shared_ptr<long> knowledgeId{};
+  shared_ptr<string> meta{};
+  shared_ptr<string> startDate{};
+  shared_ptr<string> tagIdsShrink{};
+  shared_ptr<string> title{};
+
+  UpdateDocShrinkRequest() {}
+
+  explicit UpdateDocShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (categoryId) {
+      res["CategoryId"] = boost::any(*categoryId);
+    }
+    if (config) {
+      res["Config"] = boost::any(*config);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (docName) {
+      res["DocName"] = boost::any(*docName);
+    }
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (knowledgeId) {
+      res["KnowledgeId"] = boost::any(*knowledgeId);
+    }
+    if (meta) {
+      res["Meta"] = boost::any(*meta);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    if (tagIdsShrink) {
+      res["TagIds"] = boost::any(*tagIdsShrink);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
+      categoryId = make_shared<long>(boost::any_cast<long>(m["CategoryId"]));
+    }
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("DocName") != m.end() && !m["DocName"].empty()) {
+      docName = make_shared<string>(boost::any_cast<string>(m["DocName"]));
+    }
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
+    }
+    if (m.find("KnowledgeId") != m.end() && !m["KnowledgeId"].empty()) {
+      knowledgeId = make_shared<long>(boost::any_cast<long>(m["KnowledgeId"]));
+    }
+    if (m.find("Meta") != m.end() && !m["Meta"].empty()) {
+      meta = make_shared<string>(boost::any_cast<string>(m["Meta"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
+      tagIdsShrink = make_shared<string>(boost::any_cast<string>(m["TagIds"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~UpdateDocShrinkRequest() = default;
 };
 class UpdateDocResponseBody : public Darabonba::Model {
 public:
@@ -17336,7 +17725,7 @@ public:
   CreateDSEntityResponse createDSEntity(shared_ptr<CreateDSEntityRequest> request);
   CreateDSEntityValueResponse createDSEntityValueWithOptions(shared_ptr<CreateDSEntityValueRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDSEntityValueResponse createDSEntityValue(shared_ptr<CreateDSEntityValueRequest> request);
-  CreateDocResponse createDocWithOptions(shared_ptr<CreateDocRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDocResponse createDocWithOptions(shared_ptr<CreateDocRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDocResponse createDoc(shared_ptr<CreateDocRequest> request);
   CreateFaqResponse createFaqWithOptions(shared_ptr<CreateFaqRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateFaqResponse createFaq(shared_ptr<CreateFaqRequest> request);
@@ -17460,7 +17849,7 @@ public:
   UpdateDSEntityResponse updateDSEntity(shared_ptr<UpdateDSEntityRequest> request);
   UpdateDSEntityValueResponse updateDSEntityValueWithOptions(shared_ptr<UpdateDSEntityValueRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateDSEntityValueResponse updateDSEntityValue(shared_ptr<UpdateDSEntityValueRequest> request);
-  UpdateDocResponse updateDocWithOptions(shared_ptr<UpdateDocRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateDocResponse updateDocWithOptions(shared_ptr<UpdateDocRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateDocResponse updateDoc(shared_ptr<UpdateDocRequest> request);
   UpdateFaqResponse updateFaqWithOptions(shared_ptr<UpdateFaqRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateFaqResponse updateFaq(shared_ptr<UpdateFaqRequest> request);

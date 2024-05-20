@@ -468,8 +468,13 @@ CreateDSEntityValueResponse Alibabacloud_Chatbot20220408::Client::createDSEntity
   return createDSEntityValueWithOptions(request, runtime);
 }
 
-CreateDocResponse Alibabacloud_Chatbot20220408::Client::createDocWithOptions(shared_ptr<CreateDocRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateDocResponse Alibabacloud_Chatbot20220408::Client::createDocWithOptions(shared_ptr<CreateDocRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDocShrinkRequest> request = make_shared<CreateDocShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->tagIds)) {
+    request->tagIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagIds, make_shared<string>("TagIds"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
     query->insert(pair<string, string>("AgentKey", *request->agentKey));
@@ -492,8 +497,14 @@ CreateDocResponse Alibabacloud_Chatbot20220408::Client::createDocWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
     query->insert(pair<string, string>("StartDate", *request->startDate));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagIdsShrink)) {
+    query->insert(pair<string, string>("TagIds", *request->tagIdsShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
     query->insert(pair<string, string>("Title", *request->title));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    query->insert(pair<string, string>("Url", *request->url));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1869,9 +1880,6 @@ ListAgentResponse Alibabacloud_Chatbot20220408::Client::listAgentWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
-    query->insert(pair<string, string>("ProductCode", *request->productCode));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2488,6 +2496,9 @@ SearchDocResponse Alibabacloud_Chatbot20220408::Client::searchDocWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->categoryIds)) {
     request->categoryIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->categoryIds, make_shared<string>("CategoryIds"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->tagIds)) {
+    request->tagIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagIds, make_shared<string>("TagIds"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
     query->insert(pair<string, string>("AgentKey", *request->agentKey));
@@ -2542,6 +2553,9 @@ SearchDocResponse Alibabacloud_Chatbot20220408::Client::searchDocWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
     query->insert(pair<string, long>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagIdsShrink)) {
+    query->insert(pair<string, string>("TagIds", *request->tagIdsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2813,8 +2827,13 @@ UpdateDSEntityValueResponse Alibabacloud_Chatbot20220408::Client::updateDSEntity
   return updateDSEntityValueWithOptions(request, runtime);
 }
 
-UpdateDocResponse Alibabacloud_Chatbot20220408::Client::updateDocWithOptions(shared_ptr<UpdateDocRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpdateDocResponse Alibabacloud_Chatbot20220408::Client::updateDocWithOptions(shared_ptr<UpdateDocRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateDocShrinkRequest> request = make_shared<UpdateDocShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->tagIds)) {
+    request->tagIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagIds, make_shared<string>("TagIds"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
     query->insert(pair<string, string>("AgentKey", *request->agentKey));
@@ -2842,6 +2861,9 @@ UpdateDocResponse Alibabacloud_Chatbot20220408::Client::updateDocWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
     query->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagIdsShrink)) {
+    query->insert(pair<string, string>("TagIds", *request->tagIdsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
     query->insert(pair<string, string>("Title", *request->title));
