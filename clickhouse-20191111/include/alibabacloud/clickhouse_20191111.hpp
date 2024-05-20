@@ -6340,6 +6340,7 @@ class DescribeDBClusterAttributeResponseBodyDBCluster : public Darabonba::Model 
 public:
   shared_ptr<string> aliUid{};
   shared_ptr<string> appointmentRestartTime{};
+  shared_ptr<map<string, boost::any>> availableUpgradeMajorVersion{};
   shared_ptr<string> bid{};
   shared_ptr<string> category{};
   shared_ptr<string> commodityCode{};
@@ -6405,6 +6406,9 @@ public:
     }
     if (appointmentRestartTime) {
       res["AppointmentRestartTime"] = boost::any(*appointmentRestartTime);
+    }
+    if (availableUpgradeMajorVersion) {
+      res["AvailableUpgradeMajorVersion"] = boost::any(*availableUpgradeMajorVersion);
     }
     if (bid) {
       res["Bid"] = boost::any(*bid);
@@ -6562,6 +6566,14 @@ public:
     }
     if (m.find("AppointmentRestartTime") != m.end() && !m["AppointmentRestartTime"].empty()) {
       appointmentRestartTime = make_shared<string>(boost::any_cast<string>(m["AppointmentRestartTime"]));
+    }
+    if (m.find("AvailableUpgradeMajorVersion") != m.end() && !m["AvailableUpgradeMajorVersion"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["AvailableUpgradeMajorVersion"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      availableUpgradeMajorVersion = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("Bid") != m.end() && !m["Bid"].empty()) {
       bid = make_shared<string>(boost::any_cast<string>(m["Bid"]));
