@@ -2752,6 +2752,9 @@ DetachInstancesResponse Alibabacloud_Ess20220222::Client::detachInstancesWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->detachOption)) {
     query->insert(pair<string, string>("DetachOption", *request->detachOption));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ignoreInvalidInstance)) {
+    query->insert(pair<string, bool>("IgnoreInvalidInstance", *request->ignoreInvalidInstance));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
     query->insert(pair<string, vector<string>>("InstanceIds", *request->instanceIds));
   }
@@ -4374,6 +4377,9 @@ RemoveInstancesResponse Alibabacloud_Ess20220222::Client::removeInstancesWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->decreaseDesiredCapacity)) {
     query->insert(pair<string, bool>("DecreaseDesiredCapacity", *request->decreaseDesiredCapacity));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ignoreInvalidInstance)) {
+    query->insert(pair<string, bool>("IgnoreInvalidInstance", *request->ignoreInvalidInstance));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
     query->insert(pair<string, vector<string>>("InstanceIds", *request->instanceIds));

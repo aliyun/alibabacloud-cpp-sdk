@@ -22677,6 +22677,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> decreaseDesiredCapacity{};
   shared_ptr<string> detachOption{};
+  shared_ptr<bool> ignoreInvalidInstance{};
   shared_ptr<vector<string>> instanceIds{};
   shared_ptr<bool> lifecycleHook{};
   shared_ptr<string> ownerAccount{};
@@ -22703,6 +22704,9 @@ public:
     }
     if (detachOption) {
       res["DetachOption"] = boost::any(*detachOption);
+    }
+    if (ignoreInvalidInstance) {
+      res["IgnoreInvalidInstance"] = boost::any(*ignoreInvalidInstance);
     }
     if (instanceIds) {
       res["InstanceIds"] = boost::any(*instanceIds);
@@ -22737,6 +22741,9 @@ public:
     }
     if (m.find("DetachOption") != m.end() && !m["DetachOption"].empty()) {
       detachOption = make_shared<string>(boost::any_cast<string>(m["DetachOption"]));
+    }
+    if (m.find("IgnoreInvalidInstance") != m.end() && !m["IgnoreInvalidInstance"].empty()) {
+      ignoreInvalidInstance = make_shared<bool>(boost::any_cast<bool>(m["IgnoreInvalidInstance"]));
     }
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
       vector<string> toVec1;
@@ -32281,6 +32288,7 @@ class RemoveInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> decreaseDesiredCapacity{};
+  shared_ptr<bool> ignoreInvalidInstance{};
   shared_ptr<vector<string>> instanceIds{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -32305,6 +32313,9 @@ public:
     }
     if (decreaseDesiredCapacity) {
       res["DecreaseDesiredCapacity"] = boost::any(*decreaseDesiredCapacity);
+    }
+    if (ignoreInvalidInstance) {
+      res["IgnoreInvalidInstance"] = boost::any(*ignoreInvalidInstance);
     }
     if (instanceIds) {
       res["InstanceIds"] = boost::any(*instanceIds);
@@ -32339,6 +32350,9 @@ public:
     }
     if (m.find("DecreaseDesiredCapacity") != m.end() && !m["DecreaseDesiredCapacity"].empty()) {
       decreaseDesiredCapacity = make_shared<bool>(boost::any_cast<bool>(m["DecreaseDesiredCapacity"]));
+    }
+    if (m.find("IgnoreInvalidInstance") != m.end() && !m["IgnoreInvalidInstance"].empty()) {
+      ignoreInvalidInstance = make_shared<bool>(boost::any_cast<bool>(m["IgnoreInvalidInstance"]));
     }
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
       vector<string> toVec1;
