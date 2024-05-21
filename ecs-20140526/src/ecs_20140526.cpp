@@ -11756,6 +11756,12 @@ DescribeSecurityGroupAttributeResponse Alibabacloud_Ecs20140526::Client::describ
   if (!Darabonba_Util::Client::isUnset<string>(request->direction)) {
     query->insert(pair<string, string>("Direction", *request->direction));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->nicType)) {
     query->insert(pair<string, string>("NicType", *request->nicType));
   }
