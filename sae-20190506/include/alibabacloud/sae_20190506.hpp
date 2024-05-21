@@ -8906,6 +8906,7 @@ public:
   shared_ptr<string> appSource{};
   shared_ptr<bool> associateEip{};
   shared_ptr<bool> autoConfig{};
+  shared_ptr<string> baseAppId{};
   shared_ptr<string> command{};
   shared_ptr<string> commandArgs{};
   shared_ptr<string> configMapMountDesc{};
@@ -8924,6 +8925,7 @@ public:
   shared_ptr<string> liveness{};
   shared_ptr<long> memory{};
   shared_ptr<string> microRegistration{};
+  shared_ptr<string> microRegistrationConfig{};
   shared_ptr<string> mountDesc{};
   shared_ptr<string> mountHost{};
   shared_ptr<string> namespaceId{};
@@ -8949,6 +8951,7 @@ public:
   shared_ptr<long> replicas{};
   shared_ptr<string> saeVersion{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<string> serviceTags{};
   shared_ptr<string> slsConfigs{};
   shared_ptr<long> terminationGracePeriodSeconds{};
   shared_ptr<string> timezone{};
@@ -8988,6 +8991,9 @@ public:
     }
     if (autoConfig) {
       res["AutoConfig"] = boost::any(*autoConfig);
+    }
+    if (baseAppId) {
+      res["BaseAppId"] = boost::any(*baseAppId);
     }
     if (command) {
       res["Command"] = boost::any(*command);
@@ -9042,6 +9048,9 @@ public:
     }
     if (microRegistration) {
       res["MicroRegistration"] = boost::any(*microRegistration);
+    }
+    if (microRegistrationConfig) {
+      res["MicroRegistrationConfig"] = boost::any(*microRegistrationConfig);
     }
     if (mountDesc) {
       res["MountDesc"] = boost::any(*mountDesc);
@@ -9118,6 +9127,9 @@ public:
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
     }
+    if (serviceTags) {
+      res["ServiceTags"] = boost::any(*serviceTags);
+    }
     if (slsConfigs) {
       res["SlsConfigs"] = boost::any(*slsConfigs);
     }
@@ -9166,6 +9178,9 @@ public:
     }
     if (m.find("AutoConfig") != m.end() && !m["AutoConfig"].empty()) {
       autoConfig = make_shared<bool>(boost::any_cast<bool>(m["AutoConfig"]));
+    }
+    if (m.find("BaseAppId") != m.end() && !m["BaseAppId"].empty()) {
+      baseAppId = make_shared<string>(boost::any_cast<string>(m["BaseAppId"]));
     }
     if (m.find("Command") != m.end() && !m["Command"].empty()) {
       command = make_shared<string>(boost::any_cast<string>(m["Command"]));
@@ -9220,6 +9235,9 @@ public:
     }
     if (m.find("MicroRegistration") != m.end() && !m["MicroRegistration"].empty()) {
       microRegistration = make_shared<string>(boost::any_cast<string>(m["MicroRegistration"]));
+    }
+    if (m.find("MicroRegistrationConfig") != m.end() && !m["MicroRegistrationConfig"].empty()) {
+      microRegistrationConfig = make_shared<string>(boost::any_cast<string>(m["MicroRegistrationConfig"]));
     }
     if (m.find("MountDesc") != m.end() && !m["MountDesc"].empty()) {
       mountDesc = make_shared<string>(boost::any_cast<string>(m["MountDesc"]));
@@ -9295,6 +9313,9 @@ public:
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("ServiceTags") != m.end() && !m["ServiceTags"].empty()) {
+      serviceTags = make_shared<string>(boost::any_cast<string>(m["ServiceTags"]));
     }
     if (m.find("SlsConfigs") != m.end() && !m["SlsConfigs"].empty()) {
       slsConfigs = make_shared<string>(boost::any_cast<string>(m["SlsConfigs"]));
@@ -13370,6 +13391,7 @@ public:
   shared_ptr<string> liveness{};
   shared_ptr<long> memory{};
   shared_ptr<string> microRegistration{};
+  shared_ptr<string> microRegistrationConfig{};
   shared_ptr<long> minReadyInstanceRatio{};
   shared_ptr<long> minReadyInstances{};
   shared_ptr<string> mountDesc{};
@@ -13394,6 +13416,7 @@ public:
   shared_ptr<string> readiness{};
   shared_ptr<long> replicas{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<string> serviceTags{};
   shared_ptr<string> slsConfigs{};
   shared_ptr<long> terminationGracePeriodSeconds{};
   shared_ptr<string> timezone{};
@@ -13491,6 +13514,9 @@ public:
     if (microRegistration) {
       res["MicroRegistration"] = boost::any(*microRegistration);
     }
+    if (microRegistrationConfig) {
+      res["MicroRegistrationConfig"] = boost::any(*microRegistrationConfig);
+    }
     if (minReadyInstanceRatio) {
       res["MinReadyInstanceRatio"] = boost::any(*minReadyInstanceRatio);
     }
@@ -13562,6 +13588,9 @@ public:
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (serviceTags) {
+      res["ServiceTags"] = boost::any(*serviceTags);
     }
     if (slsConfigs) {
       res["SlsConfigs"] = boost::any(*slsConfigs);
@@ -13669,6 +13698,9 @@ public:
     if (m.find("MicroRegistration") != m.end() && !m["MicroRegistration"].empty()) {
       microRegistration = make_shared<string>(boost::any_cast<string>(m["MicroRegistration"]));
     }
+    if (m.find("MicroRegistrationConfig") != m.end() && !m["MicroRegistrationConfig"].empty()) {
+      microRegistrationConfig = make_shared<string>(boost::any_cast<string>(m["MicroRegistrationConfig"]));
+    }
     if (m.find("MinReadyInstanceRatio") != m.end() && !m["MinReadyInstanceRatio"].empty()) {
       minReadyInstanceRatio = make_shared<long>(boost::any_cast<long>(m["MinReadyInstanceRatio"]));
     }
@@ -13740,6 +13772,9 @@ public:
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("ServiceTags") != m.end() && !m["ServiceTags"].empty()) {
+      serviceTags = make_shared<string>(boost::any_cast<string>(m["ServiceTags"]));
     }
     if (m.find("SlsConfigs") != m.end() && !m["SlsConfigs"].empty()) {
       slsConfigs = make_shared<string>(boost::any_cast<string>(m["SlsConfigs"]));
@@ -14719,6 +14754,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<long> replicas{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<map<string, string>> serviceTags{};
   shared_ptr<string> slsConfigs{};
   shared_ptr<vector<DescribeApplicationConfigResponseBodyDataTags>> tags{};
   shared_ptr<long> terminationGracePeriodSeconds{};
@@ -14916,6 +14952,9 @@ public:
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (serviceTags) {
+      res["ServiceTags"] = boost::any(*serviceTags);
     }
     if (slsConfigs) {
       res["SlsConfigs"] = boost::any(*slsConfigs);
@@ -15149,6 +15188,14 @@ public:
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("ServiceTags") != m.end() && !m["ServiceTags"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["ServiceTags"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      serviceTags = make_shared<map<string, string>>(toMap1);
     }
     if (m.find("SlsConfigs") != m.end() && !m["SlsConfigs"].empty()) {
       slsConfigs = make_shared<string>(boost::any_cast<string>(m["SlsConfigs"]));
@@ -28108,6 +28155,190 @@ public:
 
   virtual ~ListApplicationsRequest() = default;
 };
+class ListApplicationsResponseBodyDataApplicationsChildrenTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListApplicationsResponseBodyDataApplicationsChildrenTags() {}
+
+  explicit ListApplicationsResponseBodyDataApplicationsChildrenTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListApplicationsResponseBodyDataApplicationsChildrenTags() = default;
+};
+class ListApplicationsResponseBodyDataApplicationsChildren : public Darabonba::Model {
+public:
+  shared_ptr<bool> appDeletingStatus{};
+  shared_ptr<string> appDescription{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> baseAppId{};
+  shared_ptr<long> cpu{};
+  shared_ptr<long> instances{};
+  shared_ptr<long> mem{};
+  shared_ptr<bool> mseEnabled{};
+  shared_ptr<string> namespaceId{};
+  shared_ptr<string> programmingLanguage{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> runningInstances{};
+  shared_ptr<bool> scaleRuleEnabled{};
+  shared_ptr<string> scaleRuleType{};
+  shared_ptr<vector<ListApplicationsResponseBodyDataApplicationsChildrenTags>> tags{};
+
+  ListApplicationsResponseBodyDataApplicationsChildren() {}
+
+  explicit ListApplicationsResponseBodyDataApplicationsChildren(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appDeletingStatus) {
+      res["AppDeletingStatus"] = boost::any(*appDeletingStatus);
+    }
+    if (appDescription) {
+      res["AppDescription"] = boost::any(*appDescription);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (baseAppId) {
+      res["BaseAppId"] = boost::any(*baseAppId);
+    }
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (instances) {
+      res["Instances"] = boost::any(*instances);
+    }
+    if (mem) {
+      res["Mem"] = boost::any(*mem);
+    }
+    if (mseEnabled) {
+      res["MseEnabled"] = boost::any(*mseEnabled);
+    }
+    if (namespaceId) {
+      res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    if (programmingLanguage) {
+      res["ProgrammingLanguage"] = boost::any(*programmingLanguage);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (runningInstances) {
+      res["RunningInstances"] = boost::any(*runningInstances);
+    }
+    if (scaleRuleEnabled) {
+      res["ScaleRuleEnabled"] = boost::any(*scaleRuleEnabled);
+    }
+    if (scaleRuleType) {
+      res["ScaleRuleType"] = boost::any(*scaleRuleType);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppDeletingStatus") != m.end() && !m["AppDeletingStatus"].empty()) {
+      appDeletingStatus = make_shared<bool>(boost::any_cast<bool>(m["AppDeletingStatus"]));
+    }
+    if (m.find("AppDescription") != m.end() && !m["AppDescription"].empty()) {
+      appDescription = make_shared<string>(boost::any_cast<string>(m["AppDescription"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("BaseAppId") != m.end() && !m["BaseAppId"].empty()) {
+      baseAppId = make_shared<string>(boost::any_cast<string>(m["BaseAppId"]));
+    }
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("Instances") != m.end() && !m["Instances"].empty()) {
+      instances = make_shared<long>(boost::any_cast<long>(m["Instances"]));
+    }
+    if (m.find("Mem") != m.end() && !m["Mem"].empty()) {
+      mem = make_shared<long>(boost::any_cast<long>(m["Mem"]));
+    }
+    if (m.find("MseEnabled") != m.end() && !m["MseEnabled"].empty()) {
+      mseEnabled = make_shared<bool>(boost::any_cast<bool>(m["MseEnabled"]));
+    }
+    if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
+      namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+    if (m.find("ProgrammingLanguage") != m.end() && !m["ProgrammingLanguage"].empty()) {
+      programmingLanguage = make_shared<string>(boost::any_cast<string>(m["ProgrammingLanguage"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RunningInstances") != m.end() && !m["RunningInstances"].empty()) {
+      runningInstances = make_shared<long>(boost::any_cast<long>(m["RunningInstances"]));
+    }
+    if (m.find("ScaleRuleEnabled") != m.end() && !m["ScaleRuleEnabled"].empty()) {
+      scaleRuleEnabled = make_shared<bool>(boost::any_cast<bool>(m["ScaleRuleEnabled"]));
+    }
+    if (m.find("ScaleRuleType") != m.end() && !m["ScaleRuleType"].empty()) {
+      scaleRuleType = make_shared<string>(boost::any_cast<string>(m["ScaleRuleType"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListApplicationsResponseBodyDataApplicationsChildrenTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListApplicationsResponseBodyDataApplicationsChildrenTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListApplicationsResponseBodyDataApplicationsChildrenTags>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListApplicationsResponseBodyDataApplicationsChildren() = default;
+};
 class ListApplicationsResponseBodyDataApplicationsTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -28150,10 +28381,14 @@ public:
   shared_ptr<string> appDescription{};
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
+  shared_ptr<string> baseAppId{};
+  shared_ptr<vector<ListApplicationsResponseBodyDataApplicationsChildren>> children{};
   shared_ptr<long> cpu{};
   shared_ptr<long> instances{};
   shared_ptr<long> mem{};
+  shared_ptr<bool> mseEnabled{};
   shared_ptr<string> namespaceId{};
+  shared_ptr<string> programmingLanguage{};
   shared_ptr<string> regionId{};
   shared_ptr<long> runningInstances{};
   shared_ptr<vector<ListApplicationsResponseBodyDataApplicationsTags>> tags{};
@@ -28180,6 +28415,16 @@ public:
     if (appName) {
       res["AppName"] = boost::any(*appName);
     }
+    if (baseAppId) {
+      res["BaseAppId"] = boost::any(*baseAppId);
+    }
+    if (children) {
+      vector<boost::any> temp1;
+      for(auto item1:*children){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Children"] = boost::any(temp1);
+    }
     if (cpu) {
       res["Cpu"] = boost::any(*cpu);
     }
@@ -28189,8 +28434,14 @@ public:
     if (mem) {
       res["Mem"] = boost::any(*mem);
     }
+    if (mseEnabled) {
+      res["MseEnabled"] = boost::any(*mseEnabled);
+    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
+    }
+    if (programmingLanguage) {
+      res["ProgrammingLanguage"] = boost::any(*programmingLanguage);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -28221,6 +28472,22 @@ public:
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
     }
+    if (m.find("BaseAppId") != m.end() && !m["BaseAppId"].empty()) {
+      baseAppId = make_shared<string>(boost::any_cast<string>(m["BaseAppId"]));
+    }
+    if (m.find("Children") != m.end() && !m["Children"].empty()) {
+      if (typeid(vector<boost::any>) == m["Children"].type()) {
+        vector<ListApplicationsResponseBodyDataApplicationsChildren> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Children"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListApplicationsResponseBodyDataApplicationsChildren model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        children = make_shared<vector<ListApplicationsResponseBodyDataApplicationsChildren>>(expect1);
+      }
+    }
     if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
       cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
     }
@@ -28230,8 +28497,14 @@ public:
     if (m.find("Mem") != m.end() && !m["Mem"].empty()) {
       mem = make_shared<long>(boost::any_cast<long>(m["Mem"]));
     }
+    if (m.find("MseEnabled") != m.end() && !m["MseEnabled"].empty()) {
+      mseEnabled = make_shared<bool>(boost::any_cast<bool>(m["MseEnabled"]));
+    }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
+    }
+    if (m.find("ProgrammingLanguage") != m.end() && !m["ProgrammingLanguage"].empty()) {
+      programmingLanguage = make_shared<string>(boost::any_cast<string>(m["ProgrammingLanguage"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));

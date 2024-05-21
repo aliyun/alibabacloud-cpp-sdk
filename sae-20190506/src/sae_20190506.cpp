@@ -404,8 +404,14 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<bool>(request->associateEip)) {
     body->insert(pair<string, bool>("AssociateEip", *request->associateEip));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->baseAppId)) {
+    body->insert(pair<string, string>("BaseAppId", *request->baseAppId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->configMapMountDesc)) {
     body->insert(pair<string, string>("ConfigMapMountDesc", *request->configMapMountDesc));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->microRegistrationConfig)) {
+    body->insert(pair<string, string>("MicroRegistrationConfig", *request->microRegistrationConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ossAkId)) {
     body->insert(pair<string, string>("OssAkId", *request->ossAkId));
@@ -421,6 +427,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->phpConfig)) {
     body->insert(pair<string, string>("PhpConfig", *request->phpConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceTags)) {
+    body->insert(pair<string, string>("ServiceTags", *request->serviceTags));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1365,6 +1374,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->configMapMountDesc)) {
     body->insert(pair<string, string>("ConfigMapMountDesc", *request->configMapMountDesc));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->microRegistrationConfig)) {
+    body->insert(pair<string, string>("MicroRegistrationConfig", *request->microRegistrationConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ossAkId)) {
     body->insert(pair<string, string>("OssAkId", *request->ossAkId));
   }
@@ -1379,6 +1391,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->phpConfig)) {
     body->insert(pair<string, string>("PhpConfig", *request->phpConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceTags)) {
+    body->insert(pair<string, string>("ServiceTags", *request->serviceTags));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
