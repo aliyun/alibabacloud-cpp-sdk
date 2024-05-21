@@ -384,6 +384,7 @@ public:
   shared_ptr<bool> audioEventDetectionEnabled{};
   shared_ptr<CreateTaskRequestParametersTranscriptionDiarization> diarization{};
   shared_ptr<bool> diarizationEnabled{};
+  shared_ptr<string> model{};
   shared_ptr<long> outputLevel{};
   shared_ptr<string> phraseId{};
 
@@ -408,6 +409,9 @@ public:
     }
     if (diarizationEnabled) {
       res["DiarizationEnabled"] = boost::any(*diarizationEnabled);
+    }
+    if (model) {
+      res["Model"] = boost::any(*model);
     }
     if (outputLevel) {
       res["OutputLevel"] = boost::any(*outputLevel);
@@ -434,6 +438,9 @@ public:
     }
     if (m.find("DiarizationEnabled") != m.end() && !m["DiarizationEnabled"].empty()) {
       diarizationEnabled = make_shared<bool>(boost::any_cast<bool>(m["DiarizationEnabled"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
     }
     if (m.find("OutputLevel") != m.end() && !m["OutputLevel"].empty()) {
       outputLevel = make_shared<long>(boost::any_cast<long>(m["OutputLevel"]));
