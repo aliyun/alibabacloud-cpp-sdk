@@ -67,6 +67,51 @@ AccessTokenResponse Alibabacloud_BtripOpen20220520::Client::accessToken(shared_p
   return accessTokenWithOptions(request, headers, runtime);
 }
 
+AddEmployeesToCustomRoleResponse Alibabacloud_BtripOpen20220520::Client::addEmployeesToCustomRoleWithOptions(shared_ptr<AddEmployeesToCustomRoleRequest> tmpReq, shared_ptr<AddEmployeesToCustomRoleHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AddEmployeesToCustomRoleShrinkRequest> request = make_shared<AddEmployeesToCustomRoleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->userIdList)) {
+    request->userIdListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->userIdList, make_shared<string>("user_id_list"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleId)) {
+    body->insert(pair<string, string>("role_id", *request->roleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userIdListShrink)) {
+    body->insert(pair<string, string>("user_id_list", *request->userIdListShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddEmployeesToCustomRole"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/role/v1/customRoleEmployees/add"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddEmployeesToCustomRoleResponse(callApi(params, req, runtime));
+}
+
+AddEmployeesToCustomRoleResponse Alibabacloud_BtripOpen20220520::Client::addEmployeesToCustomRole(shared_ptr<AddEmployeesToCustomRoleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<AddEmployeesToCustomRoleHeaders> headers = make_shared<AddEmployeesToCustomRoleHeaders>();
+  return addEmployeesToCustomRoleWithOptions(request, headers, runtime);
+}
+
 AddInvoiceEntityResponse Alibabacloud_BtripOpen20220520::Client::addInvoiceEntityWithOptions(shared_ptr<AddInvoiceEntityRequest> tmpReq, shared_ptr<AddInvoiceEntityHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<AddInvoiceEntityShrinkRequest> request = make_shared<AddInvoiceEntityShrinkRequest>();
@@ -1816,6 +1861,46 @@ CostCenterSaveResponse Alibabacloud_BtripOpen20220520::Client::costCenterSave(sh
   return costCenterSaveWithOptions(request, headers, runtime);
 }
 
+CreateCustomRoleResponse Alibabacloud_BtripOpen20220520::Client::createCustomRoleWithOptions(shared_ptr<CreateCustomRoleRequest> request, shared_ptr<CreateCustomRoleHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleId)) {
+    body->insert(pair<string, string>("role_id", *request->roleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleName)) {
+    body->insert(pair<string, string>("role_name", *request->roleName));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCustomRole"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/role/v1/customRoles/create"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCustomRoleResponse(callApi(params, req, runtime));
+}
+
+CreateCustomRoleResponse Alibabacloud_BtripOpen20220520::Client::createCustomRole(shared_ptr<CreateCustomRoleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<CreateCustomRoleHeaders> headers = make_shared<CreateCustomRoleHeaders>();
+  return createCustomRoleWithOptions(request, headers, runtime);
+}
+
 CreateSubCorpResponse Alibabacloud_BtripOpen20220520::Client::createSubCorpWithOptions(shared_ptr<CreateSubCorpRequest> request, shared_ptr<CreateSubCorpHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1857,6 +1942,88 @@ CreateSubCorpResponse Alibabacloud_BtripOpen20220520::Client::createSubCorp(shar
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<CreateSubCorpHeaders> headers = make_shared<CreateSubCorpHeaders>();
   return createSubCorpWithOptions(request, headers, runtime);
+}
+
+DeleteCustomRoleResponse Alibabacloud_BtripOpen20220520::Client::deleteCustomRoleWithOptions(shared_ptr<DeleteCustomRoleRequest> request, shared_ptr<DeleteCustomRoleHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleId)) {
+    body->insert(pair<string, string>("role_id", *request->roleId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCustomRole"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/role/v1/customRoles/delete"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCustomRoleResponse(callApi(params, req, runtime));
+}
+
+DeleteCustomRoleResponse Alibabacloud_BtripOpen20220520::Client::deleteCustomRole(shared_ptr<DeleteCustomRoleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<DeleteCustomRoleHeaders> headers = make_shared<DeleteCustomRoleHeaders>();
+  return deleteCustomRoleWithOptions(request, headers, runtime);
+}
+
+DeleteEmployeesFromCustomRoleResponse Alibabacloud_BtripOpen20220520::Client::deleteEmployeesFromCustomRoleWithOptions(shared_ptr<DeleteEmployeesFromCustomRoleRequest> tmpReq, shared_ptr<DeleteEmployeesFromCustomRoleHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteEmployeesFromCustomRoleShrinkRequest> request = make_shared<DeleteEmployeesFromCustomRoleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->userIdList)) {
+    request->userIdListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->userIdList, make_shared<string>("user_id_list"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleId)) {
+    body->insert(pair<string, string>("role_id", *request->roleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userIdListShrink)) {
+    body->insert(pair<string, string>("user_id_list", *request->userIdListShrink));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteEmployeesFromCustomRole"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/role/v1/customRoleEmployees/delete"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteEmployeesFromCustomRoleResponse(callApi(params, req, runtime));
+}
+
+DeleteEmployeesFromCustomRoleResponse Alibabacloud_BtripOpen20220520::Client::deleteEmployeesFromCustomRole(shared_ptr<DeleteEmployeesFromCustomRoleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<DeleteEmployeesFromCustomRoleHeaders> headers = make_shared<DeleteEmployeesFromCustomRoleHeaders>();
+  return deleteEmployeesFromCustomRoleWithOptions(request, headers, runtime);
 }
 
 DeleteInvoiceEntityResponse Alibabacloud_BtripOpen20220520::Client::deleteInvoiceEntityWithOptions(shared_ptr<DeleteInvoiceEntityRequest> tmpReq, shared_ptr<DeleteInvoiceEntityHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -7105,6 +7272,43 @@ ProjectModifyResponse Alibabacloud_BtripOpen20220520::Client::projectModify(shar
   return projectModifyWithOptions(request, headers, runtime);
 }
 
+QueryGroupCorpListResponse Alibabacloud_BtripOpen20220520::Client::queryGroupCorpListWithOptions(shared_ptr<QueryGroupCorpListRequest> request, shared_ptr<QueryGroupCorpListHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    body->insert(pair<string, string>("user_id", *request->userId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryGroupCorpList"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/sub_corps/v1/corps/action/corpList"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryGroupCorpListResponse(callApi(params, req, runtime));
+}
+
+QueryGroupCorpListResponse Alibabacloud_BtripOpen20220520::Client::queryGroupCorpList(shared_ptr<QueryGroupCorpListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<QueryGroupCorpListHeaders> headers = make_shared<QueryGroupCorpListHeaders>();
+  return queryGroupCorpListWithOptions(request, headers, runtime);
+}
+
 QueryReimbursementOrderResponse Alibabacloud_BtripOpen20220520::Client::queryReimbursementOrderWithOptions(shared_ptr<QueryReimbursementOrderRequest> request, shared_ptr<QueryReimbursementOrderHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -8674,6 +8878,46 @@ TravelStandardQueryResponse Alibabacloud_BtripOpen20220520::Client::travelStanda
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<TravelStandardQueryHeaders> headers = make_shared<TravelStandardQueryHeaders>();
   return travelStandardQueryWithOptions(request, headers, runtime);
+}
+
+UpdateCustomRoleResponse Alibabacloud_BtripOpen20220520::Client::updateCustomRoleWithOptions(shared_ptr<UpdateCustomRoleRequest> request, shared_ptr<UpdateCustomRoleHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleId)) {
+    body->insert(pair<string, string>("role_id", *request->roleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleName)) {
+    body->insert(pair<string, string>("role_name", *request->roleName));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCustomRole"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/role/v1/customRoles/update"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCustomRoleResponse(callApi(params, req, runtime));
+}
+
+UpdateCustomRoleResponse Alibabacloud_BtripOpen20220520::Client::updateCustomRole(shared_ptr<UpdateCustomRoleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<UpdateCustomRoleHeaders> headers = make_shared<UpdateCustomRoleHeaders>();
+  return updateCustomRoleWithOptions(request, headers, runtime);
 }
 
 UserQueryResponse Alibabacloud_BtripOpen20220520::Client::userQueryWithOptions(shared_ptr<UserQueryRequest> request, shared_ptr<UserQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
