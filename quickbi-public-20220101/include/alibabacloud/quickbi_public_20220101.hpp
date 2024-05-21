@@ -5699,6 +5699,7 @@ public:
 class ListFavoriteReportsResponseBodyResultData : public Darabonba::Model {
 public:
   shared_ptr<bool> favorite{};
+  shared_ptr<string> favoriteDate{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<bool> hasEditAuth{};
@@ -5724,6 +5725,9 @@ public:
     map<string, boost::any> res;
     if (favorite) {
       res["Favorite"] = boost::any(*favorite);
+    }
+    if (favoriteDate) {
+      res["FavoriteDate"] = boost::any(*favoriteDate);
     }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
@@ -5767,6 +5771,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Favorite") != m.end() && !m["Favorite"].empty()) {
       favorite = make_shared<bool>(boost::any_cast<bool>(m["Favorite"]));
+    }
+    if (m.find("FavoriteDate") != m.end() && !m["FavoriteDate"].empty()) {
+      favoriteDate = make_shared<string>(boost::any_cast<string>(m["FavoriteDate"]));
     }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
