@@ -3316,6 +3316,9 @@ DescribeInstanceDomainsResponse Alibabacloud_Alidns20150109::Client::describeIns
 DescribeInternetDnsLogsResponse Alibabacloud_Alidns20150109::Client::describeInternetDnsLogsWithOptions(shared_ptr<DescribeInternetDnsLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->accountId)) {
+    query->insert(pair<string, long>("AccountId", *request->accountId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
     query->insert(pair<string, string>("DomainName", *request->domainName));
   }

@@ -22758,6 +22758,7 @@ public:
 };
 class DescribeInternetDnsLogsRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> accountId{};
   shared_ptr<string> domainName{};
   shared_ptr<long> endTimestamp{};
   shared_ptr<string> lang{};
@@ -22777,6 +22778,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
     }
@@ -22805,6 +22809,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<long>(boost::any_cast<long>(m["AccountId"]));
+    }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
     }
@@ -22882,6 +22889,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<string> subnetIp{};
   shared_ptr<DescribeInternetDnsLogsResponseBodyLogsLogValue> value{};
+  shared_ptr<string> zoneName{};
 
   DescribeInternetDnsLogsResponseBodyLogsLog() {}
 
@@ -22923,6 +22931,9 @@ public:
     if (value) {
       res["Value"] = value ? boost::any(value->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (zoneName) {
+      res["ZoneName"] = boost::any(*zoneName);
+    }
     return res;
   }
 
@@ -22960,6 +22971,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Value"]));
         value = make_shared<DescribeInternetDnsLogsResponseBodyLogsLogValue>(model1);
       }
+    }
+    if (m.find("ZoneName") != m.end() && !m["ZoneName"].empty()) {
+      zoneName = make_shared<string>(boost::any_cast<string>(m["ZoneName"]));
     }
   }
 
