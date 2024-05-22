@@ -678,6 +678,49 @@ CreateTicketResponse Alibabacloud_Quickbi-public20220101::Client::createTicket(s
   return createTicketWithOptions(request, runtime);
 }
 
+CreateTicket4CopilotResponse Alibabacloud_Quickbi-public20220101::Client::createTicket4CopilotWithOptions(shared_ptr<CreateTicket4CopilotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountName)) {
+    query->insert(pair<string, string>("AccountName", *request->accountName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->accountType)) {
+    query->insert(pair<string, long>("AccountType", *request->accountType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->copilotId)) {
+    query->insert(pair<string, string>("CopilotId", *request->copilotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->expireTime)) {
+    query->insert(pair<string, long>("ExpireTime", *request->expireTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ticketNum)) {
+    query->insert(pair<string, long>("TicketNum", *request->ticketNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("UserId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateTicket4Copilot"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateTicket4CopilotResponse(callApi(params, req, runtime));
+}
+
+CreateTicket4CopilotResponse Alibabacloud_Quickbi-public20220101::Client::createTicket4Copilot(shared_ptr<CreateTicket4CopilotRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createTicket4CopilotWithOptions(request, runtime);
+}
+
 CreateUserGroupResponse Alibabacloud_Quickbi-public20220101::Client::createUserGroupWithOptions(shared_ptr<CreateUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

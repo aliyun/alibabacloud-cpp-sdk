@@ -2849,6 +2849,165 @@ public:
 
   virtual ~CreateTicketResponse() = default;
 };
+class CreateTicket4CopilotRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountName{};
+  shared_ptr<long> accountType{};
+  shared_ptr<string> copilotId{};
+  shared_ptr<long> expireTime{};
+  shared_ptr<long> ticketNum{};
+  shared_ptr<string> userId{};
+
+  CreateTicket4CopilotRequest() {}
+
+  explicit CreateTicket4CopilotRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountName) {
+      res["AccountName"] = boost::any(*accountName);
+    }
+    if (accountType) {
+      res["AccountType"] = boost::any(*accountType);
+    }
+    if (copilotId) {
+      res["CopilotId"] = boost::any(*copilotId);
+    }
+    if (expireTime) {
+      res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (ticketNum) {
+      res["TicketNum"] = boost::any(*ticketNum);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
+      accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
+    if (m.find("AccountType") != m.end() && !m["AccountType"].empty()) {
+      accountType = make_shared<long>(boost::any_cast<long>(m["AccountType"]));
+    }
+    if (m.find("CopilotId") != m.end() && !m["CopilotId"].empty()) {
+      copilotId = make_shared<string>(boost::any_cast<string>(m["CopilotId"]));
+    }
+    if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
+      expireTime = make_shared<long>(boost::any_cast<long>(m["ExpireTime"]));
+    }
+    if (m.find("TicketNum") != m.end() && !m["TicketNum"].empty()) {
+      ticketNum = make_shared<long>(boost::any_cast<long>(m["TicketNum"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~CreateTicket4CopilotRequest() = default;
+};
+class CreateTicket4CopilotResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> result{};
+  shared_ptr<bool> success{};
+
+  CreateTicket4CopilotResponseBody() {}
+
+  explicit CreateTicket4CopilotResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["Result"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateTicket4CopilotResponseBody() = default;
+};
+class CreateTicket4CopilotResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateTicket4CopilotResponseBody> body{};
+
+  CreateTicket4CopilotResponse() {}
+
+  explicit CreateTicket4CopilotResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateTicket4CopilotResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateTicket4CopilotResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateTicket4CopilotResponse() = default;
+};
 class CreateUserGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> parentUserGroupId{};
@@ -10175,6 +10334,7 @@ public:
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModify{};
   shared_ptr<vector<QueryDatasetInfoResponseBodyResultMeasureList>> measureList{};
+  shared_ptr<bool> openOfflineAcceleration{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> ownerName{};
   shared_ptr<bool> rowLevel{};
@@ -10238,6 +10398,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["MeasureList"] = boost::any(temp1);
+    }
+    if (openOfflineAcceleration) {
+      res["OpenOfflineAcceleration"] = boost::any(*openOfflineAcceleration);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -10327,6 +10490,9 @@ public:
         }
         measureList = make_shared<vector<QueryDatasetInfoResponseBodyResultMeasureList>>(expect1);
       }
+    }
+    if (m.find("OpenOfflineAcceleration") != m.end() && !m["OpenOfflineAcceleration"].empty()) {
+      openOfflineAcceleration = make_shared<bool>(boost::any_cast<bool>(m["OpenOfflineAcceleration"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
@@ -10613,6 +10779,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<QueryDatasetListResponseBodyResultDataDirectory> directory{};
   shared_ptr<string> modifyTime{};
+  shared_ptr<bool> openOfflineAcceleration{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> ownerName{};
   shared_ptr<bool> rowLevel{};
@@ -10649,6 +10816,9 @@ public:
     }
     if (modifyTime) {
       res["ModifyTime"] = boost::any(*modifyTime);
+    }
+    if (openOfflineAcceleration) {
+      res["OpenOfflineAcceleration"] = boost::any(*openOfflineAcceleration);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -10697,6 +10867,9 @@ public:
     }
     if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
       modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
+    }
+    if (m.find("OpenOfflineAcceleration") != m.end() && !m["OpenOfflineAcceleration"].empty()) {
+      openOfflineAcceleration = make_shared<bool>(boost::any_cast<bool>(m["OpenOfflineAcceleration"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
@@ -19190,6 +19363,8 @@ public:
   CheckReadableResponse checkReadable(shared_ptr<CheckReadableRequest> request);
   CreateTicketResponse createTicketWithOptions(shared_ptr<CreateTicketRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTicketResponse createTicket(shared_ptr<CreateTicketRequest> request);
+  CreateTicket4CopilotResponse createTicket4CopilotWithOptions(shared_ptr<CreateTicket4CopilotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateTicket4CopilotResponse createTicket4Copilot(shared_ptr<CreateTicket4CopilotRequest> request);
   CreateUserGroupResponse createUserGroupWithOptions(shared_ptr<CreateUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateUserGroupResponse createUserGroup(shared_ptr<CreateUserGroupRequest> request);
   DelayTicketExpireTimeResponse delayTicketExpireTimeWithOptions(shared_ptr<DelayTicketExpireTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
