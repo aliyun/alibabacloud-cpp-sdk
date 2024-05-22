@@ -17239,13 +17239,16 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> flowLogId{};
   shared_ptr<string> flowLogName{};
+  shared_ptr<string> flowLogVersion{};
   shared_ptr<long> interval{};
+  shared_ptr<string> logFormatString{};
   shared_ptr<string> logStoreName{};
   shared_ptr<string> projectName{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
   shared_ptr<DescribeFlowlogsResponseBodyFlowLogsFlowLogTags> tags{};
   shared_ptr<string> transitRouterAttachmentId{};
+  shared_ptr<string> transitRouterId{};
 
   DescribeFlowlogsResponseBodyFlowLogsFlowLog() {}
 
@@ -17272,8 +17275,14 @@ public:
     if (flowLogName) {
       res["FlowLogName"] = boost::any(*flowLogName);
     }
+    if (flowLogVersion) {
+      res["FlowLogVersion"] = boost::any(*flowLogVersion);
+    }
     if (interval) {
       res["Interval"] = boost::any(*interval);
+    }
+    if (logFormatString) {
+      res["LogFormatString"] = boost::any(*logFormatString);
     }
     if (logStoreName) {
       res["LogStoreName"] = boost::any(*logStoreName);
@@ -17292,6 +17301,9 @@ public:
     }
     if (transitRouterAttachmentId) {
       res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
+    }
+    if (transitRouterId) {
+      res["TransitRouterId"] = boost::any(*transitRouterId);
     }
     return res;
   }
@@ -17312,8 +17324,14 @@ public:
     if (m.find("FlowLogName") != m.end() && !m["FlowLogName"].empty()) {
       flowLogName = make_shared<string>(boost::any_cast<string>(m["FlowLogName"]));
     }
+    if (m.find("FlowLogVersion") != m.end() && !m["FlowLogVersion"].empty()) {
+      flowLogVersion = make_shared<string>(boost::any_cast<string>(m["FlowLogVersion"]));
+    }
     if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
       interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("LogFormatString") != m.end() && !m["LogFormatString"].empty()) {
+      logFormatString = make_shared<string>(boost::any_cast<string>(m["LogFormatString"]));
     }
     if (m.find("LogStoreName") != m.end() && !m["LogStoreName"].empty()) {
       logStoreName = make_shared<string>(boost::any_cast<string>(m["LogStoreName"]));
@@ -17336,6 +17354,9 @@ public:
     }
     if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
       transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
+    }
+    if (m.find("TransitRouterId") != m.end() && !m["TransitRouterId"].empty()) {
+      transitRouterId = make_shared<string>(boost::any_cast<string>(m["TransitRouterId"]));
     }
   }
 
