@@ -2590,6 +2590,7 @@ public:
 class DescribeAppsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> appVersion{};
   shared_ptr<string> order{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNum{};
@@ -2608,6 +2609,9 @@ public:
     map<string, boost::any> res;
     if (appId) {
       res["AppId"] = boost::any(*appId);
+    }
+    if (appVersion) {
+      res["AppVersion"] = boost::any(*appVersion);
     }
     if (order) {
       res["Order"] = boost::any(*order);
@@ -2630,6 +2634,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppVersion") != m.end() && !m["AppVersion"].empty()) {
+      appVersion = make_shared<string>(boost::any_cast<string>(m["AppVersion"]));
     }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));

@@ -581,6 +581,9 @@ DescribeAppsResponse Alibabacloud_Rtc20180111::Client::describeAppsWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appVersion)) {
+    query->insert(pair<string, string>("AppVersion", *request->appVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
     query->insert(pair<string, string>("Order", *request->order));
   }
