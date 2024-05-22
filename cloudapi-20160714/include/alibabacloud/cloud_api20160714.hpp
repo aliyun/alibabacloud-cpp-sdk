@@ -20910,6 +20910,234 @@ public:
 
   virtual ~DescribeAppAttributesResponse() = default;
 };
+class DescribeAppSecuritiesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> appId{};
+  shared_ptr<string> securityToken{};
+
+  DescribeAppSecuritiesRequest() {}
+
+  explicit DescribeAppSecuritiesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<long>(boost::any_cast<long>(m["AppId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~DescribeAppSecuritiesRequest() = default;
+};
+class DescribeAppSecuritiesResponseBodyAppSecuritysAppSecurity : public Darabonba::Model {
+public:
+  shared_ptr<string> appCode{};
+  shared_ptr<string> appKey{};
+  shared_ptr<string> appSecret{};
+  shared_ptr<string> createdTime{};
+  shared_ptr<string> modifiedTime{};
+
+  DescribeAppSecuritiesResponseBodyAppSecuritysAppSecurity() {}
+
+  explicit DescribeAppSecuritiesResponseBodyAppSecuritysAppSecurity(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appCode) {
+      res["AppCode"] = boost::any(*appCode);
+    }
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
+    if (appSecret) {
+      res["AppSecret"] = boost::any(*appSecret);
+    }
+    if (createdTime) {
+      res["CreatedTime"] = boost::any(*createdTime);
+    }
+    if (modifiedTime) {
+      res["ModifiedTime"] = boost::any(*modifiedTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppCode") != m.end() && !m["AppCode"].empty()) {
+      appCode = make_shared<string>(boost::any_cast<string>(m["AppCode"]));
+    }
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("AppSecret") != m.end() && !m["AppSecret"].empty()) {
+      appSecret = make_shared<string>(boost::any_cast<string>(m["AppSecret"]));
+    }
+    if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
+      createdTime = make_shared<string>(boost::any_cast<string>(m["CreatedTime"]));
+    }
+    if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
+      modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
+    }
+  }
+
+
+  virtual ~DescribeAppSecuritiesResponseBodyAppSecuritysAppSecurity() = default;
+};
+class DescribeAppSecuritiesResponseBodyAppSecuritys : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeAppSecuritiesResponseBodyAppSecuritysAppSecurity>> appSecurity{};
+
+  DescribeAppSecuritiesResponseBodyAppSecuritys() {}
+
+  explicit DescribeAppSecuritiesResponseBodyAppSecuritys(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appSecurity) {
+      vector<boost::any> temp1;
+      for(auto item1:*appSecurity){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AppSecurity"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppSecurity") != m.end() && !m["AppSecurity"].empty()) {
+      if (typeid(vector<boost::any>) == m["AppSecurity"].type()) {
+        vector<DescribeAppSecuritiesResponseBodyAppSecuritysAppSecurity> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AppSecurity"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAppSecuritiesResponseBodyAppSecuritysAppSecurity model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        appSecurity = make_shared<vector<DescribeAppSecuritiesResponseBodyAppSecuritysAppSecurity>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAppSecuritiesResponseBodyAppSecuritys() = default;
+};
+class DescribeAppSecuritiesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeAppSecuritiesResponseBodyAppSecuritys> appSecuritys{};
+  shared_ptr<string> requestId{};
+
+  DescribeAppSecuritiesResponseBody() {}
+
+  explicit DescribeAppSecuritiesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appSecuritys) {
+      res["AppSecuritys"] = appSecuritys ? boost::any(appSecuritys->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppSecuritys") != m.end() && !m["AppSecuritys"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AppSecuritys"].type()) {
+        DescribeAppSecuritiesResponseBodyAppSecuritys model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AppSecuritys"]));
+        appSecuritys = make_shared<DescribeAppSecuritiesResponseBodyAppSecuritys>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeAppSecuritiesResponseBody() = default;
+};
+class DescribeAppSecuritiesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeAppSecuritiesResponseBody> body{};
+
+  DescribeAppSecuritiesResponse() {}
+
+  explicit DescribeAppSecuritiesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAppSecuritiesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAppSecuritiesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAppSecuritiesResponse() = default;
+};
 class DescribeAppSecurityRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -50931,6 +51159,8 @@ public:
   DescribeAppResponse describeApp(shared_ptr<DescribeAppRequest> request);
   DescribeAppAttributesResponse describeAppAttributesWithOptions(shared_ptr<DescribeAppAttributesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAppAttributesResponse describeAppAttributes(shared_ptr<DescribeAppAttributesRequest> request);
+  DescribeAppSecuritiesResponse describeAppSecuritiesWithOptions(shared_ptr<DescribeAppSecuritiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAppSecuritiesResponse describeAppSecurities(shared_ptr<DescribeAppSecuritiesRequest> request);
   DescribeAppSecurityResponse describeAppSecurityWithOptions(shared_ptr<DescribeAppSecurityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAppSecurityResponse describeAppSecurity(shared_ptr<DescribeAppSecurityRequest> request);
   DescribeAppsResponse describeAppsWithOptions(shared_ptr<DescribeAppsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
