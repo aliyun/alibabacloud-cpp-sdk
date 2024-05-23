@@ -6160,6 +6160,9 @@ ListEnvironmentDashboardsResponse Alibabacloud_ARMS20190808::Client::listEnviron
 ListEnvironmentFeaturesResponse Alibabacloud_ARMS20190808::Client::listEnvironmentFeaturesWithOptions(shared_ptr<ListEnvironmentFeaturesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliyunLang)) {
+    query->insert(pair<string, string>("AliyunLang", *request->aliyunLang));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->environmentId)) {
     query->insert(pair<string, string>("EnvironmentId", *request->environmentId));
   }

@@ -24418,6 +24418,7 @@ class DescribeEnvironmentFeatureResponseBodyDataFeatureStatus : public Darabonba
 public:
   shared_ptr<string> bindResourceId{};
   shared_ptr<vector<DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureContainers>> featureContainers{};
+  shared_ptr<vector<string>> ips{};
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> securityGroupId{};
@@ -24443,6 +24444,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["FeatureContainers"] = boost::any(temp1);
+    }
+    if (ips) {
+      res["Ips"] = boost::any(*ips);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -24478,6 +24482,16 @@ public:
         }
         featureContainers = make_shared<vector<DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureContainers>>(expect1);
       }
+    }
+    if (m.find("Ips") != m.end() && !m["Ips"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ips"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ips"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ips = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -45798,6 +45812,7 @@ public:
 };
 class ListEnvironmentFeaturesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> aliyunLang{};
   shared_ptr<string> environmentId{};
   shared_ptr<string> regionId{};
 
@@ -45811,6 +45826,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aliyunLang) {
+      res["AliyunLang"] = boost::any(*aliyunLang);
+    }
     if (environmentId) {
       res["EnvironmentId"] = boost::any(*environmentId);
     }
@@ -45821,6 +45839,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunLang") != m.end() && !m["AliyunLang"].empty()) {
+      aliyunLang = make_shared<string>(boost::any_cast<string>(m["AliyunLang"]));
+    }
     if (m.find("EnvironmentId") != m.end() && !m["EnvironmentId"].empty()) {
       environmentId = make_shared<string>(boost::any_cast<string>(m["EnvironmentId"]));
     }
