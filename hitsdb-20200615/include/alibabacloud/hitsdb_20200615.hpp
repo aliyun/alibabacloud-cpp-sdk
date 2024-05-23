@@ -361,6 +361,8 @@ public:
   shared_ptr<long> logNum{};
   shared_ptr<long> logSingleStorage{};
   shared_ptr<string> logSpec{};
+  shared_ptr<string> ltsNum{};
+  shared_ptr<string> ltsSpec{};
   shared_ptr<string> multiZoneCombination{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -454,6 +456,12 @@ public:
     }
     if (logSpec) {
       res["LogSpec"] = boost::any(*logSpec);
+    }
+    if (ltsNum) {
+      res["LtsNum"] = boost::any(*ltsNum);
+    }
+    if (ltsSpec) {
+      res["LtsSpec"] = boost::any(*ltsSpec);
     }
     if (multiZoneCombination) {
       res["MultiZoneCombination"] = boost::any(*multiZoneCombination);
@@ -587,6 +595,12 @@ public:
     }
     if (m.find("LogSpec") != m.end() && !m["LogSpec"].empty()) {
       logSpec = make_shared<string>(boost::any_cast<string>(m["LogSpec"]));
+    }
+    if (m.find("LtsNum") != m.end() && !m["LtsNum"].empty()) {
+      ltsNum = make_shared<string>(boost::any_cast<string>(m["LtsNum"]));
+    }
+    if (m.find("LtsSpec") != m.end() && !m["LtsSpec"].empty()) {
+      ltsSpec = make_shared<string>(boost::any_cast<string>(m["LtsSpec"]));
     }
     if (m.find("MultiZoneCombination") != m.end() && !m["MultiZoneCombination"].empty()) {
       multiZoneCombination = make_shared<string>(boost::any_cast<string>(m["MultiZoneCombination"]));
@@ -3604,6 +3618,7 @@ public:
   shared_ptr<long> aliUid{};
   shared_ptr<long> createMilliseconds{};
   shared_ptr<string> createTime{};
+  shared_ptr<bool> enableColumn{};
   shared_ptr<bool> enableCompute{};
   shared_ptr<bool> enableLts{};
   shared_ptr<bool> enableMessage{};
@@ -3643,6 +3658,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (enableColumn) {
+      res["EnableColumn"] = boost::any(*enableColumn);
     }
     if (enableCompute) {
       res["EnableCompute"] = boost::any(*enableCompute);
@@ -3720,6 +3738,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("EnableColumn") != m.end() && !m["EnableColumn"].empty()) {
+      enableColumn = make_shared<bool>(boost::any_cast<bool>(m["EnableColumn"]));
     }
     if (m.find("EnableCompute") != m.end() && !m["EnableCompute"].empty()) {
       enableCompute = make_shared<bool>(boost::any_cast<bool>(m["EnableCompute"]));

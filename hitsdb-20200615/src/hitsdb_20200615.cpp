@@ -201,6 +201,12 @@ CreateLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::createLindorm
   if (!Darabonba_Util::Client::isUnset<string>(request->logSpec)) {
     query->insert(pair<string, string>("LogSpec", *request->logSpec));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ltsNum)) {
+    query->insert(pair<string, string>("LtsNum", *request->ltsNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ltsSpec)) {
+    query->insert(pair<string, string>("LtsSpec", *request->ltsSpec));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->multiZoneCombination)) {
     query->insert(pair<string, string>("MultiZoneCombination", *request->multiZoneCombination));
   }
