@@ -22650,6 +22650,7 @@ public:
   shared_ptr<DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeBabelfishConfig> babelfishConfig{};
   shared_ptr<string> bpeEnabled{};
   shared_ptr<bool> burstingEnabled{};
+  shared_ptr<bool> canTempUpgrade{};
   shared_ptr<string> category{};
   shared_ptr<bool> coldDataEnabled{};
   shared_ptr<string> collation{};
@@ -22708,6 +22709,8 @@ public:
   shared_ptr<DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeSlaveZones> slaveZones{};
   shared_ptr<string> superPermissionMode{};
   shared_ptr<string> tempDBInstanceId{};
+  shared_ptr<string> tempUpgradeTimeEnd{};
+  shared_ptr<string> tempUpgradeTimeStart{};
   shared_ptr<string> timeZone{};
   shared_ptr<string> tips{};
   shared_ptr<long> tipsLevel{};
@@ -22747,6 +22750,9 @@ public:
     }
     if (burstingEnabled) {
       res["BurstingEnabled"] = boost::any(*burstingEnabled);
+    }
+    if (canTempUpgrade) {
+      res["CanTempUpgrade"] = boost::any(*canTempUpgrade);
     }
     if (category) {
       res["Category"] = boost::any(*category);
@@ -22922,6 +22928,12 @@ public:
     if (tempDBInstanceId) {
       res["TempDBInstanceId"] = boost::any(*tempDBInstanceId);
     }
+    if (tempUpgradeTimeEnd) {
+      res["TempUpgradeTimeEnd"] = boost::any(*tempUpgradeTimeEnd);
+    }
+    if (tempUpgradeTimeStart) {
+      res["TempUpgradeTimeStart"] = boost::any(*tempUpgradeTimeStart);
+    }
     if (timeZone) {
       res["TimeZone"] = boost::any(*timeZone);
     }
@@ -22974,6 +22986,9 @@ public:
     }
     if (m.find("BurstingEnabled") != m.end() && !m["BurstingEnabled"].empty()) {
       burstingEnabled = make_shared<bool>(boost::any_cast<bool>(m["BurstingEnabled"]));
+    }
+    if (m.find("CanTempUpgrade") != m.end() && !m["CanTempUpgrade"].empty()) {
+      canTempUpgrade = make_shared<bool>(boost::any_cast<bool>(m["CanTempUpgrade"]));
     }
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
@@ -23168,6 +23183,12 @@ public:
     }
     if (m.find("TempDBInstanceId") != m.end() && !m["TempDBInstanceId"].empty()) {
       tempDBInstanceId = make_shared<string>(boost::any_cast<string>(m["TempDBInstanceId"]));
+    }
+    if (m.find("TempUpgradeTimeEnd") != m.end() && !m["TempUpgradeTimeEnd"].empty()) {
+      tempUpgradeTimeEnd = make_shared<string>(boost::any_cast<string>(m["TempUpgradeTimeEnd"]));
+    }
+    if (m.find("TempUpgradeTimeStart") != m.end() && !m["TempUpgradeTimeStart"].empty()) {
+      tempUpgradeTimeStart = make_shared<string>(boost::any_cast<string>(m["TempUpgradeTimeStart"]));
     }
     if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
       timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
