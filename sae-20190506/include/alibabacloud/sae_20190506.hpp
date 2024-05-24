@@ -28387,6 +28387,7 @@ public:
   shared_ptr<long> instances{};
   shared_ptr<long> mem{};
   shared_ptr<bool> mseEnabled{};
+  shared_ptr<string> mseNamespaceId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> programmingLanguage{};
   shared_ptr<string> regionId{};
@@ -28436,6 +28437,9 @@ public:
     }
     if (mseEnabled) {
       res["MseEnabled"] = boost::any(*mseEnabled);
+    }
+    if (mseNamespaceId) {
+      res["MseNamespaceId"] = boost::any(*mseNamespaceId);
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
@@ -28499,6 +28503,9 @@ public:
     }
     if (m.find("MseEnabled") != m.end() && !m["MseEnabled"].empty()) {
       mseEnabled = make_shared<bool>(boost::any_cast<bool>(m["MseEnabled"]));
+    }
+    if (m.find("MseNamespaceId") != m.end() && !m["MseNamespaceId"].empty()) {
+      mseNamespaceId = make_shared<string>(boost::any_cast<string>(m["MseNamespaceId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
