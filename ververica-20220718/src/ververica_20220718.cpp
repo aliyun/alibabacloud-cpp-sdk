@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -664,8 +663,20 @@ ListDeploymentsResponse Alibabacloud_Ververica20220718::Client::listDeploymentsW
                                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->creator)) {
+    query->insert(pair<string, string>("creator", *request->creator));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->executionMode)) {
     query->insert(pair<string, string>("executionMode", *request->executionMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labelKey)) {
+    query->insert(pair<string, string>("labelKey", *request->labelKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labelValueArray)) {
+    query->insert(pair<string, string>("labelValueArray", *request->labelValueArray));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modifier)) {
+    query->insert(pair<string, string>("modifier", *request->modifier));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("name", *request->name));
@@ -675,6 +686,9 @@ ListDeploymentsResponse Alibabacloud_Ververica20220718::Client::listDeploymentsW
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("status", *request->status));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -705,6 +719,48 @@ ListDeploymentsResponse Alibabacloud_Ververica20220718::Client::listDeployments(
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<ListDeploymentsHeaders> headers = make_shared<ListDeploymentsHeaders>();
   return listDeploymentsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+}
+
+ListEditableNamespaceResponse Alibabacloud_Ververica20220718::Client::listEditableNamespaceWithOptions(shared_ptr<ListEditableNamespaceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageIndex)) {
+    query->insert(pair<string, string>("pageIndex", *request->pageIndex));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("regionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
+    query->insert(pair<string, string>("workspaceId", *request->workspaceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListEditableNamespace"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/gateway/v2/namespaces/editable"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListEditableNamespaceResponse(callApi(params, req, runtime));
+}
+
+ListEditableNamespaceResponse Alibabacloud_Ververica20220718::Client::listEditableNamespace(shared_ptr<ListEditableNamespaceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listEditableNamespaceWithOptions(request, headers, runtime);
 }
 
 ListEngineVersionMetadataResponse Alibabacloud_Ververica20220718::Client::listEngineVersionMetadataWithOptions(shared_ptr<ListEngineVersionMetadataHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -752,6 +808,9 @@ ListJobsResponse Alibabacloud_Ververica20220718::Client::listJobsWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortName)) {
+    query->insert(pair<string, string>("sortName", *request->sortName));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
