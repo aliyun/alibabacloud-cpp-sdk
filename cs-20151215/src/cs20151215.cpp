@@ -339,6 +339,36 @@ CheckControlPlaneLogEnableResponse Alibabacloud_CS20151215::Client::checkControl
   return checkControlPlaneLogEnableWithOptions(ClusterId, headers, runtime);
 }
 
+CheckServiceRoleResponse Alibabacloud_CS20151215::Client::checkServiceRoleWithOptions(shared_ptr<CheckServiceRoleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CheckServiceRoleRequestRoles>>(request->roles)) {
+    body->insert(pair<string, vector<CheckServiceRoleRequestRoles>>("roles", *request->roles));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CheckServiceRole"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/ram/check-service-role"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CheckServiceRoleResponse(callApi(params, req, runtime));
+}
+
+CheckServiceRoleResponse Alibabacloud_CS20151215::Client::checkServiceRole(shared_ptr<CheckServiceRoleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return checkServiceRoleWithOptions(request, headers, runtime);
+}
+
 CreateAutoscalingConfigResponse Alibabacloud_CS20151215::Client::createAutoscalingConfigWithOptions(shared_ptr<string> ClusterId,
                                                                                                     shared_ptr<CreateAutoscalingConfigRequest> request,
                                                                                                     shared_ptr<map<string, string>> headers,

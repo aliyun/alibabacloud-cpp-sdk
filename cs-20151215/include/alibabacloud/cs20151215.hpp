@@ -2672,6 +2672,216 @@ public:
 
   virtual ~CheckControlPlaneLogEnableResponse() = default;
 };
+class CheckServiceRoleRequestRoles : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+
+  CheckServiceRoleRequestRoles() {}
+
+  explicit CheckServiceRoleRequestRoles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~CheckServiceRoleRequestRoles() = default;
+};
+class CheckServiceRoleRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<CheckServiceRoleRequestRoles>> roles{};
+
+  CheckServiceRoleRequest() {}
+
+  explicit CheckServiceRoleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (roles) {
+      vector<boost::any> temp1;
+      for(auto item1:*roles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["roles"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("roles") != m.end() && !m["roles"].empty()) {
+      if (typeid(vector<boost::any>) == m["roles"].type()) {
+        vector<CheckServiceRoleRequestRoles> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["roles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CheckServiceRoleRequestRoles model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        roles = make_shared<vector<CheckServiceRoleRequestRoles>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CheckServiceRoleRequest() = default;
+};
+class CheckServiceRoleResponseBodyRoles : public Darabonba::Model {
+public:
+  shared_ptr<bool> granted{};
+  shared_ptr<string> message{};
+  shared_ptr<string> name{};
+
+  CheckServiceRoleResponseBodyRoles() {}
+
+  explicit CheckServiceRoleResponseBodyRoles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (granted) {
+      res["granted"] = boost::any(*granted);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("granted") != m.end() && !m["granted"].empty()) {
+      granted = make_shared<bool>(boost::any_cast<bool>(m["granted"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~CheckServiceRoleResponseBodyRoles() = default;
+};
+class CheckServiceRoleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<CheckServiceRoleResponseBodyRoles>> roles{};
+
+  CheckServiceRoleResponseBody() {}
+
+  explicit CheckServiceRoleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (roles) {
+      vector<boost::any> temp1;
+      for(auto item1:*roles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["roles"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("roles") != m.end() && !m["roles"].empty()) {
+      if (typeid(vector<boost::any>) == m["roles"].type()) {
+        vector<CheckServiceRoleResponseBodyRoles> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["roles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CheckServiceRoleResponseBodyRoles model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        roles = make_shared<vector<CheckServiceRoleResponseBodyRoles>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CheckServiceRoleResponseBody() = default;
+};
+class CheckServiceRoleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CheckServiceRoleResponseBody> body{};
+
+  CheckServiceRoleResponse() {}
+
+  explicit CheckServiceRoleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CheckServiceRoleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CheckServiceRoleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckServiceRoleResponse() = default;
+};
 class CreateAutoscalingConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> coolDownDuration{};
@@ -27446,6 +27656,8 @@ public:
   CancelWorkflowResponse cancelWorkflow(shared_ptr<string> workflowName, shared_ptr<CancelWorkflowRequest> request);
   CheckControlPlaneLogEnableResponse checkControlPlaneLogEnableWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckControlPlaneLogEnableResponse checkControlPlaneLogEnable(shared_ptr<string> ClusterId);
+  CheckServiceRoleResponse checkServiceRoleWithOptions(shared_ptr<CheckServiceRoleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CheckServiceRoleResponse checkServiceRole(shared_ptr<CheckServiceRoleRequest> request);
   CreateAutoscalingConfigResponse createAutoscalingConfigWithOptions(shared_ptr<string> ClusterId,
                                                                      shared_ptr<CreateAutoscalingConfigRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
