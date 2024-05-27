@@ -9472,6 +9472,7 @@ class DescribeApiResponseBodyRequestConfig : public Darabonba::Model {
 public:
   shared_ptr<string> bodyFormat{};
   shared_ptr<string> bodyModel{};
+  shared_ptr<bool> escapePathParam{};
   shared_ptr<string> postBodyDescription{};
   shared_ptr<string> requestHttpMethod{};
   shared_ptr<string> requestMode{};
@@ -9493,6 +9494,9 @@ public:
     }
     if (bodyModel) {
       res["BodyModel"] = boost::any(*bodyModel);
+    }
+    if (escapePathParam) {
+      res["EscapePathParam"] = boost::any(*escapePathParam);
     }
     if (postBodyDescription) {
       res["PostBodyDescription"] = boost::any(*postBodyDescription);
@@ -9518,6 +9522,9 @@ public:
     }
     if (m.find("BodyModel") != m.end() && !m["BodyModel"].empty()) {
       bodyModel = make_shared<string>(boost::any_cast<string>(m["BodyModel"]));
+    }
+    if (m.find("EscapePathParam") != m.end() && !m["EscapePathParam"].empty()) {
+      escapePathParam = make_shared<bool>(boost::any_cast<bool>(m["EscapePathParam"]));
     }
     if (m.find("PostBodyDescription") != m.end() && !m["PostBodyDescription"].empty()) {
       postBodyDescription = make_shared<string>(boost::any_cast<string>(m["PostBodyDescription"]));
@@ -11087,6 +11094,7 @@ public:
 class DescribeApiDocResponseBodyRequestConfig : public Darabonba::Model {
 public:
   shared_ptr<string> bodyFormat{};
+  shared_ptr<bool> escapePathParam{};
   shared_ptr<string> postBodyDescription{};
   shared_ptr<string> requestHttpMethod{};
   shared_ptr<string> requestMode{};
@@ -11105,6 +11113,9 @@ public:
     map<string, boost::any> res;
     if (bodyFormat) {
       res["BodyFormat"] = boost::any(*bodyFormat);
+    }
+    if (escapePathParam) {
+      res["EscapePathParam"] = boost::any(*escapePathParam);
     }
     if (postBodyDescription) {
       res["PostBodyDescription"] = boost::any(*postBodyDescription);
@@ -11127,6 +11138,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BodyFormat") != m.end() && !m["BodyFormat"].empty()) {
       bodyFormat = make_shared<string>(boost::any_cast<string>(m["BodyFormat"]));
+    }
+    if (m.find("EscapePathParam") != m.end() && !m["EscapePathParam"].empty()) {
+      escapePathParam = make_shared<bool>(boost::any_cast<bool>(m["EscapePathParam"]));
     }
     if (m.find("PostBodyDescription") != m.end() && !m["PostBodyDescription"].empty()) {
       postBodyDescription = make_shared<string>(boost::any_cast<string>(m["PostBodyDescription"]));
@@ -13590,6 +13604,7 @@ class DescribeApiHistoryResponseBodyRequestConfig : public Darabonba::Model {
 public:
   shared_ptr<string> bodyFormat{};
   shared_ptr<string> bodyModel{};
+  shared_ptr<bool> escapePathParam{};
   shared_ptr<string> postBodyDescription{};
   shared_ptr<string> requestHttpMethod{};
   shared_ptr<string> requestMode{};
@@ -13611,6 +13626,9 @@ public:
     }
     if (bodyModel) {
       res["BodyModel"] = boost::any(*bodyModel);
+    }
+    if (escapePathParam) {
+      res["EscapePathParam"] = boost::any(*escapePathParam);
     }
     if (postBodyDescription) {
       res["PostBodyDescription"] = boost::any(*postBodyDescription);
@@ -13636,6 +13654,9 @@ public:
     }
     if (m.find("BodyModel") != m.end() && !m["BodyModel"].empty()) {
       bodyModel = make_shared<string>(boost::any_cast<string>(m["BodyModel"]));
+    }
+    if (m.find("EscapePathParam") != m.end() && !m["EscapePathParam"].empty()) {
+      escapePathParam = make_shared<bool>(boost::any_cast<bool>(m["EscapePathParam"]));
     }
     if (m.find("PostBodyDescription") != m.end() && !m["PostBodyDescription"].empty()) {
       postBodyDescription = make_shared<string>(boost::any_cast<string>(m["PostBodyDescription"]));
