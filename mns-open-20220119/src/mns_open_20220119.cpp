@@ -58,6 +58,9 @@ CreateQueueResponse Alibabacloud_Mns-open20220119::Client::createQueueWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->queueName)) {
     query->insert(pair<string, string>("QueueName", *request->queueName));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateQueueRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateQueueRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->visibilityTimeout)) {
     query->insert(pair<string, long>("VisibilityTimeout", *request->visibilityTimeout));
   }
@@ -85,6 +88,10 @@ CreateQueueResponse Alibabacloud_Mns-open20220119::Client::createQueue(shared_pt
 
 CreateTopicResponse Alibabacloud_Mns-open20220119::Client::createTopicWithOptions(shared_ptr<CreateTopicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CreateTopicRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateTopicRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableLogging)) {
     body->insert(pair<string, bool>("EnableLogging", *request->enableLogging));
@@ -96,6 +103,7 @@ CreateTopicResponse Alibabacloud_Mns-open20220119::Client::createTopicWithOption
     body->insert(pair<string, string>("TopicName", *request->topicName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -179,6 +187,9 @@ GetQueueAttributesResponse Alibabacloud_Mns-open20220119::Client::getQueueAttrib
   if (!Darabonba_Util::Client::isUnset<string>(request->queueName)) {
     query->insert(pair<string, string>("QueueName", *request->queueName));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<GetQueueAttributesRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<GetQueueAttributesRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -235,6 +246,9 @@ GetSubscriptionAttributesResponse Alibabacloud_Mns-open20220119::Client::getSubs
 GetTopicAttributesResponse Alibabacloud_Mns-open20220119::Client::getTopicAttributesWithOptions(shared_ptr<GetTopicAttributesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<GetTopicAttributesRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<GetTopicAttributesRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->topicName)) {
     query->insert(pair<string, string>("TopicName", *request->topicName));
   }
@@ -271,6 +285,9 @@ ListQueueResponse Alibabacloud_Mns-open20220119::Client::listQueueWithOptions(sh
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->queueName)) {
     query->insert(pair<string, string>("QueueName", *request->queueName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListQueueRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListQueueRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -339,6 +356,9 @@ ListTopicResponse Alibabacloud_Mns-open20220119::Client::listTopicWithOptions(sh
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListTopicRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListTopicRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->topicName)) {
     query->insert(pair<string, string>("TopicName", *request->topicName));
