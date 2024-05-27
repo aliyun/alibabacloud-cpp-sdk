@@ -2643,6 +2643,8 @@ public:
 class TextModerationPlusResponseBodyDataAdvice : public Darabonba::Model {
 public:
   shared_ptr<string> answer{};
+  shared_ptr<string> hitLabel{};
+  shared_ptr<string> hitLibName{};
 
   TextModerationPlusResponseBodyDataAdvice() {}
 
@@ -2657,12 +2659,24 @@ public:
     if (answer) {
       res["Answer"] = boost::any(*answer);
     }
+    if (hitLabel) {
+      res["HitLabel"] = boost::any(*hitLabel);
+    }
+    if (hitLibName) {
+      res["HitLibName"] = boost::any(*hitLibName);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Answer") != m.end() && !m["Answer"].empty()) {
       answer = make_shared<string>(boost::any_cast<string>(m["Answer"]));
+    }
+    if (m.find("HitLabel") != m.end() && !m["HitLabel"].empty()) {
+      hitLabel = make_shared<string>(boost::any_cast<string>(m["HitLabel"]));
+    }
+    if (m.find("HitLibName") != m.end() && !m["HitLibName"].empty()) {
+      hitLibName = make_shared<string>(boost::any_cast<string>(m["HitLibName"]));
     }
   }
 
