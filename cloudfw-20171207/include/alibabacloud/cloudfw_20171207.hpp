@@ -9694,6 +9694,56 @@ public:
 
   virtual ~DescribeNatFirewallListRequest() = default;
 };
+class DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList : public Darabonba::Model {
+public:
+  shared_ptr<string> destinationCidr{};
+  shared_ptr<string> nextHopId{};
+  shared_ptr<string> nextHopType{};
+  shared_ptr<string> routeTableId{};
+
+  DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList() {}
+
+  explicit DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationCidr) {
+      res["DestinationCidr"] = boost::any(*destinationCidr);
+    }
+    if (nextHopId) {
+      res["NextHopId"] = boost::any(*nextHopId);
+    }
+    if (nextHopType) {
+      res["NextHopType"] = boost::any(*nextHopType);
+    }
+    if (routeTableId) {
+      res["RouteTableId"] = boost::any(*routeTableId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DestinationCidr") != m.end() && !m["DestinationCidr"].empty()) {
+      destinationCidr = make_shared<string>(boost::any_cast<string>(m["DestinationCidr"]));
+    }
+    if (m.find("NextHopId") != m.end() && !m["NextHopId"].empty()) {
+      nextHopId = make_shared<string>(boost::any_cast<string>(m["NextHopId"]));
+    }
+    if (m.find("NextHopType") != m.end() && !m["NextHopType"].empty()) {
+      nextHopType = make_shared<string>(boost::any_cast<string>(m["NextHopType"]));
+    }
+    if (m.find("RouteTableId") != m.end() && !m["RouteTableId"].empty()) {
+      routeTableId = make_shared<string>(boost::any_cast<string>(m["RouteTableId"]));
+    }
+  }
+
+
+  virtual ~DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList() = default;
+};
 class DescribeNatFirewallListResponseBodyNatFirewallList : public Darabonba::Model {
 public:
   shared_ptr<long> aliUid{};
@@ -9701,6 +9751,7 @@ public:
   shared_ptr<long> memberUid{};
   shared_ptr<string> natGatewayId{};
   shared_ptr<string> natGatewayName{};
+  shared_ptr<vector<DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList>> natRouteEntryList{};
   shared_ptr<string> proxyId{};
   shared_ptr<string> proxyName{};
   shared_ptr<string> proxyStatus{};
@@ -9733,6 +9784,13 @@ public:
     }
     if (natGatewayName) {
       res["NatGatewayName"] = boost::any(*natGatewayName);
+    }
+    if (natRouteEntryList) {
+      vector<boost::any> temp1;
+      for(auto item1:*natRouteEntryList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NatRouteEntryList"] = boost::any(temp1);
     }
     if (proxyId) {
       res["ProxyId"] = boost::any(*proxyId);
@@ -9773,6 +9831,19 @@ public:
     }
     if (m.find("NatGatewayName") != m.end() && !m["NatGatewayName"].empty()) {
       natGatewayName = make_shared<string>(boost::any_cast<string>(m["NatGatewayName"]));
+    }
+    if (m.find("NatRouteEntryList") != m.end() && !m["NatRouteEntryList"].empty()) {
+      if (typeid(vector<boost::any>) == m["NatRouteEntryList"].type()) {
+        vector<DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NatRouteEntryList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        natRouteEntryList = make_shared<vector<DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList>>(expect1);
+      }
     }
     if (m.find("ProxyId") != m.end() && !m["ProxyId"].empty()) {
       proxyId = make_shared<string>(boost::any_cast<string>(m["ProxyId"]));
