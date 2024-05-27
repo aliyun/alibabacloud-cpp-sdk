@@ -5444,6 +5444,581 @@ public:
 
   virtual ~DescribeBatchResultDetailResponse() = default;
 };
+class DescribeCloudGtmAddressPoolRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> addressPoolId{};
+  shared_ptr<string> clientToken{};
+
+  DescribeCloudGtmAddressPoolRequest() {}
+
+  explicit DescribeCloudGtmAddressPoolRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (addressPoolId) {
+      res["AddressPoolId"] = boost::any(*addressPoolId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("AddressPoolId") != m.end() && !m["AddressPoolId"].empty()) {
+      addressPoolId = make_shared<string>(boost::any_cast<string>(m["AddressPoolId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudGtmAddressPoolRequest() = default;
+};
+class DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasksHealthTask : public Darabonba::Model {
+public:
+  shared_ptr<long> port{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> templateName{};
+
+  DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasksHealthTask() {}
+
+  explicit DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasksHealthTask(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasksHealthTask() = default;
+};
+class DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasks : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasksHealthTask>> healthTask{};
+
+  DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasks() {}
+
+  explicit DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (healthTask) {
+      vector<boost::any> temp1;
+      for(auto item1:*healthTask){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HealthTask"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HealthTask") != m.end() && !m["HealthTask"].empty()) {
+      if (typeid(vector<boost::any>) == m["HealthTask"].type()) {
+        vector<DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasksHealthTask> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HealthTask"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasksHealthTask model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        healthTask = make_shared<vector<DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasksHealthTask>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasks() = default;
+};
+class DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSource : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> requestSource{};
+
+  DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSource() {}
+
+  explicit DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSource(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestSource) {
+      res["RequestSource"] = boost::any(*requestSource);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestSource") != m.end() && !m["RequestSource"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RequestSource"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RequestSource"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      requestSource = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSource() = default;
+};
+class DescribeCloudGtmAddressPoolResponseBodyAddressesAddress : public Darabonba::Model {
+public:
+  shared_ptr<string> address{};
+  shared_ptr<string> addressId{};
+  shared_ptr<string> attributeInfo{};
+  shared_ptr<string> availableMode{};
+  shared_ptr<string> availableStatus{};
+  shared_ptr<string> createTime{};
+  shared_ptr<long> createTimestamp{};
+  shared_ptr<string> enableStatus{};
+  shared_ptr<string> healthJudgement{};
+  shared_ptr<string> healthStatus{};
+  shared_ptr<DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasks> healthTasks{};
+  shared_ptr<string> manualAvailableStatus{};
+  shared_ptr<string> name{};
+  shared_ptr<string> remark{};
+  shared_ptr<DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSource> requestSource{};
+  shared_ptr<bool> seqNonPreemptiveSchedule{};
+  shared_ptr<long> serialNumber{};
+  shared_ptr<string> type{};
+  shared_ptr<string> updateTime{};
+  shared_ptr<long> updateTimestamp{};
+  shared_ptr<long> weightValue{};
+
+  DescribeCloudGtmAddressPoolResponseBodyAddressesAddress() {}
+
+  explicit DescribeCloudGtmAddressPoolResponseBodyAddressesAddress(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (address) {
+      res["Address"] = boost::any(*address);
+    }
+    if (addressId) {
+      res["AddressId"] = boost::any(*addressId);
+    }
+    if (attributeInfo) {
+      res["AttributeInfo"] = boost::any(*attributeInfo);
+    }
+    if (availableMode) {
+      res["AvailableMode"] = boost::any(*availableMode);
+    }
+    if (availableStatus) {
+      res["AvailableStatus"] = boost::any(*availableStatus);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (createTimestamp) {
+      res["CreateTimestamp"] = boost::any(*createTimestamp);
+    }
+    if (enableStatus) {
+      res["EnableStatus"] = boost::any(*enableStatus);
+    }
+    if (healthJudgement) {
+      res["HealthJudgement"] = boost::any(*healthJudgement);
+    }
+    if (healthStatus) {
+      res["HealthStatus"] = boost::any(*healthStatus);
+    }
+    if (healthTasks) {
+      res["HealthTasks"] = healthTasks ? boost::any(healthTasks->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (manualAvailableStatus) {
+      res["ManualAvailableStatus"] = boost::any(*manualAvailableStatus);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (requestSource) {
+      res["RequestSource"] = requestSource ? boost::any(requestSource->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (seqNonPreemptiveSchedule) {
+      res["SeqNonPreemptiveSchedule"] = boost::any(*seqNonPreemptiveSchedule);
+    }
+    if (serialNumber) {
+      res["SerialNumber"] = boost::any(*serialNumber);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    if (updateTimestamp) {
+      res["UpdateTimestamp"] = boost::any(*updateTimestamp);
+    }
+    if (weightValue) {
+      res["WeightValue"] = boost::any(*weightValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("AddressId") != m.end() && !m["AddressId"].empty()) {
+      addressId = make_shared<string>(boost::any_cast<string>(m["AddressId"]));
+    }
+    if (m.find("AttributeInfo") != m.end() && !m["AttributeInfo"].empty()) {
+      attributeInfo = make_shared<string>(boost::any_cast<string>(m["AttributeInfo"]));
+    }
+    if (m.find("AvailableMode") != m.end() && !m["AvailableMode"].empty()) {
+      availableMode = make_shared<string>(boost::any_cast<string>(m["AvailableMode"]));
+    }
+    if (m.find("AvailableStatus") != m.end() && !m["AvailableStatus"].empty()) {
+      availableStatus = make_shared<string>(boost::any_cast<string>(m["AvailableStatus"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
+      createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
+    if (m.find("EnableStatus") != m.end() && !m["EnableStatus"].empty()) {
+      enableStatus = make_shared<string>(boost::any_cast<string>(m["EnableStatus"]));
+    }
+    if (m.find("HealthJudgement") != m.end() && !m["HealthJudgement"].empty()) {
+      healthJudgement = make_shared<string>(boost::any_cast<string>(m["HealthJudgement"]));
+    }
+    if (m.find("HealthStatus") != m.end() && !m["HealthStatus"].empty()) {
+      healthStatus = make_shared<string>(boost::any_cast<string>(m["HealthStatus"]));
+    }
+    if (m.find("HealthTasks") != m.end() && !m["HealthTasks"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HealthTasks"].type()) {
+        DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasks model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HealthTasks"]));
+        healthTasks = make_shared<DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasks>(model1);
+      }
+    }
+    if (m.find("ManualAvailableStatus") != m.end() && !m["ManualAvailableStatus"].empty()) {
+      manualAvailableStatus = make_shared<string>(boost::any_cast<string>(m["ManualAvailableStatus"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("RequestSource") != m.end() && !m["RequestSource"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RequestSource"].type()) {
+        DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSource model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RequestSource"]));
+        requestSource = make_shared<DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSource>(model1);
+      }
+    }
+    if (m.find("SeqNonPreemptiveSchedule") != m.end() && !m["SeqNonPreemptiveSchedule"].empty()) {
+      seqNonPreemptiveSchedule = make_shared<bool>(boost::any_cast<bool>(m["SeqNonPreemptiveSchedule"]));
+    }
+    if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
+      serialNumber = make_shared<long>(boost::any_cast<long>(m["SerialNumber"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+    if (m.find("UpdateTimestamp") != m.end() && !m["UpdateTimestamp"].empty()) {
+      updateTimestamp = make_shared<long>(boost::any_cast<long>(m["UpdateTimestamp"]));
+    }
+    if (m.find("WeightValue") != m.end() && !m["WeightValue"].empty()) {
+      weightValue = make_shared<long>(boost::any_cast<long>(m["WeightValue"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudGtmAddressPoolResponseBodyAddressesAddress() = default;
+};
+class DescribeCloudGtmAddressPoolResponseBodyAddresses : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeCloudGtmAddressPoolResponseBodyAddressesAddress>> address{};
+
+  DescribeCloudGtmAddressPoolResponseBodyAddresses() {}
+
+  explicit DescribeCloudGtmAddressPoolResponseBodyAddresses(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (address) {
+      vector<boost::any> temp1;
+      for(auto item1:*address){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Address"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      if (typeid(vector<boost::any>) == m["Address"].type()) {
+        vector<DescribeCloudGtmAddressPoolResponseBodyAddressesAddress> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Address"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCloudGtmAddressPoolResponseBodyAddressesAddress model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        address = make_shared<vector<DescribeCloudGtmAddressPoolResponseBodyAddressesAddress>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCloudGtmAddressPoolResponseBodyAddresses() = default;
+};
+class DescribeCloudGtmAddressPoolResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> addressLbStrategy{};
+  shared_ptr<string> addressPoolId{};
+  shared_ptr<string> addressPoolName{};
+  shared_ptr<string> addressPoolType{};
+  shared_ptr<DescribeCloudGtmAddressPoolResponseBodyAddresses> addresses{};
+  shared_ptr<string> availableStatus{};
+  shared_ptr<string> createTime{};
+  shared_ptr<long> createTimestamp{};
+  shared_ptr<string> enableStatus{};
+  shared_ptr<string> healthJudgement{};
+  shared_ptr<string> healthStatus{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sequenceLbStrategyMode{};
+  shared_ptr<string> updateTime{};
+  shared_ptr<long> updateTimestamp{};
+
+  DescribeCloudGtmAddressPoolResponseBody() {}
+
+  explicit DescribeCloudGtmAddressPoolResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addressLbStrategy) {
+      res["AddressLbStrategy"] = boost::any(*addressLbStrategy);
+    }
+    if (addressPoolId) {
+      res["AddressPoolId"] = boost::any(*addressPoolId);
+    }
+    if (addressPoolName) {
+      res["AddressPoolName"] = boost::any(*addressPoolName);
+    }
+    if (addressPoolType) {
+      res["AddressPoolType"] = boost::any(*addressPoolType);
+    }
+    if (addresses) {
+      res["Addresses"] = addresses ? boost::any(addresses->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (availableStatus) {
+      res["AvailableStatus"] = boost::any(*availableStatus);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (createTimestamp) {
+      res["CreateTimestamp"] = boost::any(*createTimestamp);
+    }
+    if (enableStatus) {
+      res["EnableStatus"] = boost::any(*enableStatus);
+    }
+    if (healthJudgement) {
+      res["HealthJudgement"] = boost::any(*healthJudgement);
+    }
+    if (healthStatus) {
+      res["HealthStatus"] = boost::any(*healthStatus);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sequenceLbStrategyMode) {
+      res["SequenceLbStrategyMode"] = boost::any(*sequenceLbStrategyMode);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    if (updateTimestamp) {
+      res["UpdateTimestamp"] = boost::any(*updateTimestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressLbStrategy") != m.end() && !m["AddressLbStrategy"].empty()) {
+      addressLbStrategy = make_shared<string>(boost::any_cast<string>(m["AddressLbStrategy"]));
+    }
+    if (m.find("AddressPoolId") != m.end() && !m["AddressPoolId"].empty()) {
+      addressPoolId = make_shared<string>(boost::any_cast<string>(m["AddressPoolId"]));
+    }
+    if (m.find("AddressPoolName") != m.end() && !m["AddressPoolName"].empty()) {
+      addressPoolName = make_shared<string>(boost::any_cast<string>(m["AddressPoolName"]));
+    }
+    if (m.find("AddressPoolType") != m.end() && !m["AddressPoolType"].empty()) {
+      addressPoolType = make_shared<string>(boost::any_cast<string>(m["AddressPoolType"]));
+    }
+    if (m.find("Addresses") != m.end() && !m["Addresses"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Addresses"].type()) {
+        DescribeCloudGtmAddressPoolResponseBodyAddresses model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Addresses"]));
+        addresses = make_shared<DescribeCloudGtmAddressPoolResponseBodyAddresses>(model1);
+      }
+    }
+    if (m.find("AvailableStatus") != m.end() && !m["AvailableStatus"].empty()) {
+      availableStatus = make_shared<string>(boost::any_cast<string>(m["AvailableStatus"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
+      createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
+    if (m.find("EnableStatus") != m.end() && !m["EnableStatus"].empty()) {
+      enableStatus = make_shared<string>(boost::any_cast<string>(m["EnableStatus"]));
+    }
+    if (m.find("HealthJudgement") != m.end() && !m["HealthJudgement"].empty()) {
+      healthJudgement = make_shared<string>(boost::any_cast<string>(m["HealthJudgement"]));
+    }
+    if (m.find("HealthStatus") != m.end() && !m["HealthStatus"].empty()) {
+      healthStatus = make_shared<string>(boost::any_cast<string>(m["HealthStatus"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SequenceLbStrategyMode") != m.end() && !m["SequenceLbStrategyMode"].empty()) {
+      sequenceLbStrategyMode = make_shared<string>(boost::any_cast<string>(m["SequenceLbStrategyMode"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+    if (m.find("UpdateTimestamp") != m.end() && !m["UpdateTimestamp"].empty()) {
+      updateTimestamp = make_shared<long>(boost::any_cast<long>(m["UpdateTimestamp"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudGtmAddressPoolResponseBody() = default;
+};
+class DescribeCloudGtmAddressPoolResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCloudGtmAddressPoolResponseBody> body{};
+
+  DescribeCloudGtmAddressPoolResponse() {}
+
+  explicit DescribeCloudGtmAddressPoolResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCloudGtmAddressPoolResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCloudGtmAddressPoolResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCloudGtmAddressPoolResponse() = default;
+};
 class DescribeCustomLineRequest : public Darabonba::Model {
 public:
   shared_ptr<string> lang{};
@@ -37019,6 +37594,8 @@ public:
   DescribeBatchResultCountResponse describeBatchResultCount(shared_ptr<DescribeBatchResultCountRequest> request);
   DescribeBatchResultDetailResponse describeBatchResultDetailWithOptions(shared_ptr<DescribeBatchResultDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeBatchResultDetailResponse describeBatchResultDetail(shared_ptr<DescribeBatchResultDetailRequest> request);
+  DescribeCloudGtmAddressPoolResponse describeCloudGtmAddressPoolWithOptions(shared_ptr<DescribeCloudGtmAddressPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCloudGtmAddressPoolResponse describeCloudGtmAddressPool(shared_ptr<DescribeCloudGtmAddressPoolRequest> request);
   DescribeCustomLineResponse describeCustomLineWithOptions(shared_ptr<DescribeCustomLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCustomLineResponse describeCustomLine(shared_ptr<DescribeCustomLineRequest> request);
   DescribeCustomLinesResponse describeCustomLinesWithOptions(shared_ptr<DescribeCustomLinesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

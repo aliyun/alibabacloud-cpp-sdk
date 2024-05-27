@@ -1299,6 +1299,40 @@ DescribeBatchResultDetailResponse Alibabacloud_Alidns20150109::Client::describeB
   return describeBatchResultDetailWithOptions(request, runtime);
 }
 
+DescribeCloudGtmAddressPoolResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmAddressPoolWithOptions(shared_ptr<DescribeCloudGtmAddressPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolId)) {
+    query->insert(pair<string, string>("AddressPoolId", *request->addressPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCloudGtmAddressPool"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCloudGtmAddressPoolResponse(callApi(params, req, runtime));
+}
+
+DescribeCloudGtmAddressPoolResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmAddressPool(shared_ptr<DescribeCloudGtmAddressPoolRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCloudGtmAddressPoolWithOptions(request, runtime);
+}
+
 DescribeCustomLineResponse Alibabacloud_Alidns20150109::Client::describeCustomLineWithOptions(shared_ptr<DescribeCustomLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
