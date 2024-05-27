@@ -3791,6 +3791,9 @@ RepairClusterNodePoolResponse Alibabacloud_CS20151215::Client::repairClusterNode
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->nodes)) {
     body->insert(pair<string, vector<string>>("nodes", *request->nodes));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<RepairClusterNodePoolRequestOperations>>(request->operations)) {
+    body->insert(pair<string, vector<RepairClusterNodePoolRequestOperations>>("operations", *request->operations));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}

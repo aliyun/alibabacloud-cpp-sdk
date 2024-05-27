@@ -24159,10 +24159,54 @@ public:
 
   virtual ~RemoveWorkflowResponse() = default;
 };
+class RepairClusterNodePoolRequestOperations : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> args{};
+  shared_ptr<string> operationId{};
+
+  RepairClusterNodePoolRequestOperations() {}
+
+  explicit RepairClusterNodePoolRequestOperations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (args) {
+      res["args"] = boost::any(*args);
+    }
+    if (operationId) {
+      res["operation_id"] = boost::any(*operationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("args") != m.end() && !m["args"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["args"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["args"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      args = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("operation_id") != m.end() && !m["operation_id"].empty()) {
+      operationId = make_shared<string>(boost::any_cast<string>(m["operation_id"]));
+    }
+  }
+
+
+  virtual ~RepairClusterNodePoolRequestOperations() = default;
+};
 class RepairClusterNodePoolRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRestart{};
   shared_ptr<vector<string>> nodes{};
+  shared_ptr<vector<RepairClusterNodePoolRequestOperations>> operations{};
 
   RepairClusterNodePoolRequest() {}
 
@@ -24180,6 +24224,13 @@ public:
     if (nodes) {
       res["nodes"] = boost::any(*nodes);
     }
+    if (operations) {
+      vector<boost::any> temp1;
+      for(auto item1:*operations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["operations"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -24196,6 +24247,19 @@ public:
         }
       }
       nodes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("operations") != m.end() && !m["operations"].empty()) {
+      if (typeid(vector<boost::any>) == m["operations"].type()) {
+        vector<RepairClusterNodePoolRequestOperations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["operations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RepairClusterNodePoolRequestOperations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        operations = make_shared<vector<RepairClusterNodePoolRequestOperations>>(expect1);
+      }
     }
   }
 
