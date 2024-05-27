@@ -1635,6 +1635,9 @@ CreateOrUpdateSilencePolicyResponse Alibabacloud_ARMS20190808::Client::createOrU
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
+    body->insert(pair<string, string>("State", *request->state));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));

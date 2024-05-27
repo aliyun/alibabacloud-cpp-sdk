@@ -10508,6 +10508,7 @@ public:
   shared_ptr<string> matchingRules{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> state{};
 
   CreateOrUpdateSilencePolicyRequest() {}
 
@@ -10531,6 +10532,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
     return res;
   }
 
@@ -10546,6 +10550,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
     }
   }
 
@@ -10643,6 +10650,7 @@ public:
   shared_ptr<long> id{};
   shared_ptr<vector<CreateOrUpdateSilencePolicyResponseBodySilencePolicyMatchingRules>> matchingRules{};
   shared_ptr<string> name{};
+  shared_ptr<string> state{};
 
   CreateOrUpdateSilencePolicyResponseBodySilencePolicy() {}
 
@@ -10667,6 +10675,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
     return res;
   }
 
@@ -10689,6 +10700,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
     }
   }
 
@@ -30428,6 +30442,7 @@ public:
   shared_ptr<string> paymentType{};
   shared_ptr<string> pushGatewayInterUrl{};
   shared_ptr<string> pushGatewayIntraUrl{};
+  shared_ptr<bool> readOnly{};
   shared_ptr<string> regionId{};
   shared_ptr<string> remoteReadInterUrl{};
   shared_ptr<string> remoteReadIntraUrl{};
@@ -30485,6 +30500,9 @@ public:
     }
     if (pushGatewayIntraUrl) {
       res["PushGatewayIntraUrl"] = boost::any(*pushGatewayIntraUrl);
+    }
+    if (readOnly) {
+      res["ReadOnly"] = boost::any(*readOnly);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -30568,6 +30586,9 @@ public:
     }
     if (m.find("PushGatewayIntraUrl") != m.end() && !m["PushGatewayIntraUrl"].empty()) {
       pushGatewayIntraUrl = make_shared<string>(boost::any_cast<string>(m["PushGatewayIntraUrl"]));
+    }
+    if (m.find("ReadOnly") != m.end() && !m["ReadOnly"].empty()) {
+      readOnly = make_shared<bool>(boost::any_cast<bool>(m["ReadOnly"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -52165,6 +52186,7 @@ public:
   shared_ptr<long> id{};
   shared_ptr<vector<ListSilencePoliciesResponseBodyPageBeanSilencePoliciesMatchingRules>> matchingRules{};
   shared_ptr<string> name{};
+  shared_ptr<string> state{};
 
   ListSilencePoliciesResponseBodyPageBeanSilencePolicies() {}
 
@@ -52189,6 +52211,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
     return res;
   }
 
@@ -52211,6 +52236,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
     }
   }
 
