@@ -76479,6 +76479,7 @@ public:
 class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList : public Darabonba::Model {
 public:
   shared_ptr<string> bizType{};
+  shared_ptr<string> businessStatus{};
   shared_ptr<string> creationTime{};
   shared_ptr<string> description{};
   shared_ptr<bool> ipAddressRemaining{};
@@ -76509,6 +76510,9 @@ public:
     map<string, boost::any> res;
     if (bizType) {
       res["BizType"] = boost::any(*bizType);
+    }
+    if (businessStatus) {
+      res["BusinessStatus"] = boost::any(*businessStatus);
     }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
@@ -76571,6 +76575,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
       bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
+    }
+    if (m.find("BusinessStatus") != m.end() && !m["BusinessStatus"].empty()) {
+      businessStatus = make_shared<string>(boost::any_cast<string>(m["BusinessStatus"]));
     }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
