@@ -23769,7 +23769,7 @@ public:
 };
 class DescribeProcessStatsCompositionResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<vector<DescribeProcessStatsCompositionResponseBodyData>> data{};
+  shared_ptr<DescribeProcessStatsCompositionResponseBodyData> data{};
   shared_ptr<string> requestId{};
 
   DescribeProcessStatsCompositionResponseBody() {}
@@ -23783,11 +23783,7 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (data) {
-      vector<boost::any> temp1;
-      for(auto item1:*data){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Data"] = boost::any(temp1);
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -23797,16 +23793,10 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(vector<boost::any>) == m["Data"].type()) {
-        vector<DescribeProcessStatsCompositionResponseBodyData> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeProcessStatsCompositionResponseBodyData model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        data = make_shared<vector<DescribeProcessStatsCompositionResponseBodyData>>(expect1);
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeProcessStatsCompositionResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeProcessStatsCompositionResponseBodyData>(model1);
       }
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
