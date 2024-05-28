@@ -10124,6 +10124,42 @@ public:
 
   virtual ~DescribeLoadBalancerHTTPListenerAttributeRequest() = default;
 };
+class DescribeLoadBalancerHTTPListenerAttributeResponseBodyAclIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> aclId{};
+
+  DescribeLoadBalancerHTTPListenerAttributeResponseBodyAclIds() {}
+
+  explicit DescribeLoadBalancerHTTPListenerAttributeResponseBodyAclIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AclId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AclId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      aclId = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeLoadBalancerHTTPListenerAttributeResponseBodyAclIds() = default;
+};
 class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRulesRule : public Darabonba::Model {
 public:
   shared_ptr<string> domain{};
@@ -10306,6 +10342,7 @@ public:
 class DescribeLoadBalancerHTTPListenerAttributeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> aclId{};
+  shared_ptr<DescribeLoadBalancerHTTPListenerAttributeResponseBodyAclIds> aclIds{};
   shared_ptr<string> aclStatus{};
   shared_ptr<string> aclType{};
   shared_ptr<long> backendServerPort{};
@@ -10358,6 +10395,9 @@ public:
     map<string, boost::any> res;
     if (aclId) {
       res["AclId"] = boost::any(*aclId);
+    }
+    if (aclIds) {
+      res["AclIds"] = aclIds ? boost::any(aclIds->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (aclStatus) {
       res["AclStatus"] = boost::any(*aclStatus);
@@ -10482,6 +10522,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
       aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("AclIds") != m.end() && !m["AclIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AclIds"].type()) {
+        DescribeLoadBalancerHTTPListenerAttributeResponseBodyAclIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AclIds"]));
+        aclIds = make_shared<DescribeLoadBalancerHTTPListenerAttributeResponseBodyAclIds>(model1);
+      }
     }
     if (m.find("AclStatus") != m.end() && !m["AclStatus"].empty()) {
       aclStatus = make_shared<string>(boost::any_cast<string>(m["AclStatus"]));
@@ -10735,6 +10782,42 @@ public:
 
 
   virtual ~DescribeLoadBalancerHTTPSListenerAttributeRequest() = default;
+};
+class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyAclIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> aclId{};
+
+  DescribeLoadBalancerHTTPSListenerAttributeResponseBodyAclIds() {}
+
+  explicit DescribeLoadBalancerHTTPSListenerAttributeResponseBodyAclIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AclId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AclId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      aclId = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeLoadBalancerHTTPSListenerAttributeResponseBodyAclIds() = default;
 };
 class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensionsDomainExtension : public Darabonba::Model {
 public:
@@ -11004,6 +11087,7 @@ public:
 class DescribeLoadBalancerHTTPSListenerAttributeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> aclId{};
+  shared_ptr<DescribeLoadBalancerHTTPSListenerAttributeResponseBodyAclIds> aclIds{};
   shared_ptr<string> aclStatus{};
   shared_ptr<string> aclType{};
   shared_ptr<long> backendServerPort{};
@@ -11063,6 +11147,9 @@ public:
     map<string, boost::any> res;
     if (aclId) {
       res["AclId"] = boost::any(*aclId);
+    }
+    if (aclIds) {
+      res["AclIds"] = aclIds ? boost::any(aclIds->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (aclStatus) {
       res["AclStatus"] = boost::any(*aclStatus);
@@ -11208,6 +11295,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
       aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("AclIds") != m.end() && !m["AclIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AclIds"].type()) {
+        DescribeLoadBalancerHTTPSListenerAttributeResponseBodyAclIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AclIds"]));
+        aclIds = make_shared<DescribeLoadBalancerHTTPSListenerAttributeResponseBodyAclIds>(model1);
+      }
     }
     if (m.find("AclStatus") != m.end() && !m["AclStatus"].empty()) {
       aclStatus = make_shared<string>(boost::any_cast<string>(m["AclStatus"]));
@@ -12329,6 +12423,7 @@ public:
 class DescribeLoadBalancerListenersResponseBodyListeners : public Darabonba::Model {
 public:
   shared_ptr<string> aclId{};
+  shared_ptr<vector<string>> aclIds{};
   shared_ptr<string> aclStatus{};
   shared_ptr<string> aclType{};
   shared_ptr<long> backendServerPort{};
@@ -12358,6 +12453,9 @@ public:
     map<string, boost::any> res;
     if (aclId) {
       res["AclId"] = boost::any(*aclId);
+    }
+    if (aclIds) {
+      res["AclIds"] = boost::any(*aclIds);
     }
     if (aclStatus) {
       res["AclStatus"] = boost::any(*aclStatus);
@@ -12417,6 +12515,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
       aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("AclIds") != m.end() && !m["AclIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AclIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AclIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      aclIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("AclStatus") != m.end() && !m["AclStatus"].empty()) {
       aclStatus = make_shared<string>(boost::any_cast<string>(m["AclStatus"]));
@@ -12691,6 +12799,42 @@ public:
 
   virtual ~DescribeLoadBalancerTCPListenerAttributeRequest() = default;
 };
+class DescribeLoadBalancerTCPListenerAttributeResponseBodyAclIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> aclId{};
+
+  DescribeLoadBalancerTCPListenerAttributeResponseBodyAclIds() {}
+
+  explicit DescribeLoadBalancerTCPListenerAttributeResponseBodyAclIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AclId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AclId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      aclId = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeLoadBalancerTCPListenerAttributeResponseBodyAclIds() = default;
+};
 class DescribeLoadBalancerTCPListenerAttributeResponseBodyTagsTag : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -12773,6 +12917,7 @@ public:
 class DescribeLoadBalancerTCPListenerAttributeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> aclId{};
+  shared_ptr<DescribeLoadBalancerTCPListenerAttributeResponseBodyAclIds> aclIds{};
   shared_ptr<string> aclStatus{};
   shared_ptr<string> aclType{};
   shared_ptr<long> backendServerPort{};
@@ -12816,6 +12961,9 @@ public:
     map<string, boost::any> res;
     if (aclId) {
       res["AclId"] = boost::any(*aclId);
+    }
+    if (aclIds) {
+      res["AclIds"] = aclIds ? boost::any(aclIds->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (aclStatus) {
       res["AclStatus"] = boost::any(*aclStatus);
@@ -12913,6 +13061,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
       aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("AclIds") != m.end() && !m["AclIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AclIds"].type()) {
+        DescribeLoadBalancerTCPListenerAttributeResponseBodyAclIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AclIds"]));
+        aclIds = make_shared<DescribeLoadBalancerTCPListenerAttributeResponseBodyAclIds>(model1);
+      }
     }
     if (m.find("AclStatus") != m.end() && !m["AclStatus"].empty()) {
       aclStatus = make_shared<string>(boost::any_cast<string>(m["AclStatus"]));
@@ -13136,6 +13291,42 @@ public:
 
   virtual ~DescribeLoadBalancerUDPListenerAttributeRequest() = default;
 };
+class DescribeLoadBalancerUDPListenerAttributeResponseBodyAclIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> aclId{};
+
+  DescribeLoadBalancerUDPListenerAttributeResponseBodyAclIds() {}
+
+  explicit DescribeLoadBalancerUDPListenerAttributeResponseBodyAclIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AclId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AclId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      aclId = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeLoadBalancerUDPListenerAttributeResponseBodyAclIds() = default;
+};
 class DescribeLoadBalancerUDPListenerAttributeResponseBodyTagsTag : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -13218,6 +13409,7 @@ public:
 class DescribeLoadBalancerUDPListenerAttributeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> aclId{};
+  shared_ptr<DescribeLoadBalancerUDPListenerAttributeResponseBodyAclIds> aclIds{};
   shared_ptr<string> aclStatus{};
   shared_ptr<string> aclType{};
   shared_ptr<long> backendServerPort{};
@@ -13253,6 +13445,9 @@ public:
     map<string, boost::any> res;
     if (aclId) {
       res["AclId"] = boost::any(*aclId);
+    }
+    if (aclIds) {
+      res["AclIds"] = aclIds ? boost::any(aclIds->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (aclStatus) {
       res["AclStatus"] = boost::any(*aclStatus);
@@ -13326,6 +13521,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
       aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("AclIds") != m.end() && !m["AclIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AclIds"].type()) {
+        DescribeLoadBalancerUDPListenerAttributeResponseBodyAclIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AclIds"]));
+        aclIds = make_shared<DescribeLoadBalancerUDPListenerAttributeResponseBodyAclIds>(model1);
+      }
     }
     if (m.find("AclStatus") != m.end() && !m["AclStatus"].empty()) {
       aclStatus = make_shared<string>(boost::any_cast<string>(m["AclStatus"]));
