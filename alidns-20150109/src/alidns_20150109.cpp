@@ -807,6 +807,236 @@ CopyGtmConfigResponse Alibabacloud_Alidns20150109::Client::copyGtmConfig(shared_
   return copyGtmConfigWithOptions(request, runtime);
 }
 
+CreateCloudGtmAddressResponse Alibabacloud_Alidns20150109::Client::createCloudGtmAddressWithOptions(shared_ptr<CreateCloudGtmAddressRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateCloudGtmAddressShrinkRequest> request = make_shared<CreateCloudGtmAddressShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCloudGtmAddressRequestHealthTasks>>(tmpReq->healthTasks)) {
+    request->healthTasksShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->healthTasks, make_shared<string>("HealthTasks"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->address)) {
+    query->insert(pair<string, string>("Address", *request->address));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->attributeInfo)) {
+    query->insert(pair<string, string>("AttributeInfo", *request->attributeInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->availableMode)) {
+    query->insert(pair<string, string>("AvailableMode", *request->availableMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableStatus)) {
+    query->insert(pair<string, string>("EnableStatus", *request->enableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->healthJudgement)) {
+    query->insert(pair<string, string>("HealthJudgement", *request->healthJudgement));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->healthTasksShrink)) {
+    query->insert(pair<string, string>("HealthTasks", *request->healthTasksShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->manualAvailableStatus)) {
+    query->insert(pair<string, string>("ManualAvailableStatus", *request->manualAvailableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCloudGtmAddress"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCloudGtmAddressResponse(callApi(params, req, runtime));
+}
+
+CreateCloudGtmAddressResponse Alibabacloud_Alidns20150109::Client::createCloudGtmAddress(shared_ptr<CreateCloudGtmAddressRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createCloudGtmAddressWithOptions(request, runtime);
+}
+
+CreateCloudGtmAddressPoolResponse Alibabacloud_Alidns20150109::Client::createCloudGtmAddressPoolWithOptions(shared_ptr<CreateCloudGtmAddressPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolName)) {
+    query->insert(pair<string, string>("AddressPoolName", *request->addressPoolName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolType)) {
+    query->insert(pair<string, string>("AddressPoolType", *request->addressPoolType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableStatus)) {
+    query->insert(pair<string, string>("EnableStatus", *request->enableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->healthJudgement)) {
+    query->insert(pair<string, string>("HealthJudgement", *request->healthJudgement));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCloudGtmAddressPool"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCloudGtmAddressPoolResponse(callApi(params, req, runtime));
+}
+
+CreateCloudGtmAddressPoolResponse Alibabacloud_Alidns20150109::Client::createCloudGtmAddressPool(shared_ptr<CreateCloudGtmAddressPoolRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createCloudGtmAddressPoolWithOptions(request, runtime);
+}
+
+CreateCloudGtmInstanceConfigResponse Alibabacloud_Alidns20150109::Client::createCloudGtmInstanceConfigWithOptions(shared_ptr<CreateCloudGtmInstanceConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableStatus)) {
+    query->insert(pair<string, string>("EnableStatus", *request->enableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleHostname)) {
+    query->insert(pair<string, string>("ScheduleHostname", *request->scheduleHostname));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleRrType)) {
+    query->insert(pair<string, string>("ScheduleRrType", *request->scheduleRrType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleZoneMode)) {
+    query->insert(pair<string, string>("ScheduleZoneMode", *request->scheduleZoneMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleZoneName)) {
+    query->insert(pair<string, string>("ScheduleZoneName", *request->scheduleZoneName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ttl)) {
+    query->insert(pair<string, long>("Ttl", *request->ttl));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCloudGtmInstanceConfig"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCloudGtmInstanceConfigResponse(callApi(params, req, runtime));
+}
+
+CreateCloudGtmInstanceConfigResponse Alibabacloud_Alidns20150109::Client::createCloudGtmInstanceConfig(shared_ptr<CreateCloudGtmInstanceConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createCloudGtmInstanceConfigWithOptions(request, runtime);
+}
+
+CreateCloudGtmMonitorTemplateResponse Alibabacloud_Alidns20150109::Client::createCloudGtmMonitorTemplateWithOptions(shared_ptr<CreateCloudGtmMonitorTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateCloudGtmMonitorTemplateShrinkRequest> request = make_shared<CreateCloudGtmMonitorTemplateShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCloudGtmMonitorTemplateRequestIspCityNodes>>(tmpReq->ispCityNodes)) {
+    request->ispCityNodesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ispCityNodes, make_shared<string>("IspCityNodes"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->evaluationCount)) {
+    query->insert(pair<string, long>("EvaluationCount", *request->evaluationCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extendInfo)) {
+    query->insert(pair<string, string>("ExtendInfo", *request->extendInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->failureRate)) {
+    query->insert(pair<string, long>("FailureRate", *request->failureRate));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->interval)) {
+    query->insert(pair<string, long>("Interval", *request->interval));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipVersion)) {
+    query->insert(pair<string, string>("IpVersion", *request->ipVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ispCityNodesShrink)) {
+    query->insert(pair<string, string>("IspCityNodes", *request->ispCityNodesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
+    query->insert(pair<string, string>("Protocol", *request->protocol));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->timeout)) {
+    query->insert(pair<string, long>("Timeout", *request->timeout));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCloudGtmMonitorTemplate"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCloudGtmMonitorTemplateResponse(callApi(params, req, runtime));
+}
+
+CreateCloudGtmMonitorTemplateResponse Alibabacloud_Alidns20150109::Client::createCloudGtmMonitorTemplate(shared_ptr<CreateCloudGtmMonitorTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createCloudGtmMonitorTemplateWithOptions(request, runtime);
+}
+
 CreatePdnsAppKeyResponse Alibabacloud_Alidns20150109::Client::createPdnsAppKeyWithOptions(shared_ptr<CreatePdnsAppKeyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -867,6 +1097,145 @@ CreatePdnsUdpIpSegmentResponse Alibabacloud_Alidns20150109::Client::createPdnsUd
 CreatePdnsUdpIpSegmentResponse Alibabacloud_Alidns20150109::Client::createPdnsUdpIpSegment(shared_ptr<CreatePdnsUdpIpSegmentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createPdnsUdpIpSegmentWithOptions(request, runtime);
+}
+
+DeleteCloudGtmAddressResponse Alibabacloud_Alidns20150109::Client::deleteCloudGtmAddressWithOptions(shared_ptr<DeleteCloudGtmAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressId)) {
+    query->insert(pair<string, string>("AddressId", *request->addressId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCloudGtmAddress"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCloudGtmAddressResponse(callApi(params, req, runtime));
+}
+
+DeleteCloudGtmAddressResponse Alibabacloud_Alidns20150109::Client::deleteCloudGtmAddress(shared_ptr<DeleteCloudGtmAddressRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCloudGtmAddressWithOptions(request, runtime);
+}
+
+DeleteCloudGtmAddressPoolResponse Alibabacloud_Alidns20150109::Client::deleteCloudGtmAddressPoolWithOptions(shared_ptr<DeleteCloudGtmAddressPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolId)) {
+    query->insert(pair<string, string>("AddressPoolId", *request->addressPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCloudGtmAddressPool"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCloudGtmAddressPoolResponse(callApi(params, req, runtime));
+}
+
+DeleteCloudGtmAddressPoolResponse Alibabacloud_Alidns20150109::Client::deleteCloudGtmAddressPool(shared_ptr<DeleteCloudGtmAddressPoolRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCloudGtmAddressPoolWithOptions(request, runtime);
+}
+
+DeleteCloudGtmInstanceConfigResponse Alibabacloud_Alidns20150109::Client::deleteCloudGtmInstanceConfigWithOptions(shared_ptr<DeleteCloudGtmInstanceConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->configId)) {
+    query->insert(pair<string, string>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCloudGtmInstanceConfig"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCloudGtmInstanceConfigResponse(callApi(params, req, runtime));
+}
+
+DeleteCloudGtmInstanceConfigResponse Alibabacloud_Alidns20150109::Client::deleteCloudGtmInstanceConfig(shared_ptr<DeleteCloudGtmInstanceConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCloudGtmInstanceConfigWithOptions(request, runtime);
+}
+
+DeleteCloudGtmMonitorTemplateResponse Alibabacloud_Alidns20150109::Client::deleteCloudGtmMonitorTemplateWithOptions(shared_ptr<DeleteCloudGtmMonitorTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
+    query->insert(pair<string, string>("TemplateId", *request->templateId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCloudGtmMonitorTemplate"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCloudGtmMonitorTemplateResponse(callApi(params, req, runtime));
+}
+
+DeleteCloudGtmMonitorTemplateResponse Alibabacloud_Alidns20150109::Client::deleteCloudGtmMonitorTemplate(shared_ptr<DeleteCloudGtmMonitorTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCloudGtmMonitorTemplateWithOptions(request, runtime);
 }
 
 DeleteCustomLinesResponse Alibabacloud_Alidns20150109::Client::deleteCustomLinesWithOptions(shared_ptr<DeleteCustomLinesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1299,6 +1668,40 @@ DescribeBatchResultDetailResponse Alibabacloud_Alidns20150109::Client::describeB
   return describeBatchResultDetailWithOptions(request, runtime);
 }
 
+DescribeCloudGtmAddressResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmAddressWithOptions(shared_ptr<DescribeCloudGtmAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressId)) {
+    query->insert(pair<string, string>("AddressId", *request->addressId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCloudGtmAddress"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCloudGtmAddressResponse(callApi(params, req, runtime));
+}
+
+DescribeCloudGtmAddressResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmAddress(shared_ptr<DescribeCloudGtmAddressRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCloudGtmAddressWithOptions(request, runtime);
+}
+
 DescribeCloudGtmAddressPoolResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmAddressPoolWithOptions(shared_ptr<DescribeCloudGtmAddressPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1331,6 +1734,259 @@ DescribeCloudGtmAddressPoolResponse Alibabacloud_Alidns20150109::Client::describ
 DescribeCloudGtmAddressPoolResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmAddressPool(shared_ptr<DescribeCloudGtmAddressPoolRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeCloudGtmAddressPoolWithOptions(request, runtime);
+}
+
+DescribeCloudGtmAddressPoolReferenceResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmAddressPoolReferenceWithOptions(shared_ptr<DescribeCloudGtmAddressPoolReferenceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolId)) {
+    query->insert(pair<string, string>("AddressPoolId", *request->addressPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCloudGtmAddressPoolReference"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCloudGtmAddressPoolReferenceResponse(callApi(params, req, runtime));
+}
+
+DescribeCloudGtmAddressPoolReferenceResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmAddressPoolReference(shared_ptr<DescribeCloudGtmAddressPoolReferenceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCloudGtmAddressPoolReferenceWithOptions(request, runtime);
+}
+
+DescribeCloudGtmAddressReferenceResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmAddressReferenceWithOptions(shared_ptr<DescribeCloudGtmAddressReferenceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressId)) {
+    query->insert(pair<string, string>("AddressId", *request->addressId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCloudGtmAddressReference"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCloudGtmAddressReferenceResponse(callApi(params, req, runtime));
+}
+
+DescribeCloudGtmAddressReferenceResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmAddressReference(shared_ptr<DescribeCloudGtmAddressReferenceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCloudGtmAddressReferenceWithOptions(request, runtime);
+}
+
+DescribeCloudGtmGlobalAlertResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmGlobalAlertWithOptions(shared_ptr<DescribeCloudGtmGlobalAlertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCloudGtmGlobalAlert"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCloudGtmGlobalAlertResponse(callApi(params, req, runtime));
+}
+
+DescribeCloudGtmGlobalAlertResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmGlobalAlert(shared_ptr<DescribeCloudGtmGlobalAlertRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCloudGtmGlobalAlertWithOptions(request, runtime);
+}
+
+DescribeCloudGtmInstanceConfigAlertResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmInstanceConfigAlertWithOptions(shared_ptr<DescribeCloudGtmInstanceConfigAlertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->configId)) {
+    query->insert(pair<string, string>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCloudGtmInstanceConfigAlert"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCloudGtmInstanceConfigAlertResponse(callApi(params, req, runtime));
+}
+
+DescribeCloudGtmInstanceConfigAlertResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmInstanceConfigAlert(shared_ptr<DescribeCloudGtmInstanceConfigAlertRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCloudGtmInstanceConfigAlertWithOptions(request, runtime);
+}
+
+DescribeCloudGtmInstanceConfigFullInfoResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmInstanceConfigFullInfoWithOptions(shared_ptr<DescribeCloudGtmInstanceConfigFullInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->configId)) {
+    query->insert(pair<string, string>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCloudGtmInstanceConfigFullInfo"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCloudGtmInstanceConfigFullInfoResponse(callApi(params, req, runtime));
+}
+
+DescribeCloudGtmInstanceConfigFullInfoResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmInstanceConfigFullInfo(shared_ptr<DescribeCloudGtmInstanceConfigFullInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCloudGtmInstanceConfigFullInfoWithOptions(request, runtime);
+}
+
+DescribeCloudGtmMonitorTemplateResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmMonitorTemplateWithOptions(shared_ptr<DescribeCloudGtmMonitorTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
+    query->insert(pair<string, string>("TemplateId", *request->templateId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCloudGtmMonitorTemplate"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCloudGtmMonitorTemplateResponse(callApi(params, req, runtime));
+}
+
+DescribeCloudGtmMonitorTemplateResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmMonitorTemplate(shared_ptr<DescribeCloudGtmMonitorTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCloudGtmMonitorTemplateWithOptions(request, runtime);
+}
+
+DescribeCloudGtmSummaryResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmSummaryWithOptions(shared_ptr<DescribeCloudGtmSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCloudGtmSummary"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCloudGtmSummaryResponse(callApi(params, req, runtime));
+}
+
+DescribeCloudGtmSummaryResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmSummary(shared_ptr<DescribeCloudGtmSummaryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCloudGtmSummaryWithOptions(request, runtime);
+}
+
+DescribeCloudGtmSystemLinesResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmSystemLinesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCloudGtmSystemLines"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCloudGtmSystemLinesResponse(callApi(params, req, runtime));
+}
+
+DescribeCloudGtmSystemLinesResponse Alibabacloud_Alidns20150109::Client::describeCloudGtmSystemLines() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCloudGtmSystemLinesWithOptions(runtime);
 }
 
 DescribeCustomLineResponse Alibabacloud_Alidns20150109::Client::describeCustomLineWithOptions(shared_ptr<DescribeCustomLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4469,6 +5125,356 @@ GetTxtRecordForVerifyResponse Alibabacloud_Alidns20150109::Client::getTxtRecordF
   return getTxtRecordForVerifyWithOptions(request, runtime);
 }
 
+ListCloudGtmAddressPoolsResponse Alibabacloud_Alidns20150109::Client::listCloudGtmAddressPoolsWithOptions(shared_ptr<ListCloudGtmAddressPoolsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolName)) {
+    query->insert(pair<string, string>("AddressPoolName", *request->addressPoolName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolType)) {
+    query->insert(pair<string, string>("AddressPoolType", *request->addressPoolType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableStatus)) {
+    query->insert(pair<string, string>("EnableStatus", *request->enableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCloudGtmAddressPools"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCloudGtmAddressPoolsResponse(callApi(params, req, runtime));
+}
+
+ListCloudGtmAddressPoolsResponse Alibabacloud_Alidns20150109::Client::listCloudGtmAddressPools(shared_ptr<ListCloudGtmAddressPoolsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCloudGtmAddressPoolsWithOptions(request, runtime);
+}
+
+ListCloudGtmAddressesResponse Alibabacloud_Alidns20150109::Client::listCloudGtmAddressesWithOptions(shared_ptr<ListCloudGtmAddressesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->address)) {
+    query->insert(pair<string, string>("Address", *request->address));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressId)) {
+    query->insert(pair<string, string>("AddressId", *request->addressId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableStatus)) {
+    query->insert(pair<string, string>("EnableStatus", *request->enableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->healthStatus)) {
+    query->insert(pair<string, string>("HealthStatus", *request->healthStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->monitorTemplateId)) {
+    query->insert(pair<string, string>("MonitorTemplateId", *request->monitorTemplateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCloudGtmAddresses"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCloudGtmAddressesResponse(callApi(params, req, runtime));
+}
+
+ListCloudGtmAddressesResponse Alibabacloud_Alidns20150109::Client::listCloudGtmAddresses(shared_ptr<ListCloudGtmAddressesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCloudGtmAddressesWithOptions(request, runtime);
+}
+
+ListCloudGtmAlertLogsResponse Alibabacloud_Alidns20150109::Client::listCloudGtmAlertLogsWithOptions(shared_ptr<ListCloudGtmAlertLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->actionType)) {
+    query->insert(pair<string, string>("ActionType", *request->actionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTimestamp)) {
+    query->insert(pair<string, long>("EndTimestamp", *request->endTimestamp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->entityType)) {
+    query->insert(pair<string, string>("EntityType", *request->entityType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    query->insert(pair<string, string>("Keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTimestamp)) {
+    query->insert(pair<string, long>("StartTimestamp", *request->startTimestamp));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCloudGtmAlertLogs"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCloudGtmAlertLogsResponse(callApi(params, req, runtime));
+}
+
+ListCloudGtmAlertLogsResponse Alibabacloud_Alidns20150109::Client::listCloudGtmAlertLogs(shared_ptr<ListCloudGtmAlertLogsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCloudGtmAlertLogsWithOptions(request, runtime);
+}
+
+ListCloudGtmAvailableAlertGroupsResponse Alibabacloud_Alidns20150109::Client::listCloudGtmAvailableAlertGroupsWithOptions(shared_ptr<ListCloudGtmAvailableAlertGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCloudGtmAvailableAlertGroups"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCloudGtmAvailableAlertGroupsResponse(callApi(params, req, runtime));
+}
+
+ListCloudGtmAvailableAlertGroupsResponse Alibabacloud_Alidns20150109::Client::listCloudGtmAvailableAlertGroups(shared_ptr<ListCloudGtmAvailableAlertGroupsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCloudGtmAvailableAlertGroupsWithOptions(request, runtime);
+}
+
+ListCloudGtmInstanceConfigsResponse Alibabacloud_Alidns20150109::Client::listCloudGtmInstanceConfigsWithOptions(shared_ptr<ListCloudGtmInstanceConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableStatus)) {
+    query->insert(pair<string, string>("EnableStatus", *request->enableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleDomainName)) {
+    query->insert(pair<string, string>("ScheduleDomainName", *request->scheduleDomainName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleZoneName)) {
+    query->insert(pair<string, string>("ScheduleZoneName", *request->scheduleZoneName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCloudGtmInstanceConfigs"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCloudGtmInstanceConfigsResponse(callApi(params, req, runtime));
+}
+
+ListCloudGtmInstanceConfigsResponse Alibabacloud_Alidns20150109::Client::listCloudGtmInstanceConfigs(shared_ptr<ListCloudGtmInstanceConfigsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCloudGtmInstanceConfigsWithOptions(request, runtime);
+}
+
+ListCloudGtmInstancesResponse Alibabacloud_Alidns20150109::Client::listCloudGtmInstancesWithOptions(shared_ptr<ListCloudGtmInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
+    query->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCloudGtmInstances"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCloudGtmInstancesResponse(callApi(params, req, runtime));
+}
+
+ListCloudGtmInstancesResponse Alibabacloud_Alidns20150109::Client::listCloudGtmInstances(shared_ptr<ListCloudGtmInstancesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCloudGtmInstancesWithOptions(request, runtime);
+}
+
+ListCloudGtmMonitorNodesResponse Alibabacloud_Alidns20150109::Client::listCloudGtmMonitorNodesWithOptions(shared_ptr<ListCloudGtmMonitorNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCloudGtmMonitorNodes"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCloudGtmMonitorNodesResponse(callApi(params, req, runtime));
+}
+
+ListCloudGtmMonitorNodesResponse Alibabacloud_Alidns20150109::Client::listCloudGtmMonitorNodes(shared_ptr<ListCloudGtmMonitorNodesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCloudGtmMonitorNodesWithOptions(request, runtime);
+}
+
+ListCloudGtmMonitorTemplatesResponse Alibabacloud_Alidns20150109::Client::listCloudGtmMonitorTemplatesWithOptions(shared_ptr<ListCloudGtmMonitorTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipVersion)) {
+    query->insert(pair<string, string>("IpVersion", *request->ipVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
+    query->insert(pair<string, string>("Protocol", *request->protocol));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCloudGtmMonitorTemplates"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCloudGtmMonitorTemplatesResponse(callApi(params, req, runtime));
+}
+
+ListCloudGtmMonitorTemplatesResponse Alibabacloud_Alidns20150109::Client::listCloudGtmMonitorTemplates(shared_ptr<ListCloudGtmMonitorTemplatesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCloudGtmMonitorTemplatesWithOptions(request, runtime);
+}
+
 ListTagResourcesResponse Alibabacloud_Alidns20150109::Client::listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4775,6 +5781,93 @@ RemovePdnsUdpIpSegmentResponse Alibabacloud_Alidns20150109::Client::removePdnsUd
   return removePdnsUdpIpSegmentWithOptions(request, runtime);
 }
 
+ReplaceCloudGtmAddressPoolAddressResponse Alibabacloud_Alidns20150109::Client::replaceCloudGtmAddressPoolAddressWithOptions(shared_ptr<ReplaceCloudGtmAddressPoolAddressRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ReplaceCloudGtmAddressPoolAddressShrinkRequest> request = make_shared<ReplaceCloudGtmAddressPoolAddressShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ReplaceCloudGtmAddressPoolAddressRequestAddresses>>(tmpReq->addresses)) {
+    request->addressesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->addresses, make_shared<string>("Addresses"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolId)) {
+    query->insert(pair<string, string>("AddressPoolId", *request->addressPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressesShrink)) {
+    query->insert(pair<string, string>("Addresses", *request->addressesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ReplaceCloudGtmAddressPoolAddress"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ReplaceCloudGtmAddressPoolAddressResponse(callApi(params, req, runtime));
+}
+
+ReplaceCloudGtmAddressPoolAddressResponse Alibabacloud_Alidns20150109::Client::replaceCloudGtmAddressPoolAddress(shared_ptr<ReplaceCloudGtmAddressPoolAddressRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return replaceCloudGtmAddressPoolAddressWithOptions(request, runtime);
+}
+
+ReplaceCloudGtmInstanceConfigAddressPoolResponse Alibabacloud_Alidns20150109::Client::replaceCloudGtmInstanceConfigAddressPoolWithOptions(shared_ptr<ReplaceCloudGtmInstanceConfigAddressPoolRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ReplaceCloudGtmInstanceConfigAddressPoolShrinkRequest> request = make_shared<ReplaceCloudGtmInstanceConfigAddressPoolShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ReplaceCloudGtmInstanceConfigAddressPoolRequestAddressPools>>(tmpReq->addressPools)) {
+    request->addressPoolsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->addressPools, make_shared<string>("AddressPools"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolsShrink)) {
+    query->insert(pair<string, string>("AddressPools", *request->addressPoolsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->configId)) {
+    query->insert(pair<string, string>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ReplaceCloudGtmInstanceConfigAddressPool"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ReplaceCloudGtmInstanceConfigAddressPoolResponse(callApi(params, req, runtime));
+}
+
+ReplaceCloudGtmInstanceConfigAddressPoolResponse Alibabacloud_Alidns20150109::Client::replaceCloudGtmInstanceConfigAddressPool(shared_ptr<ReplaceCloudGtmInstanceConfigAddressPoolRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return replaceCloudGtmInstanceConfigAddressPoolWithOptions(request, runtime);
+}
+
 ResumePdnsServiceResponse Alibabacloud_Alidns20150109::Client::resumePdnsServiceWithOptions(shared_ptr<ResumePdnsServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4866,6 +5959,272 @@ RollbackGtmRecoveryPlanResponse Alibabacloud_Alidns20150109::Client::rollbackGtm
 RollbackGtmRecoveryPlanResponse Alibabacloud_Alidns20150109::Client::rollbackGtmRecoveryPlan(shared_ptr<RollbackGtmRecoveryPlanRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return rollbackGtmRecoveryPlanWithOptions(request, runtime);
+}
+
+SearchCloudGtmAddressPoolsResponse Alibabacloud_Alidns20150109::Client::searchCloudGtmAddressPoolsWithOptions(shared_ptr<SearchCloudGtmAddressPoolsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolName)) {
+    query->insert(pair<string, string>("AddressPoolName", *request->addressPoolName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolType)) {
+    query->insert(pair<string, string>("AddressPoolType", *request->addressPoolType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->availableStatus)) {
+    query->insert(pair<string, string>("AvailableStatus", *request->availableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableStatus)) {
+    query->insert(pair<string, string>("EnableStatus", *request->enableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->healthStatus)) {
+    query->insert(pair<string, string>("HealthStatus", *request->healthStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SearchCloudGtmAddressPools"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SearchCloudGtmAddressPoolsResponse(callApi(params, req, runtime));
+}
+
+SearchCloudGtmAddressPoolsResponse Alibabacloud_Alidns20150109::Client::searchCloudGtmAddressPools(shared_ptr<SearchCloudGtmAddressPoolsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return searchCloudGtmAddressPoolsWithOptions(request, runtime);
+}
+
+SearchCloudGtmAddressesResponse Alibabacloud_Alidns20150109::Client::searchCloudGtmAddressesWithOptions(shared_ptr<SearchCloudGtmAddressesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->address)) {
+    query->insert(pair<string, string>("Address", *request->address));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressId)) {
+    query->insert(pair<string, string>("AddressId", *request->addressId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->availableStatus)) {
+    query->insert(pair<string, string>("AvailableStatus", *request->availableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableStatus)) {
+    query->insert(pair<string, string>("EnableStatus", *request->enableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->healthStatus)) {
+    query->insert(pair<string, string>("HealthStatus", *request->healthStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->monitorTemplateName)) {
+    query->insert(pair<string, string>("MonitorTemplateName", *request->monitorTemplateName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nameSearchCondition)) {
+    query->insert(pair<string, string>("NameSearchCondition", *request->nameSearchCondition));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->names)) {
+    query->insert(pair<string, vector<string>>("Names", *request->names));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remarkSearchCondition)) {
+    query->insert(pair<string, string>("RemarkSearchCondition", *request->remarkSearchCondition));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->remarks)) {
+    query->insert(pair<string, vector<string>>("Remarks", *request->remarks));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SearchCloudGtmAddresses"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SearchCloudGtmAddressesResponse(callApi(params, req, runtime));
+}
+
+SearchCloudGtmAddressesResponse Alibabacloud_Alidns20150109::Client::searchCloudGtmAddresses(shared_ptr<SearchCloudGtmAddressesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return searchCloudGtmAddressesWithOptions(request, runtime);
+}
+
+SearchCloudGtmInstanceConfigsResponse Alibabacloud_Alidns20150109::Client::searchCloudGtmInstanceConfigsWithOptions(shared_ptr<SearchCloudGtmInstanceConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->availableStatus)) {
+    query->insert(pair<string, string>("AvailableStatus", *request->availableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableStatus)) {
+    query->insert(pair<string, string>("EnableStatus", *request->enableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->healthStatus)) {
+    query->insert(pair<string, string>("HealthStatus", *request->healthStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleDomainName)) {
+    query->insert(pair<string, string>("ScheduleDomainName", *request->scheduleDomainName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleZoneName)) {
+    query->insert(pair<string, string>("ScheduleZoneName", *request->scheduleZoneName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SearchCloudGtmInstanceConfigs"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SearchCloudGtmInstanceConfigsResponse(callApi(params, req, runtime));
+}
+
+SearchCloudGtmInstanceConfigsResponse Alibabacloud_Alidns20150109::Client::searchCloudGtmInstanceConfigs(shared_ptr<SearchCloudGtmInstanceConfigsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return searchCloudGtmInstanceConfigsWithOptions(request, runtime);
+}
+
+SearchCloudGtmInstancesResponse Alibabacloud_Alidns20150109::Client::searchCloudGtmInstancesWithOptions(shared_ptr<SearchCloudGtmInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
+    query->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SearchCloudGtmInstances"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SearchCloudGtmInstancesResponse(callApi(params, req, runtime));
+}
+
+SearchCloudGtmInstancesResponse Alibabacloud_Alidns20150109::Client::searchCloudGtmInstances(shared_ptr<SearchCloudGtmInstancesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return searchCloudGtmInstancesWithOptions(request, runtime);
+}
+
+SearchCloudGtmMonitorTemplatesResponse Alibabacloud_Alidns20150109::Client::searchCloudGtmMonitorTemplatesWithOptions(shared_ptr<SearchCloudGtmMonitorTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipVersion)) {
+    query->insert(pair<string, string>("IpVersion", *request->ipVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
+    query->insert(pair<string, string>("Protocol", *request->protocol));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SearchCloudGtmMonitorTemplates"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SearchCloudGtmMonitorTemplatesResponse(callApi(params, req, runtime));
+}
+
+SearchCloudGtmMonitorTemplatesResponse Alibabacloud_Alidns20150109::Client::searchCloudGtmMonitorTemplates(shared_ptr<SearchCloudGtmMonitorTemplatesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return searchCloudGtmMonitorTemplatesWithOptions(request, runtime);
 }
 
 SetDNSSLBStatusResponse Alibabacloud_Alidns20150109::Client::setDNSSLBStatusWithOptions(shared_ptr<SetDNSSLBStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5372,6 +6731,730 @@ UpdateAppKeyStateResponse Alibabacloud_Alidns20150109::Client::updateAppKeyState
 UpdateAppKeyStateResponse Alibabacloud_Alidns20150109::Client::updateAppKeyState(shared_ptr<UpdateAppKeyStateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateAppKeyStateWithOptions(request, runtime);
+}
+
+UpdateCloudGtmAddressResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressWithOptions(shared_ptr<UpdateCloudGtmAddressRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateCloudGtmAddressShrinkRequest> request = make_shared<UpdateCloudGtmAddressShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateCloudGtmAddressRequestHealthTasks>>(tmpReq->healthTasks)) {
+    request->healthTasksShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->healthTasks, make_shared<string>("HealthTasks"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->address)) {
+    query->insert(pair<string, string>("Address", *request->address));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressId)) {
+    query->insert(pair<string, string>("AddressId", *request->addressId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->attributeInfo)) {
+    query->insert(pair<string, string>("AttributeInfo", *request->attributeInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->healthJudgement)) {
+    query->insert(pair<string, string>("HealthJudgement", *request->healthJudgement));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->healthTasksShrink)) {
+    query->insert(pair<string, string>("HealthTasks", *request->healthTasksShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmAddress"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmAddressResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmAddressResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddress(shared_ptr<UpdateCloudGtmAddressRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmAddressWithOptions(request, runtime);
+}
+
+UpdateCloudGtmAddressEnableStatusResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressEnableStatusWithOptions(shared_ptr<UpdateCloudGtmAddressEnableStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressId)) {
+    query->insert(pair<string, string>("AddressId", *request->addressId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableStatus)) {
+    query->insert(pair<string, string>("EnableStatus", *request->enableStatus));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmAddressEnableStatus"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmAddressEnableStatusResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmAddressEnableStatusResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressEnableStatus(shared_ptr<UpdateCloudGtmAddressEnableStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmAddressEnableStatusWithOptions(request, runtime);
+}
+
+UpdateCloudGtmAddressManualAvailableStatusResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressManualAvailableStatusWithOptions(shared_ptr<UpdateCloudGtmAddressManualAvailableStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressId)) {
+    query->insert(pair<string, string>("AddressId", *request->addressId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->availableMode)) {
+    query->insert(pair<string, string>("AvailableMode", *request->availableMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->manualAvailableStatus)) {
+    query->insert(pair<string, string>("ManualAvailableStatus", *request->manualAvailableStatus));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmAddressManualAvailableStatus"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmAddressManualAvailableStatusResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmAddressManualAvailableStatusResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressManualAvailableStatus(shared_ptr<UpdateCloudGtmAddressManualAvailableStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmAddressManualAvailableStatusWithOptions(request, runtime);
+}
+
+UpdateCloudGtmAddressPoolBasicConfigResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressPoolBasicConfigWithOptions(shared_ptr<UpdateCloudGtmAddressPoolBasicConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolId)) {
+    query->insert(pair<string, string>("AddressPoolId", *request->addressPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolName)) {
+    query->insert(pair<string, string>("AddressPoolName", *request->addressPoolName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->healthJudgement)) {
+    query->insert(pair<string, string>("HealthJudgement", *request->healthJudgement));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmAddressPoolBasicConfig"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmAddressPoolBasicConfigResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmAddressPoolBasicConfigResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressPoolBasicConfig(shared_ptr<UpdateCloudGtmAddressPoolBasicConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmAddressPoolBasicConfigWithOptions(request, runtime);
+}
+
+UpdateCloudGtmAddressPoolEnableStatusResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressPoolEnableStatusWithOptions(shared_ptr<UpdateCloudGtmAddressPoolEnableStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolId)) {
+    query->insert(pair<string, string>("AddressPoolId", *request->addressPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableStatus)) {
+    query->insert(pair<string, string>("EnableStatus", *request->enableStatus));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmAddressPoolEnableStatus"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmAddressPoolEnableStatusResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmAddressPoolEnableStatusResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressPoolEnableStatus(shared_ptr<UpdateCloudGtmAddressPoolEnableStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmAddressPoolEnableStatusWithOptions(request, runtime);
+}
+
+UpdateCloudGtmAddressPoolLbStrategyResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressPoolLbStrategyWithOptions(shared_ptr<UpdateCloudGtmAddressPoolLbStrategyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressLbStrategy)) {
+    query->insert(pair<string, string>("AddressLbStrategy", *request->addressLbStrategy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolId)) {
+    query->insert(pair<string, string>("AddressPoolId", *request->addressPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sequenceLbStrategyMode)) {
+    query->insert(pair<string, string>("SequenceLbStrategyMode", *request->sequenceLbStrategyMode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmAddressPoolLbStrategy"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmAddressPoolLbStrategyResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmAddressPoolLbStrategyResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressPoolLbStrategy(shared_ptr<UpdateCloudGtmAddressPoolLbStrategyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmAddressPoolLbStrategyWithOptions(request, runtime);
+}
+
+UpdateCloudGtmAddressPoolRemarkResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressPoolRemarkWithOptions(shared_ptr<UpdateCloudGtmAddressPoolRemarkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolId)) {
+    query->insert(pair<string, string>("AddressPoolId", *request->addressPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmAddressPoolRemark"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmAddressPoolRemarkResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmAddressPoolRemarkResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressPoolRemark(shared_ptr<UpdateCloudGtmAddressPoolRemarkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmAddressPoolRemarkWithOptions(request, runtime);
+}
+
+UpdateCloudGtmAddressRemarkResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressRemarkWithOptions(shared_ptr<UpdateCloudGtmAddressRemarkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressId)) {
+    query->insert(pair<string, string>("AddressId", *request->addressId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmAddressRemark"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmAddressRemarkResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmAddressRemarkResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmAddressRemark(shared_ptr<UpdateCloudGtmAddressRemarkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmAddressRemarkWithOptions(request, runtime);
+}
+
+UpdateCloudGtmGlobalAlertResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmGlobalAlertWithOptions(shared_ptr<UpdateCloudGtmGlobalAlertRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateCloudGtmGlobalAlertShrinkRequest> request = make_shared<UpdateCloudGtmGlobalAlertShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateCloudGtmGlobalAlertRequestAlertConfig>>(tmpReq->alertConfig)) {
+    request->alertConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->alertConfig, make_shared<string>("AlertConfig"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->alertGroup)) {
+    request->alertGroupShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->alertGroup, make_shared<string>("AlertGroup"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertConfigShrink)) {
+    query->insert(pair<string, string>("AlertConfig", *request->alertConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertGroupShrink)) {
+    query->insert(pair<string, string>("AlertGroup", *request->alertGroupShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmGlobalAlert"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmGlobalAlertResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmGlobalAlertResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmGlobalAlert(shared_ptr<UpdateCloudGtmGlobalAlertRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmGlobalAlertWithOptions(request, runtime);
+}
+
+UpdateCloudGtmInstanceConfigAlertResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmInstanceConfigAlertWithOptions(shared_ptr<UpdateCloudGtmInstanceConfigAlertRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateCloudGtmInstanceConfigAlertShrinkRequest> request = make_shared<UpdateCloudGtmInstanceConfigAlertShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateCloudGtmInstanceConfigAlertRequestAlertConfig>>(tmpReq->alertConfig)) {
+    request->alertConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->alertConfig, make_shared<string>("AlertConfig"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->alertGroup)) {
+    request->alertGroupShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->alertGroup, make_shared<string>("AlertGroup"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertConfigShrink)) {
+    query->insert(pair<string, string>("AlertConfig", *request->alertConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertGroupShrink)) {
+    query->insert(pair<string, string>("AlertGroup", *request->alertGroupShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertMode)) {
+    query->insert(pair<string, string>("AlertMode", *request->alertMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->configId)) {
+    query->insert(pair<string, string>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmInstanceConfigAlert"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmInstanceConfigAlertResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmInstanceConfigAlertResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmInstanceConfigAlert(shared_ptr<UpdateCloudGtmInstanceConfigAlertRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmInstanceConfigAlertWithOptions(request, runtime);
+}
+
+UpdateCloudGtmInstanceConfigBasicResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmInstanceConfigBasicWithOptions(shared_ptr<UpdateCloudGtmInstanceConfigBasicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->configId)) {
+    query->insert(pair<string, string>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleHostname)) {
+    query->insert(pair<string, string>("ScheduleHostname", *request->scheduleHostname));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleZoneName)) {
+    query->insert(pair<string, string>("ScheduleZoneName", *request->scheduleZoneName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ttl)) {
+    query->insert(pair<string, long>("Ttl", *request->ttl));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmInstanceConfigBasic"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmInstanceConfigBasicResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmInstanceConfigBasicResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmInstanceConfigBasic(shared_ptr<UpdateCloudGtmInstanceConfigBasicRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmInstanceConfigBasicWithOptions(request, runtime);
+}
+
+UpdateCloudGtmInstanceConfigEnableStatusResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmInstanceConfigEnableStatusWithOptions(shared_ptr<UpdateCloudGtmInstanceConfigEnableStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->configId)) {
+    query->insert(pair<string, string>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableStatus)) {
+    query->insert(pair<string, string>("EnableStatus", *request->enableStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmInstanceConfigEnableStatus"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmInstanceConfigEnableStatusResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmInstanceConfigEnableStatusResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmInstanceConfigEnableStatus(shared_ptr<UpdateCloudGtmInstanceConfigEnableStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmInstanceConfigEnableStatusWithOptions(request, runtime);
+}
+
+UpdateCloudGtmInstanceConfigLbStrategyResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmInstanceConfigLbStrategyWithOptions(shared_ptr<UpdateCloudGtmInstanceConfigLbStrategyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressPoolLbStrategy)) {
+    query->insert(pair<string, string>("AddressPoolLbStrategy", *request->addressPoolLbStrategy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->configId)) {
+    query->insert(pair<string, string>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sequenceLbStrategyMode)) {
+    query->insert(pair<string, string>("SequenceLbStrategyMode", *request->sequenceLbStrategyMode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmInstanceConfigLbStrategy"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmInstanceConfigLbStrategyResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmInstanceConfigLbStrategyResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmInstanceConfigLbStrategy(shared_ptr<UpdateCloudGtmInstanceConfigLbStrategyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmInstanceConfigLbStrategyWithOptions(request, runtime);
+}
+
+UpdateCloudGtmInstanceConfigRemarkResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmInstanceConfigRemarkWithOptions(shared_ptr<UpdateCloudGtmInstanceConfigRemarkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->configId)) {
+    query->insert(pair<string, string>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmInstanceConfigRemark"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmInstanceConfigRemarkResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmInstanceConfigRemarkResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmInstanceConfigRemark(shared_ptr<UpdateCloudGtmInstanceConfigRemarkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmInstanceConfigRemarkWithOptions(request, runtime);
+}
+
+UpdateCloudGtmInstanceNameResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmInstanceNameWithOptions(shared_ptr<UpdateCloudGtmInstanceNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
+    query->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmInstanceName"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmInstanceNameResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmInstanceNameResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmInstanceName(shared_ptr<UpdateCloudGtmInstanceNameRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmInstanceNameWithOptions(request, runtime);
+}
+
+UpdateCloudGtmMonitorTemplateResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmMonitorTemplateWithOptions(shared_ptr<UpdateCloudGtmMonitorTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateCloudGtmMonitorTemplateShrinkRequest> request = make_shared<UpdateCloudGtmMonitorTemplateShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateCloudGtmMonitorTemplateRequestIspCityNodes>>(tmpReq->ispCityNodes)) {
+    request->ispCityNodesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ispCityNodes, make_shared<string>("IspCityNodes"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->evaluationCount)) {
+    query->insert(pair<string, long>("EvaluationCount", *request->evaluationCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extendInfo)) {
+    query->insert(pair<string, string>("ExtendInfo", *request->extendInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->failureRate)) {
+    query->insert(pair<string, long>("FailureRate", *request->failureRate));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->interval)) {
+    query->insert(pair<string, long>("Interval", *request->interval));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ispCityNodesShrink)) {
+    query->insert(pair<string, string>("IspCityNodes", *request->ispCityNodesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
+    query->insert(pair<string, string>("TemplateId", *request->templateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->timeout)) {
+    query->insert(pair<string, long>("Timeout", *request->timeout));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmMonitorTemplate"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmMonitorTemplateResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmMonitorTemplateResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmMonitorTemplate(shared_ptr<UpdateCloudGtmMonitorTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmMonitorTemplateWithOptions(request, runtime);
+}
+
+UpdateCloudGtmMonitorTemplateRemarkResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmMonitorTemplateRemarkWithOptions(shared_ptr<UpdateCloudGtmMonitorTemplateRemarkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
+    query->insert(pair<string, string>("TemplateId", *request->templateId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudGtmMonitorTemplateRemark"))},
+    {"version", boost::any(string("2015-01-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudGtmMonitorTemplateRemarkResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudGtmMonitorTemplateRemarkResponse Alibabacloud_Alidns20150109::Client::updateCloudGtmMonitorTemplateRemark(shared_ptr<UpdateCloudGtmMonitorTemplateRemarkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudGtmMonitorTemplateRemarkWithOptions(request, runtime);
 }
 
 UpdateCustomLineResponse Alibabacloud_Alidns20150109::Client::updateCustomLineWithOptions(shared_ptr<UpdateCustomLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
