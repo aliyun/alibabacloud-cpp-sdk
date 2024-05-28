@@ -47305,6 +47305,9 @@ public:
   shared_ptr<long> callsBlindTransferOut{};
   shared_ptr<long> callsHandled{};
   shared_ptr<long> callsOffered{};
+  shared_ptr<string> callsQueuingCanceled{};
+  shared_ptr<string> callsQueuingFailure{};
+  shared_ptr<string> callsQueuingRerouted{};
   shared_ptr<long> callsQueuingTimeout{};
   shared_ptr<long> callsServiceLevel10{};
   shared_ptr<long> callsServiceLevel20{};
@@ -47369,6 +47372,15 @@ public:
     }
     if (callsOffered) {
       res["CallsOffered"] = boost::any(*callsOffered);
+    }
+    if (callsQueuingCanceled) {
+      res["CallsQueuingCanceled"] = boost::any(*callsQueuingCanceled);
+    }
+    if (callsQueuingFailure) {
+      res["CallsQueuingFailure"] = boost::any(*callsQueuingFailure);
+    }
+    if (callsQueuingRerouted) {
+      res["CallsQueuingRerouted"] = boost::any(*callsQueuingRerouted);
     }
     if (callsQueuingTimeout) {
       res["CallsQueuingTimeout"] = boost::any(*callsQueuingTimeout);
@@ -47469,6 +47481,15 @@ public:
     }
     if (m.find("CallsOffered") != m.end() && !m["CallsOffered"].empty()) {
       callsOffered = make_shared<long>(boost::any_cast<long>(m["CallsOffered"]));
+    }
+    if (m.find("CallsQueuingCanceled") != m.end() && !m["CallsQueuingCanceled"].empty()) {
+      callsQueuingCanceled = make_shared<string>(boost::any_cast<string>(m["CallsQueuingCanceled"]));
+    }
+    if (m.find("CallsQueuingFailure") != m.end() && !m["CallsQueuingFailure"].empty()) {
+      callsQueuingFailure = make_shared<string>(boost::any_cast<string>(m["CallsQueuingFailure"]));
+    }
+    if (m.find("CallsQueuingRerouted") != m.end() && !m["CallsQueuingRerouted"].empty()) {
+      callsQueuingRerouted = make_shared<string>(boost::any_cast<string>(m["CallsQueuingRerouted"]));
     }
     if (m.find("CallsQueuingTimeout") != m.end() && !m["CallsQueuingTimeout"].empty()) {
       callsQueuingTimeout = make_shared<long>(boost::any_cast<long>(m["CallsQueuingTimeout"]));
