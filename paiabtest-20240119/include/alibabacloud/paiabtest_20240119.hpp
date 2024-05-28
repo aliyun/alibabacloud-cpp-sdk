@@ -2764,6 +2764,7 @@ public:
 class GetDomainResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> bucketType{};
+  shared_ptr<string> buckets{};
   shared_ptr<string> condition{};
   shared_ptr<string> crowdIds{};
   shared_ptr<string> debugUsers{};
@@ -2793,6 +2794,9 @@ public:
     map<string, boost::any> res;
     if (bucketType) {
       res["BucketType"] = boost::any(*bucketType);
+    }
+    if (buckets) {
+      res["Buckets"] = boost::any(*buckets);
     }
     if (condition) {
       res["Condition"] = boost::any(*condition);
@@ -2848,6 +2852,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BucketType") != m.end() && !m["BucketType"].empty()) {
       bucketType = make_shared<string>(boost::any_cast<string>(m["BucketType"]));
+    }
+    if (m.find("Buckets") != m.end() && !m["Buckets"].empty()) {
+      buckets = make_shared<string>(boost::any_cast<string>(m["Buckets"]));
     }
     if (m.find("Condition") != m.end() && !m["Condition"].empty()) {
       condition = make_shared<string>(boost::any_cast<string>(m["Condition"]));
@@ -4818,6 +4825,7 @@ public:
 class ListDomainsResponseBodyDomains : public Darabonba::Model {
 public:
   shared_ptr<string> bucketType{};
+  shared_ptr<string> buckets{};
   shared_ptr<string> condition{};
   shared_ptr<string> crowdIds{};
   shared_ptr<string> debugUsers{};
@@ -4846,6 +4854,9 @@ public:
     map<string, boost::any> res;
     if (bucketType) {
       res["BucketType"] = boost::any(*bucketType);
+    }
+    if (buckets) {
+      res["Buckets"] = boost::any(*buckets);
     }
     if (condition) {
       res["Condition"] = boost::any(*condition);
@@ -4898,6 +4909,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BucketType") != m.end() && !m["BucketType"].empty()) {
       bucketType = make_shared<string>(boost::any_cast<string>(m["BucketType"]));
+    }
+    if (m.find("Buckets") != m.end() && !m["Buckets"].empty()) {
+      buckets = make_shared<string>(boost::any_cast<string>(m["Buckets"]));
     }
     if (m.find("Condition") != m.end() && !m["Condition"].empty()) {
       condition = make_shared<string>(boost::any_cast<string>(m["Condition"]));
