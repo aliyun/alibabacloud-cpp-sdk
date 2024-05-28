@@ -1,3 +1,6 @@
+2024-05-28 Version: 1.0.12
+- Generated cpp 2022-08-01 for RocketMQ.
+
 2024-03-29 Version: 1.0.11
 - Generated cpp 2022-08-01 for RocketMQ.
 
