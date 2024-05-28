@@ -21739,6 +21739,172 @@ public:
 
   virtual ~ImportAdminsResponse() = default;
 };
+class ImportCorpNumbersRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> city{};
+  shared_ptr<string> corpName{};
+  shared_ptr<string> numberList{};
+  shared_ptr<string> provider{};
+  shared_ptr<string> province{};
+  shared_ptr<string> tagList{};
+
+  ImportCorpNumbersRequest() {}
+
+  explicit ImportCorpNumbersRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (city) {
+      res["City"] = boost::any(*city);
+    }
+    if (corpName) {
+      res["CorpName"] = boost::any(*corpName);
+    }
+    if (numberList) {
+      res["NumberList"] = boost::any(*numberList);
+    }
+    if (provider) {
+      res["Provider"] = boost::any(*provider);
+    }
+    if (province) {
+      res["Province"] = boost::any(*province);
+    }
+    if (tagList) {
+      res["TagList"] = boost::any(*tagList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("City") != m.end() && !m["City"].empty()) {
+      city = make_shared<string>(boost::any_cast<string>(m["City"]));
+    }
+    if (m.find("CorpName") != m.end() && !m["CorpName"].empty()) {
+      corpName = make_shared<string>(boost::any_cast<string>(m["CorpName"]));
+    }
+    if (m.find("NumberList") != m.end() && !m["NumberList"].empty()) {
+      numberList = make_shared<string>(boost::any_cast<string>(m["NumberList"]));
+    }
+    if (m.find("Provider") != m.end() && !m["Provider"].empty()) {
+      provider = make_shared<string>(boost::any_cast<string>(m["Provider"]));
+    }
+    if (m.find("Province") != m.end() && !m["Province"].empty()) {
+      province = make_shared<string>(boost::any_cast<string>(m["Province"]));
+    }
+    if (m.find("TagList") != m.end() && !m["TagList"].empty()) {
+      tagList = make_shared<string>(boost::any_cast<string>(m["TagList"]));
+    }
+  }
+
+
+  virtual ~ImportCorpNumbersRequest() = default;
+};
+class ImportCorpNumbersResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  ImportCorpNumbersResponseBody() {}
+
+  explicit ImportCorpNumbersResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ImportCorpNumbersResponseBody() = default;
+};
+class ImportCorpNumbersResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ImportCorpNumbersResponseBody> body{};
+
+  ImportCorpNumbersResponse() {}
+
+  explicit ImportCorpNumbersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ImportCorpNumbersResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ImportCorpNumbersResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ImportCorpNumbersResponse() = default;
+};
 class ImportCustomCallTaggingRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filePath{};
@@ -65255,6 +65421,8 @@ public:
   HoldCallResponse holdCall(shared_ptr<HoldCallRequest> request);
   ImportAdminsResponse importAdminsWithOptions(shared_ptr<ImportAdminsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportAdminsResponse importAdmins(shared_ptr<ImportAdminsRequest> request);
+  ImportCorpNumbersResponse importCorpNumbersWithOptions(shared_ptr<ImportCorpNumbersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ImportCorpNumbersResponse importCorpNumbers(shared_ptr<ImportCorpNumbersRequest> request);
   ImportCustomCallTaggingResponse importCustomCallTaggingWithOptions(shared_ptr<ImportCustomCallTaggingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportCustomCallTaggingResponse importCustomCallTagging(shared_ptr<ImportCustomCallTaggingRequest> request);
   ImportDoNotCallNumbersResponse importDoNotCallNumbersWithOptions(shared_ptr<ImportDoNotCallNumbersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
