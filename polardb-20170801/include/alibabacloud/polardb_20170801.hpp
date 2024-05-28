@@ -12959,6 +12959,56 @@ public:
 
   virtual ~DescribeDBClusterVersionResponseBodyDBRevisionVersionList() = default;
 };
+class DescribeDBClusterVersionResponseBodyProxyRevisionVersionList : public Darabonba::Model {
+public:
+  shared_ptr<string> releaseNote{};
+  shared_ptr<string> releaseType{};
+  shared_ptr<string> revisionVersionCode{};
+  shared_ptr<string> revisionVersionName{};
+
+  DescribeDBClusterVersionResponseBodyProxyRevisionVersionList() {}
+
+  explicit DescribeDBClusterVersionResponseBodyProxyRevisionVersionList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (releaseNote) {
+      res["ReleaseNote"] = boost::any(*releaseNote);
+    }
+    if (releaseType) {
+      res["ReleaseType"] = boost::any(*releaseType);
+    }
+    if (revisionVersionCode) {
+      res["RevisionVersionCode"] = boost::any(*revisionVersionCode);
+    }
+    if (revisionVersionName) {
+      res["RevisionVersionName"] = boost::any(*revisionVersionName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReleaseNote") != m.end() && !m["ReleaseNote"].empty()) {
+      releaseNote = make_shared<string>(boost::any_cast<string>(m["ReleaseNote"]));
+    }
+    if (m.find("ReleaseType") != m.end() && !m["ReleaseType"].empty()) {
+      releaseType = make_shared<string>(boost::any_cast<string>(m["ReleaseType"]));
+    }
+    if (m.find("RevisionVersionCode") != m.end() && !m["RevisionVersionCode"].empty()) {
+      revisionVersionCode = make_shared<string>(boost::any_cast<string>(m["RevisionVersionCode"]));
+    }
+    if (m.find("RevisionVersionName") != m.end() && !m["RevisionVersionName"].empty()) {
+      revisionVersionName = make_shared<string>(boost::any_cast<string>(m["RevisionVersionName"]));
+    }
+  }
+
+
+  virtual ~DescribeDBClusterVersionResponseBodyProxyRevisionVersionList() = default;
+};
 class DescribeDBClusterVersionResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
@@ -12972,6 +13022,7 @@ public:
   shared_ptr<string> isProxyLatestVersion{};
   shared_ptr<string> proxyLatestVersion{};
   shared_ptr<string> proxyRevisionVersion{};
+  shared_ptr<vector<DescribeDBClusterVersionResponseBodyProxyRevisionVersionList>> proxyRevisionVersionList{};
   shared_ptr<string> proxyVersionStatus{};
   shared_ptr<string> requestId{};
 
@@ -13021,6 +13072,13 @@ public:
     }
     if (proxyRevisionVersion) {
       res["ProxyRevisionVersion"] = boost::any(*proxyRevisionVersion);
+    }
+    if (proxyRevisionVersionList) {
+      vector<boost::any> temp1;
+      for(auto item1:*proxyRevisionVersionList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ProxyRevisionVersionList"] = boost::any(temp1);
     }
     if (proxyVersionStatus) {
       res["ProxyVersionStatus"] = boost::any(*proxyVersionStatus);
@@ -13074,6 +13132,19 @@ public:
     }
     if (m.find("ProxyRevisionVersion") != m.end() && !m["ProxyRevisionVersion"].empty()) {
       proxyRevisionVersion = make_shared<string>(boost::any_cast<string>(m["ProxyRevisionVersion"]));
+    }
+    if (m.find("ProxyRevisionVersionList") != m.end() && !m["ProxyRevisionVersionList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ProxyRevisionVersionList"].type()) {
+        vector<DescribeDBClusterVersionResponseBodyProxyRevisionVersionList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ProxyRevisionVersionList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDBClusterVersionResponseBodyProxyRevisionVersionList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        proxyRevisionVersionList = make_shared<vector<DescribeDBClusterVersionResponseBodyProxyRevisionVersionList>>(expect1);
+      }
     }
     if (m.find("ProxyVersionStatus") != m.end() && !m["ProxyVersionStatus"].empty()) {
       proxyVersionStatus = make_shared<string>(boost::any_cast<string>(m["ProxyVersionStatus"]));
@@ -32944,6 +33015,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> targetDBRevisionVersionCode{};
+  shared_ptr<string> targetProxyRevisionVersionCode{};
   shared_ptr<string> upgradeLabel{};
   shared_ptr<string> upgradePolicy{};
   shared_ptr<string> upgradeType{};
@@ -32985,6 +33057,9 @@ public:
     if (targetDBRevisionVersionCode) {
       res["TargetDBRevisionVersionCode"] = boost::any(*targetDBRevisionVersionCode);
     }
+    if (targetProxyRevisionVersionCode) {
+      res["TargetProxyRevisionVersionCode"] = boost::any(*targetProxyRevisionVersionCode);
+    }
     if (upgradeLabel) {
       res["UpgradeLabel"] = boost::any(*upgradeLabel);
     }
@@ -33024,6 +33099,9 @@ public:
     }
     if (m.find("TargetDBRevisionVersionCode") != m.end() && !m["TargetDBRevisionVersionCode"].empty()) {
       targetDBRevisionVersionCode = make_shared<string>(boost::any_cast<string>(m["TargetDBRevisionVersionCode"]));
+    }
+    if (m.find("TargetProxyRevisionVersionCode") != m.end() && !m["TargetProxyRevisionVersionCode"].empty()) {
+      targetProxyRevisionVersionCode = make_shared<string>(boost::any_cast<string>(m["TargetProxyRevisionVersionCode"]));
     }
     if (m.find("UpgradeLabel") != m.end() && !m["UpgradeLabel"].empty()) {
       upgradeLabel = make_shared<string>(boost::any_cast<string>(m["UpgradeLabel"]));

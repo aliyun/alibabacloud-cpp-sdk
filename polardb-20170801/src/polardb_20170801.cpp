@@ -7311,6 +7311,9 @@ UpgradeDBClusterVersionResponse Alibabacloud_Polardb20170801::Client::upgradeDBC
   if (!Darabonba_Util::Client::isUnset<string>(request->targetDBRevisionVersionCode)) {
     query->insert(pair<string, string>("TargetDBRevisionVersionCode", *request->targetDBRevisionVersionCode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetProxyRevisionVersionCode)) {
+    query->insert(pair<string, string>("TargetProxyRevisionVersionCode", *request->targetProxyRevisionVersionCode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->upgradeLabel)) {
     query->insert(pair<string, string>("UpgradeLabel", *request->upgradeLabel));
   }
