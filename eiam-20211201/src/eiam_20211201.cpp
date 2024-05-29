@@ -3051,6 +3051,9 @@ SetApplicationProvisioningScopeResponse Alibabacloud_Eiam20211201::Client::setAp
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationId)) {
     query->insert(pair<string, string>("ApplicationId", *request->applicationId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->groupIds)) {
+    query->insert(pair<string, vector<string>>("GroupIds", *request->groupIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }

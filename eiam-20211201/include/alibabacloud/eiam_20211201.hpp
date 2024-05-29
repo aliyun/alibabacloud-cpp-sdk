@@ -6045,7 +6045,10 @@ public:
 };
 class GetApplicationProvisioningScopeResponseBodyApplicationProvisioningScope : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> groupIds{};
+  shared_ptr<long> maxQuota{};
   shared_ptr<vector<string>> organizationalUnitIds{};
+  shared_ptr<long> usedQuota{};
 
   GetApplicationProvisioningScopeResponseBodyApplicationProvisioningScope() {}
 
@@ -6057,13 +6060,35 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (groupIds) {
+      res["GroupIds"] = boost::any(*groupIds);
+    }
+    if (maxQuota) {
+      res["MaxQuota"] = boost::any(*maxQuota);
+    }
     if (organizationalUnitIds) {
       res["OrganizationalUnitIds"] = boost::any(*organizationalUnitIds);
+    }
+    if (usedQuota) {
+      res["UsedQuota"] = boost::any(*usedQuota);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupIds") != m.end() && !m["GroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      groupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxQuota") != m.end() && !m["MaxQuota"].empty()) {
+      maxQuota = make_shared<long>(boost::any_cast<long>(m["MaxQuota"]));
+    }
     if (m.find("OrganizationalUnitIds") != m.end() && !m["OrganizationalUnitIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["OrganizationalUnitIds"].type()) {
@@ -6073,6 +6098,9 @@ public:
         }
       }
       organizationalUnitIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("UsedQuota") != m.end() && !m["UsedQuota"].empty()) {
+      usedQuota = make_shared<long>(boost::any_cast<long>(m["UsedQuota"]));
     }
   }
 
@@ -12148,6 +12176,8 @@ public:
 class ListGroupsForUserResponseBodyGroups : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
+  shared_ptr<string> groupMemberRelationSourceId{};
+  shared_ptr<string> groupMemberRelationSourceType{};
 
   ListGroupsForUserResponseBodyGroups() {}
 
@@ -12162,12 +12192,24 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (groupMemberRelationSourceId) {
+      res["GroupMemberRelationSourceId"] = boost::any(*groupMemberRelationSourceId);
+    }
+    if (groupMemberRelationSourceType) {
+      res["GroupMemberRelationSourceType"] = boost::any(*groupMemberRelationSourceType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("GroupMemberRelationSourceId") != m.end() && !m["GroupMemberRelationSourceId"].empty()) {
+      groupMemberRelationSourceId = make_shared<string>(boost::any_cast<string>(m["GroupMemberRelationSourceId"]));
+    }
+    if (m.find("GroupMemberRelationSourceType") != m.end() && !m["GroupMemberRelationSourceType"].empty()) {
+      groupMemberRelationSourceType = make_shared<string>(boost::any_cast<string>(m["GroupMemberRelationSourceType"]));
     }
   }
 
@@ -14847,6 +14889,8 @@ public:
 };
 class ListUsersForGroupResponseBodyUsers : public Darabonba::Model {
 public:
+  shared_ptr<string> groupMemberRelationSourceId{};
+  shared_ptr<string> groupMemberRelationSourceType{};
   shared_ptr<string> userId{};
 
   ListUsersForGroupResponseBodyUsers() {}
@@ -14859,6 +14903,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (groupMemberRelationSourceId) {
+      res["GroupMemberRelationSourceId"] = boost::any(*groupMemberRelationSourceId);
+    }
+    if (groupMemberRelationSourceType) {
+      res["GroupMemberRelationSourceType"] = boost::any(*groupMemberRelationSourceType);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -14866,6 +14916,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupMemberRelationSourceId") != m.end() && !m["GroupMemberRelationSourceId"].empty()) {
+      groupMemberRelationSourceId = make_shared<string>(boost::any_cast<string>(m["GroupMemberRelationSourceId"]));
+    }
+    if (m.find("GroupMemberRelationSourceType") != m.end() && !m["GroupMemberRelationSourceType"].empty()) {
+      groupMemberRelationSourceType = make_shared<string>(boost::any_cast<string>(m["GroupMemberRelationSourceType"]));
+    }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
     }
@@ -16573,6 +16629,7 @@ public:
 class SetApplicationProvisioningScopeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationId{};
+  shared_ptr<vector<string>> groupIds{};
   shared_ptr<string> instanceId{};
   shared_ptr<vector<string>> organizationalUnitIds{};
 
@@ -16589,6 +16646,9 @@ public:
     if (applicationId) {
       res["ApplicationId"] = boost::any(*applicationId);
     }
+    if (groupIds) {
+      res["GroupIds"] = boost::any(*groupIds);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -16601,6 +16661,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
       applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("GroupIds") != m.end() && !m["GroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      groupIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
