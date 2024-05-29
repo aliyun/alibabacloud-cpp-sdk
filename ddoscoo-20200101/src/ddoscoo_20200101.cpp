@@ -108,32 +108,34 @@ AddAutoCcWhitelistResponse Alibabacloud_Ddoscoo20200101::Client::addAutoCcWhitel
 AssociateWebCertResponse Alibabacloud_Ddoscoo20200101::Client::associateWebCertWithOptions(shared_ptr<AssociateWebCertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->cert)) {
-    query->insert(pair<string, string>("Cert", *request->cert));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->certId)) {
-    query->insert(pair<string, long>("CertId", *request->certId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->certIdentifier)) {
-    query->insert(pair<string, string>("CertIdentifier", *request->certIdentifier));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->certName)) {
-    query->insert(pair<string, string>("CertName", *request->certName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->certRegion)) {
-    query->insert(pair<string, string>("CertRegion", *request->certRegion));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
-    query->insert(pair<string, string>("Domain", *request->domain));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->key)) {
-    query->insert(pair<string, string>("Key", *request->key));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cert)) {
+    body->insert(pair<string, string>("Cert", *request->cert));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->certId)) {
+    body->insert(pair<string, long>("CertId", *request->certId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certIdentifier)) {
+    body->insert(pair<string, string>("CertIdentifier", *request->certIdentifier));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certName)) {
+    body->insert(pair<string, string>("CertName", *request->certName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certRegion)) {
+    body->insert(pair<string, string>("CertRegion", *request->certRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    body->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->key)) {
+    body->insert(pair<string, string>("Key", *request->key));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AssociateWebCert"))},
