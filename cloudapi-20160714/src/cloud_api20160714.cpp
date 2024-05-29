@@ -4119,6 +4119,77 @@ DescribeImportOASTaskResponse Alibabacloud_CloudAPI20160714::Client::describeImp
   return describeImportOASTaskWithOptions(request, runtime);
 }
 
+DescribeInstanceClusterInfoResponse Alibabacloud_CloudAPI20160714::Client::describeInstanceClusterInfoWithOptions(shared_ptr<DescribeInstanceClusterInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceClusterName)) {
+    query->insert(pair<string, string>("InstanceClusterName", *request->instanceClusterName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeInstanceClusterInfo"))},
+    {"version", boost::any(string("2016-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeInstanceClusterInfoResponse(callApi(params, req, runtime));
+}
+
+DescribeInstanceClusterInfoResponse Alibabacloud_CloudAPI20160714::Client::describeInstanceClusterInfo(shared_ptr<DescribeInstanceClusterInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeInstanceClusterInfoWithOptions(request, runtime);
+}
+
+DescribeInstanceClusterListResponse Alibabacloud_CloudAPI20160714::Client::describeInstanceClusterListWithOptions(shared_ptr<DescribeInstanceClusterListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceClusterId)) {
+    query->insert(pair<string, string>("InstanceClusterId", *request->instanceClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceClusterName)) {
+    query->insert(pair<string, string>("InstanceClusterName", *request->instanceClusterName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeInstanceClusterList"))},
+    {"version", boost::any(string("2016-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeInstanceClusterListResponse(callApi(params, req, runtime));
+}
+
+DescribeInstanceClusterListResponse Alibabacloud_CloudAPI20160714::Client::describeInstanceClusterList(shared_ptr<DescribeInstanceClusterListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeInstanceClusterListWithOptions(request, runtime);
+}
+
 DescribeInstanceDropConnectionsResponse Alibabacloud_CloudAPI20160714::Client::describeInstanceDropConnectionsWithOptions(shared_ptr<DescribeInstanceDropConnectionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
