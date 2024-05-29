@@ -424,12 +424,15 @@ public:
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<vector<long>> illustrationTaskIdList{};
+  shared_ptr<string> publishStatus{};
   shared_ptr<string> textContent{};
   shared_ptr<long> textId{};
   shared_ptr<bool> textIllustrationTag{};
   shared_ptr<string> textModeType{};
   shared_ptr<string> textStatus{};
+  shared_ptr<string> textStyleType{};
   shared_ptr<long> textTaskId{};
+  shared_ptr<vector<string>> textThemes{};
   shared_ptr<string> title{};
   shared_ptr<string> userNameCreate{};
   shared_ptr<string> userNameModified{};
@@ -456,6 +459,9 @@ public:
     if (illustrationTaskIdList) {
       res["illustrationTaskIdList"] = boost::any(*illustrationTaskIdList);
     }
+    if (publishStatus) {
+      res["publishStatus"] = boost::any(*publishStatus);
+    }
     if (textContent) {
       res["textContent"] = boost::any(*textContent);
     }
@@ -471,8 +477,14 @@ public:
     if (textStatus) {
       res["textStatus"] = boost::any(*textStatus);
     }
+    if (textStyleType) {
+      res["textStyleType"] = boost::any(*textStyleType);
+    }
     if (textTaskId) {
       res["textTaskId"] = boost::any(*textTaskId);
+    }
+    if (textThemes) {
+      res["textThemes"] = boost::any(*textThemes);
     }
     if (title) {
       res["title"] = boost::any(*title);
@@ -506,6 +518,9 @@ public:
       }
       illustrationTaskIdList = make_shared<vector<long>>(toVec1);
     }
+    if (m.find("publishStatus") != m.end() && !m["publishStatus"].empty()) {
+      publishStatus = make_shared<string>(boost::any_cast<string>(m["publishStatus"]));
+    }
     if (m.find("textContent") != m.end() && !m["textContent"].empty()) {
       textContent = make_shared<string>(boost::any_cast<string>(m["textContent"]));
     }
@@ -521,8 +536,21 @@ public:
     if (m.find("textStatus") != m.end() && !m["textStatus"].empty()) {
       textStatus = make_shared<string>(boost::any_cast<string>(m["textStatus"]));
     }
+    if (m.find("textStyleType") != m.end() && !m["textStyleType"].empty()) {
+      textStyleType = make_shared<string>(boost::any_cast<string>(m["textStyleType"]));
+    }
     if (m.find("textTaskId") != m.end() && !m["textTaskId"].empty()) {
       textTaskId = make_shared<long>(boost::any_cast<long>(m["textTaskId"]));
+    }
+    if (m.find("textThemes") != m.end() && !m["textThemes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["textThemes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["textThemes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      textThemes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("title") != m.end() && !m["title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["title"]));
@@ -537,6 +565,63 @@ public:
 
 
   virtual ~Text() = default;
+};
+class TextQueryResult : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<Text>> texts{};
+  shared_ptr<long> total{};
+
+  TextQueryResult() {}
+
+  explicit TextQueryResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (texts) {
+      vector<boost::any> temp1;
+      for(auto item1:*texts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["texts"] = boost::any(temp1);
+    }
+    if (total) {
+      res["total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("texts") != m.end() && !m["texts"].empty()) {
+      if (typeid(vector<boost::any>) == m["texts"].type()) {
+        vector<Text> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["texts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Text model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        texts = make_shared<vector<Text>>(expect1);
+      }
+    }
+    if (m.find("total") != m.end() && !m["total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["total"]));
+    }
+  }
+
+
+  virtual ~TextQueryResult() = default;
 };
 class TextResult : public Darabonba::Model {
 public:
@@ -727,6 +812,7 @@ class TextTaskCreateCmd : public Darabonba::Model {
 public:
   shared_ptr<string> contentRequirement{};
   shared_ptr<string> idempotentId{};
+  shared_ptr<string> industry{};
   shared_ptr<string> introduction{};
   shared_ptr<long> number{};
   shared_ptr<string> point{};
@@ -736,6 +822,7 @@ public:
   shared_ptr<string> target{};
   shared_ptr<string> textModeType{};
   shared_ptr<string> theme{};
+  shared_ptr<vector<string>> themes{};
 
   TextTaskCreateCmd() {}
 
@@ -752,6 +839,9 @@ public:
     }
     if (idempotentId) {
       res["idempotentId"] = boost::any(*idempotentId);
+    }
+    if (industry) {
+      res["industry"] = boost::any(*industry);
     }
     if (introduction) {
       res["introduction"] = boost::any(*introduction);
@@ -780,6 +870,9 @@ public:
     if (theme) {
       res["theme"] = boost::any(*theme);
     }
+    if (themes) {
+      res["themes"] = boost::any(*themes);
+    }
     return res;
   }
 
@@ -789,6 +882,9 @@ public:
     }
     if (m.find("idempotentId") != m.end() && !m["idempotentId"].empty()) {
       idempotentId = make_shared<string>(boost::any_cast<string>(m["idempotentId"]));
+    }
+    if (m.find("industry") != m.end() && !m["industry"].empty()) {
+      industry = make_shared<string>(boost::any_cast<string>(m["industry"]));
     }
     if (m.find("introduction") != m.end() && !m["introduction"].empty()) {
       introduction = make_shared<string>(boost::any_cast<string>(m["introduction"]));
@@ -827,6 +923,16 @@ public:
     }
     if (m.find("theme") != m.end() && !m["theme"].empty()) {
       theme = make_shared<string>(boost::any_cast<string>(m["theme"]));
+    }
+    if (m.find("themes") != m.end() && !m["themes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["themes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["themes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      themes = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -1418,6 +1524,35 @@ public:
 
   virtual ~GetTextTaskResponse() = default;
 };
+class ListTextThemesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> industry{};
+
+  ListTextThemesRequest() {}
+
+  explicit ListTextThemesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (industry) {
+      res["industry"] = boost::any(*industry);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("industry") != m.end() && !m["industry"].empty()) {
+      industry = make_shared<string>(boost::any_cast<string>(m["industry"]));
+    }
+  }
+
+
+  virtual ~ListTextThemesRequest() = default;
+};
 class ListTextThemesResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -1470,6 +1605,129 @@ public:
 
   virtual ~ListTextThemesResponse() = default;
 };
+class ListTextsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> generationSource{};
+  shared_ptr<string> industry{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> publishStatus{};
+  shared_ptr<string> textStyleType{};
+  shared_ptr<string> textTheme{};
+
+  ListTextsRequest() {}
+
+  explicit ListTextsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (generationSource) {
+      res["generationSource"] = boost::any(*generationSource);
+    }
+    if (industry) {
+      res["industry"] = boost::any(*industry);
+    }
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    if (publishStatus) {
+      res["publishStatus"] = boost::any(*publishStatus);
+    }
+    if (textStyleType) {
+      res["textStyleType"] = boost::any(*textStyleType);
+    }
+    if (textTheme) {
+      res["textTheme"] = boost::any(*textTheme);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("generationSource") != m.end() && !m["generationSource"].empty()) {
+      generationSource = make_shared<string>(boost::any_cast<string>(m["generationSource"]));
+    }
+    if (m.find("industry") != m.end() && !m["industry"].empty()) {
+      industry = make_shared<string>(boost::any_cast<string>(m["industry"]));
+    }
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+    if (m.find("publishStatus") != m.end() && !m["publishStatus"].empty()) {
+      publishStatus = make_shared<string>(boost::any_cast<string>(m["publishStatus"]));
+    }
+    if (m.find("textStyleType") != m.end() && !m["textStyleType"].empty()) {
+      textStyleType = make_shared<string>(boost::any_cast<string>(m["textStyleType"]));
+    }
+    if (m.find("textTheme") != m.end() && !m["textTheme"].empty()) {
+      textTheme = make_shared<string>(boost::any_cast<string>(m["textTheme"]));
+    }
+  }
+
+
+  virtual ~ListTextsRequest() = default;
+};
+class ListTextsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<TextQueryResult> body{};
+
+  ListTextsResponse() {}
+
+  explicit ListTextsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        TextQueryResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<TextQueryResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListTextsResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -1503,8 +1761,10 @@ public:
   GetTextResponse getText(shared_ptr<string> textId);
   GetTextTaskResponse getTextTaskWithOptions(shared_ptr<string> textTaskId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTextTaskResponse getTextTask(shared_ptr<string> textTaskId);
-  ListTextThemesResponse listTextThemesWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListTextThemesResponse listTextThemes();
+  ListTextThemesResponse listTextThemesWithOptions(shared_ptr<ListTextThemesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListTextThemesResponse listTextThemes(shared_ptr<ListTextThemesRequest> request);
+  ListTextsResponse listTextsWithOptions(shared_ptr<ListTextsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListTextsResponse listTexts(shared_ptr<ListTextsRequest> request);
 
   virtual ~Client() = default;
 };
