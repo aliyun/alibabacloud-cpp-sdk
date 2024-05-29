@@ -42603,6 +42603,7 @@ public:
 };
 class TransferPayTypeRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoPay{};
   shared_ptr<string> buyCount{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> dtsJobId{};
@@ -42622,6 +42623,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
     if (buyCount) {
       res["BuyCount"] = boost::any(*buyCount);
     }
@@ -42650,6 +42654,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
     if (m.find("BuyCount") != m.end() && !m["BuyCount"].empty()) {
       buyCount = make_shared<string>(boost::any_cast<string>(m["BuyCount"]));
     }
