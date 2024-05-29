@@ -2012,6 +2012,9 @@ CreateOrUpdateSwimmingLaneResponse Alibabacloud_Mse20190531::Client::createOrUpd
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->pathIndependentPercentageEnable)) {
+    query->insert(pair<string, bool>("PathIndependentPercentageEnable", *request->pathIndependentPercentageEnable));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }

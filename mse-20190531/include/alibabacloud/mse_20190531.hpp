@@ -11707,6 +11707,42 @@ public:
 
   virtual ~CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonConditions() = default;
 };
+class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteIndependentPercentageList : public Darabonba::Model {
+public:
+  shared_ptr<long> percentage{};
+  shared_ptr<long> routeId{};
+
+  CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteIndependentPercentageList() {}
+
+  explicit CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteIndependentPercentageList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (routeId) {
+      res["RouteId"] = boost::any(*routeId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<long>(boost::any_cast<long>(m["Percentage"]));
+    }
+    if (m.find("RouteId") != m.end() && !m["RouteId"].empty()) {
+      routeId = make_shared<long>(boost::any_cast<long>(m["RouteId"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteIndependentPercentageList() = default;
+};
 class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson : public Darabonba::Model {
 public:
   shared_ptr<long> canaryModel{};
@@ -11715,6 +11751,8 @@ public:
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> percentage{};
   shared_ptr<vector<long>> routeIdList{};
+  shared_ptr<bool> routeIndependentPercentageEnable{};
+  shared_ptr<vector<CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteIndependentPercentageList>> routeIndependentPercentageList{};
 
   CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson() {}
 
@@ -11747,6 +11785,16 @@ public:
     }
     if (routeIdList) {
       res["RouteIdList"] = boost::any(*routeIdList);
+    }
+    if (routeIndependentPercentageEnable) {
+      res["RouteIndependentPercentageEnable"] = boost::any(*routeIndependentPercentageEnable);
+    }
+    if (routeIndependentPercentageList) {
+      vector<boost::any> temp1;
+      for(auto item1:*routeIndependentPercentageList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RouteIndependentPercentageList"] = boost::any(temp1);
     }
     return res;
   }
@@ -11787,6 +11835,22 @@ public:
       }
       routeIdList = make_shared<vector<long>>(toVec1);
     }
+    if (m.find("RouteIndependentPercentageEnable") != m.end() && !m["RouteIndependentPercentageEnable"].empty()) {
+      routeIndependentPercentageEnable = make_shared<bool>(boost::any_cast<bool>(m["RouteIndependentPercentageEnable"]));
+    }
+    if (m.find("RouteIndependentPercentageList") != m.end() && !m["RouteIndependentPercentageList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RouteIndependentPercentageList"].type()) {
+        vector<CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteIndependentPercentageList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RouteIndependentPercentageList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteIndependentPercentageList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        routeIndependentPercentageList = make_shared<vector<CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteIndependentPercentageList>>(expect1);
+      }
+    }
   }
 
 
@@ -11804,6 +11868,7 @@ public:
   shared_ptr<long> id{};
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
+  shared_ptr<bool> pathIndependentPercentageEnable{};
   shared_ptr<string> regionId{};
   shared_ptr<string> tag{};
 
@@ -11850,6 +11915,9 @@ public:
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
+    }
+    if (pathIndependentPercentageEnable) {
+      res["PathIndependentPercentageEnable"] = boost::any(*pathIndependentPercentageEnable);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -11904,6 +11972,9 @@ public:
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("PathIndependentPercentageEnable") != m.end() && !m["PathIndependentPercentageEnable"].empty()) {
+      pathIndependentPercentageEnable = make_shared<bool>(boost::any_cast<bool>(m["PathIndependentPercentageEnable"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -12098,6 +12169,7 @@ public:
   shared_ptr<long> id{};
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
+  shared_ptr<bool> pathIndependentPercentageEnable{};
   shared_ptr<string> regionId{};
   shared_ptr<string> tag{};
 
@@ -12144,6 +12216,9 @@ public:
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
+    }
+    if (pathIndependentPercentageEnable) {
+      res["PathIndependentPercentageEnable"] = boost::any(*pathIndependentPercentageEnable);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -12194,6 +12269,9 @@ public:
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("PathIndependentPercentageEnable") != m.end() && !m["PathIndependentPercentageEnable"].empty()) {
+      pathIndependentPercentageEnable = make_shared<bool>(boost::any_cast<bool>(m["PathIndependentPercentageEnable"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -12388,6 +12466,7 @@ public:
   shared_ptr<long> groupId{};
   shared_ptr<long> id{};
   shared_ptr<string> name{};
+  shared_ptr<bool> pathIndependentPercentageEnable{};
   shared_ptr<string> regionId{};
   shared_ptr<long> status{};
   shared_ptr<string> tag{};
@@ -12435,6 +12514,9 @@ public:
     }
     if (name) {
       res["name"] = boost::any(*name);
+    }
+    if (pathIndependentPercentageEnable) {
+      res["pathIndependentPercentageEnable"] = boost::any(*pathIndependentPercentageEnable);
     }
     if (regionId) {
       res["regionId"] = boost::any(*regionId);
@@ -12488,6 +12570,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("pathIndependentPercentageEnable") != m.end() && !m["pathIndependentPercentageEnable"].empty()) {
+      pathIndependentPercentageEnable = make_shared<bool>(boost::any_cast<bool>(m["pathIndependentPercentageEnable"]));
     }
     if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
@@ -51491,6 +51576,42 @@ public:
 
   virtual ~QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditions() = default;
 };
+class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList : public Darabonba::Model {
+public:
+  shared_ptr<string> percentage{};
+  shared_ptr<string> routeId{};
+
+  QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList() {}
+
+  explicit QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (percentage) {
+      res["Percentage"] = boost::any(*percentage);
+    }
+    if (routeId) {
+      res["RouteId"] = boost::any(*routeId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      percentage = make_shared<string>(boost::any_cast<string>(m["Percentage"]));
+    }
+    if (m.find("RouteId") != m.end() && !m["RouteId"].empty()) {
+      routeId = make_shared<string>(boost::any_cast<string>(m["RouteId"]));
+    }
+  }
+
+
+  virtual ~QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList() = default;
+};
 class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute : public Darabonba::Model {
 public:
   shared_ptr<long> canaryModel{};
@@ -51499,6 +51620,8 @@ public:
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> percentage{};
   shared_ptr<vector<long>> routeIdList{};
+  shared_ptr<string> routeIndependentPercentageEnable{};
+  shared_ptr<vector<QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList>> routeIndependentPercentageList{};
 
   QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute() {}
 
@@ -51531,6 +51654,16 @@ public:
     }
     if (routeIdList) {
       res["RouteIdList"] = boost::any(*routeIdList);
+    }
+    if (routeIndependentPercentageEnable) {
+      res["RouteIndependentPercentageEnable"] = boost::any(*routeIndependentPercentageEnable);
+    }
+    if (routeIndependentPercentageList) {
+      vector<boost::any> temp1;
+      for(auto item1:*routeIndependentPercentageList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RouteIndependentPercentageList"] = boost::any(temp1);
     }
     return res;
   }
@@ -51571,6 +51704,22 @@ public:
       }
       routeIdList = make_shared<vector<long>>(toVec1);
     }
+    if (m.find("RouteIndependentPercentageEnable") != m.end() && !m["RouteIndependentPercentageEnable"].empty()) {
+      routeIndependentPercentageEnable = make_shared<string>(boost::any_cast<string>(m["RouteIndependentPercentageEnable"]));
+    }
+    if (m.find("RouteIndependentPercentageList") != m.end() && !m["RouteIndependentPercentageList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RouteIndependentPercentageList"].type()) {
+        vector<QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RouteIndependentPercentageList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        routeIndependentPercentageList = make_shared<vector<QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList>>(expect1);
+      }
+    }
   }
 
 
@@ -51586,6 +51735,7 @@ public:
   shared_ptr<bool> messageQueueGrayEnable{};
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
+  shared_ptr<bool> pathIndependentPercentageEnable{};
   shared_ptr<bool> recordCanaryDetail{};
   shared_ptr<string> regionId{};
   shared_ptr<string> tag{};
@@ -51631,6 +51781,9 @@ public:
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
+    }
+    if (pathIndependentPercentageEnable) {
+      res["PathIndependentPercentageEnable"] = boost::any(*pathIndependentPercentageEnable);
     }
     if (recordCanaryDetail) {
       res["RecordCanaryDetail"] = boost::any(*recordCanaryDetail);
@@ -51694,6 +51847,9 @@ public:
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("PathIndependentPercentageEnable") != m.end() && !m["PathIndependentPercentageEnable"].empty()) {
+      pathIndependentPercentageEnable = make_shared<bool>(boost::any_cast<bool>(m["PathIndependentPercentageEnable"]));
     }
     if (m.find("RecordCanaryDetail") != m.end() && !m["RecordCanaryDetail"].empty()) {
       recordCanaryDetail = make_shared<bool>(boost::any_cast<bool>(m["RecordCanaryDetail"]));
@@ -56249,6 +56405,7 @@ public:
 };
 class QuerySwimmingLaneByIdResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<bool> pathIndependentPercentageEnable{};
   shared_ptr<bool> enable{};
   shared_ptr<bool> enableRules{};
   shared_ptr<string> entryRule{};
@@ -56273,6 +56430,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (pathIndependentPercentageEnable) {
+      res["PathIndependentPercentageEnable"] = boost::any(*pathIndependentPercentageEnable);
+    }
     if (enable) {
       res["enable"] = boost::any(*enable);
     }
@@ -56320,6 +56480,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PathIndependentPercentageEnable") != m.end() && !m["PathIndependentPercentageEnable"].empty()) {
+      pathIndependentPercentageEnable = make_shared<bool>(boost::any_cast<bool>(m["PathIndependentPercentageEnable"]));
+    }
     if (m.find("enable") != m.end() && !m["enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
     }
