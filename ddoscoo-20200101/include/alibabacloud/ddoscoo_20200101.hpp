@@ -4394,6 +4394,130 @@ public:
 
   virtual ~DeleteWebCCRuleResponse() = default;
 };
+class DeleteWebCCRuleV2Request : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> owner{};
+  shared_ptr<string> ruleNames{};
+
+  DeleteWebCCRuleV2Request() {}
+
+  explicit DeleteWebCCRuleV2Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (ruleNames) {
+      res["RuleNames"] = boost::any(*ruleNames);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("RuleNames") != m.end() && !m["RuleNames"].empty()) {
+      ruleNames = make_shared<string>(boost::any_cast<string>(m["RuleNames"]));
+    }
+  }
+
+
+  virtual ~DeleteWebCCRuleV2Request() = default;
+};
+class DeleteWebCCRuleV2ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteWebCCRuleV2ResponseBody() {}
+
+  explicit DeleteWebCCRuleV2ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteWebCCRuleV2ResponseBody() = default;
+};
+class DeleteWebCCRuleV2Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteWebCCRuleV2ResponseBody> body{};
+
+  DeleteWebCCRuleV2Response() {}
+
+  explicit DeleteWebCCRuleV2Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteWebCCRuleV2ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteWebCCRuleV2ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteWebCCRuleV2Response() = default;
+};
 class DeleteWebCacheCustomRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domain{};
@@ -29188,6 +29312,123 @@ public:
 
   virtual ~ModifyWebAreaBlockSwitchResponse() = default;
 };
+class ModifyWebCCGlobalSwitchRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ccGlobalSwitch{};
+  shared_ptr<string> domain{};
+
+  ModifyWebCCGlobalSwitchRequest() {}
+
+  explicit ModifyWebCCGlobalSwitchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ccGlobalSwitch) {
+      res["CcGlobalSwitch"] = boost::any(*ccGlobalSwitch);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CcGlobalSwitch") != m.end() && !m["CcGlobalSwitch"].empty()) {
+      ccGlobalSwitch = make_shared<string>(boost::any_cast<string>(m["CcGlobalSwitch"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+  }
+
+
+  virtual ~ModifyWebCCGlobalSwitchRequest() = default;
+};
+class ModifyWebCCGlobalSwitchResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyWebCCGlobalSwitchResponseBody() {}
+
+  explicit ModifyWebCCGlobalSwitchResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyWebCCGlobalSwitchResponseBody() = default;
+};
+class ModifyWebCCGlobalSwitchResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyWebCCGlobalSwitchResponseBody> body{};
+
+  ModifyWebCCGlobalSwitchResponse() {}
+
+  explicit ModifyWebCCGlobalSwitchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyWebCCGlobalSwitchResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyWebCCGlobalSwitchResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyWebCCGlobalSwitchResponse() = default;
+};
 class ModifyWebCCRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> act{};
@@ -30581,6 +30822,8 @@ public:
   DeleteTagResourcesResponse deleteTagResources(shared_ptr<DeleteTagResourcesRequest> request);
   DeleteWebCCRuleResponse deleteWebCCRuleWithOptions(shared_ptr<DeleteWebCCRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteWebCCRuleResponse deleteWebCCRule(shared_ptr<DeleteWebCCRuleRequest> request);
+  DeleteWebCCRuleV2Response deleteWebCCRuleV2WithOptions(shared_ptr<DeleteWebCCRuleV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteWebCCRuleV2Response deleteWebCCRuleV2(shared_ptr<DeleteWebCCRuleV2Request> request);
   DeleteWebCacheCustomRuleResponse deleteWebCacheCustomRuleWithOptions(shared_ptr<DeleteWebCacheCustomRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteWebCacheCustomRuleResponse deleteWebCacheCustomRule(shared_ptr<DeleteWebCacheCustomRuleRequest> request);
   DeleteWebPreciseAccessRuleResponse deleteWebPreciseAccessRuleWithOptions(shared_ptr<DeleteWebPreciseAccessRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -30845,6 +31088,8 @@ public:
   ModifyWebAreaBlockResponse modifyWebAreaBlock(shared_ptr<ModifyWebAreaBlockRequest> request);
   ModifyWebAreaBlockSwitchResponse modifyWebAreaBlockSwitchWithOptions(shared_ptr<ModifyWebAreaBlockSwitchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyWebAreaBlockSwitchResponse modifyWebAreaBlockSwitch(shared_ptr<ModifyWebAreaBlockSwitchRequest> request);
+  ModifyWebCCGlobalSwitchResponse modifyWebCCGlobalSwitchWithOptions(shared_ptr<ModifyWebCCGlobalSwitchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyWebCCGlobalSwitchResponse modifyWebCCGlobalSwitch(shared_ptr<ModifyWebCCGlobalSwitchRequest> request);
   ModifyWebCCRuleResponse modifyWebCCRuleWithOptions(shared_ptr<ModifyWebCCRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyWebCCRuleResponse modifyWebCCRule(shared_ptr<ModifyWebCCRuleRequest> request);
   ModifyWebCacheCustomRuleResponse modifyWebCacheCustomRuleWithOptions(shared_ptr<ModifyWebCacheCustomRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

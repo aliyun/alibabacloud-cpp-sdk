@@ -1194,6 +1194,40 @@ DeleteWebCCRuleResponse Alibabacloud_Ddoscoo20200101::Client::deleteWebCCRule(sh
   return deleteWebCCRuleWithOptions(request, runtime);
 }
 
+DeleteWebCCRuleV2Response Alibabacloud_Ddoscoo20200101::Client::deleteWebCCRuleV2WithOptions(shared_ptr<DeleteWebCCRuleV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->owner)) {
+    query->insert(pair<string, string>("Owner", *request->owner));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleNames)) {
+    query->insert(pair<string, string>("RuleNames", *request->ruleNames));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteWebCCRuleV2"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteWebCCRuleV2Response(callApi(params, req, runtime));
+}
+
+DeleteWebCCRuleV2Response Alibabacloud_Ddoscoo20200101::Client::deleteWebCCRuleV2(shared_ptr<DeleteWebCCRuleV2Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteWebCCRuleV2WithOptions(request, runtime);
+}
+
 DeleteWebCacheCustomRuleResponse Alibabacloud_Ddoscoo20200101::Client::deleteWebCacheCustomRuleWithOptions(shared_ptr<DeleteWebCacheCustomRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5704,6 +5738,37 @@ ModifyWebAreaBlockSwitchResponse Alibabacloud_Ddoscoo20200101::Client::modifyWeb
 ModifyWebAreaBlockSwitchResponse Alibabacloud_Ddoscoo20200101::Client::modifyWebAreaBlockSwitch(shared_ptr<ModifyWebAreaBlockSwitchRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyWebAreaBlockSwitchWithOptions(request, runtime);
+}
+
+ModifyWebCCGlobalSwitchResponse Alibabacloud_Ddoscoo20200101::Client::modifyWebCCGlobalSwitchWithOptions(shared_ptr<ModifyWebCCGlobalSwitchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ccGlobalSwitch)) {
+    query->insert(pair<string, string>("CcGlobalSwitch", *request->ccGlobalSwitch));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyWebCCGlobalSwitch"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyWebCCGlobalSwitchResponse(callApi(params, req, runtime));
+}
+
+ModifyWebCCGlobalSwitchResponse Alibabacloud_Ddoscoo20200101::Client::modifyWebCCGlobalSwitch(shared_ptr<ModifyWebCCGlobalSwitchRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyWebCCGlobalSwitchWithOptions(request, runtime);
 }
 
 ModifyWebCCRuleResponse Alibabacloud_Ddoscoo20200101::Client::modifyWebCCRuleWithOptions(shared_ptr<ModifyWebCCRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
