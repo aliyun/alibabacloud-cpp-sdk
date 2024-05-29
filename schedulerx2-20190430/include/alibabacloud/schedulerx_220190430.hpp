@@ -686,6 +686,7 @@ public:
   shared_ptr<string> namespaceSource{};
   shared_ptr<string> regionId{};
   shared_ptr<bool> scheduleBusyWorkers{};
+  shared_ptr<long> version{};
 
   CreateAppGroupRequest() {}
 
@@ -739,6 +740,9 @@ public:
     if (scheduleBusyWorkers) {
       res["ScheduleBusyWorkers"] = boost::any(*scheduleBusyWorkers);
     }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
     return res;
   }
 
@@ -784,6 +788,9 @@ public:
     }
     if (m.find("ScheduleBusyWorkers") != m.end() && !m["ScheduleBusyWorkers"].empty()) {
       scheduleBusyWorkers = make_shared<bool>(boost::any_cast<bool>(m["ScheduleBusyWorkers"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<long>(boost::any_cast<long>(m["Version"]));
     }
   }
 
@@ -7526,6 +7533,7 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
+  shared_ptr<long> version{};
 
   ListGroupsResponseBodyDataAppGroups() {}
 
@@ -7552,6 +7560,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
     return res;
   }
 
@@ -7570,6 +7581,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<long>(boost::any_cast<long>(m["Version"]));
     }
   }
 
@@ -9923,6 +9937,7 @@ public:
   shared_ptr<long> maxConcurrency{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> version{};
 
   UpdateAppGroupRequest() {}
 
@@ -9949,6 +9964,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
     return res;
   }
 
@@ -9967,6 +9985,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<long>(boost::any_cast<long>(m["Version"]));
     }
   }
 

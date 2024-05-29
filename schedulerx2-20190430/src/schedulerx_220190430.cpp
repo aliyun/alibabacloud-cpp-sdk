@@ -1516,6 +1516,9 @@ UpdateAppGroupResponse Alibabacloud_Schedulerx220190430::Client::updateAppGroupW
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->version)) {
+    query->insert(pair<string, long>("Version", *request->version));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
