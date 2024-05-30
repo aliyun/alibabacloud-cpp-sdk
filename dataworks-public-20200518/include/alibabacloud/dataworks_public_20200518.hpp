@@ -39326,11 +39326,16 @@ public:
   shared_ptr<long> baselineId{};
   shared_ptr<long> businessId{};
   shared_ptr<string> connection{};
+  shared_ptr<long> createTime{};
   shared_ptr<string> cronExpress{};
+  shared_ptr<long> deployDate{};
   shared_ptr<string> description{};
   shared_ptr<string> dqcDescription{};
   shared_ptr<long> dqcType{};
+  shared_ptr<long> fileId{};
   shared_ptr<long> fileType{};
+  shared_ptr<long> fileVersion{};
+  shared_ptr<long> modifyTime{};
   shared_ptr<long> nodeId{};
   shared_ptr<string> nodeName{};
   shared_ptr<string> ownerId{};
@@ -39364,8 +39369,14 @@ public:
     if (connection) {
       res["Connection"] = boost::any(*connection);
     }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
     if (cronExpress) {
       res["CronExpress"] = boost::any(*cronExpress);
+    }
+    if (deployDate) {
+      res["DeployDate"] = boost::any(*deployDate);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -39376,8 +39387,17 @@ public:
     if (dqcType) {
       res["DqcType"] = boost::any(*dqcType);
     }
+    if (fileId) {
+      res["FileId"] = boost::any(*fileId);
+    }
     if (fileType) {
       res["FileType"] = boost::any(*fileType);
+    }
+    if (fileVersion) {
+      res["FileVersion"] = boost::any(*fileVersion);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
     }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
@@ -39431,8 +39451,14 @@ public:
     if (m.find("Connection") != m.end() && !m["Connection"].empty()) {
       connection = make_shared<string>(boost::any_cast<string>(m["Connection"]));
     }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
     if (m.find("CronExpress") != m.end() && !m["CronExpress"].empty()) {
       cronExpress = make_shared<string>(boost::any_cast<string>(m["CronExpress"]));
+    }
+    if (m.find("DeployDate") != m.end() && !m["DeployDate"].empty()) {
+      deployDate = make_shared<long>(boost::any_cast<long>(m["DeployDate"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -39443,8 +39469,17 @@ public:
     if (m.find("DqcType") != m.end() && !m["DqcType"].empty()) {
       dqcType = make_shared<long>(boost::any_cast<long>(m["DqcType"]));
     }
+    if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
+      fileId = make_shared<long>(boost::any_cast<long>(m["FileId"]));
+    }
     if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
       fileType = make_shared<long>(boost::any_cast<long>(m["FileType"]));
+    }
+    if (m.find("FileVersion") != m.end() && !m["FileVersion"].empty()) {
+      fileVersion = make_shared<long>(boost::any_cast<long>(m["FileVersion"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<long>(boost::any_cast<long>(m["ModifyTime"]));
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<long>(boost::any_cast<long>(m["NodeId"]));
@@ -39658,6 +39693,7 @@ public:
   shared_ptr<long> projectId{};
   shared_ptr<bool> repeatability{};
   shared_ptr<string> schedulerType{};
+  shared_ptr<string> stepType{};
 
   GetNodeChildrenResponseBodyDataNodes() {}
 
@@ -39699,6 +39735,9 @@ public:
     if (schedulerType) {
       res["SchedulerType"] = boost::any(*schedulerType);
     }
+    if (stepType) {
+      res["StepType"] = boost::any(*stepType);
+    }
     return res;
   }
 
@@ -39732,6 +39771,9 @@ public:
     }
     if (m.find("SchedulerType") != m.end() && !m["SchedulerType"].empty()) {
       schedulerType = make_shared<string>(boost::any_cast<string>(m["SchedulerType"]));
+    }
+    if (m.find("StepType") != m.end() && !m["StepType"].empty()) {
+      stepType = make_shared<string>(boost::any_cast<string>(m["StepType"]));
     }
   }
 
@@ -40310,6 +40352,7 @@ public:
   shared_ptr<long> projectId{};
   shared_ptr<bool> repeatability{};
   shared_ptr<string> schedulerType{};
+  shared_ptr<string> stepType{};
 
   GetNodeParentsResponseBodyDataNodes() {}
 
@@ -40351,6 +40394,9 @@ public:
     if (schedulerType) {
       res["SchedulerType"] = boost::any(*schedulerType);
     }
+    if (stepType) {
+      res["StepType"] = boost::any(*stepType);
+    }
     return res;
   }
 
@@ -40384,6 +40430,9 @@ public:
     }
     if (m.find("SchedulerType") != m.end() && !m["SchedulerType"].empty()) {
       schedulerType = make_shared<string>(boost::any_cast<string>(m["SchedulerType"]));
+    }
+    if (m.find("StepType") != m.end() && !m["StepType"].empty()) {
+      stepType = make_shared<string>(boost::any_cast<string>(m["StepType"]));
     }
   }
 
@@ -60542,11 +60591,16 @@ public:
   shared_ptr<long> baselineId{};
   shared_ptr<long> businessId{};
   shared_ptr<string> connection{};
+  shared_ptr<long> createTime{};
   shared_ptr<string> cronExpress{};
+  shared_ptr<long> deployDate{};
   shared_ptr<string> description{};
   shared_ptr<string> dqcDescription{};
   shared_ptr<long> dqcType{};
+  shared_ptr<long> fileId{};
   shared_ptr<long> fileType{};
+  shared_ptr<long> fileVersion{};
+  shared_ptr<long> modifyTime{};
   shared_ptr<long> nodeId{};
   shared_ptr<string> nodeName{};
   shared_ptr<string> ownerId{};
@@ -60580,8 +60634,14 @@ public:
     if (connection) {
       res["Connection"] = boost::any(*connection);
     }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
     if (cronExpress) {
       res["CronExpress"] = boost::any(*cronExpress);
+    }
+    if (deployDate) {
+      res["DeployDate"] = boost::any(*deployDate);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -60592,8 +60652,17 @@ public:
     if (dqcType) {
       res["DqcType"] = boost::any(*dqcType);
     }
+    if (fileId) {
+      res["FileId"] = boost::any(*fileId);
+    }
     if (fileType) {
       res["FileType"] = boost::any(*fileType);
+    }
+    if (fileVersion) {
+      res["FileVersion"] = boost::any(*fileVersion);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
     }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
@@ -60647,8 +60716,14 @@ public:
     if (m.find("Connection") != m.end() && !m["Connection"].empty()) {
       connection = make_shared<string>(boost::any_cast<string>(m["Connection"]));
     }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
     if (m.find("CronExpress") != m.end() && !m["CronExpress"].empty()) {
       cronExpress = make_shared<string>(boost::any_cast<string>(m["CronExpress"]));
+    }
+    if (m.find("DeployDate") != m.end() && !m["DeployDate"].empty()) {
+      deployDate = make_shared<long>(boost::any_cast<long>(m["DeployDate"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -60659,8 +60734,17 @@ public:
     if (m.find("DqcType") != m.end() && !m["DqcType"].empty()) {
       dqcType = make_shared<long>(boost::any_cast<long>(m["DqcType"]));
     }
+    if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
+      fileId = make_shared<long>(boost::any_cast<long>(m["FileId"]));
+    }
     if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
       fileType = make_shared<long>(boost::any_cast<long>(m["FileType"]));
+    }
+    if (m.find("FileVersion") != m.end() && !m["FileVersion"].empty()) {
+      fileVersion = make_shared<long>(boost::any_cast<long>(m["FileVersion"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<long>(boost::any_cast<long>(m["ModifyTime"]));
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<long>(boost::any_cast<long>(m["NodeId"]));
