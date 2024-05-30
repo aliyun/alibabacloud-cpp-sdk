@@ -2019,6 +2019,196 @@ public:
 
   virtual ~ImageModerationRequest() = default;
 };
+class ImageModerationResponseBodyDataExtCustomImage : public Darabonba::Model {
+public:
+  shared_ptr<string> imageId{};
+  shared_ptr<string> libId{};
+  shared_ptr<string> libName{};
+
+  ImageModerationResponseBodyDataExtCustomImage() {}
+
+  explicit ImageModerationResponseBodyDataExtCustomImage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    if (libName) {
+      res["LibName"] = boost::any(*libName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+    if (m.find("LibName") != m.end() && !m["LibName"].empty()) {
+      libName = make_shared<string>(boost::any_cast<string>(m["LibName"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtCustomImage() = default;
+};
+class ImageModerationResponseBodyDataExtLogoDataLocation : public Darabonba::Model {
+public:
+  shared_ptr<long> h{};
+  shared_ptr<long> w{};
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  ImageModerationResponseBodyDataExtLogoDataLocation() {}
+
+  explicit ImageModerationResponseBodyDataExtLogoDataLocation(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (h) {
+      res["H"] = boost::any(*h);
+    }
+    if (w) {
+      res["W"] = boost::any(*w);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("H") != m.end() && !m["H"].empty()) {
+      h = make_shared<long>(boost::any_cast<long>(m["H"]));
+    }
+    if (m.find("W") != m.end() && !m["W"].empty()) {
+      w = make_shared<long>(boost::any_cast<long>(m["W"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtLogoDataLocation() = default;
+};
+class ImageModerationResponseBodyDataExtLogoDataLogo : public Darabonba::Model {
+public:
+  shared_ptr<double> confidence{};
+  shared_ptr<string> label{};
+  shared_ptr<string> name{};
+
+  ImageModerationResponseBodyDataExtLogoDataLogo() {}
+
+  explicit ImageModerationResponseBodyDataExtLogoDataLogo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtLogoDataLogo() = default;
+};
+class ImageModerationResponseBodyDataExtLogoData : public Darabonba::Model {
+public:
+  shared_ptr<ImageModerationResponseBodyDataExtLogoDataLocation> location{};
+  shared_ptr<vector<ImageModerationResponseBodyDataExtLogoDataLogo>> logo{};
+
+  ImageModerationResponseBodyDataExtLogoData() {}
+
+  explicit ImageModerationResponseBodyDataExtLogoData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (location) {
+      res["Location"] = location ? boost::any(location->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (logo) {
+      vector<boost::any> temp1;
+      for(auto item1:*logo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Logo"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Location"].type()) {
+        ImageModerationResponseBodyDataExtLogoDataLocation model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Location"]));
+        location = make_shared<ImageModerationResponseBodyDataExtLogoDataLocation>(model1);
+      }
+    }
+    if (m.find("Logo") != m.end() && !m["Logo"].empty()) {
+      if (typeid(vector<boost::any>) == m["Logo"].type()) {
+        vector<ImageModerationResponseBodyDataExtLogoDataLogo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Logo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImageModerationResponseBodyDataExtLogoDataLogo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        logo = make_shared<vector<ImageModerationResponseBodyDataExtLogoDataLogo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtLogoData() = default;
+};
 class ImageModerationResponseBodyDataExtOcrResultLocation : public Darabonba::Model {
 public:
   shared_ptr<long> h{};
@@ -2109,6 +2299,42 @@ public:
 
   virtual ~ImageModerationResponseBodyDataExtOcrResult() = default;
 };
+class ImageModerationResponseBodyDataExtPublicFigure : public Darabonba::Model {
+public:
+  shared_ptr<string> figureId{};
+  shared_ptr<string> figureName{};
+
+  ImageModerationResponseBodyDataExtPublicFigure() {}
+
+  explicit ImageModerationResponseBodyDataExtPublicFigure(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (figureId) {
+      res["FigureId"] = boost::any(*figureId);
+    }
+    if (figureName) {
+      res["FigureName"] = boost::any(*figureName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FigureId") != m.end() && !m["FigureId"].empty()) {
+      figureId = make_shared<string>(boost::any_cast<string>(m["FigureId"]));
+    }
+    if (m.find("FigureName") != m.end() && !m["FigureName"].empty()) {
+      figureName = make_shared<string>(boost::any_cast<string>(m["FigureName"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtPublicFigure() = default;
+};
 class ImageModerationResponseBodyDataExtRecognition : public Darabonba::Model {
 public:
   shared_ptr<string> classification{};
@@ -2145,10 +2371,225 @@ public:
 
   virtual ~ImageModerationResponseBodyDataExtRecognition() = default;
 };
+class ImageModerationResponseBodyDataExtTextInImageCustomText : public Darabonba::Model {
+public:
+  shared_ptr<string> keyWords{};
+  shared_ptr<string> libId{};
+  shared_ptr<string> libName{};
+
+  ImageModerationResponseBodyDataExtTextInImageCustomText() {}
+
+  explicit ImageModerationResponseBodyDataExtTextInImageCustomText(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keyWords) {
+      res["KeyWords"] = boost::any(*keyWords);
+    }
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    if (libName) {
+      res["LibName"] = boost::any(*libName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("KeyWords") != m.end() && !m["KeyWords"].empty()) {
+      keyWords = make_shared<string>(boost::any_cast<string>(m["KeyWords"]));
+    }
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+    if (m.find("LibName") != m.end() && !m["LibName"].empty()) {
+      libName = make_shared<string>(boost::any_cast<string>(m["LibName"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtTextInImageCustomText() = default;
+};
+class ImageModerationResponseBodyDataExtTextInImageOcrResultLocation : public Darabonba::Model {
+public:
+  shared_ptr<long> h{};
+  shared_ptr<long> w{};
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  ImageModerationResponseBodyDataExtTextInImageOcrResultLocation() {}
+
+  explicit ImageModerationResponseBodyDataExtTextInImageOcrResultLocation(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (h) {
+      res["H"] = boost::any(*h);
+    }
+    if (w) {
+      res["W"] = boost::any(*w);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("H") != m.end() && !m["H"].empty()) {
+      h = make_shared<long>(boost::any_cast<long>(m["H"]));
+    }
+    if (m.find("W") != m.end() && !m["W"].empty()) {
+      w = make_shared<long>(boost::any_cast<long>(m["W"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtTextInImageOcrResultLocation() = default;
+};
+class ImageModerationResponseBodyDataExtTextInImageOcrResult : public Darabonba::Model {
+public:
+  shared_ptr<ImageModerationResponseBodyDataExtTextInImageOcrResultLocation> location{};
+  shared_ptr<string> text{};
+
+  ImageModerationResponseBodyDataExtTextInImageOcrResult() {}
+
+  explicit ImageModerationResponseBodyDataExtTextInImageOcrResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (location) {
+      res["Location"] = location ? boost::any(location->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Location"].type()) {
+        ImageModerationResponseBodyDataExtTextInImageOcrResultLocation model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Location"]));
+        location = make_shared<ImageModerationResponseBodyDataExtTextInImageOcrResultLocation>(model1);
+      }
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtTextInImageOcrResult() = default;
+};
+class ImageModerationResponseBodyDataExtTextInImage : public Darabonba::Model {
+public:
+  shared_ptr<vector<ImageModerationResponseBodyDataExtTextInImageCustomText>> customText{};
+  shared_ptr<vector<ImageModerationResponseBodyDataExtTextInImageOcrResult>> ocrResult{};
+  shared_ptr<vector<string>> riskWord{};
+
+  ImageModerationResponseBodyDataExtTextInImage() {}
+
+  explicit ImageModerationResponseBodyDataExtTextInImage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customText) {
+      vector<boost::any> temp1;
+      for(auto item1:*customText){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomText"] = boost::any(temp1);
+    }
+    if (ocrResult) {
+      vector<boost::any> temp1;
+      for(auto item1:*ocrResult){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OcrResult"] = boost::any(temp1);
+    }
+    if (riskWord) {
+      res["RiskWord"] = boost::any(*riskWord);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomText") != m.end() && !m["CustomText"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomText"].type()) {
+        vector<ImageModerationResponseBodyDataExtTextInImageCustomText> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomText"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImageModerationResponseBodyDataExtTextInImageCustomText model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customText = make_shared<vector<ImageModerationResponseBodyDataExtTextInImageCustomText>>(expect1);
+      }
+    }
+    if (m.find("OcrResult") != m.end() && !m["OcrResult"].empty()) {
+      if (typeid(vector<boost::any>) == m["OcrResult"].type()) {
+        vector<ImageModerationResponseBodyDataExtTextInImageOcrResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OcrResult"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImageModerationResponseBodyDataExtTextInImageOcrResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ocrResult = make_shared<vector<ImageModerationResponseBodyDataExtTextInImageOcrResult>>(expect1);
+      }
+    }
+    if (m.find("RiskWord") != m.end() && !m["RiskWord"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RiskWord"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RiskWord"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      riskWord = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtTextInImage() = default;
+};
 class ImageModerationResponseBodyDataExt : public Darabonba::Model {
 public:
+  shared_ptr<vector<ImageModerationResponseBodyDataExtCustomImage>> customImage{};
+  shared_ptr<vector<ImageModerationResponseBodyDataExtLogoData>> logoData{};
   shared_ptr<vector<ImageModerationResponseBodyDataExtOcrResult>> ocrResult{};
+  shared_ptr<vector<ImageModerationResponseBodyDataExtPublicFigure>> publicFigure{};
   shared_ptr<vector<ImageModerationResponseBodyDataExtRecognition>> recognition{};
+  shared_ptr<ImageModerationResponseBodyDataExtTextInImage> textInImage{};
 
   ImageModerationResponseBodyDataExt() {}
 
@@ -2160,12 +2601,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (customImage) {
+      vector<boost::any> temp1;
+      for(auto item1:*customImage){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomImage"] = boost::any(temp1);
+    }
+    if (logoData) {
+      vector<boost::any> temp1;
+      for(auto item1:*logoData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["LogoData"] = boost::any(temp1);
+    }
     if (ocrResult) {
       vector<boost::any> temp1;
       for(auto item1:*ocrResult){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["OcrResult"] = boost::any(temp1);
+    }
+    if (publicFigure) {
+      vector<boost::any> temp1;
+      for(auto item1:*publicFigure){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PublicFigure"] = boost::any(temp1);
     }
     if (recognition) {
       vector<boost::any> temp1;
@@ -2174,10 +2636,39 @@ public:
       }
       res["Recognition"] = boost::any(temp1);
     }
+    if (textInImage) {
+      res["TextInImage"] = textInImage ? boost::any(textInImage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomImage") != m.end() && !m["CustomImage"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomImage"].type()) {
+        vector<ImageModerationResponseBodyDataExtCustomImage> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomImage"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImageModerationResponseBodyDataExtCustomImage model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customImage = make_shared<vector<ImageModerationResponseBodyDataExtCustomImage>>(expect1);
+      }
+    }
+    if (m.find("LogoData") != m.end() && !m["LogoData"].empty()) {
+      if (typeid(vector<boost::any>) == m["LogoData"].type()) {
+        vector<ImageModerationResponseBodyDataExtLogoData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["LogoData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImageModerationResponseBodyDataExtLogoData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        logoData = make_shared<vector<ImageModerationResponseBodyDataExtLogoData>>(expect1);
+      }
+    }
     if (m.find("OcrResult") != m.end() && !m["OcrResult"].empty()) {
       if (typeid(vector<boost::any>) == m["OcrResult"].type()) {
         vector<ImageModerationResponseBodyDataExtOcrResult> expect1;
@@ -2191,6 +2682,19 @@ public:
         ocrResult = make_shared<vector<ImageModerationResponseBodyDataExtOcrResult>>(expect1);
       }
     }
+    if (m.find("PublicFigure") != m.end() && !m["PublicFigure"].empty()) {
+      if (typeid(vector<boost::any>) == m["PublicFigure"].type()) {
+        vector<ImageModerationResponseBodyDataExtPublicFigure> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PublicFigure"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImageModerationResponseBodyDataExtPublicFigure model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        publicFigure = make_shared<vector<ImageModerationResponseBodyDataExtPublicFigure>>(expect1);
+      }
+    }
     if (m.find("Recognition") != m.end() && !m["Recognition"].empty()) {
       if (typeid(vector<boost::any>) == m["Recognition"].type()) {
         vector<ImageModerationResponseBodyDataExtRecognition> expect1;
@@ -2202,6 +2706,13 @@ public:
           }
         }
         recognition = make_shared<vector<ImageModerationResponseBodyDataExtRecognition>>(expect1);
+      }
+    }
+    if (m.find("TextInImage") != m.end() && !m["TextInImage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TextInImage"].type()) {
+        ImageModerationResponseBodyDataExtTextInImage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TextInImage"]));
+        textInImage = make_shared<ImageModerationResponseBodyDataExtTextInImage>(model1);
       }
     }
   }
