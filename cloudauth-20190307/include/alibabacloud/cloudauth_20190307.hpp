@@ -1715,6 +1715,7 @@ public:
   shared_ptr<string> imageUrl{};
   shared_ptr<string> isCheck{};
   shared_ptr<string> isOCR{};
+  shared_ptr<string> merchantId{};
   shared_ptr<string> userName{};
 
   CredentialVerifyRequest() {}
@@ -1751,6 +1752,9 @@ public:
     if (isOCR) {
       res["IsOCR"] = boost::any(*isOCR);
     }
+    if (merchantId) {
+      res["MerchantId"] = boost::any(*merchantId);
+    }
     if (userName) {
       res["UserName"] = boost::any(*userName);
     }
@@ -1782,6 +1786,9 @@ public:
     if (m.find("IsOCR") != m.end() && !m["IsOCR"].empty()) {
       isOCR = make_shared<string>(boost::any_cast<string>(m["IsOCR"]));
     }
+    if (m.find("MerchantId") != m.end() && !m["MerchantId"].empty()) {
+      merchantId = make_shared<string>(boost::any_cast<string>(m["MerchantId"]));
+    }
     if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
       userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
     }
@@ -1792,6 +1799,7 @@ public:
 };
 class CredentialVerifyResponseBodyResultObject : public Darabonba::Model {
 public:
+  shared_ptr<string> materialInfo{};
   shared_ptr<string> ocrInfo{};
   shared_ptr<string> result{};
   shared_ptr<map<string, string>> riskScore{};
@@ -1809,6 +1817,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (materialInfo) {
+      res["MaterialInfo"] = boost::any(*materialInfo);
+    }
     if (ocrInfo) {
       res["OcrInfo"] = boost::any(*ocrInfo);
     }
@@ -1831,6 +1842,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaterialInfo") != m.end() && !m["MaterialInfo"].empty()) {
+      materialInfo = make_shared<string>(boost::any_cast<string>(m["MaterialInfo"]));
+    }
     if (m.find("OcrInfo") != m.end() && !m["OcrInfo"].empty()) {
       ocrInfo = make_shared<string>(boost::any_cast<string>(m["OcrInfo"]));
     }
