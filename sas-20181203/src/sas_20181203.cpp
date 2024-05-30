@@ -18,50 +18,45 @@ using namespace Alibabacloud_Sas20181203;
 Alibabacloud_Sas20181203::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
+    {"cn-qingdao", "tds.aliyuncs.com"},
+    {"cn-beijing", "tds.aliyuncs.com"},
+    {"cn-zhangjiakou", "tds.aliyuncs.com"},
+    {"cn-huhehaote", "tds.aliyuncs.com"},
+    {"cn-wulanchabu", "tds.aliyuncs.com"},
     {"cn-hangzhou", "tds.aliyuncs.com"},
-    {"cn-shanghai", "tds.cn-shanghai.aliyuncs.com"},
+    {"cn-shanghai", "tds.aliyuncs.com"},
+    {"cn-nanjing", "tds.aliyuncs.com"},
+    {"cn-fuzhou", "tds.aliyuncs.com"},
+    {"cn-shenzhen", "tds.aliyuncs.com"},
+    {"cn-heyuan", "tds.aliyuncs.com"},
+    {"cn-guangzhou", "tds.aliyuncs.com"},
+    {"ap-southeast-2", "tds.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-6", "tds.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-2", "tds.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-3", "tds.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1", "tds.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-7", "tds.ap-southeast-1.aliyuncs.com"},
+    {"cn-chengdu", "tds.aliyuncs.com"},
     {"ap-southeast-1", "tds.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-5", "tds.ap-southeast-1.aliyuncs.com"},
+    {"cn-hongkong", "tds.aliyuncs.com"},
     {"eu-central-1", "tds.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-2-pop", "sas.aliyuncs.com"},
-    {"ap-south-1", "tds-vpc.ap-south-1.aliyuncs.com"},
-    {"ap-southeast-3", "tds.ap-southeast-3.aliyuncs.com"},
-    {"cn-beijing-finance-1", "sas.aliyuncs.com"},
-    {"cn-beijing-finance-pop", "sas.aliyuncs.com"},
-    {"cn-beijing-gov-1", "sas.aliyuncs.com"},
-    {"cn-beijing-nu16-b01", "sas.aliyuncs.com"},
-    {"cn-edge-1", "sas.aliyuncs.com"},
-    {"cn-fujian", "sas.aliyuncs.com"},
-    {"cn-haidian-cm12-c01", "sas.aliyuncs.com"},
-    {"cn-hangzhou-bj-b01", "sas.aliyuncs.com"},
-    {"cn-hangzhou-finance", "sas.aliyuncs.com"},
-    {"cn-hangzhou-internal-prod-1", "sas.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-1", "sas.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-2", "sas.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-3", "sas.aliyuncs.com"},
-    {"cn-hangzhou-test-306", "sas.aliyuncs.com"},
-    {"cn-hongkong-finance-pop", "sas.aliyuncs.com"},
-    {"cn-huhehaote-nebula-1", "sas.aliyuncs.com"},
-    {"cn-north-2-gov-1", "sas.aliyuncs.com"},
-    {"cn-qingdao-nebula", "sas.aliyuncs.com"},
-    {"cn-shanghai-et15-b01", "sas.aliyuncs.com"},
-    {"cn-shanghai-et2-b01", "sas.aliyuncs.com"},
-    {"cn-shanghai-inner", "sas.aliyuncs.com"},
-    {"cn-shanghai-internal-test-1", "sas.aliyuncs.com"},
-    {"cn-shenzhen-inner", "sas.aliyuncs.com"},
-    {"cn-shenzhen-st4-d01", "sas.aliyuncs.com"},
-    {"cn-shenzhen-su18-b01", "sas.aliyuncs.com"},
-    {"cn-wuhan", "sas.aliyuncs.com"},
-    {"cn-wulanchabu", "sas.aliyuncs.com"},
-    {"cn-yushanfang", "sas.aliyuncs.com"},
-    {"cn-zhangbei", "sas.aliyuncs.com"},
-    {"cn-zhangbei-na61-b01", "sas.aliyuncs.com"},
-    {"cn-zhangjiakou-na62-a01", "sas.aliyuncs.com"},
-    {"cn-zhengzhou-nebula-1", "sas.aliyuncs.com"},
-    {"eu-west-1-oxs", "sas.aliyuncs.com"},
-    {"me-east-1", "sas.aliyuncs.com"},
-    {"rus-west-1-pop", "sas.aliyuncs.com"},
-    {"us-east-1", "tds-vpc.us-east-1.aliyuncs.com"},
-    {"us-west-1", "tds.us-west-1.aliyuncs.com"}
+    {"us-east-1", "tds.ap-southeast-1.aliyuncs.com"},
+    {"us-west-1", "tds.ap-southeast-1.aliyuncs.com"},
+    {"eu-west-1", "tds.ap-southeast-1.aliyuncs.com"},
+    {"me-east-1", "tds.ap-southeast-1.aliyuncs.com"},
+    {"me-central-1", "tds.ap-southeast-1.aliyuncs.com"},
+    {"ap-south-1", "tds.ap-southeast-1.aliyuncs.com"},
+    {"cn-beijing-finance-1", "tds.aliyuncs.com"},
+    {"cn-hangzhou-finance", "tds.aliyuncs.com"},
+    {"cn-shanghai-finance-1", "tds.aliyuncs.com"},
+    {"cn-shenzhen-finance-1", "tds.aliyuncs.com"},
+    {"cn-heyuan-acdr-1", "tds.aliyuncs.com"},
+    {"cn-north-2-gov-1", "tds.aliyuncs.com"},
+    {"cn-qingdao-acdr-ut-1", "tds.aliyuncs.com"},
+    {"cn-shanghai-mybk", "tds.aliyuncs.com"},
+    {"cn-wuhan-lr", "tds.aliyuncs.com"},
+    {"cn-zhengzhou-jva", "tds.aliyuncs.com"}
   })
 );
   checkConfig(config);
@@ -8697,6 +8692,9 @@ DescribeLogMetaResponse Alibabacloud_Sas20181203::Client::describeLogMetaWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceDirectoryAccountId)) {
+    query->insert(pair<string, long>("ResourceDirectoryAccountId", *request->resourceDirectoryAccountId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceIp)) {
     query->insert(pair<string, string>("SourceIp", *request->sourceIp));
   }
@@ -15023,6 +15021,9 @@ GetLogMetaResponse Alibabacloud_Sas20181203::Client::getLogMetaWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->logStore)) {
     query->insert(pair<string, string>("LogStore", *request->logStore));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceDirectoryAccountId)) {
+    query->insert(pair<string, long>("ResourceDirectoryAccountId", *request->resourceDirectoryAccountId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -20587,6 +20588,9 @@ ModifyLogMetaStatusResponse Alibabacloud_Sas20181203::Client::modifyLogMetaStatu
   if (!Darabonba_Util::Client::isUnset<string>(request->project)) {
     query->insert(pair<string, string>("Project", *request->project));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceDirectoryAccountId)) {
+    query->insert(pair<string, long>("ResourceDirectoryAccountId", *request->resourceDirectoryAccountId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
   }
@@ -20719,6 +20723,9 @@ ModifyOpenLogShipperResponse Alibabacloud_Sas20181203::Client::modifyOpenLogShip
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
     query->insert(pair<string, string>("From", *request->from));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceDirectoryAccountId)) {
+    query->insert(pair<string, long>("ResourceDirectoryAccountId", *request->resourceDirectoryAccountId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
