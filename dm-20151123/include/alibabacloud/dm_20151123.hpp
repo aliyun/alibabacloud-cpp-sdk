@@ -4232,6 +4232,127 @@ public:
 
   virtual ~GetTrackListByMailFromAndTagNameResponse() = default;
 };
+class GetUserResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableEventbridge{};
+
+  GetUserResponseBodyData() {}
+
+  explicit GetUserResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableEventbridge) {
+      res["EnableEventbridge"] = boost::any(*enableEventbridge);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableEventbridge") != m.end() && !m["EnableEventbridge"].empty()) {
+      enableEventbridge = make_shared<bool>(boost::any_cast<bool>(m["EnableEventbridge"]));
+    }
+  }
+
+
+  virtual ~GetUserResponseBodyData() = default;
+};
+class GetUserResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetUserResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  GetUserResponseBody() {}
+
+  explicit GetUserResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetUserResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetUserResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetUserResponseBody() = default;
+};
+class GetUserResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetUserResponseBody> body{};
+
+  GetUserResponse() {}
+
+  explicit GetUserResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetUserResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetUserResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetUserResponse() = default;
+};
 class ListUserSuppressionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> address{};
@@ -8719,6 +8840,178 @@ public:
 
   virtual ~UpdateIpProtectionResponse() = default;
 };
+class UpdateUserRequestUser : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableEventbridge{};
+
+  UpdateUserRequestUser() {}
+
+  explicit UpdateUserRequestUser(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableEventbridge) {
+      res["EnableEventbridge"] = boost::any(*enableEventbridge);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableEventbridge") != m.end() && !m["EnableEventbridge"].empty()) {
+      enableEventbridge = make_shared<bool>(boost::any_cast<bool>(m["EnableEventbridge"]));
+    }
+  }
+
+
+  virtual ~UpdateUserRequestUser() = default;
+};
+class UpdateUserRequest : public Darabonba::Model {
+public:
+  shared_ptr<UpdateUserRequestUser> user{};
+
+  UpdateUserRequest() {}
+
+  explicit UpdateUserRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (user) {
+      res["User"] = user ? boost::any(user->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("User") != m.end() && !m["User"].empty()) {
+      if (typeid(map<string, boost::any>) == m["User"].type()) {
+        UpdateUserRequestUser model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["User"]));
+        user = make_shared<UpdateUserRequestUser>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateUserRequest() = default;
+};
+class UpdateUserShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> userShrink{};
+
+  UpdateUserShrinkRequest() {}
+
+  explicit UpdateUserShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userShrink) {
+      res["User"] = boost::any(*userShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("User") != m.end() && !m["User"].empty()) {
+      userShrink = make_shared<string>(boost::any_cast<string>(m["User"]));
+    }
+  }
+
+
+  virtual ~UpdateUserShrinkRequest() = default;
+};
+class UpdateUserResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateUserResponseBody() {}
+
+  explicit UpdateUserResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateUserResponseBody() = default;
+};
+class UpdateUserResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateUserResponseBody> body{};
+
+  UpdateUserResponse() {}
+
+  explicit UpdateUserResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateUserResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateUserResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateUserResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -8777,6 +9070,8 @@ public:
   GetTrackListResponse getTrackList(shared_ptr<GetTrackListRequest> request);
   GetTrackListByMailFromAndTagNameResponse getTrackListByMailFromAndTagNameWithOptions(shared_ptr<GetTrackListByMailFromAndTagNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTrackListByMailFromAndTagNameResponse getTrackListByMailFromAndTagName(shared_ptr<GetTrackListByMailFromAndTagNameRequest> request);
+  GetUserResponse getUserWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetUserResponse getUser();
   ListUserSuppressionResponse listUserSuppressionWithOptions(shared_ptr<ListUserSuppressionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListUserSuppressionResponse listUserSuppression(shared_ptr<ListUserSuppressionRequest> request);
   ModifyMailAddressResponse modifyMailAddressWithOptions(shared_ptr<ModifyMailAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8815,6 +9110,8 @@ public:
   SingleSendMailResponse singleSendMail(shared_ptr<SingleSendMailRequest> request);
   UpdateIpProtectionResponse updateIpProtectionWithOptions(shared_ptr<UpdateIpProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIpProtectionResponse updateIpProtection(shared_ptr<UpdateIpProtectionRequest> request);
+  UpdateUserResponse updateUserWithOptions(shared_ptr<UpdateUserRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateUserResponse updateUser(shared_ptr<UpdateUserRequest> request);
 
   virtual ~Client() = default;
 };
