@@ -438,6 +438,40 @@ ConfigUdpReflectResponse Alibabacloud_Ddoscoo20200101::Client::configUdpReflect(
   return configUdpReflectWithOptions(request, runtime);
 }
 
+ConfigWebCCRuleV2Response Alibabacloud_Ddoscoo20200101::Client::configWebCCRuleV2WithOptions(shared_ptr<ConfigWebCCRuleV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->expires)) {
+    query->insert(pair<string, long>("Expires", *request->expires));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleList)) {
+    query->insert(pair<string, string>("RuleList", *request->ruleList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ConfigWebCCRuleV2"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ConfigWebCCRuleV2Response(callApi(params, req, runtime));
+}
+
+ConfigWebCCRuleV2Response Alibabacloud_Ddoscoo20200101::Client::configWebCCRuleV2(shared_ptr<ConfigWebCCRuleV2Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return configWebCCRuleV2WithOptions(request, runtime);
+}
+
 ConfigWebCCTemplateResponse Alibabacloud_Ddoscoo20200101::Client::configWebCCTemplateWithOptions(shared_ptr<ConfigWebCCTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4238,6 +4272,43 @@ DescribeWebCCRulesResponse Alibabacloud_Ddoscoo20200101::Client::describeWebCCRu
 DescribeWebCCRulesResponse Alibabacloud_Ddoscoo20200101::Client::describeWebCCRules(shared_ptr<DescribeWebCCRulesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeWebCCRulesWithOptions(request, runtime);
+}
+
+DescribeWebCCRulesV2Response Alibabacloud_Ddoscoo20200101::Client::describeWebCCRulesV2WithOptions(shared_ptr<DescribeWebCCRulesV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->offset)) {
+    query->insert(pair<string, string>("Offset", *request->offset));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->owner)) {
+    query->insert(pair<string, string>("Owner", *request->owner));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeWebCCRulesV2"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeWebCCRulesV2Response(callApi(params, req, runtime));
+}
+
+DescribeWebCCRulesV2Response Alibabacloud_Ddoscoo20200101::Client::describeWebCCRulesV2(shared_ptr<DescribeWebCCRulesV2Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeWebCCRulesV2WithOptions(request, runtime);
 }
 
 DescribeWebCacheConfigsResponse Alibabacloud_Ddoscoo20200101::Client::describeWebCacheConfigsWithOptions(shared_ptr<DescribeWebCacheConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

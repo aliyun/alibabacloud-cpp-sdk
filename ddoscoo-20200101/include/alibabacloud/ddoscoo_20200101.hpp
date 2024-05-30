@@ -1487,6 +1487,130 @@ public:
 
   virtual ~ConfigUdpReflectResponse() = default;
 };
+class ConfigWebCCRuleV2Request : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<long> expires{};
+  shared_ptr<string> ruleList{};
+
+  ConfigWebCCRuleV2Request() {}
+
+  explicit ConfigWebCCRuleV2Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (expires) {
+      res["Expires"] = boost::any(*expires);
+    }
+    if (ruleList) {
+      res["RuleList"] = boost::any(*ruleList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Expires") != m.end() && !m["Expires"].empty()) {
+      expires = make_shared<long>(boost::any_cast<long>(m["Expires"]));
+    }
+    if (m.find("RuleList") != m.end() && !m["RuleList"].empty()) {
+      ruleList = make_shared<string>(boost::any_cast<string>(m["RuleList"]));
+    }
+  }
+
+
+  virtual ~ConfigWebCCRuleV2Request() = default;
+};
+class ConfigWebCCRuleV2ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ConfigWebCCRuleV2ResponseBody() {}
+
+  explicit ConfigWebCCRuleV2ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ConfigWebCCRuleV2ResponseBody() = default;
+};
+class ConfigWebCCRuleV2Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ConfigWebCCRuleV2ResponseBody> body{};
+
+  ConfigWebCCRuleV2Response() {}
+
+  explicit ConfigWebCCRuleV2Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ConfigWebCCRuleV2ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ConfigWebCCRuleV2ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ConfigWebCCRuleV2Response() = default;
+};
 class ConfigWebCCTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domain{};
@@ -22523,6 +22647,558 @@ public:
 
   virtual ~DescribeWebCCRulesResponse() = default;
 };
+class DescribeWebCCRulesV2Request : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> offset{};
+  shared_ptr<string> owner{};
+  shared_ptr<string> pageSize{};
+
+  DescribeWebCCRulesV2Request() {}
+
+  explicit DescribeWebCCRulesV2Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (offset) {
+      res["Offset"] = boost::any(*offset);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
+      offset = make_shared<string>(boost::any_cast<string>(m["Offset"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~DescribeWebCCRulesV2Request() = default;
+};
+class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> field{};
+  shared_ptr<string> headerName{};
+  shared_ptr<string> matchMethod{};
+
+  DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition() {}
+
+  explicit DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (field) {
+      res["Field"] = boost::any(*field);
+    }
+    if (headerName) {
+      res["HeaderName"] = boost::any(*headerName);
+    }
+    if (matchMethod) {
+      res["MatchMethod"] = boost::any(*matchMethod);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Field") != m.end() && !m["Field"].empty()) {
+      field = make_shared<string>(boost::any_cast<string>(m["Field"]));
+    }
+    if (m.find("HeaderName") != m.end() && !m["HeaderName"].empty()) {
+      headerName = make_shared<string>(boost::any_cast<string>(m["HeaderName"]));
+    }
+    if (m.find("MatchMethod") != m.end() && !m["MatchMethod"].empty()) {
+      matchMethod = make_shared<string>(boost::any_cast<string>(m["MatchMethod"]));
+    }
+  }
+
+
+  virtual ~DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition() = default;
+};
+class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailRateLimit : public Darabonba::Model {
+public:
+  shared_ptr<long> interval{};
+  shared_ptr<string> subKey{};
+  shared_ptr<string> target{};
+  shared_ptr<long> threshold{};
+  shared_ptr<long> ttl{};
+
+  DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailRateLimit() {}
+
+  explicit DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailRateLimit(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (subKey) {
+      res["SubKey"] = boost::any(*subKey);
+    }
+    if (target) {
+      res["Target"] = boost::any(*target);
+    }
+    if (threshold) {
+      res["Threshold"] = boost::any(*threshold);
+    }
+    if (ttl) {
+      res["Ttl"] = boost::any(*ttl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("SubKey") != m.end() && !m["SubKey"].empty()) {
+      subKey = make_shared<string>(boost::any_cast<string>(m["SubKey"]));
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      target = make_shared<string>(boost::any_cast<string>(m["Target"]));
+    }
+    if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
+      threshold = make_shared<long>(boost::any_cast<long>(m["Threshold"]));
+    }
+    if (m.find("Ttl") != m.end() && !m["Ttl"].empty()) {
+      ttl = make_shared<long>(boost::any_cast<long>(m["Ttl"]));
+    }
+  }
+
+
+  virtual ~DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailRateLimit() = default;
+};
+class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatistics : public Darabonba::Model {
+public:
+  shared_ptr<string> field{};
+  shared_ptr<string> headerName{};
+  shared_ptr<string> mode{};
+
+  DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatistics() {}
+
+  explicit DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatistics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (field) {
+      res["Field"] = boost::any(*field);
+    }
+    if (headerName) {
+      res["HeaderName"] = boost::any(*headerName);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Field") != m.end() && !m["Field"].empty()) {
+      field = make_shared<string>(boost::any_cast<string>(m["Field"]));
+    }
+    if (m.find("HeaderName") != m.end() && !m["HeaderName"].empty()) {
+      headerName = make_shared<string>(boost::any_cast<string>(m["HeaderName"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+  }
+
+
+  virtual ~DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatistics() = default;
+};
+class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatusCode : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<long> countThreshold{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> ratioThreshold{};
+  shared_ptr<bool> useRatio{};
+
+  DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatusCode() {}
+
+  explicit DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatusCode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (countThreshold) {
+      res["CountThreshold"] = boost::any(*countThreshold);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (ratioThreshold) {
+      res["RatioThreshold"] = boost::any(*ratioThreshold);
+    }
+    if (useRatio) {
+      res["UseRatio"] = boost::any(*useRatio);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("CountThreshold") != m.end() && !m["CountThreshold"].empty()) {
+      countThreshold = make_shared<long>(boost::any_cast<long>(m["CountThreshold"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("RatioThreshold") != m.end() && !m["RatioThreshold"].empty()) {
+      ratioThreshold = make_shared<long>(boost::any_cast<long>(m["RatioThreshold"]));
+    }
+    if (m.find("UseRatio") != m.end() && !m["UseRatio"].empty()) {
+      useRatio = make_shared<bool>(boost::any_cast<bool>(m["UseRatio"]));
+    }
+  }
+
+
+  virtual ~DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatusCode() = default;
+};
+class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<vector<DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition>> condition{};
+  shared_ptr<long> count{};
+  shared_ptr<long> interval{};
+  shared_ptr<string> mode{};
+  shared_ptr<string> name{};
+  shared_ptr<DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailRateLimit> rateLimit{};
+  shared_ptr<DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatistics> statistics{};
+  shared_ptr<DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatusCode> statusCode{};
+  shared_ptr<long> ttl{};
+  shared_ptr<string> uri{};
+
+  DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail() {}
+
+  explicit DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (condition) {
+      vector<boost::any> temp1;
+      for(auto item1:*condition){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Condition"] = boost::any(temp1);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (rateLimit) {
+      res["RateLimit"] = rateLimit ? boost::any(rateLimit->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (statistics) {
+      res["Statistics"] = statistics ? boost::any(statistics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (statusCode) {
+      res["StatusCode"] = statusCode ? boost::any(statusCode->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ttl) {
+      res["Ttl"] = boost::any(*ttl);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("Condition") != m.end() && !m["Condition"].empty()) {
+      if (typeid(vector<boost::any>) == m["Condition"].type()) {
+        vector<DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Condition"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        condition = make_shared<vector<DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition>>(expect1);
+      }
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RateLimit") != m.end() && !m["RateLimit"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RateLimit"].type()) {
+        DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailRateLimit model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RateLimit"]));
+        rateLimit = make_shared<DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailRateLimit>(model1);
+      }
+    }
+    if (m.find("Statistics") != m.end() && !m["Statistics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Statistics"].type()) {
+        DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatistics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Statistics"]));
+        statistics = make_shared<DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatistics>(model1);
+      }
+    }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StatusCode"].type()) {
+        DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatusCode model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StatusCode"]));
+        statusCode = make_shared<DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatusCode>(model1);
+      }
+    }
+    if (m.find("Ttl") != m.end() && !m["Ttl"].empty()) {
+      ttl = make_shared<long>(boost::any_cast<long>(m["Ttl"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail() = default;
+};
+class DescribeWebCCRulesV2ResponseBodyWebCCRules : public Darabonba::Model {
+public:
+  shared_ptr<long> expires{};
+  shared_ptr<string> name{};
+  shared_ptr<string> owner{};
+  shared_ptr<DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail> ruleDetail{};
+
+  DescribeWebCCRulesV2ResponseBodyWebCCRules() {}
+
+  explicit DescribeWebCCRulesV2ResponseBodyWebCCRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expires) {
+      res["Expires"] = boost::any(*expires);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (ruleDetail) {
+      res["RuleDetail"] = ruleDetail ? boost::any(ruleDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Expires") != m.end() && !m["Expires"].empty()) {
+      expires = make_shared<long>(boost::any_cast<long>(m["Expires"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("RuleDetail") != m.end() && !m["RuleDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RuleDetail"].type()) {
+        DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RuleDetail"]));
+        ruleDetail = make_shared<DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeWebCCRulesV2ResponseBodyWebCCRules() = default;
+};
+class DescribeWebCCRulesV2ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> totalCount{};
+  shared_ptr<vector<DescribeWebCCRulesV2ResponseBodyWebCCRules>> webCCRules{};
+
+  DescribeWebCCRulesV2ResponseBody() {}
+
+  explicit DescribeWebCCRulesV2ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (webCCRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*webCCRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["WebCCRules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<string>(boost::any_cast<string>(m["TotalCount"]));
+    }
+    if (m.find("WebCCRules") != m.end() && !m["WebCCRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["WebCCRules"].type()) {
+        vector<DescribeWebCCRulesV2ResponseBodyWebCCRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["WebCCRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeWebCCRulesV2ResponseBodyWebCCRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        webCCRules = make_shared<vector<DescribeWebCCRulesV2ResponseBodyWebCCRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeWebCCRulesV2ResponseBody() = default;
+};
+class DescribeWebCCRulesV2Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeWebCCRulesV2ResponseBody> body{};
+
+  DescribeWebCCRulesV2Response() {}
+
+  explicit DescribeWebCCRulesV2Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeWebCCRulesV2ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeWebCCRulesV2ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeWebCCRulesV2Response() = default;
+};
 class DescribeWebCacheConfigsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> domains{};
@@ -30780,6 +31456,8 @@ public:
   ConfigNetworkRulesResponse configNetworkRules(shared_ptr<ConfigNetworkRulesRequest> request);
   ConfigUdpReflectResponse configUdpReflectWithOptions(shared_ptr<ConfigUdpReflectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ConfigUdpReflectResponse configUdpReflect(shared_ptr<ConfigUdpReflectRequest> request);
+  ConfigWebCCRuleV2Response configWebCCRuleV2WithOptions(shared_ptr<ConfigWebCCRuleV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ConfigWebCCRuleV2Response configWebCCRuleV2(shared_ptr<ConfigWebCCRuleV2Request> request);
   ConfigWebCCTemplateResponse configWebCCTemplateWithOptions(shared_ptr<ConfigWebCCTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ConfigWebCCTemplateResponse configWebCCTemplate(shared_ptr<ConfigWebCCTemplateRequest> request);
   ConfigWebIpSetResponse configWebIpSetWithOptions(shared_ptr<ConfigWebIpSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -30998,6 +31676,8 @@ public:
   DescribeWebAreaBlockConfigsResponse describeWebAreaBlockConfigs(shared_ptr<DescribeWebAreaBlockConfigsRequest> request);
   DescribeWebCCRulesResponse describeWebCCRulesWithOptions(shared_ptr<DescribeWebCCRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeWebCCRulesResponse describeWebCCRules(shared_ptr<DescribeWebCCRulesRequest> request);
+  DescribeWebCCRulesV2Response describeWebCCRulesV2WithOptions(shared_ptr<DescribeWebCCRulesV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeWebCCRulesV2Response describeWebCCRulesV2(shared_ptr<DescribeWebCCRulesV2Request> request);
   DescribeWebCacheConfigsResponse describeWebCacheConfigsWithOptions(shared_ptr<DescribeWebCacheConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeWebCacheConfigsResponse describeWebCacheConfigs(shared_ptr<DescribeWebCacheConfigsRequest> request);
   DescribeWebCcProtectSwitchResponse describeWebCcProtectSwitchWithOptions(shared_ptr<DescribeWebCcProtectSwitchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
