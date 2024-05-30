@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -432,6 +431,9 @@ DescribeSourceServersResponse Alibabacloud_Smc20190601::Client::describeSourceSe
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->relatedJobType)) {
+    query->insert(pair<string, vector<string>>("RelatedJobType", *request->relatedJobType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -627,9 +629,6 @@ ModifyReplicationJobAttributeResponse Alibabacloud_Smc20190601::Client::modifyRe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->launchTemplateVersion)) {
     query->insert(pair<string, string>("LaunchTemplateVersion", *request->launchTemplateVersion));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->licenseType)) {
-    query->insert(pair<string, string>("LicenseType", *request->licenseType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxNumberOfImageToKeep)) {
     query->insert(pair<string, long>("MaxNumberOfImageToKeep", *request->maxNumberOfImageToKeep));
