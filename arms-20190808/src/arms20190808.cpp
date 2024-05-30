@@ -1110,6 +1110,9 @@ CreateEnvironmentResponse Alibabacloud_ARMS20190808::Client::createEnvironmentWi
   if (!Darabonba_Util::Client::isUnset<string>(request->feePackage)) {
     query->insert(pair<string, string>("FeePackage", *request->feePackage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grafanaWorkspaceId)) {
+    query->insert(pair<string, string>("GrafanaWorkspaceId", *request->grafanaWorkspaceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->managedType)) {
     query->insert(pair<string, string>("ManagedType", *request->managedType));
   }

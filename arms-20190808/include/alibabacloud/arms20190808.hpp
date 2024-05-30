@@ -6993,6 +6993,7 @@ public:
   shared_ptr<string> environmentSubType{};
   shared_ptr<string> environmentType{};
   shared_ptr<string> feePackage{};
+  shared_ptr<string> grafanaWorkspaceId{};
   shared_ptr<string> managedType{};
   shared_ptr<string> prometheusInstanceId{};
   shared_ptr<string> regionId{};
@@ -7026,6 +7027,9 @@ public:
     }
     if (feePackage) {
       res["FeePackage"] = boost::any(*feePackage);
+    }
+    if (grafanaWorkspaceId) {
+      res["GrafanaWorkspaceId"] = boost::any(*grafanaWorkspaceId);
     }
     if (managedType) {
       res["ManagedType"] = boost::any(*managedType);
@@ -7067,6 +7071,9 @@ public:
     }
     if (m.find("FeePackage") != m.end() && !m["FeePackage"].empty()) {
       feePackage = make_shared<string>(boost::any_cast<string>(m["FeePackage"]));
+    }
+    if (m.find("GrafanaWorkspaceId") != m.end() && !m["GrafanaWorkspaceId"].empty()) {
+      grafanaWorkspaceId = make_shared<string>(boost::any_cast<string>(m["GrafanaWorkspaceId"]));
     }
     if (m.find("ManagedType") != m.end() && !m["ManagedType"].empty()) {
       managedType = make_shared<string>(boost::any_cast<string>(m["ManagedType"]));
@@ -23926,6 +23933,7 @@ public:
   shared_ptr<string> grafanaFolderTitle{};
   shared_ptr<string> grafanaFolderUid{};
   shared_ptr<string> grafanaFolderUrl{};
+  shared_ptr<string> grafanaWorkspaceId{};
   shared_ptr<string> managedType{};
   shared_ptr<string> prometheusInstanceId{};
   shared_ptr<string> prometheusInstanceName{};
@@ -23995,6 +24003,9 @@ public:
     }
     if (grafanaFolderUrl) {
       res["GrafanaFolderUrl"] = boost::any(*grafanaFolderUrl);
+    }
+    if (grafanaWorkspaceId) {
+      res["GrafanaWorkspaceId"] = boost::any(*grafanaWorkspaceId);
     }
     if (managedType) {
       res["ManagedType"] = boost::any(*managedType);
@@ -24078,6 +24089,9 @@ public:
     }
     if (m.find("GrafanaFolderUrl") != m.end() && !m["GrafanaFolderUrl"].empty()) {
       grafanaFolderUrl = make_shared<string>(boost::any_cast<string>(m["GrafanaFolderUrl"]));
+    }
+    if (m.find("GrafanaWorkspaceId") != m.end() && !m["GrafanaWorkspaceId"].empty()) {
+      grafanaWorkspaceId = make_shared<string>(boost::any_cast<string>(m["GrafanaWorkspaceId"]));
     }
     if (m.find("ManagedType") != m.end() && !m["ManagedType"].empty()) {
       managedType = make_shared<string>(boost::any_cast<string>(m["ManagedType"]));
@@ -26239,7 +26253,7 @@ class GetAlertRulesResponseBodyPageBeanAlertRulesAlertRuleContentAlertRuleItems 
 public:
   shared_ptr<string> aggregate{};
   shared_ptr<string> metricKey{};
-  shared_ptr<double> n{};
+  shared_ptr<long> n{};
   shared_ptr<string> operator_{};
   shared_ptr<string> value{};
 
@@ -26279,7 +26293,7 @@ public:
       metricKey = make_shared<string>(boost::any_cast<string>(m["MetricKey"]));
     }
     if (m.find("N") != m.end() && !m["N"].empty()) {
-      n = make_shared<double>(boost::any_cast<double>(m["N"]));
+      n = make_shared<long>(boost::any_cast<long>(m["N"]));
     }
     if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
       operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
@@ -26653,7 +26667,7 @@ class GetAlertRulesResponseBodyPageBeanAlertRules : public Darabonba::Model {
 public:
   shared_ptr<string> alertCheckType{};
   shared_ptr<long> alertGroup{};
-  shared_ptr<double> alertId{};
+  shared_ptr<long> alertId{};
   shared_ptr<string> alertName{};
   shared_ptr<GetAlertRulesResponseBodyPageBeanAlertRulesAlertRuleContent> alertRuleContent{};
   shared_ptr<string> alertStatus{};
@@ -26785,7 +26799,7 @@ public:
       alertGroup = make_shared<long>(boost::any_cast<long>(m["AlertGroup"]));
     }
     if (m.find("AlertId") != m.end() && !m["AlertId"].empty()) {
-      alertId = make_shared<double>(boost::any_cast<double>(m["AlertId"]));
+      alertId = make_shared<long>(boost::any_cast<long>(m["AlertId"]));
     }
     if (m.find("AlertName") != m.end() && !m["AlertName"].empty()) {
       alertName = make_shared<string>(boost::any_cast<string>(m["AlertName"]));
@@ -30431,6 +30445,7 @@ public:
 };
 class GetPrometheusInstanceResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> accessType{};
   shared_ptr<long> archiveDuration{};
   shared_ptr<string> authToken{};
   shared_ptr<string> clusterId{};
@@ -30442,7 +30457,6 @@ public:
   shared_ptr<string> paymentType{};
   shared_ptr<string> pushGatewayInterUrl{};
   shared_ptr<string> pushGatewayIntraUrl{};
-  shared_ptr<bool> readOnly{};
   shared_ptr<string> regionId{};
   shared_ptr<string> remoteReadInterUrl{};
   shared_ptr<string> remoteReadIntraUrl{};
@@ -30468,6 +30482,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessType) {
+      res["AccessType"] = boost::any(*accessType);
+    }
     if (archiveDuration) {
       res["ArchiveDuration"] = boost::any(*archiveDuration);
     }
@@ -30500,9 +30517,6 @@ public:
     }
     if (pushGatewayIntraUrl) {
       res["PushGatewayIntraUrl"] = boost::any(*pushGatewayIntraUrl);
-    }
-    if (readOnly) {
-      res["ReadOnly"] = boost::any(*readOnly);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -30554,6 +30568,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessType") != m.end() && !m["AccessType"].empty()) {
+      accessType = make_shared<string>(boost::any_cast<string>(m["AccessType"]));
+    }
     if (m.find("ArchiveDuration") != m.end() && !m["ArchiveDuration"].empty()) {
       archiveDuration = make_shared<long>(boost::any_cast<long>(m["ArchiveDuration"]));
     }
@@ -30586,9 +30603,6 @@ public:
     }
     if (m.find("PushGatewayIntraUrl") != m.end() && !m["PushGatewayIntraUrl"].empty()) {
       pushGatewayIntraUrl = make_shared<string>(boost::any_cast<string>(m["PushGatewayIntraUrl"]));
-    }
-    if (m.find("ReadOnly") != m.end() && !m["ReadOnly"].empty()) {
-      readOnly = make_shared<bool>(boost::any_cast<bool>(m["ReadOnly"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -39012,8 +39026,10 @@ class GetTraceAppResponseBodyTraceApp : public Darabonba::Model {
 public:
   shared_ptr<long> appId{};
   shared_ptr<string> appName{};
+  shared_ptr<string> clusterId{};
   shared_ptr<long> createTime{};
   shared_ptr<vector<string>> labels{};
+  shared_ptr<string> language{};
   shared_ptr<string> pid{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -39040,11 +39056,17 @@ public:
     if (appName) {
       res["AppName"] = boost::any(*appName);
     }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
     if (labels) {
       res["Labels"] = boost::any(*labels);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
     }
     if (pid) {
       res["Pid"] = boost::any(*pid);
@@ -39087,6 +39109,9 @@ public:
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
     }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
     }
@@ -39099,6 +39124,9 @@ public:
         }
       }
       labels = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
     if (m.find("Pid") != m.end() && !m["Pid"].empty()) {
       pid = make_shared<string>(boost::any_cast<string>(m["Pid"]));
