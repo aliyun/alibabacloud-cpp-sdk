@@ -1366,6 +1366,9 @@ ListChatappTemplateResponse Alibabacloud_Cams20200606::Client::listChatappTempla
   if (!Darabonba_Util::Client::isUnset<string>(request->auditStatus)) {
     query->insert(pair<string, string>("AuditStatus", *request->auditStatus));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->code)) {
+    query->insert(pair<string, string>("Code", *request->code));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->custSpaceId)) {
     query->insert(pair<string, string>("CustSpaceId", *request->custSpaceId));
   }
@@ -1790,6 +1793,15 @@ QueryChatappBindWabaResponse Alibabacloud_Cams20200606::Client::queryChatappBind
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
     query->insert(pair<string, string>("IsvCode", *request->isvCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

@@ -8786,6 +8786,7 @@ public:
 class ListChatappTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> auditStatus{};
+  shared_ptr<string> code{};
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
   shared_ptr<string> isvCode{};
@@ -8806,6 +8807,9 @@ public:
     map<string, boost::any> res;
     if (auditStatus) {
       res["AuditStatus"] = boost::any(*auditStatus);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
     }
     if (custSpaceId) {
       res["CustSpaceId"] = boost::any(*custSpaceId);
@@ -8834,6 +8838,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuditStatus") != m.end() && !m["AuditStatus"].empty()) {
       auditStatus = make_shared<string>(boost::any_cast<string>(m["AuditStatus"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
     if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
       custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
@@ -8868,6 +8875,7 @@ public:
 class ListChatappTemplateShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> auditStatus{};
+  shared_ptr<string> code{};
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
   shared_ptr<string> isvCode{};
@@ -8888,6 +8896,9 @@ public:
     map<string, boost::any> res;
     if (auditStatus) {
       res["AuditStatus"] = boost::any(*auditStatus);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
     }
     if (custSpaceId) {
       res["CustSpaceId"] = boost::any(*custSpaceId);
@@ -8916,6 +8927,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuditStatus") != m.end() && !m["AuditStatus"].empty()) {
       auditStatus = make_shared<string>(boost::any_cast<string>(m["AuditStatus"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
     if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
       custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
@@ -11786,6 +11800,9 @@ class QueryChatappBindWabaRequest : public Darabonba::Model {
 public:
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> isvCode{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
 
   QueryChatappBindWabaRequest() {}
 
@@ -11803,6 +11820,15 @@ public:
     if (isvCode) {
       res["IsvCode"] = boost::any(*isvCode);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
     return res;
   }
 
@@ -11813,6 +11839,15 @@ public:
     if (m.find("IsvCode") != m.end() && !m["IsvCode"].empty()) {
       isvCode = make_shared<string>(boost::any_cast<string>(m["IsvCode"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
   }
 
 
@@ -11821,10 +11856,12 @@ public:
 class QueryChatappBindWabaResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> accountReviewStatus{};
+  shared_ptr<map<string, boost::any>> authInternationalRateEligibility{};
   shared_ptr<string> currency{};
   shared_ptr<string> id{};
   shared_ptr<string> messageTemplateNamespace{};
   shared_ptr<string> name{};
+  shared_ptr<string> primaryBusinessLocation{};
 
   QueryChatappBindWabaResponseBodyData() {}
 
@@ -11839,6 +11876,9 @@ public:
     if (accountReviewStatus) {
       res["AccountReviewStatus"] = boost::any(*accountReviewStatus);
     }
+    if (authInternationalRateEligibility) {
+      res["AuthInternationalRateEligibility"] = boost::any(*authInternationalRateEligibility);
+    }
     if (currency) {
       res["Currency"] = boost::any(*currency);
     }
@@ -11851,12 +11891,23 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (primaryBusinessLocation) {
+      res["PrimaryBusinessLocation"] = boost::any(*primaryBusinessLocation);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountReviewStatus") != m.end() && !m["AccountReviewStatus"].empty()) {
       accountReviewStatus = make_shared<string>(boost::any_cast<string>(m["AccountReviewStatus"]));
+    }
+    if (m.find("AuthInternationalRateEligibility") != m.end() && !m["AuthInternationalRateEligibility"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["AuthInternationalRateEligibility"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      authInternationalRateEligibility = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
       currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
@@ -11870,6 +11921,9 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("PrimaryBusinessLocation") != m.end() && !m["PrimaryBusinessLocation"].empty()) {
+      primaryBusinessLocation = make_shared<string>(boost::any_cast<string>(m["PrimaryBusinessLocation"]));
+    }
   }
 
 
@@ -11882,6 +11936,7 @@ public:
   shared_ptr<QueryChatappBindWabaResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   QueryChatappBindWabaResponseBody() {}
 
@@ -11908,6 +11963,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
@@ -11930,6 +11988,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
