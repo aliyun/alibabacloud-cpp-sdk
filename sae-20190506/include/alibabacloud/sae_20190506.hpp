@@ -17963,6 +17963,7 @@ public:
 };
 class DescribeApplicationSlbsResponseBodyDataInternet : public Darabonba::Model {
 public:
+  shared_ptr<string> httpsCaCertId{};
   shared_ptr<string> httpsCertId{};
   shared_ptr<long> port{};
   shared_ptr<string> protocol{};
@@ -17978,6 +17979,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (httpsCaCertId) {
+      res["HttpsCaCertId"] = boost::any(*httpsCaCertId);
+    }
     if (httpsCertId) {
       res["HttpsCertId"] = boost::any(*httpsCertId);
     }
@@ -17994,6 +17998,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("HttpsCaCertId") != m.end() && !m["HttpsCaCertId"].empty()) {
+      httpsCaCertId = make_shared<string>(boost::any_cast<string>(m["HttpsCaCertId"]));
+    }
     if (m.find("HttpsCertId") != m.end() && !m["HttpsCertId"].empty()) {
       httpsCertId = make_shared<string>(boost::any_cast<string>(m["HttpsCertId"]));
     }
@@ -18013,6 +18020,7 @@ public:
 };
 class DescribeApplicationSlbsResponseBodyDataIntranet : public Darabonba::Model {
 public:
+  shared_ptr<string> httpsCaCertId{};
   shared_ptr<string> httpsCertId{};
   shared_ptr<long> port{};
   shared_ptr<string> protocol{};
@@ -18028,6 +18036,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (httpsCaCertId) {
+      res["HttpsCaCertId"] = boost::any(*httpsCaCertId);
+    }
     if (httpsCertId) {
       res["HttpsCertId"] = boost::any(*httpsCertId);
     }
@@ -18044,6 +18055,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("HttpsCaCertId") != m.end() && !m["HttpsCaCertId"].empty()) {
+      httpsCaCertId = make_shared<string>(boost::any_cast<string>(m["HttpsCaCertId"]));
+    }
     if (m.find("HttpsCertId") != m.end() && !m["HttpsCertId"].empty()) {
       httpsCertId = make_shared<string>(boost::any_cast<string>(m["HttpsCertId"]));
     }
