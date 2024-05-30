@@ -560,6 +560,7 @@ class AddFaceVideoTemplateResponseBodyDate : public Darabonba::Model {
 public:
   shared_ptr<vector<AddFaceVideoTemplateResponseBodyDateFaceInfos>> faceInfos{};
   shared_ptr<string> templateId{};
+  shared_ptr<string> transResult{};
 
   AddFaceVideoTemplateResponseBodyDate() {}
 
@@ -581,6 +582,9 @@ public:
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
     }
+    if (transResult) {
+      res["TransResult"] = boost::any(*transResult);
+    }
     return res;
   }
 
@@ -600,6 +604,9 @@ public:
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TransResult") != m.end() && !m["TransResult"].empty()) {
+      transResult = make_shared<string>(boost::any_cast<string>(m["TransResult"]));
     }
   }
 

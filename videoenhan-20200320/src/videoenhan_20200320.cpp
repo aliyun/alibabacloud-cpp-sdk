@@ -86,7 +86,7 @@ AbstractEcommerceVideoResponse Alibabacloud_Videoenhan20200320::Client::abstract
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -108,12 +108,13 @@ AbstractEcommerceVideoResponse Alibabacloud_Videoenhan20200320::Client::abstract
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -188,7 +189,7 @@ AbstractFilmVideoResponse Alibabacloud_Videoenhan20200320::Client::abstractFilmV
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -210,12 +211,13 @@ AbstractFilmVideoResponse Alibabacloud_Videoenhan20200320::Client::abstractFilmV
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -290,7 +292,7 @@ AddFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::addFaceVid
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -312,12 +314,13 @@ AddFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::addFaceVid
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -401,7 +404,7 @@ AdjustVideoColorResponse Alibabacloud_Videoenhan20200320::Client::adjustVideoCol
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -423,12 +426,13 @@ AdjustVideoColorResponse Alibabacloud_Videoenhan20200320::Client::adjustVideoCol
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -524,7 +528,7 @@ ChangeVideoSizeResponse Alibabacloud_Videoenhan20200320::Client::changeVideoSize
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -546,12 +550,13 @@ ChangeVideoSizeResponse Alibabacloud_Videoenhan20200320::Client::changeVideoSize
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -632,7 +637,7 @@ ConvertHdrVideoResponse Alibabacloud_Videoenhan20200320::Client::convertHdrVideo
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -654,12 +659,13 @@ ConvertHdrVideoResponse Alibabacloud_Videoenhan20200320::Client::convertHdrVideo
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -759,7 +765,7 @@ EnhancePortraitVideoResponse Alibabacloud_Videoenhan20200320::Client::enhancePor
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -781,12 +787,13 @@ EnhancePortraitVideoResponse Alibabacloud_Videoenhan20200320::Client::enhancePor
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -876,7 +883,7 @@ EnhanceVideoQualityResponse Alibabacloud_Videoenhan20200320::Client::enhanceVide
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -898,12 +905,13 @@ EnhanceVideoQualityResponse Alibabacloud_Videoenhan20200320::Client::enhanceVide
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -978,7 +986,7 @@ EraseVideoLogoResponse Alibabacloud_Videoenhan20200320::Client::eraseVideoLogoAd
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -1000,12 +1008,13 @@ EraseVideoLogoResponse Alibabacloud_Videoenhan20200320::Client::eraseVideoLogoAd
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -1089,7 +1098,7 @@ EraseVideoSubtitlesResponse Alibabacloud_Videoenhan20200320::Client::eraseVideoS
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -1111,12 +1120,13 @@ EraseVideoSubtitlesResponse Alibabacloud_Videoenhan20200320::Client::eraseVideoS
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -1191,7 +1201,7 @@ GenerateHumanAnimeStyleVideoResponse Alibabacloud_Videoenhan20200320::Client::ge
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -1213,12 +1223,13 @@ GenerateHumanAnimeStyleVideoResponse Alibabacloud_Videoenhan20200320::Client::ge
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -1320,7 +1331,7 @@ GenerateVideoResponse Alibabacloud_Videoenhan20200320::Client::generateVideoAdva
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -1342,12 +1353,13 @@ GenerateVideoResponse Alibabacloud_Videoenhan20200320::Client::generateVideoAdva
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -1460,7 +1472,7 @@ InterpolateVideoFrameResponse Alibabacloud_Videoenhan20200320::Client::interpola
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -1482,12 +1494,13 @@ InterpolateVideoFrameResponse Alibabacloud_Videoenhan20200320::Client::interpola
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -1571,7 +1584,7 @@ MergeVideoFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoFaceAd
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -1593,12 +1606,13 @@ MergeVideoFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoFaceAd
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -1710,7 +1724,7 @@ MergeVideoModelFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoM
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -1732,12 +1746,13 @@ MergeVideoModelFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoM
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -1843,7 +1858,7 @@ ReduceVideoNoiseResponse Alibabacloud_Videoenhan20200320::Client::reduceVideoNoi
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -1865,12 +1880,13 @@ ReduceVideoNoiseResponse Alibabacloud_Videoenhan20200320::Client::reduceVideoNoi
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -1945,7 +1961,7 @@ SuperResolveVideoResponse Alibabacloud_Videoenhan20200320::Client::superResolveV
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -1967,12 +1983,13 @@ SuperResolveVideoResponse Alibabacloud_Videoenhan20200320::Client::superResolveV
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -2050,7 +2067,7 @@ ToneSdrVideoResponse Alibabacloud_Videoenhan20200320::Client::toneSdrVideoAdvanc
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -2072,12 +2089,13 @@ ToneSdrVideoResponse Alibabacloud_Videoenhan20200320::Client::toneSdrVideoAdvanc
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
