@@ -5836,6 +5836,119 @@ public:
 
   virtual ~CreateEventStreamingRequestSink() = default;
 };
+class CreateEventStreamingRequestSourceSourceApacheKafkaParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> bootstraps{};
+  shared_ptr<string> consumerGroup{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> offsetReset{};
+  shared_ptr<string> saslMechanism{};
+  shared_ptr<string> saslPassword{};
+  shared_ptr<string> saslUser{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> securityProtocol{};
+  shared_ptr<string> topic{};
+  shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> valueDataType{};
+  shared_ptr<string> vpcId{};
+
+  CreateEventStreamingRequestSourceSourceApacheKafkaParameters() {}
+
+  explicit CreateEventStreamingRequestSourceSourceApacheKafkaParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bootstraps) {
+      res["Bootstraps"] = boost::any(*bootstraps);
+    }
+    if (consumerGroup) {
+      res["ConsumerGroup"] = boost::any(*consumerGroup);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (offsetReset) {
+      res["OffsetReset"] = boost::any(*offsetReset);
+    }
+    if (saslMechanism) {
+      res["SaslMechanism"] = boost::any(*saslMechanism);
+    }
+    if (saslPassword) {
+      res["SaslPassword"] = boost::any(*saslPassword);
+    }
+    if (saslUser) {
+      res["SaslUser"] = boost::any(*saslUser);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (securityProtocol) {
+      res["SecurityProtocol"] = boost::any(*securityProtocol);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (valueDataType) {
+      res["ValueDataType"] = boost::any(*valueDataType);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bootstraps") != m.end() && !m["Bootstraps"].empty()) {
+      bootstraps = make_shared<string>(boost::any_cast<string>(m["Bootstraps"]));
+    }
+    if (m.find("ConsumerGroup") != m.end() && !m["ConsumerGroup"].empty()) {
+      consumerGroup = make_shared<string>(boost::any_cast<string>(m["ConsumerGroup"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("OffsetReset") != m.end() && !m["OffsetReset"].empty()) {
+      offsetReset = make_shared<string>(boost::any_cast<string>(m["OffsetReset"]));
+    }
+    if (m.find("SaslMechanism") != m.end() && !m["SaslMechanism"].empty()) {
+      saslMechanism = make_shared<string>(boost::any_cast<string>(m["SaslMechanism"]));
+    }
+    if (m.find("SaslPassword") != m.end() && !m["SaslPassword"].empty()) {
+      saslPassword = make_shared<string>(boost::any_cast<string>(m["SaslPassword"]));
+    }
+    if (m.find("SaslUser") != m.end() && !m["SaslUser"].empty()) {
+      saslUser = make_shared<string>(boost::any_cast<string>(m["SaslUser"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("SecurityProtocol") != m.end() && !m["SecurityProtocol"].empty()) {
+      securityProtocol = make_shared<string>(boost::any_cast<string>(m["SecurityProtocol"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("ValueDataType") != m.end() && !m["ValueDataType"].empty()) {
+      valueDataType = make_shared<string>(boost::any_cast<string>(m["ValueDataType"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSourceSourceApacheKafkaParameters() = default;
+};
 class CreateEventStreamingRequestSourceSourceDTSParameters : public Darabonba::Model {
 public:
   shared_ptr<string> brokerUrl{};
@@ -6195,6 +6308,7 @@ public:
 class CreateEventStreamingRequestSourceSourceRocketMQParameters : public Darabonba::Model {
 public:
   shared_ptr<string> authType{};
+  shared_ptr<string> bodyDataType{};
   shared_ptr<string> filterSql{};
   shared_ptr<string> filterType{};
   shared_ptr<string> groupID{};
@@ -6229,6 +6343,9 @@ public:
     map<string, boost::any> res;
     if (authType) {
       res["AuthType"] = boost::any(*authType);
+    }
+    if (bodyDataType) {
+      res["BodyDataType"] = boost::any(*bodyDataType);
     }
     if (filterSql) {
       res["FilterSql"] = boost::any(*filterSql);
@@ -6299,6 +6416,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthType") != m.end() && !m["AuthType"].empty()) {
       authType = make_shared<string>(boost::any_cast<string>(m["AuthType"]));
+    }
+    if (m.find("BodyDataType") != m.end() && !m["BodyDataType"].empty()) {
+      bodyDataType = make_shared<string>(boost::any_cast<string>(m["BodyDataType"]));
     }
     if (m.find("FilterSql") != m.end() && !m["FilterSql"].empty()) {
       filterSql = make_shared<string>(boost::any_cast<string>(m["FilterSql"]));
@@ -6420,6 +6540,7 @@ public:
 };
 class CreateEventStreamingRequestSource : public Darabonba::Model {
 public:
+  shared_ptr<CreateEventStreamingRequestSourceSourceApacheKafkaParameters> sourceApacheKafkaParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceDTSParameters> sourceDTSParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceKafkaParameters> sourceKafkaParameters{};
   shared_ptr<CreateEventStreamingRequestSourceSourceMNSParameters> sourceMNSParameters{};
@@ -6439,6 +6560,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (sourceApacheKafkaParameters) {
+      res["SourceApacheKafkaParameters"] = sourceApacheKafkaParameters ? boost::any(sourceApacheKafkaParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sourceDTSParameters) {
       res["SourceDTSParameters"] = sourceDTSParameters ? boost::any(sourceDTSParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -6467,6 +6591,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceApacheKafkaParameters") != m.end() && !m["SourceApacheKafkaParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceApacheKafkaParameters"].type()) {
+        CreateEventStreamingRequestSourceSourceApacheKafkaParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceApacheKafkaParameters"]));
+        sourceApacheKafkaParameters = make_shared<CreateEventStreamingRequestSourceSourceApacheKafkaParameters>(model1);
+      }
+    }
     if (m.find("SourceDTSParameters") != m.end() && !m["SourceDTSParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourceDTSParameters"].type()) {
         CreateEventStreamingRequestSourceSourceDTSParameters model1;
@@ -13549,6 +13680,119 @@ public:
 
   virtual ~GetEventStreamingResponseBodyDataSink() = default;
 };
+class GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> bootstraps{};
+  shared_ptr<string> consumerGroup{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> offsetReset{};
+  shared_ptr<string> saslMechanism{};
+  shared_ptr<string> saslPassword{};
+  shared_ptr<string> saslUser{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> securityProtocol{};
+  shared_ptr<string> topic{};
+  shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> valueDataType{};
+  shared_ptr<string> vpcId{};
+
+  GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters() {}
+
+  explicit GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bootstraps) {
+      res["Bootstraps"] = boost::any(*bootstraps);
+    }
+    if (consumerGroup) {
+      res["ConsumerGroup"] = boost::any(*consumerGroup);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (offsetReset) {
+      res["OffsetReset"] = boost::any(*offsetReset);
+    }
+    if (saslMechanism) {
+      res["SaslMechanism"] = boost::any(*saslMechanism);
+    }
+    if (saslPassword) {
+      res["SaslPassword"] = boost::any(*saslPassword);
+    }
+    if (saslUser) {
+      res["SaslUser"] = boost::any(*saslUser);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (securityProtocol) {
+      res["SecurityProtocol"] = boost::any(*securityProtocol);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (valueDataType) {
+      res["ValueDataType"] = boost::any(*valueDataType);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bootstraps") != m.end() && !m["Bootstraps"].empty()) {
+      bootstraps = make_shared<string>(boost::any_cast<string>(m["Bootstraps"]));
+    }
+    if (m.find("ConsumerGroup") != m.end() && !m["ConsumerGroup"].empty()) {
+      consumerGroup = make_shared<string>(boost::any_cast<string>(m["ConsumerGroup"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("OffsetReset") != m.end() && !m["OffsetReset"].empty()) {
+      offsetReset = make_shared<string>(boost::any_cast<string>(m["OffsetReset"]));
+    }
+    if (m.find("SaslMechanism") != m.end() && !m["SaslMechanism"].empty()) {
+      saslMechanism = make_shared<string>(boost::any_cast<string>(m["SaslMechanism"]));
+    }
+    if (m.find("SaslPassword") != m.end() && !m["SaslPassword"].empty()) {
+      saslPassword = make_shared<string>(boost::any_cast<string>(m["SaslPassword"]));
+    }
+    if (m.find("SaslUser") != m.end() && !m["SaslUser"].empty()) {
+      saslUser = make_shared<string>(boost::any_cast<string>(m["SaslUser"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("SecurityProtocol") != m.end() && !m["SecurityProtocol"].empty()) {
+      securityProtocol = make_shared<string>(boost::any_cast<string>(m["SecurityProtocol"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("ValueDataType") != m.end() && !m["ValueDataType"].empty()) {
+      valueDataType = make_shared<string>(boost::any_cast<string>(m["ValueDataType"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters() = default;
+};
 class GetEventStreamingResponseBodyDataSourceSourceDTSParameters : public Darabonba::Model {
 public:
   shared_ptr<string> brokerUrl{};
@@ -13901,6 +14145,7 @@ public:
 class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters : public Darabonba::Model {
 public:
   shared_ptr<string> authType{};
+  shared_ptr<string> bodyDataType{};
   shared_ptr<string> groupID{};
   shared_ptr<string> instanceEndpoint{};
   shared_ptr<string> instanceId{};
@@ -13929,6 +14174,9 @@ public:
     map<string, boost::any> res;
     if (authType) {
       res["AuthType"] = boost::any(*authType);
+    }
+    if (bodyDataType) {
+      res["BodyDataType"] = boost::any(*bodyDataType);
     }
     if (groupID) {
       res["GroupID"] = boost::any(*groupID);
@@ -13981,6 +14229,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthType") != m.end() && !m["AuthType"].empty()) {
       authType = make_shared<string>(boost::any_cast<string>(m["AuthType"]));
+    }
+    if (m.find("BodyDataType") != m.end() && !m["BodyDataType"].empty()) {
+      bodyDataType = make_shared<string>(boost::any_cast<string>(m["BodyDataType"]));
     }
     if (m.find("GroupID") != m.end() && !m["GroupID"].empty()) {
       groupID = make_shared<string>(boost::any_cast<string>(m["GroupID"]));
@@ -14091,6 +14342,7 @@ public:
 };
 class GetEventStreamingResponseBodyDataSource : public Darabonba::Model {
 public:
+  shared_ptr<GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters> sourceApacheKafkaParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceDTSParameters> sourceDTSParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceKafkaParameters> sourceKafkaParameters{};
   shared_ptr<GetEventStreamingResponseBodyDataSourceSourceMNSParameters> sourceMNSParameters{};
@@ -14110,6 +14362,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (sourceApacheKafkaParameters) {
+      res["SourceApacheKafkaParameters"] = sourceApacheKafkaParameters ? boost::any(sourceApacheKafkaParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sourceDTSParameters) {
       res["SourceDTSParameters"] = sourceDTSParameters ? boost::any(sourceDTSParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -14138,6 +14393,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceApacheKafkaParameters") != m.end() && !m["SourceApacheKafkaParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceApacheKafkaParameters"].type()) {
+        GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceApacheKafkaParameters"]));
+        sourceApacheKafkaParameters = make_shared<GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters>(model1);
+      }
+    }
     if (m.find("SourceDTSParameters") != m.end() && !m["SourceDTSParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourceDTSParameters"].type()) {
         GetEventStreamingResponseBodyDataSourceSourceDTSParameters model1;
@@ -19074,6 +19336,119 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSink() = default;
 };
+class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> bootstraps{};
+  shared_ptr<string> consumerGroup{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> offsetReset{};
+  shared_ptr<string> saslMechanism{};
+  shared_ptr<string> saslPassword{};
+  shared_ptr<string> saslUser{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> securityProtocol{};
+  shared_ptr<string> topic{};
+  shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> valueDataType{};
+  shared_ptr<string> vpcId{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bootstraps) {
+      res["Bootstraps"] = boost::any(*bootstraps);
+    }
+    if (consumerGroup) {
+      res["ConsumerGroup"] = boost::any(*consumerGroup);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (offsetReset) {
+      res["OffsetReset"] = boost::any(*offsetReset);
+    }
+    if (saslMechanism) {
+      res["SaslMechanism"] = boost::any(*saslMechanism);
+    }
+    if (saslPassword) {
+      res["SaslPassword"] = boost::any(*saslPassword);
+    }
+    if (saslUser) {
+      res["SaslUser"] = boost::any(*saslUser);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (securityProtocol) {
+      res["SecurityProtocol"] = boost::any(*securityProtocol);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (valueDataType) {
+      res["ValueDataType"] = boost::any(*valueDataType);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bootstraps") != m.end() && !m["Bootstraps"].empty()) {
+      bootstraps = make_shared<string>(boost::any_cast<string>(m["Bootstraps"]));
+    }
+    if (m.find("ConsumerGroup") != m.end() && !m["ConsumerGroup"].empty()) {
+      consumerGroup = make_shared<string>(boost::any_cast<string>(m["ConsumerGroup"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("OffsetReset") != m.end() && !m["OffsetReset"].empty()) {
+      offsetReset = make_shared<string>(boost::any_cast<string>(m["OffsetReset"]));
+    }
+    if (m.find("SaslMechanism") != m.end() && !m["SaslMechanism"].empty()) {
+      saslMechanism = make_shared<string>(boost::any_cast<string>(m["SaslMechanism"]));
+    }
+    if (m.find("SaslPassword") != m.end() && !m["SaslPassword"].empty()) {
+      saslPassword = make_shared<string>(boost::any_cast<string>(m["SaslPassword"]));
+    }
+    if (m.find("SaslUser") != m.end() && !m["SaslUser"].empty()) {
+      saslUser = make_shared<string>(boost::any_cast<string>(m["SaslUser"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("SecurityProtocol") != m.end() && !m["SecurityProtocol"].empty()) {
+      securityProtocol = make_shared<string>(boost::any_cast<string>(m["SecurityProtocol"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("ValueDataType") != m.end() && !m["ValueDataType"].empty()) {
+      valueDataType = make_shared<string>(boost::any_cast<string>(m["ValueDataType"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters() = default;
+};
 class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSParameters : public Darabonba::Model {
 public:
   shared_ptr<string> brokerUrl{};
@@ -19419,6 +19794,7 @@ public:
 class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQParameters : public Darabonba::Model {
 public:
   shared_ptr<string> authType{};
+  shared_ptr<string> bodyDataType{};
   shared_ptr<string> groupID{};
   shared_ptr<string> instanceEndpoint{};
   shared_ptr<string> instanceId{};
@@ -19447,6 +19823,9 @@ public:
     map<string, boost::any> res;
     if (authType) {
       res["AuthType"] = boost::any(*authType);
+    }
+    if (bodyDataType) {
+      res["BodyDataType"] = boost::any(*bodyDataType);
     }
     if (groupID) {
       res["GroupID"] = boost::any(*groupID);
@@ -19499,6 +19878,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthType") != m.end() && !m["AuthType"].empty()) {
       authType = make_shared<string>(boost::any_cast<string>(m["AuthType"]));
+    }
+    if (m.find("BodyDataType") != m.end() && !m["BodyDataType"].empty()) {
+      bodyDataType = make_shared<string>(boost::any_cast<string>(m["BodyDataType"]));
     }
     if (m.find("GroupID") != m.end() && !m["GroupID"].empty()) {
       groupID = make_shared<string>(boost::any_cast<string>(m["GroupID"]));
@@ -19609,6 +19991,7 @@ public:
 };
 class ListEventStreamingsResponseBodyDataEventStreamingsSource : public Darabonba::Model {
 public:
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters> sourceApacheKafkaParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSParameters> sourceDTSParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters> sourceKafkaParameters{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSParameters> sourceMNSParameters{};
@@ -19628,6 +20011,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (sourceApacheKafkaParameters) {
+      res["SourceApacheKafkaParameters"] = sourceApacheKafkaParameters ? boost::any(sourceApacheKafkaParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sourceDTSParameters) {
       res["SourceDTSParameters"] = sourceDTSParameters ? boost::any(sourceDTSParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -19656,6 +20042,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceApacheKafkaParameters") != m.end() && !m["SourceApacheKafkaParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceApacheKafkaParameters"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceApacheKafkaParameters"]));
+        sourceApacheKafkaParameters = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheKafkaParameters>(model1);
+      }
+    }
     if (m.find("SourceDTSParameters") != m.end() && !m["SourceDTSParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourceDTSParameters"].type()) {
         ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSParameters model1;
@@ -28457,6 +28850,119 @@ public:
 
   virtual ~UpdateEventStreamingRequestSink() = default;
 };
+class UpdateEventStreamingRequestSourceSourceApacheKafkaParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> bootstraps{};
+  shared_ptr<string> consumerGroup{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> offsetReset{};
+  shared_ptr<string> saslMechanism{};
+  shared_ptr<string> saslPassword{};
+  shared_ptr<string> saslUser{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> securityProtocol{};
+  shared_ptr<string> topic{};
+  shared_ptr<string> vSwitchIds{};
+  shared_ptr<string> valueDataType{};
+  shared_ptr<string> vpcId{};
+
+  UpdateEventStreamingRequestSourceSourceApacheKafkaParameters() {}
+
+  explicit UpdateEventStreamingRequestSourceSourceApacheKafkaParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bootstraps) {
+      res["Bootstraps"] = boost::any(*bootstraps);
+    }
+    if (consumerGroup) {
+      res["ConsumerGroup"] = boost::any(*consumerGroup);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (offsetReset) {
+      res["OffsetReset"] = boost::any(*offsetReset);
+    }
+    if (saslMechanism) {
+      res["SaslMechanism"] = boost::any(*saslMechanism);
+    }
+    if (saslPassword) {
+      res["SaslPassword"] = boost::any(*saslPassword);
+    }
+    if (saslUser) {
+      res["SaslUser"] = boost::any(*saslUser);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (securityProtocol) {
+      res["SecurityProtocol"] = boost::any(*securityProtocol);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = boost::any(*vSwitchIds);
+    }
+    if (valueDataType) {
+      res["ValueDataType"] = boost::any(*valueDataType);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bootstraps") != m.end() && !m["Bootstraps"].empty()) {
+      bootstraps = make_shared<string>(boost::any_cast<string>(m["Bootstraps"]));
+    }
+    if (m.find("ConsumerGroup") != m.end() && !m["ConsumerGroup"].empty()) {
+      consumerGroup = make_shared<string>(boost::any_cast<string>(m["ConsumerGroup"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("OffsetReset") != m.end() && !m["OffsetReset"].empty()) {
+      offsetReset = make_shared<string>(boost::any_cast<string>(m["OffsetReset"]));
+    }
+    if (m.find("SaslMechanism") != m.end() && !m["SaslMechanism"].empty()) {
+      saslMechanism = make_shared<string>(boost::any_cast<string>(m["SaslMechanism"]));
+    }
+    if (m.find("SaslPassword") != m.end() && !m["SaslPassword"].empty()) {
+      saslPassword = make_shared<string>(boost::any_cast<string>(m["SaslPassword"]));
+    }
+    if (m.find("SaslUser") != m.end() && !m["SaslUser"].empty()) {
+      saslUser = make_shared<string>(boost::any_cast<string>(m["SaslUser"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("SecurityProtocol") != m.end() && !m["SecurityProtocol"].empty()) {
+      securityProtocol = make_shared<string>(boost::any_cast<string>(m["SecurityProtocol"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      vSwitchIds = make_shared<string>(boost::any_cast<string>(m["VSwitchIds"]));
+    }
+    if (m.find("ValueDataType") != m.end() && !m["ValueDataType"].empty()) {
+      valueDataType = make_shared<string>(boost::any_cast<string>(m["ValueDataType"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSourceSourceApacheKafkaParameters() = default;
+};
 class UpdateEventStreamingRequestSourceSourceDTSParameters : public Darabonba::Model {
 public:
   shared_ptr<string> brokerUrl{};
@@ -28809,6 +29315,7 @@ public:
 class UpdateEventStreamingRequestSourceSourceRocketMQParameters : public Darabonba::Model {
 public:
   shared_ptr<string> authType{};
+  shared_ptr<string> bodyDataType{};
   shared_ptr<string> groupID{};
   shared_ptr<string> instanceEndpoint{};
   shared_ptr<string> instanceId{};
@@ -28837,6 +29344,9 @@ public:
     map<string, boost::any> res;
     if (authType) {
       res["AuthType"] = boost::any(*authType);
+    }
+    if (bodyDataType) {
+      res["BodyDataType"] = boost::any(*bodyDataType);
     }
     if (groupID) {
       res["GroupID"] = boost::any(*groupID);
@@ -28889,6 +29399,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthType") != m.end() && !m["AuthType"].empty()) {
       authType = make_shared<string>(boost::any_cast<string>(m["AuthType"]));
+    }
+    if (m.find("BodyDataType") != m.end() && !m["BodyDataType"].empty()) {
+      bodyDataType = make_shared<string>(boost::any_cast<string>(m["BodyDataType"]));
     }
     if (m.find("GroupID") != m.end() && !m["GroupID"].empty()) {
       groupID = make_shared<string>(boost::any_cast<string>(m["GroupID"]));
@@ -28971,6 +29484,7 @@ public:
 };
 class UpdateEventStreamingRequestSource : public Darabonba::Model {
 public:
+  shared_ptr<UpdateEventStreamingRequestSourceSourceApacheKafkaParameters> sourceApacheKafkaParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceDTSParameters> sourceDTSParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceKafkaParameters> sourceKafkaParameters{};
   shared_ptr<UpdateEventStreamingRequestSourceSourceMNSParameters> sourceMNSParameters{};
@@ -28990,6 +29504,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (sourceApacheKafkaParameters) {
+      res["SourceApacheKafkaParameters"] = sourceApacheKafkaParameters ? boost::any(sourceApacheKafkaParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (sourceDTSParameters) {
       res["SourceDTSParameters"] = sourceDTSParameters ? boost::any(sourceDTSParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -29018,6 +29535,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceApacheKafkaParameters") != m.end() && !m["SourceApacheKafkaParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceApacheKafkaParameters"].type()) {
+        UpdateEventStreamingRequestSourceSourceApacheKafkaParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceApacheKafkaParameters"]));
+        sourceApacheKafkaParameters = make_shared<UpdateEventStreamingRequestSourceSourceApacheKafkaParameters>(model1);
+      }
+    }
     if (m.find("SourceDTSParameters") != m.end() && !m["SourceDTSParameters"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourceDTSParameters"].type()) {
         UpdateEventStreamingRequestSourceSourceDTSParameters model1;
