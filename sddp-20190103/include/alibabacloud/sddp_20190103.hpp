@@ -6079,6 +6079,7 @@ public:
   shared_ptr<string> id{};
   shared_ptr<string> instanceDescription{};
   shared_ptr<string> instanceId{};
+  shared_ptr<long> lastModifiedTime{};
   shared_ptr<long> lastScanTime{};
   shared_ptr<long> memberAccount{};
   shared_ptr<vector<DescribeDataObjectsResponseBodyItemsModelTags>> modelTags{};
@@ -6114,6 +6115,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (lastModifiedTime) {
+      res["LastModifiedTime"] = boost::any(*lastModifiedTime);
     }
     if (lastScanTime) {
       res["LastScanTime"] = boost::any(*lastScanTime);
@@ -6184,6 +6188,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LastModifiedTime") != m.end() && !m["LastModifiedTime"].empty()) {
+      lastModifiedTime = make_shared<long>(boost::any_cast<long>(m["LastModifiedTime"]));
     }
     if (m.find("LastScanTime") != m.end() && !m["LastScanTime"].empty()) {
       lastScanTime = make_shared<long>(boost::any_cast<long>(m["LastScanTime"]));
@@ -9677,6 +9684,7 @@ public:
   shared_ptr<string> fileId{};
   shared_ptr<string> id{};
   shared_ptr<long> instanceId{};
+  shared_ptr<long> lastModifiedTime{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
   shared_ptr<long> riskLevelId{};
@@ -9719,6 +9727,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (lastModifiedTime) {
+      res["LastModifiedTime"] = boost::any(*lastModifiedTime);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -9775,6 +9786,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
+    }
+    if (m.find("LastModifiedTime") != m.end() && !m["LastModifiedTime"].empty()) {
+      lastModifiedTime = make_shared<long>(boost::any_cast<long>(m["LastModifiedTime"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
