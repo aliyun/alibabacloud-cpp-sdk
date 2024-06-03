@@ -781,6 +781,34 @@ DeprovisionAccessConfigurationResponse Alibabacloud_Cloudsso20210515::Client::de
   return deprovisionAccessConfigurationWithOptions(request, runtime);
 }
 
+DisableDelegateAccountResponse Alibabacloud_Cloudsso20210515::Client::disableDelegateAccountWithOptions(shared_ptr<DisableDelegateAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("AccountId", *request->accountId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DisableDelegateAccount"))},
+    {"version", boost::any(string("2021-05-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DisableDelegateAccountResponse(callApi(params, req, runtime));
+}
+
+DisableDelegateAccountResponse Alibabacloud_Cloudsso20210515::Client::disableDelegateAccount(shared_ptr<DisableDelegateAccountRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return disableDelegateAccountWithOptions(request, runtime);
+}
+
 DisableServiceResponse Alibabacloud_Cloudsso20210515::Client::disableServiceWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -800,6 +828,34 @@ DisableServiceResponse Alibabacloud_Cloudsso20210515::Client::disableServiceWith
 DisableServiceResponse Alibabacloud_Cloudsso20210515::Client::disableService() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return disableServiceWithOptions(runtime);
+}
+
+EnableDelegateAccountResponse Alibabacloud_Cloudsso20210515::Client::enableDelegateAccountWithOptions(shared_ptr<EnableDelegateAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("AccountId", *request->accountId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EnableDelegateAccount"))},
+    {"version", boost::any(string("2021-05-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EnableDelegateAccountResponse(callApi(params, req, runtime));
+}
+
+EnableDelegateAccountResponse Alibabacloud_Cloudsso20210515::Client::enableDelegateAccount(shared_ptr<EnableDelegateAccountRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return enableDelegateAccountWithOptions(request, runtime);
 }
 
 EnableServiceResponse Alibabacloud_Cloudsso20210515::Client::enableServiceWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
