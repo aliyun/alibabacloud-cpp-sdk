@@ -1294,7 +1294,6 @@ public:
   shared_ptr<string> activityType{};
   shared_ptr<long> adjustmentValue{};
   shared_ptr<MetricsTrigger> metricsTrigger{};
-  shared_ptr<long> minAdjustmentValue{};
   shared_ptr<string> ruleName{};
   shared_ptr<TimeTrigger> timeTrigger{};
   shared_ptr<string> triggerType{};
@@ -1317,9 +1316,6 @@ public:
     }
     if (metricsTrigger) {
       res["MetricsTrigger"] = metricsTrigger ? boost::any(metricsTrigger->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (minAdjustmentValue) {
-      res["MinAdjustmentValue"] = boost::any(*minAdjustmentValue);
     }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
@@ -1346,9 +1342,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MetricsTrigger"]));
         metricsTrigger = make_shared<MetricsTrigger>(model1);
       }
-    }
-    if (m.find("MinAdjustmentValue") != m.end() && !m["MinAdjustmentValue"].empty()) {
-      minAdjustmentValue = make_shared<long>(boost::any_cast<long>(m["MinAdjustmentValue"]));
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
@@ -2225,7 +2218,9 @@ public:
 class NodeSelector : public Darabonba::Model {
 public:
   shared_ptr<string> nodeGroupId{};
+  shared_ptr<vector<string>> nodeGroupIds{};
   shared_ptr<string> nodeGroupName{};
+  shared_ptr<vector<string>> nodeGroupNames{};
   shared_ptr<vector<string>> nodeGroupTypes{};
   shared_ptr<vector<string>> nodeNames{};
   shared_ptr<string> nodeSelectType{};
@@ -2243,8 +2238,14 @@ public:
     if (nodeGroupId) {
       res["NodeGroupId"] = boost::any(*nodeGroupId);
     }
+    if (nodeGroupIds) {
+      res["NodeGroupIds"] = boost::any(*nodeGroupIds);
+    }
     if (nodeGroupName) {
       res["NodeGroupName"] = boost::any(*nodeGroupName);
+    }
+    if (nodeGroupNames) {
+      res["NodeGroupNames"] = boost::any(*nodeGroupNames);
     }
     if (nodeGroupTypes) {
       res["NodeGroupTypes"] = boost::any(*nodeGroupTypes);
@@ -2262,8 +2263,28 @@ public:
     if (m.find("NodeGroupId") != m.end() && !m["NodeGroupId"].empty()) {
       nodeGroupId = make_shared<string>(boost::any_cast<string>(m["NodeGroupId"]));
     }
+    if (m.find("NodeGroupIds") != m.end() && !m["NodeGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NodeGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NodeGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      nodeGroupIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("NodeGroupName") != m.end() && !m["NodeGroupName"].empty()) {
       nodeGroupName = make_shared<string>(boost::any_cast<string>(m["NodeGroupName"]));
+    }
+    if (m.find("NodeGroupNames") != m.end() && !m["NodeGroupNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NodeGroupNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NodeGroupNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      nodeGroupNames = make_shared<vector<string>>(toVec1);
     }
     if (m.find("NodeGroupTypes") != m.end() && !m["NodeGroupTypes"].empty()) {
       vector<string> toVec1;
