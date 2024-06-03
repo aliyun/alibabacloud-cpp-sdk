@@ -45390,6 +45390,286 @@ public:
 
   virtual ~SearchMediaByFaceResponse() = default;
 };
+class SearchMediaByHybridRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mediaId{};
+  shared_ptr<string> mediaType{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> searchLibName{};
+  shared_ptr<string> text{};
+
+  SearchMediaByHybridRequest() {}
+
+  explicit SearchMediaByHybridRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (searchLibName) {
+      res["SearchLibName"] = boost::any(*searchLibName);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SearchLibName") != m.end() && !m["SearchLibName"].empty()) {
+      searchLibName = make_shared<string>(boost::any_cast<string>(m["SearchLibName"]));
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~SearchMediaByHybridRequest() = default;
+};
+class SearchMediaByHybridResponseBodyMediaListClipInfo : public Darabonba::Model {
+public:
+  shared_ptr<double> from{};
+  shared_ptr<double> score{};
+  shared_ptr<double> to{};
+
+  SearchMediaByHybridResponseBodyMediaListClipInfo() {}
+
+  explicit SearchMediaByHybridResponseBodyMediaListClipInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (from) {
+      res["From"] = boost::any(*from);
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    if (to) {
+      res["To"] = boost::any(*to);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("From") != m.end() && !m["From"].empty()) {
+      from = make_shared<double>(boost::any_cast<double>(m["From"]));
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+    if (m.find("To") != m.end() && !m["To"].empty()) {
+      to = make_shared<double>(boost::any_cast<double>(m["To"]));
+    }
+  }
+
+
+  virtual ~SearchMediaByHybridResponseBodyMediaListClipInfo() = default;
+};
+class SearchMediaByHybridResponseBodyMediaList : public Darabonba::Model {
+public:
+  shared_ptr<vector<SearchMediaByHybridResponseBodyMediaListClipInfo>> clipInfo{};
+  shared_ptr<string> mediaId{};
+
+  SearchMediaByHybridResponseBodyMediaList() {}
+
+  explicit SearchMediaByHybridResponseBodyMediaList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clipInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*clipInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ClipInfo"] = boost::any(temp1);
+    }
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClipInfo") != m.end() && !m["ClipInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["ClipInfo"].type()) {
+        vector<SearchMediaByHybridResponseBodyMediaListClipInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ClipInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SearchMediaByHybridResponseBodyMediaListClipInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        clipInfo = make_shared<vector<SearchMediaByHybridResponseBodyMediaListClipInfo>>(expect1);
+      }
+    }
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+  }
+
+
+  virtual ~SearchMediaByHybridResponseBodyMediaList() = default;
+};
+class SearchMediaByHybridResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<SearchMediaByHybridResponseBodyMediaList>> mediaList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+  shared_ptr<long> total{};
+
+  SearchMediaByHybridResponseBody() {}
+
+  explicit SearchMediaByHybridResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (mediaList) {
+      vector<boost::any> temp1;
+      for(auto item1:*mediaList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MediaList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("MediaList") != m.end() && !m["MediaList"].empty()) {
+      if (typeid(vector<boost::any>) == m["MediaList"].type()) {
+        vector<SearchMediaByHybridResponseBodyMediaList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MediaList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SearchMediaByHybridResponseBodyMediaList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        mediaList = make_shared<vector<SearchMediaByHybridResponseBodyMediaList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~SearchMediaByHybridResponseBody() = default;
+};
+class SearchMediaByHybridResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SearchMediaByHybridResponseBody> body{};
+
+  SearchMediaByHybridResponse() {}
+
+  explicit SearchMediaByHybridResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SearchMediaByHybridResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SearchMediaByHybridResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SearchMediaByHybridResponse() = default;
+};
 class SearchMediaByMultimodalRequest : public Darabonba::Model {
 public:
   shared_ptr<string> mediaType{};
@@ -63427,6 +63707,8 @@ public:
   SearchMediaByAILabelResponse searchMediaByAILabel(shared_ptr<SearchMediaByAILabelRequest> request);
   SearchMediaByFaceResponse searchMediaByFaceWithOptions(shared_ptr<SearchMediaByFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchMediaByFaceResponse searchMediaByFace(shared_ptr<SearchMediaByFaceRequest> request);
+  SearchMediaByHybridResponse searchMediaByHybridWithOptions(shared_ptr<SearchMediaByHybridRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SearchMediaByHybridResponse searchMediaByHybrid(shared_ptr<SearchMediaByHybridRequest> request);
   SearchMediaByMultimodalResponse searchMediaByMultimodalWithOptions(shared_ptr<SearchMediaByMultimodalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchMediaByMultimodalResponse searchMediaByMultimodal(shared_ptr<SearchMediaByMultimodalRequest> request);
   SearchMediaClipByFaceResponse searchMediaClipByFaceWithOptions(shared_ptr<SearchMediaClipByFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -2839,7 +2839,7 @@ GetPublicMediaInfoResponse Alibabacloud_ICE20201109::Client::getPublicMediaInfoW
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
     {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
+    {"authType", boost::any(string("Anonymous"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
@@ -5065,6 +5065,49 @@ SearchMediaByFaceResponse Alibabacloud_ICE20201109::Client::searchMediaByFaceWit
 SearchMediaByFaceResponse Alibabacloud_ICE20201109::Client::searchMediaByFace(shared_ptr<SearchMediaByFaceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return searchMediaByFaceWithOptions(request, runtime);
+}
+
+SearchMediaByHybridResponse Alibabacloud_ICE20201109::Client::searchMediaByHybridWithOptions(shared_ptr<SearchMediaByHybridRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaId)) {
+    query->insert(pair<string, string>("MediaId", *request->mediaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->searchLibName)) {
+    query->insert(pair<string, string>("SearchLibName", *request->searchLibName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
+    query->insert(pair<string, string>("Text", *request->text));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SearchMediaByHybrid"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SearchMediaByHybridResponse(callApi(params, req, runtime));
+}
+
+SearchMediaByHybridResponse Alibabacloud_ICE20201109::Client::searchMediaByHybrid(shared_ptr<SearchMediaByHybridRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return searchMediaByHybridWithOptions(request, runtime);
 }
 
 SearchMediaByMultimodalResponse Alibabacloud_ICE20201109::Client::searchMediaByMultimodalWithOptions(shared_ptr<SearchMediaByMultimodalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
