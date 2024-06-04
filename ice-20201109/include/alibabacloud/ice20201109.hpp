@@ -16753,6 +16753,7 @@ public:
   shared_ptr<string> mediaType{};
   shared_ptr<string> modifiedTime{};
   shared_ptr<string> referenceId{};
+  shared_ptr<string> snapshots{};
   shared_ptr<string> source{};
   shared_ptr<string> spriteImages{};
   shared_ptr<string> status{};
@@ -16814,6 +16815,9 @@ public:
     }
     if (referenceId) {
       res["ReferenceId"] = boost::any(*referenceId);
+    }
+    if (snapshots) {
+      res["Snapshots"] = boost::any(*snapshots);
     }
     if (source) {
       res["Source"] = boost::any(*source);
@@ -16881,6 +16885,9 @@ public:
     }
     if (m.find("ReferenceId") != m.end() && !m["ReferenceId"].empty()) {
       referenceId = make_shared<string>(boost::any_cast<string>(m["ReferenceId"]));
+    }
+    if (m.find("Snapshots") != m.end() && !m["Snapshots"].empty()) {
+      snapshots = make_shared<string>(boost::any_cast<string>(m["Snapshots"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
