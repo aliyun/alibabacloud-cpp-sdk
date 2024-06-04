@@ -5700,6 +5700,7 @@ public:
   shared_ptr<string> accessibility{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
+  shared_ptr<map<string, boost::any>> labels{};
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -5730,6 +5731,9 @@ public:
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
     }
     if (order) {
       res["Order"] = boost::any(*order);
@@ -5771,6 +5775,14 @@ public:
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
     }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Labels"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      labels = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));
     }
@@ -5799,6 +5811,119 @@ public:
 
 
   virtual ~ListInstancesRequest() = default;
+};
+class ListInstancesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorType{};
+  shared_ptr<string> accessibility{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> labelsShrink{};
+  shared_ptr<string> order{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> paymentType{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> sortBy{};
+  shared_ptr<string> status{};
+  shared_ptr<string> workspaceId{};
+
+  ListInstancesShrinkRequest() {}
+
+  explicit ListInstancesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorType) {
+      res["AcceleratorType"] = boost::any(*acceleratorType);
+    }
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (labelsShrink) {
+      res["Labels"] = boost::any(*labelsShrink);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (paymentType) {
+      res["PaymentType"] = boost::any(*paymentType);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (sortBy) {
+      res["SortBy"] = boost::any(*sortBy);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorType") != m.end() && !m["AcceleratorType"].empty()) {
+      acceleratorType = make_shared<string>(boost::any_cast<string>(m["AcceleratorType"]));
+    }
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      labelsShrink = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
+      sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~ListInstancesShrinkRequest() = default;
 };
 class ListInstancesResponseBodyInstancesCloudDisks : public Darabonba::Model {
 public:
@@ -5854,6 +5979,9 @@ class ListInstancesResponseBodyInstancesDatasets : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> mountPath{};
+  shared_ptr<string> optionType{};
+  shared_ptr<string> options{};
+  shared_ptr<string> uri{};
 
   ListInstancesResponseBodyInstancesDatasets() {}
 
@@ -5871,6 +5999,15 @@ public:
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
     }
+    if (optionType) {
+      res["OptionType"] = boost::any(*optionType);
+    }
+    if (options) {
+      res["Options"] = boost::any(*options);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
     return res;
   }
 
@@ -5880,6 +6017,15 @@ public:
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
+    }
+    if (m.find("OptionType") != m.end() && !m["OptionType"].empty()) {
+      optionType = make_shared<string>(boost::any_cast<string>(m["OptionType"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
     }
   }
 
@@ -7701,7 +7847,7 @@ public:
   ListInstanceSnapshotResponse listInstanceSnapshot(shared_ptr<string> InstanceId, shared_ptr<ListInstanceSnapshotRequest> request);
   ListInstanceStatisticsResponse listInstanceStatisticsWithOptions(shared_ptr<ListInstanceStatisticsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInstanceStatisticsResponse listInstanceStatistics(shared_ptr<ListInstanceStatisticsRequest> request);
-  ListInstancesResponse listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListInstancesResponse listInstancesWithOptions(shared_ptr<ListInstancesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInstancesResponse listInstances(shared_ptr<ListInstancesRequest> request);
   StartInstanceResponse startInstanceWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartInstanceResponse startInstance(shared_ptr<string> InstanceId);

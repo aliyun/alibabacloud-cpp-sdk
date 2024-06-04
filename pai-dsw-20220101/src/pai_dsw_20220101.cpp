@@ -772,8 +772,13 @@ ListInstanceStatisticsResponse Alibabacloud_Pai-dsw20220101::Client::listInstanc
   return listInstanceStatisticsWithOptions(request, headers, runtime);
 }
 
-ListInstancesResponse Alibabacloud_Pai-dsw20220101::Client::listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListInstancesResponse Alibabacloud_Pai-dsw20220101::Client::listInstancesWithOptions(shared_ptr<ListInstancesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListInstancesShrinkRequest> request = make_shared<ListInstancesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->labels)) {
+    request->labelsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->labels, make_shared<string>("Labels"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorType)) {
     query->insert(pair<string, string>("AcceleratorType", *request->acceleratorType));
@@ -786,6 +791,9 @@ ListInstancesResponse Alibabacloud_Pai-dsw20220101::Client::listInstancesWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     query->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labelsShrink)) {
+    query->insert(pair<string, string>("Labels", *request->labelsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
     query->insert(pair<string, string>("Order", *request->order));
