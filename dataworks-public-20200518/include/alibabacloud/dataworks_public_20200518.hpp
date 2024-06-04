@@ -3530,6 +3530,7 @@ class CreateDIJobRequestResourceSettings : public Darabonba::Model {
 public:
   shared_ptr<CreateDIJobRequestResourceSettingsOfflineResourceSettings> offlineResourceSettings{};
   shared_ptr<CreateDIJobRequestResourceSettingsRealtimeResourceSettings> realtimeResourceSettings{};
+  shared_ptr<double> requestedCu{};
 
   CreateDIJobRequestResourceSettings() {}
 
@@ -3546,6 +3547,9 @@ public:
     }
     if (realtimeResourceSettings) {
       res["RealtimeResourceSettings"] = realtimeResourceSettings ? boost::any(realtimeResourceSettings->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestedCu) {
+      res["RequestedCu"] = boost::any(*requestedCu);
     }
     return res;
   }
@@ -3564,6 +3568,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RealtimeResourceSettings"]));
         realtimeResourceSettings = make_shared<CreateDIJobRequestResourceSettingsRealtimeResourceSettings>(model1);
       }
+    }
+    if (m.find("RequestedCu") != m.end() && !m["RequestedCu"].empty()) {
+      requestedCu = make_shared<double>(boost::any_cast<double>(m["RequestedCu"]));
     }
   }
 
@@ -24156,6 +24163,7 @@ class GetDIJobResponseBodyDataResourceSettings : public Darabonba::Model {
 public:
   shared_ptr<GetDIJobResponseBodyDataResourceSettingsOfflineResourceSettings> offlineResourceSettings{};
   shared_ptr<GetDIJobResponseBodyDataResourceSettingsRealtimeResourceSettings> realtimeResourceSettings{};
+  shared_ptr<double> requestedCu{};
 
   GetDIJobResponseBodyDataResourceSettings() {}
 
@@ -24172,6 +24180,9 @@ public:
     }
     if (realtimeResourceSettings) {
       res["RealtimeResourceSettings"] = realtimeResourceSettings ? boost::any(realtimeResourceSettings->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestedCu) {
+      res["RequestedCu"] = boost::any(*requestedCu);
     }
     return res;
   }
@@ -24190,6 +24201,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RealtimeResourceSettings"]));
         realtimeResourceSettings = make_shared<GetDIJobResponseBodyDataResourceSettingsRealtimeResourceSettings>(model1);
       }
+    }
+    if (m.find("RequestedCu") != m.end() && !m["RequestedCu"].empty()) {
+      requestedCu = make_shared<double>(boost::any_cast<double>(m["RequestedCu"]));
     }
   }
 
@@ -77639,6 +77653,7 @@ class UpdateDIJobRequestResourceSettings : public Darabonba::Model {
 public:
   shared_ptr<UpdateDIJobRequestResourceSettingsOfflineResourceSettings> offlineResourceSettings{};
   shared_ptr<UpdateDIJobRequestResourceSettingsRealtimeResourceSettings> realtimeResourceSettings{};
+  shared_ptr<double> requestedCu{};
 
   UpdateDIJobRequestResourceSettings() {}
 
@@ -77655,6 +77670,9 @@ public:
     }
     if (realtimeResourceSettings) {
       res["RealtimeResourceSettings"] = realtimeResourceSettings ? boost::any(realtimeResourceSettings->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestedCu) {
+      res["RequestedCu"] = boost::any(*requestedCu);
     }
     return res;
   }
@@ -77673,6 +77691,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RealtimeResourceSettings"]));
         realtimeResourceSettings = make_shared<UpdateDIJobRequestResourceSettingsRealtimeResourceSettings>(model1);
       }
+    }
+    if (m.find("RequestedCu") != m.end() && !m["RequestedCu"].empty()) {
+      requestedCu = make_shared<double>(boost::any_cast<double>(m["RequestedCu"]));
     }
   }
 
