@@ -3251,6 +3251,49 @@ public:
 
   virtual ~GetLoginTokenRequest() = default;
 };
+class GetLoginTokenResponseBodyPasswordStrategy : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> tenantAlternativeChars{};
+  shared_ptr<string> tenantPasswordLength{};
+
+  GetLoginTokenResponseBodyPasswordStrategy() {}
+
+  explicit GetLoginTokenResponseBodyPasswordStrategy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantAlternativeChars) {
+      res["TenantAlternativeChars"] = boost::any(*tenantAlternativeChars);
+    }
+    if (tenantPasswordLength) {
+      res["TenantPasswordLength"] = boost::any(*tenantPasswordLength);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TenantAlternativeChars") != m.end() && !m["TenantAlternativeChars"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TenantAlternativeChars"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TenantAlternativeChars"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tenantAlternativeChars = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TenantPasswordLength") != m.end() && !m["TenantPasswordLength"].empty()) {
+      tenantPasswordLength = make_shared<string>(boost::any_cast<string>(m["TenantPasswordLength"]));
+    }
+  }
+
+
+  virtual ~GetLoginTokenResponseBodyPasswordStrategy() = default;
+};
 class GetLoginTokenResponseBodyRiskVerifyInfo : public Darabonba::Model {
 public:
   shared_ptr<string> email{};
@@ -3310,9 +3353,11 @@ public:
   shared_ptr<string> label{};
   shared_ptr<string> loginToken{};
   shared_ptr<string> nextStage{};
+  shared_ptr<GetLoginTokenResponseBodyPasswordStrategy> passwordStrategy{};
   shared_ptr<string> phone{};
   shared_ptr<map<string, string>> props{};
   shared_ptr<string> qrCodePng{};
+  shared_ptr<string> reason{};
   shared_ptr<string> requestId{};
   shared_ptr<GetLoginTokenResponseBodyRiskVerifyInfo> riskVerifyInfo{};
   shared_ptr<string> secret{};
@@ -3351,6 +3396,9 @@ public:
     if (nextStage) {
       res["NextStage"] = boost::any(*nextStage);
     }
+    if (passwordStrategy) {
+      res["PasswordStrategy"] = passwordStrategy ? boost::any(passwordStrategy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (phone) {
       res["Phone"] = boost::any(*phone);
     }
@@ -3359,6 +3407,9 @@ public:
     }
     if (qrCodePng) {
       res["QrCodePng"] = boost::any(*qrCodePng);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -3403,6 +3454,13 @@ public:
     if (m.find("NextStage") != m.end() && !m["NextStage"].empty()) {
       nextStage = make_shared<string>(boost::any_cast<string>(m["NextStage"]));
     }
+    if (m.find("PasswordStrategy") != m.end() && !m["PasswordStrategy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PasswordStrategy"].type()) {
+        GetLoginTokenResponseBodyPasswordStrategy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PasswordStrategy"]));
+        passwordStrategy = make_shared<GetLoginTokenResponseBodyPasswordStrategy>(model1);
+      }
+    }
     if (m.find("Phone") != m.end() && !m["Phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["Phone"]));
     }
@@ -3416,6 +3474,9 @@ public:
     }
     if (m.find("QrCodePng") != m.end() && !m["QrCodePng"].empty()) {
       qrCodePng = make_shared<string>(boost::any_cast<string>(m["QrCodePng"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
