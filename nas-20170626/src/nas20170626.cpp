@@ -894,6 +894,9 @@ CreateFilesetResponse Alibabacloud_NAS20170626::Client::createFilesetWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->deletionProtection)) {
+    query->insert(pair<string, bool>("DeletionProtection", *request->deletionProtection));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
@@ -2280,6 +2283,9 @@ DescribeLifecyclePoliciesResponse Alibabacloud_NAS20170626::Client::describeLife
 DescribeLogAnalysisResponse Alibabacloud_NAS20170626::Client::describeLogAnalysisWithOptions(shared_ptr<DescribeLogAnalysisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemType)) {
+    query->insert(pair<string, string>("FileSystemType", *request->fileSystemType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
@@ -3397,6 +3403,9 @@ ModifyFilesetResponse Alibabacloud_NAS20170626::Client::modifyFilesetWithOptions
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->deletionProtection)) {
+    query->insert(pair<string, bool>("DeletionProtection", *request->deletionProtection));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));

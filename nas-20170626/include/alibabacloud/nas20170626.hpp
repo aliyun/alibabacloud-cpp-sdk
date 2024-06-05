@@ -3120,6 +3120,7 @@ public:
 class CreateFilesetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> deletionProtection{};
   shared_ptr<string> description{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> fileSystemId{};
@@ -3137,6 +3138,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -3156,6 +3160,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -7876,6 +7883,7 @@ public:
   shared_ptr<string> autoSnapshotPolicyName{};
   shared_ptr<string> createTime{};
   shared_ptr<long> fileSystemNums{};
+  shared_ptr<string> fileSystemType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> repeatWeekdays{};
   shared_ptr<long> retentionDays{};
@@ -7903,6 +7911,9 @@ public:
     }
     if (fileSystemNums) {
       res["FileSystemNums"] = boost::any(*fileSystemNums);
+    }
+    if (fileSystemType) {
+      res["FileSystemType"] = boost::any(*fileSystemType);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -7934,6 +7945,9 @@ public:
     }
     if (m.find("FileSystemNums") != m.end() && !m["FileSystemNums"].empty()) {
       fileSystemNums = make_shared<long>(boost::any_cast<long>(m["FileSystemNums"]));
+    }
+    if (m.find("FileSystemType") != m.end() && !m["FileSystemType"].empty()) {
+      fileSystemType = make_shared<string>(boost::any_cast<string>(m["FileSystemType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -9390,6 +9404,7 @@ public:
   shared_ptr<string> quotaType{};
   shared_ptr<long> sizeLimit{};
   shared_ptr<long> sizeReal{};
+  shared_ptr<long> sizeRealInByte{};
   shared_ptr<string> userId{};
   shared_ptr<string> userType{};
 
@@ -9418,6 +9433,9 @@ public:
     if (sizeReal) {
       res["SizeReal"] = boost::any(*sizeReal);
     }
+    if (sizeRealInByte) {
+      res["SizeRealInByte"] = boost::any(*sizeRealInByte);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -9442,6 +9460,9 @@ public:
     }
     if (m.find("SizeReal") != m.end() && !m["SizeReal"].empty()) {
       sizeReal = make_shared<long>(boost::any_cast<long>(m["SizeReal"]));
+    }
+    if (m.find("SizeRealInByte") != m.end() && !m["SizeRealInByte"].empty()) {
+      sizeRealInByte = make_shared<long>(boost::any_cast<long>(m["SizeRealInByte"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -11331,6 +11352,7 @@ public:
 class DescribeFilesetsResponseBodyEntriesEntrie : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<bool> deletionProtection{};
   shared_ptr<string> description{};
   shared_ptr<string> fileSystemPath{};
   shared_ptr<string> fsetId{};
@@ -11349,6 +11371,9 @@ public:
     map<string, boost::any> res;
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -11371,6 +11396,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -11801,6 +11829,7 @@ public:
 };
 class DescribeLogAnalysisRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> fileSystemType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
@@ -11815,6 +11844,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (fileSystemType) {
+      res["FileSystemType"] = boost::any(*fileSystemType);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -11828,6 +11860,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileSystemType") != m.end() && !m["FileSystemType"].empty()) {
+      fileSystemType = make_shared<string>(boost::any_cast<string>(m["FileSystemType"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -14007,11 +14042,13 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
   shared_ptr<long> encryptType{};
+  shared_ptr<string> fileSystemType{};
   shared_ptr<string> progress{};
   shared_ptr<long> remainTime{};
   shared_ptr<long> retentionDays{};
   shared_ptr<string> snapshotId{};
   shared_ptr<string> snapshotName{};
+  shared_ptr<string> snapshotType{};
   shared_ptr<string> sourceFileSystemId{};
   shared_ptr<long> sourceFileSystemSize{};
   shared_ptr<string> sourceFileSystemVersion{};
@@ -14036,6 +14073,9 @@ public:
     if (encryptType) {
       res["EncryptType"] = boost::any(*encryptType);
     }
+    if (fileSystemType) {
+      res["FileSystemType"] = boost::any(*fileSystemType);
+    }
     if (progress) {
       res["Progress"] = boost::any(*progress);
     }
@@ -14050,6 +14090,9 @@ public:
     }
     if (snapshotName) {
       res["SnapshotName"] = boost::any(*snapshotName);
+    }
+    if (snapshotType) {
+      res["SnapshotType"] = boost::any(*snapshotType);
     }
     if (sourceFileSystemId) {
       res["SourceFileSystemId"] = boost::any(*sourceFileSystemId);
@@ -14076,6 +14119,9 @@ public:
     if (m.find("EncryptType") != m.end() && !m["EncryptType"].empty()) {
       encryptType = make_shared<long>(boost::any_cast<long>(m["EncryptType"]));
     }
+    if (m.find("FileSystemType") != m.end() && !m["FileSystemType"].empty()) {
+      fileSystemType = make_shared<string>(boost::any_cast<string>(m["FileSystemType"]));
+    }
     if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
       progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
     }
@@ -14090,6 +14136,9 @@ public:
     }
     if (m.find("SnapshotName") != m.end() && !m["SnapshotName"].empty()) {
       snapshotName = make_shared<string>(boost::any_cast<string>(m["SnapshotName"]));
+    }
+    if (m.find("SnapshotType") != m.end() && !m["SnapshotType"].empty()) {
+      snapshotType = make_shared<string>(boost::any_cast<string>(m["SnapshotType"]));
     }
     if (m.find("SourceFileSystemId") != m.end() && !m["SourceFileSystemId"].empty()) {
       sourceFileSystemId = make_shared<string>(boost::any_cast<string>(m["SourceFileSystemId"]));
@@ -18548,6 +18597,7 @@ public:
 class ModifyFilesetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> deletionProtection{};
   shared_ptr<string> description{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> fileSystemId{};
@@ -18565,6 +18615,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -18584,6 +18637,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
