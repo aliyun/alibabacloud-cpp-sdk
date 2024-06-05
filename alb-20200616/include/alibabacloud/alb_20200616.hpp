@@ -13989,6 +13989,7 @@ public:
 };
 class ListListenerCertificatesRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> certificateIds{};
   shared_ptr<string> certificateType{};
   shared_ptr<string> listenerId{};
   shared_ptr<long> maxResults{};
@@ -14004,6 +14005,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (certificateIds) {
+      res["CertificateIds"] = boost::any(*certificateIds);
+    }
     if (certificateType) {
       res["CertificateType"] = boost::any(*certificateType);
     }
@@ -14020,6 +14024,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertificateIds") != m.end() && !m["CertificateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CertificateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CertificateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      certificateIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("CertificateType") != m.end() && !m["CertificateType"].empty()) {
       certificateType = make_shared<string>(boost::any_cast<string>(m["CertificateType"]));
     }

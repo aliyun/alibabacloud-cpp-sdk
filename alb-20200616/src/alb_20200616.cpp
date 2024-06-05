@@ -1847,6 +1847,9 @@ ListHealthCheckTemplatesResponse Alibabacloud_Alb20200616::Client::listHealthChe
 ListListenerCertificatesResponse Alibabacloud_Alb20200616::Client::listListenerCertificatesWithOptions(shared_ptr<ListListenerCertificatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->certificateIds)) {
+    query->insert(pair<string, vector<string>>("CertificateIds", *request->certificateIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->certificateType)) {
     query->insert(pair<string, string>("CertificateType", *request->certificateType));
   }
