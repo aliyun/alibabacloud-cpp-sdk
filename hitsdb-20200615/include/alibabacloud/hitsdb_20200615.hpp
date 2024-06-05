@@ -2690,6 +2690,7 @@ public:
   shared_ptr<bool> enableCdc{};
   shared_ptr<bool> enableCompute{};
   shared_ptr<bool> enableKms{};
+  shared_ptr<bool> enableLProxy{};
   shared_ptr<bool> enableLTS{};
   shared_ptr<bool> enableLsqlVersionV3{};
   shared_ptr<bool> enableMLCtrl{};
@@ -2794,6 +2795,9 @@ public:
     }
     if (enableKms) {
       res["EnableKms"] = boost::any(*enableKms);
+    }
+    if (enableLProxy) {
+      res["EnableLProxy"] = boost::any(*enableLProxy);
     }
     if (enableLTS) {
       res["EnableLTS"] = boost::any(*enableLTS);
@@ -2964,6 +2968,9 @@ public:
     }
     if (m.find("EnableKms") != m.end() && !m["EnableKms"].empty()) {
       enableKms = make_shared<bool>(boost::any_cast<bool>(m["EnableKms"]));
+    }
+    if (m.find("EnableLProxy") != m.end() && !m["EnableLProxy"].empty()) {
+      enableLProxy = make_shared<bool>(boost::any_cast<bool>(m["EnableLProxy"]));
     }
     if (m.find("EnableLTS") != m.end() && !m["EnableLTS"].empty()) {
       enableLTS = make_shared<bool>(boost::any_cast<bool>(m["EnableLTS"]));
