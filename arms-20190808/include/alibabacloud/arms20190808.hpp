@@ -243,6 +243,7 @@ public:
   shared_ptr<double> gmtCreate{};
   shared_ptr<string> grafanaVersion{};
   shared_ptr<string> grafanaWorkspaceDomain{};
+  shared_ptr<string> grafanaWorkspaceDomainStatus{};
   shared_ptr<string> grafanaWorkspaceEdition{};
   shared_ptr<string> grafanaWorkspaceId{};
   shared_ptr<string> grafanaWorkspaceIp{};
@@ -293,6 +294,9 @@ public:
     }
     if (grafanaWorkspaceDomain) {
       res["grafanaWorkspaceDomain"] = boost::any(*grafanaWorkspaceDomain);
+    }
+    if (grafanaWorkspaceDomainStatus) {
+      res["grafanaWorkspaceDomainStatus"] = boost::any(*grafanaWorkspaceDomainStatus);
     }
     if (grafanaWorkspaceEdition) {
       res["grafanaWorkspaceEdition"] = boost::any(*grafanaWorkspaceEdition);
@@ -379,6 +383,9 @@ public:
     }
     if (m.find("grafanaWorkspaceDomain") != m.end() && !m["grafanaWorkspaceDomain"].empty()) {
       grafanaWorkspaceDomain = make_shared<string>(boost::any_cast<string>(m["grafanaWorkspaceDomain"]));
+    }
+    if (m.find("grafanaWorkspaceDomainStatus") != m.end() && !m["grafanaWorkspaceDomainStatus"].empty()) {
+      grafanaWorkspaceDomainStatus = make_shared<string>(boost::any_cast<string>(m["grafanaWorkspaceDomainStatus"]));
     }
     if (m.find("grafanaWorkspaceEdition") != m.end() && !m["grafanaWorkspaceEdition"].empty()) {
       grafanaWorkspaceEdition = make_shared<string>(boost::any_cast<string>(m["grafanaWorkspaceEdition"]));
