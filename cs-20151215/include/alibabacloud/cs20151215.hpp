@@ -3998,6 +3998,142 @@ public:
 
   virtual ~CreateClusterResponse() = default;
 };
+class CreateClusterDiagnosisRequest : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> target{};
+  shared_ptr<string> type{};
+
+  CreateClusterDiagnosisRequest() {}
+
+  explicit CreateClusterDiagnosisRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (target) {
+      res["target"] = boost::any(*target);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("target") != m.end() && !m["target"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["target"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      target = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~CreateClusterDiagnosisRequest() = default;
+};
+class CreateClusterDiagnosisResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> diagnosisId{};
+  shared_ptr<string> requestId{};
+
+  CreateClusterDiagnosisResponseBody() {}
+
+  explicit CreateClusterDiagnosisResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["cluster_id"] = boost::any(*clusterId);
+    }
+    if (diagnosisId) {
+      res["diagnosis_id"] = boost::any(*diagnosisId);
+    }
+    if (requestId) {
+      res["request_id"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cluster_id") != m.end() && !m["cluster_id"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["cluster_id"]));
+    }
+    if (m.find("diagnosis_id") != m.end() && !m["diagnosis_id"].empty()) {
+      diagnosisId = make_shared<string>(boost::any_cast<string>(m["diagnosis_id"]));
+    }
+    if (m.find("request_id") != m.end() && !m["request_id"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["request_id"]));
+    }
+  }
+
+
+  virtual ~CreateClusterDiagnosisResponseBody() = default;
+};
+class CreateClusterDiagnosisResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateClusterDiagnosisResponseBody> body{};
+
+  CreateClusterDiagnosisResponse() {}
+
+  explicit CreateClusterDiagnosisResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateClusterDiagnosisResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateClusterDiagnosisResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateClusterDiagnosisResponse() = default;
+};
 class CreateClusterNodePoolRequestAutoScaling : public Darabonba::Model {
 public:
   shared_ptr<long> eipBandwidth{};
@@ -19515,6 +19651,337 @@ public:
 
   virtual ~GetClusterCheckResponse() = default;
 };
+class GetClusterDiagnosisCheckItemsResponseBodyCheckItems : public Darabonba::Model {
+public:
+  shared_ptr<string> desc{};
+  shared_ptr<string> display{};
+  shared_ptr<string> group{};
+  shared_ptr<string> level{};
+  shared_ptr<string> message{};
+  shared_ptr<string> name{};
+  shared_ptr<string> refer{};
+  shared_ptr<string> value{};
+
+  GetClusterDiagnosisCheckItemsResponseBodyCheckItems() {}
+
+  explicit GetClusterDiagnosisCheckItemsResponseBodyCheckItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desc) {
+      res["desc"] = boost::any(*desc);
+    }
+    if (display) {
+      res["display"] = boost::any(*display);
+    }
+    if (group) {
+      res["group"] = boost::any(*group);
+    }
+    if (level) {
+      res["level"] = boost::any(*level);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (refer) {
+      res["refer"] = boost::any(*refer);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("desc") != m.end() && !m["desc"].empty()) {
+      desc = make_shared<string>(boost::any_cast<string>(m["desc"]));
+    }
+    if (m.find("display") != m.end() && !m["display"].empty()) {
+      display = make_shared<string>(boost::any_cast<string>(m["display"]));
+    }
+    if (m.find("group") != m.end() && !m["group"].empty()) {
+      group = make_shared<string>(boost::any_cast<string>(m["group"]));
+    }
+    if (m.find("level") != m.end() && !m["level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["level"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("refer") != m.end() && !m["refer"].empty()) {
+      refer = make_shared<string>(boost::any_cast<string>(m["refer"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~GetClusterDiagnosisCheckItemsResponseBodyCheckItems() = default;
+};
+class GetClusterDiagnosisCheckItemsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetClusterDiagnosisCheckItemsResponseBodyCheckItems>> checkItems{};
+  shared_ptr<string> code{};
+  shared_ptr<bool> isSuccess{};
+  shared_ptr<string> requestId{};
+
+  GetClusterDiagnosisCheckItemsResponseBody() {}
+
+  explicit GetClusterDiagnosisCheckItemsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*checkItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["check_items"] = boost::any(temp1);
+    }
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (isSuccess) {
+      res["is_success"] = boost::any(*isSuccess);
+    }
+    if (requestId) {
+      res["request_id"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("check_items") != m.end() && !m["check_items"].empty()) {
+      if (typeid(vector<boost::any>) == m["check_items"].type()) {
+        vector<GetClusterDiagnosisCheckItemsResponseBodyCheckItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["check_items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetClusterDiagnosisCheckItemsResponseBodyCheckItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        checkItems = make_shared<vector<GetClusterDiagnosisCheckItemsResponseBodyCheckItems>>(expect1);
+      }
+    }
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("is_success") != m.end() && !m["is_success"].empty()) {
+      isSuccess = make_shared<bool>(boost::any_cast<bool>(m["is_success"]));
+    }
+    if (m.find("request_id") != m.end() && !m["request_id"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["request_id"]));
+    }
+  }
+
+
+  virtual ~GetClusterDiagnosisCheckItemsResponseBody() = default;
+};
+class GetClusterDiagnosisCheckItemsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetClusterDiagnosisCheckItemsResponseBody> body{};
+
+  GetClusterDiagnosisCheckItemsResponse() {}
+
+  explicit GetClusterDiagnosisCheckItemsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetClusterDiagnosisCheckItemsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetClusterDiagnosisCheckItemsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetClusterDiagnosisCheckItemsResponse() = default;
+};
+class GetClusterDiagnosisResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> created{};
+  shared_ptr<string> diagnosisId{};
+  shared_ptr<string> finished{};
+  shared_ptr<string> message{};
+  shared_ptr<string> result{};
+  shared_ptr<long> status{};
+  shared_ptr<string> target{};
+  shared_ptr<string> type{};
+
+  GetClusterDiagnosisResultResponseBody() {}
+
+  explicit GetClusterDiagnosisResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (created) {
+      res["created"] = boost::any(*created);
+    }
+    if (diagnosisId) {
+      res["diagnosis_id"] = boost::any(*diagnosisId);
+    }
+    if (finished) {
+      res["finished"] = boost::any(*finished);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (result) {
+      res["result"] = boost::any(*result);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (target) {
+      res["target"] = boost::any(*target);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+    }
+    if (m.find("created") != m.end() && !m["created"].empty()) {
+      created = make_shared<string>(boost::any_cast<string>(m["created"]));
+    }
+    if (m.find("diagnosis_id") != m.end() && !m["diagnosis_id"].empty()) {
+      diagnosisId = make_shared<string>(boost::any_cast<string>(m["diagnosis_id"]));
+    }
+    if (m.find("finished") != m.end() && !m["finished"].empty()) {
+      finished = make_shared<string>(boost::any_cast<string>(m["finished"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["result"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["status"]));
+    }
+    if (m.find("target") != m.end() && !m["target"].empty()) {
+      target = make_shared<string>(boost::any_cast<string>(m["target"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~GetClusterDiagnosisResultResponseBody() = default;
+};
+class GetClusterDiagnosisResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetClusterDiagnosisResultResponseBody> body{};
+
+  GetClusterDiagnosisResultResponse() {}
+
+  explicit GetClusterDiagnosisResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetClusterDiagnosisResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetClusterDiagnosisResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetClusterDiagnosisResultResponse() = default;
+};
 class GetKubernetesTriggerRequest : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -27729,6 +28196,11 @@ public:
   CreateAutoscalingConfigResponse createAutoscalingConfig(shared_ptr<string> ClusterId, shared_ptr<CreateAutoscalingConfigRequest> request);
   CreateClusterResponse createClusterWithOptions(shared_ptr<CreateClusterRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateClusterResponse createCluster(shared_ptr<CreateClusterRequest> request);
+  CreateClusterDiagnosisResponse createClusterDiagnosisWithOptions(shared_ptr<string> clusterId,
+                                                                   shared_ptr<CreateClusterDiagnosisRequest> request,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateClusterDiagnosisResponse createClusterDiagnosis(shared_ptr<string> clusterId, shared_ptr<CreateClusterDiagnosisRequest> request);
   CreateClusterNodePoolResponse createClusterNodePoolWithOptions(shared_ptr<string> ClusterId,
                                                                  shared_ptr<CreateClusterNodePoolRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
@@ -27964,6 +28436,16 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetClusterCheckResponse getClusterCheck(shared_ptr<string> clusterId, shared_ptr<string> checkId);
+  GetClusterDiagnosisCheckItemsResponse getClusterDiagnosisCheckItemsWithOptions(shared_ptr<string> clusterId,
+                                                                                 shared_ptr<string> diagnosisId,
+                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetClusterDiagnosisCheckItemsResponse getClusterDiagnosisCheckItems(shared_ptr<string> clusterId, shared_ptr<string> diagnosisId);
+  GetClusterDiagnosisResultResponse getClusterDiagnosisResultWithOptions(shared_ptr<string> clusterId,
+                                                                         shared_ptr<string> diagnosisId,
+                                                                         shared_ptr<map<string, string>> headers,
+                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetClusterDiagnosisResultResponse getClusterDiagnosisResult(shared_ptr<string> clusterId, shared_ptr<string> diagnosisId);
   GetKubernetesTriggerResponse getKubernetesTriggerWithOptions(shared_ptr<string> ClusterId,
                                                                shared_ptr<GetKubernetesTriggerRequest> request,
                                                                shared_ptr<map<string, string>> headers,
