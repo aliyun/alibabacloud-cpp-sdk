@@ -13567,6 +13567,7 @@ public:
   shared_ptr<string> casesUncompletedAfterAttempt{};
   shared_ptr<long> casesUncompletedAfterAttempted{};
   shared_ptr<double> completionRate{};
+  shared_ptr<string> contactFlowId{};
   shared_ptr<long> maxAttemptCount{};
   shared_ptr<long> minAttemptInterval{};
   shared_ptr<string> name{};
@@ -13617,6 +13618,9 @@ public:
     }
     if (completionRate) {
       res["CompletionRate"] = boost::any(*completionRate);
+    }
+    if (contactFlowId) {
+      res["ContactFlowId"] = boost::any(*contactFlowId);
     }
     if (maxAttemptCount) {
       res["MaxAttemptCount"] = boost::any(*maxAttemptCount);
@@ -13687,6 +13691,9 @@ public:
     }
     if (m.find("CompletionRate") != m.end() && !m["CompletionRate"].empty()) {
       completionRate = make_shared<double>(boost::any_cast<double>(m["CompletionRate"]));
+    }
+    if (m.find("ContactFlowId") != m.end() && !m["ContactFlowId"].empty()) {
+      contactFlowId = make_shared<string>(boost::any_cast<string>(m["ContactFlowId"]));
     }
     if (m.find("MaxAttemptCount") != m.end() && !m["MaxAttemptCount"].empty()) {
       maxAttemptCount = make_shared<long>(boost::any_cast<long>(m["MaxAttemptCount"]));
@@ -28572,6 +28579,7 @@ public:
   shared_ptr<long> casesConnected{};
   shared_ptr<long> casesUncompleted{};
   shared_ptr<double> completionRate{};
+  shared_ptr<string> contactFlowId{};
   shared_ptr<long> maxAttemptCount{};
   shared_ptr<long> minAttemptInterval{};
   shared_ptr<string> name{};
@@ -28615,6 +28623,9 @@ public:
     }
     if (completionRate) {
       res["CompletionRate"] = boost::any(*completionRate);
+    }
+    if (contactFlowId) {
+      res["ContactFlowId"] = boost::any(*contactFlowId);
     }
     if (maxAttemptCount) {
       res["MaxAttemptCount"] = boost::any(*maxAttemptCount);
@@ -28676,6 +28687,9 @@ public:
     }
     if (m.find("CompletionRate") != m.end() && !m["CompletionRate"].empty()) {
       completionRate = make_shared<double>(boost::any_cast<double>(m["CompletionRate"]));
+    }
+    if (m.find("ContactFlowId") != m.end() && !m["ContactFlowId"].empty()) {
+      contactFlowId = make_shared<string>(boost::any_cast<string>(m["ContactFlowId"]));
     }
     if (m.find("MaxAttemptCount") != m.end() && !m["MaxAttemptCount"].empty()) {
       maxAttemptCount = make_shared<long>(boost::any_cast<long>(m["MaxAttemptCount"]));
@@ -47301,10 +47315,12 @@ public:
   shared_ptr<long> averageRingTime{};
   shared_ptr<long> averageTalkTime{};
   shared_ptr<long> averageWorkTime{};
+  shared_ptr<long> callsAbandoned{};
   shared_ptr<long> callsAttendedTransferOut{};
   shared_ptr<long> callsBlindTransferOut{};
   shared_ptr<long> callsHandled{};
   shared_ptr<long> callsOffered{};
+  shared_ptr<string> callsOverflow{};
   shared_ptr<string> callsQueuingCanceled{};
   shared_ptr<string> callsQueuingFailure{};
   shared_ptr<string> callsQueuingRerouted{};
@@ -47361,6 +47377,9 @@ public:
     if (averageWorkTime) {
       res["AverageWorkTime"] = boost::any(*averageWorkTime);
     }
+    if (callsAbandoned) {
+      res["CallsAbandoned"] = boost::any(*callsAbandoned);
+    }
     if (callsAttendedTransferOut) {
       res["CallsAttendedTransferOut"] = boost::any(*callsAttendedTransferOut);
     }
@@ -47372,6 +47391,9 @@ public:
     }
     if (callsOffered) {
       res["CallsOffered"] = boost::any(*callsOffered);
+    }
+    if (callsOverflow) {
+      res["CallsOverflow"] = boost::any(*callsOverflow);
     }
     if (callsQueuingCanceled) {
       res["CallsQueuingCanceled"] = boost::any(*callsQueuingCanceled);
@@ -47470,6 +47492,9 @@ public:
     if (m.find("AverageWorkTime") != m.end() && !m["AverageWorkTime"].empty()) {
       averageWorkTime = make_shared<long>(boost::any_cast<long>(m["AverageWorkTime"]));
     }
+    if (m.find("CallsAbandoned") != m.end() && !m["CallsAbandoned"].empty()) {
+      callsAbandoned = make_shared<long>(boost::any_cast<long>(m["CallsAbandoned"]));
+    }
     if (m.find("CallsAttendedTransferOut") != m.end() && !m["CallsAttendedTransferOut"].empty()) {
       callsAttendedTransferOut = make_shared<long>(boost::any_cast<long>(m["CallsAttendedTransferOut"]));
     }
@@ -47481,6 +47506,9 @@ public:
     }
     if (m.find("CallsOffered") != m.end() && !m["CallsOffered"].empty()) {
       callsOffered = make_shared<long>(boost::any_cast<long>(m["CallsOffered"]));
+    }
+    if (m.find("CallsOverflow") != m.end() && !m["CallsOverflow"].empty()) {
+      callsOverflow = make_shared<string>(boost::any_cast<string>(m["CallsOverflow"]));
     }
     if (m.find("CallsQueuingCanceled") != m.end() && !m["CallsQueuingCanceled"].empty()) {
       callsQueuingCanceled = make_shared<string>(boost::any_cast<string>(m["CallsQueuingCanceled"]));
