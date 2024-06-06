@@ -14275,6 +14275,123 @@ public:
 
   virtual ~ListUsersResponse() = default;
 };
+class RevokeUserSessionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> externalIds{};
+  shared_ptr<string> idpId{};
+
+  RevokeUserSessionRequest() {}
+
+  explicit RevokeUserSessionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (externalIds) {
+      res["ExternalIds"] = boost::any(*externalIds);
+    }
+    if (idpId) {
+      res["IdpId"] = boost::any(*idpId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExternalIds") != m.end() && !m["ExternalIds"].empty()) {
+      externalIds = make_shared<string>(boost::any_cast<string>(m["ExternalIds"]));
+    }
+    if (m.find("IdpId") != m.end() && !m["IdpId"].empty()) {
+      idpId = make_shared<string>(boost::any_cast<string>(m["IdpId"]));
+    }
+  }
+
+
+  virtual ~RevokeUserSessionRequest() = default;
+};
+class RevokeUserSessionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RevokeUserSessionResponseBody() {}
+
+  explicit RevokeUserSessionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RevokeUserSessionResponseBody() = default;
+};
+class RevokeUserSessionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RevokeUserSessionResponseBody> body{};
+
+  RevokeUserSessionResponse() {}
+
+  explicit RevokeUserSessionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RevokeUserSessionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RevokeUserSessionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RevokeUserSessionResponse() = default;
+};
 class UpdateClientUserRequest : public Darabonba::Model {
 public:
   shared_ptr<string> departmentId{};
@@ -17498,6 +17615,8 @@ public:
   ListUserGroupsForRegistrationPolicyResponse listUserGroupsForRegistrationPolicy(shared_ptr<ListUserGroupsForRegistrationPolicyRequest> request);
   ListUsersResponse listUsersWithOptions(shared_ptr<ListUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListUsersResponse listUsers(shared_ptr<ListUsersRequest> request);
+  RevokeUserSessionResponse revokeUserSessionWithOptions(shared_ptr<RevokeUserSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RevokeUserSessionResponse revokeUserSession(shared_ptr<RevokeUserSessionRequest> request);
   UpdateClientUserResponse updateClientUserWithOptions(shared_ptr<UpdateClientUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateClientUserResponse updateClientUser(shared_ptr<UpdateClientUserRequest> request);
   UpdateClientUserPasswordResponse updateClientUserPasswordWithOptions(shared_ptr<UpdateClientUserPasswordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
