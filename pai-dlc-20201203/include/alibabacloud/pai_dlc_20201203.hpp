@@ -3409,6 +3409,7 @@ public:
   shared_ptr<string> displayName{};
   shared_ptr<string> duration{};
   shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtFinishTime{};
   shared_ptr<string> gmtModifyTime{};
   shared_ptr<string> jobId{};
   shared_ptr<string> reasonCode{};
@@ -3421,6 +3422,7 @@ public:
   shared_ptr<TensorboardSpec> tensorboardSpec{};
   shared_ptr<string> tensorboardUrl{};
   shared_ptr<string> userId{};
+  shared_ptr<string> username{};
 
   Tensorboard() {}
 
@@ -3443,6 +3445,9 @@ public:
     }
     if (gmtCreateTime) {
       res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtFinishTime) {
+      res["GmtFinishTime"] = boost::any(*gmtFinishTime);
     }
     if (gmtModifyTime) {
       res["GmtModifyTime"] = boost::any(*gmtModifyTime);
@@ -3484,6 +3489,9 @@ public:
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
     return res;
   }
 
@@ -3499,6 +3507,9 @@ public:
     }
     if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
       gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtFinishTime") != m.end() && !m["GmtFinishTime"].empty()) {
+      gmtFinishTime = make_shared<string>(boost::any_cast<string>(m["GmtFinishTime"]));
     }
     if (m.find("GmtModifyTime") != m.end() && !m["GmtModifyTime"].empty()) {
       gmtModifyTime = make_shared<string>(boost::any_cast<string>(m["GmtModifyTime"]));
@@ -3549,6 +3560,9 @@ public:
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
     }
   }
 
@@ -7434,6 +7448,8 @@ public:
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<string> tensorboardId{};
+  shared_ptr<string> userId{};
+  shared_ptr<string> username{};
   shared_ptr<bool> verbose{};
   shared_ptr<string> workspaceId{};
 
@@ -7489,6 +7505,12 @@ public:
     if (tensorboardId) {
       res["TensorboardId"] = boost::any(*tensorboardId);
     }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
     if (verbose) {
       res["Verbose"] = boost::any(*verbose);
     }
@@ -7540,6 +7562,12 @@ public:
     }
     if (m.find("TensorboardId") != m.end() && !m["TensorboardId"].empty()) {
       tensorboardId = make_shared<string>(boost::any_cast<string>(m["TensorboardId"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
     }
     if (m.find("Verbose") != m.end() && !m["Verbose"].empty()) {
       verbose = make_shared<bool>(boost::any_cast<bool>(m["Verbose"]));

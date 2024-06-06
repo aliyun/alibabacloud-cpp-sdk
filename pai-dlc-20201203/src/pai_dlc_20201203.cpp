@@ -920,6 +920,12 @@ ListTensorboardsResponse Alibabacloud_Pai-dlc20201203::Client::listTensorboardsW
   if (!Darabonba_Util::Client::isUnset<string>(request->tensorboardId)) {
     query->insert(pair<string, string>("TensorboardId", *request->tensorboardId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("UserId", *request->userId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
+    query->insert(pair<string, string>("Username", *request->username));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->verbose)) {
     query->insert(pair<string, bool>("Verbose", *request->verbose));
   }
