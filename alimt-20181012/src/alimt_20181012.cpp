@@ -8,7 +8,6 @@
 #include <alibabacloud/oss.hpp>
 #include <alibabacloud/ossutil.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/file_form.hpp>
 #include <darabonba/util.hpp>
@@ -193,7 +192,7 @@ CreateDocTranslateTaskResponse Alibabacloud_Alimt20181012::Client::createDocTran
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -215,12 +214,13 @@ CreateDocTranslateTaskResponse Alibabacloud_Alimt20181012::Client::createDocTran
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
@@ -831,7 +831,7 @@ TranslateCertificateResponse Alibabacloud_Alimt20181012::Client::translateCertif
   shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
   shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+  if (Darabonba_Util::Client::empty(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
@@ -853,12 +853,13 @@ TranslateCertificateResponse Alibabacloud_Alimt20181012::Client::translateCertif
   }));
   shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
   shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Alibabacloud_OSS::Client> ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
   shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
   shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
