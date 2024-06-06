@@ -132,6 +132,15 @@ ConfigureDtsJobResponse Alibabacloud_Dts20200101::Client::configureDtsJobWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->destCaCertificatePassword)) {
     query->insert(pair<string, string>("DestCaCertificatePassword", *request->destCaCertificatePassword));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destClientCertOssUrl)) {
+    query->insert(pair<string, string>("DestClientCertOssUrl", *request->destClientCertOssUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destClientKeyOssUrl)) {
+    query->insert(pair<string, string>("DestClientKeyOssUrl", *request->destClientKeyOssUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destClientPassword)) {
+    query->insert(pair<string, string>("DestClientPassword", *request->destClientPassword));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationEndpointDataBaseName)) {
     query->insert(pair<string, string>("DestinationEndpointDataBaseName", *request->destinationEndpointDataBaseName));
   }
@@ -254,6 +263,15 @@ ConfigureDtsJobResponse Alibabacloud_Dts20200101::Client::configureDtsJobWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->srcCaCertificatePassword)) {
     query->insert(pair<string, string>("SrcCaCertificatePassword", *request->srcCaCertificatePassword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->srcClientCertOssUrl)) {
+    query->insert(pair<string, string>("SrcClientCertOssUrl", *request->srcClientCertOssUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->srcClientKeyOssUrl)) {
+    query->insert(pair<string, string>("SrcClientKeyOssUrl", *request->srcClientKeyOssUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->srcClientPassword)) {
+    query->insert(pair<string, string>("SrcClientPassword", *request->srcClientPassword));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->structureInitialization)) {
     query->insert(pair<string, bool>("StructureInitialization", *request->structureInitialization));
