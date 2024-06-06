@@ -5017,8 +5017,14 @@ ModifyDBClusterResponse Alibabacloud_Polardb20170801::Client::modifyDBClusterWit
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBNodeCrashList)) {
+    query->insert(pair<string, string>("DBNodeCrashList", *request->DBNodeCrashList));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dataSyncMode)) {
     query->insert(pair<string, string>("DataSyncMode", *request->dataSyncMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->faultInjectionType)) {
+    query->insert(pair<string, string>("FaultInjectionType", *request->faultInjectionType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->faultSimulateMode)) {
     query->insert(pair<string, string>("FaultSimulateMode", *request->faultSimulateMode));

@@ -8986,6 +8986,7 @@ public:
   shared_ptr<long> maxConnections{};
   shared_ptr<long> maxIOPS{};
   shared_ptr<string> memorySize{};
+  shared_ptr<string> orca{};
   shared_ptr<string> remoteMemorySize{};
   shared_ptr<string> sccMode{};
   shared_ptr<string> serverWeight{};
@@ -9044,6 +9045,9 @@ public:
     }
     if (memorySize) {
       res["MemorySize"] = boost::any(*memorySize);
+    }
+    if (orca) {
+      res["Orca"] = boost::any(*orca);
     }
     if (remoteMemorySize) {
       res["RemoteMemorySize"] = boost::any(*remoteMemorySize);
@@ -9108,6 +9112,9 @@ public:
     }
     if (m.find("MemorySize") != m.end() && !m["MemorySize"].empty()) {
       memorySize = make_shared<string>(boost::any_cast<string>(m["MemorySize"]));
+    }
+    if (m.find("Orca") != m.end() && !m["Orca"].empty()) {
+      orca = make_shared<string>(boost::any_cast<string>(m["Orca"]));
     }
     if (m.find("RemoteMemorySize") != m.end() && !m["RemoteMemorySize"].empty()) {
       remoteMemorySize = make_shared<string>(boost::any_cast<string>(m["RemoteMemorySize"]));
@@ -9201,6 +9208,7 @@ public:
   shared_ptr<bool> isProxyLatestVersion{};
   shared_ptr<string> lockMode{};
   shared_ptr<string> maintainTime{};
+  shared_ptr<string> orca{};
   shared_ptr<string> payType{};
   shared_ptr<string> provisionedIops{};
   shared_ptr<string> proxyCpuCores{};
@@ -9211,8 +9219,11 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> restoreDataPoint{};
+  shared_ptr<string> restoreType{};
   shared_ptr<long> SQLSize{};
   shared_ptr<string> serverlessType{};
+  shared_ptr<string> sourceDBCluster{};
   shared_ptr<string> standbyHAMode{};
   shared_ptr<long> storageMax{};
   shared_ptr<string> storagePayType{};
@@ -9334,6 +9345,9 @@ public:
     if (maintainTime) {
       res["MaintainTime"] = boost::any(*maintainTime);
     }
+    if (orca) {
+      res["Orca"] = boost::any(*orca);
+    }
     if (payType) {
       res["PayType"] = boost::any(*payType);
     }
@@ -9364,11 +9378,20 @@ public:
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
+    if (restoreDataPoint) {
+      res["RestoreDataPoint"] = boost::any(*restoreDataPoint);
+    }
+    if (restoreType) {
+      res["RestoreType"] = boost::any(*restoreType);
+    }
     if (SQLSize) {
       res["SQLSize"] = boost::any(*SQLSize);
     }
     if (serverlessType) {
       res["ServerlessType"] = boost::any(*serverlessType);
+    }
+    if (sourceDBCluster) {
+      res["SourceDBCluster"] = boost::any(*sourceDBCluster);
     }
     if (standbyHAMode) {
       res["StandbyHAMode"] = boost::any(*standbyHAMode);
@@ -9520,6 +9543,9 @@ public:
     if (m.find("MaintainTime") != m.end() && !m["MaintainTime"].empty()) {
       maintainTime = make_shared<string>(boost::any_cast<string>(m["MaintainTime"]));
     }
+    if (m.find("Orca") != m.end() && !m["Orca"].empty()) {
+      orca = make_shared<string>(boost::any_cast<string>(m["Orca"]));
+    }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
     }
@@ -9550,11 +9576,20 @@ public:
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
+    if (m.find("RestoreDataPoint") != m.end() && !m["RestoreDataPoint"].empty()) {
+      restoreDataPoint = make_shared<string>(boost::any_cast<string>(m["RestoreDataPoint"]));
+    }
+    if (m.find("RestoreType") != m.end() && !m["RestoreType"].empty()) {
+      restoreType = make_shared<string>(boost::any_cast<string>(m["RestoreType"]));
+    }
     if (m.find("SQLSize") != m.end() && !m["SQLSize"].empty()) {
       SQLSize = make_shared<long>(boost::any_cast<long>(m["SQLSize"]));
     }
     if (m.find("ServerlessType") != m.end() && !m["ServerlessType"].empty()) {
       serverlessType = make_shared<string>(boost::any_cast<string>(m["ServerlessType"]));
+    }
+    if (m.find("SourceDBCluster") != m.end() && !m["SourceDBCluster"].empty()) {
+      sourceDBCluster = make_shared<string>(boost::any_cast<string>(m["SourceDBCluster"]));
     }
     if (m.find("StandbyHAMode") != m.end() && !m["StandbyHAMode"].empty()) {
       standbyHAMode = make_shared<string>(boost::any_cast<string>(m["StandbyHAMode"]));
@@ -25159,7 +25194,9 @@ class ModifyDBClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> compressStorage{};
   shared_ptr<string> DBClusterId{};
+  shared_ptr<string> DBNodeCrashList{};
   shared_ptr<string> dataSyncMode{};
+  shared_ptr<string> faultInjectionType{};
   shared_ptr<string> faultSimulateMode{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -25185,8 +25222,14 @@ public:
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
     }
+    if (DBNodeCrashList) {
+      res["DBNodeCrashList"] = boost::any(*DBNodeCrashList);
+    }
     if (dataSyncMode) {
       res["DataSyncMode"] = boost::any(*dataSyncMode);
+    }
+    if (faultInjectionType) {
+      res["FaultInjectionType"] = boost::any(*faultInjectionType);
     }
     if (faultSimulateMode) {
       res["FaultSimulateMode"] = boost::any(*faultSimulateMode);
@@ -25222,8 +25265,14 @@ public:
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
+    if (m.find("DBNodeCrashList") != m.end() && !m["DBNodeCrashList"].empty()) {
+      DBNodeCrashList = make_shared<string>(boost::any_cast<string>(m["DBNodeCrashList"]));
+    }
     if (m.find("DataSyncMode") != m.end() && !m["DataSyncMode"].empty()) {
       dataSyncMode = make_shared<string>(boost::any_cast<string>(m["DataSyncMode"]));
+    }
+    if (m.find("FaultInjectionType") != m.end() && !m["FaultInjectionType"].empty()) {
+      faultInjectionType = make_shared<string>(boost::any_cast<string>(m["FaultInjectionType"]));
     }
     if (m.find("FaultSimulateMode") != m.end() && !m["FaultSimulateMode"].empty()) {
       faultSimulateMode = make_shared<string>(boost::any_cast<string>(m["FaultSimulateMode"]));
