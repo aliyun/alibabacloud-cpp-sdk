@@ -379,6 +379,78 @@ public:
 
   virtual ~CooperationShop() = default;
 };
+class CreateAliPayUrlRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> shopId{};
+
+  CreateAliPayUrlRequest() {}
+
+  explicit CreateAliPayUrlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (shopId) {
+      res["shopId"] = boost::any(*shopId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("shopId") != m.end() && !m["shopId"].empty()) {
+      shopId = make_shared<string>(boost::any_cast<string>(m["shopId"]));
+    }
+  }
+
+
+  virtual ~CreateAliPayUrlRequest() = default;
+};
+class CreateAliPayUrlResult : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<string> memberId{};
+  shared_ptr<string> zftWithholdSignUrl{};
+
+  CreateAliPayUrlResult() {}
+
+  explicit CreateAliPayUrlResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    if (memberId) {
+      res["memberId"] = boost::any(*memberId);
+    }
+    if (zftWithholdSignUrl) {
+      res["zftWithholdSignUrl"] = boost::any(*zftWithholdSignUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+    if (m.find("memberId") != m.end() && !m["memberId"].empty()) {
+      memberId = make_shared<string>(boost::any_cast<string>(m["memberId"]));
+    }
+    if (m.find("zftWithholdSignUrl") != m.end() && !m["zftWithholdSignUrl"].empty()) {
+      zftWithholdSignUrl = make_shared<string>(boost::any_cast<string>(m["zftWithholdSignUrl"]));
+    }
+  }
+
+
+  virtual ~CreateAliPayUrlResult() = default;
+};
 class DeliveryInfo : public Darabonba::Model {
 public:
   shared_ptr<string> displayName{};
@@ -1342,6 +1414,78 @@ public:
 
   virtual ~LogisticsOrderListResult() = default;
 };
+class MemberAccountRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> shopId{};
+
+  MemberAccountRequest() {}
+
+  explicit MemberAccountRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (shopId) {
+      res["shopId"] = boost::any(*shopId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("shopId") != m.end() && !m["shopId"].empty()) {
+      shopId = make_shared<string>(boost::any_cast<string>(m["shopId"]));
+    }
+  }
+
+
+  virtual ~MemberAccountRequest() = default;
+};
+class MemberAccountResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accountNo{};
+  shared_ptr<string> shopId{};
+
+  MemberAccountResult() {}
+
+  explicit MemberAccountResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountNo) {
+      res["accountNo"] = boost::any(*accountNo);
+    }
+    if (shopId) {
+      res["shopId"] = boost::any(*shopId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountNo") != m.end() && !m["accountNo"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["accountNo"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["accountNo"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountNo = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("shopId") != m.end() && !m["shopId"].empty()) {
+      shopId = make_shared<string>(boost::any_cast<string>(m["shopId"]));
+    }
+  }
+
+
+  virtual ~MemberAccountResult() = default;
+};
 class OrderLineResult : public Darabonba::Model {
 public:
   shared_ptr<string> logisticsStatus{};
@@ -2279,6 +2423,7 @@ public:
   shared_ptr<vector<ProductExtendProperty>> extendProperties{};
   shared_ptr<string> fuzzyQuantity{};
   shared_ptr<vector<string>> images{};
+  shared_ptr<string> lmItemId{};
   shared_ptr<string> picUrl{};
   shared_ptr<string> productId{};
   shared_ptr<vector<ProductSpec>> productSpecs{};
@@ -2338,6 +2483,9 @@ public:
     }
     if (images) {
       res["images"] = boost::any(*images);
+    }
+    if (lmItemId) {
+      res["lmItemId"] = boost::any(*lmItemId);
     }
     if (picUrl) {
       res["picUrl"] = boost::any(*picUrl);
@@ -2450,6 +2598,9 @@ public:
         }
       }
       images = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("lmItemId") != m.end() && !m["lmItemId"].empty()) {
+      lmItemId = make_shared<string>(boost::any_cast<string>(m["lmItemId"]));
     }
     if (m.find("picUrl") != m.end() && !m["picUrl"].empty()) {
       picUrl = make_shared<string>(boost::any_cast<string>(m["picUrl"]));
@@ -2825,6 +2976,7 @@ public:
   shared_ptr<bool> canSell{};
   shared_ptr<string> divisionCode{};
   shared_ptr<string> fuzzyQuantity{};
+  shared_ptr<string> lmItemId{};
   shared_ptr<string> productId{};
   shared_ptr<string> productStatus{};
   shared_ptr<long> quantity{};
@@ -2851,6 +3003,9 @@ public:
     }
     if (fuzzyQuantity) {
       res["fuzzyQuantity"] = boost::any(*fuzzyQuantity);
+    }
+    if (lmItemId) {
+      res["lmItemId"] = boost::any(*lmItemId);
     }
     if (productId) {
       res["productId"] = boost::any(*productId);
@@ -2889,6 +3044,9 @@ public:
     }
     if (m.find("fuzzyQuantity") != m.end() && !m["fuzzyQuantity"].empty()) {
       fuzzyQuantity = make_shared<string>(boost::any_cast<string>(m["fuzzyQuantity"]));
+    }
+    if (m.find("lmItemId") != m.end() && !m["lmItemId"].empty()) {
+      lmItemId = make_shared<string>(boost::any_cast<string>(m["lmItemId"]));
     }
     if (m.find("productId") != m.end() && !m["productId"].empty()) {
       productId = make_shared<string>(boost::any_cast<string>(m["productId"]));
@@ -4048,6 +4206,99 @@ public:
 
   virtual ~Shop() = default;
 };
+class ShopCreateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> afterSaleDingTalkId{};
+  shared_ptr<string> description{};
+  shared_ptr<string> operatorDingTalkId{};
+  shared_ptr<string> preSaleDingTalkId{};
+  shared_ptr<string> shopName{};
+
+  ShopCreateRequest() {}
+
+  explicit ShopCreateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (afterSaleDingTalkId) {
+      res["afterSaleDingTalkId"] = boost::any(*afterSaleDingTalkId);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (operatorDingTalkId) {
+      res["operatorDingTalkId"] = boost::any(*operatorDingTalkId);
+    }
+    if (preSaleDingTalkId) {
+      res["preSaleDingTalkId"] = boost::any(*preSaleDingTalkId);
+    }
+    if (shopName) {
+      res["shopName"] = boost::any(*shopName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("afterSaleDingTalkId") != m.end() && !m["afterSaleDingTalkId"].empty()) {
+      afterSaleDingTalkId = make_shared<string>(boost::any_cast<string>(m["afterSaleDingTalkId"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("operatorDingTalkId") != m.end() && !m["operatorDingTalkId"].empty()) {
+      operatorDingTalkId = make_shared<string>(boost::any_cast<string>(m["operatorDingTalkId"]));
+    }
+    if (m.find("preSaleDingTalkId") != m.end() && !m["preSaleDingTalkId"].empty()) {
+      preSaleDingTalkId = make_shared<string>(boost::any_cast<string>(m["preSaleDingTalkId"]));
+    }
+    if (m.find("shopName") != m.end() && !m["shopName"].empty()) {
+      shopName = make_shared<string>(boost::any_cast<string>(m["shopName"]));
+    }
+  }
+
+
+  virtual ~ShopCreateRequest() = default;
+};
+class ShopCreateResult : public Darabonba::Model {
+public:
+  shared_ptr<string> shopId{};
+  shared_ptr<string> shopStatus{};
+
+  ShopCreateResult() {}
+
+  explicit ShopCreateResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (shopId) {
+      res["shopId"] = boost::any(*shopId);
+    }
+    if (shopStatus) {
+      res["shopStatus"] = boost::any(*shopStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("shopId") != m.end() && !m["shopId"].empty()) {
+      shopId = make_shared<string>(boost::any_cast<string>(m["shopId"]));
+    }
+    if (m.find("shopStatus") != m.end() && !m["shopStatus"].empty()) {
+      shopStatus = make_shared<string>(boost::any_cast<string>(m["shopStatus"]));
+    }
+  }
+
+
+  virtual ~ShopCreateResult() = default;
+};
 class ShopPageDataResult : public Darabonba::Model {
 public:
   shared_ptr<vector<CooperationShop>> cooperationShops{};
@@ -4196,6 +4447,71 @@ public:
 
 
   virtual ~ShopPageResult() = default;
+};
+class ShopStatusChangeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> shopId{};
+  shared_ptr<string> shopStatus{};
+
+  ShopStatusChangeRequest() {}
+
+  explicit ShopStatusChangeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (shopId) {
+      res["shopId"] = boost::any(*shopId);
+    }
+    if (shopStatus) {
+      res["shopStatus"] = boost::any(*shopStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("shopId") != m.end() && !m["shopId"].empty()) {
+      shopId = make_shared<string>(boost::any_cast<string>(m["shopId"]));
+    }
+    if (m.find("shopStatus") != m.end() && !m["shopStatus"].empty()) {
+      shopStatus = make_shared<string>(boost::any_cast<string>(m["shopStatus"]));
+    }
+  }
+
+
+  virtual ~ShopStatusChangeRequest() = default;
+};
+class ShopStatusChangeResult : public Darabonba::Model {
+public:
+  shared_ptr<bool> operate{};
+
+  ShopStatusChangeResult() {}
+
+  explicit ShopStatusChangeResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (operate) {
+      res["operate"] = boost::any(*operate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("operate") != m.end() && !m["operate"].empty()) {
+      operate = make_shared<bool>(boost::any_cast<bool>(m["operate"]));
+    }
+  }
+
+
+  virtual ~ShopStatusChangeResult() = default;
 };
 class SkuQueryParam : public Darabonba::Model {
 public:
