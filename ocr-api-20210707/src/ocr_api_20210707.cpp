@@ -162,8 +162,8 @@ RecognizeAllTextResponse Alibabacloud_Ocr-api20210707::Client::recognizeAllTextW
   if (!Darabonba_Util::Client::isUnset<bool>(request->outputBarCode)) {
     query->insert(pair<string, bool>("OutputBarCode", *request->outputBarCode));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<uint8_t>>(request->outputCoordinate)) {
-    query->insert(pair<string, vector<uint8_t>>("OutputCoordinate", *request->outputCoordinate));
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputCoordinate)) {
+    query->insert(pair<string, string>("OutputCoordinate", *request->outputCoordinate));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->outputFigure)) {
     query->insert(pair<string, bool>("OutputFigure", *request->outputFigure));

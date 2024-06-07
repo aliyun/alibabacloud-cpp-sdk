@@ -984,7 +984,7 @@ public:
   shared_ptr<RecognizeAllTextRequestInternationalIdCardConfig> internationalIdCardConfig{};
   shared_ptr<RecognizeAllTextRequestMultiLanConfig> multiLanConfig{};
   shared_ptr<bool> outputBarCode{};
-  shared_ptr<vector<uint8_t>> outputCoordinate{};
+  shared_ptr<string> outputCoordinate{};
   shared_ptr<bool> outputFigure{};
   shared_ptr<bool> outputKVExcel{};
   shared_ptr<bool> outputOricoord{};
@@ -1100,7 +1100,7 @@ public:
       outputBarCode = make_shared<bool>(boost::any_cast<bool>(m["OutputBarCode"]));
     }
     if (m.find("OutputCoordinate") != m.end() && !m["OutputCoordinate"].empty()) {
-      outputCoordinate = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["OutputCoordinate"]));
+      outputCoordinate = make_shared<string>(boost::any_cast<string>(m["OutputCoordinate"]));
     }
     if (m.find("OutputFigure") != m.end() && !m["OutputFigure"].empty()) {
       outputFigure = make_shared<bool>(boost::any_cast<bool>(m["OutputFigure"]));
@@ -1149,7 +1149,7 @@ public:
   shared_ptr<string> internationalIdCardConfigShrink{};
   shared_ptr<string> multiLanConfigShrink{};
   shared_ptr<bool> outputBarCode{};
-  shared_ptr<vector<uint8_t>> outputCoordinate{};
+  shared_ptr<string> outputCoordinate{};
   shared_ptr<bool> outputFigure{};
   shared_ptr<bool> outputKVExcel{};
   shared_ptr<bool> outputOricoord{};
@@ -1245,7 +1245,7 @@ public:
       outputBarCode = make_shared<bool>(boost::any_cast<bool>(m["OutputBarCode"]));
     }
     if (m.find("OutputCoordinate") != m.end() && !m["OutputCoordinate"].empty()) {
-      outputCoordinate = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["OutputCoordinate"]));
+      outputCoordinate = make_shared<string>(boost::any_cast<string>(m["OutputCoordinate"]));
     }
     if (m.find("OutputFigure") != m.end() && !m["OutputFigure"].empty()) {
       outputFigure = make_shared<bool>(boost::any_cast<bool>(m["OutputFigure"]));
