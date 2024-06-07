@@ -562,6 +562,60 @@ GetLifecycleResponse Alibabacloud_Pai-dsw20220101::Client::getLifecycle(shared_p
   return getLifecycleWithOptions(InstanceId, request, headers, runtime);
 }
 
+GetMetricsResponse Alibabacloud_Pai-dsw20220101::Client::getMetricsWithOptions(shared_ptr<string> InstanceId,
+                                                                               shared_ptr<GetMetricsRequest> request,
+                                                                               shared_ptr<map<string, string>> headers,
+                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dimensions)) {
+    query->insert(pair<string, string>("Dimensions", *request->dimensions));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->length)) {
+    query->insert(pair<string, string>("Length", *request->length));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metricName)) {
+    query->insert(pair<string, string>("MetricName", *request->metricName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->period)) {
+    query->insert(pair<string, string>("Period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetMetrics"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/instance/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(InstanceId)) + string("/cms/metrics"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetMetricsResponse(callApi(params, req, runtime));
+}
+
+GetMetricsResponse Alibabacloud_Pai-dsw20220101::Client::getMetrics(shared_ptr<string> InstanceId, shared_ptr<GetMetricsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getMetricsWithOptions(InstanceId, request, headers, runtime);
+}
+
 GetResourceGroupStatisticsResponse Alibabacloud_Pai-dsw20220101::Client::getResourceGroupStatisticsWithOptions(shared_ptr<GetResourceGroupStatisticsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

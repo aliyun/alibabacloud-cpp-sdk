@@ -4271,6 +4271,207 @@ public:
 
   virtual ~GetLifecycleResponse() = default;
 };
+class GetMetricsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dimensions{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> length{};
+  shared_ptr<string> metricName{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> period{};
+  shared_ptr<string> startTime{};
+
+  GetMetricsRequest() {}
+
+  explicit GetMetricsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dimensions) {
+      res["Dimensions"] = boost::any(*dimensions);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (length) {
+      res["Length"] = boost::any(*length);
+    }
+    if (metricName) {
+      res["MetricName"] = boost::any(*metricName);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Dimensions") != m.end() && !m["Dimensions"].empty()) {
+      dimensions = make_shared<string>(boost::any_cast<string>(m["Dimensions"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Length") != m.end() && !m["Length"].empty()) {
+      length = make_shared<string>(boost::any_cast<string>(m["Length"]));
+    }
+    if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
+      metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<string>(boost::any_cast<string>(m["Period"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~GetMetricsRequest() = default;
+};
+class GetMetricsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> dataPoints{};
+  shared_ptr<string> message{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> period{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetMetricsResponseBody() {}
+
+  explicit GetMetricsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (dataPoints) {
+      res["DataPoints"] = boost::any(*dataPoints);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("DataPoints") != m.end() && !m["DataPoints"].empty()) {
+      dataPoints = make_shared<string>(boost::any_cast<string>(m["DataPoints"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<string>(boost::any_cast<string>(m["Period"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetMetricsResponseBody() = default;
+};
+class GetMetricsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetMetricsResponseBody> body{};
+
+  GetMetricsResponse() {}
+
+  explicit GetMetricsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetMetricsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetMetricsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetMetricsResponse() = default;
+};
 class GetResourceGroupStatisticsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
@@ -7832,6 +8033,11 @@ public:
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetLifecycleResponse getLifecycle(shared_ptr<string> InstanceId, shared_ptr<GetLifecycleRequest> request);
+  GetMetricsResponse getMetricsWithOptions(shared_ptr<string> InstanceId,
+                                           shared_ptr<GetMetricsRequest> request,
+                                           shared_ptr<map<string, string>> headers,
+                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetMetricsResponse getMetrics(shared_ptr<string> InstanceId, shared_ptr<GetMetricsRequest> request);
   GetResourceGroupStatisticsResponse getResourceGroupStatisticsWithOptions(shared_ptr<GetResourceGroupStatisticsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetResourceGroupStatisticsResponse getResourceGroupStatistics(shared_ptr<GetResourceGroupStatisticsRequest> request);
   GetTokenResponse getTokenWithOptions(shared_ptr<GetTokenRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
