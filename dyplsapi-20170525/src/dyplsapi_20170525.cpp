@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -388,6 +387,9 @@ BindAxnExtensionResponse Alibabacloud_Dyplsapi20170525::Client::bindAxnExtension
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->expiration)) {
     query->insert(pair<string, string>("Expiration", *request->expiration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extend)) {
+    query->insert(pair<string, string>("Extend", *request->extend));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->extension)) {
     query->insert(pair<string, string>("Extension", *request->extension));
