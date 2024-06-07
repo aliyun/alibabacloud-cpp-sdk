@@ -910,6 +910,123 @@ public:
 
   virtual ~CloneLaboratoryResponse() = default;
 };
+class CloneTrafficControlTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  CloneTrafficControlTaskRequest() {}
+
+  explicit CloneTrafficControlTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~CloneTrafficControlTaskRequest() = default;
+};
+class CloneTrafficControlTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> trafficControlTaskId{};
+
+  CloneTrafficControlTaskResponseBody() {}
+
+  explicit CloneTrafficControlTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (trafficControlTaskId) {
+      res["TrafficControlTaskId"] = boost::any(*trafficControlTaskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TrafficControlTaskId") != m.end() && !m["TrafficControlTaskId"].empty()) {
+      trafficControlTaskId = make_shared<string>(boost::any_cast<string>(m["TrafficControlTaskId"]));
+    }
+  }
+
+
+  virtual ~CloneTrafficControlTaskResponseBody() = default;
+};
+class CloneTrafficControlTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CloneTrafficControlTaskResponseBody> body{};
+
+  CloneTrafficControlTaskResponse() {}
+
+  explicit CloneTrafficControlTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CloneTrafficControlTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CloneTrafficControlTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CloneTrafficControlTaskResponse() = default;
+};
 class CreateABMetricRequest : public Darabonba::Model {
 public:
   shared_ptr<string> definition{};
@@ -3980,6 +4097,612 @@ public:
 
   virtual ~CreateTableMetaResponse() = default;
 };
+class CreateTrafficControlTargetRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> event{};
+  shared_ptr<string> itemConditionArray{};
+  shared_ptr<string> itemConditionExpress{};
+  shared_ptr<string> itemConditionType{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> newProductRegulation{};
+  shared_ptr<string> recallName{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> statisPeriod{};
+  shared_ptr<string> status{};
+  shared_ptr<long> toleranceValue{};
+  shared_ptr<string> trafficControlTaskId{};
+  shared_ptr<double> value{};
+
+  CreateTrafficControlTargetRequest() {}
+
+  explicit CreateTrafficControlTargetRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (event) {
+      res["Event"] = boost::any(*event);
+    }
+    if (itemConditionArray) {
+      res["ItemConditionArray"] = boost::any(*itemConditionArray);
+    }
+    if (itemConditionExpress) {
+      res["ItemConditionExpress"] = boost::any(*itemConditionExpress);
+    }
+    if (itemConditionType) {
+      res["ItemConditionType"] = boost::any(*itemConditionType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (newProductRegulation) {
+      res["NewProductRegulation"] = boost::any(*newProductRegulation);
+    }
+    if (recallName) {
+      res["RecallName"] = boost::any(*recallName);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (statisPeriod) {
+      res["StatisPeriod"] = boost::any(*statisPeriod);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (toleranceValue) {
+      res["ToleranceValue"] = boost::any(*toleranceValue);
+    }
+    if (trafficControlTaskId) {
+      res["TrafficControlTaskId"] = boost::any(*trafficControlTaskId);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Event") != m.end() && !m["Event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["Event"]));
+    }
+    if (m.find("ItemConditionArray") != m.end() && !m["ItemConditionArray"].empty()) {
+      itemConditionArray = make_shared<string>(boost::any_cast<string>(m["ItemConditionArray"]));
+    }
+    if (m.find("ItemConditionExpress") != m.end() && !m["ItemConditionExpress"].empty()) {
+      itemConditionExpress = make_shared<string>(boost::any_cast<string>(m["ItemConditionExpress"]));
+    }
+    if (m.find("ItemConditionType") != m.end() && !m["ItemConditionType"].empty()) {
+      itemConditionType = make_shared<string>(boost::any_cast<string>(m["ItemConditionType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NewProductRegulation") != m.end() && !m["NewProductRegulation"].empty()) {
+      newProductRegulation = make_shared<bool>(boost::any_cast<bool>(m["NewProductRegulation"]));
+    }
+    if (m.find("RecallName") != m.end() && !m["RecallName"].empty()) {
+      recallName = make_shared<string>(boost::any_cast<string>(m["RecallName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StatisPeriod") != m.end() && !m["StatisPeriod"].empty()) {
+      statisPeriod = make_shared<string>(boost::any_cast<string>(m["StatisPeriod"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("ToleranceValue") != m.end() && !m["ToleranceValue"].empty()) {
+      toleranceValue = make_shared<long>(boost::any_cast<long>(m["ToleranceValue"]));
+    }
+    if (m.find("TrafficControlTaskId") != m.end() && !m["TrafficControlTaskId"].empty()) {
+      trafficControlTaskId = make_shared<string>(boost::any_cast<string>(m["TrafficControlTaskId"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateTrafficControlTargetRequest() = default;
+};
+class CreateTrafficControlTargetResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> trafficControlTargetId{};
+
+  CreateTrafficControlTargetResponseBody() {}
+
+  explicit CreateTrafficControlTargetResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (trafficControlTargetId) {
+      res["TrafficControlTargetId"] = boost::any(*trafficControlTargetId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TrafficControlTargetId") != m.end() && !m["TrafficControlTargetId"].empty()) {
+      trafficControlTargetId = make_shared<string>(boost::any_cast<string>(m["TrafficControlTargetId"]));
+    }
+  }
+
+
+  virtual ~CreateTrafficControlTargetResponseBody() = default;
+};
+class CreateTrafficControlTargetResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateTrafficControlTargetResponseBody> body{};
+
+  CreateTrafficControlTargetResponse() {}
+
+  explicit CreateTrafficControlTargetResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateTrafficControlTargetResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateTrafficControlTargetResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateTrafficControlTargetResponse() = default;
+};
+class CreateTrafficControlTaskRequestTrafficControlTargets : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> event{};
+  shared_ptr<string> itemConditionArray{};
+  shared_ptr<string> itemConditionExpress{};
+  shared_ptr<string> itemConditionType{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> newProductRegulation{};
+  shared_ptr<string> recallName{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> statisPeriod{};
+  shared_ptr<string> status{};
+  shared_ptr<long> toleranceValue{};
+  shared_ptr<double> value{};
+
+  CreateTrafficControlTaskRequestTrafficControlTargets() {}
+
+  explicit CreateTrafficControlTaskRequestTrafficControlTargets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (event) {
+      res["Event"] = boost::any(*event);
+    }
+    if (itemConditionArray) {
+      res["ItemConditionArray"] = boost::any(*itemConditionArray);
+    }
+    if (itemConditionExpress) {
+      res["ItemConditionExpress"] = boost::any(*itemConditionExpress);
+    }
+    if (itemConditionType) {
+      res["ItemConditionType"] = boost::any(*itemConditionType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (newProductRegulation) {
+      res["NewProductRegulation"] = boost::any(*newProductRegulation);
+    }
+    if (recallName) {
+      res["RecallName"] = boost::any(*recallName);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (statisPeriod) {
+      res["StatisPeriod"] = boost::any(*statisPeriod);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (toleranceValue) {
+      res["ToleranceValue"] = boost::any(*toleranceValue);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Event") != m.end() && !m["Event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["Event"]));
+    }
+    if (m.find("ItemConditionArray") != m.end() && !m["ItemConditionArray"].empty()) {
+      itemConditionArray = make_shared<string>(boost::any_cast<string>(m["ItemConditionArray"]));
+    }
+    if (m.find("ItemConditionExpress") != m.end() && !m["ItemConditionExpress"].empty()) {
+      itemConditionExpress = make_shared<string>(boost::any_cast<string>(m["ItemConditionExpress"]));
+    }
+    if (m.find("ItemConditionType") != m.end() && !m["ItemConditionType"].empty()) {
+      itemConditionType = make_shared<string>(boost::any_cast<string>(m["ItemConditionType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NewProductRegulation") != m.end() && !m["NewProductRegulation"].empty()) {
+      newProductRegulation = make_shared<bool>(boost::any_cast<bool>(m["NewProductRegulation"]));
+    }
+    if (m.find("RecallName") != m.end() && !m["RecallName"].empty()) {
+      recallName = make_shared<string>(boost::any_cast<string>(m["RecallName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StatisPeriod") != m.end() && !m["StatisPeriod"].empty()) {
+      statisPeriod = make_shared<string>(boost::any_cast<string>(m["StatisPeriod"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("ToleranceValue") != m.end() && !m["ToleranceValue"].empty()) {
+      toleranceValue = make_shared<long>(boost::any_cast<long>(m["ToleranceValue"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateTrafficControlTaskRequestTrafficControlTargets() = default;
+};
+class CreateTrafficControlTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> behaviorTableMetaId{};
+  shared_ptr<string> controlGranularity{};
+  shared_ptr<string> controlLogic{};
+  shared_ptr<string> controlType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> executionTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> itemConditionArray{};
+  shared_ptr<string> itemConditionExpress{};
+  shared_ptr<string> itemConditionType{};
+  shared_ptr<string> itemTableMetaId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> sceneId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> statisBehaviorConditionArray{};
+  shared_ptr<string> statisBehaviorConditionExpress{};
+  shared_ptr<string> statisBehaviorConditionType{};
+  shared_ptr<vector<CreateTrafficControlTaskRequestTrafficControlTargets>> trafficControlTargets{};
+  shared_ptr<string> userConditionArray{};
+  shared_ptr<string> userConditionExpress{};
+  shared_ptr<string> userConditionType{};
+  shared_ptr<string> userTableMetaId{};
+
+  CreateTrafficControlTaskRequest() {}
+
+  explicit CreateTrafficControlTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (behaviorTableMetaId) {
+      res["BehaviorTableMetaId"] = boost::any(*behaviorTableMetaId);
+    }
+    if (controlGranularity) {
+      res["ControlGranularity"] = boost::any(*controlGranularity);
+    }
+    if (controlLogic) {
+      res["ControlLogic"] = boost::any(*controlLogic);
+    }
+    if (controlType) {
+      res["ControlType"] = boost::any(*controlType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (executionTime) {
+      res["ExecutionTime"] = boost::any(*executionTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (itemConditionArray) {
+      res["ItemConditionArray"] = boost::any(*itemConditionArray);
+    }
+    if (itemConditionExpress) {
+      res["ItemConditionExpress"] = boost::any(*itemConditionExpress);
+    }
+    if (itemConditionType) {
+      res["ItemConditionType"] = boost::any(*itemConditionType);
+    }
+    if (itemTableMetaId) {
+      res["ItemTableMetaId"] = boost::any(*itemTableMetaId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (statisBehaviorConditionArray) {
+      res["StatisBehaviorConditionArray"] = boost::any(*statisBehaviorConditionArray);
+    }
+    if (statisBehaviorConditionExpress) {
+      res["StatisBehaviorConditionExpress"] = boost::any(*statisBehaviorConditionExpress);
+    }
+    if (statisBehaviorConditionType) {
+      res["StatisBehaviorConditionType"] = boost::any(*statisBehaviorConditionType);
+    }
+    if (trafficControlTargets) {
+      vector<boost::any> temp1;
+      for(auto item1:*trafficControlTargets){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TrafficControlTargets"] = boost::any(temp1);
+    }
+    if (userConditionArray) {
+      res["UserConditionArray"] = boost::any(*userConditionArray);
+    }
+    if (userConditionExpress) {
+      res["UserConditionExpress"] = boost::any(*userConditionExpress);
+    }
+    if (userConditionType) {
+      res["UserConditionType"] = boost::any(*userConditionType);
+    }
+    if (userTableMetaId) {
+      res["UserTableMetaId"] = boost::any(*userTableMetaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BehaviorTableMetaId") != m.end() && !m["BehaviorTableMetaId"].empty()) {
+      behaviorTableMetaId = make_shared<string>(boost::any_cast<string>(m["BehaviorTableMetaId"]));
+    }
+    if (m.find("ControlGranularity") != m.end() && !m["ControlGranularity"].empty()) {
+      controlGranularity = make_shared<string>(boost::any_cast<string>(m["ControlGranularity"]));
+    }
+    if (m.find("ControlLogic") != m.end() && !m["ControlLogic"].empty()) {
+      controlLogic = make_shared<string>(boost::any_cast<string>(m["ControlLogic"]));
+    }
+    if (m.find("ControlType") != m.end() && !m["ControlType"].empty()) {
+      controlType = make_shared<string>(boost::any_cast<string>(m["ControlType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("ExecutionTime") != m.end() && !m["ExecutionTime"].empty()) {
+      executionTime = make_shared<string>(boost::any_cast<string>(m["ExecutionTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ItemConditionArray") != m.end() && !m["ItemConditionArray"].empty()) {
+      itemConditionArray = make_shared<string>(boost::any_cast<string>(m["ItemConditionArray"]));
+    }
+    if (m.find("ItemConditionExpress") != m.end() && !m["ItemConditionExpress"].empty()) {
+      itemConditionExpress = make_shared<string>(boost::any_cast<string>(m["ItemConditionExpress"]));
+    }
+    if (m.find("ItemConditionType") != m.end() && !m["ItemConditionType"].empty()) {
+      itemConditionType = make_shared<string>(boost::any_cast<string>(m["ItemConditionType"]));
+    }
+    if (m.find("ItemTableMetaId") != m.end() && !m["ItemTableMetaId"].empty()) {
+      itemTableMetaId = make_shared<string>(boost::any_cast<string>(m["ItemTableMetaId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StatisBehaviorConditionArray") != m.end() && !m["StatisBehaviorConditionArray"].empty()) {
+      statisBehaviorConditionArray = make_shared<string>(boost::any_cast<string>(m["StatisBehaviorConditionArray"]));
+    }
+    if (m.find("StatisBehaviorConditionExpress") != m.end() && !m["StatisBehaviorConditionExpress"].empty()) {
+      statisBehaviorConditionExpress = make_shared<string>(boost::any_cast<string>(m["StatisBehaviorConditionExpress"]));
+    }
+    if (m.find("StatisBehaviorConditionType") != m.end() && !m["StatisBehaviorConditionType"].empty()) {
+      statisBehaviorConditionType = make_shared<string>(boost::any_cast<string>(m["StatisBehaviorConditionType"]));
+    }
+    if (m.find("TrafficControlTargets") != m.end() && !m["TrafficControlTargets"].empty()) {
+      if (typeid(vector<boost::any>) == m["TrafficControlTargets"].type()) {
+        vector<CreateTrafficControlTaskRequestTrafficControlTargets> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TrafficControlTargets"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateTrafficControlTaskRequestTrafficControlTargets model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        trafficControlTargets = make_shared<vector<CreateTrafficControlTaskRequestTrafficControlTargets>>(expect1);
+      }
+    }
+    if (m.find("UserConditionArray") != m.end() && !m["UserConditionArray"].empty()) {
+      userConditionArray = make_shared<string>(boost::any_cast<string>(m["UserConditionArray"]));
+    }
+    if (m.find("UserConditionExpress") != m.end() && !m["UserConditionExpress"].empty()) {
+      userConditionExpress = make_shared<string>(boost::any_cast<string>(m["UserConditionExpress"]));
+    }
+    if (m.find("UserConditionType") != m.end() && !m["UserConditionType"].empty()) {
+      userConditionType = make_shared<string>(boost::any_cast<string>(m["UserConditionType"]));
+    }
+    if (m.find("UserTableMetaId") != m.end() && !m["UserTableMetaId"].empty()) {
+      userTableMetaId = make_shared<string>(boost::any_cast<string>(m["UserTableMetaId"]));
+    }
+  }
+
+
+  virtual ~CreateTrafficControlTaskRequest() = default;
+};
+class CreateTrafficControlTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> trafficControlTaskId{};
+
+  CreateTrafficControlTaskResponseBody() {}
+
+  explicit CreateTrafficControlTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (trafficControlTaskId) {
+      res["TrafficControlTaskId"] = boost::any(*trafficControlTaskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TrafficControlTaskId") != m.end() && !m["TrafficControlTaskId"].empty()) {
+      trafficControlTaskId = make_shared<string>(boost::any_cast<string>(m["TrafficControlTaskId"]));
+    }
+  }
+
+
+  virtual ~CreateTrafficControlTaskResponseBody() = default;
+};
+class CreateTrafficControlTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateTrafficControlTaskResponseBody> body{};
+
+  CreateTrafficControlTaskResponse() {}
+
+  explicit CreateTrafficControlTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateTrafficControlTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateTrafficControlTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateTrafficControlTaskResponse() = default;
+};
 class DebugResourceRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -5686,6 +6409,460 @@ public:
 
 
   virtual ~DeleteTableMetaResponse() = default;
+};
+class DeleteTrafficControlTargetRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  DeleteTrafficControlTargetRequest() {}
+
+  explicit DeleteTrafficControlTargetRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~DeleteTrafficControlTargetRequest() = default;
+};
+class DeleteTrafficControlTargetResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteTrafficControlTargetResponseBody() {}
+
+  explicit DeleteTrafficControlTargetResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteTrafficControlTargetResponseBody() = default;
+};
+class DeleteTrafficControlTargetResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteTrafficControlTargetResponseBody> body{};
+
+  DeleteTrafficControlTargetResponse() {}
+
+  explicit DeleteTrafficControlTargetResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteTrafficControlTargetResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteTrafficControlTargetResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteTrafficControlTargetResponse() = default;
+};
+class DeleteTrafficControlTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  DeleteTrafficControlTaskRequest() {}
+
+  explicit DeleteTrafficControlTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~DeleteTrafficControlTaskRequest() = default;
+};
+class DeleteTrafficControlTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteTrafficControlTaskResponseBody() {}
+
+  explicit DeleteTrafficControlTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteTrafficControlTaskResponseBody() = default;
+};
+class DeleteTrafficControlTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteTrafficControlTaskResponseBody> body{};
+
+  DeleteTrafficControlTaskResponse() {}
+
+  explicit DeleteTrafficControlTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteTrafficControlTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteTrafficControlTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteTrafficControlTaskResponse() = default;
+};
+class GenerateTrafficControlTaskCodeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  GenerateTrafficControlTaskCodeRequest() {}
+
+  explicit GenerateTrafficControlTaskCodeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GenerateTrafficControlTaskCodeRequest() = default;
+};
+class GenerateTrafficControlTaskCodeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> requestId{};
+
+  GenerateTrafficControlTaskCodeResponseBody() {}
+
+  explicit GenerateTrafficControlTaskCodeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GenerateTrafficControlTaskCodeResponseBody() = default;
+};
+class GenerateTrafficControlTaskCodeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GenerateTrafficControlTaskCodeResponseBody> body{};
+
+  GenerateTrafficControlTaskCodeResponse() {}
+
+  explicit GenerateTrafficControlTaskCodeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GenerateTrafficControlTaskCodeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GenerateTrafficControlTaskCodeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateTrafficControlTaskCodeResponse() = default;
+};
+class GenerateTrafficControlTaskConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  GenerateTrafficControlTaskConfigRequest() {}
+
+  explicit GenerateTrafficControlTaskConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GenerateTrafficControlTaskConfigRequest() = default;
+};
+class GenerateTrafficControlTaskConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> config{};
+  shared_ptr<string> requestId{};
+
+  GenerateTrafficControlTaskConfigResponseBody() {}
+
+  explicit GenerateTrafficControlTaskConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["Config"] = boost::any(*config);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GenerateTrafficControlTaskConfigResponseBody() = default;
+};
+class GenerateTrafficControlTaskConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GenerateTrafficControlTaskConfigResponseBody> body{};
+
+  GenerateTrafficControlTaskConfigResponse() {}
+
+  explicit GenerateTrafficControlTaskConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GenerateTrafficControlTaskConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GenerateTrafficControlTaskConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateTrafficControlTaskConfigResponse() = default;
 };
 class GetABMetricRequest : public Darabonba::Model {
 public:
@@ -9122,6 +10299,1063 @@ public:
 
 
   virtual ~GetTableMetaResponse() = default;
+};
+class GetTrafficControlTargetRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  GetTrafficControlTargetRequest() {}
+
+  explicit GetTrafficControlTargetRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GetTrafficControlTargetRequest() = default;
+};
+class GetTrafficControlTargetResponseBodySplitParts : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> setValues{};
+  shared_ptr<vector<long>> timePoints{};
+
+  GetTrafficControlTargetResponseBodySplitParts() {}
+
+  explicit GetTrafficControlTargetResponseBodySplitParts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (setValues) {
+      res["SetValues"] = boost::any(*setValues);
+    }
+    if (timePoints) {
+      res["TimePoints"] = boost::any(*timePoints);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SetValues") != m.end() && !m["SetValues"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["SetValues"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SetValues"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      setValues = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TimePoints") != m.end() && !m["TimePoints"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["TimePoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TimePoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      timePoints = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetTrafficControlTargetResponseBodySplitParts() = default;
+};
+class GetTrafficControlTargetResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> event{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> itemConditionArray{};
+  shared_ptr<string> itemConditionExpress{};
+  shared_ptr<string> itemConditionType{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> newProductRegulation{};
+  shared_ptr<string> recallName{};
+  shared_ptr<string> requestId{};
+  shared_ptr<GetTrafficControlTargetResponseBodySplitParts> splitParts{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> statisPeriod{};
+  shared_ptr<string> status{};
+  shared_ptr<long> toleranceValue{};
+  shared_ptr<string> trafficControlTargetId{};
+  shared_ptr<double> value{};
+
+  GetTrafficControlTargetResponseBody() {}
+
+  explicit GetTrafficControlTargetResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (event) {
+      res["Event"] = boost::any(*event);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (itemConditionArray) {
+      res["ItemConditionArray"] = boost::any(*itemConditionArray);
+    }
+    if (itemConditionExpress) {
+      res["ItemConditionExpress"] = boost::any(*itemConditionExpress);
+    }
+    if (itemConditionType) {
+      res["ItemConditionType"] = boost::any(*itemConditionType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (newProductRegulation) {
+      res["NewProductRegulation"] = boost::any(*newProductRegulation);
+    }
+    if (recallName) {
+      res["RecallName"] = boost::any(*recallName);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (splitParts) {
+      res["SplitParts"] = splitParts ? boost::any(splitParts->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (statisPeriod) {
+      res["StatisPeriod"] = boost::any(*statisPeriod);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (toleranceValue) {
+      res["ToleranceValue"] = boost::any(*toleranceValue);
+    }
+    if (trafficControlTargetId) {
+      res["TrafficControlTargetId"] = boost::any(*trafficControlTargetId);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Event") != m.end() && !m["Event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["Event"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("ItemConditionArray") != m.end() && !m["ItemConditionArray"].empty()) {
+      itemConditionArray = make_shared<string>(boost::any_cast<string>(m["ItemConditionArray"]));
+    }
+    if (m.find("ItemConditionExpress") != m.end() && !m["ItemConditionExpress"].empty()) {
+      itemConditionExpress = make_shared<string>(boost::any_cast<string>(m["ItemConditionExpress"]));
+    }
+    if (m.find("ItemConditionType") != m.end() && !m["ItemConditionType"].empty()) {
+      itemConditionType = make_shared<string>(boost::any_cast<string>(m["ItemConditionType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NewProductRegulation") != m.end() && !m["NewProductRegulation"].empty()) {
+      newProductRegulation = make_shared<bool>(boost::any_cast<bool>(m["NewProductRegulation"]));
+    }
+    if (m.find("RecallName") != m.end() && !m["RecallName"].empty()) {
+      recallName = make_shared<string>(boost::any_cast<string>(m["RecallName"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SplitParts") != m.end() && !m["SplitParts"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SplitParts"].type()) {
+        GetTrafficControlTargetResponseBodySplitParts model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SplitParts"]));
+        splitParts = make_shared<GetTrafficControlTargetResponseBodySplitParts>(model1);
+      }
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StatisPeriod") != m.end() && !m["StatisPeriod"].empty()) {
+      statisPeriod = make_shared<string>(boost::any_cast<string>(m["StatisPeriod"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("ToleranceValue") != m.end() && !m["ToleranceValue"].empty()) {
+      toleranceValue = make_shared<long>(boost::any_cast<long>(m["ToleranceValue"]));
+    }
+    if (m.find("TrafficControlTargetId") != m.end() && !m["TrafficControlTargetId"].empty()) {
+      trafficControlTargetId = make_shared<string>(boost::any_cast<string>(m["TrafficControlTargetId"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetTrafficControlTargetResponseBody() = default;
+};
+class GetTrafficControlTargetResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetTrafficControlTargetResponseBody> body{};
+
+  GetTrafficControlTargetResponse() {}
+
+  explicit GetTrafficControlTargetResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetTrafficControlTargetResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetTrafficControlTargetResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetTrafficControlTargetResponse() = default;
+};
+class GetTrafficControlTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> controlTargetFilter{};
+  shared_ptr<string> environment{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> version{};
+
+  GetTrafficControlTaskRequest() {}
+
+  explicit GetTrafficControlTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (controlTargetFilter) {
+      res["ControlTargetFilter"] = boost::any(*controlTargetFilter);
+    }
+    if (environment) {
+      res["Environment"] = boost::any(*environment);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ControlTargetFilter") != m.end() && !m["ControlTargetFilter"].empty()) {
+      controlTargetFilter = make_shared<string>(boost::any_cast<string>(m["ControlTargetFilter"]));
+    }
+    if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
+      environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~GetTrafficControlTaskRequest() = default;
+};
+class GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> setPoints{};
+  shared_ptr<vector<long>> timePoints{};
+
+  GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts() {}
+
+  explicit GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (setPoints) {
+      res["SetPoints"] = boost::any(*setPoints);
+    }
+    if (timePoints) {
+      res["TimePoints"] = boost::any(*timePoints);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SetPoints") != m.end() && !m["SetPoints"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["SetPoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SetPoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      setPoints = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TimePoints") != m.end() && !m["TimePoints"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["TimePoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TimePoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      timePoints = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts() = default;
+};
+class GetTrafficControlTaskResponseBodyTrafficControlTargets : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> event{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifiedTime{};
+  shared_ptr<string> itemConditionArray{};
+  shared_ptr<string> itemConditionExpress{};
+  shared_ptr<string> itemConditionType{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> newProductRegulation{};
+  shared_ptr<string> recallName{};
+  shared_ptr<GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts> splitParts{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> statisPeriod{};
+  shared_ptr<string> status{};
+  shared_ptr<long> toleranceValue{};
+  shared_ptr<string> trafficControlTargetId{};
+  shared_ptr<double> value{};
+
+  GetTrafficControlTaskResponseBodyTrafficControlTargets() {}
+
+  explicit GetTrafficControlTaskResponseBodyTrafficControlTargets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (event) {
+      res["Event"] = boost::any(*event);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
+    if (itemConditionArray) {
+      res["ItemConditionArray"] = boost::any(*itemConditionArray);
+    }
+    if (itemConditionExpress) {
+      res["ItemConditionExpress"] = boost::any(*itemConditionExpress);
+    }
+    if (itemConditionType) {
+      res["ItemConditionType"] = boost::any(*itemConditionType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (newProductRegulation) {
+      res["NewProductRegulation"] = boost::any(*newProductRegulation);
+    }
+    if (recallName) {
+      res["RecallName"] = boost::any(*recallName);
+    }
+    if (splitParts) {
+      res["SplitParts"] = splitParts ? boost::any(splitParts->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (statisPeriod) {
+      res["StatisPeriod"] = boost::any(*statisPeriod);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (toleranceValue) {
+      res["ToleranceValue"] = boost::any(*toleranceValue);
+    }
+    if (trafficControlTargetId) {
+      res["TrafficControlTargetId"] = boost::any(*trafficControlTargetId);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Event") != m.end() && !m["Event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["Event"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
+    if (m.find("ItemConditionArray") != m.end() && !m["ItemConditionArray"].empty()) {
+      itemConditionArray = make_shared<string>(boost::any_cast<string>(m["ItemConditionArray"]));
+    }
+    if (m.find("ItemConditionExpress") != m.end() && !m["ItemConditionExpress"].empty()) {
+      itemConditionExpress = make_shared<string>(boost::any_cast<string>(m["ItemConditionExpress"]));
+    }
+    if (m.find("ItemConditionType") != m.end() && !m["ItemConditionType"].empty()) {
+      itemConditionType = make_shared<string>(boost::any_cast<string>(m["ItemConditionType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NewProductRegulation") != m.end() && !m["NewProductRegulation"].empty()) {
+      newProductRegulation = make_shared<bool>(boost::any_cast<bool>(m["NewProductRegulation"]));
+    }
+    if (m.find("RecallName") != m.end() && !m["RecallName"].empty()) {
+      recallName = make_shared<string>(boost::any_cast<string>(m["RecallName"]));
+    }
+    if (m.find("SplitParts") != m.end() && !m["SplitParts"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SplitParts"].type()) {
+        GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SplitParts"]));
+        splitParts = make_shared<GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts>(model1);
+      }
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StatisPeriod") != m.end() && !m["StatisPeriod"].empty()) {
+      statisPeriod = make_shared<string>(boost::any_cast<string>(m["StatisPeriod"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("ToleranceValue") != m.end() && !m["ToleranceValue"].empty()) {
+      toleranceValue = make_shared<long>(boost::any_cast<long>(m["ToleranceValue"]));
+    }
+    if (m.find("TrafficControlTargetId") != m.end() && !m["TrafficControlTargetId"].empty()) {
+      trafficControlTargetId = make_shared<string>(boost::any_cast<string>(m["TrafficControlTargetId"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetTrafficControlTaskResponseBodyTrafficControlTargets() = default;
+};
+class GetTrafficControlTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> behaviorTableMetaId{};
+  shared_ptr<string> controlGranularity{};
+  shared_ptr<string> controlLogic{};
+  shared_ptr<string> controlType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> endTime{};
+  shared_ptr<bool> everPublished{};
+  shared_ptr<string> executionTime{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifiedTime{};
+  shared_ptr<string> itemConditionArray{};
+  shared_ptr<string> itemConditionExpress{};
+  shared_ptr<string> itemConditionType{};
+  shared_ptr<string> itemTableMetaId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> prepubStatus{};
+  shared_ptr<string> productStatus{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sceneId{};
+  shared_ptr<string> sceneName{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> statisBehaviorConditionArray{};
+  shared_ptr<string> statisBehaviorConditionExpress{};
+  shared_ptr<string> statisBehaviorConditionType{};
+  shared_ptr<vector<GetTrafficControlTaskResponseBodyTrafficControlTargets>> trafficControlTargets{};
+  shared_ptr<string> trafficControlTaskId{};
+  shared_ptr<string> userConditionArray{};
+  shared_ptr<string> userConditionExpress{};
+  shared_ptr<string> userConditionType{};
+  shared_ptr<string> userTableMetaId{};
+
+  GetTrafficControlTaskResponseBody() {}
+
+  explicit GetTrafficControlTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (behaviorTableMetaId) {
+      res["BehaviorTableMetaId"] = boost::any(*behaviorTableMetaId);
+    }
+    if (controlGranularity) {
+      res["ControlGranularity"] = boost::any(*controlGranularity);
+    }
+    if (controlLogic) {
+      res["ControlLogic"] = boost::any(*controlLogic);
+    }
+    if (controlType) {
+      res["ControlType"] = boost::any(*controlType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (everPublished) {
+      res["EverPublished"] = boost::any(*everPublished);
+    }
+    if (executionTime) {
+      res["ExecutionTime"] = boost::any(*executionTime);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
+    if (itemConditionArray) {
+      res["ItemConditionArray"] = boost::any(*itemConditionArray);
+    }
+    if (itemConditionExpress) {
+      res["ItemConditionExpress"] = boost::any(*itemConditionExpress);
+    }
+    if (itemConditionType) {
+      res["ItemConditionType"] = boost::any(*itemConditionType);
+    }
+    if (itemTableMetaId) {
+      res["ItemTableMetaId"] = boost::any(*itemTableMetaId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (prepubStatus) {
+      res["PrepubStatus"] = boost::any(*prepubStatus);
+    }
+    if (productStatus) {
+      res["ProductStatus"] = boost::any(*productStatus);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (sceneName) {
+      res["SceneName"] = boost::any(*sceneName);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (statisBehaviorConditionArray) {
+      res["StatisBehaviorConditionArray"] = boost::any(*statisBehaviorConditionArray);
+    }
+    if (statisBehaviorConditionExpress) {
+      res["StatisBehaviorConditionExpress"] = boost::any(*statisBehaviorConditionExpress);
+    }
+    if (statisBehaviorConditionType) {
+      res["StatisBehaviorConditionType"] = boost::any(*statisBehaviorConditionType);
+    }
+    if (trafficControlTargets) {
+      vector<boost::any> temp1;
+      for(auto item1:*trafficControlTargets){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TrafficControlTargets"] = boost::any(temp1);
+    }
+    if (trafficControlTaskId) {
+      res["TrafficControlTaskId"] = boost::any(*trafficControlTaskId);
+    }
+    if (userConditionArray) {
+      res["UserConditionArray"] = boost::any(*userConditionArray);
+    }
+    if (userConditionExpress) {
+      res["UserConditionExpress"] = boost::any(*userConditionExpress);
+    }
+    if (userConditionType) {
+      res["UserConditionType"] = boost::any(*userConditionType);
+    }
+    if (userTableMetaId) {
+      res["UserTableMetaId"] = boost::any(*userTableMetaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BehaviorTableMetaId") != m.end() && !m["BehaviorTableMetaId"].empty()) {
+      behaviorTableMetaId = make_shared<string>(boost::any_cast<string>(m["BehaviorTableMetaId"]));
+    }
+    if (m.find("ControlGranularity") != m.end() && !m["ControlGranularity"].empty()) {
+      controlGranularity = make_shared<string>(boost::any_cast<string>(m["ControlGranularity"]));
+    }
+    if (m.find("ControlLogic") != m.end() && !m["ControlLogic"].empty()) {
+      controlLogic = make_shared<string>(boost::any_cast<string>(m["ControlLogic"]));
+    }
+    if (m.find("ControlType") != m.end() && !m["ControlType"].empty()) {
+      controlType = make_shared<string>(boost::any_cast<string>(m["ControlType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("EverPublished") != m.end() && !m["EverPublished"].empty()) {
+      everPublished = make_shared<bool>(boost::any_cast<bool>(m["EverPublished"]));
+    }
+    if (m.find("ExecutionTime") != m.end() && !m["ExecutionTime"].empty()) {
+      executionTime = make_shared<string>(boost::any_cast<string>(m["ExecutionTime"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
+    if (m.find("ItemConditionArray") != m.end() && !m["ItemConditionArray"].empty()) {
+      itemConditionArray = make_shared<string>(boost::any_cast<string>(m["ItemConditionArray"]));
+    }
+    if (m.find("ItemConditionExpress") != m.end() && !m["ItemConditionExpress"].empty()) {
+      itemConditionExpress = make_shared<string>(boost::any_cast<string>(m["ItemConditionExpress"]));
+    }
+    if (m.find("ItemConditionType") != m.end() && !m["ItemConditionType"].empty()) {
+      itemConditionType = make_shared<string>(boost::any_cast<string>(m["ItemConditionType"]));
+    }
+    if (m.find("ItemTableMetaId") != m.end() && !m["ItemTableMetaId"].empty()) {
+      itemTableMetaId = make_shared<string>(boost::any_cast<string>(m["ItemTableMetaId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PrepubStatus") != m.end() && !m["PrepubStatus"].empty()) {
+      prepubStatus = make_shared<string>(boost::any_cast<string>(m["PrepubStatus"]));
+    }
+    if (m.find("ProductStatus") != m.end() && !m["ProductStatus"].empty()) {
+      productStatus = make_shared<string>(boost::any_cast<string>(m["ProductStatus"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
+      sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StatisBehaviorConditionArray") != m.end() && !m["StatisBehaviorConditionArray"].empty()) {
+      statisBehaviorConditionArray = make_shared<string>(boost::any_cast<string>(m["StatisBehaviorConditionArray"]));
+    }
+    if (m.find("StatisBehaviorConditionExpress") != m.end() && !m["StatisBehaviorConditionExpress"].empty()) {
+      statisBehaviorConditionExpress = make_shared<string>(boost::any_cast<string>(m["StatisBehaviorConditionExpress"]));
+    }
+    if (m.find("StatisBehaviorConditionType") != m.end() && !m["StatisBehaviorConditionType"].empty()) {
+      statisBehaviorConditionType = make_shared<string>(boost::any_cast<string>(m["StatisBehaviorConditionType"]));
+    }
+    if (m.find("TrafficControlTargets") != m.end() && !m["TrafficControlTargets"].empty()) {
+      if (typeid(vector<boost::any>) == m["TrafficControlTargets"].type()) {
+        vector<GetTrafficControlTaskResponseBodyTrafficControlTargets> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TrafficControlTargets"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTrafficControlTaskResponseBodyTrafficControlTargets model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        trafficControlTargets = make_shared<vector<GetTrafficControlTaskResponseBodyTrafficControlTargets>>(expect1);
+      }
+    }
+    if (m.find("TrafficControlTaskId") != m.end() && !m["TrafficControlTaskId"].empty()) {
+      trafficControlTaskId = make_shared<string>(boost::any_cast<string>(m["TrafficControlTaskId"]));
+    }
+    if (m.find("UserConditionArray") != m.end() && !m["UserConditionArray"].empty()) {
+      userConditionArray = make_shared<string>(boost::any_cast<string>(m["UserConditionArray"]));
+    }
+    if (m.find("UserConditionExpress") != m.end() && !m["UserConditionExpress"].empty()) {
+      userConditionExpress = make_shared<string>(boost::any_cast<string>(m["UserConditionExpress"]));
+    }
+    if (m.find("UserConditionType") != m.end() && !m["UserConditionType"].empty()) {
+      userConditionType = make_shared<string>(boost::any_cast<string>(m["UserConditionType"]));
+    }
+    if (m.find("UserTableMetaId") != m.end() && !m["UserTableMetaId"].empty()) {
+      userTableMetaId = make_shared<string>(boost::any_cast<string>(m["UserTableMetaId"]));
+    }
+  }
+
+
+  virtual ~GetTrafficControlTaskResponseBody() = default;
+};
+class GetTrafficControlTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetTrafficControlTaskResponseBody> body{};
+
+  GetTrafficControlTaskResponse() {}
+
+  explicit GetTrafficControlTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetTrafficControlTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetTrafficControlTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetTrafficControlTaskResponse() = default;
+};
+class GetTrafficControlTaskTrafficRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> environment{};
+  shared_ptr<string> instanceId{};
+
+  GetTrafficControlTaskTrafficRequest() {}
+
+  explicit GetTrafficControlTaskTrafficRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (environment) {
+      res["Environment"] = boost::any(*environment);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
+      environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GetTrafficControlTaskTrafficRequest() = default;
+};
+class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics : public Darabonba::Model {
+public:
+  shared_ptr<vector<map<string, boost::any>>> data{};
+  shared_ptr<string> trafficContorlTargetId{};
+
+  GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics() {}
+
+  explicit GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (trafficContorlTargetId) {
+      res["TrafficContorlTargetId"] = boost::any(*trafficContorlTargetId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Data"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      data = make_shared<vector<map<string, boost::any>>>(toVec1);
+    }
+    if (m.find("TrafficContorlTargetId") != m.end() && !m["TrafficContorlTargetId"].empty()) {
+      trafficContorlTargetId = make_shared<string>(boost::any_cast<string>(m["TrafficContorlTargetId"]));
+    }
+  }
+
+
+  virtual ~GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics() = default;
+};
+class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics>> targetTraffics{};
+  shared_ptr<map<string, boost::any>> taskTraffics{};
+
+  GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic() {}
+
+  explicit GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (targetTraffics) {
+      vector<boost::any> temp1;
+      for(auto item1:*targetTraffics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TargetTraffics"] = boost::any(temp1);
+    }
+    if (taskTraffics) {
+      res["TaskTraffics"] = boost::any(*taskTraffics);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TargetTraffics") != m.end() && !m["TargetTraffics"].empty()) {
+      if (typeid(vector<boost::any>) == m["TargetTraffics"].type()) {
+        vector<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TargetTraffics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        targetTraffics = make_shared<vector<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics>>(expect1);
+      }
+    }
+    if (m.find("TaskTraffics") != m.end() && !m["TaskTraffics"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["TaskTraffics"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      taskTraffics = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic() = default;
+};
+class GetTrafficControlTaskTrafficResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic> trafficControlTaskTraffic{};
+
+  GetTrafficControlTaskTrafficResponseBody() {}
+
+  explicit GetTrafficControlTaskTrafficResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (trafficControlTaskTraffic) {
+      res["TrafficControlTaskTraffic"] = trafficControlTaskTraffic ? boost::any(trafficControlTaskTraffic->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TrafficControlTaskTraffic") != m.end() && !m["TrafficControlTaskTraffic"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TrafficControlTaskTraffic"].type()) {
+        GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TrafficControlTaskTraffic"]));
+        trafficControlTaskTraffic = make_shared<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetTrafficControlTaskTrafficResponseBody() = default;
+};
+class GetTrafficControlTaskTrafficResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetTrafficControlTaskTrafficResponseBody> body{};
+
+  GetTrafficControlTaskTrafficResponse() {}
+
+  explicit GetTrafficControlTaskTrafficResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetTrafficControlTaskTrafficResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetTrafficControlTaskTrafficResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetTrafficControlTaskTrafficResponse() = default;
 };
 class ListABMetricGroupsRequest : public Darabonba::Model {
 public:
@@ -14722,6 +16956,913 @@ public:
 
   virtual ~ListTableMetasResponse() = default;
 };
+class ListTrafficControlTargetTrafficHistoryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> environment{};
+  shared_ptr<string> experimentGroupId{};
+  shared_ptr<string> experimentId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> itemId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> threshold{};
+
+  ListTrafficControlTargetTrafficHistoryRequest() {}
+
+  explicit ListTrafficControlTargetTrafficHistoryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (environment) {
+      res["Environment"] = boost::any(*environment);
+    }
+    if (experimentGroupId) {
+      res["ExperimentGroupId"] = boost::any(*experimentGroupId);
+    }
+    if (experimentId) {
+      res["ExperimentId"] = boost::any(*experimentId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (itemId) {
+      res["ItemId"] = boost::any(*itemId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (threshold) {
+      res["Threshold"] = boost::any(*threshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
+      environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
+    }
+    if (m.find("ExperimentGroupId") != m.end() && !m["ExperimentGroupId"].empty()) {
+      experimentGroupId = make_shared<string>(boost::any_cast<string>(m["ExperimentGroupId"]));
+    }
+    if (m.find("ExperimentId") != m.end() && !m["ExperimentId"].empty()) {
+      experimentId = make_shared<string>(boost::any_cast<string>(m["ExperimentId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
+      itemId = make_shared<string>(boost::any_cast<string>(m["ItemId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
+      threshold = make_shared<string>(boost::any_cast<string>(m["Threshold"]));
+    }
+  }
+
+
+  virtual ~ListTrafficControlTargetTrafficHistoryRequest() = default;
+};
+class ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories : public Darabonba::Model {
+public:
+  shared_ptr<string> experimentId{};
+  shared_ptr<string> itemId{};
+  shared_ptr<string> recordTime{};
+  shared_ptr<string> trafficControlTargetAimTraffic{};
+  shared_ptr<string> trafficControlTargetTraffic{};
+  shared_ptr<string> trafficControlTaskTraffic{};
+
+  ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories() {}
+
+  explicit ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (experimentId) {
+      res["ExperimentId"] = boost::any(*experimentId);
+    }
+    if (itemId) {
+      res["ItemId"] = boost::any(*itemId);
+    }
+    if (recordTime) {
+      res["RecordTime"] = boost::any(*recordTime);
+    }
+    if (trafficControlTargetAimTraffic) {
+      res["TrafficControlTargetAimTraffic"] = boost::any(*trafficControlTargetAimTraffic);
+    }
+    if (trafficControlTargetTraffic) {
+      res["TrafficControlTargetTraffic"] = boost::any(*trafficControlTargetTraffic);
+    }
+    if (trafficControlTaskTraffic) {
+      res["TrafficControlTaskTraffic"] = boost::any(*trafficControlTaskTraffic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExperimentId") != m.end() && !m["ExperimentId"].empty()) {
+      experimentId = make_shared<string>(boost::any_cast<string>(m["ExperimentId"]));
+    }
+    if (m.find("ItemId") != m.end() && !m["ItemId"].empty()) {
+      itemId = make_shared<string>(boost::any_cast<string>(m["ItemId"]));
+    }
+    if (m.find("RecordTime") != m.end() && !m["RecordTime"].empty()) {
+      recordTime = make_shared<string>(boost::any_cast<string>(m["RecordTime"]));
+    }
+    if (m.find("TrafficControlTargetAimTraffic") != m.end() && !m["TrafficControlTargetAimTraffic"].empty()) {
+      trafficControlTargetAimTraffic = make_shared<string>(boost::any_cast<string>(m["TrafficControlTargetAimTraffic"]));
+    }
+    if (m.find("TrafficControlTargetTraffic") != m.end() && !m["TrafficControlTargetTraffic"].empty()) {
+      trafficControlTargetTraffic = make_shared<string>(boost::any_cast<string>(m["TrafficControlTargetTraffic"]));
+    }
+    if (m.find("TrafficControlTaskTraffic") != m.end() && !m["TrafficControlTaskTraffic"].empty()) {
+      trafficControlTaskTraffic = make_shared<string>(boost::any_cast<string>(m["TrafficControlTaskTraffic"]));
+    }
+  }
+
+
+  virtual ~ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories() = default;
+};
+class ListTrafficControlTargetTrafficHistoryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> totalCount{};
+  shared_ptr<vector<ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories>> trafficControlTaskTrafficHistories{};
+
+  ListTrafficControlTargetTrafficHistoryResponseBody() {}
+
+  explicit ListTrafficControlTargetTrafficHistoryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (trafficControlTaskTrafficHistories) {
+      vector<boost::any> temp1;
+      for(auto item1:*trafficControlTaskTrafficHistories){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TrafficControlTaskTrafficHistories"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<string>(boost::any_cast<string>(m["TotalCount"]));
+    }
+    if (m.find("TrafficControlTaskTrafficHistories") != m.end() && !m["TrafficControlTaskTrafficHistories"].empty()) {
+      if (typeid(vector<boost::any>) == m["TrafficControlTaskTrafficHistories"].type()) {
+        vector<ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TrafficControlTaskTrafficHistories"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        trafficControlTaskTrafficHistories = make_shared<vector<ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListTrafficControlTargetTrafficHistoryResponseBody() = default;
+};
+class ListTrafficControlTargetTrafficHistoryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListTrafficControlTargetTrafficHistoryResponseBody> body{};
+
+  ListTrafficControlTargetTrafficHistoryResponse() {}
+
+  explicit ListTrafficControlTargetTrafficHistoryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListTrafficControlTargetTrafficHistoryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListTrafficControlTargetTrafficHistoryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListTrafficControlTargetTrafficHistoryResponse() = default;
+};
+class ListTrafficControlTasksRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> all{};
+  shared_ptr<string> controlTargetFilter{};
+  shared_ptr<string> environment{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> order{};
+  shared_ptr<string> pageNumber{};
+  shared_ptr<string> pageSize{};
+  shared_ptr<string> sceneId{};
+  shared_ptr<string> sortBy{};
+  shared_ptr<string> status{};
+  shared_ptr<string> trafficControlTaskId{};
+  shared_ptr<string> version{};
+
+  ListTrafficControlTasksRequest() {}
+
+  explicit ListTrafficControlTasksRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (all) {
+      res["All"] = boost::any(*all);
+    }
+    if (controlTargetFilter) {
+      res["ControlTargetFilter"] = boost::any(*controlTargetFilter);
+    }
+    if (environment) {
+      res["Environment"] = boost::any(*environment);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (sortBy) {
+      res["SortBy"] = boost::any(*sortBy);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (trafficControlTaskId) {
+      res["TrafficControlTaskId"] = boost::any(*trafficControlTaskId);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("All") != m.end() && !m["All"].empty()) {
+      all = make_shared<bool>(boost::any_cast<bool>(m["All"]));
+    }
+    if (m.find("ControlTargetFilter") != m.end() && !m["ControlTargetFilter"].empty()) {
+      controlTargetFilter = make_shared<string>(boost::any_cast<string>(m["ControlTargetFilter"]));
+    }
+    if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
+      environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
+      sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TrafficControlTaskId") != m.end() && !m["TrafficControlTaskId"].empty()) {
+      trafficControlTaskId = make_shared<string>(boost::any_cast<string>(m["TrafficControlTaskId"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~ListTrafficControlTasksRequest() = default;
+};
+class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> setValues{};
+  shared_ptr<vector<long>> timePoints{};
+
+  ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts() {}
+
+  explicit ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (setValues) {
+      res["SetValues"] = boost::any(*setValues);
+    }
+    if (timePoints) {
+      res["TimePoints"] = boost::any(*timePoints);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SetValues") != m.end() && !m["SetValues"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["SetValues"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SetValues"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      setValues = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TimePoints") != m.end() && !m["TimePoints"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["TimePoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TimePoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      timePoints = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts() = default;
+};
+class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> event{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifiedTime{};
+  shared_ptr<string> itemConditionArray{};
+  shared_ptr<string> itemConditionExpress{};
+  shared_ptr<string> itemConditionType{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> newProductRegulation{};
+  shared_ptr<string> recallName{};
+  shared_ptr<ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts> splitParts{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> statisPeriod{};
+  shared_ptr<string> status{};
+  shared_ptr<long> toleranceValue{};
+  shared_ptr<string> trafficControlTargetId{};
+  shared_ptr<double> value{};
+
+  ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets() {}
+
+  explicit ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (event) {
+      res["Event"] = boost::any(*event);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
+    if (itemConditionArray) {
+      res["ItemConditionArray"] = boost::any(*itemConditionArray);
+    }
+    if (itemConditionExpress) {
+      res["ItemConditionExpress"] = boost::any(*itemConditionExpress);
+    }
+    if (itemConditionType) {
+      res["ItemConditionType"] = boost::any(*itemConditionType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (newProductRegulation) {
+      res["NewProductRegulation"] = boost::any(*newProductRegulation);
+    }
+    if (recallName) {
+      res["RecallName"] = boost::any(*recallName);
+    }
+    if (splitParts) {
+      res["SplitParts"] = splitParts ? boost::any(splitParts->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (statisPeriod) {
+      res["StatisPeriod"] = boost::any(*statisPeriod);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (toleranceValue) {
+      res["ToleranceValue"] = boost::any(*toleranceValue);
+    }
+    if (trafficControlTargetId) {
+      res["TrafficControlTargetId"] = boost::any(*trafficControlTargetId);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Event") != m.end() && !m["Event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["Event"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
+    if (m.find("ItemConditionArray") != m.end() && !m["ItemConditionArray"].empty()) {
+      itemConditionArray = make_shared<string>(boost::any_cast<string>(m["ItemConditionArray"]));
+    }
+    if (m.find("ItemConditionExpress") != m.end() && !m["ItemConditionExpress"].empty()) {
+      itemConditionExpress = make_shared<string>(boost::any_cast<string>(m["ItemConditionExpress"]));
+    }
+    if (m.find("ItemConditionType") != m.end() && !m["ItemConditionType"].empty()) {
+      itemConditionType = make_shared<string>(boost::any_cast<string>(m["ItemConditionType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NewProductRegulation") != m.end() && !m["NewProductRegulation"].empty()) {
+      newProductRegulation = make_shared<bool>(boost::any_cast<bool>(m["NewProductRegulation"]));
+    }
+    if (m.find("RecallName") != m.end() && !m["RecallName"].empty()) {
+      recallName = make_shared<string>(boost::any_cast<string>(m["RecallName"]));
+    }
+    if (m.find("SplitParts") != m.end() && !m["SplitParts"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SplitParts"].type()) {
+        ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SplitParts"]));
+        splitParts = make_shared<ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts>(model1);
+      }
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StatisPeriod") != m.end() && !m["StatisPeriod"].empty()) {
+      statisPeriod = make_shared<string>(boost::any_cast<string>(m["StatisPeriod"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("ToleranceValue") != m.end() && !m["ToleranceValue"].empty()) {
+      toleranceValue = make_shared<long>(boost::any_cast<long>(m["ToleranceValue"]));
+    }
+    if (m.find("TrafficControlTargetId") != m.end() && !m["TrafficControlTargetId"].empty()) {
+      trafficControlTargetId = make_shared<string>(boost::any_cast<string>(m["TrafficControlTargetId"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets() = default;
+};
+class ListTrafficControlTasksResponseBodyTrafficControlTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> behaviorTableMetaId{};
+  shared_ptr<string> controlGranularity{};
+  shared_ptr<string> controlLogic{};
+  shared_ptr<string> controlType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> endTime{};
+  shared_ptr<bool> everPublished{};
+  shared_ptr<string> executionTime{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifiedTime{};
+  shared_ptr<string> itemConditionArray{};
+  shared_ptr<string> itemConditionExpress{};
+  shared_ptr<string> itemConditionType{};
+  shared_ptr<string> itemTableMetaId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> prepubStatus{};
+  shared_ptr<string> productStatus{};
+  shared_ptr<string> sceneId{};
+  shared_ptr<string> sceneName{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> statisBahaviorConditionExpress{};
+  shared_ptr<string> statisBehaviorConditionArray{};
+  shared_ptr<string> statisBehaviorConditionType{};
+  shared_ptr<vector<ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets>> trafficControlTargets{};
+  shared_ptr<string> trafficControlTaskId{};
+  shared_ptr<string> userConditionArray{};
+  shared_ptr<string> userConditionExpress{};
+  shared_ptr<string> userConditionType{};
+  shared_ptr<string> userTableMetaId{};
+
+  ListTrafficControlTasksResponseBodyTrafficControlTasks() {}
+
+  explicit ListTrafficControlTasksResponseBodyTrafficControlTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (behaviorTableMetaId) {
+      res["BehaviorTableMetaId"] = boost::any(*behaviorTableMetaId);
+    }
+    if (controlGranularity) {
+      res["ControlGranularity"] = boost::any(*controlGranularity);
+    }
+    if (controlLogic) {
+      res["ControlLogic"] = boost::any(*controlLogic);
+    }
+    if (controlType) {
+      res["ControlType"] = boost::any(*controlType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (everPublished) {
+      res["EverPublished"] = boost::any(*everPublished);
+    }
+    if (executionTime) {
+      res["ExecutionTime"] = boost::any(*executionTime);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifiedTime) {
+      res["GmtModifiedTime"] = boost::any(*gmtModifiedTime);
+    }
+    if (itemConditionArray) {
+      res["ItemConditionArray"] = boost::any(*itemConditionArray);
+    }
+    if (itemConditionExpress) {
+      res["ItemConditionExpress"] = boost::any(*itemConditionExpress);
+    }
+    if (itemConditionType) {
+      res["ItemConditionType"] = boost::any(*itemConditionType);
+    }
+    if (itemTableMetaId) {
+      res["ItemTableMetaId"] = boost::any(*itemTableMetaId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (prepubStatus) {
+      res["PrepubStatus"] = boost::any(*prepubStatus);
+    }
+    if (productStatus) {
+      res["ProductStatus"] = boost::any(*productStatus);
+    }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (sceneName) {
+      res["SceneName"] = boost::any(*sceneName);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (statisBahaviorConditionExpress) {
+      res["StatisBahaviorConditionExpress"] = boost::any(*statisBahaviorConditionExpress);
+    }
+    if (statisBehaviorConditionArray) {
+      res["StatisBehaviorConditionArray"] = boost::any(*statisBehaviorConditionArray);
+    }
+    if (statisBehaviorConditionType) {
+      res["StatisBehaviorConditionType"] = boost::any(*statisBehaviorConditionType);
+    }
+    if (trafficControlTargets) {
+      vector<boost::any> temp1;
+      for(auto item1:*trafficControlTargets){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TrafficControlTargets"] = boost::any(temp1);
+    }
+    if (trafficControlTaskId) {
+      res["TrafficControlTaskId"] = boost::any(*trafficControlTaskId);
+    }
+    if (userConditionArray) {
+      res["UserConditionArray"] = boost::any(*userConditionArray);
+    }
+    if (userConditionExpress) {
+      res["UserConditionExpress"] = boost::any(*userConditionExpress);
+    }
+    if (userConditionType) {
+      res["UserConditionType"] = boost::any(*userConditionType);
+    }
+    if (userTableMetaId) {
+      res["UserTableMetaId"] = boost::any(*userTableMetaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BehaviorTableMetaId") != m.end() && !m["BehaviorTableMetaId"].empty()) {
+      behaviorTableMetaId = make_shared<string>(boost::any_cast<string>(m["BehaviorTableMetaId"]));
+    }
+    if (m.find("ControlGranularity") != m.end() && !m["ControlGranularity"].empty()) {
+      controlGranularity = make_shared<string>(boost::any_cast<string>(m["ControlGranularity"]));
+    }
+    if (m.find("ControlLogic") != m.end() && !m["ControlLogic"].empty()) {
+      controlLogic = make_shared<string>(boost::any_cast<string>(m["ControlLogic"]));
+    }
+    if (m.find("ControlType") != m.end() && !m["ControlType"].empty()) {
+      controlType = make_shared<string>(boost::any_cast<string>(m["ControlType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("EverPublished") != m.end() && !m["EverPublished"].empty()) {
+      everPublished = make_shared<bool>(boost::any_cast<bool>(m["EverPublished"]));
+    }
+    if (m.find("ExecutionTime") != m.end() && !m["ExecutionTime"].empty()) {
+      executionTime = make_shared<string>(boost::any_cast<string>(m["ExecutionTime"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifiedTime") != m.end() && !m["GmtModifiedTime"].empty()) {
+      gmtModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtModifiedTime"]));
+    }
+    if (m.find("ItemConditionArray") != m.end() && !m["ItemConditionArray"].empty()) {
+      itemConditionArray = make_shared<string>(boost::any_cast<string>(m["ItemConditionArray"]));
+    }
+    if (m.find("ItemConditionExpress") != m.end() && !m["ItemConditionExpress"].empty()) {
+      itemConditionExpress = make_shared<string>(boost::any_cast<string>(m["ItemConditionExpress"]));
+    }
+    if (m.find("ItemConditionType") != m.end() && !m["ItemConditionType"].empty()) {
+      itemConditionType = make_shared<string>(boost::any_cast<string>(m["ItemConditionType"]));
+    }
+    if (m.find("ItemTableMetaId") != m.end() && !m["ItemTableMetaId"].empty()) {
+      itemTableMetaId = make_shared<string>(boost::any_cast<string>(m["ItemTableMetaId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PrepubStatus") != m.end() && !m["PrepubStatus"].empty()) {
+      prepubStatus = make_shared<string>(boost::any_cast<string>(m["PrepubStatus"]));
+    }
+    if (m.find("ProductStatus") != m.end() && !m["ProductStatus"].empty()) {
+      productStatus = make_shared<string>(boost::any_cast<string>(m["ProductStatus"]));
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
+      sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StatisBahaviorConditionExpress") != m.end() && !m["StatisBahaviorConditionExpress"].empty()) {
+      statisBahaviorConditionExpress = make_shared<string>(boost::any_cast<string>(m["StatisBahaviorConditionExpress"]));
+    }
+    if (m.find("StatisBehaviorConditionArray") != m.end() && !m["StatisBehaviorConditionArray"].empty()) {
+      statisBehaviorConditionArray = make_shared<string>(boost::any_cast<string>(m["StatisBehaviorConditionArray"]));
+    }
+    if (m.find("StatisBehaviorConditionType") != m.end() && !m["StatisBehaviorConditionType"].empty()) {
+      statisBehaviorConditionType = make_shared<string>(boost::any_cast<string>(m["StatisBehaviorConditionType"]));
+    }
+    if (m.find("TrafficControlTargets") != m.end() && !m["TrafficControlTargets"].empty()) {
+      if (typeid(vector<boost::any>) == m["TrafficControlTargets"].type()) {
+        vector<ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TrafficControlTargets"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        trafficControlTargets = make_shared<vector<ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets>>(expect1);
+      }
+    }
+    if (m.find("TrafficControlTaskId") != m.end() && !m["TrafficControlTaskId"].empty()) {
+      trafficControlTaskId = make_shared<string>(boost::any_cast<string>(m["TrafficControlTaskId"]));
+    }
+    if (m.find("UserConditionArray") != m.end() && !m["UserConditionArray"].empty()) {
+      userConditionArray = make_shared<string>(boost::any_cast<string>(m["UserConditionArray"]));
+    }
+    if (m.find("UserConditionExpress") != m.end() && !m["UserConditionExpress"].empty()) {
+      userConditionExpress = make_shared<string>(boost::any_cast<string>(m["UserConditionExpress"]));
+    }
+    if (m.find("UserConditionType") != m.end() && !m["UserConditionType"].empty()) {
+      userConditionType = make_shared<string>(boost::any_cast<string>(m["UserConditionType"]));
+    }
+    if (m.find("UserTableMetaId") != m.end() && !m["UserTableMetaId"].empty()) {
+      userTableMetaId = make_shared<string>(boost::any_cast<string>(m["UserTableMetaId"]));
+    }
+  }
+
+
+  virtual ~ListTrafficControlTasksResponseBodyTrafficControlTasks() = default;
+};
+class ListTrafficControlTasksResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> totalCount{};
+  shared_ptr<vector<ListTrafficControlTasksResponseBodyTrafficControlTasks>> trafficControlTasks{};
+
+  ListTrafficControlTasksResponseBody() {}
+
+  explicit ListTrafficControlTasksResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (trafficControlTasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*trafficControlTasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TrafficControlTasks"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<string>(boost::any_cast<string>(m["TotalCount"]));
+    }
+    if (m.find("TrafficControlTasks") != m.end() && !m["TrafficControlTasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["TrafficControlTasks"].type()) {
+        vector<ListTrafficControlTasksResponseBodyTrafficControlTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TrafficControlTasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTrafficControlTasksResponseBodyTrafficControlTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        trafficControlTasks = make_shared<vector<ListTrafficControlTasksResponseBodyTrafficControlTasks>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListTrafficControlTasksResponseBody() = default;
+};
+class ListTrafficControlTasksResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListTrafficControlTasksResponseBody> body{};
+
+  ListTrafficControlTasksResponse() {}
+
+  explicit ListTrafficControlTasksResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListTrafficControlTasksResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListTrafficControlTasksResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListTrafficControlTasksResponse() = default;
+};
 class OfflineExperimentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -15777,6 +18918,123 @@ public:
 
   virtual ~PushResourceRuleResponse() = default;
 };
+class ReleaseTrafficControlTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> environment{};
+  shared_ptr<string> instanceId{};
+
+  ReleaseTrafficControlTaskRequest() {}
+
+  explicit ReleaseTrafficControlTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (environment) {
+      res["Environment"] = boost::any(*environment);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
+      environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~ReleaseTrafficControlTaskRequest() = default;
+};
+class ReleaseTrafficControlTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ReleaseTrafficControlTaskResponseBody() {}
+
+  explicit ReleaseTrafficControlTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ReleaseTrafficControlTaskResponseBody() = default;
+};
+class ReleaseTrafficControlTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ReleaseTrafficControlTaskResponseBody> body{};
+
+  ReleaseTrafficControlTaskResponse() {}
+
+  explicit ReleaseTrafficControlTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ReleaseTrafficControlTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ReleaseTrafficControlTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ReleaseTrafficControlTaskResponse() = default;
+};
 class ReportABMetricGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> baseExperimentId{};
@@ -15984,6 +19242,612 @@ public:
 
 
   virtual ~ReportABMetricGroupResponse() = default;
+};
+class SplitTrafficControlTargetRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> environment{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<vector<long>> setValues{};
+  shared_ptr<vector<long>> timePoints{};
+
+  SplitTrafficControlTargetRequest() {}
+
+  explicit SplitTrafficControlTargetRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (environment) {
+      res["Environment"] = boost::any(*environment);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (setValues) {
+      res["SetValues"] = boost::any(*setValues);
+    }
+    if (timePoints) {
+      res["TimePoints"] = boost::any(*timePoints);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
+      environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("SetValues") != m.end() && !m["SetValues"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["SetValues"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SetValues"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      setValues = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TimePoints") != m.end() && !m["TimePoints"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["TimePoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TimePoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      timePoints = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~SplitTrafficControlTargetRequest() = default;
+};
+class SplitTrafficControlTargetResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SplitTrafficControlTargetResponseBody() {}
+
+  explicit SplitTrafficControlTargetResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SplitTrafficControlTargetResponseBody() = default;
+};
+class SplitTrafficControlTargetResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SplitTrafficControlTargetResponseBody> body{};
+
+  SplitTrafficControlTargetResponse() {}
+
+  explicit SplitTrafficControlTargetResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SplitTrafficControlTargetResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SplitTrafficControlTargetResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SplitTrafficControlTargetResponse() = default;
+};
+class StartTrafficControlTargetRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  StartTrafficControlTargetRequest() {}
+
+  explicit StartTrafficControlTargetRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~StartTrafficControlTargetRequest() = default;
+};
+class StartTrafficControlTargetResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  StartTrafficControlTargetResponseBody() {}
+
+  explicit StartTrafficControlTargetResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StartTrafficControlTargetResponseBody() = default;
+};
+class StartTrafficControlTargetResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartTrafficControlTargetResponseBody> body{};
+
+  StartTrafficControlTargetResponse() {}
+
+  explicit StartTrafficControlTargetResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartTrafficControlTargetResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartTrafficControlTargetResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartTrafficControlTargetResponse() = default;
+};
+class StartTrafficControlTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> environment{};
+  shared_ptr<string> instanceId{};
+
+  StartTrafficControlTaskRequest() {}
+
+  explicit StartTrafficControlTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (environment) {
+      res["Environment"] = boost::any(*environment);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
+      environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~StartTrafficControlTaskRequest() = default;
+};
+class StartTrafficControlTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  StartTrafficControlTaskResponseBody() {}
+
+  explicit StartTrafficControlTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StartTrafficControlTaskResponseBody() = default;
+};
+class StartTrafficControlTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartTrafficControlTaskResponseBody> body{};
+
+  StartTrafficControlTaskResponse() {}
+
+  explicit StartTrafficControlTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartTrafficControlTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartTrafficControlTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartTrafficControlTaskResponse() = default;
+};
+class StopTrafficControlTargetRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  StopTrafficControlTargetRequest() {}
+
+  explicit StopTrafficControlTargetRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~StopTrafficControlTargetRequest() = default;
+};
+class StopTrafficControlTargetResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  StopTrafficControlTargetResponseBody() {}
+
+  explicit StopTrafficControlTargetResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StopTrafficControlTargetResponseBody() = default;
+};
+class StopTrafficControlTargetResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StopTrafficControlTargetResponseBody> body{};
+
+  StopTrafficControlTargetResponse() {}
+
+  explicit StopTrafficControlTargetResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopTrafficControlTargetResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopTrafficControlTargetResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopTrafficControlTargetResponse() = default;
+};
+class StopTrafficControlTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<string> environment{};
+  shared_ptr<string> instanceId{};
+
+  StopTrafficControlTaskRequest() {}
+
+  explicit StopTrafficControlTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (environment) {
+      res["Environment"] = boost::any(*environment);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
+      environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~StopTrafficControlTaskRequest() = default;
+};
+class StopTrafficControlTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  StopTrafficControlTaskResponseBody() {}
+
+  explicit StopTrafficControlTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StopTrafficControlTaskResponseBody() = default;
+};
+class StopTrafficControlTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StopTrafficControlTaskResponseBody> body{};
+
+  StopTrafficControlTaskResponse() {}
+
+  explicit StopTrafficControlTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopTrafficControlTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopTrafficControlTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopTrafficControlTaskResponse() = default;
 };
 class SyncFeatureConsistencyCheckJobReplayLogRequest : public Darabonba::Model {
 public:
@@ -18671,6 +22535,807 @@ public:
 
   virtual ~UpdateTableMetaResponse() = default;
 };
+class UpdateTrafficControlTargetRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> event{};
+  shared_ptr<string> itemConditionArray{};
+  shared_ptr<string> itemConditionExpress{};
+  shared_ptr<string> itemConditionType{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> newProductRegulation{};
+  shared_ptr<string> recallName{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> statisPeriod{};
+  shared_ptr<string> status{};
+  shared_ptr<long> toleranceValue{};
+  shared_ptr<double> value{};
+  shared_ptr<string> newParam3{};
+
+  UpdateTrafficControlTargetRequest() {}
+
+  explicit UpdateTrafficControlTargetRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (event) {
+      res["Event"] = boost::any(*event);
+    }
+    if (itemConditionArray) {
+      res["ItemConditionArray"] = boost::any(*itemConditionArray);
+    }
+    if (itemConditionExpress) {
+      res["ItemConditionExpress"] = boost::any(*itemConditionExpress);
+    }
+    if (itemConditionType) {
+      res["ItemConditionType"] = boost::any(*itemConditionType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (newProductRegulation) {
+      res["NewProductRegulation"] = boost::any(*newProductRegulation);
+    }
+    if (recallName) {
+      res["RecallName"] = boost::any(*recallName);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (statisPeriod) {
+      res["StatisPeriod"] = boost::any(*statisPeriod);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (toleranceValue) {
+      res["ToleranceValue"] = boost::any(*toleranceValue);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    if (newParam3) {
+      res["new-param-3"] = boost::any(*newParam3);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Event") != m.end() && !m["Event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["Event"]));
+    }
+    if (m.find("ItemConditionArray") != m.end() && !m["ItemConditionArray"].empty()) {
+      itemConditionArray = make_shared<string>(boost::any_cast<string>(m["ItemConditionArray"]));
+    }
+    if (m.find("ItemConditionExpress") != m.end() && !m["ItemConditionExpress"].empty()) {
+      itemConditionExpress = make_shared<string>(boost::any_cast<string>(m["ItemConditionExpress"]));
+    }
+    if (m.find("ItemConditionType") != m.end() && !m["ItemConditionType"].empty()) {
+      itemConditionType = make_shared<string>(boost::any_cast<string>(m["ItemConditionType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NewProductRegulation") != m.end() && !m["NewProductRegulation"].empty()) {
+      newProductRegulation = make_shared<bool>(boost::any_cast<bool>(m["NewProductRegulation"]));
+    }
+    if (m.find("RecallName") != m.end() && !m["RecallName"].empty()) {
+      recallName = make_shared<string>(boost::any_cast<string>(m["RecallName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StatisPeriod") != m.end() && !m["StatisPeriod"].empty()) {
+      statisPeriod = make_shared<string>(boost::any_cast<string>(m["StatisPeriod"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("ToleranceValue") != m.end() && !m["ToleranceValue"].empty()) {
+      toleranceValue = make_shared<long>(boost::any_cast<long>(m["ToleranceValue"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+    if (m.find("new-param-3") != m.end() && !m["new-param-3"].empty()) {
+      newParam3 = make_shared<string>(boost::any_cast<string>(m["new-param-3"]));
+    }
+  }
+
+
+  virtual ~UpdateTrafficControlTargetRequest() = default;
+};
+class UpdateTrafficControlTargetResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateTrafficControlTargetResponseBody() {}
+
+  explicit UpdateTrafficControlTargetResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateTrafficControlTargetResponseBody() = default;
+};
+class UpdateTrafficControlTargetResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateTrafficControlTargetResponseBody> body{};
+
+  UpdateTrafficControlTargetResponse() {}
+
+  explicit UpdateTrafficControlTargetResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateTrafficControlTargetResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateTrafficControlTargetResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateTrafficControlTargetResponse() = default;
+};
+class UpdateTrafficControlTaskRequestTrafficControlTargets : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> event{};
+  shared_ptr<string> itemConditionArray{};
+  shared_ptr<string> itemConditionExpress{};
+  shared_ptr<string> itemConditionType{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> newProductRegulation{};
+  shared_ptr<string> recallName{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> statisPeriod{};
+  shared_ptr<string> status{};
+  shared_ptr<long> toleranceValue{};
+  shared_ptr<double> value{};
+
+  UpdateTrafficControlTaskRequestTrafficControlTargets() {}
+
+  explicit UpdateTrafficControlTaskRequestTrafficControlTargets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (event) {
+      res["Event"] = boost::any(*event);
+    }
+    if (itemConditionArray) {
+      res["ItemConditionArray"] = boost::any(*itemConditionArray);
+    }
+    if (itemConditionExpress) {
+      res["ItemConditionExpress"] = boost::any(*itemConditionExpress);
+    }
+    if (itemConditionType) {
+      res["ItemConditionType"] = boost::any(*itemConditionType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (newProductRegulation) {
+      res["NewProductRegulation"] = boost::any(*newProductRegulation);
+    }
+    if (recallName) {
+      res["RecallName"] = boost::any(*recallName);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (statisPeriod) {
+      res["StatisPeriod"] = boost::any(*statisPeriod);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (toleranceValue) {
+      res["ToleranceValue"] = boost::any(*toleranceValue);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Event") != m.end() && !m["Event"].empty()) {
+      event = make_shared<string>(boost::any_cast<string>(m["Event"]));
+    }
+    if (m.find("ItemConditionArray") != m.end() && !m["ItemConditionArray"].empty()) {
+      itemConditionArray = make_shared<string>(boost::any_cast<string>(m["ItemConditionArray"]));
+    }
+    if (m.find("ItemConditionExpress") != m.end() && !m["ItemConditionExpress"].empty()) {
+      itemConditionExpress = make_shared<string>(boost::any_cast<string>(m["ItemConditionExpress"]));
+    }
+    if (m.find("ItemConditionType") != m.end() && !m["ItemConditionType"].empty()) {
+      itemConditionType = make_shared<string>(boost::any_cast<string>(m["ItemConditionType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NewProductRegulation") != m.end() && !m["NewProductRegulation"].empty()) {
+      newProductRegulation = make_shared<bool>(boost::any_cast<bool>(m["NewProductRegulation"]));
+    }
+    if (m.find("RecallName") != m.end() && !m["RecallName"].empty()) {
+      recallName = make_shared<string>(boost::any_cast<string>(m["RecallName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StatisPeriod") != m.end() && !m["StatisPeriod"].empty()) {
+      statisPeriod = make_shared<string>(boost::any_cast<string>(m["StatisPeriod"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("ToleranceValue") != m.end() && !m["ToleranceValue"].empty()) {
+      toleranceValue = make_shared<long>(boost::any_cast<long>(m["ToleranceValue"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateTrafficControlTaskRequestTrafficControlTargets() = default;
+};
+class UpdateTrafficControlTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> behaviorTableMetaId{};
+  shared_ptr<string> controlGranularity{};
+  shared_ptr<string> controlLogic{};
+  shared_ptr<string> controlType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> executionTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> itemConditionArray{};
+  shared_ptr<string> itemConditionExpress{};
+  shared_ptr<string> itemConditionType{};
+  shared_ptr<string> itemTableMetaId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> sceneId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> statisBaeaviorConditionArray{};
+  shared_ptr<string> statisBehaviorConditionExpress{};
+  shared_ptr<string> statisBehaviorConditionType{};
+  shared_ptr<vector<UpdateTrafficControlTaskRequestTrafficControlTargets>> trafficControlTargets{};
+  shared_ptr<string> userConditionArray{};
+  shared_ptr<string> userConditionExpress{};
+  shared_ptr<string> userConditionType{};
+  shared_ptr<string> userTableMetaId{};
+
+  UpdateTrafficControlTaskRequest() {}
+
+  explicit UpdateTrafficControlTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (behaviorTableMetaId) {
+      res["BehaviorTableMetaId"] = boost::any(*behaviorTableMetaId);
+    }
+    if (controlGranularity) {
+      res["ControlGranularity"] = boost::any(*controlGranularity);
+    }
+    if (controlLogic) {
+      res["ControlLogic"] = boost::any(*controlLogic);
+    }
+    if (controlType) {
+      res["ControlType"] = boost::any(*controlType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (executionTime) {
+      res["ExecutionTime"] = boost::any(*executionTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (itemConditionArray) {
+      res["ItemConditionArray"] = boost::any(*itemConditionArray);
+    }
+    if (itemConditionExpress) {
+      res["ItemConditionExpress"] = boost::any(*itemConditionExpress);
+    }
+    if (itemConditionType) {
+      res["ItemConditionType"] = boost::any(*itemConditionType);
+    }
+    if (itemTableMetaId) {
+      res["ItemTableMetaId"] = boost::any(*itemTableMetaId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (statisBaeaviorConditionArray) {
+      res["StatisBaeaviorConditionArray"] = boost::any(*statisBaeaviorConditionArray);
+    }
+    if (statisBehaviorConditionExpress) {
+      res["StatisBehaviorConditionExpress"] = boost::any(*statisBehaviorConditionExpress);
+    }
+    if (statisBehaviorConditionType) {
+      res["StatisBehaviorConditionType"] = boost::any(*statisBehaviorConditionType);
+    }
+    if (trafficControlTargets) {
+      vector<boost::any> temp1;
+      for(auto item1:*trafficControlTargets){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TrafficControlTargets"] = boost::any(temp1);
+    }
+    if (userConditionArray) {
+      res["UserConditionArray"] = boost::any(*userConditionArray);
+    }
+    if (userConditionExpress) {
+      res["UserConditionExpress"] = boost::any(*userConditionExpress);
+    }
+    if (userConditionType) {
+      res["UserConditionType"] = boost::any(*userConditionType);
+    }
+    if (userTableMetaId) {
+      res["UserTableMetaId"] = boost::any(*userTableMetaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BehaviorTableMetaId") != m.end() && !m["BehaviorTableMetaId"].empty()) {
+      behaviorTableMetaId = make_shared<string>(boost::any_cast<string>(m["BehaviorTableMetaId"]));
+    }
+    if (m.find("ControlGranularity") != m.end() && !m["ControlGranularity"].empty()) {
+      controlGranularity = make_shared<string>(boost::any_cast<string>(m["ControlGranularity"]));
+    }
+    if (m.find("ControlLogic") != m.end() && !m["ControlLogic"].empty()) {
+      controlLogic = make_shared<string>(boost::any_cast<string>(m["ControlLogic"]));
+    }
+    if (m.find("ControlType") != m.end() && !m["ControlType"].empty()) {
+      controlType = make_shared<string>(boost::any_cast<string>(m["ControlType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("ExecutionTime") != m.end() && !m["ExecutionTime"].empty()) {
+      executionTime = make_shared<string>(boost::any_cast<string>(m["ExecutionTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ItemConditionArray") != m.end() && !m["ItemConditionArray"].empty()) {
+      itemConditionArray = make_shared<string>(boost::any_cast<string>(m["ItemConditionArray"]));
+    }
+    if (m.find("ItemConditionExpress") != m.end() && !m["ItemConditionExpress"].empty()) {
+      itemConditionExpress = make_shared<string>(boost::any_cast<string>(m["ItemConditionExpress"]));
+    }
+    if (m.find("ItemConditionType") != m.end() && !m["ItemConditionType"].empty()) {
+      itemConditionType = make_shared<string>(boost::any_cast<string>(m["ItemConditionType"]));
+    }
+    if (m.find("ItemTableMetaId") != m.end() && !m["ItemTableMetaId"].empty()) {
+      itemTableMetaId = make_shared<string>(boost::any_cast<string>(m["ItemTableMetaId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("StatisBaeaviorConditionArray") != m.end() && !m["StatisBaeaviorConditionArray"].empty()) {
+      statisBaeaviorConditionArray = make_shared<string>(boost::any_cast<string>(m["StatisBaeaviorConditionArray"]));
+    }
+    if (m.find("StatisBehaviorConditionExpress") != m.end() && !m["StatisBehaviorConditionExpress"].empty()) {
+      statisBehaviorConditionExpress = make_shared<string>(boost::any_cast<string>(m["StatisBehaviorConditionExpress"]));
+    }
+    if (m.find("StatisBehaviorConditionType") != m.end() && !m["StatisBehaviorConditionType"].empty()) {
+      statisBehaviorConditionType = make_shared<string>(boost::any_cast<string>(m["StatisBehaviorConditionType"]));
+    }
+    if (m.find("TrafficControlTargets") != m.end() && !m["TrafficControlTargets"].empty()) {
+      if (typeid(vector<boost::any>) == m["TrafficControlTargets"].type()) {
+        vector<UpdateTrafficControlTaskRequestTrafficControlTargets> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TrafficControlTargets"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateTrafficControlTaskRequestTrafficControlTargets model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        trafficControlTargets = make_shared<vector<UpdateTrafficControlTaskRequestTrafficControlTargets>>(expect1);
+      }
+    }
+    if (m.find("UserConditionArray") != m.end() && !m["UserConditionArray"].empty()) {
+      userConditionArray = make_shared<string>(boost::any_cast<string>(m["UserConditionArray"]));
+    }
+    if (m.find("UserConditionExpress") != m.end() && !m["UserConditionExpress"].empty()) {
+      userConditionExpress = make_shared<string>(boost::any_cast<string>(m["UserConditionExpress"]));
+    }
+    if (m.find("UserConditionType") != m.end() && !m["UserConditionType"].empty()) {
+      userConditionType = make_shared<string>(boost::any_cast<string>(m["UserConditionType"]));
+    }
+    if (m.find("UserTableMetaId") != m.end() && !m["UserTableMetaId"].empty()) {
+      userTableMetaId = make_shared<string>(boost::any_cast<string>(m["UserTableMetaId"]));
+    }
+  }
+
+
+  virtual ~UpdateTrafficControlTaskRequest() = default;
+};
+class UpdateTrafficControlTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateTrafficControlTaskResponseBody() {}
+
+  explicit UpdateTrafficControlTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateTrafficControlTaskResponseBody() = default;
+};
+class UpdateTrafficControlTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateTrafficControlTaskResponseBody> body{};
+
+  UpdateTrafficControlTaskResponse() {}
+
+  explicit UpdateTrafficControlTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateTrafficControlTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateTrafficControlTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateTrafficControlTaskResponse() = default;
+};
+class UpdateTrafficControlTaskTrafficRequestTraffics : public Darabonba::Model {
+public:
+  shared_ptr<string> itemOrExperimentId{};
+  shared_ptr<string> recordTime{};
+  shared_ptr<double> trafficControlTargetAimTraffic{};
+  shared_ptr<string> trafficControlTargetId{};
+  shared_ptr<long> trafficControlTargetTraffic{};
+  shared_ptr<long> trafficControlTaskTraffic{};
+
+  UpdateTrafficControlTaskTrafficRequestTraffics() {}
+
+  explicit UpdateTrafficControlTaskTrafficRequestTraffics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (itemOrExperimentId) {
+      res["ItemOrExperimentId"] = boost::any(*itemOrExperimentId);
+    }
+    if (recordTime) {
+      res["RecordTime"] = boost::any(*recordTime);
+    }
+    if (trafficControlTargetAimTraffic) {
+      res["TrafficControlTargetAimTraffic"] = boost::any(*trafficControlTargetAimTraffic);
+    }
+    if (trafficControlTargetId) {
+      res["TrafficControlTargetId"] = boost::any(*trafficControlTargetId);
+    }
+    if (trafficControlTargetTraffic) {
+      res["TrafficControlTargetTraffic"] = boost::any(*trafficControlTargetTraffic);
+    }
+    if (trafficControlTaskTraffic) {
+      res["TrafficControlTaskTraffic"] = boost::any(*trafficControlTaskTraffic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ItemOrExperimentId") != m.end() && !m["ItemOrExperimentId"].empty()) {
+      itemOrExperimentId = make_shared<string>(boost::any_cast<string>(m["ItemOrExperimentId"]));
+    }
+    if (m.find("RecordTime") != m.end() && !m["RecordTime"].empty()) {
+      recordTime = make_shared<string>(boost::any_cast<string>(m["RecordTime"]));
+    }
+    if (m.find("TrafficControlTargetAimTraffic") != m.end() && !m["TrafficControlTargetAimTraffic"].empty()) {
+      trafficControlTargetAimTraffic = make_shared<double>(boost::any_cast<double>(m["TrafficControlTargetAimTraffic"]));
+    }
+    if (m.find("TrafficControlTargetId") != m.end() && !m["TrafficControlTargetId"].empty()) {
+      trafficControlTargetId = make_shared<string>(boost::any_cast<string>(m["TrafficControlTargetId"]));
+    }
+    if (m.find("TrafficControlTargetTraffic") != m.end() && !m["TrafficControlTargetTraffic"].empty()) {
+      trafficControlTargetTraffic = make_shared<long>(boost::any_cast<long>(m["TrafficControlTargetTraffic"]));
+    }
+    if (m.find("TrafficControlTaskTraffic") != m.end() && !m["TrafficControlTaskTraffic"].empty()) {
+      trafficControlTaskTraffic = make_shared<long>(boost::any_cast<long>(m["TrafficControlTaskTraffic"]));
+    }
+  }
+
+
+  virtual ~UpdateTrafficControlTaskTrafficRequestTraffics() = default;
+};
+class UpdateTrafficControlTaskTrafficRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> environment{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<vector<UpdateTrafficControlTaskTrafficRequestTraffics>> traffics{};
+  shared_ptr<string> newParam3{};
+
+  UpdateTrafficControlTaskTrafficRequest() {}
+
+  explicit UpdateTrafficControlTaskTrafficRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (environment) {
+      res["Environment"] = boost::any(*environment);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (traffics) {
+      vector<boost::any> temp1;
+      for(auto item1:*traffics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Traffics"] = boost::any(temp1);
+    }
+    if (newParam3) {
+      res["new-param-3"] = boost::any(*newParam3);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Environment") != m.end() && !m["Environment"].empty()) {
+      environment = make_shared<string>(boost::any_cast<string>(m["Environment"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Traffics") != m.end() && !m["Traffics"].empty()) {
+      if (typeid(vector<boost::any>) == m["Traffics"].type()) {
+        vector<UpdateTrafficControlTaskTrafficRequestTraffics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Traffics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateTrafficControlTaskTrafficRequestTraffics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        traffics = make_shared<vector<UpdateTrafficControlTaskTrafficRequestTraffics>>(expect1);
+      }
+    }
+    if (m.find("new-param-3") != m.end() && !m["new-param-3"].empty()) {
+      newParam3 = make_shared<string>(boost::any_cast<string>(m["new-param-3"]));
+    }
+  }
+
+
+  virtual ~UpdateTrafficControlTaskTrafficRequest() = default;
+};
+class UpdateTrafficControlTaskTrafficResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateTrafficControlTaskTrafficResponseBody() {}
+
+  explicit UpdateTrafficControlTaskTrafficResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateTrafficControlTaskTrafficResponseBody() = default;
+};
+class UpdateTrafficControlTaskTrafficResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateTrafficControlTaskTrafficResponseBody> body{};
+
+  UpdateTrafficControlTaskTrafficResponse() {}
+
+  explicit UpdateTrafficControlTaskTrafficResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateTrafficControlTaskTrafficResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateTrafficControlTaskTrafficResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateTrafficControlTaskTrafficResponse() = default;
+};
 class UploadRecommendationDataRequestContent : public Darabonba::Model {
 public:
   shared_ptr<string> fields{};
@@ -18889,6 +23554,11 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CloneLaboratoryResponse cloneLaboratory(shared_ptr<string> LaboratoryId, shared_ptr<CloneLaboratoryRequest> request);
+  CloneTrafficControlTaskResponse cloneTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                     shared_ptr<CloneTrafficControlTaskRequest> request,
+                                                                     shared_ptr<map<string, string>> headers,
+                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CloneTrafficControlTaskResponse cloneTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<CloneTrafficControlTaskRequest> request);
   CreateABMetricResponse createABMetricWithOptions(shared_ptr<CreateABMetricRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateABMetricResponse createABMetric(shared_ptr<CreateABMetricRequest> request);
   CreateABMetricGroupResponse createABMetricGroupWithOptions(shared_ptr<CreateABMetricGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -18932,6 +23602,10 @@ public:
   CreateSubCrowdResponse createSubCrowd(shared_ptr<string> CrowdId, shared_ptr<CreateSubCrowdRequest> request);
   CreateTableMetaResponse createTableMetaWithOptions(shared_ptr<CreateTableMetaRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTableMetaResponse createTableMeta(shared_ptr<CreateTableMetaRequest> request);
+  CreateTrafficControlTargetResponse createTrafficControlTargetWithOptions(shared_ptr<CreateTrafficControlTargetRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateTrafficControlTargetResponse createTrafficControlTarget(shared_ptr<CreateTrafficControlTargetRequest> request);
+  CreateTrafficControlTaskResponse createTrafficControlTaskWithOptions(shared_ptr<CreateTrafficControlTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateTrafficControlTaskResponse createTrafficControlTask(shared_ptr<CreateTrafficControlTaskRequest> request);
   DebugResourceRuleResponse debugResourceRuleWithOptions(shared_ptr<string> ResourceRuleId,
                                                          shared_ptr<DebugResourceRuleRequest> tmpReq,
                                                          shared_ptr<map<string, string>> headers,
@@ -19009,6 +23683,26 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteTableMetaResponse deleteTableMeta(shared_ptr<string> TableMetaId, shared_ptr<DeleteTableMetaRequest> request);
+  DeleteTrafficControlTargetResponse deleteTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                           shared_ptr<DeleteTrafficControlTargetRequest> request,
+                                                                           shared_ptr<map<string, string>> headers,
+                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteTrafficControlTargetResponse deleteTrafficControlTarget(shared_ptr<string> TrafficControlTargetId, shared_ptr<DeleteTrafficControlTargetRequest> request);
+  DeleteTrafficControlTaskResponse deleteTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                       shared_ptr<DeleteTrafficControlTaskRequest> request,
+                                                                       shared_ptr<map<string, string>> headers,
+                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteTrafficControlTaskResponse deleteTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<DeleteTrafficControlTaskRequest> request);
+  GenerateTrafficControlTaskCodeResponse generateTrafficControlTaskCodeWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                   shared_ptr<GenerateTrafficControlTaskCodeRequest> request,
+                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateTrafficControlTaskCodeResponse generateTrafficControlTaskCode(shared_ptr<string> TrafficControlTaskId, shared_ptr<GenerateTrafficControlTaskCodeRequest> request);
+  GenerateTrafficControlTaskConfigResponse generateTrafficControlTaskConfigWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                       shared_ptr<GenerateTrafficControlTaskConfigRequest> request,
+                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateTrafficControlTaskConfigResponse generateTrafficControlTaskConfig(shared_ptr<string> TrafficControlTaskId, shared_ptr<GenerateTrafficControlTaskConfigRequest> request);
   GetABMetricResponse getABMetricWithOptions(shared_ptr<string> ABMetricId,
                                              shared_ptr<GetABMetricRequest> request,
                                              shared_ptr<map<string, string>> headers,
@@ -19088,6 +23782,21 @@ public:
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTableMetaResponse getTableMeta(shared_ptr<string> TableMetaId, shared_ptr<GetTableMetaRequest> request);
+  GetTrafficControlTargetResponse getTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                     shared_ptr<GetTrafficControlTargetRequest> request,
+                                                                     shared_ptr<map<string, string>> headers,
+                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetTrafficControlTargetResponse getTrafficControlTarget(shared_ptr<string> TrafficControlTargetId, shared_ptr<GetTrafficControlTargetRequest> request);
+  GetTrafficControlTaskResponse getTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                 shared_ptr<GetTrafficControlTaskRequest> request,
+                                                                 shared_ptr<map<string, string>> headers,
+                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetTrafficControlTaskResponse getTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<GetTrafficControlTaskRequest> request);
+  GetTrafficControlTaskTrafficResponse getTrafficControlTaskTrafficWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                               shared_ptr<GetTrafficControlTaskTrafficRequest> request,
+                                                                               shared_ptr<map<string, string>> headers,
+                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetTrafficControlTaskTrafficResponse getTrafficControlTaskTraffic(shared_ptr<string> TrafficControlTaskId, shared_ptr<GetTrafficControlTaskTrafficRequest> request);
   ListABMetricGroupsResponse listABMetricGroupsWithOptions(shared_ptr<ListABMetricGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListABMetricGroupsResponse listABMetricGroups(shared_ptr<ListABMetricGroupsRequest> request);
   ListABMetricsResponse listABMetricsWithOptions(shared_ptr<ListABMetricsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19143,6 +23852,13 @@ public:
   ListSubCrowdsResponse listSubCrowds(shared_ptr<string> CrowdId, shared_ptr<ListSubCrowdsRequest> request);
   ListTableMetasResponse listTableMetasWithOptions(shared_ptr<ListTableMetasRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTableMetasResponse listTableMetas(shared_ptr<ListTableMetasRequest> request);
+  ListTrafficControlTargetTrafficHistoryResponse listTrafficControlTargetTrafficHistoryWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                                                   shared_ptr<ListTrafficControlTargetTrafficHistoryRequest> request,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListTrafficControlTargetTrafficHistoryResponse listTrafficControlTargetTrafficHistory(shared_ptr<string> TrafficControlTargetId, shared_ptr<ListTrafficControlTargetTrafficHistoryRequest> request);
+  ListTrafficControlTasksResponse listTrafficControlTasksWithOptions(shared_ptr<ListTrafficControlTasksRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListTrafficControlTasksResponse listTrafficControlTasks(shared_ptr<ListTrafficControlTasksRequest> request);
   OfflineExperimentResponse offlineExperimentWithOptions(shared_ptr<string> ExperimentId,
                                                          shared_ptr<OfflineExperimentRequest> request,
                                                          shared_ptr<map<string, string>> headers,
@@ -19183,11 +23899,41 @@ public:
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PushResourceRuleResponse pushResourceRule(shared_ptr<string> ResourceRuleId, shared_ptr<PushResourceRuleRequest> request);
+  ReleaseTrafficControlTaskResponse releaseTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                         shared_ptr<ReleaseTrafficControlTaskRequest> request,
+                                                                         shared_ptr<map<string, string>> headers,
+                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ReleaseTrafficControlTaskResponse releaseTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<ReleaseTrafficControlTaskRequest> request);
   ReportABMetricGroupResponse reportABMetricGroupWithOptions(shared_ptr<string> ABMetricGroupId,
                                                              shared_ptr<ReportABMetricGroupRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReportABMetricGroupResponse reportABMetricGroup(shared_ptr<string> ABMetricGroupId, shared_ptr<ReportABMetricGroupRequest> request);
+  SplitTrafficControlTargetResponse splitTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                         shared_ptr<SplitTrafficControlTargetRequest> request,
+                                                                         shared_ptr<map<string, string>> headers,
+                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SplitTrafficControlTargetResponse splitTrafficControlTarget(shared_ptr<string> TrafficControlTargetId, shared_ptr<SplitTrafficControlTargetRequest> request);
+  StartTrafficControlTargetResponse startTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                         shared_ptr<StartTrafficControlTargetRequest> request,
+                                                                         shared_ptr<map<string, string>> headers,
+                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartTrafficControlTargetResponse startTrafficControlTarget(shared_ptr<string> TrafficControlTargetId, shared_ptr<StartTrafficControlTargetRequest> request);
+  StartTrafficControlTaskResponse startTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                     shared_ptr<StartTrafficControlTaskRequest> request,
+                                                                     shared_ptr<map<string, string>> headers,
+                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartTrafficControlTaskResponse startTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<StartTrafficControlTaskRequest> request);
+  StopTrafficControlTargetResponse stopTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                       shared_ptr<StopTrafficControlTargetRequest> request,
+                                                                       shared_ptr<map<string, string>> headers,
+                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopTrafficControlTargetResponse stopTrafficControlTarget(shared_ptr<string> TrafficControlTargetId, shared_ptr<StopTrafficControlTargetRequest> request);
+  StopTrafficControlTaskResponse stopTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                   shared_ptr<StopTrafficControlTaskRequest> request,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopTrafficControlTaskResponse stopTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<StopTrafficControlTaskRequest> request);
   SyncFeatureConsistencyCheckJobReplayLogResponse syncFeatureConsistencyCheckJobReplayLogWithOptions(shared_ptr<SyncFeatureConsistencyCheckJobReplayLogRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SyncFeatureConsistencyCheckJobReplayLogResponse syncFeatureConsistencyCheckJobReplayLog(shared_ptr<SyncFeatureConsistencyCheckJobReplayLogRequest> request);
   TerminateFeatureConsistencyCheckJobResponse terminateFeatureConsistencyCheckJobWithOptions(shared_ptr<string> FeatureConsistencyCheckJobId,
@@ -19267,6 +24013,21 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateTableMetaResponse updateTableMeta(shared_ptr<string> TableMetaId, shared_ptr<UpdateTableMetaRequest> request);
+  UpdateTrafficControlTargetResponse updateTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                           shared_ptr<UpdateTrafficControlTargetRequest> request,
+                                                                           shared_ptr<map<string, string>> headers,
+                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateTrafficControlTargetResponse updateTrafficControlTarget(shared_ptr<string> TrafficControlTargetId, shared_ptr<UpdateTrafficControlTargetRequest> request);
+  UpdateTrafficControlTaskResponse updateTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                       shared_ptr<UpdateTrafficControlTaskRequest> request,
+                                                                       shared_ptr<map<string, string>> headers,
+                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateTrafficControlTaskResponse updateTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<UpdateTrafficControlTaskRequest> request);
+  UpdateTrafficControlTaskTrafficResponse updateTrafficControlTaskTrafficWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                     shared_ptr<UpdateTrafficControlTaskTrafficRequest> request,
+                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateTrafficControlTaskTrafficResponse updateTrafficControlTaskTraffic(shared_ptr<string> TrafficControlTaskId, shared_ptr<UpdateTrafficControlTaskTrafficRequest> request);
   UploadRecommendationDataResponse uploadRecommendationDataWithOptions(shared_ptr<UploadRecommendationDataRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UploadRecommendationDataResponse uploadRecommendationData(shared_ptr<UploadRecommendationDataRequest> request);
 

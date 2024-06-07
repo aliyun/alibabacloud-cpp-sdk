@@ -274,6 +274,39 @@ CloneLaboratoryResponse Alibabacloud_PaiRecService20221213::Client::cloneLaborat
   return cloneLaboratoryWithOptions(LaboratoryId, request, headers, runtime);
 }
 
+CloneTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::cloneTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                                               shared_ptr<CloneTrafficControlTaskRequest> request,
+                                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CloneTrafficControlTask"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/action/clone"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CloneTrafficControlTaskResponse(callApi(params, req, runtime));
+}
+
+CloneTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::cloneTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<CloneTrafficControlTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return cloneTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+}
+
 CreateABMetricResponse Alibabacloud_PaiRecService20221213::Client::createABMetricWithOptions(shared_ptr<CreateABMetricRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1168,6 +1201,171 @@ CreateTableMetaResponse Alibabacloud_PaiRecService20221213::Client::createTableM
   return createTableMetaWithOptions(request, headers, runtime);
 }
 
+CreateTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::createTrafficControlTargetWithOptions(shared_ptr<CreateTrafficControlTargetRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    body->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->event)) {
+    body->insert(pair<string, string>("Event", *request->event));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemConditionArray)) {
+    body->insert(pair<string, string>("ItemConditionArray", *request->itemConditionArray));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemConditionExpress)) {
+    body->insert(pair<string, string>("ItemConditionExpress", *request->itemConditionExpress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemConditionType)) {
+    body->insert(pair<string, string>("ItemConditionType", *request->itemConditionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->newProductRegulation)) {
+    body->insert(pair<string, bool>("NewProductRegulation", *request->newProductRegulation));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recallName)) {
+    body->insert(pair<string, string>("RecallName", *request->recallName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    body->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statisPeriod)) {
+    body->insert(pair<string, string>("StatisPeriod", *request->statisPeriod));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    body->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->toleranceValue)) {
+    body->insert(pair<string, long>("ToleranceValue", *request->toleranceValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trafficControlTaskId)) {
+    body->insert(pair<string, string>("TrafficControlTaskId", *request->trafficControlTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->value)) {
+    body->insert(pair<string, double>("Value", *request->value));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateTrafficControlTarget"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltargets"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateTrafficControlTargetResponse(callApi(params, req, runtime));
+}
+
+CreateTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::createTrafficControlTarget(shared_ptr<CreateTrafficControlTargetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createTrafficControlTargetWithOptions(request, headers, runtime);
+}
+
+CreateTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::createTrafficControlTaskWithOptions(shared_ptr<CreateTrafficControlTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->behaviorTableMetaId)) {
+    body->insert(pair<string, string>("BehaviorTableMetaId", *request->behaviorTableMetaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->controlGranularity)) {
+    body->insert(pair<string, string>("ControlGranularity", *request->controlGranularity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->controlLogic)) {
+    body->insert(pair<string, string>("ControlLogic", *request->controlLogic));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->controlType)) {
+    body->insert(pair<string, string>("ControlType", *request->controlType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    body->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->executionTime)) {
+    body->insert(pair<string, string>("ExecutionTime", *request->executionTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemConditionArray)) {
+    body->insert(pair<string, string>("ItemConditionArray", *request->itemConditionArray));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemConditionExpress)) {
+    body->insert(pair<string, string>("ItemConditionExpress", *request->itemConditionExpress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemConditionType)) {
+    body->insert(pair<string, string>("ItemConditionType", *request->itemConditionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemTableMetaId)) {
+    body->insert(pair<string, string>("ItemTableMetaId", *request->itemTableMetaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneId)) {
+    body->insert(pair<string, string>("SceneId", *request->sceneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    body->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statisBehaviorConditionArray)) {
+    body->insert(pair<string, string>("StatisBehaviorConditionArray", *request->statisBehaviorConditionArray));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statisBehaviorConditionExpress)) {
+    body->insert(pair<string, string>("StatisBehaviorConditionExpress", *request->statisBehaviorConditionExpress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statisBehaviorConditionType)) {
+    body->insert(pair<string, string>("StatisBehaviorConditionType", *request->statisBehaviorConditionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateTrafficControlTaskRequestTrafficControlTargets>>(request->trafficControlTargets)) {
+    body->insert(pair<string, vector<CreateTrafficControlTaskRequestTrafficControlTargets>>("TrafficControlTargets", *request->trafficControlTargets));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userConditionArray)) {
+    body->insert(pair<string, string>("UserConditionArray", *request->userConditionArray));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userConditionExpress)) {
+    body->insert(pair<string, string>("UserConditionExpress", *request->userConditionExpress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userConditionType)) {
+    body->insert(pair<string, string>("UserConditionType", *request->userConditionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userTableMetaId)) {
+    body->insert(pair<string, string>("UserTableMetaId", *request->userTableMetaId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateTrafficControlTask"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateTrafficControlTaskResponse(callApi(params, req, runtime));
+}
+
+CreateTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::createTrafficControlTask(shared_ptr<CreateTrafficControlTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createTrafficControlTaskWithOptions(request, headers, runtime);
+}
+
 DebugResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::debugResourceRuleWithOptions(shared_ptr<string> ResourceRuleId,
                                                                                                    shared_ptr<DebugResourceRuleRequest> tmpReq,
                                                                                                    shared_ptr<map<string, string>> headers,
@@ -1668,6 +1866,138 @@ DeleteTableMetaResponse Alibabacloud_PaiRecService20221213::Client::deleteTableM
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return deleteTableMetaWithOptions(TableMetaId, request, headers, runtime);
+}
+
+DeleteTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::deleteTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                                                                     shared_ptr<DeleteTrafficControlTargetRequest> request,
+                                                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteTrafficControlTarget"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltargets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTargetId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteTrafficControlTargetResponse(callApi(params, req, runtime));
+}
+
+DeleteTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::deleteTrafficControlTarget(shared_ptr<string> TrafficControlTargetId, shared_ptr<DeleteTrafficControlTargetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteTrafficControlTargetWithOptions(TrafficControlTargetId, request, headers, runtime);
+}
+
+DeleteTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::deleteTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                                                 shared_ptr<DeleteTrafficControlTaskRequest> request,
+                                                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteTrafficControlTask"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteTrafficControlTaskResponse(callApi(params, req, runtime));
+}
+
+DeleteTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::deleteTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<DeleteTrafficControlTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+}
+
+GenerateTrafficControlTaskCodeResponse Alibabacloud_PaiRecService20221213::Client::generateTrafficControlTaskCodeWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                                                             shared_ptr<GenerateTrafficControlTaskCodeRequest> request,
+                                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GenerateTrafficControlTaskCode"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/action/code"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GenerateTrafficControlTaskCodeResponse(callApi(params, req, runtime));
+}
+
+GenerateTrafficControlTaskCodeResponse Alibabacloud_PaiRecService20221213::Client::generateTrafficControlTaskCode(shared_ptr<string> TrafficControlTaskId, shared_ptr<GenerateTrafficControlTaskCodeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return generateTrafficControlTaskCodeWithOptions(TrafficControlTaskId, request, headers, runtime);
+}
+
+GenerateTrafficControlTaskConfigResponse Alibabacloud_PaiRecService20221213::Client::generateTrafficControlTaskConfigWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                                                                 shared_ptr<GenerateTrafficControlTaskConfigRequest> request,
+                                                                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GenerateTrafficControlTaskConfig"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/action/config"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GenerateTrafficControlTaskConfigResponse(callApi(params, req, runtime));
+}
+
+GenerateTrafficControlTaskConfigResponse Alibabacloud_PaiRecService20221213::Client::generateTrafficControlTaskConfig(shared_ptr<string> TrafficControlTaskId, shared_ptr<GenerateTrafficControlTaskConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return generateTrafficControlTaskConfigWithOptions(TrafficControlTaskId, request, headers, runtime);
 }
 
 GetABMetricResponse Alibabacloud_PaiRecService20221213::Client::getABMetricWithOptions(shared_ptr<string> ABMetricId,
@@ -2177,6 +2507,120 @@ GetTableMetaResponse Alibabacloud_PaiRecService20221213::Client::getTableMeta(sh
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getTableMetaWithOptions(TableMetaId, request, headers, runtime);
+}
+
+GetTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::getTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                                                               shared_ptr<GetTrafficControlTargetRequest> request,
+                                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTrafficControlTarget"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltargets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTargetId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTrafficControlTargetResponse(callApi(params, req, runtime));
+}
+
+GetTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::getTrafficControlTarget(shared_ptr<string> TrafficControlTargetId, shared_ptr<GetTrafficControlTargetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getTrafficControlTargetWithOptions(TrafficControlTargetId, request, headers, runtime);
+}
+
+GetTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::getTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                                           shared_ptr<GetTrafficControlTaskRequest> request,
+                                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->controlTargetFilter)) {
+    query->insert(pair<string, string>("ControlTargetFilter", *request->controlTargetFilter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->environment)) {
+    query->insert(pair<string, string>("Environment", *request->environment));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
+    query->insert(pair<string, string>("Version", *request->version));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTrafficControlTask"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTrafficControlTaskResponse(callApi(params, req, runtime));
+}
+
+GetTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::getTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<GetTrafficControlTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+}
+
+GetTrafficControlTaskTrafficResponse Alibabacloud_PaiRecService20221213::Client::getTrafficControlTaskTrafficWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                                                         shared_ptr<GetTrafficControlTaskTrafficRequest> request,
+                                                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->environment)) {
+    query->insert(pair<string, string>("Environment", *request->environment));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTrafficControlTaskTraffic"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/action/traffic"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTrafficControlTaskTrafficResponse(callApi(params, req, runtime));
+}
+
+GetTrafficControlTaskTrafficResponse Alibabacloud_PaiRecService20221213::Client::getTrafficControlTaskTraffic(shared_ptr<string> TrafficControlTaskId, shared_ptr<GetTrafficControlTaskTrafficRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getTrafficControlTaskTrafficWithOptions(TrafficControlTaskId, request, headers, runtime);
 }
 
 ListABMetricGroupsResponse Alibabacloud_PaiRecService20221213::Client::listABMetricGroupsWithOptions(shared_ptr<ListABMetricGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2994,6 +3438,126 @@ ListTableMetasResponse Alibabacloud_PaiRecService20221213::Client::listTableMeta
   return listTableMetasWithOptions(request, headers, runtime);
 }
 
+ListTrafficControlTargetTrafficHistoryResponse Alibabacloud_PaiRecService20221213::Client::listTrafficControlTargetTrafficHistoryWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                                                                                             shared_ptr<ListTrafficControlTargetTrafficHistoryRequest> request,
+                                                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->environment)) {
+    query->insert(pair<string, string>("Environment", *request->environment));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->experimentGroupId)) {
+    query->insert(pair<string, string>("ExperimentGroupId", *request->experimentGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->experimentId)) {
+    query->insert(pair<string, string>("ExperimentId", *request->experimentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemId)) {
+    query->insert(pair<string, string>("ItemId", *request->itemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->threshold)) {
+    query->insert(pair<string, string>("Threshold", *request->threshold));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTrafficControlTargetTrafficHistory"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltargets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTargetId)) + string("/action/traffichistory"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTrafficControlTargetTrafficHistoryResponse(callApi(params, req, runtime));
+}
+
+ListTrafficControlTargetTrafficHistoryResponse Alibabacloud_PaiRecService20221213::Client::listTrafficControlTargetTrafficHistory(shared_ptr<string> TrafficControlTargetId, shared_ptr<ListTrafficControlTargetTrafficHistoryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listTrafficControlTargetTrafficHistoryWithOptions(TrafficControlTargetId, request, headers, runtime);
+}
+
+ListTrafficControlTasksResponse Alibabacloud_PaiRecService20221213::Client::listTrafficControlTasksWithOptions(shared_ptr<ListTrafficControlTasksRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->all)) {
+    query->insert(pair<string, bool>("All", *request->all));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->controlTargetFilter)) {
+    query->insert(pair<string, string>("ControlTargetFilter", *request->controlTargetFilter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->environment)) {
+    query->insert(pair<string, string>("Environment", *request->environment));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    query->insert(pair<string, string>("Order", *request->order));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageNumber)) {
+    query->insert(pair<string, string>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneId)) {
+    query->insert(pair<string, string>("SceneId", *request->sceneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
+    query->insert(pair<string, string>("SortBy", *request->sortBy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trafficControlTaskId)) {
+    query->insert(pair<string, string>("TrafficControlTaskId", *request->trafficControlTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
+    query->insert(pair<string, string>("Version", *request->version));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTrafficControlTasks"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTrafficControlTasksResponse(callApi(params, req, runtime));
+}
+
+ListTrafficControlTasksResponse Alibabacloud_PaiRecService20221213::Client::listTrafficControlTasks(shared_ptr<ListTrafficControlTasksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listTrafficControlTasksWithOptions(request, headers, runtime);
+}
+
 OfflineExperimentResponse Alibabacloud_PaiRecService20221213::Client::offlineExperimentWithOptions(shared_ptr<string> ExperimentId,
                                                                                                    shared_ptr<OfflineExperimentRequest> request,
                                                                                                    shared_ptr<map<string, string>> headers,
@@ -3266,6 +3830,42 @@ PushResourceRuleResponse Alibabacloud_PaiRecService20221213::Client::pushResourc
   return pushResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
 }
 
+ReleaseTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::releaseTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                                                   shared_ptr<ReleaseTrafficControlTaskRequest> request,
+                                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->environment)) {
+    body->insert(pair<string, string>("Environment", *request->environment));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ReleaseTrafficControlTask"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/action/release"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ReleaseTrafficControlTaskResponse(callApi(params, req, runtime));
+}
+
+ReleaseTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::releaseTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<ReleaseTrafficControlTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return releaseTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+}
+
 ReportABMetricGroupResponse Alibabacloud_PaiRecService20221213::Client::reportABMetricGroupWithOptions(shared_ptr<string> ABMetricGroupId,
                                                                                                        shared_ptr<ReportABMetricGroupRequest> request,
                                                                                                        shared_ptr<map<string, string>> headers,
@@ -3324,6 +3924,191 @@ ReportABMetricGroupResponse Alibabacloud_PaiRecService20221213::Client::reportAB
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return reportABMetricGroupWithOptions(ABMetricGroupId, request, headers, runtime);
+}
+
+SplitTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::splitTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                                                                   shared_ptr<SplitTrafficControlTargetRequest> request,
+                                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->environment)) {
+    body->insert(pair<string, string>("Environment", *request->environment));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->setValues)) {
+    body->insert(pair<string, vector<long>>("SetValues", *request->setValues));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->timePoints)) {
+    body->insert(pair<string, vector<long>>("TimePoints", *request->timePoints));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SplitTrafficControlTarget"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltargets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTargetId)) + string("/action/split"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SplitTrafficControlTargetResponse(callApi(params, req, runtime));
+}
+
+SplitTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::splitTrafficControlTarget(shared_ptr<string> TrafficControlTargetId, shared_ptr<SplitTrafficControlTargetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return splitTrafficControlTargetWithOptions(TrafficControlTargetId, request, headers, runtime);
+}
+
+StartTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::startTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                                                                   shared_ptr<StartTrafficControlTargetRequest> request,
+                                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartTrafficControlTarget"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltargets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTargetId)) + string("/action/start"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartTrafficControlTargetResponse(callApi(params, req, runtime));
+}
+
+StartTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::startTrafficControlTarget(shared_ptr<string> TrafficControlTargetId, shared_ptr<StartTrafficControlTargetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return startTrafficControlTargetWithOptions(TrafficControlTargetId, request, headers, runtime);
+}
+
+StartTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::startTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                                               shared_ptr<StartTrafficControlTaskRequest> request,
+                                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->environment)) {
+    body->insert(pair<string, string>("Environment", *request->environment));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartTrafficControlTask"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/action/start"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartTrafficControlTaskResponse(callApi(params, req, runtime));
+}
+
+StartTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::startTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<StartTrafficControlTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return startTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+}
+
+StopTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::stopTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                                                                 shared_ptr<StopTrafficControlTargetRequest> request,
+                                                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopTrafficControlTarget"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltargets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTargetId)) + string("/action/stop"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopTrafficControlTargetResponse(callApi(params, req, runtime));
+}
+
+StopTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::stopTrafficControlTarget(shared_ptr<string> TrafficControlTargetId, shared_ptr<StopTrafficControlTargetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return stopTrafficControlTargetWithOptions(TrafficControlTargetId, request, headers, runtime);
+}
+
+StopTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::stopTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                                             shared_ptr<StopTrafficControlTaskRequest> request,
+                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->environment)) {
+    body->insert(pair<string, string>("Environment", *request->environment));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopTrafficControlTask"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/action/stop"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopTrafficControlTaskResponse(callApi(params, req, runtime));
+}
+
+StopTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::stopTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<StopTrafficControlTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return stopTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
 }
 
 SyncFeatureConsistencyCheckJobReplayLogResponse Alibabacloud_PaiRecService20221213::Client::syncFeatureConsistencyCheckJobReplayLogWithOptions(shared_ptr<SyncFeatureConsistencyCheckJobReplayLogRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4193,6 +4978,223 @@ UpdateTableMetaResponse Alibabacloud_PaiRecService20221213::Client::updateTableM
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateTableMetaWithOptions(TableMetaId, request, headers, runtime);
+}
+
+UpdateTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::updateTrafficControlTargetWithOptions(shared_ptr<string> TrafficControlTargetId,
+                                                                                                                     shared_ptr<UpdateTrafficControlTargetRequest> request,
+                                                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->newParam3)) {
+    query->insert(pair<string, string>("new-param-3", *request->newParam3));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    body->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->event)) {
+    body->insert(pair<string, string>("Event", *request->event));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemConditionArray)) {
+    body->insert(pair<string, string>("ItemConditionArray", *request->itemConditionArray));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemConditionExpress)) {
+    body->insert(pair<string, string>("ItemConditionExpress", *request->itemConditionExpress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemConditionType)) {
+    body->insert(pair<string, string>("ItemConditionType", *request->itemConditionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->newProductRegulation)) {
+    body->insert(pair<string, bool>("NewProductRegulation", *request->newProductRegulation));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recallName)) {
+    body->insert(pair<string, string>("RecallName", *request->recallName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    body->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statisPeriod)) {
+    body->insert(pair<string, string>("StatisPeriod", *request->statisPeriod));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    body->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->toleranceValue)) {
+    body->insert(pair<string, long>("ToleranceValue", *request->toleranceValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->value)) {
+    body->insert(pair<string, double>("Value", *request->value));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateTrafficControlTarget"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltargets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTargetId)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateTrafficControlTargetResponse(callApi(params, req, runtime));
+}
+
+UpdateTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::updateTrafficControlTarget(shared_ptr<string> TrafficControlTargetId, shared_ptr<UpdateTrafficControlTargetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateTrafficControlTargetWithOptions(TrafficControlTargetId, request, headers, runtime);
+}
+
+UpdateTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::updateTrafficControlTaskWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                                                 shared_ptr<UpdateTrafficControlTaskRequest> request,
+                                                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->behaviorTableMetaId)) {
+    body->insert(pair<string, string>("BehaviorTableMetaId", *request->behaviorTableMetaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->controlGranularity)) {
+    body->insert(pair<string, string>("ControlGranularity", *request->controlGranularity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->controlLogic)) {
+    body->insert(pair<string, string>("ControlLogic", *request->controlLogic));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->controlType)) {
+    body->insert(pair<string, string>("ControlType", *request->controlType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    body->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->executionTime)) {
+    body->insert(pair<string, string>("ExecutionTime", *request->executionTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemConditionArray)) {
+    body->insert(pair<string, string>("ItemConditionArray", *request->itemConditionArray));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemConditionExpress)) {
+    body->insert(pair<string, string>("ItemConditionExpress", *request->itemConditionExpress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemConditionType)) {
+    body->insert(pair<string, string>("ItemConditionType", *request->itemConditionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itemTableMetaId)) {
+    body->insert(pair<string, string>("ItemTableMetaId", *request->itemTableMetaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneId)) {
+    body->insert(pair<string, string>("SceneId", *request->sceneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    body->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statisBaeaviorConditionArray)) {
+    body->insert(pair<string, string>("StatisBaeaviorConditionArray", *request->statisBaeaviorConditionArray));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statisBehaviorConditionExpress)) {
+    body->insert(pair<string, string>("StatisBehaviorConditionExpress", *request->statisBehaviorConditionExpress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statisBehaviorConditionType)) {
+    body->insert(pair<string, string>("StatisBehaviorConditionType", *request->statisBehaviorConditionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateTrafficControlTaskRequestTrafficControlTargets>>(request->trafficControlTargets)) {
+    body->insert(pair<string, vector<UpdateTrafficControlTaskRequestTrafficControlTargets>>("TrafficControlTargets", *request->trafficControlTargets));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userConditionArray)) {
+    body->insert(pair<string, string>("UserConditionArray", *request->userConditionArray));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userConditionExpress)) {
+    body->insert(pair<string, string>("UserConditionExpress", *request->userConditionExpress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userConditionType)) {
+    body->insert(pair<string, string>("UserConditionType", *request->userConditionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userTableMetaId)) {
+    body->insert(pair<string, string>("UserTableMetaId", *request->userTableMetaId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateTrafficControlTask"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateTrafficControlTaskResponse(callApi(params, req, runtime));
+}
+
+UpdateTrafficControlTaskResponse Alibabacloud_PaiRecService20221213::Client::updateTrafficControlTask(shared_ptr<string> TrafficControlTaskId, shared_ptr<UpdateTrafficControlTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+}
+
+UpdateTrafficControlTaskTrafficResponse Alibabacloud_PaiRecService20221213::Client::updateTrafficControlTaskTrafficWithOptions(shared_ptr<string> TrafficControlTaskId,
+                                                                                                                               shared_ptr<UpdateTrafficControlTaskTrafficRequest> request,
+                                                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->newParam3)) {
+    query->insert(pair<string, string>("new-param-3", *request->newParam3));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->environment)) {
+    body->insert(pair<string, string>("Environment", *request->environment));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateTrafficControlTaskTrafficRequestTraffics>>(request->traffics)) {
+    body->insert(pair<string, vector<UpdateTrafficControlTaskTrafficRequestTraffics>>("Traffics", *request->traffics));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateTrafficControlTaskTraffic"))},
+    {"version", boost::any(string("2022-12-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/action/traffic"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateTrafficControlTaskTrafficResponse(callApi(params, req, runtime));
+}
+
+UpdateTrafficControlTaskTrafficResponse Alibabacloud_PaiRecService20221213::Client::updateTrafficControlTaskTraffic(shared_ptr<string> TrafficControlTaskId, shared_ptr<UpdateTrafficControlTaskTrafficRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateTrafficControlTaskTrafficWithOptions(TrafficControlTaskId, request, headers, runtime);
 }
 
 UploadRecommendationDataResponse Alibabacloud_PaiRecService20221213::Client::uploadRecommendationDataWithOptions(shared_ptr<UploadRecommendationDataRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
