@@ -654,6 +654,36 @@ DeleteRegistrationPoliciesResponse Alibabacloud_Csas20230120::Client::deleteRegi
   return deleteRegistrationPoliciesWithOptions(request, runtime);
 }
 
+DeleteUserDevicesResponse Alibabacloud_Csas20230120::Client::deleteUserDevicesWithOptions(shared_ptr<DeleteUserDevicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->deviceTags)) {
+    bodyFlat->insert(pair<string, vector<string>>("DeviceTags", *request->deviceTags));
+  }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteUserDevices"))},
+    {"version", boost::any(string("2023-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteUserDevicesResponse(callApi(params, req, runtime));
+}
+
+DeleteUserDevicesResponse Alibabacloud_Csas20230120::Client::deleteUserDevices(shared_ptr<DeleteUserDevicesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteUserDevicesWithOptions(request, runtime);
+}
+
 DeleteUserGroupResponse Alibabacloud_Csas20230120::Client::deleteUserGroupWithOptions(shared_ptr<DeleteUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -716,6 +746,78 @@ DetachApplication2ConnectorResponse Alibabacloud_Csas20230120::Client::detachApp
 DetachApplication2ConnectorResponse Alibabacloud_Csas20230120::Client::detachApplication2Connector(shared_ptr<DetachApplication2ConnectorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return detachApplication2ConnectorWithOptions(request, runtime);
+}
+
+ExportUserDevicesResponse Alibabacloud_Csas20230120::Client::exportUserDevicesWithOptions(shared_ptr<ExportUserDevicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->appStatuses)) {
+    bodyFlat->insert(pair<string, vector<string>>("AppStatuses", *request->appStatuses));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->department)) {
+    body->insert(pair<string, string>("Department", *request->department));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceBelong)) {
+    body->insert(pair<string, string>("DeviceBelong", *request->deviceBelong));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->deviceStatuses)) {
+    bodyFlat->insert(pair<string, vector<string>>("DeviceStatuses", *request->deviceStatuses));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->deviceTags)) {
+    bodyFlat->insert(pair<string, vector<string>>("DeviceTags", *request->deviceTags));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->deviceTypes)) {
+    bodyFlat->insert(pair<string, vector<string>>("DeviceTypes", *request->deviceTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->dlpStatuses)) {
+    bodyFlat->insert(pair<string, vector<string>>("DlpStatuses", *request->dlpStatuses));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hostname)) {
+    body->insert(pair<string, string>("Hostname", *request->hostname));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->iaStatuses)) {
+    bodyFlat->insert(pair<string, vector<string>>("IaStatuses", *request->iaStatuses));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mac)) {
+    body->insert(pair<string, string>("Mac", *request->mac));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->nacStatuses)) {
+    bodyFlat->insert(pair<string, vector<string>>("NacStatuses", *request->nacStatuses));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->paStatuses)) {
+    bodyFlat->insert(pair<string, vector<string>>("PaStatuses", *request->paStatuses));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->saseUserId)) {
+    body->insert(pair<string, string>("SaseUserId", *request->saseUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->sharingStatus)) {
+    body->insert(pair<string, bool>("SharingStatus", *request->sharingStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
+    body->insert(pair<string, string>("Username", *request->username));
+  }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExportUserDevices"))},
+    {"version", boost::any(string("2023-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExportUserDevicesResponse(callApi(params, req, runtime));
+}
+
+ExportUserDevicesResponse Alibabacloud_Csas20230120::Client::exportUserDevices(shared_ptr<ExportUserDevicesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return exportUserDevicesWithOptions(request, runtime);
 }
 
 GetActiveIdpConfigResponse Alibabacloud_Csas20230120::Client::getActiveIdpConfigWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

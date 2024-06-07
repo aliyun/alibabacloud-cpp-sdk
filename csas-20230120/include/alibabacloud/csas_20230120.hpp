@@ -2884,6 +2884,123 @@ public:
 
   virtual ~DeleteRegistrationPoliciesResponse() = default;
 };
+class DeleteUserDevicesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> deviceTags{};
+
+  DeleteUserDevicesRequest() {}
+
+  explicit DeleteUserDevicesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceTags) {
+      res["DeviceTags"] = boost::any(*deviceTags);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceTags") != m.end() && !m["DeviceTags"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DeviceTags"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DeviceTags"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      deviceTags = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DeleteUserDevicesRequest() = default;
+};
+class DeleteUserDevicesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteUserDevicesResponseBody() {}
+
+  explicit DeleteUserDevicesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteUserDevicesResponseBody() = default;
+};
+class DeleteUserDevicesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteUserDevicesResponseBody> body{};
+
+  DeleteUserDevicesResponse() {}
+
+  explicit DeleteUserDevicesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteUserDevicesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteUserDevicesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteUserDevicesResponse() = default;
+};
 class DeleteUserGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> userGroupId{};
@@ -3153,6 +3270,277 @@ public:
 
 
   virtual ~DetachApplication2ConnectorResponse() = default;
+};
+class ExportUserDevicesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> appStatuses{};
+  shared_ptr<string> department{};
+  shared_ptr<string> deviceBelong{};
+  shared_ptr<vector<string>> deviceStatuses{};
+  shared_ptr<vector<string>> deviceTags{};
+  shared_ptr<vector<string>> deviceTypes{};
+  shared_ptr<vector<string>> dlpStatuses{};
+  shared_ptr<string> hostname{};
+  shared_ptr<vector<string>> iaStatuses{};
+  shared_ptr<string> mac{};
+  shared_ptr<vector<string>> nacStatuses{};
+  shared_ptr<vector<string>> paStatuses{};
+  shared_ptr<string> saseUserId{};
+  shared_ptr<bool> sharingStatus{};
+  shared_ptr<string> username{};
+
+  ExportUserDevicesRequest() {}
+
+  explicit ExportUserDevicesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appStatuses) {
+      res["AppStatuses"] = boost::any(*appStatuses);
+    }
+    if (department) {
+      res["Department"] = boost::any(*department);
+    }
+    if (deviceBelong) {
+      res["DeviceBelong"] = boost::any(*deviceBelong);
+    }
+    if (deviceStatuses) {
+      res["DeviceStatuses"] = boost::any(*deviceStatuses);
+    }
+    if (deviceTags) {
+      res["DeviceTags"] = boost::any(*deviceTags);
+    }
+    if (deviceTypes) {
+      res["DeviceTypes"] = boost::any(*deviceTypes);
+    }
+    if (dlpStatuses) {
+      res["DlpStatuses"] = boost::any(*dlpStatuses);
+    }
+    if (hostname) {
+      res["Hostname"] = boost::any(*hostname);
+    }
+    if (iaStatuses) {
+      res["IaStatuses"] = boost::any(*iaStatuses);
+    }
+    if (mac) {
+      res["Mac"] = boost::any(*mac);
+    }
+    if (nacStatuses) {
+      res["NacStatuses"] = boost::any(*nacStatuses);
+    }
+    if (paStatuses) {
+      res["PaStatuses"] = boost::any(*paStatuses);
+    }
+    if (saseUserId) {
+      res["SaseUserId"] = boost::any(*saseUserId);
+    }
+    if (sharingStatus) {
+      res["SharingStatus"] = boost::any(*sharingStatus);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppStatuses") != m.end() && !m["AppStatuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AppStatuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AppStatuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      appStatuses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Department") != m.end() && !m["Department"].empty()) {
+      department = make_shared<string>(boost::any_cast<string>(m["Department"]));
+    }
+    if (m.find("DeviceBelong") != m.end() && !m["DeviceBelong"].empty()) {
+      deviceBelong = make_shared<string>(boost::any_cast<string>(m["DeviceBelong"]));
+    }
+    if (m.find("DeviceStatuses") != m.end() && !m["DeviceStatuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DeviceStatuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DeviceStatuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      deviceStatuses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DeviceTags") != m.end() && !m["DeviceTags"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DeviceTags"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DeviceTags"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      deviceTags = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DeviceTypes") != m.end() && !m["DeviceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DeviceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DeviceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      deviceTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DlpStatuses") != m.end() && !m["DlpStatuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DlpStatuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DlpStatuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dlpStatuses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
+      hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
+    }
+    if (m.find("IaStatuses") != m.end() && !m["IaStatuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IaStatuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IaStatuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      iaStatuses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Mac") != m.end() && !m["Mac"].empty()) {
+      mac = make_shared<string>(boost::any_cast<string>(m["Mac"]));
+    }
+    if (m.find("NacStatuses") != m.end() && !m["NacStatuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NacStatuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NacStatuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      nacStatuses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PaStatuses") != m.end() && !m["PaStatuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PaStatuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PaStatuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      paStatuses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SaseUserId") != m.end() && !m["SaseUserId"].empty()) {
+      saseUserId = make_shared<string>(boost::any_cast<string>(m["SaseUserId"]));
+    }
+    if (m.find("SharingStatus") != m.end() && !m["SharingStatus"].empty()) {
+      sharingStatus = make_shared<bool>(boost::any_cast<bool>(m["SharingStatus"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+  }
+
+
+  virtual ~ExportUserDevicesRequest() = default;
+};
+class ExportUserDevicesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> signedUrl{};
+
+  ExportUserDevicesResponseBody() {}
+
+  explicit ExportUserDevicesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (signedUrl) {
+      res["SignedUrl"] = boost::any(*signedUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SignedUrl") != m.end() && !m["SignedUrl"].empty()) {
+      signedUrl = make_shared<string>(boost::any_cast<string>(m["SignedUrl"]));
+    }
+  }
+
+
+  virtual ~ExportUserDevicesResponseBody() = default;
+};
+class ExportUserDevicesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExportUserDevicesResponseBody> body{};
+
+  ExportUserDevicesResponse() {}
+
+  explicit ExportUserDevicesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExportUserDevicesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExportUserDevicesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExportUserDevicesResponse() = default;
 };
 class GetActiveIdpConfigResponseBodyData : public Darabonba::Model {
 public:
@@ -17537,10 +17925,14 @@ public:
   DeletePrivateAccessTagResponse deletePrivateAccessTag(shared_ptr<DeletePrivateAccessTagRequest> request);
   DeleteRegistrationPoliciesResponse deleteRegistrationPoliciesWithOptions(shared_ptr<DeleteRegistrationPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteRegistrationPoliciesResponse deleteRegistrationPolicies(shared_ptr<DeleteRegistrationPoliciesRequest> request);
+  DeleteUserDevicesResponse deleteUserDevicesWithOptions(shared_ptr<DeleteUserDevicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteUserDevicesResponse deleteUserDevices(shared_ptr<DeleteUserDevicesRequest> request);
   DeleteUserGroupResponse deleteUserGroupWithOptions(shared_ptr<DeleteUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteUserGroupResponse deleteUserGroup(shared_ptr<DeleteUserGroupRequest> request);
   DetachApplication2ConnectorResponse detachApplication2ConnectorWithOptions(shared_ptr<DetachApplication2ConnectorRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachApplication2ConnectorResponse detachApplication2Connector(shared_ptr<DetachApplication2ConnectorRequest> request);
+  ExportUserDevicesResponse exportUserDevicesWithOptions(shared_ptr<ExportUserDevicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExportUserDevicesResponse exportUserDevices(shared_ptr<ExportUserDevicesRequest> request);
   GetActiveIdpConfigResponse getActiveIdpConfigWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetActiveIdpConfigResponse getActiveIdpConfig();
   GetClientUserResponse getClientUserWithOptions(shared_ptr<GetClientUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
