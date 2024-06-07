@@ -58977,6 +58977,243 @@ public:
 
   virtual ~ListManualDagInstancesResponse() = default;
 };
+class ListMeasureDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> componentCode{};
+  shared_ptr<string> domainCode{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> startTime{};
+
+  ListMeasureDataRequest() {}
+
+  explicit ListMeasureDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (componentCode) {
+      res["ComponentCode"] = boost::any(*componentCode);
+    }
+    if (domainCode) {
+      res["DomainCode"] = boost::any(*domainCode);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComponentCode") != m.end() && !m["ComponentCode"].empty()) {
+      componentCode = make_shared<string>(boost::any_cast<string>(m["ComponentCode"]));
+    }
+    if (m.find("DomainCode") != m.end() && !m["DomainCode"].empty()) {
+      domainCode = make_shared<string>(boost::any_cast<string>(m["DomainCode"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~ListMeasureDataRequest() = default;
+};
+class ListMeasureDataResponseBodyMeasureDatas : public Darabonba::Model {
+public:
+  shared_ptr<string> componentCode{};
+  shared_ptr<string> domainCode{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> usage{};
+
+  ListMeasureDataResponseBodyMeasureDatas() {}
+
+  explicit ListMeasureDataResponseBodyMeasureDatas(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (componentCode) {
+      res["ComponentCode"] = boost::any(*componentCode);
+    }
+    if (domainCode) {
+      res["DomainCode"] = boost::any(*domainCode);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (usage) {
+      res["Usage"] = boost::any(*usage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComponentCode") != m.end() && !m["ComponentCode"].empty()) {
+      componentCode = make_shared<string>(boost::any_cast<string>(m["ComponentCode"]));
+    }
+    if (m.find("DomainCode") != m.end() && !m["DomainCode"].empty()) {
+      domainCode = make_shared<string>(boost::any_cast<string>(m["DomainCode"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Usage") != m.end() && !m["Usage"].empty()) {
+      usage = make_shared<long>(boost::any_cast<long>(m["Usage"]));
+    }
+  }
+
+
+  virtual ~ListMeasureDataResponseBodyMeasureDatas() = default;
+};
+class ListMeasureDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<vector<ListMeasureDataResponseBodyMeasureDatas>> measureDatas{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListMeasureDataResponseBody() {}
+
+  explicit ListMeasureDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (measureDatas) {
+      vector<boost::any> temp1;
+      for(auto item1:*measureDatas){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MeasureDatas"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("MeasureDatas") != m.end() && !m["MeasureDatas"].empty()) {
+      if (typeid(vector<boost::any>) == m["MeasureDatas"].type()) {
+        vector<ListMeasureDataResponseBodyMeasureDatas> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MeasureDatas"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListMeasureDataResponseBodyMeasureDatas model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        measureDatas = make_shared<vector<ListMeasureDataResponseBodyMeasureDatas>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListMeasureDataResponseBody() = default;
+};
+class ListMeasureDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListMeasureDataResponseBody> body{};
+
+  ListMeasureDataResponse() {}
+
+  explicit ListMeasureDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListMeasureDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListMeasureDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListMeasureDataResponse() = default;
+};
 class ListMetaCollectionEntitiesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> collectionQualifiedName{};
@@ -83089,6 +83326,8 @@ public:
   ListLineageResponse listLineage(shared_ptr<ListLineageRequest> request);
   ListManualDagInstancesResponse listManualDagInstancesWithOptions(shared_ptr<ListManualDagInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListManualDagInstancesResponse listManualDagInstances(shared_ptr<ListManualDagInstancesRequest> request);
+  ListMeasureDataResponse listMeasureDataWithOptions(shared_ptr<ListMeasureDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListMeasureDataResponse listMeasureData(shared_ptr<ListMeasureDataRequest> request);
   ListMetaCollectionEntitiesResponse listMetaCollectionEntitiesWithOptions(shared_ptr<ListMetaCollectionEntitiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListMetaCollectionEntitiesResponse listMetaCollectionEntities(shared_ptr<ListMetaCollectionEntitiesRequest> request);
   ListMetaCollectionsResponse listMetaCollectionsWithOptions(shared_ptr<ListMetaCollectionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
