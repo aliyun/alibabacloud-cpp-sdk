@@ -2280,6 +2280,9 @@ DelAuthTokenResponse Alibabacloud_ARMS20190808::Client::delAuthToken(shared_ptr<
 DeleteAddonReleaseResponse Alibabacloud_ARMS20190808::Client::deleteAddonReleaseWithOptions(shared_ptr<DeleteAddonReleaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->addonName)) {
+    query->insert(pair<string, string>("AddonName", *request->addonName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->environmentId)) {
     query->insert(pair<string, string>("EnvironmentId", *request->environmentId));
   }

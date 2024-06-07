@@ -16289,6 +16289,7 @@ public:
 };
 class DeleteAddonReleaseRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> addonName{};
   shared_ptr<string> environmentId{};
   shared_ptr<bool> force{};
   shared_ptr<string> regionId{};
@@ -16304,6 +16305,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addonName) {
+      res["AddonName"] = boost::any(*addonName);
+    }
     if (environmentId) {
       res["EnvironmentId"] = boost::any(*environmentId);
     }
@@ -16320,6 +16324,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddonName") != m.end() && !m["AddonName"].empty()) {
+      addonName = make_shared<string>(boost::any_cast<string>(m["AddonName"]));
+    }
     if (m.find("EnvironmentId") != m.end() && !m["EnvironmentId"].empty()) {
       environmentId = make_shared<string>(boost::any_cast<string>(m["EnvironmentId"]));
     }
@@ -41523,6 +41530,7 @@ public:
 };
 class ListAddonsResponseBodyDataEnvironmentsDependencies : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> clusterTypes{};
   shared_ptr<map<string, bool>> features{};
   shared_ptr<vector<string>> services{};
 
@@ -41536,6 +41544,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterTypes) {
+      res["ClusterTypes"] = boost::any(*clusterTypes);
+    }
     if (features) {
       res["Features"] = boost::any(*features);
     }
@@ -41546,6 +41557,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterTypes") != m.end() && !m["ClusterTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ClusterTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ClusterTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      clusterTypes = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("Features") != m.end() && !m["Features"].empty()) {
       map<string, bool> map1 = boost::any_cast<map<string, bool>>(m["Features"]);
       map<string, bool> toMap1;
