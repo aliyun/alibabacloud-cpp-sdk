@@ -1221,10 +1221,48 @@ public:
 
   virtual ~CancelShiftLoadBalancerZonesResponse() = default;
 };
+class CreateAScriptsRequestAScriptsExtAttributes : public Darabonba::Model {
+public:
+  shared_ptr<string> attributeKey{};
+  shared_ptr<string> attributeValue{};
+
+  CreateAScriptsRequestAScriptsExtAttributes() {}
+
+  explicit CreateAScriptsRequestAScriptsExtAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attributeKey) {
+      res["AttributeKey"] = boost::any(*attributeKey);
+    }
+    if (attributeValue) {
+      res["AttributeValue"] = boost::any(*attributeValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttributeKey") != m.end() && !m["AttributeKey"].empty()) {
+      attributeKey = make_shared<string>(boost::any_cast<string>(m["AttributeKey"]));
+    }
+    if (m.find("AttributeValue") != m.end() && !m["AttributeValue"].empty()) {
+      attributeValue = make_shared<string>(boost::any_cast<string>(m["AttributeValue"]));
+    }
+  }
+
+
+  virtual ~CreateAScriptsRequestAScriptsExtAttributes() = default;
+};
 class CreateAScriptsRequestAScripts : public Darabonba::Model {
 public:
   shared_ptr<string> AScriptName{};
   shared_ptr<bool> enabled{};
+  shared_ptr<bool> extAttributeEnabled{};
+  shared_ptr<vector<CreateAScriptsRequestAScriptsExtAttributes>> extAttributes{};
   shared_ptr<string> scriptContent{};
 
   CreateAScriptsRequestAScripts() {}
@@ -1243,6 +1281,16 @@ public:
     if (enabled) {
       res["Enabled"] = boost::any(*enabled);
     }
+    if (extAttributeEnabled) {
+      res["ExtAttributeEnabled"] = boost::any(*extAttributeEnabled);
+    }
+    if (extAttributes) {
+      vector<boost::any> temp1;
+      for(auto item1:*extAttributes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExtAttributes"] = boost::any(temp1);
+    }
     if (scriptContent) {
       res["ScriptContent"] = boost::any(*scriptContent);
     }
@@ -1255,6 +1303,22 @@ public:
     }
     if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
       enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("ExtAttributeEnabled") != m.end() && !m["ExtAttributeEnabled"].empty()) {
+      extAttributeEnabled = make_shared<bool>(boost::any_cast<bool>(m["ExtAttributeEnabled"]));
+    }
+    if (m.find("ExtAttributes") != m.end() && !m["ExtAttributes"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExtAttributes"].type()) {
+        vector<CreateAScriptsRequestAScriptsExtAttributes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExtAttributes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAScriptsRequestAScriptsExtAttributes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        extAttributes = make_shared<vector<CreateAScriptsRequestAScriptsExtAttributes>>(expect1);
+      }
     }
     if (m.find("ScriptContent") != m.end() && !m["ScriptContent"].empty()) {
       scriptContent = make_shared<string>(boost::any_cast<string>(m["ScriptContent"]));
@@ -21643,11 +21707,49 @@ public:
 
   virtual ~UnTagResourcesResponse() = default;
 };
+class UpdateAScriptsRequestAScriptsExtAttributes : public Darabonba::Model {
+public:
+  shared_ptr<string> attributeKey{};
+  shared_ptr<string> attributeValue{};
+
+  UpdateAScriptsRequestAScriptsExtAttributes() {}
+
+  explicit UpdateAScriptsRequestAScriptsExtAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attributeKey) {
+      res["AttributeKey"] = boost::any(*attributeKey);
+    }
+    if (attributeValue) {
+      res["AttributeValue"] = boost::any(*attributeValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttributeKey") != m.end() && !m["AttributeKey"].empty()) {
+      attributeKey = make_shared<string>(boost::any_cast<string>(m["AttributeKey"]));
+    }
+    if (m.find("AttributeValue") != m.end() && !m["AttributeValue"].empty()) {
+      attributeValue = make_shared<string>(boost::any_cast<string>(m["AttributeValue"]));
+    }
+  }
+
+
+  virtual ~UpdateAScriptsRequestAScriptsExtAttributes() = default;
+};
 class UpdateAScriptsRequestAScripts : public Darabonba::Model {
 public:
   shared_ptr<string> AScriptId{};
   shared_ptr<string> AScriptName{};
   shared_ptr<bool> enabled{};
+  shared_ptr<bool> extAttributeEnabled{};
+  shared_ptr<vector<UpdateAScriptsRequestAScriptsExtAttributes>> extAttributes{};
   shared_ptr<string> scriptContent{};
 
   UpdateAScriptsRequestAScripts() {}
@@ -21669,6 +21771,16 @@ public:
     if (enabled) {
       res["Enabled"] = boost::any(*enabled);
     }
+    if (extAttributeEnabled) {
+      res["ExtAttributeEnabled"] = boost::any(*extAttributeEnabled);
+    }
+    if (extAttributes) {
+      vector<boost::any> temp1;
+      for(auto item1:*extAttributes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExtAttributes"] = boost::any(temp1);
+    }
     if (scriptContent) {
       res["ScriptContent"] = boost::any(*scriptContent);
     }
@@ -21684,6 +21796,22 @@ public:
     }
     if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
       enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("ExtAttributeEnabled") != m.end() && !m["ExtAttributeEnabled"].empty()) {
+      extAttributeEnabled = make_shared<bool>(boost::any_cast<bool>(m["ExtAttributeEnabled"]));
+    }
+    if (m.find("ExtAttributes") != m.end() && !m["ExtAttributes"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExtAttributes"].type()) {
+        vector<UpdateAScriptsRequestAScriptsExtAttributes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExtAttributes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAScriptsRequestAScriptsExtAttributes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        extAttributes = make_shared<vector<UpdateAScriptsRequestAScriptsExtAttributes>>(expect1);
+      }
     }
     if (m.find("ScriptContent") != m.end() && !m["ScriptContent"].empty()) {
       scriptContent = make_shared<string>(boost::any_cast<string>(m["ScriptContent"]));
