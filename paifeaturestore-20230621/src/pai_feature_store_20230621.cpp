@@ -1332,6 +1332,45 @@ ListFeatureViewFieldRelationshipsResponse Alibabacloud_PaiFeatureStore20230621::
   return listFeatureViewFieldRelationshipsWithOptions(InstanceId, FeatureViewId, FieldName, headers, runtime);
 }
 
+ListFeatureViewOnlineFeaturesResponse Alibabacloud_PaiFeatureStore20230621::Client::listFeatureViewOnlineFeaturesWithOptions(shared_ptr<string> InstanceId,
+                                                                                                                             shared_ptr<string> FeatureViewId,
+                                                                                                                             shared_ptr<ListFeatureViewOnlineFeaturesRequest> tmpReq,
+                                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListFeatureViewOnlineFeaturesShrinkRequest> request = make_shared<ListFeatureViewOnlineFeaturesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->joinIds)) {
+    request->joinIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->joinIds, make_shared<string>("JoinIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->joinIdsShrink)) {
+    query->insert(pair<string, string>("JoinIds", *request->joinIdsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListFeatureViewOnlineFeatures"))},
+    {"version", boost::any(string("2023-06-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(InstanceId)) + string("/featureviews/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(FeatureViewId)) + string("/onlinefeatures"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListFeatureViewOnlineFeaturesResponse(callApi(params, req, runtime));
+}
+
+ListFeatureViewOnlineFeaturesResponse Alibabacloud_PaiFeatureStore20230621::Client::listFeatureViewOnlineFeatures(shared_ptr<string> InstanceId, shared_ptr<string> FeatureViewId, shared_ptr<ListFeatureViewOnlineFeaturesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listFeatureViewOnlineFeaturesWithOptions(InstanceId, FeatureViewId, request, headers, runtime);
+}
+
 ListFeatureViewRelationshipsResponse Alibabacloud_PaiFeatureStore20230621::Client::listFeatureViewRelationshipsWithOptions(shared_ptr<string> InstanceId,
                                                                                                                            shared_ptr<string> FeatureViewId,
                                                                                                                            shared_ptr<map<string, string>> headers,

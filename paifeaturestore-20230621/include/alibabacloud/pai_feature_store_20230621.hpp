@@ -6851,6 +6851,166 @@ public:
 
   virtual ~ListFeatureViewFieldRelationshipsResponse() = default;
 };
+class ListFeatureViewOnlineFeaturesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> joinIds{};
+
+  ListFeatureViewOnlineFeaturesRequest() {}
+
+  explicit ListFeatureViewOnlineFeaturesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (joinIds) {
+      res["JoinIds"] = boost::any(*joinIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JoinIds") != m.end() && !m["JoinIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["JoinIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["JoinIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      joinIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListFeatureViewOnlineFeaturesRequest() = default;
+};
+class ListFeatureViewOnlineFeaturesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> joinIdsShrink{};
+
+  ListFeatureViewOnlineFeaturesShrinkRequest() {}
+
+  explicit ListFeatureViewOnlineFeaturesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (joinIdsShrink) {
+      res["JoinIds"] = boost::any(*joinIdsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JoinIds") != m.end() && !m["JoinIds"].empty()) {
+      joinIdsShrink = make_shared<string>(boost::any_cast<string>(m["JoinIds"]));
+    }
+  }
+
+
+  virtual ~ListFeatureViewOnlineFeaturesShrinkRequest() = default;
+};
+class ListFeatureViewOnlineFeaturesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> onlineFeatures{};
+  shared_ptr<string> requestId{};
+
+  ListFeatureViewOnlineFeaturesResponseBody() {}
+
+  explicit ListFeatureViewOnlineFeaturesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (onlineFeatures) {
+      res["OnlineFeatures"] = boost::any(*onlineFeatures);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OnlineFeatures") != m.end() && !m["OnlineFeatures"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OnlineFeatures"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OnlineFeatures"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      onlineFeatures = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListFeatureViewOnlineFeaturesResponseBody() = default;
+};
+class ListFeatureViewOnlineFeaturesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListFeatureViewOnlineFeaturesResponseBody> body{};
+
+  ListFeatureViewOnlineFeaturesResponse() {}
+
+  explicit ListFeatureViewOnlineFeaturesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListFeatureViewOnlineFeaturesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListFeatureViewOnlineFeaturesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListFeatureViewOnlineFeaturesResponse() = default;
+};
 class ListFeatureViewRelationshipsResponseBodyRelationshipsModels : public Darabonba::Model {
 public:
   shared_ptr<string> modelId{};
@@ -11781,6 +11941,12 @@ public:
                                                                                          shared_ptr<map<string, string>> headers,
                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListFeatureViewFieldRelationshipsResponse listFeatureViewFieldRelationships(shared_ptr<string> InstanceId, shared_ptr<string> FeatureViewId, shared_ptr<string> FieldName);
+  ListFeatureViewOnlineFeaturesResponse listFeatureViewOnlineFeaturesWithOptions(shared_ptr<string> InstanceId,
+                                                                                 shared_ptr<string> FeatureViewId,
+                                                                                 shared_ptr<ListFeatureViewOnlineFeaturesRequest> tmpReq,
+                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListFeatureViewOnlineFeaturesResponse listFeatureViewOnlineFeatures(shared_ptr<string> InstanceId, shared_ptr<string> FeatureViewId, shared_ptr<ListFeatureViewOnlineFeaturesRequest> request);
   ListFeatureViewRelationshipsResponse listFeatureViewRelationshipsWithOptions(shared_ptr<string> InstanceId,
                                                                                shared_ptr<string> FeatureViewId,
                                                                                shared_ptr<map<string, string>> headers,
