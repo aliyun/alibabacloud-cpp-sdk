@@ -41,6 +41,47 @@ string Alibabacloud_Umeng-apm20220214::Client::getEndpoint(shared_ptr<string> pr
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+DeleteSymRecordsResponse Alibabacloud_Umeng-apm20220214::Client::deleteSymRecordsWithOptions(shared_ptr<DeleteSymRecordsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteSymRecordsShrinkRequest> request = make_shared<DeleteSymRecordsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->appVersions)) {
+    request->appVersionsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->appVersions, make_shared<string>("appVersions"), make_shared<string>("simple")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appVersionsShrink)) {
+    body->insert(pair<string, string>("appVersions", *request->appVersionsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceId)) {
+    body->insert(pair<string, string>("dataSourceId", *request->dataSourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->fileType)) {
+    body->insert(pair<string, long>("fileType", *request->fileType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteSymRecords"))},
+    {"version", boost::any(string("2022-02-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/deleteSymRecords"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteSymRecordsResponse(callApi(params, req, runtime));
+}
+
+DeleteSymRecordsResponse Alibabacloud_Umeng-apm20220214::Client::deleteSymRecords(shared_ptr<DeleteSymRecordsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteSymRecordsWithOptions(request, headers, runtime);
+}
+
 GetH5PageTrendResponse Alibabacloud_Umeng-apm20220214::Client::getH5PageTrendWithOptions(shared_ptr<GetH5PageTrendRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
