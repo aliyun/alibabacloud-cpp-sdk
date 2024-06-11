@@ -12005,6 +12005,34 @@ DescribeVulConfigResponse Alibabacloud_Sas20181203::Client::describeVulConfig(sh
   return describeVulConfigWithOptions(request, runtime);
 }
 
+DescribeVulDefendCountStatisticsResponse Alibabacloud_Sas20181203::Client::describeVulDefendCountStatisticsWithOptions(shared_ptr<DescribeVulDefendCountStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->vulType)) {
+    query->insert(pair<string, string>("VulType", *request->vulType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeVulDefendCountStatistics"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeVulDefendCountStatisticsResponse(callApi(params, req, runtime));
+}
+
+DescribeVulDefendCountStatisticsResponse Alibabacloud_Sas20181203::Client::describeVulDefendCountStatistics(shared_ptr<DescribeVulDefendCountStatisticsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeVulDefendCountStatisticsWithOptions(request, runtime);
+}
+
 DescribeVulDetailsResponse Alibabacloud_Sas20181203::Client::describeVulDetailsWithOptions(shared_ptr<DescribeVulDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -12185,8 +12213,14 @@ DescribeVulListPageResponse Alibabacloud_Sas20181203::Client::describeVulListPag
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->raspDefend)) {
+    query->insert(pair<string, long>("RaspDefend", *request->raspDefend));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vulNameLike)) {
     query->insert(pair<string, string>("VulNameLike", *request->vulNameLike));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vulType)) {
+    query->insert(pair<string, string>("VulType", *request->vulType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -12208,6 +12242,27 @@ DescribeVulListPageResponse Alibabacloud_Sas20181203::Client::describeVulListPag
 DescribeVulListPageResponse Alibabacloud_Sas20181203::Client::describeVulListPage(shared_ptr<DescribeVulListPageRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeVulListPageWithOptions(request, runtime);
+}
+
+DescribeVulMetaCountStatisticsResponse Alibabacloud_Sas20181203::Client::describeVulMetaCountStatisticsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeVulMetaCountStatistics"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeVulMetaCountStatisticsResponse(callApi(params, req, runtime));
+}
+
+DescribeVulMetaCountStatisticsResponse Alibabacloud_Sas20181203::Client::describeVulMetaCountStatistics() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeVulMetaCountStatisticsWithOptions(runtime);
 }
 
 DescribeVulNumStatisticsResponse Alibabacloud_Sas20181203::Client::describeVulNumStatisticsWithOptions(shared_ptr<DescribeVulNumStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -15897,6 +15952,9 @@ HandleSecurityEventsResponse Alibabacloud_Sas20181203::Client::handleSecurityEve
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
     query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceDirectoryAccountId)) {
+    query->insert(pair<string, long>("ResourceDirectoryAccountId", *request->resourceDirectoryAccountId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->securityEventIds)) {
     query->insert(pair<string, vector<string>>("SecurityEventIds", *request->securityEventIds));
