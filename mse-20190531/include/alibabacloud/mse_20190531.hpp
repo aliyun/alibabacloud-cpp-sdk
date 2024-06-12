@@ -54575,6 +54575,7 @@ public:
 };
 class QueryConfigResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<bool> authEnabled{};
   shared_ptr<string> autopurgePurgeInterval{};
   shared_ptr<string> autopurgeSnapRetainCount{};
   shared_ptr<string> clusterName{};
@@ -54584,6 +54585,7 @@ public:
   shared_ptr<bool> configSecretEnabled{};
   shared_ptr<bool> configSecretSupported{};
   shared_ptr<bool> consoleUIEnabled{};
+  shared_ptr<bool> enable4lw{};
   shared_ptr<bool> eurekaSupported{};
   shared_ptr<bool> extendedTypesEnable{};
   shared_ptr<string> initLimit{};
@@ -54617,6 +54619,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (authEnabled) {
+      res["AuthEnabled"] = boost::any(*authEnabled);
+    }
     if (autopurgePurgeInterval) {
       res["AutopurgePurgeInterval"] = boost::any(*autopurgePurgeInterval);
     }
@@ -54643,6 +54648,9 @@ public:
     }
     if (consoleUIEnabled) {
       res["ConsoleUIEnabled"] = boost::any(*consoleUIEnabled);
+    }
+    if (enable4lw) {
+      res["Enable4lw"] = boost::any(*enable4lw);
     }
     if (eurekaSupported) {
       res["EurekaSupported"] = boost::any(*eurekaSupported);
@@ -54714,6 +54722,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthEnabled") != m.end() && !m["AuthEnabled"].empty()) {
+      authEnabled = make_shared<bool>(boost::any_cast<bool>(m["AuthEnabled"]));
+    }
     if (m.find("AutopurgePurgeInterval") != m.end() && !m["AutopurgePurgeInterval"].empty()) {
       autopurgePurgeInterval = make_shared<string>(boost::any_cast<string>(m["AutopurgePurgeInterval"]));
     }
@@ -54740,6 +54751,9 @@ public:
     }
     if (m.find("ConsoleUIEnabled") != m.end() && !m["ConsoleUIEnabled"].empty()) {
       consoleUIEnabled = make_shared<bool>(boost::any_cast<bool>(m["ConsoleUIEnabled"]));
+    }
+    if (m.find("Enable4lw") != m.end() && !m["Enable4lw"].empty()) {
+      enable4lw = make_shared<bool>(boost::any_cast<bool>(m["Enable4lw"]));
     }
     if (m.find("EurekaSupported") != m.end() && !m["EurekaSupported"].empty()) {
       eurekaSupported = make_shared<bool>(boost::any_cast<bool>(m["EurekaSupported"]));
@@ -59703,6 +59717,7 @@ public:
 class UpdateConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<bool> authEnabled{};
   shared_ptr<string> autopurgePurgeInterval{};
   shared_ptr<string> autopurgeSnapRetainCount{};
   shared_ptr<string> clusterId{};
@@ -59710,6 +59725,7 @@ public:
   shared_ptr<bool> configSecretEnabled{};
   shared_ptr<string> configType{};
   shared_ptr<bool> consoleUIEnabled{};
+  shared_ptr<bool> enable4lw{};
   shared_ptr<bool> eurekaSupported{};
   shared_ptr<string> extendedTypesEnable{};
   shared_ptr<string> initLimit{};
@@ -59742,6 +59758,9 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
+    if (authEnabled) {
+      res["AuthEnabled"] = boost::any(*authEnabled);
+    }
     if (autopurgePurgeInterval) {
       res["AutopurgePurgeInterval"] = boost::any(*autopurgePurgeInterval);
     }
@@ -59762,6 +59781,9 @@ public:
     }
     if (consoleUIEnabled) {
       res["ConsoleUIEnabled"] = boost::any(*consoleUIEnabled);
+    }
+    if (enable4lw) {
+      res["Enable4lw"] = boost::any(*enable4lw);
     }
     if (eurekaSupported) {
       res["EurekaSupported"] = boost::any(*eurekaSupported);
@@ -59824,6 +59846,9 @@ public:
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
     }
+    if (m.find("AuthEnabled") != m.end() && !m["AuthEnabled"].empty()) {
+      authEnabled = make_shared<bool>(boost::any_cast<bool>(m["AuthEnabled"]));
+    }
     if (m.find("AutopurgePurgeInterval") != m.end() && !m["AutopurgePurgeInterval"].empty()) {
       autopurgePurgeInterval = make_shared<string>(boost::any_cast<string>(m["AutopurgePurgeInterval"]));
     }
@@ -59844,6 +59869,9 @@ public:
     }
     if (m.find("ConsoleUIEnabled") != m.end() && !m["ConsoleUIEnabled"].empty()) {
       consoleUIEnabled = make_shared<bool>(boost::any_cast<bool>(m["ConsoleUIEnabled"]));
+    }
+    if (m.find("Enable4lw") != m.end() && !m["Enable4lw"].empty()) {
+      enable4lw = make_shared<bool>(boost::any_cast<bool>(m["Enable4lw"]));
     }
     if (m.find("EurekaSupported") != m.end() && !m["EurekaSupported"].empty()) {
       eurekaSupported = make_shared<bool>(boost::any_cast<bool>(m["EurekaSupported"]));

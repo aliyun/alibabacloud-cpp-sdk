@@ -7954,6 +7954,9 @@ UpdateConfigResponse Alibabacloud_Mse20190531::Client::updateConfigWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->authEnabled)) {
+    query->insert(pair<string, bool>("AuthEnabled", *request->authEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->autopurgePurgeInterval)) {
     query->insert(pair<string, string>("AutopurgePurgeInterval", *request->autopurgePurgeInterval));
   }
@@ -7974,6 +7977,9 @@ UpdateConfigResponse Alibabacloud_Mse20190531::Client::updateConfigWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->consoleUIEnabled)) {
     query->insert(pair<string, bool>("ConsoleUIEnabled", *request->consoleUIEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enable4lw)) {
+    query->insert(pair<string, bool>("Enable4lw", *request->enable4lw));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->eurekaSupported)) {
     query->insert(pair<string, bool>("EurekaSupported", *request->eurekaSupported));
