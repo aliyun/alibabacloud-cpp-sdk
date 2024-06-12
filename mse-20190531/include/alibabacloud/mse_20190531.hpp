@@ -27923,6 +27923,42 @@ public:
 
   virtual ~GetPluginConfigRequest() = default;
 };
+class GetPluginConfigResponseBodyDataGatewayConfigListResourceList : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+
+  GetPluginConfigResponseBodyDataGatewayConfigListResourceList() {}
+
+  explicit GetPluginConfigResponseBodyDataGatewayConfigListResourceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~GetPluginConfigResponseBodyDataGatewayConfigListResourceList() = default;
+};
 class GetPluginConfigResponseBodyDataGatewayConfigList : public Darabonba::Model {
 public:
   shared_ptr<string> config{};
@@ -27934,6 +27970,7 @@ public:
   shared_ptr<string> gmtModified{};
   shared_ptr<long> id{};
   shared_ptr<long> pluginId{};
+  shared_ptr<vector<GetPluginConfigResponseBodyDataGatewayConfigListResourceList>> resourceList{};
 
   GetPluginConfigResponseBodyDataGatewayConfigList() {}
 
@@ -27972,6 +28009,13 @@ public:
     if (pluginId) {
       res["PluginId"] = boost::any(*pluginId);
     }
+    if (resourceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceList"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -28003,6 +28047,19 @@ public:
     if (m.find("PluginId") != m.end() && !m["PluginId"].empty()) {
       pluginId = make_shared<long>(boost::any_cast<long>(m["PluginId"]));
     }
+    if (m.find("ResourceList") != m.end() && !m["ResourceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceList"].type()) {
+        vector<GetPluginConfigResponseBodyDataGatewayConfigListResourceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetPluginConfigResponseBodyDataGatewayConfigListResourceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceList = make_shared<vector<GetPluginConfigResponseBodyDataGatewayConfigListResourceList>>(expect1);
+      }
+    }
   }
 
 
@@ -28012,7 +28069,10 @@ class GetPluginConfigResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> category{};
   shared_ptr<string> configCheck{};
+  shared_ptr<string> configExample{};
+  shared_ptr<long> domainConfigStartIndex{};
   shared_ptr<vector<GetPluginConfigResponseBodyDataGatewayConfigList>> gatewayConfigList{};
+  shared_ptr<long> gatewayConfigStartIndex{};
   shared_ptr<long> id{};
   shared_ptr<string> imageName{};
   shared_ptr<long> mode{};
@@ -28023,6 +28083,7 @@ public:
   shared_ptr<long> publishState{};
   shared_ptr<string> readme{};
   shared_ptr<string> readmeEn{};
+  shared_ptr<long> routeConfigStartIndex{};
   shared_ptr<string> status{};
   shared_ptr<string> summary{};
   shared_ptr<long> type{};
@@ -28046,12 +28107,21 @@ public:
     if (configCheck) {
       res["ConfigCheck"] = boost::any(*configCheck);
     }
+    if (configExample) {
+      res["ConfigExample"] = boost::any(*configExample);
+    }
+    if (domainConfigStartIndex) {
+      res["DomainConfigStartIndex"] = boost::any(*domainConfigStartIndex);
+    }
     if (gatewayConfigList) {
       vector<boost::any> temp1;
       for(auto item1:*gatewayConfigList){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["GatewayConfigList"] = boost::any(temp1);
+    }
+    if (gatewayConfigStartIndex) {
+      res["GatewayConfigStartIndex"] = boost::any(*gatewayConfigStartIndex);
     }
     if (id) {
       res["Id"] = boost::any(*id);
@@ -28083,6 +28153,9 @@ public:
     if (readmeEn) {
       res["ReadmeEn"] = boost::any(*readmeEn);
     }
+    if (routeConfigStartIndex) {
+      res["RouteConfigStartIndex"] = boost::any(*routeConfigStartIndex);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -28111,6 +28184,12 @@ public:
     if (m.find("ConfigCheck") != m.end() && !m["ConfigCheck"].empty()) {
       configCheck = make_shared<string>(boost::any_cast<string>(m["ConfigCheck"]));
     }
+    if (m.find("ConfigExample") != m.end() && !m["ConfigExample"].empty()) {
+      configExample = make_shared<string>(boost::any_cast<string>(m["ConfigExample"]));
+    }
+    if (m.find("DomainConfigStartIndex") != m.end() && !m["DomainConfigStartIndex"].empty()) {
+      domainConfigStartIndex = make_shared<long>(boost::any_cast<long>(m["DomainConfigStartIndex"]));
+    }
     if (m.find("GatewayConfigList") != m.end() && !m["GatewayConfigList"].empty()) {
       if (typeid(vector<boost::any>) == m["GatewayConfigList"].type()) {
         vector<GetPluginConfigResponseBodyDataGatewayConfigList> expect1;
@@ -28123,6 +28202,9 @@ public:
         }
         gatewayConfigList = make_shared<vector<GetPluginConfigResponseBodyDataGatewayConfigList>>(expect1);
       }
+    }
+    if (m.find("GatewayConfigStartIndex") != m.end() && !m["GatewayConfigStartIndex"].empty()) {
+      gatewayConfigStartIndex = make_shared<long>(boost::any_cast<long>(m["GatewayConfigStartIndex"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
@@ -28153,6 +28235,9 @@ public:
     }
     if (m.find("ReadmeEn") != m.end() && !m["ReadmeEn"].empty()) {
       readmeEn = make_shared<string>(boost::any_cast<string>(m["ReadmeEn"]));
+    }
+    if (m.find("RouteConfigStartIndex") != m.end() && !m["RouteConfigStartIndex"].empty()) {
+      routeConfigStartIndex = make_shared<long>(boost::any_cast<long>(m["RouteConfigStartIndex"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -45285,6 +45370,222 @@ public:
 
 
   virtual ~ListGatewaySlbResponse() = default;
+};
+class ListGatewayZoneRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+
+  ListGatewayZoneRequest() {}
+
+  explicit ListGatewayZoneRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+  }
+
+
+  virtual ~ListGatewayZoneRequest() = default;
+};
+class ListGatewayZoneResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> localName{};
+  shared_ptr<string> zoneId{};
+
+  ListGatewayZoneResponseBodyData() {}
+
+  explicit ListGatewayZoneResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (localName) {
+      res["LocalName"] = boost::any(*localName);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LocalName") != m.end() && !m["LocalName"].empty()) {
+      localName = make_shared<string>(boost::any_cast<string>(m["LocalName"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~ListGatewayZoneResponseBodyData() = default;
+};
+class ListGatewayZoneResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<vector<ListGatewayZoneResponseBodyData>> data{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListGatewayZoneResponseBody() {}
+
+  explicit ListGatewayZoneResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<ListGatewayZoneResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListGatewayZoneResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListGatewayZoneResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListGatewayZoneResponseBody() = default;
+};
+class ListGatewayZoneResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListGatewayZoneResponseBody> body{};
+
+  ListGatewayZoneResponse() {}
+
+  explicit ListGatewayZoneResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListGatewayZoneResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListGatewayZoneResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListGatewayZoneResponse() = default;
 };
 class ListInstanceCountRequest : public Darabonba::Model {
 public:
@@ -69368,6 +69669,7 @@ public:
   shared_ptr<string> gmtModified{};
   shared_ptr<long> id{};
   shared_ptr<long> pluginId{};
+  shared_ptr<vector<long>> resourceIdList{};
 
   UpdatePluginConfigRequest() {}
 
@@ -69409,6 +69711,9 @@ public:
     if (pluginId) {
       res["PluginId"] = boost::any(*pluginId);
     }
+    if (resourceIdList) {
+      res["ResourceIdList"] = boost::any(*resourceIdList);
+    }
     return res;
   }
 
@@ -69443,10 +69748,119 @@ public:
     if (m.find("PluginId") != m.end() && !m["PluginId"].empty()) {
       pluginId = make_shared<long>(boost::any_cast<long>(m["PluginId"]));
     }
+    if (m.find("ResourceIdList") != m.end() && !m["ResourceIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      resourceIdList = make_shared<vector<long>>(toVec1);
+    }
   }
 
 
   virtual ~UpdatePluginConfigRequest() = default;
+};
+class UpdatePluginConfigShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> config{};
+  shared_ptr<long> configLevel{};
+  shared_ptr<bool> enable{};
+  shared_ptr<long> gatewayId{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<long> id{};
+  shared_ptr<long> pluginId{};
+  shared_ptr<string> resourceIdListShrink{};
+
+  UpdatePluginConfigShrinkRequest() {}
+
+  explicit UpdatePluginConfigShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (config) {
+      res["Config"] = boost::any(*config);
+    }
+    if (configLevel) {
+      res["ConfigLevel"] = boost::any(*configLevel);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (pluginId) {
+      res["PluginId"] = boost::any(*pluginId);
+    }
+    if (resourceIdListShrink) {
+      res["ResourceIdList"] = boost::any(*resourceIdListShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("ConfigLevel") != m.end() && !m["ConfigLevel"].empty()) {
+      configLevel = make_shared<long>(boost::any_cast<long>(m["ConfigLevel"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<long>(boost::any_cast<long>(m["GatewayId"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("PluginId") != m.end() && !m["PluginId"].empty()) {
+      pluginId = make_shared<long>(boost::any_cast<long>(m["PluginId"]));
+    }
+    if (m.find("ResourceIdList") != m.end() && !m["ResourceIdList"].empty()) {
+      resourceIdListShrink = make_shared<string>(boost::any_cast<string>(m["ResourceIdList"]));
+    }
+  }
+
+
+  virtual ~UpdatePluginConfigShrinkRequest() = default;
 };
 class UpdatePluginConfigResponseBody : public Darabonba::Model {
 public:
@@ -70693,6 +71107,8 @@ public:
   ListGatewayServiceResponse listGatewayService(shared_ptr<ListGatewayServiceRequest> request);
   ListGatewaySlbResponse listGatewaySlbWithOptions(shared_ptr<ListGatewaySlbRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListGatewaySlbResponse listGatewaySlb(shared_ptr<ListGatewaySlbRequest> request);
+  ListGatewayZoneResponse listGatewayZoneWithOptions(shared_ptr<ListGatewayZoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListGatewayZoneResponse listGatewayZone(shared_ptr<ListGatewayZoneRequest> request);
   ListInstanceCountResponse listInstanceCountWithOptions(shared_ptr<ListInstanceCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInstanceCountResponse listInstanceCount(shared_ptr<ListInstanceCountRequest> request);
   ListIsolationRulesResponse listIsolationRulesWithOptions(shared_ptr<ListIsolationRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -70863,7 +71279,7 @@ public:
   UpdateNacosInstanceResponse updateNacosInstance(shared_ptr<UpdateNacosInstanceRequest> request);
   UpdateNacosServiceResponse updateNacosServiceWithOptions(shared_ptr<UpdateNacosServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateNacosServiceResponse updateNacosService(shared_ptr<UpdateNacosServiceRequest> request);
-  UpdatePluginConfigResponse updatePluginConfigWithOptions(shared_ptr<UpdatePluginConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdatePluginConfigResponse updatePluginConfigWithOptions(shared_ptr<UpdatePluginConfigRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePluginConfigResponse updatePluginConfig(shared_ptr<UpdatePluginConfigRequest> request);
   UpdateSSLCertResponse updateSSLCertWithOptions(shared_ptr<UpdateSSLCertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSSLCertResponse updateSSLCert(shared_ptr<UpdateSSLCertRequest> request);

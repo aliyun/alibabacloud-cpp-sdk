@@ -5873,6 +5873,34 @@ ListGatewaySlbResponse Alibabacloud_Mse20190531::Client::listGatewaySlb(shared_p
   return listGatewaySlbWithOptions(request, runtime);
 }
 
+ListGatewayZoneResponse Alibabacloud_Mse20190531::Client::listGatewayZoneWithOptions(shared_ptr<ListGatewayZoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListGatewayZone"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListGatewayZoneResponse(callApi(params, req, runtime));
+}
+
+ListGatewayZoneResponse Alibabacloud_Mse20190531::Client::listGatewayZone(shared_ptr<ListGatewayZoneRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listGatewayZoneWithOptions(request, runtime);
+}
+
 ListInstanceCountResponse Alibabacloud_Mse20190531::Client::listInstanceCountWithOptions(shared_ptr<ListInstanceCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -9627,8 +9655,13 @@ UpdateNacosServiceResponse Alibabacloud_Mse20190531::Client::updateNacosService(
   return updateNacosServiceWithOptions(request, runtime);
 }
 
-UpdatePluginConfigResponse Alibabacloud_Mse20190531::Client::updatePluginConfigWithOptions(shared_ptr<UpdatePluginConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpdatePluginConfigResponse Alibabacloud_Mse20190531::Client::updatePluginConfigWithOptions(shared_ptr<UpdatePluginConfigRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdatePluginConfigShrinkRequest> request = make_shared<UpdatePluginConfigShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->resourceIdList)) {
+    request->resourceIdListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceIdList, make_shared<string>("ResourceIdList"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
@@ -9659,6 +9692,9 @@ UpdatePluginConfigResponse Alibabacloud_Mse20190531::Client::updatePluginConfigW
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pluginId)) {
     query->insert(pair<string, long>("PluginId", *request->pluginId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceIdListShrink)) {
+    query->insert(pair<string, string>("ResourceIdList", *request->resourceIdListShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
