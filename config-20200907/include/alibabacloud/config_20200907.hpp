@@ -7725,6 +7725,7 @@ public:
   shared_ptr<string> accountIds{};
   shared_ptr<string> aggregatorId{};
   shared_ptr<string> regions{};
+  shared_ptr<long> resourceDeleted{};
   shared_ptr<string> resourceTypes{};
 
   GenerateAggregateResourceInventoryRequest() {}
@@ -7746,6 +7747,9 @@ public:
     if (regions) {
       res["Regions"] = boost::any(*regions);
     }
+    if (resourceDeleted) {
+      res["ResourceDeleted"] = boost::any(*resourceDeleted);
+    }
     if (resourceTypes) {
       res["ResourceTypes"] = boost::any(*resourceTypes);
     }
@@ -7761,6 +7765,9 @@ public:
     }
     if (m.find("Regions") != m.end() && !m["Regions"].empty()) {
       regions = make_shared<string>(boost::any_cast<string>(m["Regions"]));
+    }
+    if (m.find("ResourceDeleted") != m.end() && !m["ResourceDeleted"].empty()) {
+      resourceDeleted = make_shared<long>(boost::any_cast<long>(m["ResourceDeleted"]));
     }
     if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
       resourceTypes = make_shared<string>(boost::any_cast<string>(m["ResourceTypes"]));
@@ -8102,6 +8109,7 @@ public:
 class GenerateResourceInventoryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regions{};
+  shared_ptr<long> resourceDeleted{};
   shared_ptr<string> resourceTypes{};
 
   GenerateResourceInventoryRequest() {}
@@ -8117,6 +8125,9 @@ public:
     if (regions) {
       res["Regions"] = boost::any(*regions);
     }
+    if (resourceDeleted) {
+      res["ResourceDeleted"] = boost::any(*resourceDeleted);
+    }
     if (resourceTypes) {
       res["ResourceTypes"] = boost::any(*resourceTypes);
     }
@@ -8126,6 +8137,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Regions") != m.end() && !m["Regions"].empty()) {
       regions = make_shared<string>(boost::any_cast<string>(m["Regions"]));
+    }
+    if (m.find("ResourceDeleted") != m.end() && !m["ResourceDeleted"].empty()) {
+      resourceDeleted = make_shared<long>(boost::any_cast<long>(m["ResourceDeleted"]));
     }
     if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
       resourceTypes = make_shared<string>(boost::any_cast<string>(m["ResourceTypes"]));
@@ -11290,6 +11304,7 @@ public:
 class GetAggregateDiscoveredResourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
+  shared_ptr<long> complianceOption{};
   shared_ptr<string> region{};
   shared_ptr<long> resourceAccountId{};
   shared_ptr<string> resourceId{};
@@ -11308,6 +11323,9 @@ public:
     map<string, boost::any> res;
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
+    }
+    if (complianceOption) {
+      res["ComplianceOption"] = boost::any(*complianceOption);
     }
     if (region) {
       res["Region"] = boost::any(*region);
@@ -11330,6 +11348,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("ComplianceOption") != m.end() && !m["ComplianceOption"].empty()) {
+      complianceOption = make_shared<long>(boost::any_cast<long>(m["ComplianceOption"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -11355,6 +11376,7 @@ class GetAggregateDiscoveredResourceResponseBodyDiscoveredResourceDetail : publi
 public:
   shared_ptr<long> accountId{};
   shared_ptr<string> availabilityZone{};
+  shared_ptr<string> complianceType{};
   shared_ptr<string> configuration{};
   shared_ptr<string> region{};
   shared_ptr<long> resourceCreationTime{};
@@ -11380,6 +11402,9 @@ public:
     }
     if (availabilityZone) {
       res["AvailabilityZone"] = boost::any(*availabilityZone);
+    }
+    if (complianceType) {
+      res["ComplianceType"] = boost::any(*complianceType);
     }
     if (configuration) {
       res["Configuration"] = boost::any(*configuration);
@@ -11417,6 +11442,9 @@ public:
     }
     if (m.find("AvailabilityZone") != m.end() && !m["AvailabilityZone"].empty()) {
       availabilityZone = make_shared<string>(boost::any_cast<string>(m["AvailabilityZone"]));
+    }
+    if (m.find("ComplianceType") != m.end() && !m["ComplianceType"].empty()) {
+      complianceType = make_shared<string>(boost::any_cast<string>(m["ComplianceType"]));
     }
     if (m.find("Configuration") != m.end() && !m["Configuration"].empty()) {
       configuration = make_shared<string>(boost::any_cast<string>(m["Configuration"]));
@@ -16552,6 +16580,7 @@ public:
 };
 class GetDiscoveredResourceRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> complianceOption{};
   shared_ptr<string> region{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceType{};
@@ -16566,6 +16595,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (complianceOption) {
+      res["ComplianceOption"] = boost::any(*complianceOption);
+    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -16579,6 +16611,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceOption") != m.end() && !m["ComplianceOption"].empty()) {
+      complianceOption = make_shared<long>(boost::any_cast<long>(m["ComplianceOption"]));
+    }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
@@ -16597,6 +16632,7 @@ class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail : public Darabon
 public:
   shared_ptr<long> accountId{};
   shared_ptr<string> availabilityZone{};
+  shared_ptr<string> complianceType{};
   shared_ptr<string> configuration{};
   shared_ptr<string> region{};
   shared_ptr<long> resourceCreationTime{};
@@ -16622,6 +16658,9 @@ public:
     }
     if (availabilityZone) {
       res["AvailabilityZone"] = boost::any(*availabilityZone);
+    }
+    if (complianceType) {
+      res["ComplianceType"] = boost::any(*complianceType);
     }
     if (configuration) {
       res["Configuration"] = boost::any(*configuration);
@@ -16659,6 +16698,9 @@ public:
     }
     if (m.find("AvailabilityZone") != m.end() && !m["AvailabilityZone"].empty()) {
       availabilityZone = make_shared<string>(boost::any_cast<string>(m["AvailabilityZone"]));
+    }
+    if (m.find("ComplianceType") != m.end() && !m["ComplianceType"].empty()) {
+      complianceType = make_shared<string>(boost::any_cast<string>(m["ComplianceType"]));
     }
     if (m.find("Configuration") != m.end() && !m["Configuration"].empty()) {
       configuration = make_shared<string>(boost::any_cast<string>(m["Configuration"]));
