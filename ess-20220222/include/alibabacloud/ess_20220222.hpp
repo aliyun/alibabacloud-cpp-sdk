@@ -5480,10 +5480,26 @@ public:
   shared_ptr<vector<string>> architectures{};
   shared_ptr<string> burstablePerformance{};
   shared_ptr<long> cores{};
+  shared_ptr<vector<string>> cpuArchitectures{};
   shared_ptr<vector<string>> excludedInstanceTypes{};
+  shared_ptr<vector<string>> gpuSpecs{};
+  shared_ptr<vector<string>> instanceCategories{};
   shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<vector<string>> instanceTypeFamilies{};
   shared_ptr<double> maxPrice{};
+  shared_ptr<long> maximumCpuCoreCount{};
+  shared_ptr<long> maximumGpuAmount{};
+  shared_ptr<double> maximumMemorySize{};
   shared_ptr<double> memory{};
+  shared_ptr<long> minimumBaselineCredit{};
+  shared_ptr<long> minimumCpuCoreCount{};
+  shared_ptr<long> minimumEniIpv6AddressQuantity{};
+  shared_ptr<long> minimumEniPrivateIpAddressQuantity{};
+  shared_ptr<long> minimumEniQuantity{};
+  shared_ptr<long> minimumGpuAmount{};
+  shared_ptr<long> minimumInitialCredit{};
+  shared_ptr<double> minimumMemorySize{};
+  shared_ptr<vector<string>> physicalProcessorModels{};
 
   CreateScalingConfigurationRequestInstancePatternInfos() {}
 
@@ -5504,17 +5520,65 @@ public:
     if (cores) {
       res["Cores"] = boost::any(*cores);
     }
+    if (cpuArchitectures) {
+      res["CpuArchitectures"] = boost::any(*cpuArchitectures);
+    }
     if (excludedInstanceTypes) {
       res["ExcludedInstanceTypes"] = boost::any(*excludedInstanceTypes);
+    }
+    if (gpuSpecs) {
+      res["GpuSpecs"] = boost::any(*gpuSpecs);
+    }
+    if (instanceCategories) {
+      res["InstanceCategories"] = boost::any(*instanceCategories);
     }
     if (instanceFamilyLevel) {
       res["InstanceFamilyLevel"] = boost::any(*instanceFamilyLevel);
     }
+    if (instanceTypeFamilies) {
+      res["InstanceTypeFamilies"] = boost::any(*instanceTypeFamilies);
+    }
     if (maxPrice) {
       res["MaxPrice"] = boost::any(*maxPrice);
     }
+    if (maximumCpuCoreCount) {
+      res["MaximumCpuCoreCount"] = boost::any(*maximumCpuCoreCount);
+    }
+    if (maximumGpuAmount) {
+      res["MaximumGpuAmount"] = boost::any(*maximumGpuAmount);
+    }
+    if (maximumMemorySize) {
+      res["MaximumMemorySize"] = boost::any(*maximumMemorySize);
+    }
     if (memory) {
       res["Memory"] = boost::any(*memory);
+    }
+    if (minimumBaselineCredit) {
+      res["MinimumBaselineCredit"] = boost::any(*minimumBaselineCredit);
+    }
+    if (minimumCpuCoreCount) {
+      res["MinimumCpuCoreCount"] = boost::any(*minimumCpuCoreCount);
+    }
+    if (minimumEniIpv6AddressQuantity) {
+      res["MinimumEniIpv6AddressQuantity"] = boost::any(*minimumEniIpv6AddressQuantity);
+    }
+    if (minimumEniPrivateIpAddressQuantity) {
+      res["MinimumEniPrivateIpAddressQuantity"] = boost::any(*minimumEniPrivateIpAddressQuantity);
+    }
+    if (minimumEniQuantity) {
+      res["MinimumEniQuantity"] = boost::any(*minimumEniQuantity);
+    }
+    if (minimumGpuAmount) {
+      res["MinimumGpuAmount"] = boost::any(*minimumGpuAmount);
+    }
+    if (minimumInitialCredit) {
+      res["MinimumInitialCredit"] = boost::any(*minimumInitialCredit);
+    }
+    if (minimumMemorySize) {
+      res["MinimumMemorySize"] = boost::any(*minimumMemorySize);
+    }
+    if (physicalProcessorModels) {
+      res["PhysicalProcessorModels"] = boost::any(*physicalProcessorModels);
     }
     return res;
   }
@@ -5536,6 +5600,16 @@ public:
     if (m.find("Cores") != m.end() && !m["Cores"].empty()) {
       cores = make_shared<long>(boost::any_cast<long>(m["Cores"]));
     }
+    if (m.find("CpuArchitectures") != m.end() && !m["CpuArchitectures"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CpuArchitectures"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CpuArchitectures"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cpuArchitectures = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ExcludedInstanceTypes") != m.end() && !m["ExcludedInstanceTypes"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ExcludedInstanceTypes"].type()) {
@@ -5546,14 +5620,87 @@ public:
       }
       excludedInstanceTypes = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("GpuSpecs") != m.end() && !m["GpuSpecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GpuSpecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GpuSpecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      gpuSpecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceCategories") != m.end() && !m["InstanceCategories"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceCategories"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceCategories"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceCategories = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("InstanceFamilyLevel") != m.end() && !m["InstanceFamilyLevel"].empty()) {
       instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["InstanceFamilyLevel"]));
+    }
+    if (m.find("InstanceTypeFamilies") != m.end() && !m["InstanceTypeFamilies"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypeFamilies"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypeFamilies"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypeFamilies = make_shared<vector<string>>(toVec1);
     }
     if (m.find("MaxPrice") != m.end() && !m["MaxPrice"].empty()) {
       maxPrice = make_shared<double>(boost::any_cast<double>(m["MaxPrice"]));
     }
+    if (m.find("MaximumCpuCoreCount") != m.end() && !m["MaximumCpuCoreCount"].empty()) {
+      maximumCpuCoreCount = make_shared<long>(boost::any_cast<long>(m["MaximumCpuCoreCount"]));
+    }
+    if (m.find("MaximumGpuAmount") != m.end() && !m["MaximumGpuAmount"].empty()) {
+      maximumGpuAmount = make_shared<long>(boost::any_cast<long>(m["MaximumGpuAmount"]));
+    }
+    if (m.find("MaximumMemorySize") != m.end() && !m["MaximumMemorySize"].empty()) {
+      maximumMemorySize = make_shared<double>(boost::any_cast<double>(m["MaximumMemorySize"]));
+    }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+    if (m.find("MinimumBaselineCredit") != m.end() && !m["MinimumBaselineCredit"].empty()) {
+      minimumBaselineCredit = make_shared<long>(boost::any_cast<long>(m["MinimumBaselineCredit"]));
+    }
+    if (m.find("MinimumCpuCoreCount") != m.end() && !m["MinimumCpuCoreCount"].empty()) {
+      minimumCpuCoreCount = make_shared<long>(boost::any_cast<long>(m["MinimumCpuCoreCount"]));
+    }
+    if (m.find("MinimumEniIpv6AddressQuantity") != m.end() && !m["MinimumEniIpv6AddressQuantity"].empty()) {
+      minimumEniIpv6AddressQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniIpv6AddressQuantity"]));
+    }
+    if (m.find("MinimumEniPrivateIpAddressQuantity") != m.end() && !m["MinimumEniPrivateIpAddressQuantity"].empty()) {
+      minimumEniPrivateIpAddressQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniPrivateIpAddressQuantity"]));
+    }
+    if (m.find("MinimumEniQuantity") != m.end() && !m["MinimumEniQuantity"].empty()) {
+      minimumEniQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniQuantity"]));
+    }
+    if (m.find("MinimumGpuAmount") != m.end() && !m["MinimumGpuAmount"].empty()) {
+      minimumGpuAmount = make_shared<long>(boost::any_cast<long>(m["MinimumGpuAmount"]));
+    }
+    if (m.find("MinimumInitialCredit") != m.end() && !m["MinimumInitialCredit"].empty()) {
+      minimumInitialCredit = make_shared<long>(boost::any_cast<long>(m["MinimumInitialCredit"]));
+    }
+    if (m.find("MinimumMemorySize") != m.end() && !m["MinimumMemorySize"].empty()) {
+      minimumMemorySize = make_shared<double>(boost::any_cast<double>(m["MinimumMemorySize"]));
+    }
+    if (m.find("PhysicalProcessorModels") != m.end() && !m["PhysicalProcessorModels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PhysicalProcessorModels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PhysicalProcessorModels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      physicalProcessorModels = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -6564,10 +6711,26 @@ public:
   shared_ptr<vector<string>> architectures{};
   shared_ptr<string> burstablePerformance{};
   shared_ptr<long> cores{};
+  shared_ptr<vector<string>> cpuArchitectures{};
   shared_ptr<vector<string>> excludedInstanceTypes{};
+  shared_ptr<vector<string>> gpuSpecs{};
+  shared_ptr<vector<string>> instanceCategories{};
   shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<vector<string>> instanceTypeFamilies{};
   shared_ptr<double> maxPrice{};
+  shared_ptr<long> maximumCpuCoreCount{};
+  shared_ptr<long> maximumGpuAmount{};
+  shared_ptr<double> maximumMemorySize{};
   shared_ptr<double> memory{};
+  shared_ptr<long> minimumBaselineCredit{};
+  shared_ptr<long> minimumCpuCoreCount{};
+  shared_ptr<long> minimumEniIpv6AddressQuantity{};
+  shared_ptr<long> minimumEniPrivateIpAddressQuantity{};
+  shared_ptr<long> minimumEniQuantity{};
+  shared_ptr<long> minimumGpuAmount{};
+  shared_ptr<long> minimumInitialCredit{};
+  shared_ptr<double> minimumMemorySize{};
+  shared_ptr<vector<string>> physicalProcessorModels{};
 
   CreateScalingConfigurationShrinkRequestInstancePatternInfos() {}
 
@@ -6588,17 +6751,65 @@ public:
     if (cores) {
       res["Cores"] = boost::any(*cores);
     }
+    if (cpuArchitectures) {
+      res["CpuArchitectures"] = boost::any(*cpuArchitectures);
+    }
     if (excludedInstanceTypes) {
       res["ExcludedInstanceTypes"] = boost::any(*excludedInstanceTypes);
+    }
+    if (gpuSpecs) {
+      res["GpuSpecs"] = boost::any(*gpuSpecs);
+    }
+    if (instanceCategories) {
+      res["InstanceCategories"] = boost::any(*instanceCategories);
     }
     if (instanceFamilyLevel) {
       res["InstanceFamilyLevel"] = boost::any(*instanceFamilyLevel);
     }
+    if (instanceTypeFamilies) {
+      res["InstanceTypeFamilies"] = boost::any(*instanceTypeFamilies);
+    }
     if (maxPrice) {
       res["MaxPrice"] = boost::any(*maxPrice);
     }
+    if (maximumCpuCoreCount) {
+      res["MaximumCpuCoreCount"] = boost::any(*maximumCpuCoreCount);
+    }
+    if (maximumGpuAmount) {
+      res["MaximumGpuAmount"] = boost::any(*maximumGpuAmount);
+    }
+    if (maximumMemorySize) {
+      res["MaximumMemorySize"] = boost::any(*maximumMemorySize);
+    }
     if (memory) {
       res["Memory"] = boost::any(*memory);
+    }
+    if (minimumBaselineCredit) {
+      res["MinimumBaselineCredit"] = boost::any(*minimumBaselineCredit);
+    }
+    if (minimumCpuCoreCount) {
+      res["MinimumCpuCoreCount"] = boost::any(*minimumCpuCoreCount);
+    }
+    if (minimumEniIpv6AddressQuantity) {
+      res["MinimumEniIpv6AddressQuantity"] = boost::any(*minimumEniIpv6AddressQuantity);
+    }
+    if (minimumEniPrivateIpAddressQuantity) {
+      res["MinimumEniPrivateIpAddressQuantity"] = boost::any(*minimumEniPrivateIpAddressQuantity);
+    }
+    if (minimumEniQuantity) {
+      res["MinimumEniQuantity"] = boost::any(*minimumEniQuantity);
+    }
+    if (minimumGpuAmount) {
+      res["MinimumGpuAmount"] = boost::any(*minimumGpuAmount);
+    }
+    if (minimumInitialCredit) {
+      res["MinimumInitialCredit"] = boost::any(*minimumInitialCredit);
+    }
+    if (minimumMemorySize) {
+      res["MinimumMemorySize"] = boost::any(*minimumMemorySize);
+    }
+    if (physicalProcessorModels) {
+      res["PhysicalProcessorModels"] = boost::any(*physicalProcessorModels);
     }
     return res;
   }
@@ -6620,6 +6831,16 @@ public:
     if (m.find("Cores") != m.end() && !m["Cores"].empty()) {
       cores = make_shared<long>(boost::any_cast<long>(m["Cores"]));
     }
+    if (m.find("CpuArchitectures") != m.end() && !m["CpuArchitectures"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CpuArchitectures"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CpuArchitectures"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cpuArchitectures = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ExcludedInstanceTypes") != m.end() && !m["ExcludedInstanceTypes"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ExcludedInstanceTypes"].type()) {
@@ -6630,14 +6851,87 @@ public:
       }
       excludedInstanceTypes = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("GpuSpecs") != m.end() && !m["GpuSpecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GpuSpecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GpuSpecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      gpuSpecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceCategories") != m.end() && !m["InstanceCategories"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceCategories"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceCategories"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceCategories = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("InstanceFamilyLevel") != m.end() && !m["InstanceFamilyLevel"].empty()) {
       instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["InstanceFamilyLevel"]));
+    }
+    if (m.find("InstanceTypeFamilies") != m.end() && !m["InstanceTypeFamilies"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypeFamilies"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypeFamilies"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypeFamilies = make_shared<vector<string>>(toVec1);
     }
     if (m.find("MaxPrice") != m.end() && !m["MaxPrice"].empty()) {
       maxPrice = make_shared<double>(boost::any_cast<double>(m["MaxPrice"]));
     }
+    if (m.find("MaximumCpuCoreCount") != m.end() && !m["MaximumCpuCoreCount"].empty()) {
+      maximumCpuCoreCount = make_shared<long>(boost::any_cast<long>(m["MaximumCpuCoreCount"]));
+    }
+    if (m.find("MaximumGpuAmount") != m.end() && !m["MaximumGpuAmount"].empty()) {
+      maximumGpuAmount = make_shared<long>(boost::any_cast<long>(m["MaximumGpuAmount"]));
+    }
+    if (m.find("MaximumMemorySize") != m.end() && !m["MaximumMemorySize"].empty()) {
+      maximumMemorySize = make_shared<double>(boost::any_cast<double>(m["MaximumMemorySize"]));
+    }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+    if (m.find("MinimumBaselineCredit") != m.end() && !m["MinimumBaselineCredit"].empty()) {
+      minimumBaselineCredit = make_shared<long>(boost::any_cast<long>(m["MinimumBaselineCredit"]));
+    }
+    if (m.find("MinimumCpuCoreCount") != m.end() && !m["MinimumCpuCoreCount"].empty()) {
+      minimumCpuCoreCount = make_shared<long>(boost::any_cast<long>(m["MinimumCpuCoreCount"]));
+    }
+    if (m.find("MinimumEniIpv6AddressQuantity") != m.end() && !m["MinimumEniIpv6AddressQuantity"].empty()) {
+      minimumEniIpv6AddressQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniIpv6AddressQuantity"]));
+    }
+    if (m.find("MinimumEniPrivateIpAddressQuantity") != m.end() && !m["MinimumEniPrivateIpAddressQuantity"].empty()) {
+      minimumEniPrivateIpAddressQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniPrivateIpAddressQuantity"]));
+    }
+    if (m.find("MinimumEniQuantity") != m.end() && !m["MinimumEniQuantity"].empty()) {
+      minimumEniQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniQuantity"]));
+    }
+    if (m.find("MinimumGpuAmount") != m.end() && !m["MinimumGpuAmount"].empty()) {
+      minimumGpuAmount = make_shared<long>(boost::any_cast<long>(m["MinimumGpuAmount"]));
+    }
+    if (m.find("MinimumInitialCredit") != m.end() && !m["MinimumInitialCredit"].empty()) {
+      minimumInitialCredit = make_shared<long>(boost::any_cast<long>(m["MinimumInitialCredit"]));
+    }
+    if (m.find("MinimumMemorySize") != m.end() && !m["MinimumMemorySize"].empty()) {
+      minimumMemorySize = make_shared<double>(boost::any_cast<double>(m["MinimumMemorySize"]));
+    }
+    if (m.find("PhysicalProcessorModels") != m.end() && !m["PhysicalProcessorModels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PhysicalProcessorModels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PhysicalProcessorModels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      physicalProcessorModels = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -16108,11 +16402,27 @@ public:
   shared_ptr<long> channelId{};
   shared_ptr<long> cores{};
   shared_ptr<vector<long>> coresList{};
+  shared_ptr<vector<string>> cpuArchitectures{};
   shared_ptr<vector<string>> excludedInstanceType{};
+  shared_ptr<vector<string>> gpuSpecs{};
+  shared_ptr<vector<string>> instanceCategories{};
   shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<vector<string>> instanceTypeFamilies{};
   shared_ptr<double> maxPrice{};
+  shared_ptr<long> maximumCpuCoreCount{};
+  shared_ptr<long> maximumGpuAmount{};
+  shared_ptr<double> maximumMemorySize{};
   shared_ptr<double> memory{};
   shared_ptr<vector<double>> memoryList{};
+  shared_ptr<long> minimumBaselineCredit{};
+  shared_ptr<long> minimumCpuCoreCount{};
+  shared_ptr<long> minimumEniIpv6AddressQuantity{};
+  shared_ptr<long> minimumEniPrivateIpAddressQuantity{};
+  shared_ptr<long> minimumEniQuantity{};
+  shared_ptr<long> minimumGpuAmount{};
+  shared_ptr<long> minimumInitialCredit{};
+  shared_ptr<double> minimumMemorySize{};
+  shared_ptr<vector<string>> physicalProcessorModels{};
   shared_ptr<string> regionId{};
   shared_ptr<string> spotStrategy{};
   shared_ptr<vector<string>> vSwitchId{};
@@ -16142,20 +16452,68 @@ public:
     if (coresList) {
       res["CoresList"] = boost::any(*coresList);
     }
+    if (cpuArchitectures) {
+      res["CpuArchitectures"] = boost::any(*cpuArchitectures);
+    }
     if (excludedInstanceType) {
       res["ExcludedInstanceType"] = boost::any(*excludedInstanceType);
+    }
+    if (gpuSpecs) {
+      res["GpuSpecs"] = boost::any(*gpuSpecs);
+    }
+    if (instanceCategories) {
+      res["InstanceCategories"] = boost::any(*instanceCategories);
     }
     if (instanceFamilyLevel) {
       res["InstanceFamilyLevel"] = boost::any(*instanceFamilyLevel);
     }
+    if (instanceTypeFamilies) {
+      res["InstanceTypeFamilies"] = boost::any(*instanceTypeFamilies);
+    }
     if (maxPrice) {
       res["MaxPrice"] = boost::any(*maxPrice);
+    }
+    if (maximumCpuCoreCount) {
+      res["MaximumCpuCoreCount"] = boost::any(*maximumCpuCoreCount);
+    }
+    if (maximumGpuAmount) {
+      res["MaximumGpuAmount"] = boost::any(*maximumGpuAmount);
+    }
+    if (maximumMemorySize) {
+      res["MaximumMemorySize"] = boost::any(*maximumMemorySize);
     }
     if (memory) {
       res["Memory"] = boost::any(*memory);
     }
     if (memoryList) {
       res["MemoryList"] = boost::any(*memoryList);
+    }
+    if (minimumBaselineCredit) {
+      res["MinimumBaselineCredit"] = boost::any(*minimumBaselineCredit);
+    }
+    if (minimumCpuCoreCount) {
+      res["MinimumCpuCoreCount"] = boost::any(*minimumCpuCoreCount);
+    }
+    if (minimumEniIpv6AddressQuantity) {
+      res["MinimumEniIpv6AddressQuantity"] = boost::any(*minimumEniIpv6AddressQuantity);
+    }
+    if (minimumEniPrivateIpAddressQuantity) {
+      res["MinimumEniPrivateIpAddressQuantity"] = boost::any(*minimumEniPrivateIpAddressQuantity);
+    }
+    if (minimumEniQuantity) {
+      res["MinimumEniQuantity"] = boost::any(*minimumEniQuantity);
+    }
+    if (minimumGpuAmount) {
+      res["MinimumGpuAmount"] = boost::any(*minimumGpuAmount);
+    }
+    if (minimumInitialCredit) {
+      res["MinimumInitialCredit"] = boost::any(*minimumInitialCredit);
+    }
+    if (minimumMemorySize) {
+      res["MinimumMemorySize"] = boost::any(*minimumMemorySize);
+    }
+    if (physicalProcessorModels) {
+      res["PhysicalProcessorModels"] = boost::any(*physicalProcessorModels);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -16199,6 +16557,16 @@ public:
       }
       coresList = make_shared<vector<long>>(toVec1);
     }
+    if (m.find("CpuArchitectures") != m.end() && !m["CpuArchitectures"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CpuArchitectures"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CpuArchitectures"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cpuArchitectures = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ExcludedInstanceType") != m.end() && !m["ExcludedInstanceType"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ExcludedInstanceType"].type()) {
@@ -16209,11 +16577,50 @@ public:
       }
       excludedInstanceType = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("GpuSpecs") != m.end() && !m["GpuSpecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GpuSpecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GpuSpecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      gpuSpecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceCategories") != m.end() && !m["InstanceCategories"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceCategories"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceCategories"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceCategories = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("InstanceFamilyLevel") != m.end() && !m["InstanceFamilyLevel"].empty()) {
       instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["InstanceFamilyLevel"]));
     }
+    if (m.find("InstanceTypeFamilies") != m.end() && !m["InstanceTypeFamilies"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypeFamilies"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypeFamilies"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypeFamilies = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("MaxPrice") != m.end() && !m["MaxPrice"].empty()) {
       maxPrice = make_shared<double>(boost::any_cast<double>(m["MaxPrice"]));
+    }
+    if (m.find("MaximumCpuCoreCount") != m.end() && !m["MaximumCpuCoreCount"].empty()) {
+      maximumCpuCoreCount = make_shared<long>(boost::any_cast<long>(m["MaximumCpuCoreCount"]));
+    }
+    if (m.find("MaximumGpuAmount") != m.end() && !m["MaximumGpuAmount"].empty()) {
+      maximumGpuAmount = make_shared<long>(boost::any_cast<long>(m["MaximumGpuAmount"]));
+    }
+    if (m.find("MaximumMemorySize") != m.end() && !m["MaximumMemorySize"].empty()) {
+      maximumMemorySize = make_shared<double>(boost::any_cast<double>(m["MaximumMemorySize"]));
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
@@ -16227,6 +16634,40 @@ public:
         }
       }
       memoryList = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("MinimumBaselineCredit") != m.end() && !m["MinimumBaselineCredit"].empty()) {
+      minimumBaselineCredit = make_shared<long>(boost::any_cast<long>(m["MinimumBaselineCredit"]));
+    }
+    if (m.find("MinimumCpuCoreCount") != m.end() && !m["MinimumCpuCoreCount"].empty()) {
+      minimumCpuCoreCount = make_shared<long>(boost::any_cast<long>(m["MinimumCpuCoreCount"]));
+    }
+    if (m.find("MinimumEniIpv6AddressQuantity") != m.end() && !m["MinimumEniIpv6AddressQuantity"].empty()) {
+      minimumEniIpv6AddressQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniIpv6AddressQuantity"]));
+    }
+    if (m.find("MinimumEniPrivateIpAddressQuantity") != m.end() && !m["MinimumEniPrivateIpAddressQuantity"].empty()) {
+      minimumEniPrivateIpAddressQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniPrivateIpAddressQuantity"]));
+    }
+    if (m.find("MinimumEniQuantity") != m.end() && !m["MinimumEniQuantity"].empty()) {
+      minimumEniQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniQuantity"]));
+    }
+    if (m.find("MinimumGpuAmount") != m.end() && !m["MinimumGpuAmount"].empty()) {
+      minimumGpuAmount = make_shared<long>(boost::any_cast<long>(m["MinimumGpuAmount"]));
+    }
+    if (m.find("MinimumInitialCredit") != m.end() && !m["MinimumInitialCredit"].empty()) {
+      minimumInitialCredit = make_shared<long>(boost::any_cast<long>(m["MinimumInitialCredit"]));
+    }
+    if (m.find("MinimumMemorySize") != m.end() && !m["MinimumMemorySize"].empty()) {
+      minimumMemorySize = make_shared<double>(boost::any_cast<double>(m["MinimumMemorySize"]));
+    }
+    if (m.find("PhysicalProcessorModels") != m.end() && !m["PhysicalProcessorModels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PhysicalProcessorModels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PhysicalProcessorModels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      physicalProcessorModels = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -17551,10 +17992,26 @@ public:
   shared_ptr<vector<string>> architectures{};
   shared_ptr<string> burstablePerformance{};
   shared_ptr<long> cores{};
+  shared_ptr<vector<string>> cpuArchitectures{};
   shared_ptr<vector<string>> excludedInstanceTypes{};
+  shared_ptr<vector<string>> gpuSpecs{};
+  shared_ptr<vector<string>> instanceCategories{};
   shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<vector<string>> instanceTypeFamilies{};
   shared_ptr<double> maxPrice{};
+  shared_ptr<long> maximumCpuCoreCount{};
+  shared_ptr<long> maximumGpuAmount{};
+  shared_ptr<double> maximumMemorySize{};
   shared_ptr<double> memory{};
+  shared_ptr<long> minimumBaselineCredit{};
+  shared_ptr<long> minimumCpuCoreCount{};
+  shared_ptr<long> minimumEniIpv6AddressQuantity{};
+  shared_ptr<long> minimumEniPrivateIpAddressQuantity{};
+  shared_ptr<long> minimumEniQuantity{};
+  shared_ptr<long> minimumGpuAmount{};
+  shared_ptr<long> minimumInitialCredit{};
+  shared_ptr<double> minimumMemorySize{};
+  shared_ptr<vector<string>> physicalProcessorModels{};
 
   DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstancePatternInfos() {}
 
@@ -17575,17 +18032,65 @@ public:
     if (cores) {
       res["Cores"] = boost::any(*cores);
     }
+    if (cpuArchitectures) {
+      res["CpuArchitectures"] = boost::any(*cpuArchitectures);
+    }
     if (excludedInstanceTypes) {
       res["ExcludedInstanceTypes"] = boost::any(*excludedInstanceTypes);
+    }
+    if (gpuSpecs) {
+      res["GpuSpecs"] = boost::any(*gpuSpecs);
+    }
+    if (instanceCategories) {
+      res["InstanceCategories"] = boost::any(*instanceCategories);
     }
     if (instanceFamilyLevel) {
       res["InstanceFamilyLevel"] = boost::any(*instanceFamilyLevel);
     }
+    if (instanceTypeFamilies) {
+      res["InstanceTypeFamilies"] = boost::any(*instanceTypeFamilies);
+    }
     if (maxPrice) {
       res["MaxPrice"] = boost::any(*maxPrice);
     }
+    if (maximumCpuCoreCount) {
+      res["MaximumCpuCoreCount"] = boost::any(*maximumCpuCoreCount);
+    }
+    if (maximumGpuAmount) {
+      res["MaximumGpuAmount"] = boost::any(*maximumGpuAmount);
+    }
+    if (maximumMemorySize) {
+      res["MaximumMemorySize"] = boost::any(*maximumMemorySize);
+    }
     if (memory) {
       res["Memory"] = boost::any(*memory);
+    }
+    if (minimumBaselineCredit) {
+      res["MinimumBaselineCredit"] = boost::any(*minimumBaselineCredit);
+    }
+    if (minimumCpuCoreCount) {
+      res["MinimumCpuCoreCount"] = boost::any(*minimumCpuCoreCount);
+    }
+    if (minimumEniIpv6AddressQuantity) {
+      res["MinimumEniIpv6AddressQuantity"] = boost::any(*minimumEniIpv6AddressQuantity);
+    }
+    if (minimumEniPrivateIpAddressQuantity) {
+      res["MinimumEniPrivateIpAddressQuantity"] = boost::any(*minimumEniPrivateIpAddressQuantity);
+    }
+    if (minimumEniQuantity) {
+      res["MinimumEniQuantity"] = boost::any(*minimumEniQuantity);
+    }
+    if (minimumGpuAmount) {
+      res["MinimumGpuAmount"] = boost::any(*minimumGpuAmount);
+    }
+    if (minimumInitialCredit) {
+      res["MinimumInitialCredit"] = boost::any(*minimumInitialCredit);
+    }
+    if (minimumMemorySize) {
+      res["MinimumMemorySize"] = boost::any(*minimumMemorySize);
+    }
+    if (physicalProcessorModels) {
+      res["PhysicalProcessorModels"] = boost::any(*physicalProcessorModels);
     }
     return res;
   }
@@ -17607,6 +18112,16 @@ public:
     if (m.find("Cores") != m.end() && !m["Cores"].empty()) {
       cores = make_shared<long>(boost::any_cast<long>(m["Cores"]));
     }
+    if (m.find("CpuArchitectures") != m.end() && !m["CpuArchitectures"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CpuArchitectures"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CpuArchitectures"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cpuArchitectures = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ExcludedInstanceTypes") != m.end() && !m["ExcludedInstanceTypes"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ExcludedInstanceTypes"].type()) {
@@ -17617,14 +18132,87 @@ public:
       }
       excludedInstanceTypes = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("GpuSpecs") != m.end() && !m["GpuSpecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GpuSpecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GpuSpecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      gpuSpecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceCategories") != m.end() && !m["InstanceCategories"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceCategories"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceCategories"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceCategories = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("InstanceFamilyLevel") != m.end() && !m["InstanceFamilyLevel"].empty()) {
       instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["InstanceFamilyLevel"]));
+    }
+    if (m.find("InstanceTypeFamilies") != m.end() && !m["InstanceTypeFamilies"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypeFamilies"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypeFamilies"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypeFamilies = make_shared<vector<string>>(toVec1);
     }
     if (m.find("MaxPrice") != m.end() && !m["MaxPrice"].empty()) {
       maxPrice = make_shared<double>(boost::any_cast<double>(m["MaxPrice"]));
     }
+    if (m.find("MaximumCpuCoreCount") != m.end() && !m["MaximumCpuCoreCount"].empty()) {
+      maximumCpuCoreCount = make_shared<long>(boost::any_cast<long>(m["MaximumCpuCoreCount"]));
+    }
+    if (m.find("MaximumGpuAmount") != m.end() && !m["MaximumGpuAmount"].empty()) {
+      maximumGpuAmount = make_shared<long>(boost::any_cast<long>(m["MaximumGpuAmount"]));
+    }
+    if (m.find("MaximumMemorySize") != m.end() && !m["MaximumMemorySize"].empty()) {
+      maximumMemorySize = make_shared<double>(boost::any_cast<double>(m["MaximumMemorySize"]));
+    }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+    if (m.find("MinimumBaselineCredit") != m.end() && !m["MinimumBaselineCredit"].empty()) {
+      minimumBaselineCredit = make_shared<long>(boost::any_cast<long>(m["MinimumBaselineCredit"]));
+    }
+    if (m.find("MinimumCpuCoreCount") != m.end() && !m["MinimumCpuCoreCount"].empty()) {
+      minimumCpuCoreCount = make_shared<long>(boost::any_cast<long>(m["MinimumCpuCoreCount"]));
+    }
+    if (m.find("MinimumEniIpv6AddressQuantity") != m.end() && !m["MinimumEniIpv6AddressQuantity"].empty()) {
+      minimumEniIpv6AddressQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniIpv6AddressQuantity"]));
+    }
+    if (m.find("MinimumEniPrivateIpAddressQuantity") != m.end() && !m["MinimumEniPrivateIpAddressQuantity"].empty()) {
+      minimumEniPrivateIpAddressQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniPrivateIpAddressQuantity"]));
+    }
+    if (m.find("MinimumEniQuantity") != m.end() && !m["MinimumEniQuantity"].empty()) {
+      minimumEniQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniQuantity"]));
+    }
+    if (m.find("MinimumGpuAmount") != m.end() && !m["MinimumGpuAmount"].empty()) {
+      minimumGpuAmount = make_shared<long>(boost::any_cast<long>(m["MinimumGpuAmount"]));
+    }
+    if (m.find("MinimumInitialCredit") != m.end() && !m["MinimumInitialCredit"].empty()) {
+      minimumInitialCredit = make_shared<long>(boost::any_cast<long>(m["MinimumInitialCredit"]));
+    }
+    if (m.find("MinimumMemorySize") != m.end() && !m["MinimumMemorySize"].empty()) {
+      minimumMemorySize = make_shared<double>(boost::any_cast<double>(m["MinimumMemorySize"]));
+    }
+    if (m.find("PhysicalProcessorModels") != m.end() && !m["PhysicalProcessorModels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PhysicalProcessorModels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PhysicalProcessorModels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      physicalProcessorModels = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -29119,10 +29707,26 @@ public:
   shared_ptr<vector<string>> architectures{};
   shared_ptr<string> burstablePerformance{};
   shared_ptr<long> cores{};
+  shared_ptr<vector<string>> cpuArchitectures{};
   shared_ptr<vector<string>> excludedInstanceTypes{};
+  shared_ptr<vector<string>> gpuSpecs{};
+  shared_ptr<vector<string>> instanceCategories{};
   shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<vector<string>> instanceTypeFamilies{};
   shared_ptr<double> maxPrice{};
+  shared_ptr<long> maximumCpuCoreCount{};
+  shared_ptr<long> maximumGpuAmount{};
+  shared_ptr<double> maximumMemorySize{};
   shared_ptr<double> memory{};
+  shared_ptr<long> minimumBaselineCredit{};
+  shared_ptr<long> minimumCpuCoreCount{};
+  shared_ptr<long> minimumEniIpv6AddressQuantity{};
+  shared_ptr<long> minimumEniPrivateIpAddressQuantity{};
+  shared_ptr<long> minimumEniQuantity{};
+  shared_ptr<long> minimumGpuAmount{};
+  shared_ptr<long> minimumInitialCredit{};
+  shared_ptr<double> minimumMemorySize{};
+  shared_ptr<vector<string>> physicalProcessorModels{};
 
   ModifyScalingConfigurationRequestInstancePatternInfos() {}
 
@@ -29143,17 +29747,65 @@ public:
     if (cores) {
       res["Cores"] = boost::any(*cores);
     }
+    if (cpuArchitectures) {
+      res["CpuArchitectures"] = boost::any(*cpuArchitectures);
+    }
     if (excludedInstanceTypes) {
       res["ExcludedInstanceTypes"] = boost::any(*excludedInstanceTypes);
+    }
+    if (gpuSpecs) {
+      res["GpuSpecs"] = boost::any(*gpuSpecs);
+    }
+    if (instanceCategories) {
+      res["InstanceCategories"] = boost::any(*instanceCategories);
     }
     if (instanceFamilyLevel) {
       res["InstanceFamilyLevel"] = boost::any(*instanceFamilyLevel);
     }
+    if (instanceTypeFamilies) {
+      res["InstanceTypeFamilies"] = boost::any(*instanceTypeFamilies);
+    }
     if (maxPrice) {
       res["MaxPrice"] = boost::any(*maxPrice);
     }
+    if (maximumCpuCoreCount) {
+      res["MaximumCpuCoreCount"] = boost::any(*maximumCpuCoreCount);
+    }
+    if (maximumGpuAmount) {
+      res["MaximumGpuAmount"] = boost::any(*maximumGpuAmount);
+    }
+    if (maximumMemorySize) {
+      res["MaximumMemorySize"] = boost::any(*maximumMemorySize);
+    }
     if (memory) {
       res["Memory"] = boost::any(*memory);
+    }
+    if (minimumBaselineCredit) {
+      res["MinimumBaselineCredit"] = boost::any(*minimumBaselineCredit);
+    }
+    if (minimumCpuCoreCount) {
+      res["MinimumCpuCoreCount"] = boost::any(*minimumCpuCoreCount);
+    }
+    if (minimumEniIpv6AddressQuantity) {
+      res["MinimumEniIpv6AddressQuantity"] = boost::any(*minimumEniIpv6AddressQuantity);
+    }
+    if (minimumEniPrivateIpAddressQuantity) {
+      res["MinimumEniPrivateIpAddressQuantity"] = boost::any(*minimumEniPrivateIpAddressQuantity);
+    }
+    if (minimumEniQuantity) {
+      res["MinimumEniQuantity"] = boost::any(*minimumEniQuantity);
+    }
+    if (minimumGpuAmount) {
+      res["MinimumGpuAmount"] = boost::any(*minimumGpuAmount);
+    }
+    if (minimumInitialCredit) {
+      res["MinimumInitialCredit"] = boost::any(*minimumInitialCredit);
+    }
+    if (minimumMemorySize) {
+      res["MinimumMemorySize"] = boost::any(*minimumMemorySize);
+    }
+    if (physicalProcessorModels) {
+      res["PhysicalProcessorModels"] = boost::any(*physicalProcessorModels);
     }
     return res;
   }
@@ -29175,6 +29827,16 @@ public:
     if (m.find("Cores") != m.end() && !m["Cores"].empty()) {
       cores = make_shared<long>(boost::any_cast<long>(m["Cores"]));
     }
+    if (m.find("CpuArchitectures") != m.end() && !m["CpuArchitectures"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CpuArchitectures"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CpuArchitectures"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cpuArchitectures = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ExcludedInstanceTypes") != m.end() && !m["ExcludedInstanceTypes"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ExcludedInstanceTypes"].type()) {
@@ -29185,14 +29847,87 @@ public:
       }
       excludedInstanceTypes = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("GpuSpecs") != m.end() && !m["GpuSpecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GpuSpecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GpuSpecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      gpuSpecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceCategories") != m.end() && !m["InstanceCategories"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceCategories"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceCategories"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceCategories = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("InstanceFamilyLevel") != m.end() && !m["InstanceFamilyLevel"].empty()) {
       instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["InstanceFamilyLevel"]));
+    }
+    if (m.find("InstanceTypeFamilies") != m.end() && !m["InstanceTypeFamilies"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypeFamilies"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypeFamilies"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypeFamilies = make_shared<vector<string>>(toVec1);
     }
     if (m.find("MaxPrice") != m.end() && !m["MaxPrice"].empty()) {
       maxPrice = make_shared<double>(boost::any_cast<double>(m["MaxPrice"]));
     }
+    if (m.find("MaximumCpuCoreCount") != m.end() && !m["MaximumCpuCoreCount"].empty()) {
+      maximumCpuCoreCount = make_shared<long>(boost::any_cast<long>(m["MaximumCpuCoreCount"]));
+    }
+    if (m.find("MaximumGpuAmount") != m.end() && !m["MaximumGpuAmount"].empty()) {
+      maximumGpuAmount = make_shared<long>(boost::any_cast<long>(m["MaximumGpuAmount"]));
+    }
+    if (m.find("MaximumMemorySize") != m.end() && !m["MaximumMemorySize"].empty()) {
+      maximumMemorySize = make_shared<double>(boost::any_cast<double>(m["MaximumMemorySize"]));
+    }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+    if (m.find("MinimumBaselineCredit") != m.end() && !m["MinimumBaselineCredit"].empty()) {
+      minimumBaselineCredit = make_shared<long>(boost::any_cast<long>(m["MinimumBaselineCredit"]));
+    }
+    if (m.find("MinimumCpuCoreCount") != m.end() && !m["MinimumCpuCoreCount"].empty()) {
+      minimumCpuCoreCount = make_shared<long>(boost::any_cast<long>(m["MinimumCpuCoreCount"]));
+    }
+    if (m.find("MinimumEniIpv6AddressQuantity") != m.end() && !m["MinimumEniIpv6AddressQuantity"].empty()) {
+      minimumEniIpv6AddressQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniIpv6AddressQuantity"]));
+    }
+    if (m.find("MinimumEniPrivateIpAddressQuantity") != m.end() && !m["MinimumEniPrivateIpAddressQuantity"].empty()) {
+      minimumEniPrivateIpAddressQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniPrivateIpAddressQuantity"]));
+    }
+    if (m.find("MinimumEniQuantity") != m.end() && !m["MinimumEniQuantity"].empty()) {
+      minimumEniQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniQuantity"]));
+    }
+    if (m.find("MinimumGpuAmount") != m.end() && !m["MinimumGpuAmount"].empty()) {
+      minimumGpuAmount = make_shared<long>(boost::any_cast<long>(m["MinimumGpuAmount"]));
+    }
+    if (m.find("MinimumInitialCredit") != m.end() && !m["MinimumInitialCredit"].empty()) {
+      minimumInitialCredit = make_shared<long>(boost::any_cast<long>(m["MinimumInitialCredit"]));
+    }
+    if (m.find("MinimumMemorySize") != m.end() && !m["MinimumMemorySize"].empty()) {
+      minimumMemorySize = make_shared<double>(boost::any_cast<double>(m["MinimumMemorySize"]));
+    }
+    if (m.find("PhysicalProcessorModels") != m.end() && !m["PhysicalProcessorModels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PhysicalProcessorModels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PhysicalProcessorModels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      physicalProcessorModels = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -30175,10 +30910,26 @@ public:
   shared_ptr<vector<string>> architectures{};
   shared_ptr<string> burstablePerformance{};
   shared_ptr<long> cores{};
+  shared_ptr<vector<string>> cpuArchitectures{};
   shared_ptr<vector<string>> excludedInstanceTypes{};
+  shared_ptr<vector<string>> gpuSpecs{};
+  shared_ptr<vector<string>> instanceCategories{};
   shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<vector<string>> instanceTypeFamilies{};
   shared_ptr<double> maxPrice{};
+  shared_ptr<long> maximumCpuCoreCount{};
+  shared_ptr<long> maximumGpuAmount{};
+  shared_ptr<double> maximumMemorySize{};
   shared_ptr<double> memory{};
+  shared_ptr<long> minimumBaselineCredit{};
+  shared_ptr<long> minimumCpuCoreCount{};
+  shared_ptr<long> minimumEniIpv6AddressQuantity{};
+  shared_ptr<long> minimumEniPrivateIpAddressQuantity{};
+  shared_ptr<long> minimumEniQuantity{};
+  shared_ptr<long> minimumGpuAmount{};
+  shared_ptr<long> minimumInitialCredit{};
+  shared_ptr<double> minimumMemorySize{};
+  shared_ptr<vector<string>> physicalProcessorModels{};
 
   ModifyScalingConfigurationShrinkRequestInstancePatternInfos() {}
 
@@ -30199,17 +30950,65 @@ public:
     if (cores) {
       res["Cores"] = boost::any(*cores);
     }
+    if (cpuArchitectures) {
+      res["CpuArchitectures"] = boost::any(*cpuArchitectures);
+    }
     if (excludedInstanceTypes) {
       res["ExcludedInstanceTypes"] = boost::any(*excludedInstanceTypes);
+    }
+    if (gpuSpecs) {
+      res["GpuSpecs"] = boost::any(*gpuSpecs);
+    }
+    if (instanceCategories) {
+      res["InstanceCategories"] = boost::any(*instanceCategories);
     }
     if (instanceFamilyLevel) {
       res["InstanceFamilyLevel"] = boost::any(*instanceFamilyLevel);
     }
+    if (instanceTypeFamilies) {
+      res["InstanceTypeFamilies"] = boost::any(*instanceTypeFamilies);
+    }
     if (maxPrice) {
       res["MaxPrice"] = boost::any(*maxPrice);
     }
+    if (maximumCpuCoreCount) {
+      res["MaximumCpuCoreCount"] = boost::any(*maximumCpuCoreCount);
+    }
+    if (maximumGpuAmount) {
+      res["MaximumGpuAmount"] = boost::any(*maximumGpuAmount);
+    }
+    if (maximumMemorySize) {
+      res["MaximumMemorySize"] = boost::any(*maximumMemorySize);
+    }
     if (memory) {
       res["Memory"] = boost::any(*memory);
+    }
+    if (minimumBaselineCredit) {
+      res["MinimumBaselineCredit"] = boost::any(*minimumBaselineCredit);
+    }
+    if (minimumCpuCoreCount) {
+      res["MinimumCpuCoreCount"] = boost::any(*minimumCpuCoreCount);
+    }
+    if (minimumEniIpv6AddressQuantity) {
+      res["MinimumEniIpv6AddressQuantity"] = boost::any(*minimumEniIpv6AddressQuantity);
+    }
+    if (minimumEniPrivateIpAddressQuantity) {
+      res["MinimumEniPrivateIpAddressQuantity"] = boost::any(*minimumEniPrivateIpAddressQuantity);
+    }
+    if (minimumEniQuantity) {
+      res["MinimumEniQuantity"] = boost::any(*minimumEniQuantity);
+    }
+    if (minimumGpuAmount) {
+      res["MinimumGpuAmount"] = boost::any(*minimumGpuAmount);
+    }
+    if (minimumInitialCredit) {
+      res["MinimumInitialCredit"] = boost::any(*minimumInitialCredit);
+    }
+    if (minimumMemorySize) {
+      res["MinimumMemorySize"] = boost::any(*minimumMemorySize);
+    }
+    if (physicalProcessorModels) {
+      res["PhysicalProcessorModels"] = boost::any(*physicalProcessorModels);
     }
     return res;
   }
@@ -30231,6 +31030,16 @@ public:
     if (m.find("Cores") != m.end() && !m["Cores"].empty()) {
       cores = make_shared<long>(boost::any_cast<long>(m["Cores"]));
     }
+    if (m.find("CpuArchitectures") != m.end() && !m["CpuArchitectures"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CpuArchitectures"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CpuArchitectures"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cpuArchitectures = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ExcludedInstanceTypes") != m.end() && !m["ExcludedInstanceTypes"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ExcludedInstanceTypes"].type()) {
@@ -30241,14 +31050,87 @@ public:
       }
       excludedInstanceTypes = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("GpuSpecs") != m.end() && !m["GpuSpecs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GpuSpecs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GpuSpecs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      gpuSpecs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceCategories") != m.end() && !m["InstanceCategories"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceCategories"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceCategories"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceCategories = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("InstanceFamilyLevel") != m.end() && !m["InstanceFamilyLevel"].empty()) {
       instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["InstanceFamilyLevel"]));
+    }
+    if (m.find("InstanceTypeFamilies") != m.end() && !m["InstanceTypeFamilies"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypeFamilies"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypeFamilies"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypeFamilies = make_shared<vector<string>>(toVec1);
     }
     if (m.find("MaxPrice") != m.end() && !m["MaxPrice"].empty()) {
       maxPrice = make_shared<double>(boost::any_cast<double>(m["MaxPrice"]));
     }
+    if (m.find("MaximumCpuCoreCount") != m.end() && !m["MaximumCpuCoreCount"].empty()) {
+      maximumCpuCoreCount = make_shared<long>(boost::any_cast<long>(m["MaximumCpuCoreCount"]));
+    }
+    if (m.find("MaximumGpuAmount") != m.end() && !m["MaximumGpuAmount"].empty()) {
+      maximumGpuAmount = make_shared<long>(boost::any_cast<long>(m["MaximumGpuAmount"]));
+    }
+    if (m.find("MaximumMemorySize") != m.end() && !m["MaximumMemorySize"].empty()) {
+      maximumMemorySize = make_shared<double>(boost::any_cast<double>(m["MaximumMemorySize"]));
+    }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+    if (m.find("MinimumBaselineCredit") != m.end() && !m["MinimumBaselineCredit"].empty()) {
+      minimumBaselineCredit = make_shared<long>(boost::any_cast<long>(m["MinimumBaselineCredit"]));
+    }
+    if (m.find("MinimumCpuCoreCount") != m.end() && !m["MinimumCpuCoreCount"].empty()) {
+      minimumCpuCoreCount = make_shared<long>(boost::any_cast<long>(m["MinimumCpuCoreCount"]));
+    }
+    if (m.find("MinimumEniIpv6AddressQuantity") != m.end() && !m["MinimumEniIpv6AddressQuantity"].empty()) {
+      minimumEniIpv6AddressQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniIpv6AddressQuantity"]));
+    }
+    if (m.find("MinimumEniPrivateIpAddressQuantity") != m.end() && !m["MinimumEniPrivateIpAddressQuantity"].empty()) {
+      minimumEniPrivateIpAddressQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniPrivateIpAddressQuantity"]));
+    }
+    if (m.find("MinimumEniQuantity") != m.end() && !m["MinimumEniQuantity"].empty()) {
+      minimumEniQuantity = make_shared<long>(boost::any_cast<long>(m["MinimumEniQuantity"]));
+    }
+    if (m.find("MinimumGpuAmount") != m.end() && !m["MinimumGpuAmount"].empty()) {
+      minimumGpuAmount = make_shared<long>(boost::any_cast<long>(m["MinimumGpuAmount"]));
+    }
+    if (m.find("MinimumInitialCredit") != m.end() && !m["MinimumInitialCredit"].empty()) {
+      minimumInitialCredit = make_shared<long>(boost::any_cast<long>(m["MinimumInitialCredit"]));
+    }
+    if (m.find("MinimumMemorySize") != m.end() && !m["MinimumMemorySize"].empty()) {
+      minimumMemorySize = make_shared<double>(boost::any_cast<double>(m["MinimumMemorySize"]));
+    }
+    if (m.find("PhysicalProcessorModels") != m.end() && !m["PhysicalProcessorModels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PhysicalProcessorModels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PhysicalProcessorModels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      physicalProcessorModels = make_shared<vector<string>>(toVec1);
     }
   }
 
