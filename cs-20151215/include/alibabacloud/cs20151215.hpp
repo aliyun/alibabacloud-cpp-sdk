@@ -184,6 +184,91 @@ public:
 
   virtual ~DataDisk() = default;
 };
+class InstancePatterns : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> architectures{};
+  shared_ptr<string> burstPerformanceOption{};
+  shared_ptr<long> core{};
+  shared_ptr<vector<string>> excludedInstanceTypes{};
+  shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<double> maxPrice{};
+  shared_ptr<double> memory{};
+
+  InstancePatterns() {}
+
+  explicit InstancePatterns(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (architectures) {
+      res["architectures"] = boost::any(*architectures);
+    }
+    if (burstPerformanceOption) {
+      res["burst_performance_option"] = boost::any(*burstPerformanceOption);
+    }
+    if (core) {
+      res["core"] = boost::any(*core);
+    }
+    if (excludedInstanceTypes) {
+      res["excluded_instance_types"] = boost::any(*excludedInstanceTypes);
+    }
+    if (instanceFamilyLevel) {
+      res["instance_family_level"] = boost::any(*instanceFamilyLevel);
+    }
+    if (maxPrice) {
+      res["max_price"] = boost::any(*maxPrice);
+    }
+    if (memory) {
+      res["memory"] = boost::any(*memory);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("architectures") != m.end() && !m["architectures"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["architectures"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["architectures"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      architectures = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("burst_performance_option") != m.end() && !m["burst_performance_option"].empty()) {
+      burstPerformanceOption = make_shared<string>(boost::any_cast<string>(m["burst_performance_option"]));
+    }
+    if (m.find("core") != m.end() && !m["core"].empty()) {
+      core = make_shared<long>(boost::any_cast<long>(m["core"]));
+    }
+    if (m.find("excluded_instance_types") != m.end() && !m["excluded_instance_types"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["excluded_instance_types"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["excluded_instance_types"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludedInstanceTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("instance_family_level") != m.end() && !m["instance_family_level"].empty()) {
+      instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["instance_family_level"]));
+    }
+    if (m.find("max_price") != m.end() && !m["max_price"].empty()) {
+      maxPrice = make_shared<double>(boost::any_cast<double>(m["max_price"]));
+    }
+    if (m.find("memory") != m.end() && !m["memory"].empty()) {
+      memory = make_shared<double>(boost::any_cast<double>(m["memory"]));
+    }
+  }
+
+
+  virtual ~InstancePatterns() = default;
+};
 class KubeletConfig : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> allowedUnsafeSysctls{};
@@ -4823,6 +4908,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> instanceChargeType{};
+  shared_ptr<InstancePatterns> instancePatterns{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<long> internetMaxBandwidthOut{};
@@ -4901,6 +4987,9 @@ public:
     }
     if (instanceChargeType) {
       res["instance_charge_type"] = boost::any(*instanceChargeType);
+    }
+    if (instancePatterns) {
+      res["instance_patterns"] = instancePatterns ? boost::any(instancePatterns->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceTypes) {
       res["instance_types"] = boost::any(*instanceTypes);
@@ -5055,6 +5144,13 @@ public:
     }
     if (m.find("instance_charge_type") != m.end() && !m["instance_charge_type"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["instance_charge_type"]));
+    }
+    if (m.find("instance_patterns") != m.end() && !m["instance_patterns"].empty()) {
+      if (typeid(map<string, boost::any>) == m["instance_patterns"].type()) {
+        InstancePatterns model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instance_patterns"]));
+        instancePatterns = make_shared<InstancePatterns>(model1);
+      }
     }
     if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
       vector<string> toVec1;
@@ -10065,6 +10161,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> instanceChargeType{};
+  shared_ptr<InstancePatterns> instancePatterns{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<long> internetMaxBandwidthOut{};
@@ -10145,6 +10242,9 @@ public:
     }
     if (instanceChargeType) {
       res["instance_charge_type"] = boost::any(*instanceChargeType);
+    }
+    if (instancePatterns) {
+      res["instance_patterns"] = instancePatterns ? boost::any(instancePatterns->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceTypes) {
       res["instance_types"] = boost::any(*instanceTypes);
@@ -10305,6 +10405,13 @@ public:
     }
     if (m.find("instance_charge_type") != m.end() && !m["instance_charge_type"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["instance_charge_type"]));
+    }
+    if (m.find("instance_patterns") != m.end() && !m["instance_patterns"].empty()) {
+      if (typeid(map<string, boost::any>) == m["instance_patterns"].type()) {
+        InstancePatterns model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instance_patterns"]));
+        instancePatterns = make_shared<InstancePatterns>(model1);
+      }
     }
     if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
       vector<string> toVec1;
@@ -11475,6 +11582,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> instanceChargeType{};
+  shared_ptr<InstancePatterns> instancePatterns{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<long> internetMaxBandwidthOut{};
@@ -11555,6 +11663,9 @@ public:
     }
     if (instanceChargeType) {
       res["instance_charge_type"] = boost::any(*instanceChargeType);
+    }
+    if (instancePatterns) {
+      res["instance_patterns"] = instancePatterns ? boost::any(instancePatterns->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceTypes) {
       res["instance_types"] = boost::any(*instanceTypes);
@@ -11715,6 +11826,13 @@ public:
     }
     if (m.find("instance_charge_type") != m.end() && !m["instance_charge_type"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["instance_charge_type"]));
+    }
+    if (m.find("instance_patterns") != m.end() && !m["instance_patterns"].empty()) {
+      if (typeid(map<string, boost::any>) == m["instance_patterns"].type()) {
+        InstancePatterns model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instance_patterns"]));
+        instancePatterns = make_shared<InstancePatterns>(model1);
+      }
     }
     if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
       vector<string> toVec1;
@@ -23020,6 +23138,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> instanceChargeType{};
+  shared_ptr<InstancePatterns> instancePatterns{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<long> internetMaxBandwidthOut{};
@@ -23087,6 +23206,9 @@ public:
     }
     if (instanceChargeType) {
       res["instance_charge_type"] = boost::any(*instanceChargeType);
+    }
+    if (instancePatterns) {
+      res["instance_patterns"] = instancePatterns ? boost::any(instancePatterns->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceTypes) {
       res["instance_types"] = boost::any(*instanceTypes);
@@ -23220,6 +23342,13 @@ public:
     }
     if (m.find("instance_charge_type") != m.end() && !m["instance_charge_type"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["instance_charge_type"]));
+    }
+    if (m.find("instance_patterns") != m.end() && !m["instance_patterns"].empty()) {
+      if (typeid(map<string, boost::any>) == m["instance_patterns"].type()) {
+        InstancePatterns model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instance_patterns"]));
+        instancePatterns = make_shared<InstancePatterns>(model1);
+      }
     }
     if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
       vector<string> toVec1;
