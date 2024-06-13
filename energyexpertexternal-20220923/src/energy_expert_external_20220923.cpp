@@ -1115,14 +1115,14 @@ SendDocumentAskQuestionResponse Alibabacloud_EnergyExpertExternal20220923::Clien
 SubmitDocumentAnalyzeJobResponse Alibabacloud_EnergyExpertExternal20220923::Client::submitDocumentAnalyzeJobWithOptions(shared_ptr<SubmitDocumentAnalyzeJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    query->insert(pair<string, string>("fileName", *request->fileName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileUrl)) {
     query->insert(pair<string, string>("fileUrl", *request->fileUrl));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->folderId)) {
     query->insert(pair<string, string>("folderId", *request->folderId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ossUrl)) {
-    query->insert(pair<string, string>("ossUrl", *request->ossUrl));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("templateId", *request->templateId));
@@ -1194,14 +1194,14 @@ SubmitDocumentAnalyzeJobResponse Alibabacloud_EnergyExpertExternal20220923::Clie
   Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
   shared_ptr<SubmitDocumentAnalyzeJobRequest> submitDocumentAnalyzeJobReq = make_shared<SubmitDocumentAnalyzeJobRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(request, submitDocumentAnalyzeJobReq);
-  if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->ossUrlObject)) {
+  if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->fileUrlObject)) {
     authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
     ossConfig->accessKeyId = authResponse->body->accessKeyId;
     ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->body->endpoint, authResponse->body->useAccelerate, _endpointType));
     ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
     fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
       {"filename", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
-      {"content", !request->ossUrlObject ? boost::any() : boost::any(*request->ossUrlObject)},
+      {"content", !request->fileUrlObject ? boost::any() : boost::any(*request->fileUrlObject)},
       {"contentType", boost::any(string(""))}
     }));
     ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
@@ -1217,7 +1217,7 @@ SubmitDocumentAnalyzeJobResponse Alibabacloud_EnergyExpertExternal20220923::Clie
       {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
     }));
     ossClient->postObject(uploadRequest, ossRuntime);
-    submitDocumentAnalyzeJobReq->ossUrl = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
+    submitDocumentAnalyzeJobReq->fileUrl = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
   }
   shared_ptr<SubmitDocumentAnalyzeJobResponse> submitDocumentAnalyzeJobResp = make_shared<SubmitDocumentAnalyzeJobResponse>(submitDocumentAnalyzeJobWithOptions(submitDocumentAnalyzeJobReq, headers, runtime));
   return *submitDocumentAnalyzeJobResp;

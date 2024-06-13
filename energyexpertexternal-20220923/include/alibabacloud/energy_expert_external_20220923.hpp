@@ -9018,9 +9018,9 @@ public:
 };
 class SubmitDocumentAnalyzeJobRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> fileName{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> folderId{};
-  shared_ptr<string> ossUrl{};
   shared_ptr<string> templateId{};
 
   SubmitDocumentAnalyzeJobRequest() {}
@@ -9033,14 +9033,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (fileName) {
+      res["fileName"] = boost::any(*fileName);
+    }
     if (fileUrl) {
       res["fileUrl"] = boost::any(*fileUrl);
     }
     if (folderId) {
       res["folderId"] = boost::any(*folderId);
-    }
-    if (ossUrl) {
-      res["ossUrl"] = boost::any(*ossUrl);
     }
     if (templateId) {
       res["templateId"] = boost::any(*templateId);
@@ -9049,14 +9049,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("fileName") != m.end() && !m["fileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["fileName"]));
+    }
     if (m.find("fileUrl") != m.end() && !m["fileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["fileUrl"]));
     }
     if (m.find("folderId") != m.end() && !m["folderId"].empty()) {
       folderId = make_shared<string>(boost::any_cast<string>(m["folderId"]));
-    }
-    if (m.find("ossUrl") != m.end() && !m["ossUrl"].empty()) {
-      ossUrl = make_shared<string>(boost::any_cast<string>(m["ossUrl"]));
     }
     if (m.find("templateId") != m.end() && !m["templateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["templateId"]));
@@ -9068,9 +9068,9 @@ public:
 };
 class SubmitDocumentAnalyzeJobAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> fileUrl{};
+  shared_ptr<string> fileName{};
+  shared_ptr<Darabonba::Stream> fileUrlObject{};
   shared_ptr<string> folderId{};
-  shared_ptr<Darabonba::Stream> ossUrlObject{};
   shared_ptr<string> templateId{};
 
   SubmitDocumentAnalyzeJobAdvanceRequest() {}
@@ -9083,14 +9083,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (fileUrl) {
-      res["fileUrl"] = boost::any(*fileUrl);
+    if (fileName) {
+      res["fileName"] = boost::any(*fileName);
+    }
+    if (fileUrlObject) {
+      res["fileUrl"] = boost::any(*fileUrlObject);
     }
     if (folderId) {
       res["folderId"] = boost::any(*folderId);
-    }
-    if (ossUrlObject) {
-      res["ossUrl"] = boost::any(*ossUrlObject);
     }
     if (templateId) {
       res["templateId"] = boost::any(*templateId);
@@ -9099,14 +9099,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("fileName") != m.end() && !m["fileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["fileName"]));
+    }
     if (m.find("fileUrl") != m.end() && !m["fileUrl"].empty()) {
-      fileUrl = make_shared<string>(boost::any_cast<string>(m["fileUrl"]));
+      fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["fileUrl"]));
     }
     if (m.find("folderId") != m.end() && !m["folderId"].empty()) {
       folderId = make_shared<string>(boost::any_cast<string>(m["folderId"]));
-    }
-    if (m.find("ossUrl") != m.end() && !m["ossUrl"].empty()) {
-      ossUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ossUrl"]));
     }
     if (m.find("templateId") != m.end() && !m["templateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["templateId"]));
