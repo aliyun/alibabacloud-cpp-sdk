@@ -9135,6 +9135,163 @@ public:
 
   virtual ~GetAsyncResultResponse() = default;
 };
+class GetBotSessionDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> robotInstanceId{};
+  shared_ptr<string> startTime{};
+
+  GetBotSessionDataRequest() {}
+
+  explicit GetBotSessionDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (robotInstanceId) {
+      res["RobotInstanceId"] = boost::any(*robotInstanceId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("RobotInstanceId") != m.end() && !m["RobotInstanceId"].empty()) {
+      robotInstanceId = make_shared<string>(boost::any_cast<string>(m["RobotInstanceId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~GetBotSessionDataRequest() = default;
+};
+class GetBotSessionDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> costTime{};
+  shared_ptr<vector<map<string, boost::any>>> datas{};
+  shared_ptr<string> requestId{};
+
+  GetBotSessionDataResponseBody() {}
+
+  explicit GetBotSessionDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (costTime) {
+      res["CostTime"] = boost::any(*costTime);
+    }
+    if (datas) {
+      res["Datas"] = boost::any(*datas);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CostTime") != m.end() && !m["CostTime"].empty()) {
+      costTime = make_shared<string>(boost::any_cast<string>(m["CostTime"]));
+    }
+    if (m.find("Datas") != m.end() && !m["Datas"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["Datas"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Datas"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      datas = make_shared<vector<map<string, boost::any>>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetBotSessionDataResponseBody() = default;
+};
+class GetBotSessionDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetBotSessionDataResponseBody> body{};
+
+  GetBotSessionDataResponse() {}
+
+  explicit GetBotSessionDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetBotSessionDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetBotSessionDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetBotSessionDataResponse() = default;
+};
 class GetInstancePublishTaskStateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
@@ -17795,6 +17952,8 @@ public:
   GetAgentInfoResponse getAgentInfo(shared_ptr<GetAgentInfoRequest> request);
   GetAsyncResultResponse getAsyncResultWithOptions(shared_ptr<GetAsyncResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAsyncResultResponse getAsyncResult(shared_ptr<GetAsyncResultRequest> request);
+  GetBotSessionDataResponse getBotSessionDataWithOptions(shared_ptr<GetBotSessionDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetBotSessionDataResponse getBotSessionData(shared_ptr<GetBotSessionDataRequest> request);
   GetInstancePublishTaskStateResponse getInstancePublishTaskStateWithOptions(shared_ptr<GetInstancePublishTaskStateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetInstancePublishTaskStateResponse getInstancePublishTaskState(shared_ptr<GetInstancePublishTaskStateRequest> request);
   GetPublishTaskStateResponse getPublishTaskStateWithOptions(shared_ptr<GetPublishTaskStateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
