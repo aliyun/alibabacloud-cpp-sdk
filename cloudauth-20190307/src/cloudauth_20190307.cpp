@@ -994,6 +994,9 @@ InitFaceVerifyResponse Alibabacloud_Cloudauth20190307::Client::initFaceVerifyWit
   if (!Darabonba_Util::Client::isUnset<string>(request->suitableType)) {
     query->insert(pair<string, string>("SuitableType", *request->suitableType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uiCustomUrl)) {
+    query->insert(pair<string, string>("UiCustomUrl", *request->uiCustomUrl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     query->insert(pair<string, string>("UserId", *request->userId));
   }

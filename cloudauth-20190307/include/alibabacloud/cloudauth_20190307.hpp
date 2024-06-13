@@ -4663,6 +4663,7 @@ public:
   shared_ptr<string> returnUrl{};
   shared_ptr<long> sceneId{};
   shared_ptr<string> suitableType{};
+  shared_ptr<string> uiCustomUrl{};
   shared_ptr<string> userId{};
   shared_ptr<string> validityDate{};
   shared_ptr<string> voluntaryCustomizedContent{};
@@ -4767,6 +4768,9 @@ public:
     if (suitableType) {
       res["SuitableType"] = boost::any(*suitableType);
     }
+    if (uiCustomUrl) {
+      res["UiCustomUrl"] = boost::any(*uiCustomUrl);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -4869,6 +4873,9 @@ public:
     }
     if (m.find("SuitableType") != m.end() && !m["SuitableType"].empty()) {
       suitableType = make_shared<string>(boost::any_cast<string>(m["SuitableType"]));
+    }
+    if (m.find("UiCustomUrl") != m.end() && !m["UiCustomUrl"].empty()) {
+      uiCustomUrl = make_shared<string>(boost::any_cast<string>(m["UiCustomUrl"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
