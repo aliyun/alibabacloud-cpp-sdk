@@ -29867,6 +29867,7 @@ public:
   shared_ptr<string> cenId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> creationTime{};
+  shared_ptr<string> orderType{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
   shared_ptr<vector<ListTransitRouterVpnAttachmentsResponseBodyTransitRouterAttachmentsTags>> tags{};
@@ -29900,6 +29901,9 @@ public:
     }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (orderType) {
+      res["OrderType"] = boost::any(*orderType);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -29957,6 +29961,9 @@ public:
     }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
+      orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
