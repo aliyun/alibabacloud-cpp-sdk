@@ -4908,7 +4908,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> instanceChargeType{};
-  shared_ptr<InstancePatterns> instancePatterns{};
+  shared_ptr<vector<InstancePatterns>> instancePatterns{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<long> internetMaxBandwidthOut{};
@@ -4989,7 +4989,11 @@ public:
       res["instance_charge_type"] = boost::any(*instanceChargeType);
     }
     if (instancePatterns) {
-      res["instance_patterns"] = instancePatterns ? boost::any(instancePatterns->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*instancePatterns){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["instance_patterns"] = boost::any(temp1);
     }
     if (instanceTypes) {
       res["instance_types"] = boost::any(*instanceTypes);
@@ -5146,10 +5150,16 @@ public:
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["instance_charge_type"]));
     }
     if (m.find("instance_patterns") != m.end() && !m["instance_patterns"].empty()) {
-      if (typeid(map<string, boost::any>) == m["instance_patterns"].type()) {
-        InstancePatterns model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instance_patterns"]));
-        instancePatterns = make_shared<InstancePatterns>(model1);
+      if (typeid(vector<boost::any>) == m["instance_patterns"].type()) {
+        vector<InstancePatterns> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["instance_patterns"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InstancePatterns model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        instancePatterns = make_shared<vector<InstancePatterns>>(expect1);
       }
     }
     if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
@@ -10161,7 +10171,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> instanceChargeType{};
-  shared_ptr<InstancePatterns> instancePatterns{};
+  shared_ptr<vector<InstancePatterns>> instancePatterns{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<long> internetMaxBandwidthOut{};
@@ -10244,7 +10254,11 @@ public:
       res["instance_charge_type"] = boost::any(*instanceChargeType);
     }
     if (instancePatterns) {
-      res["instance_patterns"] = instancePatterns ? boost::any(instancePatterns->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*instancePatterns){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["instance_patterns"] = boost::any(temp1);
     }
     if (instanceTypes) {
       res["instance_types"] = boost::any(*instanceTypes);
@@ -10407,10 +10421,16 @@ public:
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["instance_charge_type"]));
     }
     if (m.find("instance_patterns") != m.end() && !m["instance_patterns"].empty()) {
-      if (typeid(map<string, boost::any>) == m["instance_patterns"].type()) {
-        InstancePatterns model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instance_patterns"]));
-        instancePatterns = make_shared<InstancePatterns>(model1);
+      if (typeid(vector<boost::any>) == m["instance_patterns"].type()) {
+        vector<InstancePatterns> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["instance_patterns"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InstancePatterns model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        instancePatterns = make_shared<vector<InstancePatterns>>(expect1);
       }
     }
     if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
@@ -11582,7 +11602,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> instanceChargeType{};
-  shared_ptr<InstancePatterns> instancePatterns{};
+  shared_ptr<vector<InstancePatterns>> instancePatterns{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<long> internetMaxBandwidthOut{};
@@ -11665,7 +11685,11 @@ public:
       res["instance_charge_type"] = boost::any(*instanceChargeType);
     }
     if (instancePatterns) {
-      res["instance_patterns"] = instancePatterns ? boost::any(instancePatterns->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*instancePatterns){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["instance_patterns"] = boost::any(temp1);
     }
     if (instanceTypes) {
       res["instance_types"] = boost::any(*instanceTypes);
@@ -11828,10 +11852,16 @@ public:
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["instance_charge_type"]));
     }
     if (m.find("instance_patterns") != m.end() && !m["instance_patterns"].empty()) {
-      if (typeid(map<string, boost::any>) == m["instance_patterns"].type()) {
-        InstancePatterns model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instance_patterns"]));
-        instancePatterns = make_shared<InstancePatterns>(model1);
+      if (typeid(vector<boost::any>) == m["instance_patterns"].type()) {
+        vector<InstancePatterns> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["instance_patterns"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InstancePatterns model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        instancePatterns = make_shared<vector<InstancePatterns>>(expect1);
       }
     }
     if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
@@ -17425,6 +17455,154 @@ public:
 
 
   virtual ~DescribePolicyInstancesStatusResponse() = default;
+};
+class DescribeResourcesDeleteProtectionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> resources{};
+
+  DescribeResourcesDeleteProtectionRequest() {}
+
+  explicit DescribeResourcesDeleteProtectionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (namespace_) {
+      res["namespace"] = boost::any(*namespace_);
+    }
+    if (resources) {
+      res["resources"] = boost::any(*resources);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
+    }
+    if (m.find("resources") != m.end() && !m["resources"].empty()) {
+      resources = make_shared<string>(boost::any_cast<string>(m["resources"]));
+    }
+  }
+
+
+  virtual ~DescribeResourcesDeleteProtectionRequest() = default;
+};
+class DescribeResourcesDeleteProtectionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> resource{};
+  shared_ptr<bool> protection{};
+
+  DescribeResourcesDeleteProtectionResponseBody() {}
+
+  explicit DescribeResourcesDeleteProtectionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["namespace"] = boost::any(*namespace_);
+    }
+    if (resource) {
+      res["resource"] = boost::any(*resource);
+    }
+    if (protection) {
+      res["protection"] = boost::any(*protection);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
+    }
+    if (m.find("resource") != m.end() && !m["resource"].empty()) {
+      resource = make_shared<string>(boost::any_cast<string>(m["resource"]));
+    }
+    if (m.find("protection") != m.end() && !m["protection"].empty()) {
+      protection = make_shared<bool>(boost::any_cast<bool>(m["protection"]));
+    }
+  }
+
+
+  virtual ~DescribeResourcesDeleteProtectionResponseBody() = default;
+};
+class DescribeResourcesDeleteProtectionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<vector<DescribeResourcesDeleteProtectionResponseBody>> body{};
+
+  DescribeResourcesDeleteProtectionResponse() {}
+
+  explicit DescribeResourcesDeleteProtectionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      vector<boost::any> temp1;
+      for(auto item1:*body){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["body"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(vector<boost::any>) == m["body"].type()) {
+        vector<DescribeResourcesDeleteProtectionResponseBody> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["body"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeResourcesDeleteProtectionResponseBody model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        body = make_shared<vector<DescribeResourcesDeleteProtectionResponseBody>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourcesDeleteProtectionResponse() = default;
 };
 class DescribeSubaccountK8sClusterUserConfigRequest : public Darabonba::Model {
 public:
@@ -23138,7 +23316,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> instanceChargeType{};
-  shared_ptr<InstancePatterns> instancePatterns{};
+  shared_ptr<vector<InstancePatterns>> instancePatterns{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<long> internetMaxBandwidthOut{};
@@ -23208,7 +23386,11 @@ public:
       res["instance_charge_type"] = boost::any(*instanceChargeType);
     }
     if (instancePatterns) {
-      res["instance_patterns"] = instancePatterns ? boost::any(instancePatterns->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*instancePatterns){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["instance_patterns"] = boost::any(temp1);
     }
     if (instanceTypes) {
       res["instance_types"] = boost::any(*instanceTypes);
@@ -23344,10 +23526,16 @@ public:
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["instance_charge_type"]));
     }
     if (m.find("instance_patterns") != m.end() && !m["instance_patterns"].empty()) {
-      if (typeid(map<string, boost::any>) == m["instance_patterns"].type()) {
-        InstancePatterns model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instance_patterns"]));
-        instancePatterns = make_shared<InstancePatterns>(model1);
+      if (typeid(vector<boost::any>) == m["instance_patterns"].type()) {
+        vector<InstancePatterns> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["instance_patterns"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InstancePatterns model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        instancePatterns = make_shared<vector<InstancePatterns>>(expect1);
       }
     }
     if (m.find("instance_types") != m.end() && !m["instance_types"].empty()) {
@@ -27525,6 +27713,179 @@ public:
 
   virtual ~UpdateK8sClusterUserConfigExpireResponse() = default;
 };
+class UpdateResourcesDeleteProtectionRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<vector<string>> resources{};
+
+  UpdateResourcesDeleteProtectionRequest() {}
+
+  explicit UpdateResourcesDeleteProtectionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    if (namespace_) {
+      res["namespace"] = boost::any(*namespace_);
+    }
+    if (resourceType) {
+      res["resource_type"] = boost::any(*resourceType);
+    }
+    if (resources) {
+      res["resources"] = boost::any(*resources);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+    if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
+    }
+    if (m.find("resource_type") != m.end() && !m["resource_type"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["resource_type"]));
+    }
+    if (m.find("resources") != m.end() && !m["resources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["resources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["resources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resources = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateResourcesDeleteProtectionRequest() = default;
+};
+class UpdateResourcesDeleteProtectionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> protection{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<vector<string>> resources{};
+
+  UpdateResourcesDeleteProtectionResponseBody() {}
+
+  explicit UpdateResourcesDeleteProtectionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (namespace_) {
+      res["namespace"] = boost::any(*namespace_);
+    }
+    if (protection) {
+      res["protection"] = boost::any(*protection);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (resourceType) {
+      res["resource_type"] = boost::any(*resourceType);
+    }
+    if (resources) {
+      res["resources"] = boost::any(*resources);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
+    }
+    if (m.find("protection") != m.end() && !m["protection"].empty()) {
+      protection = make_shared<string>(boost::any_cast<string>(m["protection"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("resource_type") != m.end() && !m["resource_type"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["resource_type"]));
+    }
+    if (m.find("resources") != m.end() && !m["resources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["resources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["resources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resources = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateResourcesDeleteProtectionResponseBody() = default;
+};
+class UpdateResourcesDeleteProtectionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateResourcesDeleteProtectionResponseBody> body{};
+
+  UpdateResourcesDeleteProtectionResponse() {}
+
+  explicit UpdateResourcesDeleteProtectionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateResourcesDeleteProtectionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateResourcesDeleteProtectionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateResourcesDeleteProtectionResponse() = default;
+};
 class UpdateTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -28515,6 +28876,12 @@ public:
   DescribePolicyInstancesResponse describePolicyInstances(shared_ptr<string> clusterId, shared_ptr<DescribePolicyInstancesRequest> request);
   DescribePolicyInstancesStatusResponse describePolicyInstancesStatusWithOptions(shared_ptr<string> clusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePolicyInstancesStatusResponse describePolicyInstancesStatus(shared_ptr<string> clusterId);
+  DescribeResourcesDeleteProtectionResponse describeResourcesDeleteProtectionWithOptions(shared_ptr<string> ClusterId,
+                                                                                         shared_ptr<string> ResourceType,
+                                                                                         shared_ptr<DescribeResourcesDeleteProtectionRequest> request,
+                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeResourcesDeleteProtectionResponse describeResourcesDeleteProtection(shared_ptr<string> ClusterId, shared_ptr<string> ResourceType, shared_ptr<DescribeResourcesDeleteProtectionRequest> request);
   DescribeSubaccountK8sClusterUserConfigResponse describeSubaccountK8sClusterUserConfigWithOptions(shared_ptr<string> ClusterId,
                                                                                                    shared_ptr<string> Uid,
                                                                                                    shared_ptr<DescribeSubaccountK8sClusterUserConfigRequest> request,
@@ -28746,6 +29113,11 @@ public:
                                                                                        shared_ptr<map<string, string>> headers,
                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateK8sClusterUserConfigExpireResponse updateK8sClusterUserConfigExpire(shared_ptr<string> ClusterId, shared_ptr<UpdateK8sClusterUserConfigExpireRequest> request);
+  UpdateResourcesDeleteProtectionResponse updateResourcesDeleteProtectionWithOptions(shared_ptr<string> ClusterId,
+                                                                                     shared_ptr<UpdateResourcesDeleteProtectionRequest> request,
+                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateResourcesDeleteProtectionResponse updateResourcesDeleteProtection(shared_ptr<string> ClusterId, shared_ptr<UpdateResourcesDeleteProtectionRequest> request);
   UpdateTemplateResponse updateTemplateWithOptions(shared_ptr<string> TemplateId,
                                                    shared_ptr<UpdateTemplateRequest> request,
                                                    shared_ptr<map<string, string>> headers,

@@ -2533,6 +2533,43 @@ DescribePolicyInstancesStatusResponse Alibabacloud_CS20151215::Client::describeP
   return describePolicyInstancesStatusWithOptions(clusterId, headers, runtime);
 }
 
+DescribeResourcesDeleteProtectionResponse Alibabacloud_CS20151215::Client::describeResourcesDeleteProtectionWithOptions(shared_ptr<string> ClusterId,
+                                                                                                                        shared_ptr<string> ResourceType,
+                                                                                                                        shared_ptr<DescribeResourcesDeleteProtectionRequest> request,
+                                                                                                                        shared_ptr<map<string, string>> headers,
+                                                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resources)) {
+    query->insert(pair<string, string>("resources", *request->resources));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeResourcesDeleteProtection"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/clusters/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/resources/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ResourceType)) + string("/protection"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("array"))}
+  }));
+  return DescribeResourcesDeleteProtectionResponse(callApi(params, req, runtime));
+}
+
+DescribeResourcesDeleteProtectionResponse Alibabacloud_CS20151215::Client::describeResourcesDeleteProtection(shared_ptr<string> ClusterId, shared_ptr<string> ResourceType, shared_ptr<DescribeResourcesDeleteProtectionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return describeResourcesDeleteProtectionWithOptions(ClusterId, ResourceType, request, headers, runtime);
+}
+
 DescribeSubaccountK8sClusterUserConfigResponse Alibabacloud_CS20151215::Client::describeSubaccountK8sClusterUserConfigWithOptions(shared_ptr<string> ClusterId,
                                                                                                                                   shared_ptr<string> Uid,
                                                                                                                                   shared_ptr<DescribeSubaccountK8sClusterUserConfigRequest> request,
@@ -4658,6 +4695,48 @@ UpdateK8sClusterUserConfigExpireResponse Alibabacloud_CS20151215::Client::update
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateK8sClusterUserConfigExpireWithOptions(ClusterId, request, headers, runtime);
+}
+
+UpdateResourcesDeleteProtectionResponse Alibabacloud_CS20151215::Client::updateResourcesDeleteProtectionWithOptions(shared_ptr<string> ClusterId,
+                                                                                                                    shared_ptr<UpdateResourcesDeleteProtectionRequest> request,
+                                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
+    body->insert(pair<string, bool>("enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    body->insert(pair<string, string>("namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    body->insert(pair<string, string>("resource_type", *request->resourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resources)) {
+    body->insert(pair<string, vector<string>>("resources", *request->resources));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateResourcesDeleteProtection"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/clusters/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/resources/protection"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateResourcesDeleteProtectionResponse(callApi(params, req, runtime));
+}
+
+UpdateResourcesDeleteProtectionResponse Alibabacloud_CS20151215::Client::updateResourcesDeleteProtection(shared_ptr<string> ClusterId, shared_ptr<UpdateResourcesDeleteProtectionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateResourcesDeleteProtectionWithOptions(ClusterId, request, headers, runtime);
 }
 
 UpdateTemplateResponse Alibabacloud_CS20151215::Client::updateTemplateWithOptions(shared_ptr<string> TemplateId,
