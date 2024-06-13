@@ -22291,6 +22291,85 @@ public:
 
   virtual ~DescribeAuthorizedAppsRequest() = default;
 };
+class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTagTagInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTagTagInfo() {}
+
+  explicit DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTagTagInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTagTagInfo() = default;
+};
+class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTag : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTagTagInfo>> tagInfo{};
+
+  DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTag() {}
+
+  explicit DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagInfo"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagInfo") != m.end() && !m["TagInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagInfo"].type()) {
+        vector<DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTagTagInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTagTagInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagInfo = make_shared<vector<DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTagTagInfo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTag() = default;
+};
 class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp : public Darabonba::Model {
 public:
   shared_ptr<string> appDescription{};
@@ -22303,6 +22382,7 @@ public:
   shared_ptr<string> operator_{};
   shared_ptr<string> stageAlias{};
   shared_ptr<string> stageName{};
+  shared_ptr<DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTag> tag{};
 
   DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp() {}
 
@@ -22344,6 +22424,9 @@ public:
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
+    if (tag) {
+      res["Tag"] = tag ? boost::any(tag->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -22377,6 +22460,13 @@ public:
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tag"].type()) {
+        DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTag model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tag"]));
+        tag = make_shared<DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTag>(model1);
+      }
     }
   }
 
