@@ -1721,6 +1721,11 @@ public:
   shared_ptr<string> sourceEndpointRegion{};
   shared_ptr<string> sourceEndpointRole{};
   shared_ptr<string> sourceEndpointUserName{};
+  shared_ptr<string> srcCaCertificateOssUrl{};
+  shared_ptr<string> srcCaCertificatePassword{};
+  shared_ptr<string> srcClientCertOssUrl{};
+  shared_ptr<string> srcClientKeyOssUrl{};
+  shared_ptr<string> srcClientPassword{};
   shared_ptr<bool> subscriptionDataTypeDDL{};
   shared_ptr<bool> subscriptionDataTypeDML{};
   shared_ptr<string> subscriptionInstanceNetworkType{};
@@ -1823,6 +1828,21 @@ public:
     }
     if (sourceEndpointUserName) {
       res["SourceEndpointUserName"] = boost::any(*sourceEndpointUserName);
+    }
+    if (srcCaCertificateOssUrl) {
+      res["SrcCaCertificateOssUrl"] = boost::any(*srcCaCertificateOssUrl);
+    }
+    if (srcCaCertificatePassword) {
+      res["SrcCaCertificatePassword"] = boost::any(*srcCaCertificatePassword);
+    }
+    if (srcClientCertOssUrl) {
+      res["SrcClientCertOssUrl"] = boost::any(*srcClientCertOssUrl);
+    }
+    if (srcClientKeyOssUrl) {
+      res["SrcClientKeyOssUrl"] = boost::any(*srcClientKeyOssUrl);
+    }
+    if (srcClientPassword) {
+      res["SrcClientPassword"] = boost::any(*srcClientPassword);
     }
     if (subscriptionDataTypeDDL) {
       res["SubscriptionDataTypeDDL"] = boost::any(*subscriptionDataTypeDDL);
@@ -1929,6 +1949,21 @@ public:
     }
     if (m.find("SourceEndpointUserName") != m.end() && !m["SourceEndpointUserName"].empty()) {
       sourceEndpointUserName = make_shared<string>(boost::any_cast<string>(m["SourceEndpointUserName"]));
+    }
+    if (m.find("SrcCaCertificateOssUrl") != m.end() && !m["SrcCaCertificateOssUrl"].empty()) {
+      srcCaCertificateOssUrl = make_shared<string>(boost::any_cast<string>(m["SrcCaCertificateOssUrl"]));
+    }
+    if (m.find("SrcCaCertificatePassword") != m.end() && !m["SrcCaCertificatePassword"].empty()) {
+      srcCaCertificatePassword = make_shared<string>(boost::any_cast<string>(m["SrcCaCertificatePassword"]));
+    }
+    if (m.find("SrcClientCertOssUrl") != m.end() && !m["SrcClientCertOssUrl"].empty()) {
+      srcClientCertOssUrl = make_shared<string>(boost::any_cast<string>(m["SrcClientCertOssUrl"]));
+    }
+    if (m.find("SrcClientKeyOssUrl") != m.end() && !m["SrcClientKeyOssUrl"].empty()) {
+      srcClientKeyOssUrl = make_shared<string>(boost::any_cast<string>(m["SrcClientKeyOssUrl"]));
+    }
+    if (m.find("SrcClientPassword") != m.end() && !m["SrcClientPassword"].empty()) {
+      srcClientPassword = make_shared<string>(boost::any_cast<string>(m["SrcClientPassword"]));
     }
     if (m.find("SubscriptionDataTypeDDL") != m.end() && !m["SubscriptionDataTypeDDL"].empty()) {
       subscriptionDataTypeDDL = make_shared<bool>(boost::any_cast<bool>(m["SubscriptionDataTypeDDL"]));

@@ -589,6 +589,21 @@ ConfigureSubscriptionResponse Alibabacloud_Dts20200101::Client::configureSubscri
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceEndpointUserName)) {
     query->insert(pair<string, string>("SourceEndpointUserName", *request->sourceEndpointUserName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->srcCaCertificateOssUrl)) {
+    query->insert(pair<string, string>("SrcCaCertificateOssUrl", *request->srcCaCertificateOssUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->srcCaCertificatePassword)) {
+    query->insert(pair<string, string>("SrcCaCertificatePassword", *request->srcCaCertificatePassword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->srcClientCertOssUrl)) {
+    query->insert(pair<string, string>("SrcClientCertOssUrl", *request->srcClientCertOssUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->srcClientKeyOssUrl)) {
+    query->insert(pair<string, string>("SrcClientKeyOssUrl", *request->srcClientKeyOssUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->srcClientPassword)) {
+    query->insert(pair<string, string>("SrcClientPassword", *request->srcClientPassword));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->subscriptionDataTypeDDL)) {
     query->insert(pair<string, bool>("SubscriptionDataTypeDDL", *request->subscriptionDataTypeDDL));
   }
