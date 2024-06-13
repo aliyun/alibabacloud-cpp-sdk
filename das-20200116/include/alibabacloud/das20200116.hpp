@@ -4246,6 +4246,99 @@ public:
 
   virtual ~DescribeCacheAnalysisJobResponseBodyDataBigKeysOfNum() = default;
 };
+class DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCountExpiryLevel : public Darabonba::Model {
+public:
+  shared_ptr<long> analysisTs{};
+  shared_ptr<long> level{};
+  shared_ptr<long> totalBytes{};
+  shared_ptr<long> totalKeys{};
+
+  DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCountExpiryLevel() {}
+
+  explicit DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCountExpiryLevel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (analysisTs) {
+      res["AnalysisTs"] = boost::any(*analysisTs);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (totalBytes) {
+      res["TotalBytes"] = boost::any(*totalBytes);
+    }
+    if (totalKeys) {
+      res["TotalKeys"] = boost::any(*totalKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnalysisTs") != m.end() && !m["AnalysisTs"].empty()) {
+      analysisTs = make_shared<long>(boost::any_cast<long>(m["AnalysisTs"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<long>(boost::any_cast<long>(m["Level"]));
+    }
+    if (m.find("TotalBytes") != m.end() && !m["TotalBytes"].empty()) {
+      totalBytes = make_shared<long>(boost::any_cast<long>(m["TotalBytes"]));
+    }
+    if (m.find("TotalKeys") != m.end() && !m["TotalKeys"].empty()) {
+      totalKeys = make_shared<long>(boost::any_cast<long>(m["TotalKeys"]));
+    }
+  }
+
+
+  virtual ~DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCountExpiryLevel() = default;
+};
+class DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCount : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCountExpiryLevel>> expiryLevel{};
+
+  DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCount() {}
+
+  explicit DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCount(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expiryLevel) {
+      vector<boost::any> temp1;
+      for(auto item1:*expiryLevel){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExpiryLevel"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExpiryLevel") != m.end() && !m["ExpiryLevel"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExpiryLevel"].type()) {
+        vector<DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCountExpiryLevel> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExpiryLevel"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCountExpiryLevel model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        expiryLevel = make_shared<vector<DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCountExpiryLevel>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCount() = default;
+};
 class DescribeCacheAnalysisJobResponseBodyDataKeyPrefixesPrefix : public Darabonba::Model {
 public:
   shared_ptr<long> bytes{};
@@ -4592,6 +4685,7 @@ class DescribeCacheAnalysisJobResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<DescribeCacheAnalysisJobResponseBodyDataBigKeys> bigKeys{};
   shared_ptr<DescribeCacheAnalysisJobResponseBodyDataBigKeysOfNum> bigKeysOfNum{};
+  shared_ptr<DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCount> expiryKeysLevelCount{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> jobId{};
   shared_ptr<DescribeCacheAnalysisJobResponseBodyDataKeyPrefixes> keyPrefixes{};
@@ -4616,6 +4710,9 @@ public:
     }
     if (bigKeysOfNum) {
       res["BigKeysOfNum"] = bigKeysOfNum ? boost::any(bigKeysOfNum->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (expiryKeysLevelCount) {
+      res["ExpiryKeysLevelCount"] = expiryKeysLevelCount ? boost::any(expiryKeysLevelCount->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -4657,6 +4754,13 @@ public:
         DescribeCacheAnalysisJobResponseBodyDataBigKeysOfNum model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BigKeysOfNum"]));
         bigKeysOfNum = make_shared<DescribeCacheAnalysisJobResponseBodyDataBigKeysOfNum>(model1);
+      }
+    }
+    if (m.find("ExpiryKeysLevelCount") != m.end() && !m["ExpiryKeysLevelCount"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ExpiryKeysLevelCount"].type()) {
+        DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ExpiryKeysLevelCount"]));
+        expiryKeysLevelCount = make_shared<DescribeCacheAnalysisJobResponseBodyDataExpiryKeysLevelCount>(model1);
       }
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
@@ -8022,7 +8126,7 @@ public:
   shared_ptr<string> state{};
   shared_ptr<long> threadId{};
   shared_ptr<string> traceId{};
-  shared_ptr<long> trxId{};
+  shared_ptr<string> trxId{};
   shared_ptr<long> updateRows{};
   shared_ptr<string> useImciEngine{};
   shared_ptr<string> vip{};
@@ -8226,7 +8330,7 @@ public:
       traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
     }
     if (m.find("TrxId") != m.end() && !m["TrxId"].empty()) {
-      trxId = make_shared<long>(boost::any_cast<long>(m["TrxId"]));
+      trxId = make_shared<string>(boost::any_cast<string>(m["TrxId"]));
     }
     if (m.find("UpdateRows") != m.end() && !m["UpdateRows"].empty()) {
       updateRows = make_shared<long>(boost::any_cast<long>(m["UpdateRows"]));
@@ -8790,7 +8894,7 @@ public:
   shared_ptr<string> state{};
   shared_ptr<long> threadId{};
   shared_ptr<string> traceId{};
-  shared_ptr<long> trxId{};
+  shared_ptr<string> trxId{};
   shared_ptr<long> updateRows{};
   shared_ptr<string> useImciEngine{};
   shared_ptr<string> vip{};
@@ -8988,7 +9092,7 @@ public:
       traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
     }
     if (m.find("TrxId") != m.end() && !m["TrxId"].empty()) {
-      trxId = make_shared<long>(boost::any_cast<long>(m["TrxId"]));
+      trxId = make_shared<string>(boost::any_cast<string>(m["TrxId"]));
     }
     if (m.find("UpdateRows") != m.end() && !m["UpdateRows"].empty()) {
       updateRows = make_shared<long>(boost::any_cast<long>(m["UpdateRows"]));
