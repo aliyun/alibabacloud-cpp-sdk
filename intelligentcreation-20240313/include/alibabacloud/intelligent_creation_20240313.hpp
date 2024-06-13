@@ -420,6 +420,8 @@ public:
 };
 class Text : public Darabonba::Model {
 public:
+  shared_ptr<string> agentId{};
+  shared_ptr<string> agentName{};
   shared_ptr<string> desc{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
@@ -447,6 +449,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentId) {
+      res["agentId"] = boost::any(*agentId);
+    }
+    if (agentName) {
+      res["agentName"] = boost::any(*agentName);
+    }
     if (desc) {
       res["desc"] = boost::any(*desc);
     }
@@ -499,6 +507,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("agentId") != m.end() && !m["agentId"].empty()) {
+      agentId = make_shared<string>(boost::any_cast<string>(m["agentId"]));
+    }
+    if (m.find("agentName") != m.end() && !m["agentName"].empty()) {
+      agentName = make_shared<string>(boost::any_cast<string>(m["agentName"]));
+    }
     if (m.find("desc") != m.end() && !m["desc"].empty()) {
       desc = make_shared<string>(boost::any_cast<string>(m["desc"]));
     }
@@ -665,6 +679,8 @@ public:
 };
 class TextTask : public Darabonba::Model {
 public:
+  shared_ptr<string> agentId{};
+  shared_ptr<string> agentName{};
   shared_ptr<string> contentRequirement{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
@@ -679,6 +695,7 @@ public:
   shared_ptr<string> textModeType{};
   shared_ptr<long> textTaskId{};
   shared_ptr<string> textTaskStatus{};
+  shared_ptr<Text> texts{};
   shared_ptr<string> theme{};
   shared_ptr<string> themeDesc{};
 
@@ -692,6 +709,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentId) {
+      res["agentId"] = boost::any(*agentId);
+    }
+    if (agentName) {
+      res["agentName"] = boost::any(*agentName);
+    }
     if (contentRequirement) {
       res["contentRequirement"] = boost::any(*contentRequirement);
     }
@@ -734,6 +757,9 @@ public:
     if (textTaskStatus) {
       res["textTaskStatus"] = boost::any(*textTaskStatus);
     }
+    if (texts) {
+      res["texts"] = texts ? boost::any(texts->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (theme) {
       res["theme"] = boost::any(*theme);
     }
@@ -744,6 +770,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("agentId") != m.end() && !m["agentId"].empty()) {
+      agentId = make_shared<string>(boost::any_cast<string>(m["agentId"]));
+    }
+    if (m.find("agentName") != m.end() && !m["agentName"].empty()) {
+      agentName = make_shared<string>(boost::any_cast<string>(m["agentName"]));
+    }
     if (m.find("contentRequirement") != m.end() && !m["contentRequirement"].empty()) {
       contentRequirement = make_shared<string>(boost::any_cast<string>(m["contentRequirement"]));
     }
@@ -797,6 +829,13 @@ public:
     if (m.find("textTaskStatus") != m.end() && !m["textTaskStatus"].empty()) {
       textTaskStatus = make_shared<string>(boost::any_cast<string>(m["textTaskStatus"]));
     }
+    if (m.find("texts") != m.end() && !m["texts"].empty()) {
+      if (typeid(map<string, boost::any>) == m["texts"].type()) {
+        Text model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["texts"]));
+        texts = make_shared<Text>(model1);
+      }
+    }
     if (m.find("theme") != m.end() && !m["theme"].empty()) {
       theme = make_shared<string>(boost::any_cast<string>(m["theme"]));
     }
@@ -810,6 +849,7 @@ public:
 };
 class TextTaskCreateCmd : public Darabonba::Model {
 public:
+  shared_ptr<string> agentId{};
   shared_ptr<string> contentRequirement{};
   shared_ptr<string> idempotentId{};
   shared_ptr<string> industry{};
@@ -834,6 +874,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentId) {
+      res["agentId"] = boost::any(*agentId);
+    }
     if (contentRequirement) {
       res["contentRequirement"] = boost::any(*contentRequirement);
     }
@@ -877,6 +920,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("agentId") != m.end() && !m["agentId"].empty()) {
+      agentId = make_shared<string>(boost::any_cast<string>(m["agentId"]));
+    }
     if (m.find("contentRequirement") != m.end() && !m["contentRequirement"].empty()) {
       contentRequirement = make_shared<string>(boost::any_cast<string>(m["contentRequirement"]));
     }
