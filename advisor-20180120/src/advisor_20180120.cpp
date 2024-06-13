@@ -250,13 +250,25 @@ DescribeCostCheckAdvicesResponse Alibabacloud_Advisor20180120::Client::describeC
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<DescribeCostCheckAdvicesShrinkRequest> request = make_shared<DescribeCostCheckAdvicesShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->assumeAliyunIdList)) {
+    request->assumeAliyunIdListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->assumeAliyunIdList, make_shared<string>("AssumeAliyunIdList"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->regionIds)) {
     request->regionIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->regionIds, make_shared<string>("RegionIds"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->resourceIds)) {
     request->resourceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceIds, make_shared<string>("ResourceIds"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tagKeys)) {
+    request->tagKeysShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagKeys, make_shared<string>("TagKeys"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tagValues)) {
+    request->tagValuesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagValues, make_shared<string>("TagValues"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->assumeAliyunIdListShrink)) {
+    query->insert(pair<string, string>("AssumeAliyunIdList", *request->assumeAliyunIdListShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->checkId)) {
     query->insert(pair<string, string>("CheckId", *request->checkId));
   }
@@ -280,6 +292,12 @@ DescribeCostCheckAdvicesResponse Alibabacloud_Advisor20180120::Client::describeC
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->severity)) {
     query->insert(pair<string, string>("Severity", *request->severity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagKeysShrink)) {
+    query->insert(pair<string, string>("TagKeys", *request->tagKeysShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagValuesShrink)) {
+    query->insert(pair<string, string>("TagValues", *request->tagValuesShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -307,6 +325,9 @@ DescribeCostCheckResultsResponse Alibabacloud_Advisor20180120::Client::describeC
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<DescribeCostCheckResultsShrinkRequest> request = make_shared<DescribeCostCheckResultsShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->assumeAliyunIdList)) {
+    request->assumeAliyunIdListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->assumeAliyunIdList, make_shared<string>("AssumeAliyunIdList"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->checkIds)) {
     request->checkIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->checkIds, make_shared<string>("CheckIds"), make_shared<string>("json")));
   }
@@ -316,7 +337,16 @@ DescribeCostCheckResultsResponse Alibabacloud_Advisor20180120::Client::describeC
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->resourceIds)) {
     request->resourceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceIds, make_shared<string>("ResourceIds"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tagKeys)) {
+    request->tagKeysShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagKeys, make_shared<string>("TagKeys"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tagValues)) {
+    request->tagValuesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagValues, make_shared<string>("TagValues"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->assumeAliyunIdListShrink)) {
+    query->insert(pair<string, string>("AssumeAliyunIdList", *request->assumeAliyunIdListShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->checkIdsShrink)) {
     query->insert(pair<string, string>("CheckIds", *request->checkIdsShrink));
   }
@@ -337,6 +367,12 @@ DescribeCostCheckResultsResponse Alibabacloud_Advisor20180120::Client::describeC
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->severity)) {
     query->insert(pair<string, long>("Severity", *request->severity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagKeysShrink)) {
+    query->insert(pair<string, string>("TagKeys", *request->tagKeysShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagValuesShrink)) {
+    query->insert(pair<string, string>("TagValues", *request->tagValuesShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -469,6 +505,57 @@ RefreshAdvisorCheckResponse Alibabacloud_Advisor20180120::Client::refreshAdvisor
 RefreshAdvisorCheckResponse Alibabacloud_Advisor20180120::Client::refreshAdvisorCheck(shared_ptr<RefreshAdvisorCheckRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return refreshAdvisorCheckWithOptions(request, runtime);
+}
+
+RefreshAdvisorCostCheckResponse Alibabacloud_Advisor20180120::Client::refreshAdvisorCostCheckWithOptions(shared_ptr<RefreshAdvisorCostCheckRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<RefreshAdvisorCostCheckShrinkRequest> request = make_shared<RefreshAdvisorCostCheckShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->assumeAliyunIdList)) {
+    request->assumeAliyunIdListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->assumeAliyunIdList, make_shared<string>("AssumeAliyunIdList"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->checkIds)) {
+    request->checkIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->checkIds, make_shared<string>("CheckIds"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->resourceIds)) {
+    request->resourceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceIds, make_shared<string>("ResourceIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->assumeAliyunIdListShrink)) {
+    query->insert(pair<string, string>("AssumeAliyunIdList", *request->assumeAliyunIdListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->checkIdsShrink)) {
+    query->insert(pair<string, string>("CheckIds", *request->checkIdsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->product)) {
+    query->insert(pair<string, string>("Product", *request->product));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->refreshResource)) {
+    query->insert(pair<string, bool>("RefreshResource", *request->refreshResource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceIdsShrink)) {
+    query->insert(pair<string, string>("ResourceIds", *request->resourceIdsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RefreshAdvisorCostCheck"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RefreshAdvisorCostCheckResponse(callApi(params, req, runtime));
+}
+
+RefreshAdvisorCostCheckResponse Alibabacloud_Advisor20180120::Client::refreshAdvisorCostCheck(shared_ptr<RefreshAdvisorCostCheckRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return refreshAdvisorCostCheckWithOptions(request, runtime);
 }
 
 RefreshAdvisorResourceResponse Alibabacloud_Advisor20180120::Client::refreshAdvisorResourceWithOptions(shared_ptr<RefreshAdvisorResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
