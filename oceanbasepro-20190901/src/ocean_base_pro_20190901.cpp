@@ -1670,6 +1670,9 @@ DescribeInstanceResponse Alibabacloud_OceanBasePro20190901::Client::describeInst
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     body->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxConnectionLimit)) {
+    body->insert(pair<string, string>("MaxConnectionLimit", *request->maxConnectionLimit));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     body->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
@@ -3260,6 +3263,37 @@ DescribeTenantMetricsResponse Alibabacloud_OceanBasePro20190901::Client::describ
   return describeTenantMetricsWithOptions(request, runtime);
 }
 
+DescribeTenantReadableScnResponse Alibabacloud_OceanBasePro20190901::Client::describeTenantReadableScnWithOptions(shared_ptr<DescribeTenantReadableScnRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantId)) {
+    body->insert(pair<string, string>("TenantId", *request->tenantId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeTenantReadableScn"))},
+    {"version", boost::any(string("2019-09-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeTenantReadableScnResponse(callApi(params, req, runtime));
+}
+
+DescribeTenantReadableScnResponse Alibabacloud_OceanBasePro20190901::Client::describeTenantReadableScn(shared_ptr<DescribeTenantReadableScnRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeTenantReadableScnWithOptions(request, runtime);
+}
+
 DescribeTenantSecurityConfigsResponse Alibabacloud_OceanBasePro20190901::Client::describeTenantSecurityConfigsWithOptions(shared_ptr<DescribeTenantSecurityConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4109,6 +4143,37 @@ ModifyInstanceNodeNumResponse Alibabacloud_OceanBasePro20190901::Client::modifyI
   return modifyInstanceNodeNumWithOptions(request, runtime);
 }
 
+ModifyInstanceSSLResponse Alibabacloud_OceanBasePro20190901::Client::modifyInstanceSSLWithOptions(shared_ptr<ModifyInstanceSSLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->enableSSL)) {
+    body->insert(pair<string, string>("EnableSSL", *request->enableSSL));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyInstanceSSL"))},
+    {"version", boost::any(string("2019-09-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyInstanceSSLResponse(callApi(params, req, runtime));
+}
+
+ModifyInstanceSSLResponse Alibabacloud_OceanBasePro20190901::Client::modifyInstanceSSL(shared_ptr<ModifyInstanceSSLRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyInstanceSSLWithOptions(request, runtime);
+}
+
 ModifyInstanceSpecResponse Alibabacloud_OceanBasePro20190901::Client::modifyInstanceSpecWithOptions(shared_ptr<ModifyInstanceSpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4126,6 +4191,9 @@ ModifyInstanceSpecResponse Alibabacloud_OceanBasePro20190901::Client::modifyInst
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     body->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->upgradeSpecNative)) {
+    body->insert(pair<string, bool>("UpgradeSpecNative", *request->upgradeSpecNative));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
