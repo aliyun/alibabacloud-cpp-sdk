@@ -2130,6 +2130,54 @@ PostISConvRewriterResponse Alibabacloud_Alinlp20200629::Client::postISConvRewrit
   return postISConvRewriterWithOptions(request, runtime);
 }
 
+PostISRerankResponse Alibabacloud_Alinlp20200629::Client::postISRerankWithOptions(shared_ptr<PostISRerankRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<PostISRerankShrinkRequest> request = make_shared<PostISRerankShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->input)) {
+    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->input, make_shared<string>("Input"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->parameters)) {
+    request->parametersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->parameters, make_shared<string>("Parameters"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->algorithm)) {
+    body->insert(pair<string, string>("Algorithm", *request->algorithm));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->debug)) {
+    body->insert(pair<string, bool>("Debug", *request->debug));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputShrink)) {
+    body->insert(pair<string, string>("Input", *request->inputShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->model)) {
+    body->insert(pair<string, string>("Model", *request->model));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parametersShrink)) {
+    body->insert(pair<string, string>("Parameters", *request->parametersShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PostISRerank"))},
+    {"version", boost::any(string("2020-06-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PostISRerankResponse(callApi(params, req, runtime));
+}
+
+PostISRerankResponse Alibabacloud_Alinlp20200629::Client::postISRerank(shared_ptr<PostISRerankRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return postISRerankWithOptions(request, runtime);
+}
+
 PostISRetrieveRouterResponse Alibabacloud_Alinlp20200629::Client::postISRetrieveRouterWithOptions(shared_ptr<PostISRetrieveRouterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<PostISRetrieveRouterShrinkRequest> request = make_shared<PostISRetrieveRouterShrinkRequest>();

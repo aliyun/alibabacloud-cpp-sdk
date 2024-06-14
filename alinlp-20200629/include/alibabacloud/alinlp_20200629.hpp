@@ -8490,6 +8490,249 @@ public:
 
   virtual ~PostISConvRewriterResponse() = default;
 };
+class PostISRerankRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<bool> debug{};
+  shared_ptr<map<string, boost::any>> input{};
+  shared_ptr<string> model{};
+  shared_ptr<map<string, boost::any>> parameters{};
+
+  PostISRerankRequest() {}
+
+  explicit PostISRerankRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (debug) {
+      res["Debug"] = boost::any(*debug);
+    }
+    if (input) {
+      res["Input"] = boost::any(*input);
+    }
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
+    if (parameters) {
+      res["Parameters"] = boost::any(*parameters);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("Debug") != m.end() && !m["Debug"].empty()) {
+      debug = make_shared<bool>(boost::any_cast<bool>(m["Debug"]));
+    }
+    if (m.find("Input") != m.end() && !m["Input"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Input"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      input = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Parameters"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      parameters = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~PostISRerankRequest() = default;
+};
+class PostISRerankShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<bool> debug{};
+  shared_ptr<string> inputShrink{};
+  shared_ptr<string> model{};
+  shared_ptr<string> parametersShrink{};
+
+  PostISRerankShrinkRequest() {}
+
+  explicit PostISRerankShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (debug) {
+      res["Debug"] = boost::any(*debug);
+    }
+    if (inputShrink) {
+      res["Input"] = boost::any(*inputShrink);
+    }
+    if (model) {
+      res["Model"] = boost::any(*model);
+    }
+    if (parametersShrink) {
+      res["Parameters"] = boost::any(*parametersShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("Debug") != m.end() && !m["Debug"].empty()) {
+      debug = make_shared<bool>(boost::any_cast<bool>(m["Debug"]));
+    }
+    if (m.find("Input") != m.end() && !m["Input"].empty()) {
+      inputShrink = make_shared<string>(boost::any_cast<string>(m["Input"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      parametersShrink = make_shared<string>(boost::any_cast<string>(m["Parameters"]));
+    }
+  }
+
+
+  virtual ~PostISRerankShrinkRequest() = default;
+};
+class PostISRerankResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> data{};
+  shared_ptr<map<string, boost::any>> debugInfo{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> status{};
+
+  PostISRerankResponseBody() {}
+
+  explicit PostISRerankResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (debugInfo) {
+      res["DebugInfo"] = boost::any(*debugInfo);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Data"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      data = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("DebugInfo") != m.end() && !m["DebugInfo"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["DebugInfo"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      debugInfo = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~PostISRerankResponseBody() = default;
+};
+class PostISRerankResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PostISRerankResponseBody> body{};
+
+  PostISRerankResponse() {}
+
+  explicit PostISRerankResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PostISRerankResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PostISRerankResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PostISRerankResponse() = default;
+};
 class PostISRetrieveRouterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> algorithm{};
@@ -10502,6 +10745,8 @@ public:
   OpenAlinlpServiceResponse openAlinlpService();
   PostISConvRewriterResponse postISConvRewriterWithOptions(shared_ptr<PostISConvRewriterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PostISConvRewriterResponse postISConvRewriter(shared_ptr<PostISConvRewriterRequest> request);
+  PostISRerankResponse postISRerankWithOptions(shared_ptr<PostISRerankRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PostISRerankResponse postISRerank(shared_ptr<PostISRerankRequest> request);
   PostISRetrieveRouterResponse postISRetrieveRouterWithOptions(shared_ptr<PostISRetrieveRouterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PostISRetrieveRouterResponse postISRetrieveRouter(shared_ptr<PostISRetrieveRouterRequest> request);
   PostMSConvSearchTokenGeneratedResponse postMSConvSearchTokenGeneratedWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
