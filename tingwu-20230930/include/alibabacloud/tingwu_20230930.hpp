@@ -193,8 +193,10 @@ public:
 };
 class CreateTaskRequestParametersExtraParams : public Darabonba::Model {
 public:
+  shared_ptr<bool> domainEducationEnabled{};
   shared_ptr<long> maxKeywords{};
   shared_ptr<bool> nfixEnabled{};
+  shared_ptr<bool> ocrAuxiliaryEnabled{};
 
   CreateTaskRequestParametersExtraParams() {}
 
@@ -206,21 +208,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (domainEducationEnabled) {
+      res["DomainEducationEnabled"] = boost::any(*domainEducationEnabled);
+    }
     if (maxKeywords) {
       res["MaxKeywords"] = boost::any(*maxKeywords);
     }
     if (nfixEnabled) {
       res["NfixEnabled"] = boost::any(*nfixEnabled);
     }
+    if (ocrAuxiliaryEnabled) {
+      res["OcrAuxiliaryEnabled"] = boost::any(*ocrAuxiliaryEnabled);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainEducationEnabled") != m.end() && !m["DomainEducationEnabled"].empty()) {
+      domainEducationEnabled = make_shared<bool>(boost::any_cast<bool>(m["DomainEducationEnabled"]));
+    }
     if (m.find("MaxKeywords") != m.end() && !m["MaxKeywords"].empty()) {
       maxKeywords = make_shared<long>(boost::any_cast<long>(m["MaxKeywords"]));
     }
     if (m.find("NfixEnabled") != m.end() && !m["NfixEnabled"].empty()) {
       nfixEnabled = make_shared<bool>(boost::any_cast<bool>(m["NfixEnabled"]));
+    }
+    if (m.find("OcrAuxiliaryEnabled") != m.end() && !m["OcrAuxiliaryEnabled"].empty()) {
+      ocrAuxiliaryEnabled = make_shared<bool>(boost::any_cast<bool>(m["OcrAuxiliaryEnabled"]));
     }
   }
 
