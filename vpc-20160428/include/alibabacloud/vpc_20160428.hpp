@@ -25582,6 +25582,7 @@ class DeleteIpv4GatewayRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
+  shared_ptr<string> internetMode{};
   shared_ptr<string> ipv4GatewayId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -25604,6 +25605,9 @@ public:
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
+    }
+    if (internetMode) {
+      res["InternetMode"] = boost::any(*internetMode);
     }
     if (ipv4GatewayId) {
       res["Ipv4GatewayId"] = boost::any(*ipv4GatewayId);
@@ -25632,6 +25636,9 @@ public:
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("InternetMode") != m.end() && !m["InternetMode"].empty()) {
+      internetMode = make_shared<string>(boost::any_cast<string>(m["InternetMode"]));
     }
     if (m.find("Ipv4GatewayId") != m.end() && !m["Ipv4GatewayId"].empty()) {
       ipv4GatewayId = make_shared<string>(boost::any_cast<string>(m["Ipv4GatewayId"]));

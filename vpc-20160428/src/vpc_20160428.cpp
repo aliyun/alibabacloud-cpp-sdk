@@ -6995,6 +6995,9 @@ DeleteIpv4GatewayResponse Alibabacloud_Vpc20160428::Client::deleteIpv4GatewayWit
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->internetMode)) {
+    query->insert(pair<string, string>("InternetMode", *request->internetMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipv4GatewayId)) {
     query->insert(pair<string, string>("Ipv4GatewayId", *request->ipv4GatewayId));
   }
