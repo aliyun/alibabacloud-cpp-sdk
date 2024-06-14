@@ -57,6 +57,42 @@ public:
 
   virtual ~ErrorResponse() = default;
 };
+class ResultClusterValue : public Darabonba::Model {
+public:
+  shared_ptr<long> buildParallelNum{};
+  shared_ptr<long> mergeParallelNum{};
+
+  ResultClusterValue() {}
+
+  explicit ResultClusterValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (buildParallelNum) {
+      res["buildParallelNum"] = boost::any(*buildParallelNum);
+    }
+    if (mergeParallelNum) {
+      res["mergeParallelNum"] = boost::any(*mergeParallelNum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("buildParallelNum") != m.end() && !m["buildParallelNum"].empty()) {
+      buildParallelNum = make_shared<long>(boost::any_cast<long>(m["buildParallelNum"]));
+    }
+    if (m.find("mergeParallelNum") != m.end() && !m["mergeParallelNum"].empty()) {
+      mergeParallelNum = make_shared<long>(boost::any_cast<long>(m["mergeParallelNum"]));
+    }
+  }
+
+
+  virtual ~ResultClusterValue() = default;
+};
 class VariablesValueFuncValue : public Darabonba::Model {
 public:
   shared_ptr<string> funcClassName{};
@@ -167,6 +203,63 @@ public:
 
 
   virtual ~VariablesValue() = default;
+};
+class FilesConfigVariablesValue : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<bool> disableModify{};
+  shared_ptr<bool> isModify{};
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+
+  FilesConfigVariablesValue() {}
+
+  explicit FilesConfigVariablesValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (disableModify) {
+      res["disableModify"] = boost::any(*disableModify);
+    }
+    if (isModify) {
+      res["isModify"] = boost::any(*isModify);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("disableModify") != m.end() && !m["disableModify"].empty()) {
+      disableModify = make_shared<bool>(boost::any_cast<bool>(m["disableModify"]));
+    }
+    if (m.find("isModify") != m.end() && !m["isModify"].empty()) {
+      isModify = make_shared<bool>(boost::any_cast<bool>(m["isModify"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~FilesConfigVariablesValue() = default;
 };
 class BuildIndexRequest : public Darabonba::Model {
 public:
@@ -335,6 +428,7 @@ public:
 class CreateClusterRequestDataNode : public Darabonba::Model {
 public:
   shared_ptr<long> number{};
+  shared_ptr<string> partition{};
 
   CreateClusterRequestDataNode() {}
 
@@ -349,12 +443,18 @@ public:
     if (number) {
       res["number"] = boost::any(*number);
     }
+    if (partition) {
+      res["partition"] = boost::any(*partition);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("number") != m.end() && !m["number"].empty()) {
       number = make_shared<long>(boost::any_cast<long>(m["number"]));
+    }
+    if (m.find("partition") != m.end() && !m["partition"].empty()) {
+      partition = make_shared<string>(boost::any_cast<string>(m["partition"]));
     }
   }
 
@@ -983,6 +1083,7 @@ public:
   shared_ptr<long> dataTimeSec{};
   shared_ptr<string> domain{};
   shared_ptr<string> name{};
+  shared_ptr<long> processParallelNum{};
   shared_ptr<long> processPartitionCount{};
   shared_ptr<CreateIndexRequestDataSourceInfoSaroConfig> saroConfig{};
   shared_ptr<string> type{};
@@ -1011,6 +1112,9 @@ public:
     }
     if (name) {
       res["name"] = boost::any(*name);
+    }
+    if (processParallelNum) {
+      res["processParallelNum"] = boost::any(*processParallelNum);
     }
     if (processPartitionCount) {
       res["processPartitionCount"] = boost::any(*processPartitionCount);
@@ -1044,6 +1148,9 @@ public:
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
+    if (m.find("processParallelNum") != m.end() && !m["processParallelNum"].empty()) {
+      processParallelNum = make_shared<long>(boost::any_cast<long>(m["processParallelNum"]));
+    }
     if (m.find("processPartitionCount") != m.end() && !m["processPartitionCount"].empty()) {
       processPartitionCount = make_shared<long>(boost::any_cast<long>(m["processPartitionCount"]));
     }
@@ -1064,11 +1171,13 @@ public:
 };
 class CreateIndexRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> buildParallelNum{};
   shared_ptr<string> content{};
   shared_ptr<string> dataSource{};
   shared_ptr<CreateIndexRequestDataSourceInfo> dataSourceInfo{};
   shared_ptr<string> domain{};
   shared_ptr<map<string, boost::any>> extend{};
+  shared_ptr<long> mergeParallelNum{};
   shared_ptr<string> name{};
   shared_ptr<long> partition{};
   shared_ptr<bool> dryRun{};
@@ -1083,6 +1192,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (buildParallelNum) {
+      res["buildParallelNum"] = boost::any(*buildParallelNum);
+    }
     if (content) {
       res["content"] = boost::any(*content);
     }
@@ -1098,6 +1210,9 @@ public:
     if (extend) {
       res["extend"] = boost::any(*extend);
     }
+    if (mergeParallelNum) {
+      res["mergeParallelNum"] = boost::any(*mergeParallelNum);
+    }
     if (name) {
       res["name"] = boost::any(*name);
     }
@@ -1111,6 +1226,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("buildParallelNum") != m.end() && !m["buildParallelNum"].empty()) {
+      buildParallelNum = make_shared<long>(boost::any_cast<long>(m["buildParallelNum"]));
+    }
     if (m.find("content") != m.end() && !m["content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["content"]));
     }
@@ -1134,6 +1252,9 @@ public:
          toMap1[item.first] = item.second;
       }
       extend = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("mergeParallelNum") != m.end() && !m["mergeParallelNum"].empty()) {
+      mergeParallelNum = make_shared<long>(boost::any_cast<long>(m["mergeParallelNum"]));
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
@@ -3495,7 +3616,9 @@ public:
 };
 class GetClusterResponseBodyResult : public Darabonba::Model {
 public:
+  shared_ptr<map<string, map<string, boost::any>>> config{};
   shared_ptr<string> configUpdateTime{};
+  shared_ptr<string> createTime{};
   shared_ptr<string> currentAdvanceConfigVersion{};
   shared_ptr<string> currentOnlineConfigVersion{};
   shared_ptr<GetClusterResponseBodyResultDataNode> dataNode{};
@@ -3516,8 +3639,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (config) {
+      res["config"] = boost::any(*config);
+    }
     if (configUpdateTime) {
       res["configUpdateTime"] = boost::any(*configUpdateTime);
+    }
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
     }
     if (currentAdvanceConfigVersion) {
       res["currentAdvanceConfigVersion"] = boost::any(*currentAdvanceConfigVersion);
@@ -3550,8 +3679,24 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("config") != m.end() && !m["config"].empty()) {
+      map<string, map<string, boost::any>> map1 = boost::any_cast<map<string, map<string, boost::any>>>(m["config"]);
+      map<string, map<string, boost::any>> toMap1;
+      for (auto item:map1) {
+        map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item.second);
+        map<string, boost::any> toMap2;
+        for (auto item:map2) {
+           toMap2[item.first] = item.second;
+        }
+         toMap1[item.first] = toMap2;
+      }
+      config = make_shared<map<string, map<string, boost::any>>>(toMap1);
+    }
     if (m.find("configUpdateTime") != m.end() && !m["configUpdateTime"].empty()) {
       configUpdateTime = make_shared<string>(boost::any_cast<string>(m["configUpdateTime"]));
+    }
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
     }
     if (m.find("currentAdvanceConfigVersion") != m.end() && !m["currentAdvanceConfigVersion"].empty()) {
       currentAdvanceConfigVersion = make_shared<string>(boost::any_cast<string>(m["currentAdvanceConfigVersion"]));
@@ -5935,6 +6080,7 @@ public:
   shared_ptr<GetIndexResponseBodyResultDataSourceInfoConfig> config{};
   shared_ptr<string> domain{};
   shared_ptr<string> name{};
+  shared_ptr<long> processParallelNum{};
   shared_ptr<long> processPartitionCount{};
   shared_ptr<GetIndexResponseBodyResultDataSourceInfoSaroConfig> saroConfig{};
   shared_ptr<string> type{};
@@ -5960,6 +6106,9 @@ public:
     }
     if (name) {
       res["name"] = boost::any(*name);
+    }
+    if (processParallelNum) {
+      res["processParallelNum"] = boost::any(*processParallelNum);
     }
     if (processPartitionCount) {
       res["processPartitionCount"] = boost::any(*processPartitionCount);
@@ -5989,6 +6138,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("processParallelNum") != m.end() && !m["processParallelNum"].empty()) {
+      processParallelNum = make_shared<long>(boost::any_cast<long>(m["processParallelNum"]));
     }
     if (m.find("processPartitionCount") != m.end() && !m["processPartitionCount"].empty()) {
       processPartitionCount = make_shared<long>(boost::any_cast<long>(m["processPartitionCount"]));
@@ -6138,6 +6290,9 @@ public:
 };
 class GetIndexResponseBodyResult : public Darabonba::Model {
 public:
+  shared_ptr<map<string, ResultClusterValue>> cluster{};
+  shared_ptr<map<string, map<string, boost::any>>> config{};
+  shared_ptr<map<string, map<string, boost::any>>> configWhenBuild{};
   shared_ptr<string> content{};
   shared_ptr<string> dataSource{};
   shared_ptr<GetIndexResponseBodyResultDataSourceInfo> dataSourceInfo{};
@@ -6162,6 +6317,19 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cluster) {
+      map<string, boost::any> temp1;
+      for(auto item1:*cluster){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["cluster"] = boost::any(temp1);
+    }
+    if (config) {
+      res["config"] = boost::any(*config);
+    }
+    if (configWhenBuild) {
+      res["configWhenBuild"] = boost::any(*configWhenBuild);
+    }
     if (content) {
       res["content"] = boost::any(*content);
     }
@@ -6209,6 +6377,45 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("cluster") != m.end() && !m["cluster"].empty()) {
+      if (typeid(map<string, boost::any>) == m["cluster"].type()) {
+        map<string, ResultClusterValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["cluster"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            ResultClusterValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
+        }
+        cluster = make_shared<map<string, ResultClusterValue>>(expect1);
+      }
+    }
+    if (m.find("config") != m.end() && !m["config"].empty()) {
+      map<string, map<string, boost::any>> map1 = boost::any_cast<map<string, map<string, boost::any>>>(m["config"]);
+      map<string, map<string, boost::any>> toMap1;
+      for (auto item:map1) {
+        map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item.second);
+        map<string, boost::any> toMap2;
+        for (auto item:map2) {
+           toMap2[item.first] = item.second;
+        }
+         toMap1[item.first] = toMap2;
+      }
+      config = make_shared<map<string, map<string, boost::any>>>(toMap1);
+    }
+    if (m.find("configWhenBuild") != m.end() && !m["configWhenBuild"].empty()) {
+      map<string, map<string, boost::any>> map1 = boost::any_cast<map<string, map<string, boost::any>>>(m["configWhenBuild"]);
+      map<string, map<string, boost::any>> toMap1;
+      for (auto item:map1) {
+        map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item.second);
+        map<string, boost::any> toMap2;
+        for (auto item:map2) {
+           toMap2[item.first] = item.second;
+        }
+         toMap1[item.first] = toMap2;
+      }
+      configWhenBuild = make_shared<map<string, map<string, boost::any>>>(toMap1);
+    }
     if (m.find("content") != m.end() && !m["content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["content"]));
     }
@@ -7968,6 +8175,7 @@ class ListAdvanceConfigsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dataSourceName{};
   shared_ptr<string> indexName{};
+  shared_ptr<bool> newMode{};
   shared_ptr<string> type{};
 
   ListAdvanceConfigsRequest() {}
@@ -7986,6 +8194,9 @@ public:
     if (indexName) {
       res["indexName"] = boost::any(*indexName);
     }
+    if (newMode) {
+      res["newMode"] = boost::any(*newMode);
+    }
     if (type) {
       res["type"] = boost::any(*type);
     }
@@ -7998,6 +8209,9 @@ public:
     }
     if (m.find("indexName") != m.end() && !m["indexName"].empty()) {
       indexName = make_shared<string>(boost::any_cast<string>(m["indexName"]));
+    }
+    if (m.find("newMode") != m.end() && !m["newMode"].empty()) {
+      newMode = make_shared<bool>(boost::any_cast<bool>(m["newMode"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
@@ -8059,8 +8273,10 @@ public:
 };
 class ListAdvanceConfigsResponseBodyResult : public Darabonba::Model {
 public:
+  shared_ptr<string> advanceConfigType{};
   shared_ptr<string> content{};
   shared_ptr<string> contentType{};
+  shared_ptr<string> creator{};
   shared_ptr<string> desc{};
   shared_ptr<vector<ListAdvanceConfigsResponseBodyResultFiles>> files{};
   shared_ptr<string> name{};
@@ -8077,11 +8293,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (advanceConfigType) {
+      res["advanceConfigType"] = boost::any(*advanceConfigType);
+    }
     if (content) {
       res["content"] = boost::any(*content);
     }
     if (contentType) {
       res["contentType"] = boost::any(*contentType);
+    }
+    if (creator) {
+      res["creator"] = boost::any(*creator);
     }
     if (desc) {
       res["desc"] = boost::any(*desc);
@@ -8106,11 +8328,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("advanceConfigType") != m.end() && !m["advanceConfigType"].empty()) {
+      advanceConfigType = make_shared<string>(boost::any_cast<string>(m["advanceConfigType"]));
+    }
     if (m.find("content") != m.end() && !m["content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["content"]));
     }
     if (m.find("contentType") != m.end() && !m["contentType"].empty()) {
       contentType = make_shared<string>(boost::any_cast<string>(m["contentType"]));
+    }
+    if (m.find("creator") != m.end() && !m["creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["creator"]));
     }
     if (m.find("desc") != m.end() && !m["desc"].empty()) {
       desc = make_shared<string>(boost::any_cast<string>(m["desc"]));
@@ -8782,7 +9010,9 @@ public:
 };
 class ListClustersResponseBodyResult : public Darabonba::Model {
 public:
+  shared_ptr<map<string, map<string, boost::any>>> config{};
   shared_ptr<string> configUpdateTime{};
+  shared_ptr<string> createTime{};
   shared_ptr<string> currentAdvanceConfigVersion{};
   shared_ptr<string> currentOfflineDictConfigVersion{};
   shared_ptr<string> currentOnlineConfigVersion{};
@@ -8807,8 +9037,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (config) {
+      res["config"] = boost::any(*config);
+    }
     if (configUpdateTime) {
       res["configUpdateTime"] = boost::any(*configUpdateTime);
+    }
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
     }
     if (currentAdvanceConfigVersion) {
       res["currentAdvanceConfigVersion"] = boost::any(*currentAdvanceConfigVersion);
@@ -8853,8 +9089,24 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("config") != m.end() && !m["config"].empty()) {
+      map<string, map<string, boost::any>> map1 = boost::any_cast<map<string, map<string, boost::any>>>(m["config"]);
+      map<string, map<string, boost::any>> toMap1;
+      for (auto item:map1) {
+        map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item.second);
+        map<string, boost::any> toMap2;
+        for (auto item:map2) {
+           toMap2[item.first] = item.second;
+        }
+         toMap1[item.first] = toMap2;
+      }
+      config = make_shared<map<string, map<string, boost::any>>>(toMap1);
+    }
     if (m.find("configUpdateTime") != m.end() && !m["configUpdateTime"].empty()) {
       configUpdateTime = make_shared<string>(boost::any_cast<string>(m["configUpdateTime"]));
+    }
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
     }
     if (m.find("currentAdvanceConfigVersion") != m.end() && !m["currentAdvanceConfigVersion"].empty()) {
       currentAdvanceConfigVersion = make_shared<string>(boost::any_cast<string>(m["currentAdvanceConfigVersion"]));
@@ -14117,9 +14369,128 @@ public:
 
   virtual ~ModifyTableResponse() = default;
 };
+class PublishAdvanceConfigRequestFilesConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<map<string, FilesConfigVariablesValue>> variables{};
+
+  PublishAdvanceConfigRequestFilesConfig() {}
+
+  explicit PublishAdvanceConfigRequestFilesConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (variables) {
+      map<string, boost::any> temp1;
+      for(auto item1:*variables){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["variables"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("variables") != m.end() && !m["variables"].empty()) {
+      if (typeid(map<string, boost::any>) == m["variables"].type()) {
+        map<string, FilesConfigVariablesValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["variables"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            FilesConfigVariablesValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
+        }
+        variables = make_shared<map<string, FilesConfigVariablesValue>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~PublishAdvanceConfigRequestFilesConfig() = default;
+};
+class PublishAdvanceConfigRequestFiles : public Darabonba::Model {
+public:
+  shared_ptr<PublishAdvanceConfigRequestFilesConfig> config{};
+  shared_ptr<string> dirName{};
+  shared_ptr<string> fileName{};
+  shared_ptr<string> operateType{};
+  shared_ptr<string> ossPath{};
+  shared_ptr<string> parentFullPath{};
+
+  PublishAdvanceConfigRequestFiles() {}
+
+  explicit PublishAdvanceConfigRequestFiles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["config"] = config ? boost::any(config->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dirName) {
+      res["dirName"] = boost::any(*dirName);
+    }
+    if (fileName) {
+      res["fileName"] = boost::any(*fileName);
+    }
+    if (operateType) {
+      res["operateType"] = boost::any(*operateType);
+    }
+    if (ossPath) {
+      res["ossPath"] = boost::any(*ossPath);
+    }
+    if (parentFullPath) {
+      res["parentFullPath"] = boost::any(*parentFullPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("config") != m.end() && !m["config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["config"].type()) {
+        PublishAdvanceConfigRequestFilesConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["config"]));
+        config = make_shared<PublishAdvanceConfigRequestFilesConfig>(model1);
+      }
+    }
+    if (m.find("dirName") != m.end() && !m["dirName"].empty()) {
+      dirName = make_shared<string>(boost::any_cast<string>(m["dirName"]));
+    }
+    if (m.find("fileName") != m.end() && !m["fileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["fileName"]));
+    }
+    if (m.find("operateType") != m.end() && !m["operateType"].empty()) {
+      operateType = make_shared<string>(boost::any_cast<string>(m["operateType"]));
+    }
+    if (m.find("ossPath") != m.end() && !m["ossPath"].empty()) {
+      ossPath = make_shared<string>(boost::any_cast<string>(m["ossPath"]));
+    }
+    if (m.find("parentFullPath") != m.end() && !m["parentFullPath"].empty()) {
+      parentFullPath = make_shared<string>(boost::any_cast<string>(m["parentFullPath"]));
+    }
+  }
+
+
+  virtual ~PublishAdvanceConfigRequestFiles() = default;
+};
 class PublishAdvanceConfigRequest : public Darabonba::Model {
 public:
-  shared_ptr<map<string, boost::any>> body{};
+  shared_ptr<string> desc{};
+  shared_ptr<vector<PublishAdvanceConfigRequestFiles>> files{};
 
   PublishAdvanceConfigRequest() {}
 
@@ -14131,20 +14502,35 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (body) {
-      res["body"] = boost::any(*body);
+    if (desc) {
+      res["desc"] = boost::any(*desc);
+    }
+    if (files) {
+      vector<boost::any> temp1;
+      for(auto item1:*files){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["files"] = boost::any(temp1);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["body"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+    if (m.find("desc") != m.end() && !m["desc"].empty()) {
+      desc = make_shared<string>(boost::any_cast<string>(m["desc"]));
+    }
+    if (m.find("files") != m.end() && !m["files"].empty()) {
+      if (typeid(vector<boost::any>) == m["files"].type()) {
+        vector<PublishAdvanceConfigRequestFiles> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["files"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PublishAdvanceConfigRequestFiles model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        files = make_shared<vector<PublishAdvanceConfigRequestFiles>>(expect1);
       }
-      body = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
@@ -14742,6 +15128,192 @@ public:
 
 
   virtual ~RemoveClusterResponse() = default;
+};
+class StartIndexResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<map<string, boost::any>> result{};
+
+  StartIndexResponseBody() {}
+
+  explicit StartIndexResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["result"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      result = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~StartIndexResponseBody() = default;
+};
+class StartIndexResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartIndexResponseBody> body{};
+
+  StartIndexResponse() {}
+
+  explicit StartIndexResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartIndexResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartIndexResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartIndexResponse() = default;
+};
+class StopIndexResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<map<string, boost::any>> result{};
+
+  StopIndexResponseBody() {}
+
+  explicit StopIndexResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["result"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      result = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~StopIndexResponseBody() = default;
+};
+class StopIndexResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StopIndexResponseBody> body{};
+
+  StopIndexResponse() {}
+
+  explicit StopIndexResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopIndexResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopIndexResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopIndexResponse() = default;
 };
 class StopTaskResponseBody : public Darabonba::Model {
 public:
@@ -15431,6 +16003,16 @@ public:
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveClusterResponse removeCluster(shared_ptr<string> instanceId, shared_ptr<string> clusterName);
+  StartIndexResponse startIndexWithOptions(shared_ptr<string> instanceId,
+                                           shared_ptr<string> indexName,
+                                           shared_ptr<map<string, string>> headers,
+                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartIndexResponse startIndex(shared_ptr<string> instanceId, shared_ptr<string> indexName);
+  StopIndexResponse stopIndexWithOptions(shared_ptr<string> instanceId,
+                                         shared_ptr<string> indexName,
+                                         shared_ptr<map<string, string>> headers,
+                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopIndexResponse stopIndex(shared_ptr<string> instanceId, shared_ptr<string> indexName);
   StopTaskResponse stopTaskWithOptions(shared_ptr<string> instanceId,
                                        shared_ptr<string> fsmId,
                                        shared_ptr<map<string, string>> headers,

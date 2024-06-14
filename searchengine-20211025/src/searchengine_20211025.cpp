@@ -196,6 +196,9 @@ CreateIndexResponse Alibabacloud_Searchengine20211025::Client::createIndexWithOp
     query->insert(pair<string, bool>("dryRun", *request->dryRun));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->buildParallelNum)) {
+    body->insert(pair<string, long>("buildParallelNum", *request->buildParallelNum));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     body->insert(pair<string, string>("content", *request->content));
   }
@@ -210,6 +213,9 @@ CreateIndexResponse Alibabacloud_Searchengine20211025::Client::createIndexWithOp
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->extend)) {
     body->insert(pair<string, map<string, boost::any>>("extend", *request->extend));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->mergeParallelNum)) {
+    body->insert(pair<string, long>("mergeParallelNum", *request->mergeParallelNum));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("name", *request->name));
@@ -1020,6 +1026,9 @@ ListAdvanceConfigsResponse Alibabacloud_Searchengine20211025::Client::listAdvanc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->indexName)) {
     query->insert(pair<string, string>("indexName", *request->indexName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->newMode)) {
+    query->insert(pair<string, bool>("newMode", *request->newMode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("type", *request->type));
@@ -2007,8 +2016,11 @@ PublishAdvanceConfigResponse Alibabacloud_Searchengine20211025::Client::publishA
                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->body)) {
-    body->insert(pair<string, map<string, boost::any>>("body", *request->body));
+  if (!Darabonba_Util::Client::isUnset<string>(request->desc)) {
+    body->insert(pair<string, string>("desc", *request->desc));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<PublishAdvanceConfigRequestFiles>>(request->files)) {
+    body->insert(pair<string, vector<PublishAdvanceConfigRequestFiles>>("files", *request->files));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2175,6 +2187,60 @@ RemoveClusterResponse Alibabacloud_Searchengine20211025::Client::removeCluster(s
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return removeClusterWithOptions(instanceId, clusterName, headers, runtime);
+}
+
+StartIndexResponse Alibabacloud_Searchengine20211025::Client::startIndexWithOptions(shared_ptr<string> instanceId,
+                                                                                    shared_ptr<string> indexName,
+                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartIndex"))},
+    {"version", boost::any(string("2021-10-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/ha3/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/indexes/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(indexName)) + string("/startIndex"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartIndexResponse(callApi(params, req, runtime));
+}
+
+StartIndexResponse Alibabacloud_Searchengine20211025::Client::startIndex(shared_ptr<string> instanceId, shared_ptr<string> indexName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return startIndexWithOptions(instanceId, indexName, headers, runtime);
+}
+
+StopIndexResponse Alibabacloud_Searchengine20211025::Client::stopIndexWithOptions(shared_ptr<string> instanceId,
+                                                                                  shared_ptr<string> indexName,
+                                                                                  shared_ptr<map<string, string>> headers,
+                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopIndex"))},
+    {"version", boost::any(string("2021-10-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/ha3/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/indexes/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(indexName)) + string("/stopIndex"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopIndexResponse(callApi(params, req, runtime));
+}
+
+StopIndexResponse Alibabacloud_Searchengine20211025::Client::stopIndex(shared_ptr<string> instanceId, shared_ptr<string> indexName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return stopIndexWithOptions(instanceId, indexName, headers, runtime);
 }
 
 StopTaskResponse Alibabacloud_Searchengine20211025::Client::stopTaskWithOptions(shared_ptr<string> instanceId,
