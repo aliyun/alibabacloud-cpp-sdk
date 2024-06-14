@@ -11034,6 +11034,151 @@ public:
 
   virtual ~DescribeAlarmsResponse() = default;
 };
+class DescribeAlertConfigurationRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<string> scalingGroupId{};
+
+  DescribeAlertConfigurationRequest() {}
+
+  explicit DescribeAlertConfigurationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertConfigurationRequest() = default;
+};
+class DescribeAlertConfigurationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> scaleStatuses{};
+
+  DescribeAlertConfigurationResponseBody() {}
+
+  explicit DescribeAlertConfigurationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (scaleStatuses) {
+      res["ScaleStatuses"] = boost::any(*scaleStatuses);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ScaleStatuses") != m.end() && !m["ScaleStatuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ScaleStatuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ScaleStatuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      scaleStatuses = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeAlertConfigurationResponseBody() = default;
+};
+class DescribeAlertConfigurationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeAlertConfigurationResponseBody> body{};
+
+  DescribeAlertConfigurationResponse() {}
+
+  explicit DescribeAlertConfigurationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAlertConfigurationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAlertConfigurationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAlertConfigurationResponse() = default;
+};
 class DescribeEciScalingConfigurationDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> outputFormat{};
@@ -26262,6 +26407,151 @@ public:
 
   virtual ~ModifyAlarmResponse() = default;
 };
+class ModifyAlertConfigurationRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<vector<string>> scaleStatuses{};
+  shared_ptr<string> scalingGroupId{};
+
+  ModifyAlertConfigurationRequest() {}
+
+  explicit ModifyAlertConfigurationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (scaleStatuses) {
+      res["ScaleStatuses"] = boost::any(*scaleStatuses);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ScaleStatuses") != m.end() && !m["ScaleStatuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ScaleStatuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ScaleStatuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      scaleStatuses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+  }
+
+
+  virtual ~ModifyAlertConfigurationRequest() = default;
+};
+class ModifyAlertConfigurationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyAlertConfigurationResponseBody() {}
+
+  explicit ModifyAlertConfigurationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyAlertConfigurationResponseBody() = default;
+};
+class ModifyAlertConfigurationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyAlertConfigurationResponseBody> body{};
+
+  ModifyAlertConfigurationResponse() {}
+
+  explicit ModifyAlertConfigurationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyAlertConfigurationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyAlertConfigurationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyAlertConfigurationResponse() = default;
+};
 class ModifyEciScalingConfigurationRequestAcrRegistryInfos : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> domains{};
@@ -35317,6 +35607,8 @@ public:
   DeleteScheduledTaskResponse deleteScheduledTask(shared_ptr<DeleteScheduledTaskRequest> request);
   DescribeAlarmsResponse describeAlarmsWithOptions(shared_ptr<DescribeAlarmsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAlarmsResponse describeAlarms(shared_ptr<DescribeAlarmsRequest> request);
+  DescribeAlertConfigurationResponse describeAlertConfigurationWithOptions(shared_ptr<DescribeAlertConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAlertConfigurationResponse describeAlertConfiguration(shared_ptr<DescribeAlertConfigurationRequest> request);
   DescribeEciScalingConfigurationDetailResponse describeEciScalingConfigurationDetailWithOptions(shared_ptr<DescribeEciScalingConfigurationDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeEciScalingConfigurationDetailResponse describeEciScalingConfigurationDetail(shared_ptr<DescribeEciScalingConfigurationDetailRequest> request);
   DescribeEciScalingConfigurationsResponse describeEciScalingConfigurationsWithOptions(shared_ptr<DescribeEciScalingConfigurationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -35385,6 +35677,8 @@ public:
   ListTagValuesResponse listTagValues(shared_ptr<ListTagValuesRequest> request);
   ModifyAlarmResponse modifyAlarmWithOptions(shared_ptr<ModifyAlarmRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyAlarmResponse modifyAlarm(shared_ptr<ModifyAlarmRequest> request);
+  ModifyAlertConfigurationResponse modifyAlertConfigurationWithOptions(shared_ptr<ModifyAlertConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyAlertConfigurationResponse modifyAlertConfiguration(shared_ptr<ModifyAlertConfigurationRequest> request);
   ModifyEciScalingConfigurationResponse modifyEciScalingConfigurationWithOptions(shared_ptr<ModifyEciScalingConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyEciScalingConfigurationResponse modifyEciScalingConfiguration(shared_ptr<ModifyEciScalingConfigurationRequest> request);
   ModifyInstanceAttributeResponse modifyInstanceAttributeWithOptions(shared_ptr<ModifyInstanceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
