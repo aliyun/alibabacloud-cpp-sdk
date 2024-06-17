@@ -2185,6 +2185,7 @@ public:
 };
 class CreateStackInstancesRequestDeploymentTargets : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> accountIds{};
   shared_ptr<vector<string>> rdFolderIds{};
 
   CreateStackInstancesRequestDeploymentTargets() {}
@@ -2197,6 +2198,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountIds) {
+      res["AccountIds"] = boost::any(*accountIds);
+    }
     if (rdFolderIds) {
       res["RdFolderIds"] = boost::any(*rdFolderIds);
     }
@@ -2204,6 +2208,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("RdFolderIds") != m.end() && !m["RdFolderIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["RdFolderIds"].type()) {
