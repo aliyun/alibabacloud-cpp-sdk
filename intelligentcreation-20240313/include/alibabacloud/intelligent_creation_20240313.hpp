@@ -695,7 +695,7 @@ public:
   shared_ptr<string> textModeType{};
   shared_ptr<long> textTaskId{};
   shared_ptr<string> textTaskStatus{};
-  shared_ptr<Text> texts{};
+  shared_ptr<vector<Text>> texts{};
   shared_ptr<string> theme{};
   shared_ptr<string> themeDesc{};
 
@@ -758,7 +758,11 @@ public:
       res["textTaskStatus"] = boost::any(*textTaskStatus);
     }
     if (texts) {
-      res["texts"] = texts ? boost::any(texts->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*texts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["texts"] = boost::any(temp1);
     }
     if (theme) {
       res["theme"] = boost::any(*theme);
@@ -830,10 +834,16 @@ public:
       textTaskStatus = make_shared<string>(boost::any_cast<string>(m["textTaskStatus"]));
     }
     if (m.find("texts") != m.end() && !m["texts"].empty()) {
-      if (typeid(map<string, boost::any>) == m["texts"].type()) {
-        Text model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["texts"]));
-        texts = make_shared<Text>(model1);
+      if (typeid(vector<boost::any>) == m["texts"].type()) {
+        vector<Text> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["texts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Text model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        texts = make_shared<vector<Text>>(expect1);
       }
     }
     if (m.find("theme") != m.end() && !m["theme"].empty()) {
