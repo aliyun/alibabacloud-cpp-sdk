@@ -7001,6 +7001,7 @@ public:
   shared_ptr<string> environmentType{};
   shared_ptr<string> feePackage{};
   shared_ptr<string> grafanaWorkspaceId{};
+  shared_ptr<bool> initEnvironment{};
   shared_ptr<string> managedType{};
   shared_ptr<string> prometheusInstanceId{};
   shared_ptr<string> regionId{};
@@ -7037,6 +7038,9 @@ public:
     }
     if (grafanaWorkspaceId) {
       res["GrafanaWorkspaceId"] = boost::any(*grafanaWorkspaceId);
+    }
+    if (initEnvironment) {
+      res["InitEnvironment"] = boost::any(*initEnvironment);
     }
     if (managedType) {
       res["ManagedType"] = boost::any(*managedType);
@@ -7081,6 +7085,9 @@ public:
     }
     if (m.find("GrafanaWorkspaceId") != m.end() && !m["GrafanaWorkspaceId"].empty()) {
       grafanaWorkspaceId = make_shared<string>(boost::any_cast<string>(m["GrafanaWorkspaceId"]));
+    }
+    if (m.find("InitEnvironment") != m.end() && !m["InitEnvironment"].empty()) {
+      initEnvironment = make_shared<bool>(boost::any_cast<bool>(m["InitEnvironment"]));
     }
     if (m.find("ManagedType") != m.end() && !m["ManagedType"].empty()) {
       managedType = make_shared<string>(boost::any_cast<string>(m["ManagedType"]));
