@@ -271,6 +271,9 @@ CreatePrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::createPriva
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceAttributeAction)) {
+    body->insert(pair<string, string>("DeviceAttributeAction", *request->deviceAttributeAction));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->deviceAttributeId)) {
     body->insert(pair<string, string>("DeviceAttributeId", *request->deviceAttributeId));
   }
@@ -2069,6 +2072,9 @@ UpdatePrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::updatePriva
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceAttributeAction)) {
+    body->insert(pair<string, string>("DeviceAttributeAction", *request->deviceAttributeAction));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deviceAttributeId)) {
     body->insert(pair<string, string>("DeviceAttributeId", *request->deviceAttributeId));

@@ -936,6 +936,7 @@ public:
   shared_ptr<string> applicationType{};
   shared_ptr<vector<CreatePrivateAccessPolicyRequestCustomUserAttributes>> customUserAttributes{};
   shared_ptr<string> description{};
+  shared_ptr<string> deviceAttributeAction{};
   shared_ptr<string> deviceAttributeId{};
   shared_ptr<string> name{};
   shared_ptr<string> policyAction{};
@@ -970,6 +971,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (deviceAttributeAction) {
+      res["DeviceAttributeAction"] = boost::any(*deviceAttributeAction);
     }
     if (deviceAttributeId) {
       res["DeviceAttributeId"] = boost::any(*deviceAttributeId);
@@ -1027,6 +1031,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DeviceAttributeAction") != m.end() && !m["DeviceAttributeAction"].empty()) {
+      deviceAttributeAction = make_shared<string>(boost::any_cast<string>(m["DeviceAttributeAction"]));
     }
     if (m.find("DeviceAttributeId") != m.end() && !m["DeviceAttributeId"].empty()) {
       deviceAttributeId = make_shared<string>(boost::any_cast<string>(m["DeviceAttributeId"]));
@@ -4845,6 +4852,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<vector<GetPrivateAccessPolicyResponseBodyPolicyCustomUserAttributes>> customUserAttributes{};
   shared_ptr<string> description{};
+  shared_ptr<string> deviceAttributeAction{};
   shared_ptr<string> deviceAttributeId{};
   shared_ptr<string> name{};
   shared_ptr<string> policyAction{};
@@ -4883,6 +4891,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (deviceAttributeAction) {
+      res["DeviceAttributeAction"] = boost::any(*deviceAttributeAction);
     }
     if (deviceAttributeId) {
       res["DeviceAttributeId"] = boost::any(*deviceAttributeId);
@@ -4946,6 +4957,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DeviceAttributeAction") != m.end() && !m["DeviceAttributeAction"].empty()) {
+      deviceAttributeAction = make_shared<string>(boost::any_cast<string>(m["DeviceAttributeAction"]));
     }
     if (m.find("DeviceAttributeId") != m.end() && !m["DeviceAttributeId"].empty()) {
       deviceAttributeId = make_shared<string>(boost::any_cast<string>(m["DeviceAttributeId"]));
@@ -10701,6 +10715,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<vector<ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes>> customUserAttributes{};
   shared_ptr<string> description{};
+  shared_ptr<string> deviceAttributeAction{};
   shared_ptr<string> deviceAttributeId{};
   shared_ptr<string> name{};
   shared_ptr<string> policyAction{};
@@ -10739,6 +10754,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (deviceAttributeAction) {
+      res["DeviceAttributeAction"] = boost::any(*deviceAttributeAction);
     }
     if (deviceAttributeId) {
       res["DeviceAttributeId"] = boost::any(*deviceAttributeId);
@@ -10802,6 +10820,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DeviceAttributeAction") != m.end() && !m["DeviceAttributeAction"].empty()) {
+      deviceAttributeAction = make_shared<string>(boost::any_cast<string>(m["DeviceAttributeAction"]));
     }
     if (m.find("DeviceAttributeId") != m.end() && !m["DeviceAttributeId"].empty()) {
       deviceAttributeId = make_shared<string>(boost::any_cast<string>(m["DeviceAttributeId"]));
@@ -16021,6 +16042,7 @@ public:
   shared_ptr<string> applicationType{};
   shared_ptr<vector<UpdatePrivateAccessPolicyRequestCustomUserAttributes>> customUserAttributes{};
   shared_ptr<string> description{};
+  shared_ptr<string> deviceAttributeAction{};
   shared_ptr<string> deviceAttributeId{};
   shared_ptr<string> modifyType{};
   shared_ptr<string> policyAction{};
@@ -16056,6 +16078,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (deviceAttributeAction) {
+      res["DeviceAttributeAction"] = boost::any(*deviceAttributeAction);
     }
     if (deviceAttributeId) {
       res["DeviceAttributeId"] = boost::any(*deviceAttributeId);
@@ -16116,6 +16141,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DeviceAttributeAction") != m.end() && !m["DeviceAttributeAction"].empty()) {
+      deviceAttributeAction = make_shared<string>(boost::any_cast<string>(m["DeviceAttributeAction"]));
     }
     if (m.find("DeviceAttributeId") != m.end() && !m["DeviceAttributeId"].empty()) {
       deviceAttributeId = make_shared<string>(boost::any_cast<string>(m["DeviceAttributeId"]));
