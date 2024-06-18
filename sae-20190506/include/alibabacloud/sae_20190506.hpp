@@ -17963,10 +17963,14 @@ public:
 };
 class DescribeApplicationSlbsResponseBodyDataInternet : public Darabonba::Model {
 public:
+  shared_ptr<string> cookie{};
+  shared_ptr<long> cookieTimeout{};
   shared_ptr<string> httpsCaCertId{};
   shared_ptr<string> httpsCertId{};
   shared_ptr<long> port{};
   shared_ptr<string> protocol{};
+  shared_ptr<bool> stickySession{};
+  shared_ptr<string> stickySessionType{};
   shared_ptr<long> targetPort{};
 
   DescribeApplicationSlbsResponseBodyDataInternet() {}
@@ -17979,6 +17983,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cookie) {
+      res["Cookie"] = boost::any(*cookie);
+    }
+    if (cookieTimeout) {
+      res["CookieTimeout"] = boost::any(*cookieTimeout);
+    }
     if (httpsCaCertId) {
       res["HttpsCaCertId"] = boost::any(*httpsCaCertId);
     }
@@ -17991,6 +18001,12 @@ public:
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
     }
+    if (stickySession) {
+      res["StickySession"] = boost::any(*stickySession);
+    }
+    if (stickySessionType) {
+      res["StickySessionType"] = boost::any(*stickySessionType);
+    }
     if (targetPort) {
       res["TargetPort"] = boost::any(*targetPort);
     }
@@ -17998,6 +18014,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cookie") != m.end() && !m["Cookie"].empty()) {
+      cookie = make_shared<string>(boost::any_cast<string>(m["Cookie"]));
+    }
+    if (m.find("CookieTimeout") != m.end() && !m["CookieTimeout"].empty()) {
+      cookieTimeout = make_shared<long>(boost::any_cast<long>(m["CookieTimeout"]));
+    }
     if (m.find("HttpsCaCertId") != m.end() && !m["HttpsCaCertId"].empty()) {
       httpsCaCertId = make_shared<string>(boost::any_cast<string>(m["HttpsCaCertId"]));
     }
@@ -18010,6 +18032,12 @@ public:
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
     }
+    if (m.find("StickySession") != m.end() && !m["StickySession"].empty()) {
+      stickySession = make_shared<bool>(boost::any_cast<bool>(m["StickySession"]));
+    }
+    if (m.find("StickySessionType") != m.end() && !m["StickySessionType"].empty()) {
+      stickySessionType = make_shared<string>(boost::any_cast<string>(m["StickySessionType"]));
+    }
     if (m.find("TargetPort") != m.end() && !m["TargetPort"].empty()) {
       targetPort = make_shared<long>(boost::any_cast<long>(m["TargetPort"]));
     }
@@ -18020,10 +18048,14 @@ public:
 };
 class DescribeApplicationSlbsResponseBodyDataIntranet : public Darabonba::Model {
 public:
+  shared_ptr<string> cookie{};
+  shared_ptr<long> cookieTimeout{};
   shared_ptr<string> httpsCaCertId{};
   shared_ptr<string> httpsCertId{};
   shared_ptr<long> port{};
   shared_ptr<string> protocol{};
+  shared_ptr<bool> stickySession{};
+  shared_ptr<string> stickySessionType{};
   shared_ptr<long> targetPort{};
 
   DescribeApplicationSlbsResponseBodyDataIntranet() {}
@@ -18036,6 +18068,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cookie) {
+      res["Cookie"] = boost::any(*cookie);
+    }
+    if (cookieTimeout) {
+      res["CookieTimeout"] = boost::any(*cookieTimeout);
+    }
     if (httpsCaCertId) {
       res["HttpsCaCertId"] = boost::any(*httpsCaCertId);
     }
@@ -18048,6 +18086,12 @@ public:
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
     }
+    if (stickySession) {
+      res["StickySession"] = boost::any(*stickySession);
+    }
+    if (stickySessionType) {
+      res["StickySessionType"] = boost::any(*stickySessionType);
+    }
     if (targetPort) {
       res["TargetPort"] = boost::any(*targetPort);
     }
@@ -18055,6 +18099,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cookie") != m.end() && !m["Cookie"].empty()) {
+      cookie = make_shared<string>(boost::any_cast<string>(m["Cookie"]));
+    }
+    if (m.find("CookieTimeout") != m.end() && !m["CookieTimeout"].empty()) {
+      cookieTimeout = make_shared<long>(boost::any_cast<long>(m["CookieTimeout"]));
+    }
     if (m.find("HttpsCaCertId") != m.end() && !m["HttpsCaCertId"].empty()) {
       httpsCaCertId = make_shared<string>(boost::any_cast<string>(m["HttpsCaCertId"]));
     }
@@ -18066,6 +18116,12 @@ public:
     }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("StickySession") != m.end() && !m["StickySession"].empty()) {
+      stickySession = make_shared<bool>(boost::any_cast<bool>(m["StickySession"]));
+    }
+    if (m.find("StickySessionType") != m.end() && !m["StickySessionType"].empty()) {
+      stickySessionType = make_shared<string>(boost::any_cast<string>(m["StickySessionType"]));
     }
     if (m.find("TargetPort") != m.end() && !m["TargetPort"].empty()) {
       targetPort = make_shared<long>(boost::any_cast<long>(m["TargetPort"]));
