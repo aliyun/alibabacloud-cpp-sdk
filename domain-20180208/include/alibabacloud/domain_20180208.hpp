@@ -2320,9 +2320,11 @@ public:
 };
 class QueryAuctionsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> auctionEndTimeOrder{};
   shared_ptr<long> currentPage{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> status{};
+  shared_ptr<string> statuses{};
 
   QueryAuctionsRequest() {}
 
@@ -2334,6 +2336,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (auctionEndTimeOrder) {
+      res["AuctionEndTimeOrder"] = boost::any(*auctionEndTimeOrder);
+    }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
@@ -2343,10 +2348,16 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (statuses) {
+      res["Statuses"] = boost::any(*statuses);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuctionEndTimeOrder") != m.end() && !m["AuctionEndTimeOrder"].empty()) {
+      auctionEndTimeOrder = make_shared<string>(boost::any_cast<string>(m["AuctionEndTimeOrder"]));
+    }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
     }
@@ -2355,6 +2366,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Statuses") != m.end() && !m["Statuses"].empty()) {
+      statuses = make_shared<string>(boost::any_cast<string>(m["Statuses"]));
     }
   }
 
@@ -3147,6 +3161,7 @@ public:
   shared_ptr<long> publishTime{};
   shared_ptr<long> purchaseStatus{};
   shared_ptr<double> servicePayPrice{};
+  shared_ptr<double> settleBasePrice{};
   shared_ptr<string> status{};
 
   QueryBrokerDemandResponseBodyData() {}
@@ -3213,6 +3228,9 @@ public:
     if (servicePayPrice) {
       res["ServicePayPrice"] = boost::any(*servicePayPrice);
     }
+    if (settleBasePrice) {
+      res["SettleBasePrice"] = boost::any(*settleBasePrice);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -3273,6 +3291,9 @@ public:
     }
     if (m.find("ServicePayPrice") != m.end() && !m["ServicePayPrice"].empty()) {
       servicePayPrice = make_shared<double>(boost::any_cast<double>(m["ServicePayPrice"]));
+    }
+    if (m.find("SettleBasePrice") != m.end() && !m["SettleBasePrice"].empty()) {
+      settleBasePrice = make_shared<double>(boost::any_cast<double>(m["SettleBasePrice"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));

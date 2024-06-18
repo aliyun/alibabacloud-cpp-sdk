@@ -429,6 +429,9 @@ QueryAuctionDetailResponse Alibabacloud_Domain20180208::Client::queryAuctionDeta
 QueryAuctionsResponse Alibabacloud_Domain20180208::Client::queryAuctionsWithOptions(shared_ptr<QueryAuctionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->auctionEndTimeOrder)) {
+    body->insert(pair<string, string>("AuctionEndTimeOrder", *request->auctionEndTimeOrder));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     body->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
@@ -437,6 +440,9 @@ QueryAuctionsResponse Alibabacloud_Domain20180208::Client::queryAuctionsWithOpti
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     body->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statuses)) {
+    body->insert(pair<string, string>("Statuses", *request->statuses));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
