@@ -3828,6 +3828,208 @@ public:
 
   virtual ~DescribeApisecEventDomainStatisticResponse() = default;
 };
+class DescribeApisecLogDeliveriesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeApisecLogDeliveriesRequest() {}
+
+  explicit DescribeApisecLogDeliveriesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeApisecLogDeliveriesRequest() = default;
+};
+class DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs : public Darabonba::Model {
+public:
+  shared_ptr<string> assertKey{};
+  shared_ptr<string> logRegionId{};
+  shared_ptr<string> logStoreName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<bool> status{};
+
+  DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs() {}
+
+  explicit DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assertKey) {
+      res["AssertKey"] = boost::any(*assertKey);
+    }
+    if (logRegionId) {
+      res["LogRegionId"] = boost::any(*logRegionId);
+    }
+    if (logStoreName) {
+      res["LogStoreName"] = boost::any(*logStoreName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssertKey") != m.end() && !m["AssertKey"].empty()) {
+      assertKey = make_shared<string>(boost::any_cast<string>(m["AssertKey"]));
+    }
+    if (m.find("LogRegionId") != m.end() && !m["LogRegionId"].empty()) {
+      logRegionId = make_shared<string>(boost::any_cast<string>(m["LogRegionId"]));
+    }
+    if (m.find("LogStoreName") != m.end() && !m["LogStoreName"].empty()) {
+      logStoreName = make_shared<string>(boost::any_cast<string>(m["LogStoreName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<bool>(boost::any_cast<bool>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs() = default;
+};
+class DescribeApisecLogDeliveriesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs>> deliveryConfigs{};
+  shared_ptr<string> requestId{};
+
+  DescribeApisecLogDeliveriesResponseBody() {}
+
+  explicit DescribeApisecLogDeliveriesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deliveryConfigs) {
+      vector<boost::any> temp1;
+      for(auto item1:*deliveryConfigs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeliveryConfigs"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeliveryConfigs") != m.end() && !m["DeliveryConfigs"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeliveryConfigs"].type()) {
+        vector<DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeliveryConfigs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deliveryConfigs = make_shared<vector<DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeApisecLogDeliveriesResponseBody() = default;
+};
+class DescribeApisecLogDeliveriesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeApisecLogDeliveriesResponseBody> body{};
+
+  DescribeApisecLogDeliveriesResponse() {}
+
+  explicit DescribeApisecLogDeliveriesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeApisecLogDeliveriesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeApisecLogDeliveriesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeApisecLogDeliveriesResponse() = default;
+};
 class DescribeApisecSensitiveDomainStatisticRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -4092,6 +4294,303 @@ public:
 
 
   virtual ~DescribeApisecSensitiveDomainStatisticResponse() = default;
+};
+class DescribeApisecSlsLogStoresRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> logRegionId{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeApisecSlsLogStoresRequest() {}
+
+  explicit DescribeApisecSlsLogStoresRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (logRegionId) {
+      res["LogRegionId"] = boost::any(*logRegionId);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LogRegionId") != m.end() && !m["LogRegionId"].empty()) {
+      logRegionId = make_shared<string>(boost::any_cast<string>(m["LogRegionId"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeApisecSlsLogStoresRequest() = default;
+};
+class DescribeApisecSlsLogStoresResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> logStores{};
+  shared_ptr<string> requestId{};
+
+  DescribeApisecSlsLogStoresResponseBody() {}
+
+  explicit DescribeApisecSlsLogStoresResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logStores) {
+      res["LogStores"] = boost::any(*logStores);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogStores") != m.end() && !m["LogStores"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LogStores"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LogStores"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      logStores = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeApisecSlsLogStoresResponseBody() = default;
+};
+class DescribeApisecSlsLogStoresResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeApisecSlsLogStoresResponseBody> body{};
+
+  DescribeApisecSlsLogStoresResponse() {}
+
+  explicit DescribeApisecSlsLogStoresResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeApisecSlsLogStoresResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeApisecSlsLogStoresResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeApisecSlsLogStoresResponse() = default;
+};
+class DescribeApisecSlsProjectsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> logRegionId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeApisecSlsProjectsRequest() {}
+
+  explicit DescribeApisecSlsProjectsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (logRegionId) {
+      res["LogRegionId"] = boost::any(*logRegionId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LogRegionId") != m.end() && !m["LogRegionId"].empty()) {
+      logRegionId = make_shared<string>(boost::any_cast<string>(m["LogRegionId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeApisecSlsProjectsRequest() = default;
+};
+class DescribeApisecSlsProjectsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> projects{};
+  shared_ptr<string> requestId{};
+
+  DescribeApisecSlsProjectsResponseBody() {}
+
+  explicit DescribeApisecSlsProjectsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projects) {
+      res["Projects"] = boost::any(*projects);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Projects") != m.end() && !m["Projects"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Projects"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Projects"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      projects = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeApisecSlsProjectsResponseBody() = default;
+};
+class DescribeApisecSlsProjectsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeApisecSlsProjectsResponseBody> body{};
+
+  DescribeApisecSlsProjectsResponse() {}
+
+  explicit DescribeApisecSlsProjectsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeApisecSlsProjectsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeApisecSlsProjectsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeApisecSlsProjectsResponse() = default;
 };
 class DescribeCertDetailRequest : public Darabonba::Model {
 public:
@@ -8012,7 +8511,7 @@ public:
   shared_ptr<bool> IPv6Enabled{};
   shared_ptr<string> protectionResource{};
   shared_ptr<bool> SM2AccessOnly{};
-  shared_ptr<bool> SM2CertId{};
+  shared_ptr<string> SM2CertId{};
   shared_ptr<bool> SM2Enabled{};
   shared_ptr<string> TLSVersion{};
   shared_ptr<long> xffHeaderMode{};
@@ -8141,7 +8640,7 @@ public:
       SM2AccessOnly = make_shared<bool>(boost::any_cast<bool>(m["SM2AccessOnly"]));
     }
     if (m.find("SM2CertId") != m.end() && !m["SM2CertId"].empty()) {
-      SM2CertId = make_shared<bool>(boost::any_cast<bool>(m["SM2CertId"]));
+      SM2CertId = make_shared<string>(boost::any_cast<string>(m["SM2CertId"]));
     }
     if (m.find("SM2Enabled") != m.end() && !m["SM2Enabled"].empty()) {
       SM2Enabled = make_shared<bool>(boost::any_cast<bool>(m["SM2Enabled"]));
@@ -17574,6 +18073,296 @@ public:
 
   virtual ~ListTagValuesResponse() = default;
 };
+class ModifyApisecLogDeliveryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> assertKey{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> logRegionId{};
+  shared_ptr<string> logStoreName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  ModifyApisecLogDeliveryRequest() {}
+
+  explicit ModifyApisecLogDeliveryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assertKey) {
+      res["AssertKey"] = boost::any(*assertKey);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (logRegionId) {
+      res["LogRegionId"] = boost::any(*logRegionId);
+    }
+    if (logStoreName) {
+      res["LogStoreName"] = boost::any(*logStoreName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssertKey") != m.end() && !m["AssertKey"].empty()) {
+      assertKey = make_shared<string>(boost::any_cast<string>(m["AssertKey"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LogRegionId") != m.end() && !m["LogRegionId"].empty()) {
+      logRegionId = make_shared<string>(boost::any_cast<string>(m["LogRegionId"]));
+    }
+    if (m.find("LogStoreName") != m.end() && !m["LogStoreName"].empty()) {
+      logStoreName = make_shared<string>(boost::any_cast<string>(m["LogStoreName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~ModifyApisecLogDeliveryRequest() = default;
+};
+class ModifyApisecLogDeliveryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyApisecLogDeliveryResponseBody() {}
+
+  explicit ModifyApisecLogDeliveryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyApisecLogDeliveryResponseBody() = default;
+};
+class ModifyApisecLogDeliveryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyApisecLogDeliveryResponseBody> body{};
+
+  ModifyApisecLogDeliveryResponse() {}
+
+  explicit ModifyApisecLogDeliveryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyApisecLogDeliveryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyApisecLogDeliveryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyApisecLogDeliveryResponse() = default;
+};
+class ModifyApisecLogDeliveryStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> assertKey{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<bool> status{};
+
+  ModifyApisecLogDeliveryStatusRequest() {}
+
+  explicit ModifyApisecLogDeliveryStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assertKey) {
+      res["AssertKey"] = boost::any(*assertKey);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssertKey") != m.end() && !m["AssertKey"].empty()) {
+      assertKey = make_shared<string>(boost::any_cast<string>(m["AssertKey"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<bool>(boost::any_cast<bool>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ModifyApisecLogDeliveryStatusRequest() = default;
+};
+class ModifyApisecLogDeliveryStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyApisecLogDeliveryStatusResponseBody() {}
+
+  explicit ModifyApisecLogDeliveryStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyApisecLogDeliveryStatusResponseBody() = default;
+};
+class ModifyApisecLogDeliveryStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyApisecLogDeliveryStatusResponseBody> body{};
+
+  ModifyApisecLogDeliveryStatusResponse() {}
+
+  explicit ModifyApisecLogDeliveryStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyApisecLogDeliveryStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyApisecLogDeliveryStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyApisecLogDeliveryStatusResponse() = default;
+};
 class ModifyDefenseResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> addList{};
@@ -20648,8 +21437,14 @@ public:
   DescribeApisecAssetTrendResponse describeApisecAssetTrend(shared_ptr<DescribeApisecAssetTrendRequest> request);
   DescribeApisecEventDomainStatisticResponse describeApisecEventDomainStatisticWithOptions(shared_ptr<DescribeApisecEventDomainStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeApisecEventDomainStatisticResponse describeApisecEventDomainStatistic(shared_ptr<DescribeApisecEventDomainStatisticRequest> request);
+  DescribeApisecLogDeliveriesResponse describeApisecLogDeliveriesWithOptions(shared_ptr<DescribeApisecLogDeliveriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeApisecLogDeliveriesResponse describeApisecLogDeliveries(shared_ptr<DescribeApisecLogDeliveriesRequest> request);
   DescribeApisecSensitiveDomainStatisticResponse describeApisecSensitiveDomainStatisticWithOptions(shared_ptr<DescribeApisecSensitiveDomainStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeApisecSensitiveDomainStatisticResponse describeApisecSensitiveDomainStatistic(shared_ptr<DescribeApisecSensitiveDomainStatisticRequest> request);
+  DescribeApisecSlsLogStoresResponse describeApisecSlsLogStoresWithOptions(shared_ptr<DescribeApisecSlsLogStoresRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeApisecSlsLogStoresResponse describeApisecSlsLogStores(shared_ptr<DescribeApisecSlsLogStoresRequest> request);
+  DescribeApisecSlsProjectsResponse describeApisecSlsProjectsWithOptions(shared_ptr<DescribeApisecSlsProjectsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeApisecSlsProjectsResponse describeApisecSlsProjects(shared_ptr<DescribeApisecSlsProjectsRequest> request);
   DescribeCertDetailResponse describeCertDetailWithOptions(shared_ptr<DescribeCertDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCertDetailResponse describeCertDetail(shared_ptr<DescribeCertDetailRequest> request);
   DescribeCertsResponse describeCertsWithOptions(shared_ptr<DescribeCertsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -20762,6 +21557,10 @@ public:
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   ListTagValuesResponse listTagValuesWithOptions(shared_ptr<ListTagValuesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagValuesResponse listTagValues(shared_ptr<ListTagValuesRequest> request);
+  ModifyApisecLogDeliveryResponse modifyApisecLogDeliveryWithOptions(shared_ptr<ModifyApisecLogDeliveryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyApisecLogDeliveryResponse modifyApisecLogDelivery(shared_ptr<ModifyApisecLogDeliveryRequest> request);
+  ModifyApisecLogDeliveryStatusResponse modifyApisecLogDeliveryStatusWithOptions(shared_ptr<ModifyApisecLogDeliveryStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyApisecLogDeliveryStatusResponse modifyApisecLogDeliveryStatus(shared_ptr<ModifyApisecLogDeliveryStatusRequest> request);
   ModifyDefenseResourceGroupResponse modifyDefenseResourceGroupWithOptions(shared_ptr<ModifyDefenseResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDefenseResourceGroupResponse modifyDefenseResourceGroup(shared_ptr<ModifyDefenseResourceGroupRequest> request);
   ModifyDefenseResourceXffResponse modifyDefenseResourceXffWithOptions(shared_ptr<ModifyDefenseResourceXffRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
