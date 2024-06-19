@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -473,6 +472,9 @@ CreateDBInstanceResponse Alibabacloud_Polardbx20200202::Client::createDBInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->dnClass)) {
     query->insert(pair<string, string>("DnClass", *request->dnClass));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dnStorageSpace)) {
+    query->insert(pair<string, string>("DnStorageSpace", *request->dnStorageSpace));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->engineVersion)) {
     query->insert(pair<string, string>("EngineVersion", *request->engineVersion));
   }
@@ -505,6 +507,9 @@ CreateDBInstanceResponse Alibabacloud_Polardbx20200202::Client::createDBInstance
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->secondaryZone)) {
     query->insert(pair<string, string>("SecondaryZone", *request->secondaryZone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->series)) {
+    query->insert(pair<string, string>("Series", *request->series));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tertiaryZone)) {
     query->insert(pair<string, string>("TertiaryZone", *request->tertiaryZone));
@@ -1567,6 +1572,9 @@ DescribeScaleOutMigrateTaskListResponse Alibabacloud_Polardbx20200202::Client::d
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
