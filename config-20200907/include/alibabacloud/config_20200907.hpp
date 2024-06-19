@@ -1551,6 +1551,78 @@ public:
 
   virtual ~CreateAggregateCompliancePackRequestConfigRules() = default;
 };
+class CreateAggregateCompliancePackRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateAggregateCompliancePackRequestExcludeTagsScope() {}
+
+  explicit CreateAggregateCompliancePackRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateAggregateCompliancePackRequestExcludeTagsScope() = default;
+};
+class CreateAggregateCompliancePackRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateAggregateCompliancePackRequestTagsScope() {}
+
+  explicit CreateAggregateCompliancePackRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateAggregateCompliancePackRequestTagsScope() = default;
+};
 class CreateAggregateCompliancePackRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
@@ -1560,12 +1632,17 @@ public:
   shared_ptr<vector<CreateAggregateCompliancePackRequestConfigRules>> configRules{};
   shared_ptr<bool> defaultEnable{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<CreateAggregateCompliancePackRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<CreateAggregateCompliancePackRequestTagsScope>> tagsScope{};
   shared_ptr<string> templateContent{};
 
   CreateAggregateCompliancePackRequest() {}
@@ -1603,14 +1680,30 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (regionIdsScope) {
       res["RegionIdsScope"] = boost::any(*regionIdsScope);
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
@@ -1620,6 +1713,13 @@ public:
     }
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
+    }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
     }
     if (templateContent) {
       res["TemplateContent"] = boost::any(*templateContent);
@@ -1659,14 +1759,36 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<CreateAggregateCompliancePackRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAggregateCompliancePackRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<CreateAggregateCompliancePackRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
       regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
@@ -1677,6 +1799,19 @@ public:
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
     }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<CreateAggregateCompliancePackRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAggregateCompliancePackRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<CreateAggregateCompliancePackRequestTagsScope>>(expect1);
+      }
+    }
     if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
       templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
     }
@@ -1684,6 +1819,78 @@ public:
 
 
   virtual ~CreateAggregateCompliancePackRequest() = default;
+};
+class CreateAggregateCompliancePackShrinkRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateAggregateCompliancePackShrinkRequestExcludeTagsScope() {}
+
+  explicit CreateAggregateCompliancePackShrinkRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateAggregateCompliancePackShrinkRequestExcludeTagsScope() = default;
+};
+class CreateAggregateCompliancePackShrinkRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateAggregateCompliancePackShrinkRequestTagsScope() {}
+
+  explicit CreateAggregateCompliancePackShrinkRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateAggregateCompliancePackShrinkRequestTagsScope() = default;
 };
 class CreateAggregateCompliancePackShrinkRequest : public Darabonba::Model {
 public:
@@ -1694,12 +1901,17 @@ public:
   shared_ptr<string> configRulesShrink{};
   shared_ptr<bool> defaultEnable{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<CreateAggregateCompliancePackShrinkRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<CreateAggregateCompliancePackShrinkRequestTagsScope>> tagsScope{};
   shared_ptr<string> templateContent{};
 
   CreateAggregateCompliancePackShrinkRequest() {}
@@ -1733,14 +1945,30 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (regionIdsScope) {
       res["RegionIdsScope"] = boost::any(*regionIdsScope);
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
@@ -1750,6 +1978,13 @@ public:
     }
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
+    }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
     }
     if (templateContent) {
       res["TemplateContent"] = boost::any(*templateContent);
@@ -1779,14 +2014,36 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<CreateAggregateCompliancePackShrinkRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAggregateCompliancePackShrinkRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<CreateAggregateCompliancePackShrinkRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
       regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
@@ -1796,6 +2053,19 @@ public:
     }
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
+    }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<CreateAggregateCompliancePackShrinkRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAggregateCompliancePackShrinkRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<CreateAggregateCompliancePackShrinkRequestTagsScope>>(expect1);
+      }
     }
     if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
       templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
@@ -2087,8 +2357,81 @@ public:
 
   virtual ~CreateAggregateConfigDeliveryChannelResponse() = default;
 };
+class CreateAggregateConfigRuleRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateAggregateConfigRuleRequestExcludeTagsScope() {}
+
+  explicit CreateAggregateConfigRuleRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateAggregateConfigRuleRequestExcludeTagsScope() = default;
+};
+class CreateAggregateConfigRuleRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateAggregateConfigRuleRequestTagsScope() {}
+
+  explicit CreateAggregateConfigRuleRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateAggregateConfigRuleRequestTagsScope() = default;
+};
 class CreateAggregateConfigRuleRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accountIdsScope{};
   shared_ptr<string> aggregatorId{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> configRuleName{};
@@ -2096,12 +2439,16 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> excludeAccountIdsScope{};
   shared_ptr<string> excludeFolderIdsScope{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<CreateAggregateConfigRuleRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> folderIdsScope{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<vector<string>> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
@@ -2109,6 +2456,7 @@ public:
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<CreateAggregateConfigRuleRequestTagsScope>> tagsScope{};
 
   CreateAggregateConfigRuleRequest() {}
 
@@ -2120,6 +2468,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountIdsScope) {
+      res["AccountIdsScope"] = boost::any(*accountIdsScope);
+    }
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
     }
@@ -2141,8 +2492,21 @@ public:
     if (excludeFolderIdsScope) {
       res["ExcludeFolderIdsScope"] = boost::any(*excludeFolderIdsScope);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (folderIdsScope) {
       res["FolderIdsScope"] = boost::any(*folderIdsScope);
@@ -2158,6 +2522,9 @@ public:
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (resourceTypesScope) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
@@ -2180,10 +2547,20 @@ public:
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
     }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIdsScope") != m.end() && !m["AccountIdsScope"].empty()) {
+      accountIdsScope = make_shared<string>(boost::any_cast<string>(m["AccountIdsScope"]));
+    }
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
     }
@@ -2205,8 +2582,27 @@ public:
     if (m.find("ExcludeFolderIdsScope") != m.end() && !m["ExcludeFolderIdsScope"].empty()) {
       excludeFolderIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeFolderIdsScope"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<CreateAggregateConfigRuleRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAggregateConfigRuleRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<CreateAggregateConfigRuleRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("FolderIdsScope") != m.end() && !m["FolderIdsScope"].empty()) {
       folderIdsScope = make_shared<string>(boost::any_cast<string>(m["FolderIdsScope"]));
@@ -2227,6 +2623,9 @@ public:
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       vector<string> toVec1;
@@ -2256,13 +2655,99 @@ public:
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
     }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<CreateAggregateConfigRuleRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAggregateConfigRuleRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<CreateAggregateConfigRuleRequestTagsScope>>(expect1);
+      }
+    }
   }
 
 
   virtual ~CreateAggregateConfigRuleRequest() = default;
 };
+class CreateAggregateConfigRuleShrinkRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateAggregateConfigRuleShrinkRequestExcludeTagsScope() {}
+
+  explicit CreateAggregateConfigRuleShrinkRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateAggregateConfigRuleShrinkRequestExcludeTagsScope() = default;
+};
+class CreateAggregateConfigRuleShrinkRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateAggregateConfigRuleShrinkRequestTagsScope() {}
+
+  explicit CreateAggregateConfigRuleShrinkRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateAggregateConfigRuleShrinkRequestTagsScope() = default;
+};
 class CreateAggregateConfigRuleShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accountIdsScope{};
   shared_ptr<string> aggregatorId{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> configRuleName{};
@@ -2270,12 +2755,16 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> excludeAccountIdsScope{};
   shared_ptr<string> excludeFolderIdsScope{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<CreateAggregateConfigRuleShrinkRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> folderIdsScope{};
   shared_ptr<string> inputParametersShrink{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<string> resourceTypesScopeShrink{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
@@ -2283,6 +2772,7 @@ public:
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<CreateAggregateConfigRuleShrinkRequestTagsScope>> tagsScope{};
 
   CreateAggregateConfigRuleShrinkRequest() {}
 
@@ -2294,6 +2784,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountIdsScope) {
+      res["AccountIdsScope"] = boost::any(*accountIdsScope);
+    }
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
     }
@@ -2315,8 +2808,21 @@ public:
     if (excludeFolderIdsScope) {
       res["ExcludeFolderIdsScope"] = boost::any(*excludeFolderIdsScope);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (folderIdsScope) {
       res["FolderIdsScope"] = boost::any(*folderIdsScope);
@@ -2332,6 +2838,9 @@ public:
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (resourceTypesScopeShrink) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScopeShrink);
@@ -2354,10 +2863,20 @@ public:
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
     }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIdsScope") != m.end() && !m["AccountIdsScope"].empty()) {
+      accountIdsScope = make_shared<string>(boost::any_cast<string>(m["AccountIdsScope"]));
+    }
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
     }
@@ -2379,8 +2898,27 @@ public:
     if (m.find("ExcludeFolderIdsScope") != m.end() && !m["ExcludeFolderIdsScope"].empty()) {
       excludeFolderIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeFolderIdsScope"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<CreateAggregateConfigRuleShrinkRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAggregateConfigRuleShrinkRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<CreateAggregateConfigRuleShrinkRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("FolderIdsScope") != m.end() && !m["FolderIdsScope"].empty()) {
       folderIdsScope = make_shared<string>(boost::any_cast<string>(m["FolderIdsScope"]));
@@ -2396,6 +2934,9 @@ public:
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       resourceTypesScopeShrink = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
@@ -2417,6 +2958,19 @@ public:
     }
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
+    }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<CreateAggregateConfigRuleShrinkRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAggregateConfigRuleShrinkRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<CreateAggregateConfigRuleShrinkRequestTagsScope>>(expect1);
+      }
     }
   }
 
@@ -3064,6 +3618,78 @@ public:
 
   virtual ~CreateCompliancePackRequestConfigRules() = default;
 };
+class CreateCompliancePackRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateCompliancePackRequestExcludeTagsScope() {}
+
+  explicit CreateCompliancePackRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateCompliancePackRequestExcludeTagsScope() = default;
+};
+class CreateCompliancePackRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateCompliancePackRequestTagsScope() {}
+
+  explicit CreateCompliancePackRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateCompliancePackRequestTagsScope() = default;
+};
 class CreateCompliancePackRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -3072,12 +3698,17 @@ public:
   shared_ptr<vector<CreateCompliancePackRequestConfigRules>> configRules{};
   shared_ptr<bool> defaultEnable{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<CreateCompliancePackRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<CreateCompliancePackRequestTagsScope>> tagsScope{};
   shared_ptr<string> templateContent{};
 
   CreateCompliancePackRequest() {}
@@ -3112,14 +3743,30 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (regionIdsScope) {
       res["RegionIdsScope"] = boost::any(*regionIdsScope);
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
@@ -3129,6 +3776,13 @@ public:
     }
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
+    }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
     }
     if (templateContent) {
       res["TemplateContent"] = boost::any(*templateContent);
@@ -3165,14 +3819,36 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<CreateCompliancePackRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCompliancePackRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<CreateCompliancePackRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
       regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
@@ -3183,6 +3859,19 @@ public:
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
     }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<CreateCompliancePackRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCompliancePackRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<CreateCompliancePackRequestTagsScope>>(expect1);
+      }
+    }
     if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
       templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
     }
@@ -3190,6 +3879,78 @@ public:
 
 
   virtual ~CreateCompliancePackRequest() = default;
+};
+class CreateCompliancePackShrinkRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateCompliancePackShrinkRequestExcludeTagsScope() {}
+
+  explicit CreateCompliancePackShrinkRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateCompliancePackShrinkRequestExcludeTagsScope() = default;
+};
+class CreateCompliancePackShrinkRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateCompliancePackShrinkRequestTagsScope() {}
+
+  explicit CreateCompliancePackShrinkRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateCompliancePackShrinkRequestTagsScope() = default;
 };
 class CreateCompliancePackShrinkRequest : public Darabonba::Model {
 public:
@@ -3199,12 +3960,17 @@ public:
   shared_ptr<string> configRulesShrink{};
   shared_ptr<bool> defaultEnable{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<CreateCompliancePackShrinkRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<CreateCompliancePackShrinkRequestTagsScope>> tagsScope{};
   shared_ptr<string> templateContent{};
 
   CreateCompliancePackShrinkRequest() {}
@@ -3235,14 +4001,30 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (regionIdsScope) {
       res["RegionIdsScope"] = boost::any(*regionIdsScope);
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
@@ -3252,6 +4034,13 @@ public:
     }
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
+    }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
     }
     if (templateContent) {
       res["TemplateContent"] = boost::any(*templateContent);
@@ -3278,14 +4067,36 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<CreateCompliancePackShrinkRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCompliancePackShrinkRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<CreateCompliancePackShrinkRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
       regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
@@ -3295,6 +4106,19 @@ public:
     }
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
+    }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<CreateCompliancePackShrinkRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCompliancePackShrinkRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<CreateCompliancePackShrinkRequestTagsScope>>(expect1);
+      }
     }
     if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
       templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
@@ -3579,17 +4403,93 @@ public:
 
   virtual ~CreateConfigDeliveryChannelResponse() = default;
 };
+class CreateConfigRuleRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateConfigRuleRequestExcludeTagsScope() {}
+
+  explicit CreateConfigRuleRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateConfigRuleRequestExcludeTagsScope() = default;
+};
+class CreateConfigRuleRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateConfigRuleRequestTagsScope() {}
+
+  explicit CreateConfigRuleRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateConfigRuleRequestTagsScope() = default;
+};
 class CreateConfigRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> configRuleName{};
   shared_ptr<string> configRuleTriggerTypes{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<CreateConfigRuleRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<vector<string>> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
@@ -3597,6 +4497,7 @@ public:
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<CreateConfigRuleRequestTagsScope>> tagsScope{};
 
   CreateConfigRuleRequest() {}
 
@@ -3620,8 +4521,21 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (inputParameters) {
       res["InputParameters"] = boost::any(*inputParameters);
@@ -3634,6 +4548,9 @@ public:
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (resourceTypesScope) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
@@ -3656,6 +4573,13 @@ public:
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
     }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -3672,8 +4596,27 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<CreateConfigRuleRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateConfigRuleRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<CreateConfigRuleRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InputParameters"]);
@@ -3691,6 +4634,9 @@ public:
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       vector<string> toVec1;
@@ -3720,10 +4666,95 @@ public:
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
     }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<CreateConfigRuleRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateConfigRuleRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<CreateConfigRuleRequestTagsScope>>(expect1);
+      }
+    }
   }
 
 
   virtual ~CreateConfigRuleRequest() = default;
+};
+class CreateConfigRuleShrinkRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateConfigRuleShrinkRequestExcludeTagsScope() {}
+
+  explicit CreateConfigRuleShrinkRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateConfigRuleShrinkRequestExcludeTagsScope() = default;
+};
+class CreateConfigRuleShrinkRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateConfigRuleShrinkRequestTagsScope() {}
+
+  explicit CreateConfigRuleShrinkRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreateConfigRuleShrinkRequestTagsScope() = default;
 };
 class CreateConfigRuleShrinkRequest : public Darabonba::Model {
 public:
@@ -3731,11 +4762,15 @@ public:
   shared_ptr<string> configRuleName{};
   shared_ptr<string> configRuleTriggerTypes{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<CreateConfigRuleShrinkRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> inputParametersShrink{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<string> resourceTypesScopeShrink{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
@@ -3743,6 +4778,7 @@ public:
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<CreateConfigRuleShrinkRequestTagsScope>> tagsScope{};
 
   CreateConfigRuleShrinkRequest() {}
 
@@ -3766,8 +4802,21 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (inputParametersShrink) {
       res["InputParameters"] = boost::any(*inputParametersShrink);
@@ -3780,6 +4829,9 @@ public:
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (resourceTypesScopeShrink) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScopeShrink);
@@ -3802,6 +4854,13 @@ public:
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
     }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -3818,8 +4877,27 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<CreateConfigRuleShrinkRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateConfigRuleShrinkRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<CreateConfigRuleShrinkRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       inputParametersShrink = make_shared<string>(boost::any_cast<string>(m["InputParameters"]));
@@ -3832,6 +4910,9 @@ public:
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       resourceTypesScopeShrink = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
@@ -3853,6 +4934,19 @@ public:
     }
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
+    }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<CreateConfigRuleShrinkRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateConfigRuleShrinkRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<CreateConfigRuleShrinkRequestTagsScope>>(expect1);
+      }
     }
   }
 
@@ -8928,13 +10022,90 @@ public:
 
   virtual ~GetAggregateCompliancePackResponseBodyCompliancePackConfigRules() = default;
 };
+class GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope() {}
+
+  explicit GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope() = default;
+};
+class GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope() {}
+
+  explicit GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope() = default;
+};
 class GetAggregateCompliancePackResponseBodyCompliancePackScope : public Darabonba::Model {
 public:
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope>> tagsScope{};
 
   GetAggregateCompliancePackResponseBodyCompliancePackScope() {}
 
@@ -8946,8 +10117,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (regionIdsScope) {
       res["RegionIdsScope"] = boost::any(*regionIdsScope);
@@ -8955,18 +10139,47 @@ public:
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
     }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
     }
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
     }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
       regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
@@ -8974,11 +10187,27 @@ public:
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
     }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
     }
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
+    }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope>>(expect1);
+      }
     }
   }
 
@@ -10127,6 +11356,42 @@ public:
 
   virtual ~GetAggregateConfigRuleResponseBodyConfigRuleCreateBy() = default;
 };
+class GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope() {}
+
+  explicit GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope() = default;
+};
 class GetAggregateConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails : public Darabonba::Model {
 public:
   shared_ptr<string> eventSource{};
@@ -10372,9 +11637,46 @@ public:
 
   virtual ~GetAggregateConfigRuleResponseBodyConfigRuleSource() = default;
 };
+class GetAggregateConfigRuleResponseBodyConfigRuleTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetAggregateConfigRuleResponseBodyConfigRuleTagsScope() {}
+
+  explicit GetAggregateConfigRuleResponseBodyConfigRuleTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetAggregateConfigRuleResponseBodyConfigRuleTagsScope() = default;
+};
 class GetAggregateConfigRuleResponseBodyConfigRule : public Darabonba::Model {
 public:
   shared_ptr<long> accountId{};
+  shared_ptr<string> accountIdsScope{};
   shared_ptr<GetAggregateConfigRuleResponseBodyConfigRuleCompliance> compliance{};
   shared_ptr<string> configRuleArn{};
   shared_ptr<GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationStatus> configRuleEvaluationStatus{};
@@ -10387,7 +11689,10 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> excludeAccountIdsScope{};
   shared_ptr<string> excludeFolderIdsScope{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> folderIdsScope{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<GetAggregateConfigRuleResponseBodyConfigRuleManagedRule> managedRule{};
@@ -10395,12 +11700,14 @@ public:
   shared_ptr<long> modifiedTimestamp{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<string> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<GetAggregateConfigRuleResponseBodyConfigRuleSource> source{};
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<GetAggregateConfigRuleResponseBodyConfigRuleTagsScope>> tagsScope{};
 
   GetAggregateConfigRuleResponseBodyConfigRule() {}
 
@@ -10414,6 +11721,9 @@ public:
     map<string, boost::any> res;
     if (accountId) {
       res["AccountId"] = boost::any(*accountId);
+    }
+    if (accountIdsScope) {
+      res["AccountIdsScope"] = boost::any(*accountIdsScope);
     }
     if (compliance) {
       res["Compliance"] = compliance ? boost::any(compliance->toMap()) : boost::any(map<string,boost::any>({}));
@@ -10451,8 +11761,21 @@ public:
     if (excludeFolderIdsScope) {
       res["ExcludeFolderIdsScope"] = boost::any(*excludeFolderIdsScope);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (folderIdsScope) {
       res["FolderIdsScope"] = boost::any(*folderIdsScope);
@@ -10475,6 +11798,9 @@ public:
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
     }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
     if (resourceTypesScope) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
     }
@@ -10493,12 +11819,22 @@ public:
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
     }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
       accountId = make_shared<long>(boost::any_cast<long>(m["AccountId"]));
+    }
+    if (m.find("AccountIdsScope") != m.end() && !m["AccountIdsScope"].empty()) {
+      accountIdsScope = make_shared<string>(boost::any_cast<string>(m["AccountIdsScope"]));
     }
     if (m.find("Compliance") != m.end() && !m["Compliance"].empty()) {
       if (typeid(map<string, boost::any>) == m["Compliance"].type()) {
@@ -10548,8 +11884,27 @@ public:
     if (m.find("ExcludeFolderIdsScope") != m.end() && !m["ExcludeFolderIdsScope"].empty()) {
       excludeFolderIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeFolderIdsScope"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("FolderIdsScope") != m.end() && !m["FolderIdsScope"].empty()) {
       folderIdsScope = make_shared<string>(boost::any_cast<string>(m["FolderIdsScope"]));
@@ -10581,6 +11936,9 @@ public:
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
     }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       resourceTypesScope = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
     }
@@ -10602,6 +11960,19 @@ public:
     }
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
+    }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<GetAggregateConfigRuleResponseBodyConfigRuleTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAggregateConfigRuleResponseBodyConfigRuleTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<GetAggregateConfigRuleResponseBodyConfigRuleTagsScope>>(expect1);
+      }
     }
   }
 
@@ -14179,13 +15550,90 @@ public:
 
   virtual ~GetCompliancePackResponseBodyCompliancePackConfigRules() = default;
 };
+class GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope() {}
+
+  explicit GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope() = default;
+};
+class GetCompliancePackResponseBodyCompliancePackScopeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetCompliancePackResponseBodyCompliancePackScopeTagsScope() {}
+
+  explicit GetCompliancePackResponseBodyCompliancePackScopeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetCompliancePackResponseBodyCompliancePackScopeTagsScope() = default;
+};
 class GetCompliancePackResponseBodyCompliancePackScope : public Darabonba::Model {
 public:
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<GetCompliancePackResponseBodyCompliancePackScopeTagsScope>> tagsScope{};
 
   GetCompliancePackResponseBodyCompliancePackScope() {}
 
@@ -14197,8 +15645,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (regionIdsScope) {
       res["RegionIdsScope"] = boost::any(*regionIdsScope);
@@ -14206,18 +15667,47 @@ public:
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
     }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
     }
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
     }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
       regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
@@ -14225,11 +15715,27 @@ public:
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
     }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
     }
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
+    }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<GetCompliancePackResponseBodyCompliancePackScopeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetCompliancePackResponseBodyCompliancePackScopeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<GetCompliancePackResponseBodyCompliancePackScopeTagsScope>>(expect1);
+      }
     }
   }
 
@@ -15293,6 +16799,42 @@ public:
 
   virtual ~GetConfigRuleResponseBodyConfigRuleCreateBy() = default;
 };
+class GetConfigRuleResponseBodyConfigRuleExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetConfigRuleResponseBodyConfigRuleExcludeTagsScope() {}
+
+  explicit GetConfigRuleResponseBodyConfigRuleExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetConfigRuleResponseBodyConfigRuleExcludeTagsScope() = default;
+};
 class GetConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails : public Darabonba::Model {
 public:
   shared_ptr<string> eventSource{};
@@ -15574,6 +17116,42 @@ public:
 
   virtual ~GetConfigRuleResponseBodyConfigRuleSource() = default;
 };
+class GetConfigRuleResponseBodyConfigRuleTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetConfigRuleResponseBodyConfigRuleTagsScope() {}
+
+  explicit GetConfigRuleResponseBodyConfigRuleTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetConfigRuleResponseBodyConfigRuleTagsScope() = default;
+};
 class GetConfigRuleResponseBodyConfigRule : public Darabonba::Model {
 public:
   shared_ptr<long> accountId{};
@@ -15587,13 +17165,17 @@ public:
   shared_ptr<GetConfigRuleResponseBodyConfigRuleCreateBy> createBy{};
   shared_ptr<long> createTimestamp{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<GetConfigRuleResponseBodyConfigRuleExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<GetConfigRuleResponseBodyConfigRuleManagedRule> managedRule{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<long> modifiedTimestamp{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<string> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<GetConfigRuleResponseBodyConfigRuleScope> scope{};
@@ -15601,6 +17183,7 @@ public:
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<GetConfigRuleResponseBodyConfigRuleTagsScope>> tagsScope{};
 
   GetConfigRuleResponseBodyConfigRule() {}
 
@@ -15645,8 +17228,21 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (inputParameters) {
       res["InputParameters"] = boost::any(*inputParameters);
@@ -15665,6 +17261,9 @@ public:
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (resourceTypesScope) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
@@ -15686,6 +17285,13 @@ public:
     }
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
+    }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
     }
     return res;
   }
@@ -15736,8 +17342,27 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<GetConfigRuleResponseBodyConfigRuleExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetConfigRuleResponseBodyConfigRuleExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<GetConfigRuleResponseBodyConfigRuleExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InputParameters"]);
@@ -15765,6 +17390,9 @@ public:
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       resourceTypesScope = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
@@ -15794,6 +17422,19 @@ public:
     }
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
+    }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<GetConfigRuleResponseBodyConfigRuleTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetConfigRuleResponseBodyConfigRuleTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<GetConfigRuleResponseBodyConfigRuleTagsScope>>(expect1);
+      }
     }
   }
 
@@ -31259,6 +32900,78 @@ public:
 
   virtual ~UpdateAggregateCompliancePackRequestConfigRules() = default;
 };
+class UpdateAggregateCompliancePackRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateAggregateCompliancePackRequestExcludeTagsScope() {}
+
+  explicit UpdateAggregateCompliancePackRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateAggregateCompliancePackRequestExcludeTagsScope() = default;
+};
+class UpdateAggregateCompliancePackRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateAggregateCompliancePackRequestTagsScope() {}
+
+  explicit UpdateAggregateCompliancePackRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateAggregateCompliancePackRequestTagsScope() = default;
+};
 class UpdateAggregateCompliancePackRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
@@ -31267,12 +32980,17 @@ public:
   shared_ptr<string> compliancePackName{};
   shared_ptr<vector<UpdateAggregateCompliancePackRequestConfigRules>> configRules{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<UpdateAggregateCompliancePackRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<UpdateAggregateCompliancePackRequestTagsScope>> tagsScope{};
 
   UpdateAggregateCompliancePackRequest() {}
 
@@ -31306,14 +33024,30 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (regionIdsScope) {
       res["RegionIdsScope"] = boost::any(*regionIdsScope);
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
@@ -31323,6 +33057,13 @@ public:
     }
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
+    }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
     }
     return res;
   }
@@ -31356,14 +33097,36 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<UpdateAggregateCompliancePackRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAggregateCompliancePackRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<UpdateAggregateCompliancePackRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
       regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
@@ -31374,10 +33137,95 @@ public:
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
     }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<UpdateAggregateCompliancePackRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAggregateCompliancePackRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<UpdateAggregateCompliancePackRequestTagsScope>>(expect1);
+      }
+    }
   }
 
 
   virtual ~UpdateAggregateCompliancePackRequest() = default;
+};
+class UpdateAggregateCompliancePackShrinkRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateAggregateCompliancePackShrinkRequestExcludeTagsScope() {}
+
+  explicit UpdateAggregateCompliancePackShrinkRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateAggregateCompliancePackShrinkRequestExcludeTagsScope() = default;
+};
+class UpdateAggregateCompliancePackShrinkRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateAggregateCompliancePackShrinkRequestTagsScope() {}
+
+  explicit UpdateAggregateCompliancePackShrinkRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateAggregateCompliancePackShrinkRequestTagsScope() = default;
 };
 class UpdateAggregateCompliancePackShrinkRequest : public Darabonba::Model {
 public:
@@ -31387,12 +33235,17 @@ public:
   shared_ptr<string> compliancePackName{};
   shared_ptr<string> configRulesShrink{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<UpdateAggregateCompliancePackShrinkRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<UpdateAggregateCompliancePackShrinkRequestTagsScope>> tagsScope{};
 
   UpdateAggregateCompliancePackShrinkRequest() {}
 
@@ -31422,14 +33275,30 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (regionIdsScope) {
       res["RegionIdsScope"] = boost::any(*regionIdsScope);
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
@@ -31439,6 +33308,13 @@ public:
     }
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
+    }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
     }
     return res;
   }
@@ -31462,14 +33338,36 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<UpdateAggregateCompliancePackShrinkRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAggregateCompliancePackShrinkRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<UpdateAggregateCompliancePackShrinkRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
       regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
@@ -31479,6 +33377,19 @@ public:
     }
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
+    }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<UpdateAggregateCompliancePackShrinkRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAggregateCompliancePackShrinkRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<UpdateAggregateCompliancePackShrinkRequestTagsScope>>(expect1);
+      }
     }
   }
 
@@ -31774,8 +33685,81 @@ public:
 
   virtual ~UpdateAggregateConfigDeliveryChannelResponse() = default;
 };
+class UpdateAggregateConfigRuleRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateAggregateConfigRuleRequestExcludeTagsScope() {}
+
+  explicit UpdateAggregateConfigRuleRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateAggregateConfigRuleRequestExcludeTagsScope() = default;
+};
+class UpdateAggregateConfigRuleRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateAggregateConfigRuleRequestTagsScope() {}
+
+  explicit UpdateAggregateConfigRuleRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateAggregateConfigRuleRequestTagsScope() = default;
+};
 class UpdateAggregateConfigRuleRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accountIdsScope{};
   shared_ptr<string> aggregatorId{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> configRuleId{};
@@ -31784,17 +33768,22 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> excludeAccountIdsScope{};
   shared_ptr<string> excludeFolderIdsScope{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<UpdateAggregateConfigRuleRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> folderIdsScope{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<vector<string>> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<UpdateAggregateConfigRuleRequestTagsScope>> tagsScope{};
 
   UpdateAggregateConfigRuleRequest() {}
 
@@ -31806,6 +33795,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountIdsScope) {
+      res["AccountIdsScope"] = boost::any(*accountIdsScope);
+    }
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
     }
@@ -31830,8 +33822,21 @@ public:
     if (excludeFolderIdsScope) {
       res["ExcludeFolderIdsScope"] = boost::any(*excludeFolderIdsScope);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (folderIdsScope) {
       res["FolderIdsScope"] = boost::any(*folderIdsScope);
@@ -31848,6 +33853,9 @@ public:
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
     }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
     if (resourceTypesScope) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
     }
@@ -31863,10 +33871,20 @@ public:
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
     }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIdsScope") != m.end() && !m["AccountIdsScope"].empty()) {
+      accountIdsScope = make_shared<string>(boost::any_cast<string>(m["AccountIdsScope"]));
+    }
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
     }
@@ -31891,8 +33909,27 @@ public:
     if (m.find("ExcludeFolderIdsScope") != m.end() && !m["ExcludeFolderIdsScope"].empty()) {
       excludeFolderIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeFolderIdsScope"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<UpdateAggregateConfigRuleRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAggregateConfigRuleRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<UpdateAggregateConfigRuleRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("FolderIdsScope") != m.end() && !m["FolderIdsScope"].empty()) {
       folderIdsScope = make_shared<string>(boost::any_cast<string>(m["FolderIdsScope"]));
@@ -31913,6 +33950,9 @@ public:
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       vector<string> toVec1;
@@ -31936,13 +33976,99 @@ public:
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
     }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<UpdateAggregateConfigRuleRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAggregateConfigRuleRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<UpdateAggregateConfigRuleRequestTagsScope>>(expect1);
+      }
+    }
   }
 
 
   virtual ~UpdateAggregateConfigRuleRequest() = default;
 };
+class UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope() {}
+
+  explicit UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope() = default;
+};
+class UpdateAggregateConfigRuleShrinkRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateAggregateConfigRuleShrinkRequestTagsScope() {}
+
+  explicit UpdateAggregateConfigRuleShrinkRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateAggregateConfigRuleShrinkRequestTagsScope() = default;
+};
 class UpdateAggregateConfigRuleShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accountIdsScope{};
   shared_ptr<string> aggregatorId{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> configRuleId{};
@@ -31951,17 +34077,22 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> excludeAccountIdsScope{};
   shared_ptr<string> excludeFolderIdsScope{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> folderIdsScope{};
   shared_ptr<string> inputParametersShrink{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<string> resourceTypesScopeShrink{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<UpdateAggregateConfigRuleShrinkRequestTagsScope>> tagsScope{};
 
   UpdateAggregateConfigRuleShrinkRequest() {}
 
@@ -31973,6 +34104,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountIdsScope) {
+      res["AccountIdsScope"] = boost::any(*accountIdsScope);
+    }
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
     }
@@ -31997,8 +34131,21 @@ public:
     if (excludeFolderIdsScope) {
       res["ExcludeFolderIdsScope"] = boost::any(*excludeFolderIdsScope);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (folderIdsScope) {
       res["FolderIdsScope"] = boost::any(*folderIdsScope);
@@ -32015,6 +34162,9 @@ public:
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
     }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
+    }
     if (resourceTypesScopeShrink) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScopeShrink);
     }
@@ -32030,10 +34180,20 @@ public:
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
     }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIdsScope") != m.end() && !m["AccountIdsScope"].empty()) {
+      accountIdsScope = make_shared<string>(boost::any_cast<string>(m["AccountIdsScope"]));
+    }
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
     }
@@ -32058,8 +34218,27 @@ public:
     if (m.find("ExcludeFolderIdsScope") != m.end() && !m["ExcludeFolderIdsScope"].empty()) {
       excludeFolderIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeFolderIdsScope"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("FolderIdsScope") != m.end() && !m["FolderIdsScope"].empty()) {
       folderIdsScope = make_shared<string>(boost::any_cast<string>(m["FolderIdsScope"]));
@@ -32076,6 +34255,9 @@ public:
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
     }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
+    }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       resourceTypesScopeShrink = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
     }
@@ -32090,6 +34272,19 @@ public:
     }
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
+    }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<UpdateAggregateConfigRuleShrinkRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAggregateConfigRuleShrinkRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<UpdateAggregateConfigRuleShrinkRequestTagsScope>>(expect1);
+      }
     }
   }
 
@@ -32716,6 +34911,78 @@ public:
 
   virtual ~UpdateCompliancePackRequestConfigRules() = default;
 };
+class UpdateCompliancePackRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateCompliancePackRequestExcludeTagsScope() {}
+
+  explicit UpdateCompliancePackRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateCompliancePackRequestExcludeTagsScope() = default;
+};
+class UpdateCompliancePackRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateCompliancePackRequestTagsScope() {}
+
+  explicit UpdateCompliancePackRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateCompliancePackRequestTagsScope() = default;
+};
 class UpdateCompliancePackRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -32723,12 +34990,17 @@ public:
   shared_ptr<string> compliancePackName{};
   shared_ptr<vector<UpdateCompliancePackRequestConfigRules>> configRules{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<UpdateCompliancePackRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<UpdateCompliancePackRequestTagsScope>> tagsScope{};
 
   UpdateCompliancePackRequest() {}
 
@@ -32759,14 +35031,30 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (regionIdsScope) {
       res["RegionIdsScope"] = boost::any(*regionIdsScope);
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
@@ -32776,6 +35064,13 @@ public:
     }
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
+    }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
     }
     return res;
   }
@@ -32806,14 +35101,36 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<UpdateCompliancePackRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCompliancePackRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<UpdateCompliancePackRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
       regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
@@ -32824,10 +35141,95 @@ public:
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
     }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<UpdateCompliancePackRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCompliancePackRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<UpdateCompliancePackRequestTagsScope>>(expect1);
+      }
+    }
   }
 
 
   virtual ~UpdateCompliancePackRequest() = default;
+};
+class UpdateCompliancePackShrinkRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateCompliancePackShrinkRequestExcludeTagsScope() {}
+
+  explicit UpdateCompliancePackShrinkRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateCompliancePackShrinkRequestExcludeTagsScope() = default;
+};
+class UpdateCompliancePackShrinkRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateCompliancePackShrinkRequestTagsScope() {}
+
+  explicit UpdateCompliancePackShrinkRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateCompliancePackShrinkRequestTagsScope() = default;
 };
 class UpdateCompliancePackShrinkRequest : public Darabonba::Model {
 public:
@@ -32836,12 +35238,17 @@ public:
   shared_ptr<string> compliancePackName{};
   shared_ptr<string> configRulesShrink{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<UpdateCompliancePackShrinkRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<UpdateCompliancePackShrinkRequestTagsScope>> tagsScope{};
 
   UpdateCompliancePackShrinkRequest() {}
 
@@ -32868,14 +35275,30 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (regionIdsScope) {
       res["RegionIdsScope"] = boost::any(*regionIdsScope);
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
@@ -32885,6 +35308,13 @@ public:
     }
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
+    }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
     }
     return res;
   }
@@ -32905,14 +35335,36 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<UpdateCompliancePackShrinkRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCompliancePackShrinkRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<UpdateCompliancePackShrinkRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("RegionIdsScope") != m.end() && !m["RegionIdsScope"].empty()) {
       regionIdsScope = make_shared<string>(boost::any_cast<string>(m["RegionIdsScope"]));
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
@@ -32922,6 +35374,19 @@ public:
     }
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
+    }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<UpdateCompliancePackShrinkRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCompliancePackShrinkRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<UpdateCompliancePackShrinkRequestTagsScope>>(expect1);
+      }
     }
   }
 
@@ -33210,6 +35675,78 @@ public:
 
   virtual ~UpdateConfigDeliveryChannelResponse() = default;
 };
+class UpdateConfigRuleRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateConfigRuleRequestExcludeTagsScope() {}
+
+  explicit UpdateConfigRuleRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateConfigRuleRequestExcludeTagsScope() = default;
+};
+class UpdateConfigRuleRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateConfigRuleRequestTagsScope() {}
+
+  explicit UpdateConfigRuleRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateConfigRuleRequestTagsScope() = default;
+};
 class UpdateConfigRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -33217,16 +35754,21 @@ public:
   shared_ptr<string> configRuleName{};
   shared_ptr<string> configRuleTriggerTypes{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<UpdateConfigRuleRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<vector<string>> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<UpdateConfigRuleRequestTagsScope>> tagsScope{};
 
   UpdateConfigRuleRequest() {}
 
@@ -33253,8 +35795,21 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (inputParameters) {
       res["InputParameters"] = boost::any(*inputParameters);
@@ -33267,6 +35822,9 @@ public:
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (resourceTypesScope) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScope);
@@ -33282,6 +35840,13 @@ public:
     }
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
+    }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
     }
     return res;
   }
@@ -33302,8 +35867,27 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<UpdateConfigRuleRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateConfigRuleRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<UpdateConfigRuleRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InputParameters"]);
@@ -33321,6 +35905,9 @@ public:
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       vector<string> toVec1;
@@ -33344,10 +35931,95 @@ public:
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
     }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<UpdateConfigRuleRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateConfigRuleRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<UpdateConfigRuleRequestTagsScope>>(expect1);
+      }
+    }
   }
 
 
   virtual ~UpdateConfigRuleRequest() = default;
+};
+class UpdateConfigRuleShrinkRequestExcludeTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateConfigRuleShrinkRequestExcludeTagsScope() {}
+
+  explicit UpdateConfigRuleShrinkRequestExcludeTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateConfigRuleShrinkRequestExcludeTagsScope() = default;
+};
+class UpdateConfigRuleShrinkRequestTagsScope : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdateConfigRuleShrinkRequestTagsScope() {}
+
+  explicit UpdateConfigRuleShrinkRequestTagsScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdateConfigRuleShrinkRequestTagsScope() = default;
 };
 class UpdateConfigRuleShrinkRequest : public Darabonba::Model {
 public:
@@ -33356,16 +36028,21 @@ public:
   shared_ptr<string> configRuleName{};
   shared_ptr<string> configRuleTriggerTypes{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeRegionIdsScope{};
+  shared_ptr<string> excludeResourceGroupIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<vector<UpdateConfigRuleShrinkRequestExcludeTagsScope>> excludeTagsScope{};
   shared_ptr<string> inputParametersShrink{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
   shared_ptr<string> resourceGroupIdsScope{};
+  shared_ptr<string> resourceIdsScope{};
   shared_ptr<string> resourceTypesScopeShrink{};
   shared_ptr<long> riskLevel{};
   shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
+  shared_ptr<vector<UpdateConfigRuleShrinkRequestTagsScope>> tagsScope{};
 
   UpdateConfigRuleShrinkRequest() {}
 
@@ -33392,8 +36069,21 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeRegionIdsScope) {
+      res["ExcludeRegionIdsScope"] = boost::any(*excludeRegionIdsScope);
+    }
+    if (excludeResourceGroupIdsScope) {
+      res["ExcludeResourceGroupIdsScope"] = boost::any(*excludeResourceGroupIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (excludeTagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*excludeTagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExcludeTagsScope"] = boost::any(temp1);
     }
     if (inputParametersShrink) {
       res["InputParameters"] = boost::any(*inputParametersShrink);
@@ -33406,6 +36096,9 @@ public:
     }
     if (resourceGroupIdsScope) {
       res["ResourceGroupIdsScope"] = boost::any(*resourceGroupIdsScope);
+    }
+    if (resourceIdsScope) {
+      res["ResourceIdsScope"] = boost::any(*resourceIdsScope);
     }
     if (resourceTypesScopeShrink) {
       res["ResourceTypesScope"] = boost::any(*resourceTypesScopeShrink);
@@ -33421,6 +36114,13 @@ public:
     }
     if (tagValueScope) {
       res["TagValueScope"] = boost::any(*tagValueScope);
+    }
+    if (tagsScope) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagsScope){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagsScope"] = boost::any(temp1);
     }
     return res;
   }
@@ -33441,8 +36141,27 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeRegionIdsScope") != m.end() && !m["ExcludeRegionIdsScope"].empty()) {
+      excludeRegionIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeRegionIdsScope"]));
+    }
+    if (m.find("ExcludeResourceGroupIdsScope") != m.end() && !m["ExcludeResourceGroupIdsScope"].empty()) {
+      excludeResourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceGroupIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("ExcludeTagsScope") != m.end() && !m["ExcludeTagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExcludeTagsScope"].type()) {
+        vector<UpdateConfigRuleShrinkRequestExcludeTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExcludeTagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateConfigRuleShrinkRequestExcludeTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        excludeTagsScope = make_shared<vector<UpdateConfigRuleShrinkRequestExcludeTagsScope>>(expect1);
+      }
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       inputParametersShrink = make_shared<string>(boost::any_cast<string>(m["InputParameters"]));
@@ -33455,6 +36174,9 @@ public:
     }
     if (m.find("ResourceGroupIdsScope") != m.end() && !m["ResourceGroupIdsScope"].empty()) {
       resourceGroupIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceGroupIdsScope"]));
+    }
+    if (m.find("ResourceIdsScope") != m.end() && !m["ResourceIdsScope"].empty()) {
+      resourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ResourceIdsScope"]));
     }
     if (m.find("ResourceTypesScope") != m.end() && !m["ResourceTypesScope"].empty()) {
       resourceTypesScopeShrink = make_shared<string>(boost::any_cast<string>(m["ResourceTypesScope"]));
@@ -33470,6 +36192,19 @@ public:
     }
     if (m.find("TagValueScope") != m.end() && !m["TagValueScope"].empty()) {
       tagValueScope = make_shared<string>(boost::any_cast<string>(m["TagValueScope"]));
+    }
+    if (m.find("TagsScope") != m.end() && !m["TagsScope"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagsScope"].type()) {
+        vector<UpdateConfigRuleShrinkRequestTagsScope> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagsScope"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateConfigRuleShrinkRequestTagsScope model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagsScope = make_shared<vector<UpdateConfigRuleShrinkRequestTagsScope>>(expect1);
+      }
     }
   }
 
