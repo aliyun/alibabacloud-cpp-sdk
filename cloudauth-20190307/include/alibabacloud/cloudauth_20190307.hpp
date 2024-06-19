@@ -1979,6 +1979,210 @@ public:
 
   virtual ~CredentialVerifyResponse() = default;
 };
+class DeepfakeDetectRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> faceBase64{};
+  shared_ptr<string> faceInputType{};
+  shared_ptr<string> faceUrl{};
+  shared_ptr<string> outerOrderNo{};
+
+  DeepfakeDetectRequest() {}
+
+  explicit DeepfakeDetectRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (faceBase64) {
+      res["FaceBase64"] = boost::any(*faceBase64);
+    }
+    if (faceInputType) {
+      res["FaceInputType"] = boost::any(*faceInputType);
+    }
+    if (faceUrl) {
+      res["FaceUrl"] = boost::any(*faceUrl);
+    }
+    if (outerOrderNo) {
+      res["OuterOrderNo"] = boost::any(*outerOrderNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FaceBase64") != m.end() && !m["FaceBase64"].empty()) {
+      faceBase64 = make_shared<string>(boost::any_cast<string>(m["FaceBase64"]));
+    }
+    if (m.find("FaceInputType") != m.end() && !m["FaceInputType"].empty()) {
+      faceInputType = make_shared<string>(boost::any_cast<string>(m["FaceInputType"]));
+    }
+    if (m.find("FaceUrl") != m.end() && !m["FaceUrl"].empty()) {
+      faceUrl = make_shared<string>(boost::any_cast<string>(m["FaceUrl"]));
+    }
+    if (m.find("OuterOrderNo") != m.end() && !m["OuterOrderNo"].empty()) {
+      outerOrderNo = make_shared<string>(boost::any_cast<string>(m["OuterOrderNo"]));
+    }
+  }
+
+
+  virtual ~DeepfakeDetectRequest() = default;
+};
+class DeepfakeDetectResponseBodyResultObject : public Darabonba::Model {
+public:
+  shared_ptr<string> result{};
+  shared_ptr<map<string, string>> riskScore{};
+  shared_ptr<string> riskTag{};
+
+  DeepfakeDetectResponseBodyResultObject() {}
+
+  explicit DeepfakeDetectResponseBodyResultObject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (riskScore) {
+      res["RiskScore"] = boost::any(*riskScore);
+    }
+    if (riskTag) {
+      res["RiskTag"] = boost::any(*riskTag);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["Result"]));
+    }
+    if (m.find("RiskScore") != m.end() && !m["RiskScore"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["RiskScore"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      riskScore = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("RiskTag") != m.end() && !m["RiskTag"].empty()) {
+      riskTag = make_shared<string>(boost::any_cast<string>(m["RiskTag"]));
+    }
+  }
+
+
+  virtual ~DeepfakeDetectResponseBodyResultObject() = default;
+};
+class DeepfakeDetectResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<DeepfakeDetectResponseBodyResultObject> resultObject{};
+
+  DeepfakeDetectResponseBody() {}
+
+  explicit DeepfakeDetectResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultObject) {
+      res["ResultObject"] = resultObject ? boost::any(resultObject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultObject") != m.end() && !m["ResultObject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultObject"].type()) {
+        DeepfakeDetectResponseBodyResultObject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultObject"]));
+        resultObject = make_shared<DeepfakeDetectResponseBodyResultObject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeepfakeDetectResponseBody() = default;
+};
+class DeepfakeDetectResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeepfakeDetectResponseBody> body{};
+
+  DeepfakeDetectResponse() {}
+
+  explicit DeepfakeDetectResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeepfakeDetectResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeepfakeDetectResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeepfakeDetectResponse() = default;
+};
 class DescribeDeviceInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizType{};
@@ -6884,6 +7088,8 @@ public:
   CreateVerifySettingResponse createVerifySetting(shared_ptr<CreateVerifySettingRequest> request);
   CredentialVerifyResponse credentialVerifyWithOptions(shared_ptr<CredentialVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CredentialVerifyResponse credentialVerify(shared_ptr<CredentialVerifyRequest> request);
+  DeepfakeDetectResponse deepfakeDetectWithOptions(shared_ptr<DeepfakeDetectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeepfakeDetectResponse deepfakeDetect(shared_ptr<DeepfakeDetectRequest> request);
   DescribeDeviceInfoResponse describeDeviceInfoWithOptions(shared_ptr<DescribeDeviceInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDeviceInfoResponse describeDeviceInfo(shared_ptr<DescribeDeviceInfoRequest> request);
   DescribeFaceVerifyResponse describeFaceVerifyWithOptions(shared_ptr<DescribeFaceVerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
