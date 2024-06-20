@@ -17921,7 +17921,25 @@ ListHoneypotAttackerSourceResponse Alibabacloud_Sas20181203::Client::listHoneypo
 
 ListHoneypotEventFlowsResponse Alibabacloud_Sas20181203::Client::listHoneypotEventFlowsWithOptions(shared_ptr<ListHoneypotEventFlowsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dealed)) {
+    query->insert(pair<string, string>("Dealed", *request->dealed));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
+    query->insert(pair<string, string>("RequestId", *request->requestId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->securityEventId)) {
+    query->insert(pair<string, long>("SecurityEventId", *request->securityEventId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -17930,7 +17948,7 @@ ListHoneypotEventFlowsResponse Alibabacloud_Sas20181203::Client::listHoneypotEve
     {"version", boost::any(string("2018-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
