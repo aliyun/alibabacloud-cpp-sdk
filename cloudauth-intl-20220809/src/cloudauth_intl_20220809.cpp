@@ -763,6 +763,9 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->docType)) {
     query->insert(pair<string, string>("DocType", *request->docType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->experienceCode)) {
+    query->insert(pair<string, string>("ExperienceCode", *request->experienceCode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->facePictureUrl)) {
     query->insert(pair<string, string>("FacePictureUrl", *request->facePictureUrl));
   }

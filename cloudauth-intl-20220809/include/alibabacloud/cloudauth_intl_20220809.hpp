@@ -4485,6 +4485,7 @@ public:
   shared_ptr<string> crop{};
   shared_ptr<string> docScanMode{};
   shared_ptr<string> docType{};
+  shared_ptr<string> experienceCode{};
   shared_ptr<string> facePictureBase64{};
   shared_ptr<string> facePictureUrl{};
   shared_ptr<string> idFaceQuality{};
@@ -4528,6 +4529,9 @@ public:
     }
     if (docType) {
       res["DocType"] = boost::any(*docType);
+    }
+    if (experienceCode) {
+      res["ExperienceCode"] = boost::any(*experienceCode);
     }
     if (facePictureBase64) {
       res["FacePictureBase64"] = boost::any(*facePictureBase64);
@@ -4595,6 +4599,9 @@ public:
     }
     if (m.find("DocType") != m.end() && !m["DocType"].empty()) {
       docType = make_shared<string>(boost::any_cast<string>(m["DocType"]));
+    }
+    if (m.find("ExperienceCode") != m.end() && !m["ExperienceCode"].empty()) {
+      experienceCode = make_shared<string>(boost::any_cast<string>(m["ExperienceCode"]));
     }
     if (m.find("FacePictureBase64") != m.end() && !m["FacePictureBase64"].empty()) {
       facePictureBase64 = make_shared<string>(boost::any_cast<string>(m["FacePictureBase64"]));
