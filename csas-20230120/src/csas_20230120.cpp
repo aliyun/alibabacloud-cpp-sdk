@@ -456,6 +456,198 @@ CreateUserGroupResponse Alibabacloud_Csas20230120::Client::createUserGroup(share
   return createUserGroupWithOptions(request, runtime);
 }
 
+CreateWmBaseImageResponse Alibabacloud_Csas20230120::Client::createWmBaseImageWithOptions(shared_ptr<CreateWmBaseImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->height)) {
+    body->insert(pair<string, long>("Height", *request->height));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->opacity)) {
+    body->insert(pair<string, long>("Opacity", *request->opacity));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->scale)) {
+    body->insert(pair<string, long>("Scale", *request->scale));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->width)) {
+    body->insert(pair<string, long>("Width", *request->width));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wmInfoBytesB64)) {
+    body->insert(pair<string, string>("WmInfoBytesB64", *request->wmInfoBytesB64));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->wmInfoSize)) {
+    body->insert(pair<string, long>("WmInfoSize", *request->wmInfoSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wmInfoUint)) {
+    body->insert(pair<string, string>("WmInfoUint", *request->wmInfoUint));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wmType)) {
+    body->insert(pair<string, string>("WmType", *request->wmType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateWmBaseImage"))},
+    {"version", boost::any(string("2023-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateWmBaseImageResponse(callApi(params, req, runtime));
+}
+
+CreateWmBaseImageResponse Alibabacloud_Csas20230120::Client::createWmBaseImage(shared_ptr<CreateWmBaseImageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createWmBaseImageWithOptions(request, runtime);
+}
+
+CreateWmEmbedTaskResponse Alibabacloud_Csas20230120::Client::createWmEmbedTaskWithOptions(shared_ptr<CreateWmEmbedTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateWmEmbedTaskShrinkRequest> request = make_shared<CreateWmEmbedTaskShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateWmEmbedTaskRequestDocumentControl>(tmpReq->documentControl)) {
+    request->documentControlShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->documentControl, make_shared<string>("DocumentControl"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->documentControlShrink)) {
+    body->insert(pair<string, string>("DocumentControl", *request->documentControlShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileUrl)) {
+    body->insert(pair<string, string>("FileUrl", *request->fileUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filename)) {
+    body->insert(pair<string, string>("Filename", *request->filename));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->imageEmbedJpegQuality)) {
+    body->insert(pair<string, long>("ImageEmbedJpegQuality", *request->imageEmbedJpegQuality));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->imageEmbedLevel)) {
+    body->insert(pair<string, long>("ImageEmbedLevel", *request->imageEmbedLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoBitrate)) {
+    body->insert(pair<string, string>("VideoBitrate", *request->videoBitrate));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->videoIsLong)) {
+    body->insert(pair<string, bool>("VideoIsLong", *request->videoIsLong));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wmInfoBytesB64)) {
+    body->insert(pair<string, string>("WmInfoBytesB64", *request->wmInfoBytesB64));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->wmInfoSize)) {
+    body->insert(pair<string, long>("WmInfoSize", *request->wmInfoSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wmInfoUint)) {
+    body->insert(pair<string, string>("WmInfoUint", *request->wmInfoUint));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wmType)) {
+    body->insert(pair<string, string>("WmType", *request->wmType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateWmEmbedTask"))},
+    {"version", boost::any(string("2023-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateWmEmbedTaskResponse(callApi(params, req, runtime));
+}
+
+CreateWmEmbedTaskResponse Alibabacloud_Csas20230120::Client::createWmEmbedTask(shared_ptr<CreateWmEmbedTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createWmEmbedTaskWithOptions(request, runtime);
+}
+
+CreateWmExtractTaskResponse Alibabacloud_Csas20230120::Client::createWmExtractTaskWithOptions(shared_ptr<CreateWmExtractTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->documentIsCapture)) {
+    body->insert(pair<string, bool>("DocumentIsCapture", *request->documentIsCapture));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileUrl)) {
+    body->insert(pair<string, string>("FileUrl", *request->fileUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filename)) {
+    body->insert(pair<string, string>("Filename", *request->filename));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->videoIsLong)) {
+    body->insert(pair<string, bool>("VideoIsLong", *request->videoIsLong));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoSpeed)) {
+    body->insert(pair<string, string>("VideoSpeed", *request->videoSpeed));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->wmInfoSize)) {
+    body->insert(pair<string, long>("WmInfoSize", *request->wmInfoSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wmType)) {
+    body->insert(pair<string, string>("WmType", *request->wmType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateWmExtractTask"))},
+    {"version", boost::any(string("2023-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateWmExtractTaskResponse(callApi(params, req, runtime));
+}
+
+CreateWmExtractTaskResponse Alibabacloud_Csas20230120::Client::createWmExtractTask(shared_ptr<CreateWmExtractTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createWmExtractTaskWithOptions(request, runtime);
+}
+
+CreateWmInfoMappingResponse Alibabacloud_Csas20230120::Client::createWmInfoMappingWithOptions(shared_ptr<CreateWmInfoMappingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->wmInfoBytesB64)) {
+    body->insert(pair<string, string>("WmInfoBytesB64", *request->wmInfoBytesB64));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->wmInfoSize)) {
+    body->insert(pair<string, long>("WmInfoSize", *request->wmInfoSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wmType)) {
+    body->insert(pair<string, string>("WmType", *request->wmType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateWmInfoMapping"))},
+    {"version", boost::any(string("2023-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateWmInfoMappingResponse(callApi(params, req, runtime));
+}
+
+CreateWmInfoMappingResponse Alibabacloud_Csas20230120::Client::createWmInfoMapping(shared_ptr<CreateWmInfoMappingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createWmInfoMappingWithOptions(request, runtime);
+}
+
 DeleteClientUserResponse Alibabacloud_Csas20230120::Client::deleteClientUserWithOptions(shared_ptr<DeleteClientUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1042,6 +1234,56 @@ GetUserGroupResponse Alibabacloud_Csas20230120::Client::getUserGroupWithOptions(
 GetUserGroupResponse Alibabacloud_Csas20230120::Client::getUserGroup(shared_ptr<GetUserGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getUserGroupWithOptions(request, runtime);
+}
+
+GetWmEmbedTaskResponse Alibabacloud_Csas20230120::Client::getWmEmbedTaskWithOptions(shared_ptr<GetWmEmbedTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetWmEmbedTask"))},
+    {"version", boost::any(string("2023-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetWmEmbedTaskResponse(callApi(params, req, runtime));
+}
+
+GetWmEmbedTaskResponse Alibabacloud_Csas20230120::Client::getWmEmbedTask(shared_ptr<GetWmEmbedTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getWmEmbedTaskWithOptions(request, runtime);
+}
+
+GetWmExtractTaskResponse Alibabacloud_Csas20230120::Client::getWmExtractTaskWithOptions(shared_ptr<GetWmExtractTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetWmExtractTask"))},
+    {"version", boost::any(string("2023-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetWmExtractTaskResponse(callApi(params, req, runtime));
+}
+
+GetWmExtractTaskResponse Alibabacloud_Csas20230120::Client::getWmExtractTask(shared_ptr<GetWmExtractTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getWmExtractTaskWithOptions(request, runtime);
 }
 
 ListApplicationsForPrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::listApplicationsForPrivateAccessPolicyWithOptions(shared_ptr<ListApplicationsForPrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1738,6 +1980,31 @@ ListUsersResponse Alibabacloud_Csas20230120::Client::listUsersWithOptions(shared
 ListUsersResponse Alibabacloud_Csas20230120::Client::listUsers(shared_ptr<ListUsersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listUsersWithOptions(request, runtime);
+}
+
+LookupWmInfoMappingResponse Alibabacloud_Csas20230120::Client::lookupWmInfoMappingWithOptions(shared_ptr<LookupWmInfoMappingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("LookupWmInfoMapping"))},
+    {"version", boost::any(string("2023-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return LookupWmInfoMappingResponse(callApi(params, req, runtime));
+}
+
+LookupWmInfoMappingResponse Alibabacloud_Csas20230120::Client::lookupWmInfoMapping(shared_ptr<LookupWmInfoMappingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return lookupWmInfoMappingWithOptions(request, runtime);
 }
 
 RevokeUserSessionResponse Alibabacloud_Csas20230120::Client::revokeUserSessionWithOptions(shared_ptr<RevokeUserSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

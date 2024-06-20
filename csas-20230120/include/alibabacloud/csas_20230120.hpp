@@ -2107,6 +2107,1124 @@ public:
 
   virtual ~CreateUserGroupResponse() = default;
 };
+class CreateWmBaseImageRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> height{};
+  shared_ptr<long> opacity{};
+  shared_ptr<long> scale{};
+  shared_ptr<long> width{};
+  shared_ptr<string> wmInfoBytesB64{};
+  shared_ptr<long> wmInfoSize{};
+  shared_ptr<string> wmInfoUint{};
+  shared_ptr<string> wmType{};
+
+  CreateWmBaseImageRequest() {}
+
+  explicit CreateWmBaseImageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (opacity) {
+      res["Opacity"] = boost::any(*opacity);
+    }
+    if (scale) {
+      res["Scale"] = boost::any(*scale);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (wmInfoBytesB64) {
+      res["WmInfoBytesB64"] = boost::any(*wmInfoBytesB64);
+    }
+    if (wmInfoSize) {
+      res["WmInfoSize"] = boost::any(*wmInfoSize);
+    }
+    if (wmInfoUint) {
+      res["WmInfoUint"] = boost::any(*wmInfoUint);
+    }
+    if (wmType) {
+      res["WmType"] = boost::any(*wmType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Opacity") != m.end() && !m["Opacity"].empty()) {
+      opacity = make_shared<long>(boost::any_cast<long>(m["Opacity"]));
+    }
+    if (m.find("Scale") != m.end() && !m["Scale"].empty()) {
+      scale = make_shared<long>(boost::any_cast<long>(m["Scale"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+    if (m.find("WmInfoBytesB64") != m.end() && !m["WmInfoBytesB64"].empty()) {
+      wmInfoBytesB64 = make_shared<string>(boost::any_cast<string>(m["WmInfoBytesB64"]));
+    }
+    if (m.find("WmInfoSize") != m.end() && !m["WmInfoSize"].empty()) {
+      wmInfoSize = make_shared<long>(boost::any_cast<long>(m["WmInfoSize"]));
+    }
+    if (m.find("WmInfoUint") != m.end() && !m["WmInfoUint"].empty()) {
+      wmInfoUint = make_shared<string>(boost::any_cast<string>(m["WmInfoUint"]));
+    }
+    if (m.find("WmType") != m.end() && !m["WmType"].empty()) {
+      wmType = make_shared<string>(boost::any_cast<string>(m["WmType"]));
+    }
+  }
+
+
+  virtual ~CreateWmBaseImageRequest() = default;
+};
+class CreateWmBaseImageResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> imageId{};
+  shared_ptr<string> imageUrl{};
+  shared_ptr<long> imageUrlExp{};
+
+  CreateWmBaseImageResponseBodyData() {}
+
+  explicit CreateWmBaseImageResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (imageUrl) {
+      res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (imageUrlExp) {
+      res["ImageUrlExp"] = boost::any(*imageUrlExp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("ImageUrlExp") != m.end() && !m["ImageUrlExp"].empty()) {
+      imageUrlExp = make_shared<long>(boost::any_cast<long>(m["ImageUrlExp"]));
+    }
+  }
+
+
+  virtual ~CreateWmBaseImageResponseBodyData() = default;
+};
+class CreateWmBaseImageResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CreateWmBaseImageResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  CreateWmBaseImageResponseBody() {}
+
+  explicit CreateWmBaseImageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateWmBaseImageResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateWmBaseImageResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateWmBaseImageResponseBody() = default;
+};
+class CreateWmBaseImageResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateWmBaseImageResponseBody> body{};
+
+  CreateWmBaseImageResponse() {}
+
+  explicit CreateWmBaseImageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateWmBaseImageResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateWmBaseImageResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateWmBaseImageResponse() = default;
+};
+class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl : public Darabonba::Model {
+public:
+  shared_ptr<long> opacity{};
+
+  CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl() {}
+
+  explicit CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (opacity) {
+      res["Opacity"] = boost::any(*opacity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Opacity") != m.end() && !m["Opacity"].empty()) {
+      opacity = make_shared<long>(boost::any_cast<long>(m["Opacity"]));
+    }
+  }
+
+
+  virtual ~CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl() = default;
+};
+class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl : public Darabonba::Model {
+public:
+  shared_ptr<long> angle{};
+  shared_ptr<string> fontColor{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<long> horizontalNumber{};
+  shared_ptr<string> mode{};
+  shared_ptr<long> opacity{};
+  shared_ptr<string> posX{};
+  shared_ptr<string> posY{};
+  shared_ptr<long> verticalNumber{};
+  shared_ptr<string> visibleText{};
+
+  CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl() {}
+
+  explicit CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (angle) {
+      res["Angle"] = boost::any(*angle);
+    }
+    if (fontColor) {
+      res["FontColor"] = boost::any(*fontColor);
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (horizontalNumber) {
+      res["HorizontalNumber"] = boost::any(*horizontalNumber);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (opacity) {
+      res["Opacity"] = boost::any(*opacity);
+    }
+    if (posX) {
+      res["PosX"] = boost::any(*posX);
+    }
+    if (posY) {
+      res["PosY"] = boost::any(*posY);
+    }
+    if (verticalNumber) {
+      res["VerticalNumber"] = boost::any(*verticalNumber);
+    }
+    if (visibleText) {
+      res["VisibleText"] = boost::any(*visibleText);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Angle") != m.end() && !m["Angle"].empty()) {
+      angle = make_shared<long>(boost::any_cast<long>(m["Angle"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      fontColor = make_shared<string>(boost::any_cast<string>(m["FontColor"]));
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("HorizontalNumber") != m.end() && !m["HorizontalNumber"].empty()) {
+      horizontalNumber = make_shared<long>(boost::any_cast<long>(m["HorizontalNumber"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("Opacity") != m.end() && !m["Opacity"].empty()) {
+      opacity = make_shared<long>(boost::any_cast<long>(m["Opacity"]));
+    }
+    if (m.find("PosX") != m.end() && !m["PosX"].empty()) {
+      posX = make_shared<string>(boost::any_cast<string>(m["PosX"]));
+    }
+    if (m.find("PosY") != m.end() && !m["PosY"].empty()) {
+      posY = make_shared<string>(boost::any_cast<string>(m["PosY"]));
+    }
+    if (m.find("VerticalNumber") != m.end() && !m["VerticalNumber"].empty()) {
+      verticalNumber = make_shared<long>(boost::any_cast<long>(m["VerticalNumber"]));
+    }
+    if (m.find("VisibleText") != m.end() && !m["VisibleText"].empty()) {
+      visibleText = make_shared<string>(boost::any_cast<string>(m["VisibleText"]));
+    }
+  }
+
+
+  virtual ~CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl() = default;
+};
+class CreateWmEmbedTaskRequestDocumentControlBackgroundControl : public Darabonba::Model {
+public:
+  shared_ptr<bool> bgAddInvisible{};
+  shared_ptr<bool> bgAddVisible{};
+  shared_ptr<CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl> bgInvisibleControl{};
+  shared_ptr<CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl> bgVisibleControl{};
+
+  CreateWmEmbedTaskRequestDocumentControlBackgroundControl() {}
+
+  explicit CreateWmEmbedTaskRequestDocumentControlBackgroundControl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bgAddInvisible) {
+      res["BgAddInvisible"] = boost::any(*bgAddInvisible);
+    }
+    if (bgAddVisible) {
+      res["BgAddVisible"] = boost::any(*bgAddVisible);
+    }
+    if (bgInvisibleControl) {
+      res["BgInvisibleControl"] = bgInvisibleControl ? boost::any(bgInvisibleControl->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (bgVisibleControl) {
+      res["BgVisibleControl"] = bgVisibleControl ? boost::any(bgVisibleControl->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BgAddInvisible") != m.end() && !m["BgAddInvisible"].empty()) {
+      bgAddInvisible = make_shared<bool>(boost::any_cast<bool>(m["BgAddInvisible"]));
+    }
+    if (m.find("BgAddVisible") != m.end() && !m["BgAddVisible"].empty()) {
+      bgAddVisible = make_shared<bool>(boost::any_cast<bool>(m["BgAddVisible"]));
+    }
+    if (m.find("BgInvisibleControl") != m.end() && !m["BgInvisibleControl"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BgInvisibleControl"].type()) {
+        CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BgInvisibleControl"]));
+        bgInvisibleControl = make_shared<CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl>(model1);
+      }
+    }
+    if (m.find("BgVisibleControl") != m.end() && !m["BgVisibleControl"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BgVisibleControl"].type()) {
+        CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BgVisibleControl"]));
+        bgVisibleControl = make_shared<CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateWmEmbedTaskRequestDocumentControlBackgroundControl() = default;
+};
+class CreateWmEmbedTaskRequestDocumentControl : public Darabonba::Model {
+public:
+  shared_ptr<CreateWmEmbedTaskRequestDocumentControlBackgroundControl> backgroundControl{};
+  shared_ptr<bool> invisibleAntiAllCopy{};
+  shared_ptr<bool> invisibleAntiTextCopy{};
+
+  CreateWmEmbedTaskRequestDocumentControl() {}
+
+  explicit CreateWmEmbedTaskRequestDocumentControl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (backgroundControl) {
+      res["BackgroundControl"] = backgroundControl ? boost::any(backgroundControl->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (invisibleAntiAllCopy) {
+      res["InvisibleAntiAllCopy"] = boost::any(*invisibleAntiAllCopy);
+    }
+    if (invisibleAntiTextCopy) {
+      res["InvisibleAntiTextCopy"] = boost::any(*invisibleAntiTextCopy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackgroundControl") != m.end() && !m["BackgroundControl"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BackgroundControl"].type()) {
+        CreateWmEmbedTaskRequestDocumentControlBackgroundControl model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BackgroundControl"]));
+        backgroundControl = make_shared<CreateWmEmbedTaskRequestDocumentControlBackgroundControl>(model1);
+      }
+    }
+    if (m.find("InvisibleAntiAllCopy") != m.end() && !m["InvisibleAntiAllCopy"].empty()) {
+      invisibleAntiAllCopy = make_shared<bool>(boost::any_cast<bool>(m["InvisibleAntiAllCopy"]));
+    }
+    if (m.find("InvisibleAntiTextCopy") != m.end() && !m["InvisibleAntiTextCopy"].empty()) {
+      invisibleAntiTextCopy = make_shared<bool>(boost::any_cast<bool>(m["InvisibleAntiTextCopy"]));
+    }
+  }
+
+
+  virtual ~CreateWmEmbedTaskRequestDocumentControl() = default;
+};
+class CreateWmEmbedTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<CreateWmEmbedTaskRequestDocumentControl> documentControl{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<string> filename{};
+  shared_ptr<long> imageEmbedJpegQuality{};
+  shared_ptr<long> imageEmbedLevel{};
+  shared_ptr<string> videoBitrate{};
+  shared_ptr<bool> videoIsLong{};
+  shared_ptr<string> wmInfoBytesB64{};
+  shared_ptr<long> wmInfoSize{};
+  shared_ptr<string> wmInfoUint{};
+  shared_ptr<string> wmType{};
+
+  CreateWmEmbedTaskRequest() {}
+
+  explicit CreateWmEmbedTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (documentControl) {
+      res["DocumentControl"] = documentControl ? boost::any(documentControl->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (filename) {
+      res["Filename"] = boost::any(*filename);
+    }
+    if (imageEmbedJpegQuality) {
+      res["ImageEmbedJpegQuality"] = boost::any(*imageEmbedJpegQuality);
+    }
+    if (imageEmbedLevel) {
+      res["ImageEmbedLevel"] = boost::any(*imageEmbedLevel);
+    }
+    if (videoBitrate) {
+      res["VideoBitrate"] = boost::any(*videoBitrate);
+    }
+    if (videoIsLong) {
+      res["VideoIsLong"] = boost::any(*videoIsLong);
+    }
+    if (wmInfoBytesB64) {
+      res["WmInfoBytesB64"] = boost::any(*wmInfoBytesB64);
+    }
+    if (wmInfoSize) {
+      res["WmInfoSize"] = boost::any(*wmInfoSize);
+    }
+    if (wmInfoUint) {
+      res["WmInfoUint"] = boost::any(*wmInfoUint);
+    }
+    if (wmType) {
+      res["WmType"] = boost::any(*wmType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DocumentControl") != m.end() && !m["DocumentControl"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DocumentControl"].type()) {
+        CreateWmEmbedTaskRequestDocumentControl model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DocumentControl"]));
+        documentControl = make_shared<CreateWmEmbedTaskRequestDocumentControl>(model1);
+      }
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
+      filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
+    }
+    if (m.find("ImageEmbedJpegQuality") != m.end() && !m["ImageEmbedJpegQuality"].empty()) {
+      imageEmbedJpegQuality = make_shared<long>(boost::any_cast<long>(m["ImageEmbedJpegQuality"]));
+    }
+    if (m.find("ImageEmbedLevel") != m.end() && !m["ImageEmbedLevel"].empty()) {
+      imageEmbedLevel = make_shared<long>(boost::any_cast<long>(m["ImageEmbedLevel"]));
+    }
+    if (m.find("VideoBitrate") != m.end() && !m["VideoBitrate"].empty()) {
+      videoBitrate = make_shared<string>(boost::any_cast<string>(m["VideoBitrate"]));
+    }
+    if (m.find("VideoIsLong") != m.end() && !m["VideoIsLong"].empty()) {
+      videoIsLong = make_shared<bool>(boost::any_cast<bool>(m["VideoIsLong"]));
+    }
+    if (m.find("WmInfoBytesB64") != m.end() && !m["WmInfoBytesB64"].empty()) {
+      wmInfoBytesB64 = make_shared<string>(boost::any_cast<string>(m["WmInfoBytesB64"]));
+    }
+    if (m.find("WmInfoSize") != m.end() && !m["WmInfoSize"].empty()) {
+      wmInfoSize = make_shared<long>(boost::any_cast<long>(m["WmInfoSize"]));
+    }
+    if (m.find("WmInfoUint") != m.end() && !m["WmInfoUint"].empty()) {
+      wmInfoUint = make_shared<string>(boost::any_cast<string>(m["WmInfoUint"]));
+    }
+    if (m.find("WmType") != m.end() && !m["WmType"].empty()) {
+      wmType = make_shared<string>(boost::any_cast<string>(m["WmType"]));
+    }
+  }
+
+
+  virtual ~CreateWmEmbedTaskRequest() = default;
+};
+class CreateWmEmbedTaskShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> documentControlShrink{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<string> filename{};
+  shared_ptr<long> imageEmbedJpegQuality{};
+  shared_ptr<long> imageEmbedLevel{};
+  shared_ptr<string> videoBitrate{};
+  shared_ptr<bool> videoIsLong{};
+  shared_ptr<string> wmInfoBytesB64{};
+  shared_ptr<long> wmInfoSize{};
+  shared_ptr<string> wmInfoUint{};
+  shared_ptr<string> wmType{};
+
+  CreateWmEmbedTaskShrinkRequest() {}
+
+  explicit CreateWmEmbedTaskShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (documentControlShrink) {
+      res["DocumentControl"] = boost::any(*documentControlShrink);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (filename) {
+      res["Filename"] = boost::any(*filename);
+    }
+    if (imageEmbedJpegQuality) {
+      res["ImageEmbedJpegQuality"] = boost::any(*imageEmbedJpegQuality);
+    }
+    if (imageEmbedLevel) {
+      res["ImageEmbedLevel"] = boost::any(*imageEmbedLevel);
+    }
+    if (videoBitrate) {
+      res["VideoBitrate"] = boost::any(*videoBitrate);
+    }
+    if (videoIsLong) {
+      res["VideoIsLong"] = boost::any(*videoIsLong);
+    }
+    if (wmInfoBytesB64) {
+      res["WmInfoBytesB64"] = boost::any(*wmInfoBytesB64);
+    }
+    if (wmInfoSize) {
+      res["WmInfoSize"] = boost::any(*wmInfoSize);
+    }
+    if (wmInfoUint) {
+      res["WmInfoUint"] = boost::any(*wmInfoUint);
+    }
+    if (wmType) {
+      res["WmType"] = boost::any(*wmType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DocumentControl") != m.end() && !m["DocumentControl"].empty()) {
+      documentControlShrink = make_shared<string>(boost::any_cast<string>(m["DocumentControl"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
+      filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
+    }
+    if (m.find("ImageEmbedJpegQuality") != m.end() && !m["ImageEmbedJpegQuality"].empty()) {
+      imageEmbedJpegQuality = make_shared<long>(boost::any_cast<long>(m["ImageEmbedJpegQuality"]));
+    }
+    if (m.find("ImageEmbedLevel") != m.end() && !m["ImageEmbedLevel"].empty()) {
+      imageEmbedLevel = make_shared<long>(boost::any_cast<long>(m["ImageEmbedLevel"]));
+    }
+    if (m.find("VideoBitrate") != m.end() && !m["VideoBitrate"].empty()) {
+      videoBitrate = make_shared<string>(boost::any_cast<string>(m["VideoBitrate"]));
+    }
+    if (m.find("VideoIsLong") != m.end() && !m["VideoIsLong"].empty()) {
+      videoIsLong = make_shared<bool>(boost::any_cast<bool>(m["VideoIsLong"]));
+    }
+    if (m.find("WmInfoBytesB64") != m.end() && !m["WmInfoBytesB64"].empty()) {
+      wmInfoBytesB64 = make_shared<string>(boost::any_cast<string>(m["WmInfoBytesB64"]));
+    }
+    if (m.find("WmInfoSize") != m.end() && !m["WmInfoSize"].empty()) {
+      wmInfoSize = make_shared<long>(boost::any_cast<long>(m["WmInfoSize"]));
+    }
+    if (m.find("WmInfoUint") != m.end() && !m["WmInfoUint"].empty()) {
+      wmInfoUint = make_shared<string>(boost::any_cast<string>(m["WmInfoUint"]));
+    }
+    if (m.find("WmType") != m.end() && !m["WmType"].empty()) {
+      wmType = make_shared<string>(boost::any_cast<string>(m["WmType"]));
+    }
+  }
+
+
+  virtual ~CreateWmEmbedTaskShrinkRequest() = default;
+};
+class CreateWmEmbedTaskResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+
+  CreateWmEmbedTaskResponseBodyData() {}
+
+  explicit CreateWmEmbedTaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~CreateWmEmbedTaskResponseBodyData() = default;
+};
+class CreateWmEmbedTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CreateWmEmbedTaskResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  CreateWmEmbedTaskResponseBody() {}
+
+  explicit CreateWmEmbedTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateWmEmbedTaskResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateWmEmbedTaskResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateWmEmbedTaskResponseBody() = default;
+};
+class CreateWmEmbedTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateWmEmbedTaskResponseBody> body{};
+
+  CreateWmEmbedTaskResponse() {}
+
+  explicit CreateWmEmbedTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateWmEmbedTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateWmEmbedTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateWmEmbedTaskResponse() = default;
+};
+class CreateWmExtractTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> documentIsCapture{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<string> filename{};
+  shared_ptr<bool> videoIsLong{};
+  shared_ptr<string> videoSpeed{};
+  shared_ptr<long> wmInfoSize{};
+  shared_ptr<string> wmType{};
+
+  CreateWmExtractTaskRequest() {}
+
+  explicit CreateWmExtractTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (documentIsCapture) {
+      res["DocumentIsCapture"] = boost::any(*documentIsCapture);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (filename) {
+      res["Filename"] = boost::any(*filename);
+    }
+    if (videoIsLong) {
+      res["VideoIsLong"] = boost::any(*videoIsLong);
+    }
+    if (videoSpeed) {
+      res["VideoSpeed"] = boost::any(*videoSpeed);
+    }
+    if (wmInfoSize) {
+      res["WmInfoSize"] = boost::any(*wmInfoSize);
+    }
+    if (wmType) {
+      res["WmType"] = boost::any(*wmType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DocumentIsCapture") != m.end() && !m["DocumentIsCapture"].empty()) {
+      documentIsCapture = make_shared<bool>(boost::any_cast<bool>(m["DocumentIsCapture"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
+      filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
+    }
+    if (m.find("VideoIsLong") != m.end() && !m["VideoIsLong"].empty()) {
+      videoIsLong = make_shared<bool>(boost::any_cast<bool>(m["VideoIsLong"]));
+    }
+    if (m.find("VideoSpeed") != m.end() && !m["VideoSpeed"].empty()) {
+      videoSpeed = make_shared<string>(boost::any_cast<string>(m["VideoSpeed"]));
+    }
+    if (m.find("WmInfoSize") != m.end() && !m["WmInfoSize"].empty()) {
+      wmInfoSize = make_shared<long>(boost::any_cast<long>(m["WmInfoSize"]));
+    }
+    if (m.find("WmType") != m.end() && !m["WmType"].empty()) {
+      wmType = make_shared<string>(boost::any_cast<string>(m["WmType"]));
+    }
+  }
+
+
+  virtual ~CreateWmExtractTaskRequest() = default;
+};
+class CreateWmExtractTaskResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+
+  CreateWmExtractTaskResponseBodyData() {}
+
+  explicit CreateWmExtractTaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~CreateWmExtractTaskResponseBodyData() = default;
+};
+class CreateWmExtractTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CreateWmExtractTaskResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  CreateWmExtractTaskResponseBody() {}
+
+  explicit CreateWmExtractTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateWmExtractTaskResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateWmExtractTaskResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateWmExtractTaskResponseBody() = default;
+};
+class CreateWmExtractTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateWmExtractTaskResponseBody> body{};
+
+  CreateWmExtractTaskResponse() {}
+
+  explicit CreateWmExtractTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateWmExtractTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateWmExtractTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateWmExtractTaskResponse() = default;
+};
+class CreateWmInfoMappingRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> wmInfoBytesB64{};
+  shared_ptr<long> wmInfoSize{};
+  shared_ptr<string> wmType{};
+
+  CreateWmInfoMappingRequest() {}
+
+  explicit CreateWmInfoMappingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (wmInfoBytesB64) {
+      res["WmInfoBytesB64"] = boost::any(*wmInfoBytesB64);
+    }
+    if (wmInfoSize) {
+      res["WmInfoSize"] = boost::any(*wmInfoSize);
+    }
+    if (wmType) {
+      res["WmType"] = boost::any(*wmType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WmInfoBytesB64") != m.end() && !m["WmInfoBytesB64"].empty()) {
+      wmInfoBytesB64 = make_shared<string>(boost::any_cast<string>(m["WmInfoBytesB64"]));
+    }
+    if (m.find("WmInfoSize") != m.end() && !m["WmInfoSize"].empty()) {
+      wmInfoSize = make_shared<long>(boost::any_cast<long>(m["WmInfoSize"]));
+    }
+    if (m.find("WmType") != m.end() && !m["WmType"].empty()) {
+      wmType = make_shared<string>(boost::any_cast<string>(m["WmType"]));
+    }
+  }
+
+
+  virtual ~CreateWmInfoMappingRequest() = default;
+};
+class CreateWmInfoMappingResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> wmInfoUint{};
+
+  CreateWmInfoMappingResponseBodyData() {}
+
+  explicit CreateWmInfoMappingResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (wmInfoUint) {
+      res["WmInfoUint"] = boost::any(*wmInfoUint);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WmInfoUint") != m.end() && !m["WmInfoUint"].empty()) {
+      wmInfoUint = make_shared<long>(boost::any_cast<long>(m["WmInfoUint"]));
+    }
+  }
+
+
+  virtual ~CreateWmInfoMappingResponseBodyData() = default;
+};
+class CreateWmInfoMappingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CreateWmInfoMappingResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  CreateWmInfoMappingResponseBody() {}
+
+  explicit CreateWmInfoMappingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateWmInfoMappingResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateWmInfoMappingResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateWmInfoMappingResponseBody() = default;
+};
+class CreateWmInfoMappingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateWmInfoMappingResponseBody> body{};
+
+  CreateWmInfoMappingResponse() {}
+
+  explicit CreateWmInfoMappingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateWmInfoMappingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateWmInfoMappingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateWmInfoMappingResponse() = default;
+};
 class DeleteClientUserRequest : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
@@ -6013,6 +7131,397 @@ public:
 
 
   virtual ~GetUserGroupResponse() = default;
+};
+class GetWmEmbedTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+
+  GetWmEmbedTaskRequest() {}
+
+  explicit GetWmEmbedTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~GetWmEmbedTaskRequest() = default;
+};
+class GetWmEmbedTaskResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> fileUrl{};
+  shared_ptr<string> fileUrlExp{};
+  shared_ptr<string> filename{};
+  shared_ptr<string> outFileHashMd5{};
+  shared_ptr<long> outFileSize{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskStatus{};
+
+  GetWmEmbedTaskResponseBodyData() {}
+
+  explicit GetWmEmbedTaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (fileUrlExp) {
+      res["FileUrlExp"] = boost::any(*fileUrlExp);
+    }
+    if (filename) {
+      res["Filename"] = boost::any(*filename);
+    }
+    if (outFileHashMd5) {
+      res["OutFileHashMd5"] = boost::any(*outFileHashMd5);
+    }
+    if (outFileSize) {
+      res["OutFileSize"] = boost::any(*outFileSize);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskStatus) {
+      res["TaskStatus"] = boost::any(*taskStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("FileUrlExp") != m.end() && !m["FileUrlExp"].empty()) {
+      fileUrlExp = make_shared<string>(boost::any_cast<string>(m["FileUrlExp"]));
+    }
+    if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
+      filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
+    }
+    if (m.find("OutFileHashMd5") != m.end() && !m["OutFileHashMd5"].empty()) {
+      outFileHashMd5 = make_shared<string>(boost::any_cast<string>(m["OutFileHashMd5"]));
+    }
+    if (m.find("OutFileSize") != m.end() && !m["OutFileSize"].empty()) {
+      outFileSize = make_shared<long>(boost::any_cast<long>(m["OutFileSize"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskStatus") != m.end() && !m["TaskStatus"].empty()) {
+      taskStatus = make_shared<string>(boost::any_cast<string>(m["TaskStatus"]));
+    }
+  }
+
+
+  virtual ~GetWmEmbedTaskResponseBodyData() = default;
+};
+class GetWmEmbedTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetWmEmbedTaskResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  GetWmEmbedTaskResponseBody() {}
+
+  explicit GetWmEmbedTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetWmEmbedTaskResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetWmEmbedTaskResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetWmEmbedTaskResponseBody() = default;
+};
+class GetWmEmbedTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetWmEmbedTaskResponseBody> body{};
+
+  GetWmEmbedTaskResponse() {}
+
+  explicit GetWmEmbedTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetWmEmbedTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetWmEmbedTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetWmEmbedTaskResponse() = default;
+};
+class GetWmExtractTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+
+  GetWmExtractTaskRequest() {}
+
+  explicit GetWmExtractTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~GetWmExtractTaskRequest() = default;
+};
+class GetWmExtractTaskResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> filename{};
+  shared_ptr<string> status{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> wmInfoBytesB64{};
+  shared_ptr<long> wmInfoSize{};
+  shared_ptr<long> wmInfoUint{};
+  shared_ptr<string> wmType{};
+
+  GetWmExtractTaskResponseBodyData() {}
+
+  explicit GetWmExtractTaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (filename) {
+      res["Filename"] = boost::any(*filename);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (wmInfoBytesB64) {
+      res["WmInfoBytesB64"] = boost::any(*wmInfoBytesB64);
+    }
+    if (wmInfoSize) {
+      res["WmInfoSize"] = boost::any(*wmInfoSize);
+    }
+    if (wmInfoUint) {
+      res["WmInfoUint"] = boost::any(*wmInfoUint);
+    }
+    if (wmType) {
+      res["WmType"] = boost::any(*wmType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
+      filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("WmInfoBytesB64") != m.end() && !m["WmInfoBytesB64"].empty()) {
+      wmInfoBytesB64 = make_shared<string>(boost::any_cast<string>(m["WmInfoBytesB64"]));
+    }
+    if (m.find("WmInfoSize") != m.end() && !m["WmInfoSize"].empty()) {
+      wmInfoSize = make_shared<long>(boost::any_cast<long>(m["WmInfoSize"]));
+    }
+    if (m.find("WmInfoUint") != m.end() && !m["WmInfoUint"].empty()) {
+      wmInfoUint = make_shared<long>(boost::any_cast<long>(m["WmInfoUint"]));
+    }
+    if (m.find("WmType") != m.end() && !m["WmType"].empty()) {
+      wmType = make_shared<string>(boost::any_cast<string>(m["WmType"]));
+    }
+  }
+
+
+  virtual ~GetWmExtractTaskResponseBodyData() = default;
+};
+class GetWmExtractTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetWmExtractTaskResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  GetWmExtractTaskResponseBody() {}
+
+  explicit GetWmExtractTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetWmExtractTaskResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetWmExtractTaskResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetWmExtractTaskResponseBody() = default;
+};
+class GetWmExtractTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetWmExtractTaskResponseBody> body{};
+
+  GetWmExtractTaskResponse() {}
+
+  explicit GetWmExtractTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetWmExtractTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetWmExtractTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetWmExtractTaskResponse() = default;
 };
 class ListApplicationsForPrivateAccessPolicyRequest : public Darabonba::Model {
 public:
@@ -14684,6 +16193,170 @@ public:
 
   virtual ~ListUsersResponse() = default;
 };
+class LookupWmInfoMappingRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> wmInfoSize{};
+  shared_ptr<string> wmInfoUint{};
+  shared_ptr<string> wmType{};
+
+  LookupWmInfoMappingRequest() {}
+
+  explicit LookupWmInfoMappingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (wmInfoSize) {
+      res["WmInfoSize"] = boost::any(*wmInfoSize);
+    }
+    if (wmInfoUint) {
+      res["WmInfoUint"] = boost::any(*wmInfoUint);
+    }
+    if (wmType) {
+      res["WmType"] = boost::any(*wmType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WmInfoSize") != m.end() && !m["WmInfoSize"].empty()) {
+      wmInfoSize = make_shared<long>(boost::any_cast<long>(m["WmInfoSize"]));
+    }
+    if (m.find("WmInfoUint") != m.end() && !m["WmInfoUint"].empty()) {
+      wmInfoUint = make_shared<string>(boost::any_cast<string>(m["WmInfoUint"]));
+    }
+    if (m.find("WmType") != m.end() && !m["WmType"].empty()) {
+      wmType = make_shared<string>(boost::any_cast<string>(m["WmType"]));
+    }
+  }
+
+
+  virtual ~LookupWmInfoMappingRequest() = default;
+};
+class LookupWmInfoMappingResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> wmInfoBytesB64{};
+
+  LookupWmInfoMappingResponseBodyData() {}
+
+  explicit LookupWmInfoMappingResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (wmInfoBytesB64) {
+      res["WmInfoBytesB64"] = boost::any(*wmInfoBytesB64);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WmInfoBytesB64") != m.end() && !m["WmInfoBytesB64"].empty()) {
+      wmInfoBytesB64 = make_shared<string>(boost::any_cast<string>(m["WmInfoBytesB64"]));
+    }
+  }
+
+
+  virtual ~LookupWmInfoMappingResponseBodyData() = default;
+};
+class LookupWmInfoMappingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<LookupWmInfoMappingResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  LookupWmInfoMappingResponseBody() {}
+
+  explicit LookupWmInfoMappingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        LookupWmInfoMappingResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<LookupWmInfoMappingResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~LookupWmInfoMappingResponseBody() = default;
+};
+class LookupWmInfoMappingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<LookupWmInfoMappingResponseBody> body{};
+
+  LookupWmInfoMappingResponse() {}
+
+  explicit LookupWmInfoMappingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        LookupWmInfoMappingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<LookupWmInfoMappingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~LookupWmInfoMappingResponse() = default;
+};
 class RevokeUserSessionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> externalIds{};
@@ -17939,6 +19612,14 @@ public:
   CreateRegistrationPolicyResponse createRegistrationPolicy(shared_ptr<CreateRegistrationPolicyRequest> request);
   CreateUserGroupResponse createUserGroupWithOptions(shared_ptr<CreateUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateUserGroupResponse createUserGroup(shared_ptr<CreateUserGroupRequest> request);
+  CreateWmBaseImageResponse createWmBaseImageWithOptions(shared_ptr<CreateWmBaseImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateWmBaseImageResponse createWmBaseImage(shared_ptr<CreateWmBaseImageRequest> request);
+  CreateWmEmbedTaskResponse createWmEmbedTaskWithOptions(shared_ptr<CreateWmEmbedTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateWmEmbedTaskResponse createWmEmbedTask(shared_ptr<CreateWmEmbedTaskRequest> request);
+  CreateWmExtractTaskResponse createWmExtractTaskWithOptions(shared_ptr<CreateWmExtractTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateWmExtractTaskResponse createWmExtractTask(shared_ptr<CreateWmExtractTaskRequest> request);
+  CreateWmInfoMappingResponse createWmInfoMappingWithOptions(shared_ptr<CreateWmInfoMappingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateWmInfoMappingResponse createWmInfoMapping(shared_ptr<CreateWmInfoMappingRequest> request);
   DeleteClientUserResponse deleteClientUserWithOptions(shared_ptr<DeleteClientUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteClientUserResponse deleteClientUser(shared_ptr<DeleteClientUserRequest> request);
   DeleteDynamicRouteResponse deleteDynamicRouteWithOptions(shared_ptr<DeleteDynamicRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -17979,6 +19660,10 @@ public:
   GetUserDeviceResponse getUserDevice(shared_ptr<GetUserDeviceRequest> request);
   GetUserGroupResponse getUserGroupWithOptions(shared_ptr<GetUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetUserGroupResponse getUserGroup(shared_ptr<GetUserGroupRequest> request);
+  GetWmEmbedTaskResponse getWmEmbedTaskWithOptions(shared_ptr<GetWmEmbedTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetWmEmbedTaskResponse getWmEmbedTask(shared_ptr<GetWmEmbedTaskRequest> request);
+  GetWmExtractTaskResponse getWmExtractTaskWithOptions(shared_ptr<GetWmExtractTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetWmExtractTaskResponse getWmExtractTask(shared_ptr<GetWmExtractTaskRequest> request);
   ListApplicationsForPrivateAccessPolicyResponse listApplicationsForPrivateAccessPolicyWithOptions(shared_ptr<ListApplicationsForPrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListApplicationsForPrivateAccessPolicyResponse listApplicationsForPrivateAccessPolicy(shared_ptr<ListApplicationsForPrivateAccessPolicyRequest> request);
   ListApplicationsForPrivateAccessTagResponse listApplicationsForPrivateAccessTagWithOptions(shared_ptr<ListApplicationsForPrivateAccessTagRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -18035,6 +19720,8 @@ public:
   ListUserGroupsForRegistrationPolicyResponse listUserGroupsForRegistrationPolicy(shared_ptr<ListUserGroupsForRegistrationPolicyRequest> request);
   ListUsersResponse listUsersWithOptions(shared_ptr<ListUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListUsersResponse listUsers(shared_ptr<ListUsersRequest> request);
+  LookupWmInfoMappingResponse lookupWmInfoMappingWithOptions(shared_ptr<LookupWmInfoMappingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  LookupWmInfoMappingResponse lookupWmInfoMapping(shared_ptr<LookupWmInfoMappingRequest> request);
   RevokeUserSessionResponse revokeUserSessionWithOptions(shared_ptr<RevokeUserSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RevokeUserSessionResponse revokeUserSession(shared_ptr<RevokeUserSessionRequest> request);
   UpdateClientUserResponse updateClientUserWithOptions(shared_ptr<UpdateClientUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
