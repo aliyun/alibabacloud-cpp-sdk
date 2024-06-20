@@ -2418,6 +2418,15 @@ StartCloudRecordResponse Alibabacloud_Rtc20180111::Client::startCloudRecordWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->channelId)) {
     query->insert(pair<string, string>("ChannelId", *request->channelId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<StartCloudRecordRequestClockWidgets>>(request->clockWidgets)) {
+    query->insert(pair<string, vector<StartCloudRecordRequestClockWidgets>>("ClockWidgets", *request->clockWidgets));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cropMode)) {
+    query->insert(pair<string, long>("CropMode", *request->cropMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<StartCloudRecordRequestImages>>(request->images)) {
+    query->insert(pair<string, vector<StartCloudRecordRequestImages>>("Images", *request->images));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<StartCloudRecordRequestPanes>>(request->panes)) {
     query->insert(pair<string, vector<StartCloudRecordRequestPanes>>("Panes", *request->panes));
   }
@@ -2429,6 +2438,9 @@ StartCloudRecordResponse Alibabacloud_Rtc20180111::Client::startCloudRecordWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<StartCloudRecordRequestTexts>>(request->texts)) {
+    query->insert(pair<string, vector<StartCloudRecordRequestTexts>>("Texts", *request->texts));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2665,6 +2677,15 @@ StartStreamingOutResponse Alibabacloud_Rtc20180111::Client::startStreamingOutWit
   if (!Darabonba_Util::Client::isUnset<string>(request->channelId)) {
     query->insert(pair<string, string>("ChannelId", *request->channelId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<StartStreamingOutRequestClockWidgets>>(request->clockWidgets)) {
+    query->insert(pair<string, vector<StartStreamingOutRequestClockWidgets>>("ClockWidgets", *request->clockWidgets));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cropMode)) {
+    query->insert(pair<string, long>("CropMode", *request->cropMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<StartStreamingOutRequestImages>>(request->images)) {
+    query->insert(pair<string, vector<StartStreamingOutRequestImages>>("Images", *request->images));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<StartStreamingOutRequestPanes>>(request->panes)) {
     query->insert(pair<string, vector<StartStreamingOutRequestPanes>>("Panes", *request->panes));
   }
@@ -2673,6 +2694,9 @@ StartStreamingOutResponse Alibabacloud_Rtc20180111::Client::startStreamingOutWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<StartStreamingOutRequestTexts>>(request->texts)) {
+    query->insert(pair<string, vector<StartStreamingOutRequestTexts>>("Texts", *request->texts));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
     query->insert(pair<string, string>("Url", *request->url));
@@ -2916,6 +2940,55 @@ UpdateAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::updateAutoLiv
 UpdateAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::updateAutoLiveStreamRule(shared_ptr<UpdateAutoLiveStreamRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateAutoLiveStreamRuleWithOptions(request, runtime);
+}
+
+UpdateCloudRecordResponse Alibabacloud_Rtc20180111::Client::updateCloudRecordWithOptions(shared_ptr<UpdateCloudRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->channelId)) {
+    query->insert(pair<string, string>("ChannelId", *request->channelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateCloudRecordRequestClockWidgets>>(request->clockWidgets)) {
+    query->insert(pair<string, vector<UpdateCloudRecordRequestClockWidgets>>("ClockWidgets", *request->clockWidgets));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateCloudRecordRequestImages>>(request->images)) {
+    query->insert(pair<string, vector<UpdateCloudRecordRequestImages>>("Images", *request->images));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateCloudRecordRequestPanes>>(request->panes)) {
+    query->insert(pair<string, vector<UpdateCloudRecordRequestPanes>>("Panes", *request->panes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
+    query->insert(pair<string, string>("TemplateId", *request->templateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateCloudRecordRequestTexts>>(request->texts)) {
+    query->insert(pair<string, vector<UpdateCloudRecordRequestTexts>>("Texts", *request->texts));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCloudRecord"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCloudRecordResponse(callApi(params, req, runtime));
+}
+
+UpdateCloudRecordResponse Alibabacloud_Rtc20180111::Client::updateCloudRecord(shared_ptr<UpdateCloudRecordRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCloudRecordWithOptions(request, runtime);
 }
 
 UpdateMPUTaskResponse Alibabacloud_Rtc20180111::Client::updateMPUTaskWithOptions(shared_ptr<UpdateMPUTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3165,5 +3238,54 @@ UpdateRecordTemplateResponse Alibabacloud_Rtc20180111::Client::updateRecordTempl
 UpdateRecordTemplateResponse Alibabacloud_Rtc20180111::Client::updateRecordTemplate(shared_ptr<UpdateRecordTemplateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateRecordTemplateWithOptions(request, runtime);
+}
+
+UpdateStreamingOutResponse Alibabacloud_Rtc20180111::Client::updateStreamingOutWithOptions(shared_ptr<UpdateStreamingOutRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->channelId)) {
+    query->insert(pair<string, string>("ChannelId", *request->channelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateStreamingOutRequestClockWidgets>>(request->clockWidgets)) {
+    query->insert(pair<string, vector<UpdateStreamingOutRequestClockWidgets>>("ClockWidgets", *request->clockWidgets));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateStreamingOutRequestImages>>(request->images)) {
+    query->insert(pair<string, vector<UpdateStreamingOutRequestImages>>("Images", *request->images));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateStreamingOutRequestPanes>>(request->panes)) {
+    query->insert(pair<string, vector<UpdateStreamingOutRequestPanes>>("Panes", *request->panes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
+    query->insert(pair<string, string>("TemplateId", *request->templateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateStreamingOutRequestTexts>>(request->texts)) {
+    query->insert(pair<string, vector<UpdateStreamingOutRequestTexts>>("Texts", *request->texts));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateStreamingOut"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateStreamingOutResponse(callApi(params, req, runtime));
+}
+
+UpdateStreamingOutResponse Alibabacloud_Rtc20180111::Client::updateStreamingOut(shared_ptr<UpdateStreamingOutRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateStreamingOutWithOptions(request, runtime);
 }
 
