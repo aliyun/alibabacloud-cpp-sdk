@@ -190,6 +190,40 @@ AttachSceneDefenseObjectResponse Alibabacloud_Ddoscoo20200101::Client::attachSce
   return attachSceneDefenseObjectWithOptions(request, runtime);
 }
 
+ConfigDomainSecurityProfileResponse Alibabacloud_Ddoscoo20200101::Client::configDomainSecurityProfileWithOptions(shared_ptr<ConfigDomainSecurityProfileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cluster)) {
+    query->insert(pair<string, string>("Cluster", *request->cluster));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->config)) {
+    query->insert(pair<string, string>("Config", *request->config));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ConfigDomainSecurityProfile"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ConfigDomainSecurityProfileResponse(callApi(params, req, runtime));
+}
+
+ConfigDomainSecurityProfileResponse Alibabacloud_Ddoscoo20200101::Client::configDomainSecurityProfile(shared_ptr<ConfigDomainSecurityProfileRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return configDomainSecurityProfileWithOptions(request, runtime);
+}
+
 ConfigL7RsPolicyResponse Alibabacloud_Ddoscoo20200101::Client::configL7RsPolicyWithOptions(shared_ptr<ConfigL7RsPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -225,6 +259,37 @@ ConfigL7RsPolicyResponse Alibabacloud_Ddoscoo20200101::Client::configL7RsPolicyW
 ConfigL7RsPolicyResponse Alibabacloud_Ddoscoo20200101::Client::configL7RsPolicy(shared_ptr<ConfigL7RsPolicyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return configL7RsPolicyWithOptions(request, runtime);
+}
+
+ConfigL7UsKeepaliveResponse Alibabacloud_Ddoscoo20200101::Client::configL7UsKeepaliveWithOptions(shared_ptr<ConfigL7UsKeepaliveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->upstreamKeepalive)) {
+    query->insert(pair<string, string>("UpstreamKeepalive", *request->upstreamKeepalive));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ConfigL7UsKeepalive"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ConfigL7UsKeepaliveResponse(callApi(params, req, runtime));
+}
+
+ConfigL7UsKeepaliveResponse Alibabacloud_Ddoscoo20200101::Client::configL7UsKeepalive(shared_ptr<ConfigL7UsKeepaliveRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return configL7UsKeepaliveWithOptions(request, runtime);
 }
 
 ConfigLayer4RealLimitResponse Alibabacloud_Ddoscoo20200101::Client::configLayer4RealLimitWithOptions(shared_ptr<ConfigLayer4RealLimitRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2962,6 +3027,34 @@ DescribeL7RsPolicyResponse Alibabacloud_Ddoscoo20200101::Client::describeL7RsPol
 DescribeL7RsPolicyResponse Alibabacloud_Ddoscoo20200101::Client::describeL7RsPolicy(shared_ptr<DescribeL7RsPolicyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeL7RsPolicyWithOptions(request, runtime);
+}
+
+DescribeL7UsKeepaliveResponse Alibabacloud_Ddoscoo20200101::Client::describeL7UsKeepaliveWithOptions(shared_ptr<DescribeL7UsKeepaliveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeL7UsKeepalive"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeL7UsKeepaliveResponse(callApi(params, req, runtime));
+}
+
+DescribeL7UsKeepaliveResponse Alibabacloud_Ddoscoo20200101::Client::describeL7UsKeepalive(shared_ptr<DescribeL7UsKeepaliveRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeL7UsKeepaliveWithOptions(request, runtime);
 }
 
 DescribeLayer4RulePolicyResponse Alibabacloud_Ddoscoo20200101::Client::describeLayer4RulePolicyWithOptions(shared_ptr<DescribeLayer4RulePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

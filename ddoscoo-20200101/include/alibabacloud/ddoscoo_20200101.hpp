@@ -551,6 +551,130 @@ public:
 
   virtual ~AttachSceneDefenseObjectResponse() = default;
 };
+class ConfigDomainSecurityProfileRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cluster{};
+  shared_ptr<string> config{};
+  shared_ptr<string> domain{};
+
+  ConfigDomainSecurityProfileRequest() {}
+
+  explicit ConfigDomainSecurityProfileRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cluster) {
+      res["Cluster"] = boost::any(*cluster);
+    }
+    if (config) {
+      res["Config"] = boost::any(*config);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cluster") != m.end() && !m["Cluster"].empty()) {
+      cluster = make_shared<string>(boost::any_cast<string>(m["Cluster"]));
+    }
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+  }
+
+
+  virtual ~ConfigDomainSecurityProfileRequest() = default;
+};
+class ConfigDomainSecurityProfileResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ConfigDomainSecurityProfileResponseBody() {}
+
+  explicit ConfigDomainSecurityProfileResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ConfigDomainSecurityProfileResponseBody() = default;
+};
+class ConfigDomainSecurityProfileResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ConfigDomainSecurityProfileResponseBody> body{};
+
+  ConfigDomainSecurityProfileResponse() {}
+
+  explicit ConfigDomainSecurityProfileResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ConfigDomainSecurityProfileResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ConfigDomainSecurityProfileResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ConfigDomainSecurityProfileResponse() = default;
+};
 class ConfigL7RsPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domain{};
@@ -681,6 +805,123 @@ public:
 
 
   virtual ~ConfigL7RsPolicyResponse() = default;
+};
+class ConfigL7UsKeepaliveRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> upstreamKeepalive{};
+
+  ConfigL7UsKeepaliveRequest() {}
+
+  explicit ConfigL7UsKeepaliveRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (upstreamKeepalive) {
+      res["UpstreamKeepalive"] = boost::any(*upstreamKeepalive);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("UpstreamKeepalive") != m.end() && !m["UpstreamKeepalive"].empty()) {
+      upstreamKeepalive = make_shared<string>(boost::any_cast<string>(m["UpstreamKeepalive"]));
+    }
+  }
+
+
+  virtual ~ConfigL7UsKeepaliveRequest() = default;
+};
+class ConfigL7UsKeepaliveResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ConfigL7UsKeepaliveResponseBody() {}
+
+  explicit ConfigL7UsKeepaliveResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ConfigL7UsKeepaliveResponseBody() = default;
+};
+class ConfigL7UsKeepaliveResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ConfigL7UsKeepaliveResponseBody> body{};
+
+  ConfigL7UsKeepaliveResponse() {}
+
+  explicit ConfigL7UsKeepaliveResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ConfigL7UsKeepaliveResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ConfigL7UsKeepaliveResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ConfigL7UsKeepaliveResponse() = default;
 };
 class ConfigLayer4RealLimitRequest : public Darabonba::Model {
 public:
@@ -12827,10 +13068,14 @@ public:
 };
 class DescribeInstanceDetailsResponseBodyInstanceDetailsEipInfos : public Darabonba::Model {
 public:
+  shared_ptr<bool> certConfigured{};
   shared_ptr<string> eip{};
+  shared_ptr<string> functionVersion{};
   shared_ptr<string> ipMode{};
   shared_ptr<string> ipVersion{};
+  shared_ptr<bool> ssl13Enabled{};
   shared_ptr<string> status{};
+  shared_ptr<string> tlsVersion{};
 
   DescribeInstanceDetailsResponseBodyInstanceDetailsEipInfos() {}
 
@@ -12842,8 +13087,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (certConfigured) {
+      res["CertConfigured"] = boost::any(*certConfigured);
+    }
     if (eip) {
       res["Eip"] = boost::any(*eip);
+    }
+    if (functionVersion) {
+      res["FunctionVersion"] = boost::any(*functionVersion);
     }
     if (ipMode) {
       res["IpMode"] = boost::any(*ipMode);
@@ -12851,15 +13102,27 @@ public:
     if (ipVersion) {
       res["IpVersion"] = boost::any(*ipVersion);
     }
+    if (ssl13Enabled) {
+      res["Ssl13Enabled"] = boost::any(*ssl13Enabled);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tlsVersion) {
+      res["TlsVersion"] = boost::any(*tlsVersion);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertConfigured") != m.end() && !m["CertConfigured"].empty()) {
+      certConfigured = make_shared<bool>(boost::any_cast<bool>(m["CertConfigured"]));
+    }
     if (m.find("Eip") != m.end() && !m["Eip"].empty()) {
       eip = make_shared<string>(boost::any_cast<string>(m["Eip"]));
+    }
+    if (m.find("FunctionVersion") != m.end() && !m["FunctionVersion"].empty()) {
+      functionVersion = make_shared<string>(boost::any_cast<string>(m["FunctionVersion"]));
     }
     if (m.find("IpMode") != m.end() && !m["IpMode"].empty()) {
       ipMode = make_shared<string>(boost::any_cast<string>(m["IpMode"]));
@@ -12867,8 +13130,14 @@ public:
     if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
       ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
     }
+    if (m.find("Ssl13Enabled") != m.end() && !m["Ssl13Enabled"].empty()) {
+      ssl13Enabled = make_shared<bool>(boost::any_cast<bool>(m["Ssl13Enabled"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TlsVersion") != m.end() && !m["TlsVersion"].empty()) {
+      tlsVersion = make_shared<string>(boost::any_cast<string>(m["TlsVersion"]));
     }
   }
 
@@ -14732,6 +15001,170 @@ public:
 
 
   virtual ~DescribeL7RsPolicyResponse() = default;
+};
+class DescribeL7UsKeepaliveRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+
+  DescribeL7UsKeepaliveRequest() {}
+
+  explicit DescribeL7UsKeepaliveRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+  }
+
+
+  virtual ~DescribeL7UsKeepaliveRequest() = default;
+};
+class DescribeL7UsKeepaliveResponseBodyRsKeepalive : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> keepaliveRequests{};
+  shared_ptr<long> keepaliveTimeout{};
+
+  DescribeL7UsKeepaliveResponseBodyRsKeepalive() {}
+
+  explicit DescribeL7UsKeepaliveResponseBodyRsKeepalive(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (keepaliveRequests) {
+      res["KeepaliveRequests"] = boost::any(*keepaliveRequests);
+    }
+    if (keepaliveTimeout) {
+      res["KeepaliveTimeout"] = boost::any(*keepaliveTimeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("KeepaliveRequests") != m.end() && !m["KeepaliveRequests"].empty()) {
+      keepaliveRequests = make_shared<long>(boost::any_cast<long>(m["KeepaliveRequests"]));
+    }
+    if (m.find("KeepaliveTimeout") != m.end() && !m["KeepaliveTimeout"].empty()) {
+      keepaliveTimeout = make_shared<long>(boost::any_cast<long>(m["KeepaliveTimeout"]));
+    }
+  }
+
+
+  virtual ~DescribeL7UsKeepaliveResponseBodyRsKeepalive() = default;
+};
+class DescribeL7UsKeepaliveResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<DescribeL7UsKeepaliveResponseBodyRsKeepalive> rsKeepalive{};
+
+  DescribeL7UsKeepaliveResponseBody() {}
+
+  explicit DescribeL7UsKeepaliveResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (rsKeepalive) {
+      res["RsKeepalive"] = rsKeepalive ? boost::any(rsKeepalive->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RsKeepalive") != m.end() && !m["RsKeepalive"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RsKeepalive"].type()) {
+        DescribeL7UsKeepaliveResponseBodyRsKeepalive model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RsKeepalive"]));
+        rsKeepalive = make_shared<DescribeL7UsKeepaliveResponseBodyRsKeepalive>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeL7UsKeepaliveResponseBody() = default;
+};
+class DescribeL7UsKeepaliveResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeL7UsKeepaliveResponseBody> body{};
+
+  DescribeL7UsKeepaliveResponse() {}
+
+  explicit DescribeL7UsKeepaliveResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeL7UsKeepaliveResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeL7UsKeepaliveResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeL7UsKeepaliveResponse() = default;
 };
 class DescribeLayer4RulePolicyRequest : public Darabonba::Model {
 public:
@@ -31440,8 +31873,12 @@ public:
   AssociateWebCertResponse associateWebCert(shared_ptr<AssociateWebCertRequest> request);
   AttachSceneDefenseObjectResponse attachSceneDefenseObjectWithOptions(shared_ptr<AttachSceneDefenseObjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachSceneDefenseObjectResponse attachSceneDefenseObject(shared_ptr<AttachSceneDefenseObjectRequest> request);
+  ConfigDomainSecurityProfileResponse configDomainSecurityProfileWithOptions(shared_ptr<ConfigDomainSecurityProfileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ConfigDomainSecurityProfileResponse configDomainSecurityProfile(shared_ptr<ConfigDomainSecurityProfileRequest> request);
   ConfigL7RsPolicyResponse configL7RsPolicyWithOptions(shared_ptr<ConfigL7RsPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ConfigL7RsPolicyResponse configL7RsPolicy(shared_ptr<ConfigL7RsPolicyRequest> request);
+  ConfigL7UsKeepaliveResponse configL7UsKeepaliveWithOptions(shared_ptr<ConfigL7UsKeepaliveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ConfigL7UsKeepaliveResponse configL7UsKeepalive(shared_ptr<ConfigL7UsKeepaliveRequest> request);
   ConfigLayer4RealLimitResponse configLayer4RealLimitWithOptions(shared_ptr<ConfigLayer4RealLimitRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ConfigLayer4RealLimitResponse configLayer4RealLimit(shared_ptr<ConfigLayer4RealLimitRequest> request);
   ConfigLayer4RemarkResponse configLayer4RemarkWithOptions(shared_ptr<ConfigLayer4RemarkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -31600,6 +32037,8 @@ public:
   DescribeInstancesResponse describeInstances(shared_ptr<DescribeInstancesRequest> request);
   DescribeL7RsPolicyResponse describeL7RsPolicyWithOptions(shared_ptr<DescribeL7RsPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeL7RsPolicyResponse describeL7RsPolicy(shared_ptr<DescribeL7RsPolicyRequest> request);
+  DescribeL7UsKeepaliveResponse describeL7UsKeepaliveWithOptions(shared_ptr<DescribeL7UsKeepaliveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeL7UsKeepaliveResponse describeL7UsKeepalive(shared_ptr<DescribeL7UsKeepaliveRequest> request);
   DescribeLayer4RulePolicyResponse describeLayer4RulePolicyWithOptions(shared_ptr<DescribeLayer4RulePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeLayer4RulePolicyResponse describeLayer4RulePolicy(shared_ptr<DescribeLayer4RulePolicyRequest> request);
   DescribeLogStoreExistStatusResponse describeLogStoreExistStatusWithOptions(shared_ptr<DescribeLogStoreExistStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
