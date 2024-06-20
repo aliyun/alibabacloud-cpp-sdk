@@ -1939,6 +1939,7 @@ public:
   shared_ptr<string> sourceId{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> uri{};
+  shared_ptr<string> userId{};
   shared_ptr<string> workspaceId{};
 
   CreateDatasetRequest() {}
@@ -1993,6 +1994,9 @@ public:
     }
     if (uri) {
       res["Uri"] = boost::any(*uri);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
@@ -2049,6 +2053,9 @@ public:
     }
     if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
       uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));

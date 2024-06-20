@@ -245,6 +245,9 @@ CreateDatasetResponse Alibabacloud_AIWorkSpace20210204::Client::createDatasetWit
   if (!Darabonba_Util::Client::isUnset<string>(request->uri)) {
     body->insert(pair<string, string>("Uri", *request->uri));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    body->insert(pair<string, string>("UserId", *request->userId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     body->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
   }
