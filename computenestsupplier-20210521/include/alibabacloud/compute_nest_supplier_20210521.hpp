@@ -10515,6 +10515,7 @@ public:
 class UpdateServiceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alarmMetadata{};
+  shared_ptr<string> approvalType{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> deployMetadata{};
   shared_ptr<string> deployType{};
@@ -10530,6 +10531,7 @@ public:
   shared_ptr<vector<UpdateServiceRequestServiceInfo>> serviceInfo{};
   shared_ptr<string> serviceType{};
   shared_ptr<string> serviceVersion{};
+  shared_ptr<string> shareType{};
   shared_ptr<string> tenantType{};
   shared_ptr<long> trialDuration{};
   shared_ptr<UpdateServiceRequestUpdateOption> updateOption{};
@@ -10548,6 +10550,9 @@ public:
     map<string, boost::any> res;
     if (alarmMetadata) {
       res["AlarmMetadata"] = boost::any(*alarmMetadata);
+    }
+    if (approvalType) {
+      res["ApprovalType"] = boost::any(*approvalType);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -10598,6 +10603,9 @@ public:
     if (serviceVersion) {
       res["ServiceVersion"] = boost::any(*serviceVersion);
     }
+    if (shareType) {
+      res["ShareType"] = boost::any(*shareType);
+    }
     if (tenantType) {
       res["TenantType"] = boost::any(*tenantType);
     }
@@ -10619,6 +10627,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AlarmMetadata") != m.end() && !m["AlarmMetadata"].empty()) {
       alarmMetadata = make_shared<string>(boost::any_cast<string>(m["AlarmMetadata"]));
+    }
+    if (m.find("ApprovalType") != m.end() && !m["ApprovalType"].empty()) {
+      approvalType = make_shared<string>(boost::any_cast<string>(m["ApprovalType"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -10674,6 +10685,9 @@ public:
     }
     if (m.find("ServiceVersion") != m.end() && !m["ServiceVersion"].empty()) {
       serviceVersion = make_shared<string>(boost::any_cast<string>(m["ServiceVersion"]));
+    }
+    if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
+      shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
     }
     if (m.find("TenantType") != m.end() && !m["TenantType"].empty()) {
       tenantType = make_shared<string>(boost::any_cast<string>(m["TenantType"]));
@@ -10816,6 +10830,7 @@ public:
 class UpdateServiceShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alarmMetadata{};
+  shared_ptr<string> approvalType{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> deployMetadata{};
   shared_ptr<string> deployType{};
@@ -10831,6 +10846,7 @@ public:
   shared_ptr<vector<UpdateServiceShrinkRequestServiceInfo>> serviceInfo{};
   shared_ptr<string> serviceType{};
   shared_ptr<string> serviceVersion{};
+  shared_ptr<string> shareType{};
   shared_ptr<string> tenantType{};
   shared_ptr<long> trialDuration{};
   shared_ptr<string> updateOptionShrink{};
@@ -10849,6 +10865,9 @@ public:
     map<string, boost::any> res;
     if (alarmMetadata) {
       res["AlarmMetadata"] = boost::any(*alarmMetadata);
+    }
+    if (approvalType) {
+      res["ApprovalType"] = boost::any(*approvalType);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -10899,6 +10918,9 @@ public:
     if (serviceVersion) {
       res["ServiceVersion"] = boost::any(*serviceVersion);
     }
+    if (shareType) {
+      res["ShareType"] = boost::any(*shareType);
+    }
     if (tenantType) {
       res["TenantType"] = boost::any(*tenantType);
     }
@@ -10920,6 +10942,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AlarmMetadata") != m.end() && !m["AlarmMetadata"].empty()) {
       alarmMetadata = make_shared<string>(boost::any_cast<string>(m["AlarmMetadata"]));
+    }
+    if (m.find("ApprovalType") != m.end() && !m["ApprovalType"].empty()) {
+      approvalType = make_shared<string>(boost::any_cast<string>(m["ApprovalType"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -10975,6 +11000,9 @@ public:
     }
     if (m.find("ServiceVersion") != m.end() && !m["ServiceVersion"].empty()) {
       serviceVersion = make_shared<string>(boost::any_cast<string>(m["ServiceVersion"]));
+    }
+    if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
+      shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
     }
     if (m.find("TenantType") != m.end() && !m["TenantType"].empty()) {
       tenantType = make_shared<string>(boost::any_cast<string>(m["TenantType"]));

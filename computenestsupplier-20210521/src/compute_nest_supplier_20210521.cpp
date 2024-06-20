@@ -1323,6 +1323,9 @@ UpdateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateSe
   if (!Darabonba_Util::Client::isUnset<string>(request->alarmMetadata)) {
     query->insert(pair<string, string>("AlarmMetadata", *request->alarmMetadata));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->approvalType)) {
+    query->insert(pair<string, string>("ApprovalType", *request->approvalType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -1367,6 +1370,9 @@ UpdateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateSe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceVersion)) {
     query->insert(pair<string, string>("ServiceVersion", *request->serviceVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shareType)) {
+    query->insert(pair<string, string>("ShareType", *request->shareType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tenantType)) {
     query->insert(pair<string, string>("TenantType", *request->tenantType));
