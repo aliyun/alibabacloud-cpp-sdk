@@ -219,6 +219,9 @@ AddGatewayResponse Alibabacloud_Mse20190531::Client::addGatewayWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
     query->insert(pair<string, string>("ChargeType", *request->chargeType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clbNetworkType)) {
+    query->insert(pair<string, string>("ClbNetworkType", *request->clbNetworkType));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableHardwareAcceleration)) {
     query->insert(pair<string, bool>("EnableHardwareAcceleration", *request->enableHardwareAcceleration));
   }

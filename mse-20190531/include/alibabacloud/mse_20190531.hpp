@@ -2046,6 +2046,7 @@ class AddGatewayRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> chargeType{};
+  shared_ptr<string> clbNetworkType{};
   shared_ptr<bool> enableHardwareAcceleration{};
   shared_ptr<bool> enableSls{};
   shared_ptr<bool> enableXtrace{};
@@ -2082,6 +2083,9 @@ public:
     }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (clbNetworkType) {
+      res["ClbNetworkType"] = boost::any(*clbNetworkType);
     }
     if (enableHardwareAcceleration) {
       res["EnableHardwareAcceleration"] = boost::any(*enableHardwareAcceleration);
@@ -2160,6 +2164,9 @@ public:
     }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("ClbNetworkType") != m.end() && !m["ClbNetworkType"].empty()) {
+      clbNetworkType = make_shared<string>(boost::any_cast<string>(m["ClbNetworkType"]));
     }
     if (m.find("EnableHardwareAcceleration") != m.end() && !m["EnableHardwareAcceleration"].empty()) {
       enableHardwareAcceleration = make_shared<bool>(boost::any_cast<bool>(m["EnableHardwareAcceleration"]));
@@ -2286,6 +2293,7 @@ class AddGatewayShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> chargeType{};
+  shared_ptr<string> clbNetworkType{};
   shared_ptr<bool> enableHardwareAcceleration{};
   shared_ptr<bool> enableSls{};
   shared_ptr<bool> enableXtrace{};
@@ -2322,6 +2330,9 @@ public:
     }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (clbNetworkType) {
+      res["ClbNetworkType"] = boost::any(*clbNetworkType);
     }
     if (enableHardwareAcceleration) {
       res["EnableHardwareAcceleration"] = boost::any(*enableHardwareAcceleration);
@@ -2396,6 +2407,9 @@ public:
     }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("ClbNetworkType") != m.end() && !m["ClbNetworkType"].empty()) {
+      clbNetworkType = make_shared<string>(boost::any_cast<string>(m["ClbNetworkType"]));
     }
     if (m.find("EnableHardwareAcceleration") != m.end() && !m["EnableHardwareAcceleration"].empty()) {
       enableHardwareAcceleration = make_shared<bool>(boost::any_cast<bool>(m["EnableHardwareAcceleration"]));
