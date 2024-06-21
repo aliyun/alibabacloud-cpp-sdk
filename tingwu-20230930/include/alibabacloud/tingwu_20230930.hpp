@@ -197,6 +197,7 @@ public:
   shared_ptr<long> maxKeywords{};
   shared_ptr<bool> nfixEnabled{};
   shared_ptr<bool> ocrAuxiliaryEnabled{};
+  shared_ptr<bool> translateLlmSceneEnabled{};
 
   CreateTaskRequestParametersExtraParams() {}
 
@@ -220,6 +221,9 @@ public:
     if (ocrAuxiliaryEnabled) {
       res["OcrAuxiliaryEnabled"] = boost::any(*ocrAuxiliaryEnabled);
     }
+    if (translateLlmSceneEnabled) {
+      res["TranslateLlmSceneEnabled"] = boost::any(*translateLlmSceneEnabled);
+    }
     return res;
   }
 
@@ -235,6 +239,9 @@ public:
     }
     if (m.find("OcrAuxiliaryEnabled") != m.end() && !m["OcrAuxiliaryEnabled"].empty()) {
       ocrAuxiliaryEnabled = make_shared<bool>(boost::any_cast<bool>(m["OcrAuxiliaryEnabled"]));
+    }
+    if (m.find("TranslateLlmSceneEnabled") != m.end() && !m["TranslateLlmSceneEnabled"].empty()) {
+      translateLlmSceneEnabled = make_shared<bool>(boost::any_cast<bool>(m["TranslateLlmSceneEnabled"]));
     }
   }
 
