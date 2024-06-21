@@ -2947,6 +2947,42 @@ public:
 
   virtual ~CreateChatappMigrationInitiateResponse() = default;
 };
+class CreateChatappTemplateRequestComponentsButtonsSupportedApps : public Darabonba::Model {
+public:
+  shared_ptr<string> packageName{};
+  shared_ptr<string> signatureHash{};
+
+  CreateChatappTemplateRequestComponentsButtonsSupportedApps() {}
+
+  explicit CreateChatappTemplateRequestComponentsButtonsSupportedApps(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (packageName) {
+      res["PackageName"] = boost::any(*packageName);
+    }
+    if (signatureHash) {
+      res["SignatureHash"] = boost::any(*signatureHash);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PackageName") != m.end() && !m["PackageName"].empty()) {
+      packageName = make_shared<string>(boost::any_cast<string>(m["PackageName"]));
+    }
+    if (m.find("SignatureHash") != m.end() && !m["SignatureHash"].empty()) {
+      signatureHash = make_shared<string>(boost::any_cast<string>(m["SignatureHash"]));
+    }
+  }
+
+
+  virtual ~CreateChatappTemplateRequestComponentsButtonsSupportedApps() = default;
+};
 class CreateChatappTemplateRequestComponentsButtons : public Darabonba::Model {
 public:
   shared_ptr<string> autofillText{};
@@ -2958,6 +2994,7 @@ public:
   shared_ptr<string> packageName{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<string> signatureHash{};
+  shared_ptr<vector<CreateChatappTemplateRequestComponentsButtonsSupportedApps>> supportedApps{};
   shared_ptr<string> text{};
   shared_ptr<string> type{};
   shared_ptr<string> url{};
@@ -2999,6 +3036,13 @@ public:
     }
     if (signatureHash) {
       res["SignatureHash"] = boost::any(*signatureHash);
+    }
+    if (supportedApps) {
+      vector<boost::any> temp1;
+      for(auto item1:*supportedApps){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SupportedApps"] = boost::any(temp1);
     }
     if (text) {
       res["Text"] = boost::any(*text);
@@ -3042,6 +3086,19 @@ public:
     }
     if (m.find("SignatureHash") != m.end() && !m["SignatureHash"].empty()) {
       signatureHash = make_shared<string>(boost::any_cast<string>(m["SignatureHash"]));
+    }
+    if (m.find("SupportedApps") != m.end() && !m["SupportedApps"].empty()) {
+      if (typeid(vector<boost::any>) == m["SupportedApps"].type()) {
+        vector<CreateChatappTemplateRequestComponentsButtonsSupportedApps> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SupportedApps"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateChatappTemplateRequestComponentsButtonsSupportedApps model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        supportedApps = make_shared<vector<CreateChatappTemplateRequestComponentsButtonsSupportedApps>>(expect1);
+      }
     }
     if (m.find("Text") != m.end() && !m["Text"].empty()) {
       text = make_shared<string>(boost::any_cast<string>(m["Text"]));
@@ -5304,6 +5361,42 @@ public:
 
   virtual ~GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs() = default;
 };
+class GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps : public Darabonba::Model {
+public:
+  shared_ptr<string> packageName{};
+  shared_ptr<string> signatureHash{};
+
+  GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps() {}
+
+  explicit GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (packageName) {
+      res["PackageName"] = boost::any(*packageName);
+    }
+    if (signatureHash) {
+      res["SignatureHash"] = boost::any(*signatureHash);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PackageName") != m.end() && !m["PackageName"].empty()) {
+      packageName = make_shared<string>(boost::any_cast<string>(m["PackageName"]));
+    }
+    if (m.find("SignatureHash") != m.end() && !m["SignatureHash"].empty()) {
+      signatureHash = make_shared<string>(boost::any_cast<string>(m["SignatureHash"]));
+    }
+  }
+
+
+  virtual ~GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps() = default;
+};
 class GetChatappTemplateDetailResponseBodyDataComponentsButtons : public Darabonba::Model {
 public:
   shared_ptr<string> autofillText{};
@@ -5316,6 +5409,7 @@ public:
   shared_ptr<string> packageName{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<string> signatureHash{};
+  shared_ptr<vector<GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps>> supportedApps{};
   shared_ptr<string> text{};
   shared_ptr<string> type{};
   shared_ptr<string> url{};
@@ -5360,6 +5454,13 @@ public:
     }
     if (signatureHash) {
       res["SignatureHash"] = boost::any(*signatureHash);
+    }
+    if (supportedApps) {
+      vector<boost::any> temp1;
+      for(auto item1:*supportedApps){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SupportedApps"] = boost::any(temp1);
     }
     if (text) {
       res["Text"] = boost::any(*text);
@@ -5410,6 +5511,19 @@ public:
     }
     if (m.find("SignatureHash") != m.end() && !m["SignatureHash"].empty()) {
       signatureHash = make_shared<string>(boost::any_cast<string>(m["SignatureHash"]));
+    }
+    if (m.find("SupportedApps") != m.end() && !m["SupportedApps"].empty()) {
+      if (typeid(vector<boost::any>) == m["SupportedApps"].type()) {
+        vector<GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SupportedApps"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        supportedApps = make_shared<vector<GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps>>(expect1);
+      }
     }
     if (m.find("Text") != m.end() && !m["Text"].empty()) {
       text = make_shared<string>(boost::any_cast<string>(m["Text"]));
@@ -10325,6 +10439,42 @@ public:
 
   virtual ~ListProductCatalogResponse() = default;
 };
+class ModifyChatappTemplateRequestComponentsButtonsSupportedApps : public Darabonba::Model {
+public:
+  shared_ptr<string> packageName{};
+  shared_ptr<string> signatureHash{};
+
+  ModifyChatappTemplateRequestComponentsButtonsSupportedApps() {}
+
+  explicit ModifyChatappTemplateRequestComponentsButtonsSupportedApps(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (packageName) {
+      res["PackageName"] = boost::any(*packageName);
+    }
+    if (signatureHash) {
+      res["SignatureHash"] = boost::any(*signatureHash);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PackageName") != m.end() && !m["PackageName"].empty()) {
+      packageName = make_shared<string>(boost::any_cast<string>(m["PackageName"]));
+    }
+    if (m.find("SignatureHash") != m.end() && !m["SignatureHash"].empty()) {
+      signatureHash = make_shared<string>(boost::any_cast<string>(m["SignatureHash"]));
+    }
+  }
+
+
+  virtual ~ModifyChatappTemplateRequestComponentsButtonsSupportedApps() = default;
+};
 class ModifyChatappTemplateRequestComponentsButtons : public Darabonba::Model {
 public:
   shared_ptr<string> autofillText{};
@@ -10336,6 +10486,7 @@ public:
   shared_ptr<string> packageName{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<string> signatureHash{};
+  shared_ptr<vector<ModifyChatappTemplateRequestComponentsButtonsSupportedApps>> supportedApps{};
   shared_ptr<string> text{};
   shared_ptr<string> type{};
   shared_ptr<string> url{};
@@ -10377,6 +10528,13 @@ public:
     }
     if (signatureHash) {
       res["SignatureHash"] = boost::any(*signatureHash);
+    }
+    if (supportedApps) {
+      vector<boost::any> temp1;
+      for(auto item1:*supportedApps){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SupportedApps"] = boost::any(temp1);
     }
     if (text) {
       res["Text"] = boost::any(*text);
@@ -10420,6 +10578,19 @@ public:
     }
     if (m.find("SignatureHash") != m.end() && !m["SignatureHash"].empty()) {
       signatureHash = make_shared<string>(boost::any_cast<string>(m["SignatureHash"]));
+    }
+    if (m.find("SupportedApps") != m.end() && !m["SupportedApps"].empty()) {
+      if (typeid(vector<boost::any>) == m["SupportedApps"].type()) {
+        vector<ModifyChatappTemplateRequestComponentsButtonsSupportedApps> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SupportedApps"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyChatappTemplateRequestComponentsButtonsSupportedApps model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        supportedApps = make_shared<vector<ModifyChatappTemplateRequestComponentsButtonsSupportedApps>>(expect1);
+      }
     }
     if (m.find("Text") != m.end() && !m["Text"].empty()) {
       text = make_shared<string>(boost::any_cast<string>(m["Text"]));
