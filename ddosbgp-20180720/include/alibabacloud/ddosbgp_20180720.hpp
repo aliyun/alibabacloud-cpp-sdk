@@ -382,7 +382,6 @@ public:
   shared_ptr<vector<AttachAssetGroupToInstanceRequestAssetGroupList>> assetGroupList{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
-  shared_ptr<string> sourceIp{};
 
   AttachAssetGroupToInstanceRequest() {}
 
@@ -407,9 +406,6 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
-    if (sourceIp) {
-      res["SourceIp"] = boost::any(*sourceIp);
-    }
     return res;
   }
 
@@ -433,9 +429,6 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
-    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
-      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
-    }
   }
 
 
@@ -446,7 +439,6 @@ public:
   shared_ptr<string> assetGroupListShrink{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
-  shared_ptr<string> sourceIp{};
 
   AttachAssetGroupToInstanceShrinkRequest() {}
 
@@ -467,9 +459,6 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
-    if (sourceIp) {
-      res["SourceIp"] = boost::any(*sourceIp);
-    }
     return res;
   }
 
@@ -482,9 +471,6 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
-      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
     }
   }
 
@@ -1014,6 +1000,130 @@ public:
 
   virtual ~ConfigSchedruleOnDemandResponse() = default;
 };
+class CreatePolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+
+  CreatePolicyRequest() {}
+
+  explicit CreatePolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreatePolicyRequest() = default;
+};
+class CreatePolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> requestId{};
+
+  CreatePolicyResponseBody() {}
+
+  explicit CreatePolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreatePolicyResponseBody() = default;
+};
+class CreatePolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreatePolicyResponseBody> body{};
+
+  CreatePolicyResponse() {}
+
+  explicit CreatePolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreatePolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreatePolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePolicyResponse() = default;
+};
 class CreateSchedruleOnDemandRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -1463,6 +1573,116 @@ public:
 
   virtual ~DeleteIpResponse() = default;
 };
+class DeletePolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+
+  DeletePolicyRequest() {}
+
+  explicit DeletePolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+  }
+
+
+  virtual ~DeletePolicyRequest() = default;
+};
+class DeletePolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeletePolicyResponseBody() {}
+
+  explicit DeletePolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeletePolicyResponseBody() = default;
+};
+class DeletePolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeletePolicyResponseBody> body{};
+
+  DeletePolicyResponse() {}
+
+  explicit DeletePolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeletePolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeletePolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeletePolicyResponse() = default;
+};
 class DeleteRdMemberListRequestMemberList : public Darabonba::Model {
 public:
   shared_ptr<string> uid{};
@@ -1774,7 +1994,6 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> region{};
   shared_ptr<string> regionId{};
-  shared_ptr<string> sourceIp{};
   shared_ptr<string> type{};
 
   DescribeAssetGroupRequest() {}
@@ -1796,9 +2015,6 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
-    if (sourceIp) {
-      res["SourceIp"] = boost::any(*sourceIp);
-    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -1814,9 +2030,6 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
-      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -1985,7 +2198,6 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> region{};
   shared_ptr<string> regionId{};
-  shared_ptr<string> sourceIp{};
   shared_ptr<string> type{};
 
   DescribeAssetGroupToInstanceRequest() {}
@@ -2013,9 +2225,6 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
-    if (sourceIp) {
-      res["SourceIp"] = boost::any(*sourceIp);
-    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -2037,9 +2246,6 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
-      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -5568,6 +5774,216 @@ public:
 
   virtual ~DescribeTrafficResponse() = default;
 };
+class DetachFromPolicyRequestIpPortProtocolList : public Darabonba::Model {
+public:
+  shared_ptr<string> ip{};
+  shared_ptr<long> port{};
+  shared_ptr<string> protocol{};
+
+  DetachFromPolicyRequestIpPortProtocolList() {}
+
+  explicit DetachFromPolicyRequestIpPortProtocolList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+  }
+
+
+  virtual ~DetachFromPolicyRequestIpPortProtocolList() = default;
+};
+class DetachFromPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<DetachFromPolicyRequestIpPortProtocolList>> ipPortProtocolList{};
+  shared_ptr<string> policyType{};
+
+  DetachFromPolicyRequest() {}
+
+  explicit DetachFromPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipPortProtocolList) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipPortProtocolList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IpPortProtocolList"] = boost::any(temp1);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpPortProtocolList") != m.end() && !m["IpPortProtocolList"].empty()) {
+      if (typeid(vector<boost::any>) == m["IpPortProtocolList"].type()) {
+        vector<DetachFromPolicyRequestIpPortProtocolList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IpPortProtocolList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DetachFromPolicyRequestIpPortProtocolList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipPortProtocolList = make_shared<vector<DetachFromPolicyRequestIpPortProtocolList>>(expect1);
+      }
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
+  }
+
+
+  virtual ~DetachFromPolicyRequest() = default;
+};
+class DetachFromPolicyShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ipPortProtocolListShrink{};
+  shared_ptr<string> policyType{};
+
+  DetachFromPolicyShrinkRequest() {}
+
+  explicit DetachFromPolicyShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipPortProtocolListShrink) {
+      res["IpPortProtocolList"] = boost::any(*ipPortProtocolListShrink);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpPortProtocolList") != m.end() && !m["IpPortProtocolList"].empty()) {
+      ipPortProtocolListShrink = make_shared<string>(boost::any_cast<string>(m["IpPortProtocolList"]));
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
+  }
+
+
+  virtual ~DetachFromPolicyShrinkRequest() = default;
+};
+class DetachFromPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DetachFromPolicyResponseBody() {}
+
+  explicit DetachFromPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DetachFromPolicyResponseBody() = default;
+};
+class DetachFromPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DetachFromPolicyResponseBody> body{};
+
+  DetachFromPolicyResponse() {}
+
+  explicit DetachFromPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DetachFromPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DetachFromPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DetachFromPolicyResponse() = default;
+};
 class DettachAssetGroupToInstanceRequestAssetGroupList : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -5616,7 +6032,6 @@ public:
   shared_ptr<vector<DettachAssetGroupToInstanceRequestAssetGroupList>> assetGroupList{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
-  shared_ptr<string> sourceIp{};
 
   DettachAssetGroupToInstanceRequest() {}
 
@@ -5641,9 +6056,6 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
-    if (sourceIp) {
-      res["SourceIp"] = boost::any(*sourceIp);
-    }
     return res;
   }
 
@@ -5667,9 +6079,6 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
-    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
-      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
-    }
   }
 
 
@@ -5680,7 +6089,6 @@ public:
   shared_ptr<string> assetGroupListShrink{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
-  shared_ptr<string> sourceIp{};
 
   DettachAssetGroupToInstanceShrinkRequest() {}
 
@@ -5701,9 +6109,6 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
-    if (sourceIp) {
-      res["SourceIp"] = boost::any(*sourceIp);
-    }
     return res;
   }
 
@@ -5716,9 +6121,6 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
-      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
     }
   }
 
@@ -6117,6 +6519,1204 @@ public:
 
 
   virtual ~ListOpenedAccessLogInstancesResponse() = default;
+};
+class ListPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> type{};
+
+  ListPolicyRequest() {}
+
+  explicit ListPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListPolicyRequest() = default;
+};
+class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList : public Darabonba::Model {
+public:
+  shared_ptr<long> dstPortEnd{};
+  shared_ptr<long> dstPortStart{};
+  shared_ptr<string> id{};
+  shared_ptr<string> matchAction{};
+  shared_ptr<long> maxPktLen{};
+  shared_ptr<long> minPktLen{};
+  shared_ptr<long> offset{};
+  shared_ptr<string> payloadBytes{};
+  shared_ptr<string> protocol{};
+  shared_ptr<long> rateValue{};
+  shared_ptr<long> seqNo{};
+  shared_ptr<long> srcPortEnd{};
+  shared_ptr<long> srcPortStart{};
+
+  ListPolicyResponseBodyPolicyListContentFingerPrintRuleList() {}
+
+  explicit ListPolicyResponseBodyPolicyListContentFingerPrintRuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dstPortEnd) {
+      res["DstPortEnd"] = boost::any(*dstPortEnd);
+    }
+    if (dstPortStart) {
+      res["DstPortStart"] = boost::any(*dstPortStart);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (matchAction) {
+      res["MatchAction"] = boost::any(*matchAction);
+    }
+    if (maxPktLen) {
+      res["MaxPktLen"] = boost::any(*maxPktLen);
+    }
+    if (minPktLen) {
+      res["MinPktLen"] = boost::any(*minPktLen);
+    }
+    if (offset) {
+      res["Offset"] = boost::any(*offset);
+    }
+    if (payloadBytes) {
+      res["PayloadBytes"] = boost::any(*payloadBytes);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (rateValue) {
+      res["RateValue"] = boost::any(*rateValue);
+    }
+    if (seqNo) {
+      res["SeqNo"] = boost::any(*seqNo);
+    }
+    if (srcPortEnd) {
+      res["SrcPortEnd"] = boost::any(*srcPortEnd);
+    }
+    if (srcPortStart) {
+      res["SrcPortStart"] = boost::any(*srcPortStart);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DstPortEnd") != m.end() && !m["DstPortEnd"].empty()) {
+      dstPortEnd = make_shared<long>(boost::any_cast<long>(m["DstPortEnd"]));
+    }
+    if (m.find("DstPortStart") != m.end() && !m["DstPortStart"].empty()) {
+      dstPortStart = make_shared<long>(boost::any_cast<long>(m["DstPortStart"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MatchAction") != m.end() && !m["MatchAction"].empty()) {
+      matchAction = make_shared<string>(boost::any_cast<string>(m["MatchAction"]));
+    }
+    if (m.find("MaxPktLen") != m.end() && !m["MaxPktLen"].empty()) {
+      maxPktLen = make_shared<long>(boost::any_cast<long>(m["MaxPktLen"]));
+    }
+    if (m.find("MinPktLen") != m.end() && !m["MinPktLen"].empty()) {
+      minPktLen = make_shared<long>(boost::any_cast<long>(m["MinPktLen"]));
+    }
+    if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
+      offset = make_shared<long>(boost::any_cast<long>(m["Offset"]));
+    }
+    if (m.find("PayloadBytes") != m.end() && !m["PayloadBytes"].empty()) {
+      payloadBytes = make_shared<string>(boost::any_cast<string>(m["PayloadBytes"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RateValue") != m.end() && !m["RateValue"].empty()) {
+      rateValue = make_shared<long>(boost::any_cast<long>(m["RateValue"]));
+    }
+    if (m.find("SeqNo") != m.end() && !m["SeqNo"].empty()) {
+      seqNo = make_shared<long>(boost::any_cast<long>(m["SeqNo"]));
+    }
+    if (m.find("SrcPortEnd") != m.end() && !m["SrcPortEnd"].empty()) {
+      srcPortEnd = make_shared<long>(boost::any_cast<long>(m["SrcPortEnd"]));
+    }
+    if (m.find("SrcPortStart") != m.end() && !m["SrcPortStart"].empty()) {
+      srcPortStart = make_shared<long>(boost::any_cast<long>(m["SrcPortStart"]));
+    }
+  }
+
+
+  virtual ~ListPolicyResponseBodyPolicyListContentFingerPrintRuleList() = default;
+};
+class ListPolicyResponseBodyPolicyListContentL4RuleListConditionList : public Darabonba::Model {
+public:
+  shared_ptr<string> arg{};
+  shared_ptr<long> depth{};
+  shared_ptr<long> position{};
+
+  ListPolicyResponseBodyPolicyListContentL4RuleListConditionList() {}
+
+  explicit ListPolicyResponseBodyPolicyListContentL4RuleListConditionList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arg) {
+      res["Arg"] = boost::any(*arg);
+    }
+    if (depth) {
+      res["Depth"] = boost::any(*depth);
+    }
+    if (position) {
+      res["Position"] = boost::any(*position);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Arg") != m.end() && !m["Arg"].empty()) {
+      arg = make_shared<string>(boost::any_cast<string>(m["Arg"]));
+    }
+    if (m.find("Depth") != m.end() && !m["Depth"].empty()) {
+      depth = make_shared<long>(boost::any_cast<long>(m["Depth"]));
+    }
+    if (m.find("Position") != m.end() && !m["Position"].empty()) {
+      position = make_shared<long>(boost::any_cast<long>(m["Position"]));
+    }
+  }
+
+
+  virtual ~ListPolicyResponseBodyPolicyListContentL4RuleListConditionList() = default;
+};
+class ListPolicyResponseBodyPolicyListContentL4RuleList : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<vector<ListPolicyResponseBodyPolicyListContentL4RuleListConditionList>> conditionList{};
+  shared_ptr<long> limited{};
+  shared_ptr<string> match{};
+  shared_ptr<string> method{};
+  shared_ptr<string> name{};
+  shared_ptr<long> priority{};
+
+  ListPolicyResponseBodyPolicyListContentL4RuleList() {}
+
+  explicit ListPolicyResponseBodyPolicyListContentL4RuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (conditionList) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditionList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConditionList"] = boost::any(temp1);
+    }
+    if (limited) {
+      res["Limited"] = boost::any(*limited);
+    }
+    if (match) {
+      res["Match"] = boost::any(*match);
+    }
+    if (method) {
+      res["Method"] = boost::any(*method);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ConditionList") != m.end() && !m["ConditionList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConditionList"].type()) {
+        vector<ListPolicyResponseBodyPolicyListContentL4RuleListConditionList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConditionList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPolicyResponseBodyPolicyListContentL4RuleListConditionList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditionList = make_shared<vector<ListPolicyResponseBodyPolicyListContentL4RuleListConditionList>>(expect1);
+      }
+    }
+    if (m.find("Limited") != m.end() && !m["Limited"].empty()) {
+      limited = make_shared<long>(boost::any_cast<long>(m["Limited"]));
+    }
+    if (m.find("Match") != m.end() && !m["Match"].empty()) {
+      match = make_shared<string>(boost::any_cast<string>(m["Match"]));
+    }
+    if (m.find("Method") != m.end() && !m["Method"].empty()) {
+      method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+  }
+
+
+  virtual ~ListPolicyResponseBodyPolicyListContentL4RuleList() = default;
+};
+class ListPolicyResponseBodyPolicyListContentPortRuleList : public Darabonba::Model {
+public:
+  shared_ptr<long> dstPortEnd{};
+  shared_ptr<long> dstPortStart{};
+  shared_ptr<string> id{};
+  shared_ptr<string> matchAction{};
+  shared_ptr<string> protocol{};
+  shared_ptr<long> seqNo{};
+  shared_ptr<long> srcPortEnd{};
+  shared_ptr<long> srcPortStart{};
+
+  ListPolicyResponseBodyPolicyListContentPortRuleList() {}
+
+  explicit ListPolicyResponseBodyPolicyListContentPortRuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dstPortEnd) {
+      res["DstPortEnd"] = boost::any(*dstPortEnd);
+    }
+    if (dstPortStart) {
+      res["DstPortStart"] = boost::any(*dstPortStart);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (matchAction) {
+      res["MatchAction"] = boost::any(*matchAction);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (seqNo) {
+      res["SeqNo"] = boost::any(*seqNo);
+    }
+    if (srcPortEnd) {
+      res["SrcPortEnd"] = boost::any(*srcPortEnd);
+    }
+    if (srcPortStart) {
+      res["SrcPortStart"] = boost::any(*srcPortStart);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DstPortEnd") != m.end() && !m["DstPortEnd"].empty()) {
+      dstPortEnd = make_shared<long>(boost::any_cast<long>(m["DstPortEnd"]));
+    }
+    if (m.find("DstPortStart") != m.end() && !m["DstPortStart"].empty()) {
+      dstPortStart = make_shared<long>(boost::any_cast<long>(m["DstPortStart"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MatchAction") != m.end() && !m["MatchAction"].empty()) {
+      matchAction = make_shared<string>(boost::any_cast<string>(m["MatchAction"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("SeqNo") != m.end() && !m["SeqNo"].empty()) {
+      seqNo = make_shared<long>(boost::any_cast<long>(m["SeqNo"]));
+    }
+    if (m.find("SrcPortEnd") != m.end() && !m["SrcPortEnd"].empty()) {
+      srcPortEnd = make_shared<long>(boost::any_cast<long>(m["SrcPortEnd"]));
+    }
+    if (m.find("SrcPortStart") != m.end() && !m["SrcPortStart"].empty()) {
+      srcPortStart = make_shared<long>(boost::any_cast<long>(m["SrcPortStart"]));
+    }
+  }
+
+
+  virtual ~ListPolicyResponseBodyPolicyListContentPortRuleList() = default;
+};
+class ListPolicyResponseBodyPolicyListContentSourceBlockList : public Darabonba::Model {
+public:
+  shared_ptr<long> blockExpireSeconds{};
+  shared_ptr<long> everySeconds{};
+  shared_ptr<long> exceedLimitTimes{};
+  shared_ptr<long> type{};
+
+  ListPolicyResponseBodyPolicyListContentSourceBlockList() {}
+
+  explicit ListPolicyResponseBodyPolicyListContentSourceBlockList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockExpireSeconds) {
+      res["BlockExpireSeconds"] = boost::any(*blockExpireSeconds);
+    }
+    if (everySeconds) {
+      res["EverySeconds"] = boost::any(*everySeconds);
+    }
+    if (exceedLimitTimes) {
+      res["ExceedLimitTimes"] = boost::any(*exceedLimitTimes);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockExpireSeconds") != m.end() && !m["BlockExpireSeconds"].empty()) {
+      blockExpireSeconds = make_shared<long>(boost::any_cast<long>(m["BlockExpireSeconds"]));
+    }
+    if (m.find("EverySeconds") != m.end() && !m["EverySeconds"].empty()) {
+      everySeconds = make_shared<long>(boost::any_cast<long>(m["EverySeconds"]));
+    }
+    if (m.find("ExceedLimitTimes") != m.end() && !m["ExceedLimitTimes"].empty()) {
+      exceedLimitTimes = make_shared<long>(boost::any_cast<long>(m["ExceedLimitTimes"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListPolicyResponseBodyPolicyListContentSourceBlockList() = default;
+};
+class ListPolicyResponseBodyPolicyListContentSourceLimit : public Darabonba::Model {
+public:
+  shared_ptr<long> bps{};
+  shared_ptr<long> pps{};
+  shared_ptr<long> synBps{};
+  shared_ptr<long> synPps{};
+
+  ListPolicyResponseBodyPolicyListContentSourceLimit() {}
+
+  explicit ListPolicyResponseBodyPolicyListContentSourceLimit(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bps) {
+      res["Bps"] = boost::any(*bps);
+    }
+    if (pps) {
+      res["Pps"] = boost::any(*pps);
+    }
+    if (synBps) {
+      res["SynBps"] = boost::any(*synBps);
+    }
+    if (synPps) {
+      res["SynPps"] = boost::any(*synPps);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bps") != m.end() && !m["Bps"].empty()) {
+      bps = make_shared<long>(boost::any_cast<long>(m["Bps"]));
+    }
+    if (m.find("Pps") != m.end() && !m["Pps"].empty()) {
+      pps = make_shared<long>(boost::any_cast<long>(m["Pps"]));
+    }
+    if (m.find("SynBps") != m.end() && !m["SynBps"].empty()) {
+      synBps = make_shared<long>(boost::any_cast<long>(m["SynBps"]));
+    }
+    if (m.find("SynPps") != m.end() && !m["SynPps"].empty()) {
+      synPps = make_shared<long>(boost::any_cast<long>(m["SynPps"]));
+    }
+  }
+
+
+  virtual ~ListPolicyResponseBodyPolicyListContentSourceLimit() = default;
+};
+class ListPolicyResponseBodyPolicyListContent : public Darabonba::Model {
+public:
+  shared_ptr<long> blackIpListExpireAt{};
+  shared_ptr<bool> enableDropIcmp{};
+  shared_ptr<bool> enableIntelligence{};
+  shared_ptr<bool> enableL4Defense{};
+  shared_ptr<vector<ListPolicyResponseBodyPolicyListContentFingerPrintRuleList>> fingerPrintRuleList{};
+  shared_ptr<string> intelligenceLevel{};
+  shared_ptr<vector<ListPolicyResponseBodyPolicyListContentL4RuleList>> l4RuleList{};
+  shared_ptr<vector<ListPolicyResponseBodyPolicyListContentPortRuleList>> portRuleList{};
+  shared_ptr<vector<long>> reflectBlockUdpPortList{};
+  shared_ptr<vector<long>> regionBlockCountryList{};
+  shared_ptr<vector<long>> regionBlockProvinceList{};
+  shared_ptr<vector<ListPolicyResponseBodyPolicyListContentSourceBlockList>> sourceBlockList{};
+  shared_ptr<ListPolicyResponseBodyPolicyListContentSourceLimit> sourceLimit{};
+  shared_ptr<bool> whitenGfbrNets{};
+
+  ListPolicyResponseBodyPolicyListContent() {}
+
+  explicit ListPolicyResponseBodyPolicyListContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blackIpListExpireAt) {
+      res["BlackIpListExpireAt"] = boost::any(*blackIpListExpireAt);
+    }
+    if (enableDropIcmp) {
+      res["EnableDropIcmp"] = boost::any(*enableDropIcmp);
+    }
+    if (enableIntelligence) {
+      res["EnableIntelligence"] = boost::any(*enableIntelligence);
+    }
+    if (enableL4Defense) {
+      res["EnableL4Defense"] = boost::any(*enableL4Defense);
+    }
+    if (fingerPrintRuleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*fingerPrintRuleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FingerPrintRuleList"] = boost::any(temp1);
+    }
+    if (intelligenceLevel) {
+      res["IntelligenceLevel"] = boost::any(*intelligenceLevel);
+    }
+    if (l4RuleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*l4RuleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["L4RuleList"] = boost::any(temp1);
+    }
+    if (portRuleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRuleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRuleList"] = boost::any(temp1);
+    }
+    if (reflectBlockUdpPortList) {
+      res["ReflectBlockUdpPortList"] = boost::any(*reflectBlockUdpPortList);
+    }
+    if (regionBlockCountryList) {
+      res["RegionBlockCountryList"] = boost::any(*regionBlockCountryList);
+    }
+    if (regionBlockProvinceList) {
+      res["RegionBlockProvinceList"] = boost::any(*regionBlockProvinceList);
+    }
+    if (sourceBlockList) {
+      vector<boost::any> temp1;
+      for(auto item1:*sourceBlockList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SourceBlockList"] = boost::any(temp1);
+    }
+    if (sourceLimit) {
+      res["SourceLimit"] = sourceLimit ? boost::any(sourceLimit->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (whitenGfbrNets) {
+      res["WhitenGfbrNets"] = boost::any(*whitenGfbrNets);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlackIpListExpireAt") != m.end() && !m["BlackIpListExpireAt"].empty()) {
+      blackIpListExpireAt = make_shared<long>(boost::any_cast<long>(m["BlackIpListExpireAt"]));
+    }
+    if (m.find("EnableDropIcmp") != m.end() && !m["EnableDropIcmp"].empty()) {
+      enableDropIcmp = make_shared<bool>(boost::any_cast<bool>(m["EnableDropIcmp"]));
+    }
+    if (m.find("EnableIntelligence") != m.end() && !m["EnableIntelligence"].empty()) {
+      enableIntelligence = make_shared<bool>(boost::any_cast<bool>(m["EnableIntelligence"]));
+    }
+    if (m.find("EnableL4Defense") != m.end() && !m["EnableL4Defense"].empty()) {
+      enableL4Defense = make_shared<bool>(boost::any_cast<bool>(m["EnableL4Defense"]));
+    }
+    if (m.find("FingerPrintRuleList") != m.end() && !m["FingerPrintRuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FingerPrintRuleList"].type()) {
+        vector<ListPolicyResponseBodyPolicyListContentFingerPrintRuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FingerPrintRuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPolicyResponseBodyPolicyListContentFingerPrintRuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        fingerPrintRuleList = make_shared<vector<ListPolicyResponseBodyPolicyListContentFingerPrintRuleList>>(expect1);
+      }
+    }
+    if (m.find("IntelligenceLevel") != m.end() && !m["IntelligenceLevel"].empty()) {
+      intelligenceLevel = make_shared<string>(boost::any_cast<string>(m["IntelligenceLevel"]));
+    }
+    if (m.find("L4RuleList") != m.end() && !m["L4RuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["L4RuleList"].type()) {
+        vector<ListPolicyResponseBodyPolicyListContentL4RuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["L4RuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPolicyResponseBodyPolicyListContentL4RuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        l4RuleList = make_shared<vector<ListPolicyResponseBodyPolicyListContentL4RuleList>>(expect1);
+      }
+    }
+    if (m.find("PortRuleList") != m.end() && !m["PortRuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRuleList"].type()) {
+        vector<ListPolicyResponseBodyPolicyListContentPortRuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPolicyResponseBodyPolicyListContentPortRuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRuleList = make_shared<vector<ListPolicyResponseBodyPolicyListContentPortRuleList>>(expect1);
+      }
+    }
+    if (m.find("ReflectBlockUdpPortList") != m.end() && !m["ReflectBlockUdpPortList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["ReflectBlockUdpPortList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ReflectBlockUdpPortList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      reflectBlockUdpPortList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RegionBlockCountryList") != m.end() && !m["RegionBlockCountryList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionBlockCountryList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionBlockCountryList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      regionBlockCountryList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RegionBlockProvinceList") != m.end() && !m["RegionBlockProvinceList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionBlockProvinceList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionBlockProvinceList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      regionBlockProvinceList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("SourceBlockList") != m.end() && !m["SourceBlockList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SourceBlockList"].type()) {
+        vector<ListPolicyResponseBodyPolicyListContentSourceBlockList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SourceBlockList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPolicyResponseBodyPolicyListContentSourceBlockList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sourceBlockList = make_shared<vector<ListPolicyResponseBodyPolicyListContentSourceBlockList>>(expect1);
+      }
+    }
+    if (m.find("SourceLimit") != m.end() && !m["SourceLimit"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceLimit"].type()) {
+        ListPolicyResponseBodyPolicyListContentSourceLimit model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceLimit"]));
+        sourceLimit = make_shared<ListPolicyResponseBodyPolicyListContentSourceLimit>(model1);
+      }
+    }
+    if (m.find("WhitenGfbrNets") != m.end() && !m["WhitenGfbrNets"].empty()) {
+      whitenGfbrNets = make_shared<bool>(boost::any_cast<bool>(m["WhitenGfbrNets"]));
+    }
+  }
+
+
+  virtual ~ListPolicyResponseBodyPolicyListContent() = default;
+};
+class ListPolicyResponseBodyPolicyList : public Darabonba::Model {
+public:
+  shared_ptr<long> attachedCount{};
+  shared_ptr<ListPolicyResponseBodyPolicyListContent> content{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+
+  ListPolicyResponseBodyPolicyList() {}
+
+  explicit ListPolicyResponseBodyPolicyList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attachedCount) {
+      res["AttachedCount"] = boost::any(*attachedCount);
+    }
+    if (content) {
+      res["Content"] = content ? boost::any(content->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttachedCount") != m.end() && !m["AttachedCount"].empty()) {
+      attachedCount = make_shared<long>(boost::any_cast<long>(m["AttachedCount"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Content"].type()) {
+        ListPolicyResponseBodyPolicyListContent model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Content"]));
+        content = make_shared<ListPolicyResponseBodyPolicyListContent>(model1);
+      }
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListPolicyResponseBodyPolicyList() = default;
+};
+class ListPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListPolicyResponseBodyPolicyList>> policyList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> total{};
+
+  ListPolicyResponseBody() {}
+
+  explicit ListPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyList) {
+      vector<boost::any> temp1;
+      for(auto item1:*policyList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PolicyList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyList") != m.end() && !m["PolicyList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PolicyList"].type()) {
+        vector<ListPolicyResponseBodyPolicyList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PolicyList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPolicyResponseBodyPolicyList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        policyList = make_shared<vector<ListPolicyResponseBodyPolicyList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListPolicyResponseBody() = default;
+};
+class ListPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListPolicyResponseBody> body{};
+
+  ListPolicyResponse() {}
+
+  explicit ListPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListPolicyResponse() = default;
+};
+class ListPolicyAttachmentRequestIpPortProtocolList : public Darabonba::Model {
+public:
+  shared_ptr<string> ip{};
+  shared_ptr<long> port{};
+  shared_ptr<string> protocol{};
+
+  ListPolicyAttachmentRequestIpPortProtocolList() {}
+
+  explicit ListPolicyAttachmentRequestIpPortProtocolList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+  }
+
+
+  virtual ~ListPolicyAttachmentRequestIpPortProtocolList() = default;
+};
+class ListPolicyAttachmentRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListPolicyAttachmentRequestIpPortProtocolList>> ipPortProtocolList{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> policyId{};
+  shared_ptr<string> policyType{};
+
+  ListPolicyAttachmentRequest() {}
+
+  explicit ListPolicyAttachmentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipPortProtocolList) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipPortProtocolList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IpPortProtocolList"] = boost::any(temp1);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpPortProtocolList") != m.end() && !m["IpPortProtocolList"].empty()) {
+      if (typeid(vector<boost::any>) == m["IpPortProtocolList"].type()) {
+        vector<ListPolicyAttachmentRequestIpPortProtocolList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IpPortProtocolList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPolicyAttachmentRequestIpPortProtocolList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipPortProtocolList = make_shared<vector<ListPolicyAttachmentRequestIpPortProtocolList>>(expect1);
+      }
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
+  }
+
+
+  virtual ~ListPolicyAttachmentRequest() = default;
+};
+class ListPolicyAttachmentShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ipPortProtocolListShrink{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> policyId{};
+  shared_ptr<string> policyType{};
+
+  ListPolicyAttachmentShrinkRequest() {}
+
+  explicit ListPolicyAttachmentShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipPortProtocolListShrink) {
+      res["IpPortProtocolList"] = boost::any(*ipPortProtocolListShrink);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpPortProtocolList") != m.end() && !m["IpPortProtocolList"].empty()) {
+      ipPortProtocolListShrink = make_shared<string>(boost::any_cast<string>(m["IpPortProtocolList"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
+  }
+
+
+  virtual ~ListPolicyAttachmentShrinkRequest() = default;
+};
+class ListPolicyAttachmentResponseBodyAttachmentList : public Darabonba::Model {
+public:
+  shared_ptr<string> ip{};
+  shared_ptr<string> memberUid{};
+  shared_ptr<string> policyId{};
+  shared_ptr<string> policyName{};
+  shared_ptr<string> policyType{};
+  shared_ptr<long> port{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> region{};
+
+  ListPolicyAttachmentResponseBodyAttachmentList() {}
+
+  explicit ListPolicyAttachmentResponseBodyAttachmentList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    if (memberUid) {
+      res["MemberUid"] = boost::any(*memberUid);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (policyName) {
+      res["PolicyName"] = boost::any(*policyName);
+    }
+    if (policyType) {
+      res["PolicyType"] = boost::any(*policyType);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("MemberUid") != m.end() && !m["MemberUid"].empty()) {
+      memberUid = make_shared<string>(boost::any_cast<string>(m["MemberUid"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
+      policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+    if (m.find("PolicyType") != m.end() && !m["PolicyType"].empty()) {
+      policyType = make_shared<string>(boost::any_cast<string>(m["PolicyType"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+  }
+
+
+  virtual ~ListPolicyAttachmentResponseBodyAttachmentList() = default;
+};
+class ListPolicyAttachmentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListPolicyAttachmentResponseBodyAttachmentList>> attachmentList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> total{};
+
+  ListPolicyAttachmentResponseBody() {}
+
+  explicit ListPolicyAttachmentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attachmentList) {
+      vector<boost::any> temp1;
+      for(auto item1:*attachmentList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AttachmentList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttachmentList") != m.end() && !m["AttachmentList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AttachmentList"].type()) {
+        vector<ListPolicyAttachmentResponseBodyAttachmentList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AttachmentList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPolicyAttachmentResponseBodyAttachmentList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        attachmentList = make_shared<vector<ListPolicyAttachmentResponseBodyAttachmentList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListPolicyAttachmentResponseBody() = default;
+};
+class ListPolicyAttachmentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListPolicyAttachmentResponseBody> body{};
+
+  ListPolicyAttachmentResponse() {}
+
+  explicit ListPolicyAttachmentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListPolicyAttachmentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListPolicyAttachmentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListPolicyAttachmentResponse() = default;
 };
 class ListTagKeysRequest : public Darabonba::Model {
 public:
@@ -6646,6 +8246,1630 @@ public:
 
 
   virtual ~ListTagResourcesResponse() = default;
+};
+class ModifyPolicyRequestContentFingerPrintRuleList : public Darabonba::Model {
+public:
+  shared_ptr<long> dstPortEnd{};
+  shared_ptr<long> dstPortStart{};
+  shared_ptr<string> id{};
+  shared_ptr<string> matchAction{};
+  shared_ptr<long> maxPktLen{};
+  shared_ptr<long> minPktLen{};
+  shared_ptr<long> offset{};
+  shared_ptr<string> payloadBytes{};
+  shared_ptr<string> protocol{};
+  shared_ptr<long> rateValue{};
+  shared_ptr<long> seqNo{};
+  shared_ptr<long> srcPortEnd{};
+  shared_ptr<long> srcPortStart{};
+
+  ModifyPolicyRequestContentFingerPrintRuleList() {}
+
+  explicit ModifyPolicyRequestContentFingerPrintRuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dstPortEnd) {
+      res["DstPortEnd"] = boost::any(*dstPortEnd);
+    }
+    if (dstPortStart) {
+      res["DstPortStart"] = boost::any(*dstPortStart);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (matchAction) {
+      res["MatchAction"] = boost::any(*matchAction);
+    }
+    if (maxPktLen) {
+      res["MaxPktLen"] = boost::any(*maxPktLen);
+    }
+    if (minPktLen) {
+      res["MinPktLen"] = boost::any(*minPktLen);
+    }
+    if (offset) {
+      res["Offset"] = boost::any(*offset);
+    }
+    if (payloadBytes) {
+      res["PayloadBytes"] = boost::any(*payloadBytes);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (rateValue) {
+      res["RateValue"] = boost::any(*rateValue);
+    }
+    if (seqNo) {
+      res["SeqNo"] = boost::any(*seqNo);
+    }
+    if (srcPortEnd) {
+      res["SrcPortEnd"] = boost::any(*srcPortEnd);
+    }
+    if (srcPortStart) {
+      res["SrcPortStart"] = boost::any(*srcPortStart);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DstPortEnd") != m.end() && !m["DstPortEnd"].empty()) {
+      dstPortEnd = make_shared<long>(boost::any_cast<long>(m["DstPortEnd"]));
+    }
+    if (m.find("DstPortStart") != m.end() && !m["DstPortStart"].empty()) {
+      dstPortStart = make_shared<long>(boost::any_cast<long>(m["DstPortStart"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MatchAction") != m.end() && !m["MatchAction"].empty()) {
+      matchAction = make_shared<string>(boost::any_cast<string>(m["MatchAction"]));
+    }
+    if (m.find("MaxPktLen") != m.end() && !m["MaxPktLen"].empty()) {
+      maxPktLen = make_shared<long>(boost::any_cast<long>(m["MaxPktLen"]));
+    }
+    if (m.find("MinPktLen") != m.end() && !m["MinPktLen"].empty()) {
+      minPktLen = make_shared<long>(boost::any_cast<long>(m["MinPktLen"]));
+    }
+    if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
+      offset = make_shared<long>(boost::any_cast<long>(m["Offset"]));
+    }
+    if (m.find("PayloadBytes") != m.end() && !m["PayloadBytes"].empty()) {
+      payloadBytes = make_shared<string>(boost::any_cast<string>(m["PayloadBytes"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RateValue") != m.end() && !m["RateValue"].empty()) {
+      rateValue = make_shared<long>(boost::any_cast<long>(m["RateValue"]));
+    }
+    if (m.find("SeqNo") != m.end() && !m["SeqNo"].empty()) {
+      seqNo = make_shared<long>(boost::any_cast<long>(m["SeqNo"]));
+    }
+    if (m.find("SrcPortEnd") != m.end() && !m["SrcPortEnd"].empty()) {
+      srcPortEnd = make_shared<long>(boost::any_cast<long>(m["SrcPortEnd"]));
+    }
+    if (m.find("SrcPortStart") != m.end() && !m["SrcPortStart"].empty()) {
+      srcPortStart = make_shared<long>(boost::any_cast<long>(m["SrcPortStart"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyRequestContentFingerPrintRuleList() = default;
+};
+class ModifyPolicyRequestContentL4RuleListConditionList : public Darabonba::Model {
+public:
+  shared_ptr<string> arg{};
+  shared_ptr<long> depth{};
+  shared_ptr<long> position{};
+
+  ModifyPolicyRequestContentL4RuleListConditionList() {}
+
+  explicit ModifyPolicyRequestContentL4RuleListConditionList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arg) {
+      res["Arg"] = boost::any(*arg);
+    }
+    if (depth) {
+      res["Depth"] = boost::any(*depth);
+    }
+    if (position) {
+      res["Position"] = boost::any(*position);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Arg") != m.end() && !m["Arg"].empty()) {
+      arg = make_shared<string>(boost::any_cast<string>(m["Arg"]));
+    }
+    if (m.find("Depth") != m.end() && !m["Depth"].empty()) {
+      depth = make_shared<long>(boost::any_cast<long>(m["Depth"]));
+    }
+    if (m.find("Position") != m.end() && !m["Position"].empty()) {
+      position = make_shared<long>(boost::any_cast<long>(m["Position"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyRequestContentL4RuleListConditionList() = default;
+};
+class ModifyPolicyRequestContentL4RuleList : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<vector<ModifyPolicyRequestContentL4RuleListConditionList>> conditionList{};
+  shared_ptr<long> limited{};
+  shared_ptr<string> match{};
+  shared_ptr<string> method{};
+  shared_ptr<string> name{};
+  shared_ptr<long> priority{};
+
+  ModifyPolicyRequestContentL4RuleList() {}
+
+  explicit ModifyPolicyRequestContentL4RuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (conditionList) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditionList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConditionList"] = boost::any(temp1);
+    }
+    if (limited) {
+      res["Limited"] = boost::any(*limited);
+    }
+    if (match) {
+      res["Match"] = boost::any(*match);
+    }
+    if (method) {
+      res["Method"] = boost::any(*method);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ConditionList") != m.end() && !m["ConditionList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConditionList"].type()) {
+        vector<ModifyPolicyRequestContentL4RuleListConditionList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConditionList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyPolicyRequestContentL4RuleListConditionList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditionList = make_shared<vector<ModifyPolicyRequestContentL4RuleListConditionList>>(expect1);
+      }
+    }
+    if (m.find("Limited") != m.end() && !m["Limited"].empty()) {
+      limited = make_shared<long>(boost::any_cast<long>(m["Limited"]));
+    }
+    if (m.find("Match") != m.end() && !m["Match"].empty()) {
+      match = make_shared<string>(boost::any_cast<string>(m["Match"]));
+    }
+    if (m.find("Method") != m.end() && !m["Method"].empty()) {
+      method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyRequestContentL4RuleList() = default;
+};
+class ModifyPolicyRequestContentPortRuleList : public Darabonba::Model {
+public:
+  shared_ptr<long> dstPortEnd{};
+  shared_ptr<long> dstPortStart{};
+  shared_ptr<string> id{};
+  shared_ptr<string> matchAction{};
+  shared_ptr<string> protocol{};
+  shared_ptr<long> seqNo{};
+  shared_ptr<long> srcPortEnd{};
+  shared_ptr<long> srcPortStart{};
+
+  ModifyPolicyRequestContentPortRuleList() {}
+
+  explicit ModifyPolicyRequestContentPortRuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dstPortEnd) {
+      res["DstPortEnd"] = boost::any(*dstPortEnd);
+    }
+    if (dstPortStart) {
+      res["DstPortStart"] = boost::any(*dstPortStart);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (matchAction) {
+      res["MatchAction"] = boost::any(*matchAction);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (seqNo) {
+      res["SeqNo"] = boost::any(*seqNo);
+    }
+    if (srcPortEnd) {
+      res["SrcPortEnd"] = boost::any(*srcPortEnd);
+    }
+    if (srcPortStart) {
+      res["SrcPortStart"] = boost::any(*srcPortStart);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DstPortEnd") != m.end() && !m["DstPortEnd"].empty()) {
+      dstPortEnd = make_shared<long>(boost::any_cast<long>(m["DstPortEnd"]));
+    }
+    if (m.find("DstPortStart") != m.end() && !m["DstPortStart"].empty()) {
+      dstPortStart = make_shared<long>(boost::any_cast<long>(m["DstPortStart"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MatchAction") != m.end() && !m["MatchAction"].empty()) {
+      matchAction = make_shared<string>(boost::any_cast<string>(m["MatchAction"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("SeqNo") != m.end() && !m["SeqNo"].empty()) {
+      seqNo = make_shared<long>(boost::any_cast<long>(m["SeqNo"]));
+    }
+    if (m.find("SrcPortEnd") != m.end() && !m["SrcPortEnd"].empty()) {
+      srcPortEnd = make_shared<long>(boost::any_cast<long>(m["SrcPortEnd"]));
+    }
+    if (m.find("SrcPortStart") != m.end() && !m["SrcPortStart"].empty()) {
+      srcPortStart = make_shared<long>(boost::any_cast<long>(m["SrcPortStart"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyRequestContentPortRuleList() = default;
+};
+class ModifyPolicyRequestContentSourceBlockList : public Darabonba::Model {
+public:
+  shared_ptr<long> blockExpireSeconds{};
+  shared_ptr<long> everySeconds{};
+  shared_ptr<long> exceedLimitTimes{};
+  shared_ptr<long> type{};
+
+  ModifyPolicyRequestContentSourceBlockList() {}
+
+  explicit ModifyPolicyRequestContentSourceBlockList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockExpireSeconds) {
+      res["BlockExpireSeconds"] = boost::any(*blockExpireSeconds);
+    }
+    if (everySeconds) {
+      res["EverySeconds"] = boost::any(*everySeconds);
+    }
+    if (exceedLimitTimes) {
+      res["ExceedLimitTimes"] = boost::any(*exceedLimitTimes);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockExpireSeconds") != m.end() && !m["BlockExpireSeconds"].empty()) {
+      blockExpireSeconds = make_shared<long>(boost::any_cast<long>(m["BlockExpireSeconds"]));
+    }
+    if (m.find("EverySeconds") != m.end() && !m["EverySeconds"].empty()) {
+      everySeconds = make_shared<long>(boost::any_cast<long>(m["EverySeconds"]));
+    }
+    if (m.find("ExceedLimitTimes") != m.end() && !m["ExceedLimitTimes"].empty()) {
+      exceedLimitTimes = make_shared<long>(boost::any_cast<long>(m["ExceedLimitTimes"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyRequestContentSourceBlockList() = default;
+};
+class ModifyPolicyRequestContentSourceLimit : public Darabonba::Model {
+public:
+  shared_ptr<long> bps{};
+  shared_ptr<long> pps{};
+  shared_ptr<long> synBps{};
+  shared_ptr<long> synPps{};
+
+  ModifyPolicyRequestContentSourceLimit() {}
+
+  explicit ModifyPolicyRequestContentSourceLimit(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bps) {
+      res["Bps"] = boost::any(*bps);
+    }
+    if (pps) {
+      res["Pps"] = boost::any(*pps);
+    }
+    if (synBps) {
+      res["SynBps"] = boost::any(*synBps);
+    }
+    if (synPps) {
+      res["SynPps"] = boost::any(*synPps);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bps") != m.end() && !m["Bps"].empty()) {
+      bps = make_shared<long>(boost::any_cast<long>(m["Bps"]));
+    }
+    if (m.find("Pps") != m.end() && !m["Pps"].empty()) {
+      pps = make_shared<long>(boost::any_cast<long>(m["Pps"]));
+    }
+    if (m.find("SynBps") != m.end() && !m["SynBps"].empty()) {
+      synBps = make_shared<long>(boost::any_cast<long>(m["SynBps"]));
+    }
+    if (m.find("SynPps") != m.end() && !m["SynPps"].empty()) {
+      synPps = make_shared<long>(boost::any_cast<long>(m["SynPps"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyRequestContentSourceLimit() = default;
+};
+class ModifyPolicyRequestContent : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> blackIpList{};
+  shared_ptr<long> blackIpListExpireAt{};
+  shared_ptr<bool> enableDropIcmp{};
+  shared_ptr<bool> enableIntelligence{};
+  shared_ptr<bool> enableL4Defense{};
+  shared_ptr<vector<ModifyPolicyRequestContentFingerPrintRuleList>> fingerPrintRuleList{};
+  shared_ptr<string> intelligenceLevel{};
+  shared_ptr<vector<ModifyPolicyRequestContentL4RuleList>> l4RuleList{};
+  shared_ptr<vector<ModifyPolicyRequestContentPortRuleList>> portRuleList{};
+  shared_ptr<vector<long>> reflectBlockUdpPortList{};
+  shared_ptr<vector<long>> regionBlockCountryList{};
+  shared_ptr<vector<long>> regionBlockProvinceList{};
+  shared_ptr<vector<ModifyPolicyRequestContentSourceBlockList>> sourceBlockList{};
+  shared_ptr<ModifyPolicyRequestContentSourceLimit> sourceLimit{};
+  shared_ptr<vector<string>> whiteIpList{};
+  shared_ptr<bool> whitenGfbrNets{};
+
+  ModifyPolicyRequestContent() {}
+
+  explicit ModifyPolicyRequestContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blackIpList) {
+      res["BlackIpList"] = boost::any(*blackIpList);
+    }
+    if (blackIpListExpireAt) {
+      res["BlackIpListExpireAt"] = boost::any(*blackIpListExpireAt);
+    }
+    if (enableDropIcmp) {
+      res["EnableDropIcmp"] = boost::any(*enableDropIcmp);
+    }
+    if (enableIntelligence) {
+      res["EnableIntelligence"] = boost::any(*enableIntelligence);
+    }
+    if (enableL4Defense) {
+      res["EnableL4Defense"] = boost::any(*enableL4Defense);
+    }
+    if (fingerPrintRuleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*fingerPrintRuleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FingerPrintRuleList"] = boost::any(temp1);
+    }
+    if (intelligenceLevel) {
+      res["IntelligenceLevel"] = boost::any(*intelligenceLevel);
+    }
+    if (l4RuleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*l4RuleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["L4RuleList"] = boost::any(temp1);
+    }
+    if (portRuleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRuleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRuleList"] = boost::any(temp1);
+    }
+    if (reflectBlockUdpPortList) {
+      res["ReflectBlockUdpPortList"] = boost::any(*reflectBlockUdpPortList);
+    }
+    if (regionBlockCountryList) {
+      res["RegionBlockCountryList"] = boost::any(*regionBlockCountryList);
+    }
+    if (regionBlockProvinceList) {
+      res["RegionBlockProvinceList"] = boost::any(*regionBlockProvinceList);
+    }
+    if (sourceBlockList) {
+      vector<boost::any> temp1;
+      for(auto item1:*sourceBlockList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SourceBlockList"] = boost::any(temp1);
+    }
+    if (sourceLimit) {
+      res["SourceLimit"] = sourceLimit ? boost::any(sourceLimit->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (whiteIpList) {
+      res["WhiteIpList"] = boost::any(*whiteIpList);
+    }
+    if (whitenGfbrNets) {
+      res["WhitenGfbrNets"] = boost::any(*whitenGfbrNets);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlackIpList") != m.end() && !m["BlackIpList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["BlackIpList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BlackIpList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      blackIpList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BlackIpListExpireAt") != m.end() && !m["BlackIpListExpireAt"].empty()) {
+      blackIpListExpireAt = make_shared<long>(boost::any_cast<long>(m["BlackIpListExpireAt"]));
+    }
+    if (m.find("EnableDropIcmp") != m.end() && !m["EnableDropIcmp"].empty()) {
+      enableDropIcmp = make_shared<bool>(boost::any_cast<bool>(m["EnableDropIcmp"]));
+    }
+    if (m.find("EnableIntelligence") != m.end() && !m["EnableIntelligence"].empty()) {
+      enableIntelligence = make_shared<bool>(boost::any_cast<bool>(m["EnableIntelligence"]));
+    }
+    if (m.find("EnableL4Defense") != m.end() && !m["EnableL4Defense"].empty()) {
+      enableL4Defense = make_shared<bool>(boost::any_cast<bool>(m["EnableL4Defense"]));
+    }
+    if (m.find("FingerPrintRuleList") != m.end() && !m["FingerPrintRuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FingerPrintRuleList"].type()) {
+        vector<ModifyPolicyRequestContentFingerPrintRuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FingerPrintRuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyPolicyRequestContentFingerPrintRuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        fingerPrintRuleList = make_shared<vector<ModifyPolicyRequestContentFingerPrintRuleList>>(expect1);
+      }
+    }
+    if (m.find("IntelligenceLevel") != m.end() && !m["IntelligenceLevel"].empty()) {
+      intelligenceLevel = make_shared<string>(boost::any_cast<string>(m["IntelligenceLevel"]));
+    }
+    if (m.find("L4RuleList") != m.end() && !m["L4RuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["L4RuleList"].type()) {
+        vector<ModifyPolicyRequestContentL4RuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["L4RuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyPolicyRequestContentL4RuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        l4RuleList = make_shared<vector<ModifyPolicyRequestContentL4RuleList>>(expect1);
+      }
+    }
+    if (m.find("PortRuleList") != m.end() && !m["PortRuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRuleList"].type()) {
+        vector<ModifyPolicyRequestContentPortRuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyPolicyRequestContentPortRuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRuleList = make_shared<vector<ModifyPolicyRequestContentPortRuleList>>(expect1);
+      }
+    }
+    if (m.find("ReflectBlockUdpPortList") != m.end() && !m["ReflectBlockUdpPortList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["ReflectBlockUdpPortList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ReflectBlockUdpPortList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      reflectBlockUdpPortList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RegionBlockCountryList") != m.end() && !m["RegionBlockCountryList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionBlockCountryList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionBlockCountryList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      regionBlockCountryList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RegionBlockProvinceList") != m.end() && !m["RegionBlockProvinceList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionBlockProvinceList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionBlockProvinceList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      regionBlockProvinceList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("SourceBlockList") != m.end() && !m["SourceBlockList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SourceBlockList"].type()) {
+        vector<ModifyPolicyRequestContentSourceBlockList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SourceBlockList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyPolicyRequestContentSourceBlockList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sourceBlockList = make_shared<vector<ModifyPolicyRequestContentSourceBlockList>>(expect1);
+      }
+    }
+    if (m.find("SourceLimit") != m.end() && !m["SourceLimit"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceLimit"].type()) {
+        ModifyPolicyRequestContentSourceLimit model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceLimit"]));
+        sourceLimit = make_shared<ModifyPolicyRequestContentSourceLimit>(model1);
+      }
+    }
+    if (m.find("WhiteIpList") != m.end() && !m["WhiteIpList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WhiteIpList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WhiteIpList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      whiteIpList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WhitenGfbrNets") != m.end() && !m["WhitenGfbrNets"].empty()) {
+      whitenGfbrNets = make_shared<bool>(boost::any_cast<bool>(m["WhitenGfbrNets"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyRequestContent() = default;
+};
+class ModifyPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> actionType{};
+  shared_ptr<ModifyPolicyRequestContent> content{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+
+  ModifyPolicyRequest() {}
+
+  explicit ModifyPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (actionType) {
+      res["ActionType"] = boost::any(*actionType);
+    }
+    if (content) {
+      res["Content"] = content ? boost::any(content->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActionType") != m.end() && !m["ActionType"].empty()) {
+      actionType = make_shared<long>(boost::any_cast<long>(m["ActionType"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Content"].type()) {
+        ModifyPolicyRequestContent model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Content"]));
+        content = make_shared<ModifyPolicyRequestContent>(model1);
+      }
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyRequest() = default;
+};
+class ModifyPolicyShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> actionType{};
+  shared_ptr<string> contentShrink{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+
+  ModifyPolicyShrinkRequest() {}
+
+  explicit ModifyPolicyShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (actionType) {
+      res["ActionType"] = boost::any(*actionType);
+    }
+    if (contentShrink) {
+      res["Content"] = boost::any(*contentShrink);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActionType") != m.end() && !m["ActionType"].empty()) {
+      actionType = make_shared<long>(boost::any_cast<long>(m["ActionType"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      contentShrink = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyShrinkRequest() = default;
+};
+class ModifyPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyPolicyResponseBody() {}
+
+  explicit ModifyPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyResponseBody() = default;
+};
+class ModifyPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyPolicyResponseBody> body{};
+
+  ModifyPolicyResponse() {}
+
+  explicit ModifyPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyPolicyResponse() = default;
+};
+class ModifyPolicyContentRequestContentFingerPrintRuleList : public Darabonba::Model {
+public:
+  shared_ptr<long> dstPortEnd{};
+  shared_ptr<long> dstPortStart{};
+  shared_ptr<string> id{};
+  shared_ptr<string> matchAction{};
+  shared_ptr<long> maxPktLen{};
+  shared_ptr<long> minPktLen{};
+  shared_ptr<long> offset{};
+  shared_ptr<string> payloadBytes{};
+  shared_ptr<string> protocol{};
+  shared_ptr<long> rateValue{};
+  shared_ptr<long> seqNo{};
+  shared_ptr<long> srcPortEnd{};
+  shared_ptr<long> srcPortStart{};
+
+  ModifyPolicyContentRequestContentFingerPrintRuleList() {}
+
+  explicit ModifyPolicyContentRequestContentFingerPrintRuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dstPortEnd) {
+      res["DstPortEnd"] = boost::any(*dstPortEnd);
+    }
+    if (dstPortStart) {
+      res["DstPortStart"] = boost::any(*dstPortStart);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (matchAction) {
+      res["MatchAction"] = boost::any(*matchAction);
+    }
+    if (maxPktLen) {
+      res["MaxPktLen"] = boost::any(*maxPktLen);
+    }
+    if (minPktLen) {
+      res["MinPktLen"] = boost::any(*minPktLen);
+    }
+    if (offset) {
+      res["Offset"] = boost::any(*offset);
+    }
+    if (payloadBytes) {
+      res["PayloadBytes"] = boost::any(*payloadBytes);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (rateValue) {
+      res["RateValue"] = boost::any(*rateValue);
+    }
+    if (seqNo) {
+      res["SeqNo"] = boost::any(*seqNo);
+    }
+    if (srcPortEnd) {
+      res["SrcPortEnd"] = boost::any(*srcPortEnd);
+    }
+    if (srcPortStart) {
+      res["SrcPortStart"] = boost::any(*srcPortStart);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DstPortEnd") != m.end() && !m["DstPortEnd"].empty()) {
+      dstPortEnd = make_shared<long>(boost::any_cast<long>(m["DstPortEnd"]));
+    }
+    if (m.find("DstPortStart") != m.end() && !m["DstPortStart"].empty()) {
+      dstPortStart = make_shared<long>(boost::any_cast<long>(m["DstPortStart"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MatchAction") != m.end() && !m["MatchAction"].empty()) {
+      matchAction = make_shared<string>(boost::any_cast<string>(m["MatchAction"]));
+    }
+    if (m.find("MaxPktLen") != m.end() && !m["MaxPktLen"].empty()) {
+      maxPktLen = make_shared<long>(boost::any_cast<long>(m["MaxPktLen"]));
+    }
+    if (m.find("MinPktLen") != m.end() && !m["MinPktLen"].empty()) {
+      minPktLen = make_shared<long>(boost::any_cast<long>(m["MinPktLen"]));
+    }
+    if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
+      offset = make_shared<long>(boost::any_cast<long>(m["Offset"]));
+    }
+    if (m.find("PayloadBytes") != m.end() && !m["PayloadBytes"].empty()) {
+      payloadBytes = make_shared<string>(boost::any_cast<string>(m["PayloadBytes"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RateValue") != m.end() && !m["RateValue"].empty()) {
+      rateValue = make_shared<long>(boost::any_cast<long>(m["RateValue"]));
+    }
+    if (m.find("SeqNo") != m.end() && !m["SeqNo"].empty()) {
+      seqNo = make_shared<long>(boost::any_cast<long>(m["SeqNo"]));
+    }
+    if (m.find("SrcPortEnd") != m.end() && !m["SrcPortEnd"].empty()) {
+      srcPortEnd = make_shared<long>(boost::any_cast<long>(m["SrcPortEnd"]));
+    }
+    if (m.find("SrcPortStart") != m.end() && !m["SrcPortStart"].empty()) {
+      srcPortStart = make_shared<long>(boost::any_cast<long>(m["SrcPortStart"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyContentRequestContentFingerPrintRuleList() = default;
+};
+class ModifyPolicyContentRequestContentL4RuleListConditionList : public Darabonba::Model {
+public:
+  shared_ptr<string> arg{};
+  shared_ptr<long> depth{};
+  shared_ptr<long> position{};
+
+  ModifyPolicyContentRequestContentL4RuleListConditionList() {}
+
+  explicit ModifyPolicyContentRequestContentL4RuleListConditionList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arg) {
+      res["Arg"] = boost::any(*arg);
+    }
+    if (depth) {
+      res["Depth"] = boost::any(*depth);
+    }
+    if (position) {
+      res["Position"] = boost::any(*position);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Arg") != m.end() && !m["Arg"].empty()) {
+      arg = make_shared<string>(boost::any_cast<string>(m["Arg"]));
+    }
+    if (m.find("Depth") != m.end() && !m["Depth"].empty()) {
+      depth = make_shared<long>(boost::any_cast<long>(m["Depth"]));
+    }
+    if (m.find("Position") != m.end() && !m["Position"].empty()) {
+      position = make_shared<long>(boost::any_cast<long>(m["Position"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyContentRequestContentL4RuleListConditionList() = default;
+};
+class ModifyPolicyContentRequestContentL4RuleList : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<vector<ModifyPolicyContentRequestContentL4RuleListConditionList>> conditionList{};
+  shared_ptr<long> limited{};
+  shared_ptr<string> match{};
+  shared_ptr<string> method{};
+  shared_ptr<string> name{};
+  shared_ptr<long> priority{};
+
+  ModifyPolicyContentRequestContentL4RuleList() {}
+
+  explicit ModifyPolicyContentRequestContentL4RuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (conditionList) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditionList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConditionList"] = boost::any(temp1);
+    }
+    if (limited) {
+      res["Limited"] = boost::any(*limited);
+    }
+    if (match) {
+      res["Match"] = boost::any(*match);
+    }
+    if (method) {
+      res["Method"] = boost::any(*method);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ConditionList") != m.end() && !m["ConditionList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConditionList"].type()) {
+        vector<ModifyPolicyContentRequestContentL4RuleListConditionList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConditionList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyPolicyContentRequestContentL4RuleListConditionList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditionList = make_shared<vector<ModifyPolicyContentRequestContentL4RuleListConditionList>>(expect1);
+      }
+    }
+    if (m.find("Limited") != m.end() && !m["Limited"].empty()) {
+      limited = make_shared<long>(boost::any_cast<long>(m["Limited"]));
+    }
+    if (m.find("Match") != m.end() && !m["Match"].empty()) {
+      match = make_shared<string>(boost::any_cast<string>(m["Match"]));
+    }
+    if (m.find("Method") != m.end() && !m["Method"].empty()) {
+      method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyContentRequestContentL4RuleList() = default;
+};
+class ModifyPolicyContentRequestContentPortRuleList : public Darabonba::Model {
+public:
+  shared_ptr<long> dstPortEnd{};
+  shared_ptr<long> dstPortStart{};
+  shared_ptr<string> id{};
+  shared_ptr<string> matchAction{};
+  shared_ptr<string> protocol{};
+  shared_ptr<long> seqNo{};
+  shared_ptr<long> srcPortEnd{};
+  shared_ptr<long> srcPortStart{};
+
+  ModifyPolicyContentRequestContentPortRuleList() {}
+
+  explicit ModifyPolicyContentRequestContentPortRuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dstPortEnd) {
+      res["DstPortEnd"] = boost::any(*dstPortEnd);
+    }
+    if (dstPortStart) {
+      res["DstPortStart"] = boost::any(*dstPortStart);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (matchAction) {
+      res["MatchAction"] = boost::any(*matchAction);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (seqNo) {
+      res["SeqNo"] = boost::any(*seqNo);
+    }
+    if (srcPortEnd) {
+      res["SrcPortEnd"] = boost::any(*srcPortEnd);
+    }
+    if (srcPortStart) {
+      res["SrcPortStart"] = boost::any(*srcPortStart);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DstPortEnd") != m.end() && !m["DstPortEnd"].empty()) {
+      dstPortEnd = make_shared<long>(boost::any_cast<long>(m["DstPortEnd"]));
+    }
+    if (m.find("DstPortStart") != m.end() && !m["DstPortStart"].empty()) {
+      dstPortStart = make_shared<long>(boost::any_cast<long>(m["DstPortStart"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MatchAction") != m.end() && !m["MatchAction"].empty()) {
+      matchAction = make_shared<string>(boost::any_cast<string>(m["MatchAction"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("SeqNo") != m.end() && !m["SeqNo"].empty()) {
+      seqNo = make_shared<long>(boost::any_cast<long>(m["SeqNo"]));
+    }
+    if (m.find("SrcPortEnd") != m.end() && !m["SrcPortEnd"].empty()) {
+      srcPortEnd = make_shared<long>(boost::any_cast<long>(m["SrcPortEnd"]));
+    }
+    if (m.find("SrcPortStart") != m.end() && !m["SrcPortStart"].empty()) {
+      srcPortStart = make_shared<long>(boost::any_cast<long>(m["SrcPortStart"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyContentRequestContentPortRuleList() = default;
+};
+class ModifyPolicyContentRequestContentSourceBlockList : public Darabonba::Model {
+public:
+  shared_ptr<long> blockExpireSeconds{};
+  shared_ptr<long> everySeconds{};
+  shared_ptr<long> exceedLimitTimes{};
+  shared_ptr<long> type{};
+
+  ModifyPolicyContentRequestContentSourceBlockList() {}
+
+  explicit ModifyPolicyContentRequestContentSourceBlockList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockExpireSeconds) {
+      res["BlockExpireSeconds"] = boost::any(*blockExpireSeconds);
+    }
+    if (everySeconds) {
+      res["EverySeconds"] = boost::any(*everySeconds);
+    }
+    if (exceedLimitTimes) {
+      res["ExceedLimitTimes"] = boost::any(*exceedLimitTimes);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockExpireSeconds") != m.end() && !m["BlockExpireSeconds"].empty()) {
+      blockExpireSeconds = make_shared<long>(boost::any_cast<long>(m["BlockExpireSeconds"]));
+    }
+    if (m.find("EverySeconds") != m.end() && !m["EverySeconds"].empty()) {
+      everySeconds = make_shared<long>(boost::any_cast<long>(m["EverySeconds"]));
+    }
+    if (m.find("ExceedLimitTimes") != m.end() && !m["ExceedLimitTimes"].empty()) {
+      exceedLimitTimes = make_shared<long>(boost::any_cast<long>(m["ExceedLimitTimes"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyContentRequestContentSourceBlockList() = default;
+};
+class ModifyPolicyContentRequestContentSourceLimit : public Darabonba::Model {
+public:
+  shared_ptr<long> bps{};
+  shared_ptr<long> pps{};
+  shared_ptr<long> synBps{};
+  shared_ptr<long> synPps{};
+
+  ModifyPolicyContentRequestContentSourceLimit() {}
+
+  explicit ModifyPolicyContentRequestContentSourceLimit(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bps) {
+      res["Bps"] = boost::any(*bps);
+    }
+    if (pps) {
+      res["Pps"] = boost::any(*pps);
+    }
+    if (synBps) {
+      res["SynBps"] = boost::any(*synBps);
+    }
+    if (synPps) {
+      res["SynPps"] = boost::any(*synPps);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bps") != m.end() && !m["Bps"].empty()) {
+      bps = make_shared<long>(boost::any_cast<long>(m["Bps"]));
+    }
+    if (m.find("Pps") != m.end() && !m["Pps"].empty()) {
+      pps = make_shared<long>(boost::any_cast<long>(m["Pps"]));
+    }
+    if (m.find("SynBps") != m.end() && !m["SynBps"].empty()) {
+      synBps = make_shared<long>(boost::any_cast<long>(m["SynBps"]));
+    }
+    if (m.find("SynPps") != m.end() && !m["SynPps"].empty()) {
+      synPps = make_shared<long>(boost::any_cast<long>(m["SynPps"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyContentRequestContentSourceLimit() = default;
+};
+class ModifyPolicyContentRequestContent : public Darabonba::Model {
+public:
+  shared_ptr<long> blackIpListExpireAt{};
+  shared_ptr<bool> enableDropIcmp{};
+  shared_ptr<bool> enableIntelligence{};
+  shared_ptr<bool> enableL4Defense{};
+  shared_ptr<vector<ModifyPolicyContentRequestContentFingerPrintRuleList>> fingerPrintRuleList{};
+  shared_ptr<string> intelligenceLevel{};
+  shared_ptr<vector<ModifyPolicyContentRequestContentL4RuleList>> l4RuleList{};
+  shared_ptr<vector<ModifyPolicyContentRequestContentPortRuleList>> portRuleList{};
+  shared_ptr<vector<long>> reflectBlockUdpPortList{};
+  shared_ptr<vector<long>> regionBlockCountryList{};
+  shared_ptr<vector<long>> regionBlockProvinceList{};
+  shared_ptr<vector<ModifyPolicyContentRequestContentSourceBlockList>> sourceBlockList{};
+  shared_ptr<ModifyPolicyContentRequestContentSourceLimit> sourceLimit{};
+  shared_ptr<bool> whitenGfbrNets{};
+
+  ModifyPolicyContentRequestContent() {}
+
+  explicit ModifyPolicyContentRequestContent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blackIpListExpireAt) {
+      res["BlackIpListExpireAt"] = boost::any(*blackIpListExpireAt);
+    }
+    if (enableDropIcmp) {
+      res["EnableDropIcmp"] = boost::any(*enableDropIcmp);
+    }
+    if (enableIntelligence) {
+      res["EnableIntelligence"] = boost::any(*enableIntelligence);
+    }
+    if (enableL4Defense) {
+      res["EnableL4Defense"] = boost::any(*enableL4Defense);
+    }
+    if (fingerPrintRuleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*fingerPrintRuleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FingerPrintRuleList"] = boost::any(temp1);
+    }
+    if (intelligenceLevel) {
+      res["IntelligenceLevel"] = boost::any(*intelligenceLevel);
+    }
+    if (l4RuleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*l4RuleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["L4RuleList"] = boost::any(temp1);
+    }
+    if (portRuleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRuleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRuleList"] = boost::any(temp1);
+    }
+    if (reflectBlockUdpPortList) {
+      res["ReflectBlockUdpPortList"] = boost::any(*reflectBlockUdpPortList);
+    }
+    if (regionBlockCountryList) {
+      res["RegionBlockCountryList"] = boost::any(*regionBlockCountryList);
+    }
+    if (regionBlockProvinceList) {
+      res["RegionBlockProvinceList"] = boost::any(*regionBlockProvinceList);
+    }
+    if (sourceBlockList) {
+      vector<boost::any> temp1;
+      for(auto item1:*sourceBlockList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SourceBlockList"] = boost::any(temp1);
+    }
+    if (sourceLimit) {
+      res["SourceLimit"] = sourceLimit ? boost::any(sourceLimit->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (whitenGfbrNets) {
+      res["WhitenGfbrNets"] = boost::any(*whitenGfbrNets);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlackIpListExpireAt") != m.end() && !m["BlackIpListExpireAt"].empty()) {
+      blackIpListExpireAt = make_shared<long>(boost::any_cast<long>(m["BlackIpListExpireAt"]));
+    }
+    if (m.find("EnableDropIcmp") != m.end() && !m["EnableDropIcmp"].empty()) {
+      enableDropIcmp = make_shared<bool>(boost::any_cast<bool>(m["EnableDropIcmp"]));
+    }
+    if (m.find("EnableIntelligence") != m.end() && !m["EnableIntelligence"].empty()) {
+      enableIntelligence = make_shared<bool>(boost::any_cast<bool>(m["EnableIntelligence"]));
+    }
+    if (m.find("EnableL4Defense") != m.end() && !m["EnableL4Defense"].empty()) {
+      enableL4Defense = make_shared<bool>(boost::any_cast<bool>(m["EnableL4Defense"]));
+    }
+    if (m.find("FingerPrintRuleList") != m.end() && !m["FingerPrintRuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FingerPrintRuleList"].type()) {
+        vector<ModifyPolicyContentRequestContentFingerPrintRuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FingerPrintRuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyPolicyContentRequestContentFingerPrintRuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        fingerPrintRuleList = make_shared<vector<ModifyPolicyContentRequestContentFingerPrintRuleList>>(expect1);
+      }
+    }
+    if (m.find("IntelligenceLevel") != m.end() && !m["IntelligenceLevel"].empty()) {
+      intelligenceLevel = make_shared<string>(boost::any_cast<string>(m["IntelligenceLevel"]));
+    }
+    if (m.find("L4RuleList") != m.end() && !m["L4RuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["L4RuleList"].type()) {
+        vector<ModifyPolicyContentRequestContentL4RuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["L4RuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyPolicyContentRequestContentL4RuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        l4RuleList = make_shared<vector<ModifyPolicyContentRequestContentL4RuleList>>(expect1);
+      }
+    }
+    if (m.find("PortRuleList") != m.end() && !m["PortRuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRuleList"].type()) {
+        vector<ModifyPolicyContentRequestContentPortRuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyPolicyContentRequestContentPortRuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRuleList = make_shared<vector<ModifyPolicyContentRequestContentPortRuleList>>(expect1);
+      }
+    }
+    if (m.find("ReflectBlockUdpPortList") != m.end() && !m["ReflectBlockUdpPortList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["ReflectBlockUdpPortList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ReflectBlockUdpPortList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      reflectBlockUdpPortList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RegionBlockCountryList") != m.end() && !m["RegionBlockCountryList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionBlockCountryList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionBlockCountryList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      regionBlockCountryList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RegionBlockProvinceList") != m.end() && !m["RegionBlockProvinceList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionBlockProvinceList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionBlockProvinceList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      regionBlockProvinceList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("SourceBlockList") != m.end() && !m["SourceBlockList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SourceBlockList"].type()) {
+        vector<ModifyPolicyContentRequestContentSourceBlockList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SourceBlockList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyPolicyContentRequestContentSourceBlockList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sourceBlockList = make_shared<vector<ModifyPolicyContentRequestContentSourceBlockList>>(expect1);
+      }
+    }
+    if (m.find("SourceLimit") != m.end() && !m["SourceLimit"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceLimit"].type()) {
+        ModifyPolicyContentRequestContentSourceLimit model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceLimit"]));
+        sourceLimit = make_shared<ModifyPolicyContentRequestContentSourceLimit>(model1);
+      }
+    }
+    if (m.find("WhitenGfbrNets") != m.end() && !m["WhitenGfbrNets"].empty()) {
+      whitenGfbrNets = make_shared<bool>(boost::any_cast<bool>(m["WhitenGfbrNets"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyContentRequestContent() = default;
+};
+class ModifyPolicyContentRequest : public Darabonba::Model {
+public:
+  shared_ptr<ModifyPolicyContentRequestContent> content{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+
+  ModifyPolicyContentRequest() {}
+
+  explicit ModifyPolicyContentRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = content ? boost::any(content->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Content"].type()) {
+        ModifyPolicyContentRequestContent model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Content"]));
+        content = make_shared<ModifyPolicyContentRequestContent>(model1);
+      }
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyContentRequest() = default;
+};
+class ModifyPolicyContentShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> contentShrink{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+
+  ModifyPolicyContentShrinkRequest() {}
+
+  explicit ModifyPolicyContentShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contentShrink) {
+      res["Content"] = boost::any(*contentShrink);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      contentShrink = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyContentShrinkRequest() = default;
+};
+class ModifyPolicyContentResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyPolicyContentResponseBody() {}
+
+  explicit ModifyPolicyContentResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyContentResponseBody() = default;
+};
+class ModifyPolicyContentResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyPolicyContentResponseBody> body{};
+
+  ModifyPolicyContentResponse() {}
+
+  explicit ModifyPolicyContentResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyPolicyContentResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyPolicyContentResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyPolicyContentResponse() = default;
 };
 class ModifyRemarkRequest : public Darabonba::Model {
 public:
@@ -7696,12 +10920,16 @@ public:
   CheckGrantResponse checkGrant(shared_ptr<CheckGrantRequest> request);
   ConfigSchedruleOnDemandResponse configSchedruleOnDemandWithOptions(shared_ptr<ConfigSchedruleOnDemandRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ConfigSchedruleOnDemandResponse configSchedruleOnDemand(shared_ptr<ConfigSchedruleOnDemandRequest> request);
+  CreatePolicyResponse createPolicyWithOptions(shared_ptr<CreatePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePolicyResponse createPolicy(shared_ptr<CreatePolicyRequest> request);
   CreateSchedruleOnDemandResponse createSchedruleOnDemandWithOptions(shared_ptr<CreateSchedruleOnDemandRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSchedruleOnDemandResponse createSchedruleOnDemand(shared_ptr<CreateSchedruleOnDemandRequest> request);
   DeleteBlackholeResponse deleteBlackholeWithOptions(shared_ptr<DeleteBlackholeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteBlackholeResponse deleteBlackhole(shared_ptr<DeleteBlackholeRequest> request);
   DeleteIpResponse deleteIpWithOptions(shared_ptr<DeleteIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteIpResponse deleteIp(shared_ptr<DeleteIpRequest> request);
+  DeletePolicyResponse deletePolicyWithOptions(shared_ptr<DeletePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeletePolicyResponse deletePolicy(shared_ptr<DeletePolicyRequest> request);
   DeleteRdMemberListResponse deleteRdMemberListWithOptions(shared_ptr<DeleteRdMemberListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteRdMemberListResponse deleteRdMemberList(shared_ptr<DeleteRdMemberListRequest> request);
   DeleteSchedruleOnDemandResponse deleteSchedruleOnDemandWithOptions(shared_ptr<DeleteSchedruleOnDemandRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7736,16 +10964,26 @@ public:
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DescribeTrafficResponse describeTrafficWithOptions(shared_ptr<DescribeTrafficRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeTrafficResponse describeTraffic(shared_ptr<DescribeTrafficRequest> request);
+  DetachFromPolicyResponse detachFromPolicyWithOptions(shared_ptr<DetachFromPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DetachFromPolicyResponse detachFromPolicy(shared_ptr<DetachFromPolicyRequest> request);
   DettachAssetGroupToInstanceResponse dettachAssetGroupToInstanceWithOptions(shared_ptr<DettachAssetGroupToInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DettachAssetGroupToInstanceResponse dettachAssetGroupToInstance(shared_ptr<DettachAssetGroupToInstanceRequest> request);
   GetSlsOpenStatusResponse getSlsOpenStatusWithOptions(shared_ptr<GetSlsOpenStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetSlsOpenStatusResponse getSlsOpenStatus(shared_ptr<GetSlsOpenStatusRequest> request);
   ListOpenedAccessLogInstancesResponse listOpenedAccessLogInstancesWithOptions(shared_ptr<ListOpenedAccessLogInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListOpenedAccessLogInstancesResponse listOpenedAccessLogInstances(shared_ptr<ListOpenedAccessLogInstancesRequest> request);
+  ListPolicyResponse listPolicyWithOptions(shared_ptr<ListPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListPolicyResponse listPolicy(shared_ptr<ListPolicyRequest> request);
+  ListPolicyAttachmentResponse listPolicyAttachmentWithOptions(shared_ptr<ListPolicyAttachmentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListPolicyAttachmentResponse listPolicyAttachment(shared_ptr<ListPolicyAttachmentRequest> request);
   ListTagKeysResponse listTagKeysWithOptions(shared_ptr<ListTagKeysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagKeysResponse listTagKeys(shared_ptr<ListTagKeysRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
+  ModifyPolicyResponse modifyPolicyWithOptions(shared_ptr<ModifyPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyPolicyResponse modifyPolicy(shared_ptr<ModifyPolicyRequest> request);
+  ModifyPolicyContentResponse modifyPolicyContentWithOptions(shared_ptr<ModifyPolicyContentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyPolicyContentResponse modifyPolicyContent(shared_ptr<ModifyPolicyContentRequest> request);
   ModifyRemarkResponse modifyRemarkWithOptions(shared_ptr<ModifyRemarkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyRemarkResponse modifyRemark(shared_ptr<ModifyRemarkRequest> request);
   QuerySchedruleOnDemandResponse querySchedruleOnDemandWithOptions(shared_ptr<QuerySchedruleOnDemandRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
