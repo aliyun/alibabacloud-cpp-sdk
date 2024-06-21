@@ -4358,6 +4358,321 @@ public:
 
   virtual ~StopServiceInstanceResponse() = default;
 };
+class UpdateServiceInstanceSpecRequestCommodity : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoPay{};
+
+  UpdateServiceInstanceSpecRequestCommodity() {}
+
+  explicit UpdateServiceInstanceSpecRequestCommodity(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceInstanceSpecRequestCommodity() = default;
+};
+class UpdateServiceInstanceSpecRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<UpdateServiceInstanceSpecRequestCommodity> commodity{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<bool> enableUserPrometheus{};
+  shared_ptr<string> operationName{};
+  shared_ptr<map<string, boost::any>> parameters{};
+  shared_ptr<string> predefinedParametersName{};
+  shared_ptr<string> serviceInstanceId{};
+
+  UpdateServiceInstanceSpecRequest() {}
+
+  explicit UpdateServiceInstanceSpecRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (commodity) {
+      res["Commodity"] = commodity ? boost::any(commodity->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (enableUserPrometheus) {
+      res["EnableUserPrometheus"] = boost::any(*enableUserPrometheus);
+    }
+    if (operationName) {
+      res["OperationName"] = boost::any(*operationName);
+    }
+    if (parameters) {
+      res["Parameters"] = boost::any(*parameters);
+    }
+    if (predefinedParametersName) {
+      res["PredefinedParametersName"] = boost::any(*predefinedParametersName);
+    }
+    if (serviceInstanceId) {
+      res["ServiceInstanceId"] = boost::any(*serviceInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Commodity") != m.end() && !m["Commodity"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Commodity"].type()) {
+        UpdateServiceInstanceSpecRequestCommodity model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Commodity"]));
+        commodity = make_shared<UpdateServiceInstanceSpecRequestCommodity>(model1);
+      }
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EnableUserPrometheus") != m.end() && !m["EnableUserPrometheus"].empty()) {
+      enableUserPrometheus = make_shared<bool>(boost::any_cast<bool>(m["EnableUserPrometheus"]));
+    }
+    if (m.find("OperationName") != m.end() && !m["OperationName"].empty()) {
+      operationName = make_shared<string>(boost::any_cast<string>(m["OperationName"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Parameters"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      parameters = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("PredefinedParametersName") != m.end() && !m["PredefinedParametersName"].empty()) {
+      predefinedParametersName = make_shared<string>(boost::any_cast<string>(m["PredefinedParametersName"]));
+    }
+    if (m.find("ServiceInstanceId") != m.end() && !m["ServiceInstanceId"].empty()) {
+      serviceInstanceId = make_shared<string>(boost::any_cast<string>(m["ServiceInstanceId"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceInstanceSpecRequest() = default;
+};
+class UpdateServiceInstanceSpecShrinkRequestCommodity : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoPay{};
+
+  UpdateServiceInstanceSpecShrinkRequestCommodity() {}
+
+  explicit UpdateServiceInstanceSpecShrinkRequestCommodity(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceInstanceSpecShrinkRequestCommodity() = default;
+};
+class UpdateServiceInstanceSpecShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<UpdateServiceInstanceSpecShrinkRequestCommodity> commodity{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<bool> enableUserPrometheus{};
+  shared_ptr<string> operationName{};
+  shared_ptr<string> parametersShrink{};
+  shared_ptr<string> predefinedParametersName{};
+  shared_ptr<string> serviceInstanceId{};
+
+  UpdateServiceInstanceSpecShrinkRequest() {}
+
+  explicit UpdateServiceInstanceSpecShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (commodity) {
+      res["Commodity"] = commodity ? boost::any(commodity->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (enableUserPrometheus) {
+      res["EnableUserPrometheus"] = boost::any(*enableUserPrometheus);
+    }
+    if (operationName) {
+      res["OperationName"] = boost::any(*operationName);
+    }
+    if (parametersShrink) {
+      res["Parameters"] = boost::any(*parametersShrink);
+    }
+    if (predefinedParametersName) {
+      res["PredefinedParametersName"] = boost::any(*predefinedParametersName);
+    }
+    if (serviceInstanceId) {
+      res["ServiceInstanceId"] = boost::any(*serviceInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Commodity") != m.end() && !m["Commodity"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Commodity"].type()) {
+        UpdateServiceInstanceSpecShrinkRequestCommodity model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Commodity"]));
+        commodity = make_shared<UpdateServiceInstanceSpecShrinkRequestCommodity>(model1);
+      }
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EnableUserPrometheus") != m.end() && !m["EnableUserPrometheus"].empty()) {
+      enableUserPrometheus = make_shared<bool>(boost::any_cast<bool>(m["EnableUserPrometheus"]));
+    }
+    if (m.find("OperationName") != m.end() && !m["OperationName"].empty()) {
+      operationName = make_shared<string>(boost::any_cast<string>(m["OperationName"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      parametersShrink = make_shared<string>(boost::any_cast<string>(m["Parameters"]));
+    }
+    if (m.find("PredefinedParametersName") != m.end() && !m["PredefinedParametersName"].empty()) {
+      predefinedParametersName = make_shared<string>(boost::any_cast<string>(m["PredefinedParametersName"]));
+    }
+    if (m.find("ServiceInstanceId") != m.end() && !m["ServiceInstanceId"].empty()) {
+      serviceInstanceId = make_shared<string>(boost::any_cast<string>(m["ServiceInstanceId"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceInstanceSpecShrinkRequest() = default;
+};
+class UpdateServiceInstanceSpecResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+
+  UpdateServiceInstanceSpecResponseBody() {}
+
+  explicit UpdateServiceInstanceSpecResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceInstanceSpecResponseBody() = default;
+};
+class UpdateServiceInstanceSpecResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateServiceInstanceSpecResponseBody> body{};
+
+  UpdateServiceInstanceSpecResponse() {}
+
+  explicit UpdateServiceInstanceSpecResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateServiceInstanceSpecResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateServiceInstanceSpecResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateServiceInstanceSpecResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -4392,6 +4707,8 @@ public:
   StartServiceInstanceResponse startServiceInstance(shared_ptr<StartServiceInstanceRequest> request);
   StopServiceInstanceResponse stopServiceInstanceWithOptions(shared_ptr<StopServiceInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopServiceInstanceResponse stopServiceInstance(shared_ptr<StopServiceInstanceRequest> request);
+  UpdateServiceInstanceSpecResponse updateServiceInstanceSpecWithOptions(shared_ptr<UpdateServiceInstanceSpecRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateServiceInstanceSpecResponse updateServiceInstanceSpec(shared_ptr<UpdateServiceInstanceSpecRequest> request);
 
   virtual ~Client() = default;
 };
