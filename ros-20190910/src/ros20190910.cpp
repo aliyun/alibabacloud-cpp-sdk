@@ -741,6 +741,9 @@ DeleteStackResponse Alibabacloud_ROS20190910::Client::deleteStackWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->deleteOptions)) {
     query->insert(pair<string, vector<string>>("DeleteOptions", *request->deleteOptions));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->parallelism)) {
+    query->insert(pair<string, long>("Parallelism", *request->parallelism));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ramRoleName)) {
     query->insert(pair<string, string>("RamRoleName", *request->ramRoleName));
   }

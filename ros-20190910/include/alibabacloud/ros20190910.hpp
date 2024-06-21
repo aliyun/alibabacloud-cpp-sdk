@@ -3722,6 +3722,7 @@ public:
 class DeleteStackRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> deleteOptions{};
+  shared_ptr<long> parallelism{};
   shared_ptr<string> ramRoleName{};
   shared_ptr<string> regionId{};
   shared_ptr<bool> retainAllResources{};
@@ -3740,6 +3741,9 @@ public:
     map<string, boost::any> res;
     if (deleteOptions) {
       res["DeleteOptions"] = boost::any(*deleteOptions);
+    }
+    if (parallelism) {
+      res["Parallelism"] = boost::any(*parallelism);
     }
     if (ramRoleName) {
       res["RamRoleName"] = boost::any(*ramRoleName);
@@ -3769,6 +3773,9 @@ public:
         }
       }
       deleteOptions = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Parallelism") != m.end() && !m["Parallelism"].empty()) {
+      parallelism = make_shared<long>(boost::any_cast<long>(m["Parallelism"]));
     }
     if (m.find("RamRoleName") != m.end() && !m["RamRoleName"].empty()) {
       ramRoleName = make_shared<string>(boost::any_cast<string>(m["RamRoleName"]));
