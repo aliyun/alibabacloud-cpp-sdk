@@ -17611,6 +17611,9 @@ ListFileProtectEventResponse Alibabacloud_Sas20181203::Client::listFileProtectEv
   if (!Darabonba_Util::Client::isUnset<string>(request->intranetIp)) {
     query->insert(pair<string, string>("IntranetIp", *request->intranetIp));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operation)) {
+    query->insert(pair<string, string>("Operation", *request->operation));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
     query->insert(pair<string, string>("PageSize", *request->pageSize));
   }
