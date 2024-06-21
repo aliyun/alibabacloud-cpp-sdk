@@ -3392,6 +3392,12 @@ LaunchSurveyResponse Alibabacloud_CCC20200701::Client::launchSurveyWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->surveyChannel)) {
     query->insert(pair<string, string>("SurveyChannel", *request->surveyChannel));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->surveyTemplateId)) {
+    query->insert(pair<string, string>("SurveyTemplateId", *request->surveyTemplateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->surveyTemplateVariables)) {
+    query->insert(pair<string, string>("SurveyTemplateVariables", *request->surveyTemplateVariables));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     query->insert(pair<string, string>("UserId", *request->userId));
   }
@@ -5022,6 +5028,9 @@ ListRealtimeAgentStatesResponse Alibabacloud_CCC20200701::Client::listRealtimeAg
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->outboundScenario)) {
     query->insert(pair<string, bool>("OutboundScenario", *request->outboundScenario));
   }
@@ -5075,6 +5084,9 @@ ListRealtimeSkillGroupStatesResponse Alibabacloud_CCC20200701::Client::listRealt
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));

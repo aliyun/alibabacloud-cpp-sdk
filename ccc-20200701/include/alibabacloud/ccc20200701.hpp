@@ -24950,6 +24950,8 @@ public:
   shared_ptr<string> jobId{};
   shared_ptr<string> smsMetadataId{};
   shared_ptr<string> surveyChannel{};
+  shared_ptr<string> surveyTemplateId{};
+  shared_ptr<string> surveyTemplateVariables{};
   shared_ptr<string> userId{};
 
   LaunchSurveyRequest() {}
@@ -24983,6 +24985,12 @@ public:
     if (surveyChannel) {
       res["SurveyChannel"] = boost::any(*surveyChannel);
     }
+    if (surveyTemplateId) {
+      res["SurveyTemplateId"] = boost::any(*surveyTemplateId);
+    }
+    if (surveyTemplateVariables) {
+      res["SurveyTemplateVariables"] = boost::any(*surveyTemplateVariables);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -25010,6 +25018,12 @@ public:
     }
     if (m.find("SurveyChannel") != m.end() && !m["SurveyChannel"].empty()) {
       surveyChannel = make_shared<string>(boost::any_cast<string>(m["SurveyChannel"]));
+    }
+    if (m.find("SurveyTemplateId") != m.end() && !m["SurveyTemplateId"].empty()) {
+      surveyTemplateId = make_shared<string>(boost::any_cast<string>(m["SurveyTemplateId"]));
+    }
+    if (m.find("SurveyTemplateVariables") != m.end() && !m["SurveyTemplateVariables"].empty()) {
+      surveyTemplateVariables = make_shared<string>(boost::any_cast<string>(m["SurveyTemplateVariables"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -46367,6 +46381,7 @@ public:
   shared_ptr<string> agentName{};
   shared_ptr<string> callTypeList{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mediaType{};
   shared_ptr<bool> outboundScenario{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -46396,6 +46411,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
     }
     if (outboundScenario) {
       res["OutboundScenario"] = boost::any(*outboundScenario);
@@ -46433,6 +46451,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
     }
     if (m.find("OutboundScenario") != m.end() && !m["OutboundScenario"].empty()) {
       outboundScenario = make_shared<bool>(boost::any_cast<bool>(m["OutboundScenario"]));
@@ -46781,6 +46802,7 @@ public:
 class ListRealtimeSkillGroupStatesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mediaType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> skillGroupIdList{};
@@ -46798,6 +46820,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -46813,6 +46838,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
