@@ -898,6 +898,7 @@ public:
   shared_ptr<string> endpointDescription{};
   shared_ptr<string> endpointName{};
   shared_ptr<string> endpointType{};
+  shared_ptr<string> policyDocument{};
   shared_ptr<bool> protectedEnabled{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -933,6 +934,9 @@ public:
     }
     if (endpointType) {
       res["EndpointType"] = boost::any(*endpointType);
+    }
+    if (policyDocument) {
+      res["PolicyDocument"] = boost::any(*policyDocument);
     }
     if (protectedEnabled) {
       res["ProtectedEnabled"] = boost::any(*protectedEnabled);
@@ -990,6 +994,9 @@ public:
     }
     if (m.find("EndpointType") != m.end() && !m["EndpointType"].empty()) {
       endpointType = make_shared<string>(boost::any_cast<string>(m["EndpointType"]));
+    }
+    if (m.find("PolicyDocument") != m.end() && !m["PolicyDocument"].empty()) {
+      policyDocument = make_shared<string>(boost::any_cast<string>(m["PolicyDocument"]));
     }
     if (m.find("ProtectedEnabled") != m.end() && !m["ProtectedEnabled"].empty()) {
       protectedEnabled = make_shared<bool>(boost::any_cast<bool>(m["ProtectedEnabled"]));
@@ -3177,6 +3184,7 @@ public:
   shared_ptr<string> endpointStatus{};
   shared_ptr<string> endpointType{};
   shared_ptr<string> payer{};
+  shared_ptr<string> policyDocument{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
@@ -3229,6 +3237,9 @@ public:
     }
     if (payer) {
       res["Payer"] = boost::any(*payer);
+    }
+    if (policyDocument) {
+      res["PolicyDocument"] = boost::any(*policyDocument);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -3293,6 +3304,9 @@ public:
     }
     if (m.find("Payer") != m.end() && !m["Payer"].empty()) {
       payer = make_shared<string>(boost::any_cast<string>(m["Payer"]));
+    }
+    if (m.find("PolicyDocument") != m.end() && !m["PolicyDocument"].empty()) {
+      policyDocument = make_shared<string>(boost::any_cast<string>(m["PolicyDocument"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -4374,6 +4388,7 @@ public:
 class ListVpcEndpointSecurityGroupsResponseBodySecurityGroups : public Darabonba::Model {
 public:
   shared_ptr<string> securityGroupId{};
+  shared_ptr<string> securityGroupStatus{};
 
   ListVpcEndpointSecurityGroupsResponseBodySecurityGroups() {}
 
@@ -4388,12 +4403,18 @@ public:
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
     }
+    if (securityGroupStatus) {
+      res["SecurityGroupStatus"] = boost::any(*securityGroupStatus);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("SecurityGroupStatus") != m.end() && !m["SecurityGroupStatus"].empty()) {
+      securityGroupStatus = make_shared<string>(boost::any_cast<string>(m["SecurityGroupStatus"]));
     }
   }
 
@@ -4406,6 +4427,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<ListVpcEndpointSecurityGroupsResponseBodySecurityGroups>> securityGroups{};
+  shared_ptr<long> totalCount{};
 
   ListVpcEndpointSecurityGroupsResponseBody() {}
 
@@ -4433,6 +4455,9 @@ public:
       }
       res["SecurityGroups"] = boost::any(temp1);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
@@ -4458,6 +4483,9 @@ public:
         }
         securityGroups = make_shared<vector<ListVpcEndpointSecurityGroupsResponseBodySecurityGroups>>(expect1);
       }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
@@ -6071,6 +6099,7 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
   shared_ptr<vector<ListVpcEndpointZonesResponseBodyZones>> zones{};
 
   ListVpcEndpointZonesResponseBody() {}
@@ -6092,6 +6121,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     if (zones) {
       vector<boost::any> temp1;
       for(auto item1:*zones){
@@ -6111,6 +6143,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
     if (m.find("Zones") != m.end() && !m["Zones"].empty()) {
       if (typeid(vector<boost::any>) == m["Zones"].type()) {
@@ -6386,6 +6421,7 @@ public:
   shared_ptr<string> endpointName{};
   shared_ptr<string> endpointStatus{};
   shared_ptr<string> endpointType{};
+  shared_ptr<string> policyDocument{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<bool> resourceOwner{};
@@ -6434,6 +6470,9 @@ public:
     }
     if (endpointType) {
       res["EndpointType"] = boost::any(*endpointType);
+    }
+    if (policyDocument) {
+      res["PolicyDocument"] = boost::any(*policyDocument);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -6496,6 +6535,9 @@ public:
     }
     if (m.find("EndpointType") != m.end() && !m["EndpointType"].empty()) {
       endpointType = make_shared<string>(boost::any_cast<string>(m["EndpointType"]));
+    }
+    if (m.find("PolicyDocument") != m.end() && !m["PolicyDocument"].empty()) {
+      policyDocument = make_shared<string>(boost::any_cast<string>(m["PolicyDocument"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -7434,6 +7476,7 @@ public:
   shared_ptr<string> endpointDescription{};
   shared_ptr<string> endpointId{};
   shared_ptr<string> endpointName{};
+  shared_ptr<string> policyDocument{};
   shared_ptr<string> regionId{};
 
   UpdateVpcEndpointAttributeRequest() {}
@@ -7461,6 +7504,9 @@ public:
     if (endpointName) {
       res["EndpointName"] = boost::any(*endpointName);
     }
+    if (policyDocument) {
+      res["PolicyDocument"] = boost::any(*policyDocument);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -7482,6 +7528,9 @@ public:
     }
     if (m.find("EndpointName") != m.end() && !m["EndpointName"].empty()) {
       endpointName = make_shared<string>(boost::any_cast<string>(m["EndpointName"]));
+    }
+    if (m.find("PolicyDocument") != m.end() && !m["PolicyDocument"].empty()) {
+      policyDocument = make_shared<string>(boost::any_cast<string>(m["PolicyDocument"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));

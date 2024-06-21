@@ -297,6 +297,9 @@ CreateVpcEndpointResponse Alibabacloud_Privatelink20200415::Client::createVpcEnd
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointType)) {
     query->insert(pair<string, string>("EndpointType", *request->endpointType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyDocument)) {
+    query->insert(pair<string, string>("PolicyDocument", *request->policyDocument));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->protectedEnabled)) {
     query->insert(pair<string, bool>("ProtectedEnabled", *request->protectedEnabled));
   }
@@ -1585,6 +1588,9 @@ UpdateVpcEndpointAttributeResponse Alibabacloud_Privatelink20200415::Client::upd
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointName)) {
     query->insert(pair<string, string>("EndpointName", *request->endpointName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyDocument)) {
+    query->insert(pair<string, string>("PolicyDocument", *request->policyDocument));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
