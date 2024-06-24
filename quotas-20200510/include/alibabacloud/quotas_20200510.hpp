@@ -1528,6 +1528,54 @@ public:
 
   virtual ~GetProductQuotaResponseBodyQuotaQuotaItems() = default;
 };
+class GetProductQuotaResponseBodyQuotaUsageMetric : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> metricDimensions{};
+  shared_ptr<string> metricName{};
+  shared_ptr<string> metricNamespace{};
+
+  GetProductQuotaResponseBodyQuotaUsageMetric() {}
+
+  explicit GetProductQuotaResponseBodyQuotaUsageMetric(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (metricDimensions) {
+      res["MetricDimensions"] = boost::any(*metricDimensions);
+    }
+    if (metricName) {
+      res["MetricName"] = boost::any(*metricName);
+    }
+    if (metricNamespace) {
+      res["MetricNamespace"] = boost::any(*metricNamespace);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MetricDimensions") != m.end() && !m["MetricDimensions"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["MetricDimensions"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      metricDimensions = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
+      metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("MetricNamespace") != m.end() && !m["MetricNamespace"].empty()) {
+      metricNamespace = make_shared<string>(boost::any_cast<string>(m["MetricNamespace"]));
+    }
+  }
+
+
+  virtual ~GetProductQuotaResponseBodyQuotaUsageMetric() = default;
+};
 class GetProductQuotaResponseBodyQuota : public Darabonba::Model {
 public:
   shared_ptr<bool> adjustable{};
@@ -1553,6 +1601,7 @@ public:
   shared_ptr<double> totalQuota{};
   shared_ptr<double> totalUsage{};
   shared_ptr<string> unadjustableDetail{};
+  shared_ptr<GetProductQuotaResponseBodyQuotaUsageMetric> usageMetric{};
 
   GetProductQuotaResponseBodyQuota() {}
 
@@ -1636,6 +1685,9 @@ public:
     }
     if (unadjustableDetail) {
       res["UnadjustableDetail"] = boost::any(*unadjustableDetail);
+    }
+    if (usageMetric) {
+      res["UsageMetric"] = usageMetric ? boost::any(usageMetric->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -1742,6 +1794,13 @@ public:
     }
     if (m.find("UnadjustableDetail") != m.end() && !m["UnadjustableDetail"].empty()) {
       unadjustableDetail = make_shared<string>(boost::any_cast<string>(m["UnadjustableDetail"]));
+    }
+    if (m.find("UsageMetric") != m.end() && !m["UsageMetric"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UsageMetric"].type()) {
+        GetProductQuotaResponseBodyQuotaUsageMetric model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UsageMetric"]));
+        usageMetric = make_shared<GetProductQuotaResponseBodyQuotaUsageMetric>(model1);
+      }
     }
   }
 
@@ -4411,6 +4470,54 @@ public:
 
   virtual ~ListProductQuotasResponseBodyQuotasQuotaItems() = default;
 };
+class ListProductQuotasResponseBodyQuotasUsageMetric : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> metricDimensions{};
+  shared_ptr<string> metricName{};
+  shared_ptr<string> metricNamespace{};
+
+  ListProductQuotasResponseBodyQuotasUsageMetric() {}
+
+  explicit ListProductQuotasResponseBodyQuotasUsageMetric(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (metricDimensions) {
+      res["MetricDimensions"] = boost::any(*metricDimensions);
+    }
+    if (metricName) {
+      res["MetricName"] = boost::any(*metricName);
+    }
+    if (metricNamespace) {
+      res["MetricNamespace"] = boost::any(*metricNamespace);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MetricDimensions") != m.end() && !m["MetricDimensions"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["MetricDimensions"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      metricDimensions = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
+      metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("MetricNamespace") != m.end() && !m["MetricNamespace"].empty()) {
+      metricNamespace = make_shared<string>(boost::any_cast<string>(m["MetricNamespace"]));
+    }
+  }
+
+
+  virtual ~ListProductQuotasResponseBodyQuotasUsageMetric() = default;
+};
 class ListProductQuotasResponseBodyQuotas : public Darabonba::Model {
 public:
   shared_ptr<bool> adjustable{};
@@ -4436,6 +4543,7 @@ public:
   shared_ptr<double> totalQuota{};
   shared_ptr<double> totalUsage{};
   shared_ptr<string> unadjustableDetail{};
+  shared_ptr<ListProductQuotasResponseBodyQuotasUsageMetric> usageMetric{};
 
   ListProductQuotasResponseBodyQuotas() {}
 
@@ -4519,6 +4627,9 @@ public:
     }
     if (unadjustableDetail) {
       res["UnadjustableDetail"] = boost::any(*unadjustableDetail);
+    }
+    if (usageMetric) {
+      res["UsageMetric"] = usageMetric ? boost::any(usageMetric->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -4625,6 +4736,13 @@ public:
     }
     if (m.find("UnadjustableDetail") != m.end() && !m["UnadjustableDetail"].empty()) {
       unadjustableDetail = make_shared<string>(boost::any_cast<string>(m["UnadjustableDetail"]));
+    }
+    if (m.find("UsageMetric") != m.end() && !m["UsageMetric"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UsageMetric"].type()) {
+        ListProductQuotasResponseBodyQuotasUsageMetric model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UsageMetric"]));
+        usageMetric = make_shared<ListProductQuotasResponseBodyQuotasUsageMetric>(model1);
+      }
     }
   }
 
