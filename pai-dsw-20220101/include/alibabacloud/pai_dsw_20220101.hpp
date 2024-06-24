@@ -607,6 +607,9 @@ class CreateInstanceRequestDatasets : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> mountPath{};
+  shared_ptr<string> optionType{};
+  shared_ptr<string> options{};
+  shared_ptr<string> uri{};
 
   CreateInstanceRequestDatasets() {}
 
@@ -624,6 +627,15 @@ public:
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
     }
+    if (optionType) {
+      res["OptionType"] = boost::any(*optionType);
+    }
+    if (options) {
+      res["Options"] = boost::any(*options);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
     return res;
   }
 
@@ -633,6 +645,15 @@ public:
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
+    }
+    if (m.find("OptionType") != m.end() && !m["OptionType"].empty()) {
+      optionType = make_shared<string>(boost::any_cast<string>(m["OptionType"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
     }
   }
 
@@ -2180,6 +2201,9 @@ class GetInstanceResponseBodyDatasets : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> mountPath{};
+  shared_ptr<string> optionType{};
+  shared_ptr<string> options{};
+  shared_ptr<string> uri{};
 
   GetInstanceResponseBodyDatasets() {}
 
@@ -2197,6 +2221,15 @@ public:
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
     }
+    if (optionType) {
+      res["OptionType"] = boost::any(*optionType);
+    }
+    if (options) {
+      res["Options"] = boost::any(*options);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
     return res;
   }
 
@@ -2206,6 +2239,15 @@ public:
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
+    }
+    if (m.find("OptionType") != m.end() && !m["OptionType"].empty()) {
+      optionType = make_shared<string>(boost::any_cast<string>(m["OptionType"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
     }
   }
 
@@ -7502,6 +7544,9 @@ class UpdateInstanceRequestDatasets : public Darabonba::Model {
 public:
   shared_ptr<string> datasetId{};
   shared_ptr<string> mountPath{};
+  shared_ptr<string> optionType{};
+  shared_ptr<string> options{};
+  shared_ptr<string> uri{};
 
   UpdateInstanceRequestDatasets() {}
 
@@ -7519,6 +7564,15 @@ public:
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
     }
+    if (optionType) {
+      res["OptionType"] = boost::any(*optionType);
+    }
+    if (options) {
+      res["Options"] = boost::any(*options);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
     return res;
   }
 
@@ -7528,6 +7582,15 @@ public:
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
+    }
+    if (m.find("OptionType") != m.end() && !m["OptionType"].empty()) {
+      optionType = make_shared<string>(boost::any_cast<string>(m["OptionType"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
     }
   }
 
