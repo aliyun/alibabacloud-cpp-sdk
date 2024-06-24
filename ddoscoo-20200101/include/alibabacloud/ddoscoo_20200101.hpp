@@ -15636,8 +15636,8 @@ public:
 };
 class DescribeNetworkRegionBlockResponseBodyConfig : public Darabonba::Model {
 public:
-  shared_ptr<vector<string>> countries{};
-  shared_ptr<vector<string>> provinces{};
+  shared_ptr<vector<long>> countries{};
+  shared_ptr<vector<long>> provinces{};
   shared_ptr<string> regionBlockSwitch{};
 
   DescribeNetworkRegionBlockResponseBodyConfig() {}
@@ -15664,24 +15664,24 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Countries") != m.end() && !m["Countries"].empty()) {
-      vector<string> toVec1;
+      vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["Countries"].type()) {
         vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Countries"]);
         for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
+           toVec1.push_back(boost::any_cast<long>(item));
         }
       }
-      countries = make_shared<vector<string>>(toVec1);
+      countries = make_shared<vector<long>>(toVec1);
     }
     if (m.find("Provinces") != m.end() && !m["Provinces"].empty()) {
-      vector<string> toVec1;
+      vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["Provinces"].type()) {
         vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Provinces"]);
         for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
+           toVec1.push_back(boost::any_cast<long>(item));
         }
       }
-      provinces = make_shared<vector<string>>(toVec1);
+      provinces = make_shared<vector<long>>(toVec1);
     }
     if (m.find("RegionBlockSwitch") != m.end() && !m["RegionBlockSwitch"].empty()) {
       regionBlockSwitch = make_shared<string>(boost::any_cast<string>(m["RegionBlockSwitch"]));
