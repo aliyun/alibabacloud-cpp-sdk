@@ -159,6 +159,9 @@ CreateEventSourceResponse Alibabacloud_Eventbridge20200401::Client::createEventS
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateEventSourceShrinkRequest> request = make_shared<CreateEventSourceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->externalSourceConfig)) {
+    request->externalSourceConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->externalSourceConfig, make_shared<string>("ExternalSourceConfig"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<CreateEventSourceRequestSourceHttpEventParameters>(tmpReq->sourceHttpEventParameters)) {
     request->sourceHttpEventParametersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sourceHttpEventParameters, make_shared<string>("SourceHttpEventParameters"), make_shared<string>("json")));
   }
@@ -189,6 +192,15 @@ CreateEventSourceResponse Alibabacloud_Eventbridge20200401::Client::createEventS
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->eventSourceName)) {
     body->insert(pair<string, string>("EventSourceName", *request->eventSourceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->externalSourceConfigShrink)) {
+    body->insert(pair<string, string>("ExternalSourceConfig", *request->externalSourceConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<uint8_t>>(request->externalSourceType)) {
+    body->insert(pair<string, vector<uint8_t>>("ExternalSourceType", *request->externalSourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->linkedExternalSource)) {
+    body->insert(pair<string, bool>("LinkedExternalSource", *request->linkedExternalSource));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceHttpEventParametersShrink)) {
     body->insert(pair<string, string>("SourceHttpEventParameters", *request->sourceHttpEventParametersShrink));
@@ -1570,6 +1582,9 @@ UpdateEventSourceResponse Alibabacloud_Eventbridge20200401::Client::updateEventS
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateEventSourceShrinkRequest> request = make_shared<UpdateEventSourceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->externalSourceConfig)) {
+    request->externalSourceConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->externalSourceConfig, make_shared<string>("ExternalSourceConfig"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<UpdateEventSourceRequestSourceHttpEventParameters>(tmpReq->sourceHttpEventParameters)) {
     request->sourceHttpEventParametersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sourceHttpEventParameters, make_shared<string>("SourceHttpEventParameters"), make_shared<string>("json")));
   }
@@ -1600,6 +1615,15 @@ UpdateEventSourceResponse Alibabacloud_Eventbridge20200401::Client::updateEventS
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->eventSourceName)) {
     body->insert(pair<string, string>("EventSourceName", *request->eventSourceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->externalSourceConfigShrink)) {
+    body->insert(pair<string, string>("ExternalSourceConfig", *request->externalSourceConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->externalSourceType)) {
+    body->insert(pair<string, string>("ExternalSourceType", *request->externalSourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->linkedExternalSource)) {
+    body->insert(pair<string, bool>("LinkedExternalSource", *request->linkedExternalSource));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceHttpEventParametersShrink)) {
     body->insert(pair<string, string>("SourceHttpEventParameters", *request->sourceHttpEventParametersShrink));
