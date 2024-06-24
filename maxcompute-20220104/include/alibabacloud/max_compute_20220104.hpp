@@ -1821,12 +1821,383 @@ public:
 
   virtual ~GetProjectResponseBodyDataPropertiesTableLifecycle() = default;
 };
+class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastAccessGreaterThan : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionCode{};
+  shared_ptr<long> value{};
+
+  GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastAccessGreaterThan() {}
+
+  explicit GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastAccessGreaterThan(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionCode) {
+      res["conditionCode"] = boost::any(*conditionCode);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("conditionCode") != m.end() && !m["conditionCode"].empty()) {
+      conditionCode = make_shared<string>(boost::any_cast<string>(m["conditionCode"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<long>(boost::any_cast<long>(m["value"]));
+    }
+  }
+
+
+  virtual ~GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastAccessGreaterThan() = default;
+};
+class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastModificationGreaterThan : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionCode{};
+  shared_ptr<long> value{};
+
+  GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastModificationGreaterThan() {}
+
+  explicit GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastModificationGreaterThan(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionCode) {
+      res["conditionCode"] = boost::any(*conditionCode);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("conditionCode") != m.end() && !m["conditionCode"].empty()) {
+      conditionCode = make_shared<string>(boost::any_cast<string>(m["conditionCode"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<long>(boost::any_cast<long>(m["value"]));
+    }
+  }
+
+
+  virtual ~GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastModificationGreaterThan() = default;
+};
+class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastTierModificationGreaterThan : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionCode{};
+  shared_ptr<long> value{};
+
+  GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastTierModificationGreaterThan() {}
+
+  explicit GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastTierModificationGreaterThan(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionCode) {
+      res["conditionCode"] = boost::any(*conditionCode);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("conditionCode") != m.end() && !m["conditionCode"].empty()) {
+      conditionCode = make_shared<string>(boost::any_cast<string>(m["conditionCode"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<long>(boost::any_cast<long>(m["value"]));
+    }
+  }
+
+
+  virtual ~GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastTierModificationGreaterThan() = default;
+};
+class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongterm : public Darabonba::Model {
+public:
+  shared_ptr<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastAccessGreaterThan> daysAfterLastAccessGreaterThan{};
+  shared_ptr<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastModificationGreaterThan> daysAfterLastModificationGreaterThan{};
+  shared_ptr<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastTierModificationGreaterThan> daysAfterLastTierModificationGreaterThan{};
+
+  GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongterm() {}
+
+  explicit GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongterm(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (daysAfterLastAccessGreaterThan) {
+      res["daysAfterLastAccessGreaterThan"] = daysAfterLastAccessGreaterThan ? boost::any(daysAfterLastAccessGreaterThan->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (daysAfterLastModificationGreaterThan) {
+      res["daysAfterLastModificationGreaterThan"] = daysAfterLastModificationGreaterThan ? boost::any(daysAfterLastModificationGreaterThan->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (daysAfterLastTierModificationGreaterThan) {
+      res["daysAfterLastTierModificationGreaterThan"] = daysAfterLastTierModificationGreaterThan ? boost::any(daysAfterLastTierModificationGreaterThan->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("daysAfterLastAccessGreaterThan") != m.end() && !m["daysAfterLastAccessGreaterThan"].empty()) {
+      if (typeid(map<string, boost::any>) == m["daysAfterLastAccessGreaterThan"].type()) {
+        GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastAccessGreaterThan model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["daysAfterLastAccessGreaterThan"]));
+        daysAfterLastAccessGreaterThan = make_shared<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastAccessGreaterThan>(model1);
+      }
+    }
+    if (m.find("daysAfterLastModificationGreaterThan") != m.end() && !m["daysAfterLastModificationGreaterThan"].empty()) {
+      if (typeid(map<string, boost::any>) == m["daysAfterLastModificationGreaterThan"].type()) {
+        GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastModificationGreaterThan model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["daysAfterLastModificationGreaterThan"]));
+        daysAfterLastModificationGreaterThan = make_shared<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastModificationGreaterThan>(model1);
+      }
+    }
+    if (m.find("daysAfterLastTierModificationGreaterThan") != m.end() && !m["daysAfterLastTierModificationGreaterThan"].empty()) {
+      if (typeid(map<string, boost::any>) == m["daysAfterLastTierModificationGreaterThan"].type()) {
+        GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastTierModificationGreaterThan model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["daysAfterLastTierModificationGreaterThan"]));
+        daysAfterLastTierModificationGreaterThan = make_shared<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongtermDaysAfterLastTierModificationGreaterThan>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongterm() = default;
+};
+class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastAccessGreaterThan : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionCode{};
+  shared_ptr<long> value{};
+
+  GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastAccessGreaterThan() {}
+
+  explicit GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastAccessGreaterThan(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionCode) {
+      res["conditionCode"] = boost::any(*conditionCode);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("conditionCode") != m.end() && !m["conditionCode"].empty()) {
+      conditionCode = make_shared<string>(boost::any_cast<string>(m["conditionCode"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<long>(boost::any_cast<long>(m["value"]));
+    }
+  }
+
+
+  virtual ~GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastAccessGreaterThan() = default;
+};
+class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastModificationGreaterThan : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionCode{};
+  shared_ptr<long> value{};
+
+  GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastModificationGreaterThan() {}
+
+  explicit GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastModificationGreaterThan(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionCode) {
+      res["conditionCode"] = boost::any(*conditionCode);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("conditionCode") != m.end() && !m["conditionCode"].empty()) {
+      conditionCode = make_shared<string>(boost::any_cast<string>(m["conditionCode"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<long>(boost::any_cast<long>(m["value"]));
+    }
+  }
+
+
+  virtual ~GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastModificationGreaterThan() = default;
+};
+class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastTierModificationGreaterThan : public Darabonba::Model {
+public:
+  shared_ptr<string> conditionCode{};
+  shared_ptr<long> value{};
+
+  GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastTierModificationGreaterThan() {}
+
+  explicit GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastTierModificationGreaterThan(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conditionCode) {
+      res["conditionCode"] = boost::any(*conditionCode);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("conditionCode") != m.end() && !m["conditionCode"].empty()) {
+      conditionCode = make_shared<string>(boost::any_cast<string>(m["conditionCode"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<long>(boost::any_cast<long>(m["value"]));
+    }
+  }
+
+
+  virtual ~GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastTierModificationGreaterThan() = default;
+};
+class GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequency : public Darabonba::Model {
+public:
+  shared_ptr<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastAccessGreaterThan> daysAfterLastAccessGreaterThan{};
+  shared_ptr<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastModificationGreaterThan> daysAfterLastModificationGreaterThan{};
+  shared_ptr<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastTierModificationGreaterThan> daysAfterLastTierModificationGreaterThan{};
+
+  GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequency() {}
+
+  explicit GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequency(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (daysAfterLastAccessGreaterThan) {
+      res["daysAfterLastAccessGreaterThan"] = daysAfterLastAccessGreaterThan ? boost::any(daysAfterLastAccessGreaterThan->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (daysAfterLastModificationGreaterThan) {
+      res["daysAfterLastModificationGreaterThan"] = daysAfterLastModificationGreaterThan ? boost::any(daysAfterLastModificationGreaterThan->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (daysAfterLastTierModificationGreaterThan) {
+      res["daysAfterLastTierModificationGreaterThan"] = daysAfterLastTierModificationGreaterThan ? boost::any(daysAfterLastTierModificationGreaterThan->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("daysAfterLastAccessGreaterThan") != m.end() && !m["daysAfterLastAccessGreaterThan"].empty()) {
+      if (typeid(map<string, boost::any>) == m["daysAfterLastAccessGreaterThan"].type()) {
+        GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastAccessGreaterThan model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["daysAfterLastAccessGreaterThan"]));
+        daysAfterLastAccessGreaterThan = make_shared<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastAccessGreaterThan>(model1);
+      }
+    }
+    if (m.find("daysAfterLastModificationGreaterThan") != m.end() && !m["daysAfterLastModificationGreaterThan"].empty()) {
+      if (typeid(map<string, boost::any>) == m["daysAfterLastModificationGreaterThan"].type()) {
+        GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastModificationGreaterThan model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["daysAfterLastModificationGreaterThan"]));
+        daysAfterLastModificationGreaterThan = make_shared<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastModificationGreaterThan>(model1);
+      }
+    }
+    if (m.find("daysAfterLastTierModificationGreaterThan") != m.end() && !m["daysAfterLastTierModificationGreaterThan"].empty()) {
+      if (typeid(map<string, boost::any>) == m["daysAfterLastTierModificationGreaterThan"].type()) {
+        GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastTierModificationGreaterThan model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["daysAfterLastTierModificationGreaterThan"]));
+        daysAfterLastTierModificationGreaterThan = make_shared<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequencyDaysAfterLastTierModificationGreaterThan>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequency() = default;
+};
+class GetProjectResponseBodyDataPropertiesTableLifecycleConfig : public Darabonba::Model {
+public:
+  shared_ptr<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongterm> tierToLongterm{};
+  shared_ptr<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequency> tierToLowFrequency{};
+
+  GetProjectResponseBodyDataPropertiesTableLifecycleConfig() {}
+
+  explicit GetProjectResponseBodyDataPropertiesTableLifecycleConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tierToLongterm) {
+      res["TierToLongterm"] = tierToLongterm ? boost::any(tierToLongterm->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tierToLowFrequency) {
+      res["TierToLowFrequency"] = tierToLowFrequency ? boost::any(tierToLowFrequency->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TierToLongterm") != m.end() && !m["TierToLongterm"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TierToLongterm"].type()) {
+        GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongterm model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TierToLongterm"]));
+        tierToLongterm = make_shared<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLongterm>(model1);
+      }
+    }
+    if (m.find("TierToLowFrequency") != m.end() && !m["TierToLowFrequency"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TierToLowFrequency"].type()) {
+        GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequency model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TierToLowFrequency"]));
+        tierToLowFrequency = make_shared<GetProjectResponseBodyDataPropertiesTableLifecycleConfigTierToLowFrequency>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetProjectResponseBodyDataPropertiesTableLifecycleConfig() = default;
+};
 class GetProjectResponseBodyDataProperties : public Darabonba::Model {
 public:
   shared_ptr<bool> allowFullScan{};
   shared_ptr<string> elderTunnelQuota{};
   shared_ptr<bool> enableDecimal2{};
   shared_ptr<bool> enableFdcCacheForce{};
+  shared_ptr<bool> enableTieredStorage{};
   shared_ptr<bool> enableTunnelQuotaRoute{};
   shared_ptr<GetProjectResponseBodyDataPropertiesEncryption> encryption{};
   shared_ptr<string> fdcQuota{};
@@ -1834,6 +2205,7 @@ public:
   shared_ptr<string> sqlMeteringMax{};
   shared_ptr<GetProjectResponseBodyDataPropertiesStorageTierInfo> storageTierInfo{};
   shared_ptr<GetProjectResponseBodyDataPropertiesTableLifecycle> tableLifecycle{};
+  shared_ptr<GetProjectResponseBodyDataPropertiesTableLifecycleConfig> tableLifecycleConfig{};
   shared_ptr<string> timezone{};
   shared_ptr<string> tunnelQuota{};
   shared_ptr<string> typeSystem{};
@@ -1860,6 +2232,9 @@ public:
     if (enableFdcCacheForce) {
       res["enableFdcCacheForce"] = boost::any(*enableFdcCacheForce);
     }
+    if (enableTieredStorage) {
+      res["enableTieredStorage"] = boost::any(*enableTieredStorage);
+    }
     if (enableTunnelQuotaRoute) {
       res["enableTunnelQuotaRoute"] = boost::any(*enableTunnelQuotaRoute);
     }
@@ -1880,6 +2255,9 @@ public:
     }
     if (tableLifecycle) {
       res["tableLifecycle"] = tableLifecycle ? boost::any(tableLifecycle->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tableLifecycleConfig) {
+      res["tableLifecycleConfig"] = tableLifecycleConfig ? boost::any(tableLifecycleConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (timezone) {
       res["timezone"] = boost::any(*timezone);
@@ -1905,6 +2283,9 @@ public:
     }
     if (m.find("enableFdcCacheForce") != m.end() && !m["enableFdcCacheForce"].empty()) {
       enableFdcCacheForce = make_shared<bool>(boost::any_cast<bool>(m["enableFdcCacheForce"]));
+    }
+    if (m.find("enableTieredStorage") != m.end() && !m["enableTieredStorage"].empty()) {
+      enableTieredStorage = make_shared<bool>(boost::any_cast<bool>(m["enableTieredStorage"]));
     }
     if (m.find("enableTunnelQuotaRoute") != m.end() && !m["enableTunnelQuotaRoute"].empty()) {
       enableTunnelQuotaRoute = make_shared<bool>(boost::any_cast<bool>(m["enableTunnelQuotaRoute"]));
@@ -1937,6 +2318,13 @@ public:
         GetProjectResponseBodyDataPropertiesTableLifecycle model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tableLifecycle"]));
         tableLifecycle = make_shared<GetProjectResponseBodyDataPropertiesTableLifecycle>(model1);
+      }
+    }
+    if (m.find("tableLifecycleConfig") != m.end() && !m["tableLifecycleConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tableLifecycleConfig"].type()) {
+        GetProjectResponseBodyDataPropertiesTableLifecycleConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tableLifecycleConfig"]));
+        tableLifecycleConfig = make_shared<GetProjectResponseBodyDataPropertiesTableLifecycleConfig>(model1);
       }
     }
     if (m.find("timezone") != m.end() && !m["timezone"].empty()) {
