@@ -60496,6 +60496,205 @@ public:
 
   virtual ~SubmitTranscodeJobResponse() = default;
 };
+class SubmitVideoTranslationJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> editingConfig{};
+  shared_ptr<string> inputConfig{};
+  shared_ptr<string> outputConfig{};
+  shared_ptr<string> title{};
+  shared_ptr<string> userData{};
+
+  SubmitVideoTranslationJobRequest() {}
+
+  explicit SubmitVideoTranslationJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (editingConfig) {
+      res["EditingConfig"] = boost::any(*editingConfig);
+    }
+    if (inputConfig) {
+      res["InputConfig"] = boost::any(*inputConfig);
+    }
+    if (outputConfig) {
+      res["OutputConfig"] = boost::any(*outputConfig);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EditingConfig") != m.end() && !m["EditingConfig"].empty()) {
+      editingConfig = make_shared<string>(boost::any_cast<string>(m["EditingConfig"]));
+    }
+    if (m.find("InputConfig") != m.end() && !m["InputConfig"].empty()) {
+      inputConfig = make_shared<string>(boost::any_cast<string>(m["InputConfig"]));
+    }
+    if (m.find("OutputConfig") != m.end() && !m["OutputConfig"].empty()) {
+      outputConfig = make_shared<string>(boost::any_cast<string>(m["OutputConfig"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~SubmitVideoTranslationJobRequest() = default;
+};
+class SubmitVideoTranslationJobResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+
+  SubmitVideoTranslationJobResponseBodyData() {}
+
+  explicit SubmitVideoTranslationJobResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+  }
+
+
+  virtual ~SubmitVideoTranslationJobResponseBodyData() = default;
+};
+class SubmitVideoTranslationJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<SubmitVideoTranslationJobResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  SubmitVideoTranslationJobResponseBody() {}
+
+  explicit SubmitVideoTranslationJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        SubmitVideoTranslationJobResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<SubmitVideoTranslationJobResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SubmitVideoTranslationJobResponseBody() = default;
+};
+class SubmitVideoTranslationJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitVideoTranslationJobResponseBody> body{};
+
+  SubmitVideoTranslationJobResponse() {}
+
+  explicit SubmitVideoTranslationJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitVideoTranslationJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitVideoTranslationJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitVideoTranslationJobResponse() = default;
+};
 class UpdateAvatarTrainingJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> avatarDescription{};
@@ -63784,6 +63983,8 @@ public:
   SubmitTextGenerateJobResponse submitTextGenerateJob(shared_ptr<SubmitTextGenerateJobRequest> request);
   SubmitTranscodeJobResponse submitTranscodeJobWithOptions(shared_ptr<SubmitTranscodeJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitTranscodeJobResponse submitTranscodeJob(shared_ptr<SubmitTranscodeJobRequest> request);
+  SubmitVideoTranslationJobResponse submitVideoTranslationJobWithOptions(shared_ptr<SubmitVideoTranslationJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitVideoTranslationJobResponse submitVideoTranslationJob(shared_ptr<SubmitVideoTranslationJobRequest> request);
   UpdateAvatarTrainingJobResponse updateAvatarTrainingJobWithOptions(shared_ptr<UpdateAvatarTrainingJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAvatarTrainingJobResponse updateAvatarTrainingJob(shared_ptr<UpdateAvatarTrainingJobRequest> request);
   UpdateCategoryResponse updateCategoryWithOptions(shared_ptr<UpdateCategoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -6671,6 +6671,52 @@ SubmitTranscodeJobResponse Alibabacloud_ICE20201109::Client::submitTranscodeJob(
   return submitTranscodeJobWithOptions(request, runtime);
 }
 
+SubmitVideoTranslationJobResponse Alibabacloud_ICE20201109::Client::submitVideoTranslationJobWithOptions(shared_ptr<SubmitVideoTranslationJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->editingConfig)) {
+    query->insert(pair<string, string>("EditingConfig", *request->editingConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputConfig)) {
+    query->insert(pair<string, string>("InputConfig", *request->inputConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputConfig)) {
+    query->insert(pair<string, string>("OutputConfig", *request->outputConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
+    query->insert(pair<string, string>("Title", *request->title));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitVideoTranslationJob"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitVideoTranslationJobResponse(callApi(params, req, runtime));
+}
+
+SubmitVideoTranslationJobResponse Alibabacloud_ICE20201109::Client::submitVideoTranslationJob(shared_ptr<SubmitVideoTranslationJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitVideoTranslationJobWithOptions(request, runtime);
+}
+
 UpdateAvatarTrainingJobResponse Alibabacloud_ICE20201109::Client::updateAvatarTrainingJobWithOptions(shared_ptr<UpdateAvatarTrainingJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
