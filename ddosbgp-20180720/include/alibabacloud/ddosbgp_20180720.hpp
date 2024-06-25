@@ -558,6 +558,216 @@ public:
 
   virtual ~AttachAssetGroupToInstanceResponse() = default;
 };
+class AttachToPolicyRequestIpPortProtocolList : public Darabonba::Model {
+public:
+  shared_ptr<string> ip{};
+  shared_ptr<long> port{};
+  shared_ptr<string> protocol{};
+
+  AttachToPolicyRequestIpPortProtocolList() {}
+
+  explicit AttachToPolicyRequestIpPortProtocolList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+  }
+
+
+  virtual ~AttachToPolicyRequestIpPortProtocolList() = default;
+};
+class AttachToPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<AttachToPolicyRequestIpPortProtocolList>> ipPortProtocolList{};
+  shared_ptr<string> policyId{};
+
+  AttachToPolicyRequest() {}
+
+  explicit AttachToPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipPortProtocolList) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipPortProtocolList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IpPortProtocolList"] = boost::any(temp1);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpPortProtocolList") != m.end() && !m["IpPortProtocolList"].empty()) {
+      if (typeid(vector<boost::any>) == m["IpPortProtocolList"].type()) {
+        vector<AttachToPolicyRequestIpPortProtocolList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IpPortProtocolList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AttachToPolicyRequestIpPortProtocolList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipPortProtocolList = make_shared<vector<AttachToPolicyRequestIpPortProtocolList>>(expect1);
+      }
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+  }
+
+
+  virtual ~AttachToPolicyRequest() = default;
+};
+class AttachToPolicyShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ipPortProtocolListShrink{};
+  shared_ptr<string> policyId{};
+
+  AttachToPolicyShrinkRequest() {}
+
+  explicit AttachToPolicyShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipPortProtocolListShrink) {
+      res["IpPortProtocolList"] = boost::any(*ipPortProtocolListShrink);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpPortProtocolList") != m.end() && !m["IpPortProtocolList"].empty()) {
+      ipPortProtocolListShrink = make_shared<string>(boost::any_cast<string>(m["IpPortProtocolList"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+  }
+
+
+  virtual ~AttachToPolicyShrinkRequest() = default;
+};
+class AttachToPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  AttachToPolicyResponseBody() {}
+
+  explicit AttachToPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AttachToPolicyResponseBody() = default;
+};
+class AttachToPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AttachToPolicyResponseBody> body{};
+
+  AttachToPolicyResponse() {}
+
+  explicit AttachToPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AttachToPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AttachToPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AttachToPolicyResponse() = default;
+};
 class CheckAccessLogAuthRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -10914,6 +11124,8 @@ public:
   AddRdMemberListResponse addRdMemberList(shared_ptr<AddRdMemberListRequest> request);
   AttachAssetGroupToInstanceResponse attachAssetGroupToInstanceWithOptions(shared_ptr<AttachAssetGroupToInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachAssetGroupToInstanceResponse attachAssetGroupToInstance(shared_ptr<AttachAssetGroupToInstanceRequest> request);
+  AttachToPolicyResponse attachToPolicyWithOptions(shared_ptr<AttachToPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AttachToPolicyResponse attachToPolicy(shared_ptr<AttachToPolicyRequest> request);
   CheckAccessLogAuthResponse checkAccessLogAuthWithOptions(shared_ptr<CheckAccessLogAuthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckAccessLogAuthResponse checkAccessLogAuth(shared_ptr<CheckAccessLogAuthRequest> request);
   CheckGrantResponse checkGrantWithOptions(shared_ptr<CheckGrantRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
