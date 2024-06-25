@@ -4106,6 +4106,9 @@ DescribeSlowLogRecordsResponse Alibabacloud_Polardb20170801::Client::describeSlo
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeId)) {
+    query->insert(pair<string, string>("NodeId", *request->nodeId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }

@@ -13691,6 +13691,7 @@ public:
   shared_ptr<string> serverlessType{};
   shared_ptr<string> storagePayType{};
   shared_ptr<long> storageSpace{};
+  shared_ptr<string> storageType{};
   shared_ptr<long> storageUsed{};
   shared_ptr<string> strictConsistency{};
   shared_ptr<string> subCategory{};
@@ -13786,6 +13787,9 @@ public:
     }
     if (storageSpace) {
       res["StorageSpace"] = boost::any(*storageSpace);
+    }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
     }
     if (storageUsed) {
       res["StorageUsed"] = boost::any(*storageUsed);
@@ -13893,6 +13897,9 @@ public:
     }
     if (m.find("StorageSpace") != m.end() && !m["StorageSpace"].empty()) {
       storageSpace = make_shared<long>(boost::any_cast<long>(m["StorageSpace"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
     }
     if (m.find("StorageUsed") != m.end() && !m["StorageUsed"].empty()) {
       storageUsed = make_shared<long>(boost::any_cast<long>(m["StorageUsed"]));
@@ -21325,6 +21332,7 @@ public:
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> DBName{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> nodeId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
@@ -21353,6 +21361,9 @@ public:
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -21393,6 +21404,9 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
