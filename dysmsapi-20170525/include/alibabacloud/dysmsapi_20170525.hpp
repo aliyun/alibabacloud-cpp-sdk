@@ -5,7 +5,6 @@
 
 #include <alibabacloud/open_api.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -188,17 +187,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -428,17 +417,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -611,17 +590,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -854,17 +823,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1016,17 +975,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1266,17 +1215,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1318,12 +1257,11 @@ public:
 };
 class CreateSmartShortUrlRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> expiration{};
+  shared_ptr<string> outId{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> phoneNumbers{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
-  shared_ptr<string> sourceName{};
   shared_ptr<string> sourceUrl{};
 
   CreateSmartShortUrlRequest() {}
@@ -1336,8 +1274,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (expiration) {
-      res["Expiration"] = boost::any(*expiration);
+    if (outId) {
+      res["OutId"] = boost::any(*outId);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -1351,9 +1289,6 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
-    if (sourceName) {
-      res["SourceName"] = boost::any(*sourceName);
-    }
     if (sourceUrl) {
       res["SourceUrl"] = boost::any(*sourceUrl);
     }
@@ -1361,8 +1296,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
-      expiration = make_shared<long>(boost::any_cast<long>(m["Expiration"]));
+    if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
+      outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -1375,9 +1310,6 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
-    }
-    if (m.find("SourceName") != m.end() && !m["SourceName"].empty()) {
-      sourceName = make_shared<string>(boost::any_cast<string>(m["SourceName"]));
     }
     if (m.find("SourceUrl") != m.end() && !m["SourceUrl"].empty()) {
       sourceUrl = make_shared<string>(boost::any_cast<string>(m["SourceUrl"]));
@@ -1520,17 +1452,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1569,6 +1491,655 @@ public:
 
 
   virtual ~CreateSmartShortUrlResponse() = default;
+};
+class CreateSmsSignRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applySceneContent{};
+  shared_ptr<vector<string>> moreData{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> qualificationId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> signName{};
+  shared_ptr<long> signSource{};
+  shared_ptr<long> signType{};
+  shared_ptr<bool> thirdParty{};
+
+  CreateSmsSignRequest() {}
+
+  explicit CreateSmsSignRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applySceneContent) {
+      res["ApplySceneContent"] = boost::any(*applySceneContent);
+    }
+    if (moreData) {
+      res["MoreData"] = boost::any(*moreData);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (qualificationId) {
+      res["QualificationId"] = boost::any(*qualificationId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
+    if (signSource) {
+      res["SignSource"] = boost::any(*signSource);
+    }
+    if (signType) {
+      res["SignType"] = boost::any(*signType);
+    }
+    if (thirdParty) {
+      res["ThirdParty"] = boost::any(*thirdParty);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplySceneContent") != m.end() && !m["ApplySceneContent"].empty()) {
+      applySceneContent = make_shared<string>(boost::any_cast<string>(m["ApplySceneContent"]));
+    }
+    if (m.find("MoreData") != m.end() && !m["MoreData"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MoreData"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MoreData"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      moreData = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QualificationId") != m.end() && !m["QualificationId"].empty()) {
+      qualificationId = make_shared<long>(boost::any_cast<long>(m["QualificationId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
+    if (m.find("SignSource") != m.end() && !m["SignSource"].empty()) {
+      signSource = make_shared<long>(boost::any_cast<long>(m["SignSource"]));
+    }
+    if (m.find("SignType") != m.end() && !m["SignType"].empty()) {
+      signType = make_shared<long>(boost::any_cast<long>(m["SignType"]));
+    }
+    if (m.find("ThirdParty") != m.end() && !m["ThirdParty"].empty()) {
+      thirdParty = make_shared<bool>(boost::any_cast<bool>(m["ThirdParty"]));
+    }
+  }
+
+
+  virtual ~CreateSmsSignRequest() = default;
+};
+class CreateSmsSignShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applySceneContent{};
+  shared_ptr<string> moreDataShrink{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> qualificationId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> signName{};
+  shared_ptr<long> signSource{};
+  shared_ptr<long> signType{};
+  shared_ptr<bool> thirdParty{};
+
+  CreateSmsSignShrinkRequest() {}
+
+  explicit CreateSmsSignShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applySceneContent) {
+      res["ApplySceneContent"] = boost::any(*applySceneContent);
+    }
+    if (moreDataShrink) {
+      res["MoreData"] = boost::any(*moreDataShrink);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (qualificationId) {
+      res["QualificationId"] = boost::any(*qualificationId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
+    if (signSource) {
+      res["SignSource"] = boost::any(*signSource);
+    }
+    if (signType) {
+      res["SignType"] = boost::any(*signType);
+    }
+    if (thirdParty) {
+      res["ThirdParty"] = boost::any(*thirdParty);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplySceneContent") != m.end() && !m["ApplySceneContent"].empty()) {
+      applySceneContent = make_shared<string>(boost::any_cast<string>(m["ApplySceneContent"]));
+    }
+    if (m.find("MoreData") != m.end() && !m["MoreData"].empty()) {
+      moreDataShrink = make_shared<string>(boost::any_cast<string>(m["MoreData"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QualificationId") != m.end() && !m["QualificationId"].empty()) {
+      qualificationId = make_shared<long>(boost::any_cast<long>(m["QualificationId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
+    if (m.find("SignSource") != m.end() && !m["SignSource"].empty()) {
+      signSource = make_shared<long>(boost::any_cast<long>(m["SignSource"]));
+    }
+    if (m.find("SignType") != m.end() && !m["SignType"].empty()) {
+      signType = make_shared<long>(boost::any_cast<long>(m["SignType"]));
+    }
+    if (m.find("ThirdParty") != m.end() && !m["ThirdParty"].empty()) {
+      thirdParty = make_shared<bool>(boost::any_cast<bool>(m["ThirdParty"]));
+    }
+  }
+
+
+  virtual ~CreateSmsSignShrinkRequest() = default;
+};
+class CreateSmsSignResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> signName{};
+
+  CreateSmsSignResponseBody() {}
+
+  explicit CreateSmsSignResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
+  }
+
+
+  virtual ~CreateSmsSignResponseBody() = default;
+};
+class CreateSmsSignResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateSmsSignResponseBody> body{};
+
+  CreateSmsSignResponse() {}
+
+  explicit CreateSmsSignResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSmsSignResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSmsSignResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSmsSignResponse() = default;
+};
+class CreateSmsTemplateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applySceneContent{};
+  shared_ptr<long> intlType{};
+  shared_ptr<vector<string>> moreData{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> relatedSignName{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> templateContent{};
+  shared_ptr<string> templateName{};
+  shared_ptr<string> templateRule{};
+  shared_ptr<long> templateType{};
+
+  CreateSmsTemplateRequest() {}
+
+  explicit CreateSmsTemplateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applySceneContent) {
+      res["ApplySceneContent"] = boost::any(*applySceneContent);
+    }
+    if (intlType) {
+      res["IntlType"] = boost::any(*intlType);
+    }
+    if (moreData) {
+      res["MoreData"] = boost::any(*moreData);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (relatedSignName) {
+      res["RelatedSignName"] = boost::any(*relatedSignName);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (templateContent) {
+      res["TemplateContent"] = boost::any(*templateContent);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    if (templateRule) {
+      res["TemplateRule"] = boost::any(*templateRule);
+    }
+    if (templateType) {
+      res["TemplateType"] = boost::any(*templateType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplySceneContent") != m.end() && !m["ApplySceneContent"].empty()) {
+      applySceneContent = make_shared<string>(boost::any_cast<string>(m["ApplySceneContent"]));
+    }
+    if (m.find("IntlType") != m.end() && !m["IntlType"].empty()) {
+      intlType = make_shared<long>(boost::any_cast<long>(m["IntlType"]));
+    }
+    if (m.find("MoreData") != m.end() && !m["MoreData"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MoreData"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MoreData"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      moreData = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RelatedSignName") != m.end() && !m["RelatedSignName"].empty()) {
+      relatedSignName = make_shared<string>(boost::any_cast<string>(m["RelatedSignName"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
+      templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("TemplateRule") != m.end() && !m["TemplateRule"].empty()) {
+      templateRule = make_shared<string>(boost::any_cast<string>(m["TemplateRule"]));
+    }
+    if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
+      templateType = make_shared<long>(boost::any_cast<long>(m["TemplateType"]));
+    }
+  }
+
+
+  virtual ~CreateSmsTemplateRequest() = default;
+};
+class CreateSmsTemplateShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applySceneContent{};
+  shared_ptr<long> intlType{};
+  shared_ptr<string> moreDataShrink{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> relatedSignName{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> templateContent{};
+  shared_ptr<string> templateName{};
+  shared_ptr<string> templateRule{};
+  shared_ptr<long> templateType{};
+
+  CreateSmsTemplateShrinkRequest() {}
+
+  explicit CreateSmsTemplateShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applySceneContent) {
+      res["ApplySceneContent"] = boost::any(*applySceneContent);
+    }
+    if (intlType) {
+      res["IntlType"] = boost::any(*intlType);
+    }
+    if (moreDataShrink) {
+      res["MoreData"] = boost::any(*moreDataShrink);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (relatedSignName) {
+      res["RelatedSignName"] = boost::any(*relatedSignName);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (templateContent) {
+      res["TemplateContent"] = boost::any(*templateContent);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    if (templateRule) {
+      res["TemplateRule"] = boost::any(*templateRule);
+    }
+    if (templateType) {
+      res["TemplateType"] = boost::any(*templateType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplySceneContent") != m.end() && !m["ApplySceneContent"].empty()) {
+      applySceneContent = make_shared<string>(boost::any_cast<string>(m["ApplySceneContent"]));
+    }
+    if (m.find("IntlType") != m.end() && !m["IntlType"].empty()) {
+      intlType = make_shared<long>(boost::any_cast<long>(m["IntlType"]));
+    }
+    if (m.find("MoreData") != m.end() && !m["MoreData"].empty()) {
+      moreDataShrink = make_shared<string>(boost::any_cast<string>(m["MoreData"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RelatedSignName") != m.end() && !m["RelatedSignName"].empty()) {
+      relatedSignName = make_shared<string>(boost::any_cast<string>(m["RelatedSignName"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
+      templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("TemplateRule") != m.end() && !m["TemplateRule"].empty()) {
+      templateRule = make_shared<string>(boost::any_cast<string>(m["TemplateRule"]));
+    }
+    if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
+      templateType = make_shared<long>(boost::any_cast<long>(m["TemplateType"]));
+    }
+  }
+
+
+  virtual ~CreateSmsTemplateShrinkRequest() = default;
+};
+class CreateSmsTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> templateCode{};
+  shared_ptr<string> templateName{};
+
+  CreateSmsTemplateResponseBody() {}
+
+  explicit CreateSmsTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~CreateSmsTemplateResponseBody() = default;
+};
+class CreateSmsTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateSmsTemplateResponseBody> body{};
+
+  CreateSmsTemplateResponse() {}
+
+  explicit CreateSmsTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSmsTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSmsTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSmsTemplateResponse() = default;
 };
 class DeleteShortUrlRequest : public Darabonba::Model {
 public:
@@ -1675,17 +2246,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1837,17 +2398,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1999,17 +2550,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2257,17 +2798,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2466,17 +2997,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2660,17 +3181,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2709,6 +3220,893 @@ public:
 
 
   virtual ~GetOSSInfoForCardTemplateResponse() = default;
+};
+class GetOSSInfoForUploadFileRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bizType{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  GetOSSInfoForUploadFileRequest() {}
+
+  explicit GetOSSInfoForUploadFileRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizType) {
+      res["BizType"] = boost::any(*bizType);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
+      bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~GetOSSInfoForUploadFileRequest() = default;
+};
+class GetOSSInfoForUploadFileResponseBodyModel : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKeyId{};
+  shared_ptr<string> expireTime{};
+  shared_ptr<string> host{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> signature{};
+  shared_ptr<string> startPath{};
+
+  GetOSSInfoForUploadFileResponseBodyModel() {}
+
+  explicit GetOSSInfoForUploadFileResponseBodyModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKeyId) {
+      res["AccessKeyId"] = boost::any(*accessKeyId);
+    }
+    if (expireTime) {
+      res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (host) {
+      res["Host"] = boost::any(*host);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (signature) {
+      res["Signature"] = boost::any(*signature);
+    }
+    if (startPath) {
+      res["StartPath"] = boost::any(*startPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKeyId") != m.end() && !m["AccessKeyId"].empty()) {
+      accessKeyId = make_shared<string>(boost::any_cast<string>(m["AccessKeyId"]));
+    }
+    if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
+      expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
+    }
+    if (m.find("Host") != m.end() && !m["Host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("Signature") != m.end() && !m["Signature"].empty()) {
+      signature = make_shared<string>(boost::any_cast<string>(m["Signature"]));
+    }
+    if (m.find("StartPath") != m.end() && !m["StartPath"].empty()) {
+      startPath = make_shared<string>(boost::any_cast<string>(m["StartPath"]));
+    }
+  }
+
+
+  virtual ~GetOSSInfoForUploadFileResponseBodyModel() = default;
+};
+class GetOSSInfoForUploadFileResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<GetOSSInfoForUploadFileResponseBodyModel> model{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetOSSInfoForUploadFileResponseBody() {}
+
+  explicit GetOSSInfoForUploadFileResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (model) {
+      res["Model"] = model ? boost::any(model->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Model"].type()) {
+        GetOSSInfoForUploadFileResponseBodyModel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Model"]));
+        model = make_shared<GetOSSInfoForUploadFileResponseBodyModel>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetOSSInfoForUploadFileResponseBody() = default;
+};
+class GetOSSInfoForUploadFileResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetOSSInfoForUploadFileResponseBody> body{};
+
+  GetOSSInfoForUploadFileResponse() {}
+
+  explicit GetOSSInfoForUploadFileResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetOSSInfoForUploadFileResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetOSSInfoForUploadFileResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetOSSInfoForUploadFileResponse() = default;
+};
+class GetSmsSignRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> signName{};
+
+  GetSmsSignRequest() {}
+
+  explicit GetSmsSignRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
+  }
+
+
+  virtual ~GetSmsSignRequest() = default;
+};
+class GetSmsSignResponseBodyAuditInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> auditDate{};
+  shared_ptr<string> rejectInfo{};
+
+  GetSmsSignResponseBodyAuditInfo() {}
+
+  explicit GetSmsSignResponseBodyAuditInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auditDate) {
+      res["AuditDate"] = boost::any(*auditDate);
+    }
+    if (rejectInfo) {
+      res["RejectInfo"] = boost::any(*rejectInfo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuditDate") != m.end() && !m["AuditDate"].empty()) {
+      auditDate = make_shared<string>(boost::any_cast<string>(m["AuditDate"]));
+    }
+    if (m.find("RejectInfo") != m.end() && !m["RejectInfo"].empty()) {
+      rejectInfo = make_shared<string>(boost::any_cast<string>(m["RejectInfo"]));
+    }
+  }
+
+
+  virtual ~GetSmsSignResponseBodyAuditInfo() = default;
+};
+class GetSmsSignResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> applyScene{};
+  shared_ptr<GetSmsSignResponseBodyAuditInfo> auditInfo{};
+  shared_ptr<string> code{};
+  shared_ptr<string> createDate{};
+  shared_ptr<vector<string>> fileUrlList{};
+  shared_ptr<string> message{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> qualificationId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> signCode{};
+  shared_ptr<string> signName{};
+  shared_ptr<long> signStatus{};
+  shared_ptr<string> signTag{};
+  shared_ptr<string> signUsage{};
+  shared_ptr<bool> thirdParty{};
+
+  GetSmsSignResponseBody() {}
+
+  explicit GetSmsSignResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applyScene) {
+      res["ApplyScene"] = boost::any(*applyScene);
+    }
+    if (auditInfo) {
+      res["AuditInfo"] = auditInfo ? boost::any(auditInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (createDate) {
+      res["CreateDate"] = boost::any(*createDate);
+    }
+    if (fileUrlList) {
+      res["FileUrlList"] = boost::any(*fileUrlList);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (qualificationId) {
+      res["QualificationId"] = boost::any(*qualificationId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (signCode) {
+      res["SignCode"] = boost::any(*signCode);
+    }
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
+    if (signStatus) {
+      res["SignStatus"] = boost::any(*signStatus);
+    }
+    if (signTag) {
+      res["SignTag"] = boost::any(*signTag);
+    }
+    if (signUsage) {
+      res["SignUsage"] = boost::any(*signUsage);
+    }
+    if (thirdParty) {
+      res["ThirdParty"] = boost::any(*thirdParty);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplyScene") != m.end() && !m["ApplyScene"].empty()) {
+      applyScene = make_shared<string>(boost::any_cast<string>(m["ApplyScene"]));
+    }
+    if (m.find("AuditInfo") != m.end() && !m["AuditInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AuditInfo"].type()) {
+        GetSmsSignResponseBodyAuditInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AuditInfo"]));
+        auditInfo = make_shared<GetSmsSignResponseBodyAuditInfo>(model1);
+      }
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
+      createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
+    }
+    if (m.find("FileUrlList") != m.end() && !m["FileUrlList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FileUrlList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FileUrlList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      fileUrlList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("QualificationId") != m.end() && !m["QualificationId"].empty()) {
+      qualificationId = make_shared<long>(boost::any_cast<long>(m["QualificationId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SignCode") != m.end() && !m["SignCode"].empty()) {
+      signCode = make_shared<string>(boost::any_cast<string>(m["SignCode"]));
+    }
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
+    if (m.find("SignStatus") != m.end() && !m["SignStatus"].empty()) {
+      signStatus = make_shared<long>(boost::any_cast<long>(m["SignStatus"]));
+    }
+    if (m.find("SignTag") != m.end() && !m["SignTag"].empty()) {
+      signTag = make_shared<string>(boost::any_cast<string>(m["SignTag"]));
+    }
+    if (m.find("SignUsage") != m.end() && !m["SignUsage"].empty()) {
+      signUsage = make_shared<string>(boost::any_cast<string>(m["SignUsage"]));
+    }
+    if (m.find("ThirdParty") != m.end() && !m["ThirdParty"].empty()) {
+      thirdParty = make_shared<bool>(boost::any_cast<bool>(m["ThirdParty"]));
+    }
+  }
+
+
+  virtual ~GetSmsSignResponseBody() = default;
+};
+class GetSmsSignResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetSmsSignResponseBody> body{};
+
+  GetSmsSignResponse() {}
+
+  explicit GetSmsSignResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSmsSignResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSmsSignResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSmsSignResponse() = default;
+};
+class GetSmsTemplateRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> templateCode{};
+
+  GetSmsTemplateRequest() {}
+
+  explicit GetSmsTemplateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+  }
+
+
+  virtual ~GetSmsTemplateRequest() = default;
+};
+class GetSmsTemplateResponseBodyAuditInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> auditDate{};
+  shared_ptr<string> rejectInfo{};
+
+  GetSmsTemplateResponseBodyAuditInfo() {}
+
+  explicit GetSmsTemplateResponseBodyAuditInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auditDate) {
+      res["AuditDate"] = boost::any(*auditDate);
+    }
+    if (rejectInfo) {
+      res["RejectInfo"] = boost::any(*rejectInfo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuditDate") != m.end() && !m["AuditDate"].empty()) {
+      auditDate = make_shared<string>(boost::any_cast<string>(m["AuditDate"]));
+    }
+    if (m.find("RejectInfo") != m.end() && !m["RejectInfo"].empty()) {
+      rejectInfo = make_shared<string>(boost::any_cast<string>(m["RejectInfo"]));
+    }
+  }
+
+
+  virtual ~GetSmsTemplateResponseBodyAuditInfo() = default;
+};
+class GetSmsTemplateResponseBodyFileUrlList : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> fileUrl{};
+
+  GetSmsTemplateResponseBodyFileUrlList() {}
+
+  explicit GetSmsTemplateResponseBodyFileUrlList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FileUrl"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FileUrl"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      fileUrl = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetSmsTemplateResponseBodyFileUrlList() = default;
+};
+class GetSmsTemplateResponseBodyMoreDataFileUrlList : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> moreDataFileUrl{};
+
+  GetSmsTemplateResponseBodyMoreDataFileUrlList() {}
+
+  explicit GetSmsTemplateResponseBodyMoreDataFileUrlList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (moreDataFileUrl) {
+      res["MoreDataFileUrl"] = boost::any(*moreDataFileUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MoreDataFileUrl") != m.end() && !m["MoreDataFileUrl"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MoreDataFileUrl"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MoreDataFileUrl"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      moreDataFileUrl = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetSmsTemplateResponseBodyMoreDataFileUrlList() = default;
+};
+class GetSmsTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> applyScene{};
+  shared_ptr<GetSmsTemplateResponseBodyAuditInfo> auditInfo{};
+  shared_ptr<string> code{};
+  shared_ptr<string> createDate{};
+  shared_ptr<GetSmsTemplateResponseBodyFileUrlList> fileUrlList{};
+  shared_ptr<long> intlType{};
+  shared_ptr<string> message{};
+  shared_ptr<GetSmsTemplateResponseBodyMoreDataFileUrlList> moreDataFileUrlList{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> relatedSignName{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> templateCode{};
+  shared_ptr<string> templateContent{};
+  shared_ptr<string> templateName{};
+  shared_ptr<string> templateStatus{};
+  shared_ptr<long> templateTag{};
+  shared_ptr<string> templateType{};
+  shared_ptr<string> variableAttribute{};
+
+  GetSmsTemplateResponseBody() {}
+
+  explicit GetSmsTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applyScene) {
+      res["ApplyScene"] = boost::any(*applyScene);
+    }
+    if (auditInfo) {
+      res["AuditInfo"] = auditInfo ? boost::any(auditInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (createDate) {
+      res["CreateDate"] = boost::any(*createDate);
+    }
+    if (fileUrlList) {
+      res["FileUrlList"] = fileUrlList ? boost::any(fileUrlList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (intlType) {
+      res["IntlType"] = boost::any(*intlType);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (moreDataFileUrlList) {
+      res["MoreDataFileUrlList"] = moreDataFileUrlList ? boost::any(moreDataFileUrlList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (relatedSignName) {
+      res["RelatedSignName"] = boost::any(*relatedSignName);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
+    }
+    if (templateContent) {
+      res["TemplateContent"] = boost::any(*templateContent);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    if (templateStatus) {
+      res["TemplateStatus"] = boost::any(*templateStatus);
+    }
+    if (templateTag) {
+      res["TemplateTag"] = boost::any(*templateTag);
+    }
+    if (templateType) {
+      res["TemplateType"] = boost::any(*templateType);
+    }
+    if (variableAttribute) {
+      res["VariableAttribute"] = boost::any(*variableAttribute);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplyScene") != m.end() && !m["ApplyScene"].empty()) {
+      applyScene = make_shared<string>(boost::any_cast<string>(m["ApplyScene"]));
+    }
+    if (m.find("AuditInfo") != m.end() && !m["AuditInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AuditInfo"].type()) {
+        GetSmsTemplateResponseBodyAuditInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AuditInfo"]));
+        auditInfo = make_shared<GetSmsTemplateResponseBodyAuditInfo>(model1);
+      }
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
+      createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
+    }
+    if (m.find("FileUrlList") != m.end() && !m["FileUrlList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FileUrlList"].type()) {
+        GetSmsTemplateResponseBodyFileUrlList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FileUrlList"]));
+        fileUrlList = make_shared<GetSmsTemplateResponseBodyFileUrlList>(model1);
+      }
+    }
+    if (m.find("IntlType") != m.end() && !m["IntlType"].empty()) {
+      intlType = make_shared<long>(boost::any_cast<long>(m["IntlType"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("MoreDataFileUrlList") != m.end() && !m["MoreDataFileUrlList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MoreDataFileUrlList"].type()) {
+        GetSmsTemplateResponseBodyMoreDataFileUrlList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MoreDataFileUrlList"]));
+        moreDataFileUrlList = make_shared<GetSmsTemplateResponseBodyMoreDataFileUrlList>(model1);
+      }
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RelatedSignName") != m.end() && !m["RelatedSignName"].empty()) {
+      relatedSignName = make_shared<string>(boost::any_cast<string>(m["RelatedSignName"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+    if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
+      templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("TemplateStatus") != m.end() && !m["TemplateStatus"].empty()) {
+      templateStatus = make_shared<string>(boost::any_cast<string>(m["TemplateStatus"]));
+    }
+    if (m.find("TemplateTag") != m.end() && !m["TemplateTag"].empty()) {
+      templateTag = make_shared<long>(boost::any_cast<long>(m["TemplateTag"]));
+    }
+    if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
+      templateType = make_shared<string>(boost::any_cast<string>(m["TemplateType"]));
+    }
+    if (m.find("VariableAttribute") != m.end() && !m["VariableAttribute"].empty()) {
+      variableAttribute = make_shared<string>(boost::any_cast<string>(m["VariableAttribute"]));
+    }
+  }
+
+
+  virtual ~GetSmsTemplateResponseBody() = default;
+};
+class GetSmsTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetSmsTemplateResponseBody> body{};
+
+  GetSmsTemplateResponse() {}
+
+  explicit GetSmsTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSmsTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSmsTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSmsTemplateResponse() = default;
 };
 class ListTagResourcesRequestTag : public Darabonba::Model {
 public:
@@ -3018,17 +4416,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3258,17 +4646,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3448,17 +4826,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3634,17 +5002,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3841,17 +5199,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4120,17 +5468,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4172,19 +5510,15 @@ public:
 };
 class QueryPageSmartShortUrlLogRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> clickState{};
   shared_ptr<long> createDateEnd{};
   shared_ptr<long> createDateStart{};
-  shared_ptr<long> endId{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNo{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
-  shared_ptr<string> shortName{};
   shared_ptr<string> shortUrl{};
-  shared_ptr<long> startId{};
 
   QueryPageSmartShortUrlLogRequest() {}
 
@@ -4196,17 +5530,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (clickState) {
-      res["ClickState"] = boost::any(*clickState);
-    }
     if (createDateEnd) {
       res["CreateDateEnd"] = boost::any(*createDateEnd);
     }
     if (createDateStart) {
       res["CreateDateStart"] = boost::any(*createDateStart);
-    }
-    if (endId) {
-      res["EndId"] = boost::any(*endId);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -4226,30 +5554,18 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
-    if (shortName) {
-      res["ShortName"] = boost::any(*shortName);
-    }
     if (shortUrl) {
       res["ShortUrl"] = boost::any(*shortUrl);
-    }
-    if (startId) {
-      res["StartId"] = boost::any(*startId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ClickState") != m.end() && !m["ClickState"].empty()) {
-      clickState = make_shared<long>(boost::any_cast<long>(m["ClickState"]));
-    }
     if (m.find("CreateDateEnd") != m.end() && !m["CreateDateEnd"].empty()) {
       createDateEnd = make_shared<long>(boost::any_cast<long>(m["CreateDateEnd"]));
     }
     if (m.find("CreateDateStart") != m.end() && !m["CreateDateStart"].empty()) {
       createDateStart = make_shared<long>(boost::any_cast<long>(m["CreateDateStart"]));
-    }
-    if (m.find("EndId") != m.end() && !m["EndId"].empty()) {
-      endId = make_shared<long>(boost::any_cast<long>(m["EndId"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -4269,14 +5585,8 @@ public:
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
-    if (m.find("ShortName") != m.end() && !m["ShortName"].empty()) {
-      shortName = make_shared<string>(boost::any_cast<string>(m["ShortName"]));
-    }
     if (m.find("ShortUrl") != m.end() && !m["ShortUrl"].empty()) {
       shortUrl = make_shared<string>(boost::any_cast<string>(m["ShortUrl"]));
-    }
-    if (m.find("StartId") != m.end() && !m["StartId"].empty()) {
-      startId = make_shared<long>(boost::any_cast<long>(m["StartId"]));
     }
   }
 
@@ -4491,17 +5801,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4813,17 +6113,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5128,17 +6418,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5372,17 +6652,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5555,17 +6825,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5870,17 +7130,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6074,17 +7324,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6410,17 +7650,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6703,17 +7933,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6900,17 +8120,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7243,17 +8453,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7440,17 +8640,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7609,17 +8799,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -7849,17 +9029,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -8053,17 +9223,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -8103,6 +9263,669 @@ public:
 
   virtual ~UntagResourcesResponse() = default;
 };
+class UpdateSmsSignRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applySceneContent{};
+  shared_ptr<vector<string>> moreData{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> qualificationId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> signName{};
+  shared_ptr<long> signSource{};
+  shared_ptr<long> signType{};
+  shared_ptr<bool> thirdParty{};
+
+  UpdateSmsSignRequest() {}
+
+  explicit UpdateSmsSignRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applySceneContent) {
+      res["ApplySceneContent"] = boost::any(*applySceneContent);
+    }
+    if (moreData) {
+      res["MoreData"] = boost::any(*moreData);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (qualificationId) {
+      res["QualificationId"] = boost::any(*qualificationId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
+    if (signSource) {
+      res["SignSource"] = boost::any(*signSource);
+    }
+    if (signType) {
+      res["SignType"] = boost::any(*signType);
+    }
+    if (thirdParty) {
+      res["ThirdParty"] = boost::any(*thirdParty);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplySceneContent") != m.end() && !m["ApplySceneContent"].empty()) {
+      applySceneContent = make_shared<string>(boost::any_cast<string>(m["ApplySceneContent"]));
+    }
+    if (m.find("MoreData") != m.end() && !m["MoreData"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MoreData"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MoreData"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      moreData = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QualificationId") != m.end() && !m["QualificationId"].empty()) {
+      qualificationId = make_shared<long>(boost::any_cast<long>(m["QualificationId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
+    if (m.find("SignSource") != m.end() && !m["SignSource"].empty()) {
+      signSource = make_shared<long>(boost::any_cast<long>(m["SignSource"]));
+    }
+    if (m.find("SignType") != m.end() && !m["SignType"].empty()) {
+      signType = make_shared<long>(boost::any_cast<long>(m["SignType"]));
+    }
+    if (m.find("ThirdParty") != m.end() && !m["ThirdParty"].empty()) {
+      thirdParty = make_shared<bool>(boost::any_cast<bool>(m["ThirdParty"]));
+    }
+  }
+
+
+  virtual ~UpdateSmsSignRequest() = default;
+};
+class UpdateSmsSignShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applySceneContent{};
+  shared_ptr<string> moreDataShrink{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> qualificationId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> signName{};
+  shared_ptr<long> signSource{};
+  shared_ptr<long> signType{};
+  shared_ptr<bool> thirdParty{};
+
+  UpdateSmsSignShrinkRequest() {}
+
+  explicit UpdateSmsSignShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applySceneContent) {
+      res["ApplySceneContent"] = boost::any(*applySceneContent);
+    }
+    if (moreDataShrink) {
+      res["MoreData"] = boost::any(*moreDataShrink);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (qualificationId) {
+      res["QualificationId"] = boost::any(*qualificationId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
+    if (signSource) {
+      res["SignSource"] = boost::any(*signSource);
+    }
+    if (signType) {
+      res["SignType"] = boost::any(*signType);
+    }
+    if (thirdParty) {
+      res["ThirdParty"] = boost::any(*thirdParty);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplySceneContent") != m.end() && !m["ApplySceneContent"].empty()) {
+      applySceneContent = make_shared<string>(boost::any_cast<string>(m["ApplySceneContent"]));
+    }
+    if (m.find("MoreData") != m.end() && !m["MoreData"].empty()) {
+      moreDataShrink = make_shared<string>(boost::any_cast<string>(m["MoreData"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("QualificationId") != m.end() && !m["QualificationId"].empty()) {
+      qualificationId = make_shared<long>(boost::any_cast<long>(m["QualificationId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
+    if (m.find("SignSource") != m.end() && !m["SignSource"].empty()) {
+      signSource = make_shared<long>(boost::any_cast<long>(m["SignSource"]));
+    }
+    if (m.find("SignType") != m.end() && !m["SignType"].empty()) {
+      signType = make_shared<long>(boost::any_cast<long>(m["SignType"]));
+    }
+    if (m.find("ThirdParty") != m.end() && !m["ThirdParty"].empty()) {
+      thirdParty = make_shared<bool>(boost::any_cast<bool>(m["ThirdParty"]));
+    }
+  }
+
+
+  virtual ~UpdateSmsSignShrinkRequest() = default;
+};
+class UpdateSmsSignResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> signName{};
+
+  UpdateSmsSignResponseBody() {}
+
+  explicit UpdateSmsSignResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
+  }
+
+
+  virtual ~UpdateSmsSignResponseBody() = default;
+};
+class UpdateSmsSignResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateSmsSignResponseBody> body{};
+
+  UpdateSmsSignResponse() {}
+
+  explicit UpdateSmsSignResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateSmsSignResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateSmsSignResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateSmsSignResponse() = default;
+};
+class UpdateSmsTemplateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applySceneContent{};
+  shared_ptr<long> intlType{};
+  shared_ptr<vector<string>> moreData{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> relatedSignName{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> templateCode{};
+  shared_ptr<string> templateContent{};
+  shared_ptr<string> templateName{};
+  shared_ptr<string> templateRule{};
+  shared_ptr<long> templateType{};
+
+  UpdateSmsTemplateRequest() {}
+
+  explicit UpdateSmsTemplateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applySceneContent) {
+      res["ApplySceneContent"] = boost::any(*applySceneContent);
+    }
+    if (intlType) {
+      res["IntlType"] = boost::any(*intlType);
+    }
+    if (moreData) {
+      res["MoreData"] = boost::any(*moreData);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (relatedSignName) {
+      res["RelatedSignName"] = boost::any(*relatedSignName);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
+    }
+    if (templateContent) {
+      res["TemplateContent"] = boost::any(*templateContent);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    if (templateRule) {
+      res["TemplateRule"] = boost::any(*templateRule);
+    }
+    if (templateType) {
+      res["TemplateType"] = boost::any(*templateType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplySceneContent") != m.end() && !m["ApplySceneContent"].empty()) {
+      applySceneContent = make_shared<string>(boost::any_cast<string>(m["ApplySceneContent"]));
+    }
+    if (m.find("IntlType") != m.end() && !m["IntlType"].empty()) {
+      intlType = make_shared<long>(boost::any_cast<long>(m["IntlType"]));
+    }
+    if (m.find("MoreData") != m.end() && !m["MoreData"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MoreData"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MoreData"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      moreData = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RelatedSignName") != m.end() && !m["RelatedSignName"].empty()) {
+      relatedSignName = make_shared<string>(boost::any_cast<string>(m["RelatedSignName"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+    if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
+      templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("TemplateRule") != m.end() && !m["TemplateRule"].empty()) {
+      templateRule = make_shared<string>(boost::any_cast<string>(m["TemplateRule"]));
+    }
+    if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
+      templateType = make_shared<long>(boost::any_cast<long>(m["TemplateType"]));
+    }
+  }
+
+
+  virtual ~UpdateSmsTemplateRequest() = default;
+};
+class UpdateSmsTemplateShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applySceneContent{};
+  shared_ptr<long> intlType{};
+  shared_ptr<string> moreDataShrink{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> relatedSignName{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> templateCode{};
+  shared_ptr<string> templateContent{};
+  shared_ptr<string> templateName{};
+  shared_ptr<string> templateRule{};
+  shared_ptr<long> templateType{};
+
+  UpdateSmsTemplateShrinkRequest() {}
+
+  explicit UpdateSmsTemplateShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applySceneContent) {
+      res["ApplySceneContent"] = boost::any(*applySceneContent);
+    }
+    if (intlType) {
+      res["IntlType"] = boost::any(*intlType);
+    }
+    if (moreDataShrink) {
+      res["MoreData"] = boost::any(*moreDataShrink);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (relatedSignName) {
+      res["RelatedSignName"] = boost::any(*relatedSignName);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
+    }
+    if (templateContent) {
+      res["TemplateContent"] = boost::any(*templateContent);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    if (templateRule) {
+      res["TemplateRule"] = boost::any(*templateRule);
+    }
+    if (templateType) {
+      res["TemplateType"] = boost::any(*templateType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplySceneContent") != m.end() && !m["ApplySceneContent"].empty()) {
+      applySceneContent = make_shared<string>(boost::any_cast<string>(m["ApplySceneContent"]));
+    }
+    if (m.find("IntlType") != m.end() && !m["IntlType"].empty()) {
+      intlType = make_shared<long>(boost::any_cast<long>(m["IntlType"]));
+    }
+    if (m.find("MoreData") != m.end() && !m["MoreData"].empty()) {
+      moreDataShrink = make_shared<string>(boost::any_cast<string>(m["MoreData"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RelatedSignName") != m.end() && !m["RelatedSignName"].empty()) {
+      relatedSignName = make_shared<string>(boost::any_cast<string>(m["RelatedSignName"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+    if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
+      templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("TemplateRule") != m.end() && !m["TemplateRule"].empty()) {
+      templateRule = make_shared<string>(boost::any_cast<string>(m["TemplateRule"]));
+    }
+    if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
+      templateType = make_shared<long>(boost::any_cast<long>(m["TemplateType"]));
+    }
+  }
+
+
+  virtual ~UpdateSmsTemplateShrinkRequest() = default;
+};
+class UpdateSmsTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> templateCode{};
+  shared_ptr<string> templateName{};
+
+  UpdateSmsTemplateResponseBody() {}
+
+  explicit UpdateSmsTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~UpdateSmsTemplateResponseBody() = default;
+};
+class UpdateSmsTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateSmsTemplateResponseBody> body{};
+
+  UpdateSmsTemplateResponse() {}
+
+  explicit UpdateSmsTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateSmsTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateSmsTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateSmsTemplateResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -8127,6 +9950,10 @@ public:
   CreateCardSmsTemplateResponse createCardSmsTemplate(shared_ptr<CreateCardSmsTemplateRequest> request);
   CreateSmartShortUrlResponse createSmartShortUrlWithOptions(shared_ptr<CreateSmartShortUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSmartShortUrlResponse createSmartShortUrl(shared_ptr<CreateSmartShortUrlRequest> request);
+  CreateSmsSignResponse createSmsSignWithOptions(shared_ptr<CreateSmsSignRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSmsSignResponse createSmsSign(shared_ptr<CreateSmsSignRequest> request);
+  CreateSmsTemplateResponse createSmsTemplateWithOptions(shared_ptr<CreateSmsTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSmsTemplateResponse createSmsTemplate(shared_ptr<CreateSmsTemplateRequest> request);
   DeleteShortUrlResponse deleteShortUrlWithOptions(shared_ptr<DeleteShortUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteShortUrlResponse deleteShortUrl(shared_ptr<DeleteShortUrlRequest> request);
   DeleteSmsSignResponse deleteSmsSignWithOptions(shared_ptr<DeleteSmsSignRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8139,6 +9966,12 @@ public:
   GetMediaResourceIdResponse getMediaResourceId(shared_ptr<GetMediaResourceIdRequest> request);
   GetOSSInfoForCardTemplateResponse getOSSInfoForCardTemplateWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetOSSInfoForCardTemplateResponse getOSSInfoForCardTemplate();
+  GetOSSInfoForUploadFileResponse getOSSInfoForUploadFileWithOptions(shared_ptr<GetOSSInfoForUploadFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetOSSInfoForUploadFileResponse getOSSInfoForUploadFile(shared_ptr<GetOSSInfoForUploadFileRequest> request);
+  GetSmsSignResponse getSmsSignWithOptions(shared_ptr<GetSmsSignRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSmsSignResponse getSmsSign(shared_ptr<GetSmsSignRequest> request);
+  GetSmsTemplateResponse getSmsTemplateWithOptions(shared_ptr<GetSmsTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSmsTemplateResponse getSmsTemplate(shared_ptr<GetSmsTemplateRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   ModifySmsSignResponse modifySmsSignWithOptions(shared_ptr<ModifySmsSignRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8181,6 +10014,10 @@ public:
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
+  UpdateSmsSignResponse updateSmsSignWithOptions(shared_ptr<UpdateSmsSignRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateSmsSignResponse updateSmsSign(shared_ptr<UpdateSmsSignRequest> request);
+  UpdateSmsTemplateResponse updateSmsTemplateWithOptions(shared_ptr<UpdateSmsTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateSmsTemplateResponse updateSmsTemplate(shared_ptr<UpdateSmsTemplateRequest> request);
 
   virtual ~Client() = default;
 };
