@@ -2091,8 +2091,10 @@ public:
   shared_ptr<long> healthCheckConnectTimeout{};
   shared_ptr<string> healthCheckDomain{};
   shared_ptr<bool> healthCheckEnabled{};
+  shared_ptr<string> healthCheckExp{};
   shared_ptr<vector<string>> healthCheckHttpCode{};
   shared_ptr<long> healthCheckInterval{};
+  shared_ptr<string> healthCheckReq{};
   shared_ptr<string> healthCheckType{};
   shared_ptr<string> healthCheckUrl{};
   shared_ptr<long> healthyThreshold{};
@@ -2121,11 +2123,17 @@ public:
     if (healthCheckEnabled) {
       res["HealthCheckEnabled"] = boost::any(*healthCheckEnabled);
     }
+    if (healthCheckExp) {
+      res["HealthCheckExp"] = boost::any(*healthCheckExp);
+    }
     if (healthCheckHttpCode) {
       res["HealthCheckHttpCode"] = boost::any(*healthCheckHttpCode);
     }
     if (healthCheckInterval) {
       res["HealthCheckInterval"] = boost::any(*healthCheckInterval);
+    }
+    if (healthCheckReq) {
+      res["HealthCheckReq"] = boost::any(*healthCheckReq);
     }
     if (healthCheckType) {
       res["HealthCheckType"] = boost::any(*healthCheckType);
@@ -2158,6 +2166,9 @@ public:
     if (m.find("HealthCheckEnabled") != m.end() && !m["HealthCheckEnabled"].empty()) {
       healthCheckEnabled = make_shared<bool>(boost::any_cast<bool>(m["HealthCheckEnabled"]));
     }
+    if (m.find("HealthCheckExp") != m.end() && !m["HealthCheckExp"].empty()) {
+      healthCheckExp = make_shared<string>(boost::any_cast<string>(m["HealthCheckExp"]));
+    }
     if (m.find("HealthCheckHttpCode") != m.end() && !m["HealthCheckHttpCode"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["HealthCheckHttpCode"].type()) {
@@ -2170,6 +2181,9 @@ public:
     }
     if (m.find("HealthCheckInterval") != m.end() && !m["HealthCheckInterval"].empty()) {
       healthCheckInterval = make_shared<long>(boost::any_cast<long>(m["HealthCheckInterval"]));
+    }
+    if (m.find("HealthCheckReq") != m.end() && !m["HealthCheckReq"].empty()) {
+      healthCheckReq = make_shared<string>(boost::any_cast<string>(m["HealthCheckReq"]));
     }
     if (m.find("HealthCheckType") != m.end() && !m["HealthCheckType"].empty()) {
       healthCheckType = make_shared<string>(boost::any_cast<string>(m["HealthCheckType"]));
@@ -3018,6 +3032,137 @@ public:
 
 
   virtual ~DeleteServerGroupResponse() = default;
+};
+class DescribeHdMonitorRegionConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  DescribeHdMonitorRegionConfigRequest() {}
+
+  explicit DescribeHdMonitorRegionConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeHdMonitorRegionConfigRequest() = default;
+};
+class DescribeHdMonitorRegionConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> logProject{};
+  shared_ptr<string> metricStore{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> requestId{};
+
+  DescribeHdMonitorRegionConfigResponseBody() {}
+
+  explicit DescribeHdMonitorRegionConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logProject) {
+      res["LogProject"] = boost::any(*logProject);
+    }
+    if (metricStore) {
+      res["MetricStore"] = boost::any(*metricStore);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogProject") != m.end() && !m["LogProject"].empty()) {
+      logProject = make_shared<string>(boost::any_cast<string>(m["LogProject"]));
+    }
+    if (m.find("MetricStore") != m.end() && !m["MetricStore"].empty()) {
+      metricStore = make_shared<string>(boost::any_cast<string>(m["MetricStore"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeHdMonitorRegionConfigResponseBody() = default;
+};
+class DescribeHdMonitorRegionConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeHdMonitorRegionConfigResponseBody> body{};
+
+  DescribeHdMonitorRegionConfigResponse() {}
+
+  explicit DescribeHdMonitorRegionConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeHdMonitorRegionConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeHdMonitorRegionConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeHdMonitorRegionConfigResponse() = default;
 };
 class DescribeRegionsRequest : public Darabonba::Model {
 public:
@@ -8149,8 +8294,10 @@ public:
   shared_ptr<long> healthCheckConnectTimeout{};
   shared_ptr<string> healthCheckDomain{};
   shared_ptr<bool> healthCheckEnabled{};
+  shared_ptr<string> healthCheckExp{};
   shared_ptr<vector<string>> healthCheckHttpCode{};
   shared_ptr<long> healthCheckInterval{};
+  shared_ptr<string> healthCheckReq{};
   shared_ptr<string> healthCheckType{};
   shared_ptr<string> healthCheckUrl{};
   shared_ptr<long> healthyThreshold{};
@@ -8179,11 +8326,17 @@ public:
     if (healthCheckEnabled) {
       res["HealthCheckEnabled"] = boost::any(*healthCheckEnabled);
     }
+    if (healthCheckExp) {
+      res["HealthCheckExp"] = boost::any(*healthCheckExp);
+    }
     if (healthCheckHttpCode) {
       res["HealthCheckHttpCode"] = boost::any(*healthCheckHttpCode);
     }
     if (healthCheckInterval) {
       res["HealthCheckInterval"] = boost::any(*healthCheckInterval);
+    }
+    if (healthCheckReq) {
+      res["HealthCheckReq"] = boost::any(*healthCheckReq);
     }
     if (healthCheckType) {
       res["HealthCheckType"] = boost::any(*healthCheckType);
@@ -8216,6 +8369,9 @@ public:
     if (m.find("HealthCheckEnabled") != m.end() && !m["HealthCheckEnabled"].empty()) {
       healthCheckEnabled = make_shared<bool>(boost::any_cast<bool>(m["HealthCheckEnabled"]));
     }
+    if (m.find("HealthCheckExp") != m.end() && !m["HealthCheckExp"].empty()) {
+      healthCheckExp = make_shared<string>(boost::any_cast<string>(m["HealthCheckExp"]));
+    }
     if (m.find("HealthCheckHttpCode") != m.end() && !m["HealthCheckHttpCode"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["HealthCheckHttpCode"].type()) {
@@ -8228,6 +8384,9 @@ public:
     }
     if (m.find("HealthCheckInterval") != m.end() && !m["HealthCheckInterval"].empty()) {
       healthCheckInterval = make_shared<long>(boost::any_cast<long>(m["HealthCheckInterval"]));
+    }
+    if (m.find("HealthCheckReq") != m.end() && !m["HealthCheckReq"].empty()) {
+      healthCheckReq = make_shared<string>(boost::any_cast<string>(m["HealthCheckReq"]));
     }
     if (m.find("HealthCheckType") != m.end() && !m["HealthCheckType"].empty()) {
       healthCheckType = make_shared<string>(boost::any_cast<string>(m["HealthCheckType"]));
@@ -9795,6 +9954,151 @@ public:
 
 
   virtual ~RemoveServersFromServerGroupResponse() = default;
+};
+class SetHdMonitorRegionConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> logProject{};
+  shared_ptr<string> metricStore{};
+  shared_ptr<string> regionId{};
+
+  SetHdMonitorRegionConfigRequest() {}
+
+  explicit SetHdMonitorRegionConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logProject) {
+      res["LogProject"] = boost::any(*logProject);
+    }
+    if (metricStore) {
+      res["MetricStore"] = boost::any(*metricStore);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogProject") != m.end() && !m["LogProject"].empty()) {
+      logProject = make_shared<string>(boost::any_cast<string>(m["LogProject"]));
+    }
+    if (m.find("MetricStore") != m.end() && !m["MetricStore"].empty()) {
+      metricStore = make_shared<string>(boost::any_cast<string>(m["MetricStore"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~SetHdMonitorRegionConfigRequest() = default;
+};
+class SetHdMonitorRegionConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> logProject{};
+  shared_ptr<string> metricStore{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> requestId{};
+
+  SetHdMonitorRegionConfigResponseBody() {}
+
+  explicit SetHdMonitorRegionConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logProject) {
+      res["LogProject"] = boost::any(*logProject);
+    }
+    if (metricStore) {
+      res["MetricStore"] = boost::any(*metricStore);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogProject") != m.end() && !m["LogProject"].empty()) {
+      logProject = make_shared<string>(boost::any_cast<string>(m["LogProject"]));
+    }
+    if (m.find("MetricStore") != m.end() && !m["MetricStore"].empty()) {
+      metricStore = make_shared<string>(boost::any_cast<string>(m["MetricStore"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetHdMonitorRegionConfigResponseBody() = default;
+};
+class SetHdMonitorRegionConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetHdMonitorRegionConfigResponseBody> body{};
+
+  SetHdMonitorRegionConfigResponse() {}
+
+  explicit SetHdMonitorRegionConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetHdMonitorRegionConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetHdMonitorRegionConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetHdMonitorRegionConfigResponse() = default;
 };
 class StartListenerRequest : public Darabonba::Model {
 public:
@@ -12037,8 +12341,10 @@ public:
   shared_ptr<long> healthCheckConnectTimeout{};
   shared_ptr<string> healthCheckDomain{};
   shared_ptr<bool> healthCheckEnabled{};
+  shared_ptr<string> healthCheckExp{};
   shared_ptr<vector<string>> healthCheckHttpCode{};
   shared_ptr<long> healthCheckInterval{};
+  shared_ptr<string> healthCheckReq{};
   shared_ptr<string> healthCheckType{};
   shared_ptr<string> healthCheckUrl{};
   shared_ptr<long> healthyThreshold{};
@@ -12067,11 +12373,17 @@ public:
     if (healthCheckEnabled) {
       res["HealthCheckEnabled"] = boost::any(*healthCheckEnabled);
     }
+    if (healthCheckExp) {
+      res["HealthCheckExp"] = boost::any(*healthCheckExp);
+    }
     if (healthCheckHttpCode) {
       res["HealthCheckHttpCode"] = boost::any(*healthCheckHttpCode);
     }
     if (healthCheckInterval) {
       res["HealthCheckInterval"] = boost::any(*healthCheckInterval);
+    }
+    if (healthCheckReq) {
+      res["HealthCheckReq"] = boost::any(*healthCheckReq);
     }
     if (healthCheckType) {
       res["HealthCheckType"] = boost::any(*healthCheckType);
@@ -12104,6 +12416,9 @@ public:
     if (m.find("HealthCheckEnabled") != m.end() && !m["HealthCheckEnabled"].empty()) {
       healthCheckEnabled = make_shared<bool>(boost::any_cast<bool>(m["HealthCheckEnabled"]));
     }
+    if (m.find("HealthCheckExp") != m.end() && !m["HealthCheckExp"].empty()) {
+      healthCheckExp = make_shared<string>(boost::any_cast<string>(m["HealthCheckExp"]));
+    }
     if (m.find("HealthCheckHttpCode") != m.end() && !m["HealthCheckHttpCode"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["HealthCheckHttpCode"].type()) {
@@ -12116,6 +12431,9 @@ public:
     }
     if (m.find("HealthCheckInterval") != m.end() && !m["HealthCheckInterval"].empty()) {
       healthCheckInterval = make_shared<long>(boost::any_cast<long>(m["HealthCheckInterval"]));
+    }
+    if (m.find("HealthCheckReq") != m.end() && !m["HealthCheckReq"].empty()) {
+      healthCheckReq = make_shared<string>(boost::any_cast<string>(m["HealthCheckReq"]));
     }
     if (m.find("HealthCheckType") != m.end() && !m["HealthCheckType"].empty()) {
       healthCheckType = make_shared<string>(boost::any_cast<string>(m["HealthCheckType"]));
@@ -12592,6 +12910,8 @@ public:
   DeleteSecurityPolicyResponse deleteSecurityPolicy(shared_ptr<DeleteSecurityPolicyRequest> request);
   DeleteServerGroupResponse deleteServerGroupWithOptions(shared_ptr<DeleteServerGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteServerGroupResponse deleteServerGroup(shared_ptr<DeleteServerGroupRequest> request);
+  DescribeHdMonitorRegionConfigResponse describeHdMonitorRegionConfigWithOptions(shared_ptr<DescribeHdMonitorRegionConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeHdMonitorRegionConfigResponse describeHdMonitorRegionConfig(shared_ptr<DescribeHdMonitorRegionConfigRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DescribeZonesResponse describeZonesWithOptions(shared_ptr<DescribeZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -12636,6 +12956,8 @@ public:
   MoveResourceGroupResponse moveResourceGroup(shared_ptr<MoveResourceGroupRequest> request);
   RemoveServersFromServerGroupResponse removeServersFromServerGroupWithOptions(shared_ptr<RemoveServersFromServerGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveServersFromServerGroupResponse removeServersFromServerGroup(shared_ptr<RemoveServersFromServerGroupRequest> request);
+  SetHdMonitorRegionConfigResponse setHdMonitorRegionConfigWithOptions(shared_ptr<SetHdMonitorRegionConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetHdMonitorRegionConfigResponse setHdMonitorRegionConfig(shared_ptr<SetHdMonitorRegionConfigRequest> request);
   StartListenerResponse startListenerWithOptions(shared_ptr<StartListenerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartListenerResponse startListener(shared_ptr<StartListenerRequest> request);
   StartShiftLoadBalancerZonesResponse startShiftLoadBalancerZonesWithOptions(shared_ptr<StartShiftLoadBalancerZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

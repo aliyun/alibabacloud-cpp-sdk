@@ -642,6 +642,34 @@ DeleteServerGroupResponse Alibabacloud_Nlb20220430::Client::deleteServerGroup(sh
   return deleteServerGroupWithOptions(request, runtime);
 }
 
+DescribeHdMonitorRegionConfigResponse Alibabacloud_Nlb20220430::Client::describeHdMonitorRegionConfigWithOptions(shared_ptr<DescribeHdMonitorRegionConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeHdMonitorRegionConfig"))},
+    {"version", boost::any(string("2022-04-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeHdMonitorRegionConfigResponse(callApi(params, req, runtime));
+}
+
+DescribeHdMonitorRegionConfigResponse Alibabacloud_Nlb20220430::Client::describeHdMonitorRegionConfig(shared_ptr<DescribeHdMonitorRegionConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeHdMonitorRegionConfigWithOptions(request, runtime);
+}
+
 DescribeRegionsResponse Alibabacloud_Nlb20220430::Client::describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1543,6 +1571,40 @@ RemoveServersFromServerGroupResponse Alibabacloud_Nlb20220430::Client::removeSer
 RemoveServersFromServerGroupResponse Alibabacloud_Nlb20220430::Client::removeServersFromServerGroup(shared_ptr<RemoveServersFromServerGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return removeServersFromServerGroupWithOptions(request, runtime);
+}
+
+SetHdMonitorRegionConfigResponse Alibabacloud_Nlb20220430::Client::setHdMonitorRegionConfigWithOptions(shared_ptr<SetHdMonitorRegionConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->logProject)) {
+    query->insert(pair<string, string>("LogProject", *request->logProject));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metricStore)) {
+    query->insert(pair<string, string>("MetricStore", *request->metricStore));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetHdMonitorRegionConfig"))},
+    {"version", boost::any(string("2022-04-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetHdMonitorRegionConfigResponse(callApi(params, req, runtime));
+}
+
+SetHdMonitorRegionConfigResponse Alibabacloud_Nlb20220430::Client::setHdMonitorRegionConfig(shared_ptr<SetHdMonitorRegionConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setHdMonitorRegionConfigWithOptions(request, runtime);
 }
 
 StartListenerResponse Alibabacloud_Nlb20220430::Client::startListenerWithOptions(shared_ptr<StartListenerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
