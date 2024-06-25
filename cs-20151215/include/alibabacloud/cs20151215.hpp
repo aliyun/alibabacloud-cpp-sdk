@@ -466,6 +466,7 @@ public:
   shared_ptr<string> duration{};
   shared_ptr<bool> enable{};
   shared_ptr<string> maintenanceTime{};
+  shared_ptr<string> recurrence{};
   shared_ptr<string> weeklyPeriod{};
 
   MaintenanceWindow() {}
@@ -487,6 +488,9 @@ public:
     if (maintenanceTime) {
       res["maintenance_time"] = boost::any(*maintenanceTime);
     }
+    if (recurrence) {
+      res["recurrence"] = boost::any(*recurrence);
+    }
     if (weeklyPeriod) {
       res["weekly_period"] = boost::any(*weeklyPeriod);
     }
@@ -502,6 +506,9 @@ public:
     }
     if (m.find("maintenance_time") != m.end() && !m["maintenance_time"].empty()) {
       maintenanceTime = make_shared<string>(boost::any_cast<string>(m["maintenance_time"]));
+    }
+    if (m.find("recurrence") != m.end() && !m["recurrence"].empty()) {
+      recurrence = make_shared<string>(boost::any_cast<string>(m["recurrence"]));
     }
     if (m.find("weekly_period") != m.end() && !m["weekly_period"].empty()) {
       weeklyPeriod = make_shared<string>(boost::any_cast<string>(m["weekly_period"]));
@@ -13808,6 +13815,7 @@ class DescribeClustersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterType{};
   shared_ptr<string> name{};
+  shared_ptr<string> resourceGroupId{};
 
   DescribeClustersRequest() {}
 
@@ -13825,6 +13833,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (resourceGroupId) {
+      res["resource_group_id"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -13834,6 +13845,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("resource_group_id") != m.end() && !m["resource_group_id"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resource_group_id"]));
     }
   }
 
