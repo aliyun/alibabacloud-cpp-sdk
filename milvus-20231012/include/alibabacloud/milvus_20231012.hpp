@@ -563,6 +563,7 @@ public:
   shared_ptr<bool> openPublicNet{};
   shared_ptr<string> packageType{};
   shared_ptr<long> payType{};
+  shared_ptr<string> productCode{};
   shared_ptr<string> regionId{};
   shared_ptr<long> runningTime{};
   shared_ptr<string> sgId{};
@@ -618,6 +619,9 @@ public:
     }
     if (payType) {
       res["PayType"] = boost::any(*payType);
+    }
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -689,6 +693,9 @@ public:
     }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<long>(boost::any_cast<long>(m["PayType"]));
+    }
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -1059,6 +1066,7 @@ public:
   shared_ptr<bool> openPublicNet{};
   shared_ptr<string> packageType{};
   shared_ptr<long> payType{};
+  shared_ptr<string> productCode{};
   shared_ptr<string> regionId{};
   shared_ptr<long> runningTime{};
   shared_ptr<string> sgId{};
@@ -1102,6 +1110,9 @@ public:
     }
     if (payType) {
       res["PayType"] = boost::any(*payType);
+    }
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -1155,6 +1166,9 @@ public:
     }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<long>(boost::any_cast<long>(m["PayType"]));
+    }
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
