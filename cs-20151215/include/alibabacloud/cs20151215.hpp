@@ -16167,6 +16167,7 @@ public:
   shared_ptr<vector<string>> cveList{};
   shared_ptr<string> name{};
   shared_ptr<string> necessity{};
+  shared_ptr<bool> needReboot{};
 
   DescribeNodePoolVulsResponseBodyVulRecordsVulList() {}
 
@@ -16190,6 +16191,9 @@ public:
     if (necessity) {
       res["necessity"] = boost::any(*necessity);
     }
+    if (needReboot) {
+      res["need_reboot"] = boost::any(*needReboot);
+    }
     return res;
   }
 
@@ -16212,6 +16216,9 @@ public:
     }
     if (m.find("necessity") != m.end() && !m["necessity"].empty()) {
       necessity = make_shared<string>(boost::any_cast<string>(m["necessity"]));
+    }
+    if (m.find("need_reboot") != m.end() && !m["need_reboot"].empty()) {
+      needReboot = make_shared<bool>(boost::any_cast<bool>(m["need_reboot"]));
     }
   }
 
