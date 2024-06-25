@@ -1951,7 +1951,7 @@ GenerateTrafficControlTaskCodeResponse Alibabacloud_PaiRecService20221213::Clien
     {"action", boost::any(string("GenerateTrafficControlTaskCode"))},
     {"version", boost::any(string("2022-12-13"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/action/code"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/action/generatecode"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -1984,7 +1984,7 @@ GenerateTrafficControlTaskConfigResponse Alibabacloud_PaiRecService20221213::Cli
     {"action", boost::any(string("GenerateTrafficControlTaskConfig"))},
     {"version", boost::any(string("2022-12-13"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/action/config"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/action/generateconfig"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -2607,7 +2607,7 @@ GetTrafficControlTaskTrafficResponse Alibabacloud_PaiRecService20221213::Client:
     {"action", boost::any(string("GetTrafficControlTaskTraffic"))},
     {"version", boost::any(string("2022-12-13"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/action/traffic"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTaskId)) + string("/trafficinfo"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -2841,6 +2841,12 @@ ListExperimentGroupsResponse Alibabacloud_PaiRecService20221213::Client::listExp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeRangeEnd)) {
+    query->insert(pair<string, string>("TimeRangeEnd", *request->timeRangeEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeRangeStart)) {
+    query->insert(pair<string, string>("TimeRangeStart", *request->timeRangeStart));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -3476,7 +3482,7 @@ ListTrafficControlTargetTrafficHistoryResponse Alibabacloud_PaiRecService2022121
     {"action", boost::any(string("ListTrafficControlTargetTrafficHistory"))},
     {"version", boost::any(string("2022-12-13"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/trafficcontroltargets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTargetId)) + string("/action/traffichistory"))},
+    {"pathname", boost::any(string("/api/v1/trafficcontroltargets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TrafficControlTargetId)) + string("/traffichistories"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},

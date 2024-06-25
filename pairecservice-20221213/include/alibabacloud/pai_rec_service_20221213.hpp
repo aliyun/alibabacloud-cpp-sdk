@@ -11162,14 +11162,14 @@ public:
 
   virtual ~GetTrafficControlTaskTrafficRequest() = default;
 };
-class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics : public Darabonba::Model {
+class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics : public Darabonba::Model {
 public:
   shared_ptr<vector<map<string, boost::any>>> data{};
   shared_ptr<string> trafficContorlTargetId{};
 
-  GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics() {}
+  GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics() {}
 
-  explicit GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -11208,16 +11208,16 @@ public:
   }
 
 
-  virtual ~GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics() = default;
+  virtual ~GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics() = default;
 };
-class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic : public Darabonba::Model {
+class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo : public Darabonba::Model {
 public:
-  shared_ptr<vector<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics>> targetTraffics{};
+  shared_ptr<vector<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics>> targetTraffics{};
   shared_ptr<map<string, boost::any>> taskTraffics{};
 
-  GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic() {}
+  GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo() {}
 
-  explicit GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -11241,15 +11241,15 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("TargetTraffics") != m.end() && !m["TargetTraffics"].empty()) {
       if (typeid(vector<boost::any>) == m["TargetTraffics"].type()) {
-        vector<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics> expect1;
+        vector<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics> expect1;
         for(auto item1:boost::any_cast<vector<boost::any>>(m["TargetTraffics"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics model2;
+            GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        targetTraffics = make_shared<vector<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficTargetTraffics>>(expect1);
+        targetTraffics = make_shared<vector<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics>>(expect1);
       }
     }
     if (m.find("TaskTraffics") != m.end() && !m["TaskTraffics"].empty()) {
@@ -11263,12 +11263,12 @@ public:
   }
 
 
-  virtual ~GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic() = default;
+  virtual ~GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo() = default;
 };
 class GetTrafficControlTaskTrafficResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic> trafficControlTaskTraffic{};
+  shared_ptr<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo> trafficControlTaskTrafficInfo{};
 
   GetTrafficControlTaskTrafficResponseBody() {}
 
@@ -11283,8 +11283,8 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (trafficControlTaskTraffic) {
-      res["TrafficControlTaskTraffic"] = trafficControlTaskTraffic ? boost::any(trafficControlTaskTraffic->toMap()) : boost::any(map<string,boost::any>({}));
+    if (trafficControlTaskTrafficInfo) {
+      res["TrafficControlTaskTrafficInfo"] = trafficControlTaskTrafficInfo ? boost::any(trafficControlTaskTrafficInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -11293,11 +11293,11 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
-    if (m.find("TrafficControlTaskTraffic") != m.end() && !m["TrafficControlTaskTraffic"].empty()) {
-      if (typeid(map<string, boost::any>) == m["TrafficControlTaskTraffic"].type()) {
-        GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TrafficControlTaskTraffic"]));
-        trafficControlTaskTraffic = make_shared<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTraffic>(model1);
+    if (m.find("TrafficControlTaskTrafficInfo") != m.end() && !m["TrafficControlTaskTrafficInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TrafficControlTaskTrafficInfo"].type()) {
+        GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TrafficControlTaskTrafficInfo"]));
+        trafficControlTaskTrafficInfo = make_shared<GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo>(model1);
       }
     }
   }
@@ -12533,6 +12533,8 @@ public:
   shared_ptr<string> layerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
+  shared_ptr<string> timeRangeEnd{};
+  shared_ptr<string> timeRangeStart{};
 
   ListExperimentGroupsRequest() {}
 
@@ -12556,6 +12558,12 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (timeRangeEnd) {
+      res["TimeRangeEnd"] = boost::any(*timeRangeEnd);
+    }
+    if (timeRangeStart) {
+      res["TimeRangeStart"] = boost::any(*timeRangeStart);
+    }
     return res;
   }
 
@@ -12571,6 +12579,12 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TimeRangeEnd") != m.end() && !m["TimeRangeEnd"].empty()) {
+      timeRangeEnd = make_shared<string>(boost::any_cast<string>(m["TimeRangeEnd"]));
+    }
+    if (m.find("TimeRangeStart") != m.end() && !m["TimeRangeStart"].empty()) {
+      timeRangeStart = make_shared<string>(boost::any_cast<string>(m["TimeRangeStart"]));
     }
   }
 
