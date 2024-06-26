@@ -634,8 +634,15 @@ DeleteWorkflowResponse Alibabacloud_Schedulerx220190430::Client::deleteWorkflow(
   return deleteWorkflowWithOptions(request, runtime);
 }
 
-DescribeRegionsResponse Alibabacloud_Schedulerx220190430::Client::describeRegionsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+DescribeRegionsResponse Alibabacloud_Schedulerx220190430::Client::describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeRegions"))},
     {"version", boost::any(string("2019-04-30"))},
@@ -650,9 +657,9 @@ DescribeRegionsResponse Alibabacloud_Schedulerx220190430::Client::describeRegion
   return DescribeRegionsResponse(callApi(params, req, runtime));
 }
 
-DescribeRegionsResponse Alibabacloud_Schedulerx220190430::Client::describeRegions() {
+DescribeRegionsResponse Alibabacloud_Schedulerx220190430::Client::describeRegions(shared_ptr<DescribeRegionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeRegionsWithOptions(runtime);
+  return describeRegionsWithOptions(request, runtime);
 }
 
 DesignateWorkersResponse Alibabacloud_Schedulerx220190430::Client::designateWorkersWithOptions(shared_ptr<DesignateWorkersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1501,6 +1508,9 @@ StopInstanceResponse Alibabacloud_Schedulerx220190430::Client::stopInstance(shar
 UpdateAppGroupResponse Alibabacloud_Schedulerx220190430::Client::updateAppGroupWithOptions(shared_ptr<UpdateAppGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->appVersion)) {
+    query->insert(pair<string, long>("AppVersion", *request->appVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
@@ -1515,9 +1525,6 @@ UpdateAppGroupResponse Alibabacloud_Schedulerx220190430::Client::updateAppGroupW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->version)) {
-    query->insert(pair<string, long>("Version", *request->version));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

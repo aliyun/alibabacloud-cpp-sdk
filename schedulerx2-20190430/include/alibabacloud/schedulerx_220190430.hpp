@@ -675,6 +675,7 @@ public:
   shared_ptr<string> appKey{};
   shared_ptr<string> appName{};
   shared_ptr<long> appType{};
+  shared_ptr<long> appVersion{};
   shared_ptr<string> description{};
   shared_ptr<bool> enableLog{};
   shared_ptr<string> groupId{};
@@ -686,7 +687,6 @@ public:
   shared_ptr<string> namespaceSource{};
   shared_ptr<string> regionId{};
   shared_ptr<bool> scheduleBusyWorkers{};
-  shared_ptr<long> version{};
 
   CreateAppGroupRequest() {}
 
@@ -706,6 +706,9 @@ public:
     }
     if (appType) {
       res["AppType"] = boost::any(*appType);
+    }
+    if (appVersion) {
+      res["AppVersion"] = boost::any(*appVersion);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -740,9 +743,6 @@ public:
     if (scheduleBusyWorkers) {
       res["ScheduleBusyWorkers"] = boost::any(*scheduleBusyWorkers);
     }
-    if (version) {
-      res["Version"] = boost::any(*version);
-    }
     return res;
   }
 
@@ -755,6 +755,9 @@ public:
     }
     if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
       appType = make_shared<long>(boost::any_cast<long>(m["AppType"]));
+    }
+    if (m.find("AppVersion") != m.end() && !m["AppVersion"].empty()) {
+      appVersion = make_shared<long>(boost::any_cast<long>(m["AppVersion"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -788,9 +791,6 @@ public:
     }
     if (m.find("ScheduleBusyWorkers") != m.end() && !m["ScheduleBusyWorkers"].empty()) {
       scheduleBusyWorkers = make_shared<bool>(boost::any_cast<bool>(m["ScheduleBusyWorkers"]));
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<long>(boost::any_cast<long>(m["Version"]));
     }
   }
 
@@ -2687,6 +2687,35 @@ public:
 
   virtual ~DeleteWorkflowResponse() = default;
 };
+class DescribeRegionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  DescribeRegionsRequest() {}
+
+  explicit DescribeRegionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeRegionsRequest() = default;
+};
 class DescribeRegionsResponseBodyRegions : public Darabonba::Model {
 public:
   shared_ptr<string> localName{};
@@ -4163,6 +4192,7 @@ class GetAppGroupResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> appKey{};
   shared_ptr<string> appName{};
+  shared_ptr<string> appVersion{};
   shared_ptr<long> curJobs{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
@@ -4184,6 +4214,9 @@ public:
     }
     if (appName) {
       res["AppName"] = boost::any(*appName);
+    }
+    if (appVersion) {
+      res["AppVersion"] = boost::any(*appVersion);
     }
     if (curJobs) {
       res["CurJobs"] = boost::any(*curJobs);
@@ -4209,6 +4242,9 @@ public:
     }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("AppVersion") != m.end() && !m["AppVersion"].empty()) {
+      appVersion = make_shared<string>(boost::any_cast<string>(m["AppVersion"]));
     }
     if (m.find("CurJobs") != m.end() && !m["CurJobs"].empty()) {
       curJobs = make_shared<long>(boost::any_cast<long>(m["CurJobs"]));
@@ -7531,9 +7567,9 @@ public:
   shared_ptr<long> appGroupId{};
   shared_ptr<string> appKey{};
   shared_ptr<string> appName{};
+  shared_ptr<long> appVersion{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
-  shared_ptr<long> version{};
 
   ListGroupsResponseBodyDataAppGroups() {}
 
@@ -7554,14 +7590,14 @@ public:
     if (appName) {
       res["AppName"] = boost::any(*appName);
     }
+    if (appVersion) {
+      res["AppVersion"] = boost::any(*appVersion);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
-    }
-    if (version) {
-      res["Version"] = boost::any(*version);
     }
     return res;
   }
@@ -7576,14 +7612,14 @@ public:
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
     }
+    if (m.find("AppVersion") != m.end() && !m["AppVersion"].empty()) {
+      appVersion = make_shared<long>(boost::any_cast<long>(m["AppVersion"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<long>(boost::any_cast<long>(m["Version"]));
     }
   }
 
@@ -9932,12 +9968,12 @@ public:
 };
 class UpdateAppGroupRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> appVersion{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
   shared_ptr<long> maxConcurrency{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
-  shared_ptr<long> version{};
 
   UpdateAppGroupRequest() {}
 
@@ -9949,6 +9985,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appVersion) {
+      res["AppVersion"] = boost::any(*appVersion);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -9964,13 +10003,13 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
-    if (version) {
-      res["Version"] = boost::any(*version);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppVersion") != m.end() && !m["AppVersion"].empty()) {
+      appVersion = make_shared<long>(boost::any_cast<long>(m["AppVersion"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -9985,9 +10024,6 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<long>(boost::any_cast<long>(m["Version"]));
     }
   }
 
@@ -10932,8 +10968,8 @@ public:
   DeleteRouteStrategyResponse deleteRouteStrategy(shared_ptr<DeleteRouteStrategyRequest> request);
   DeleteWorkflowResponse deleteWorkflowWithOptions(shared_ptr<DeleteWorkflowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteWorkflowResponse deleteWorkflow(shared_ptr<DeleteWorkflowRequest> request);
-  DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeRegionsResponse describeRegions();
+  DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DesignateWorkersResponse designateWorkersWithOptions(shared_ptr<DesignateWorkersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DesignateWorkersResponse designateWorkers(shared_ptr<DesignateWorkersRequest> request);
   DisableJobResponse disableJobWithOptions(shared_ptr<DisableJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
