@@ -12450,6 +12450,137 @@ public:
 
   virtual ~DescribeMemberAccountsResponse() = default;
 };
+class DescribePauseProtectionStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribePauseProtectionStatusRequest() {}
+
+  explicit DescribePauseProtectionStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribePauseProtectionStatusRequest() = default;
+};
+class DescribePauseProtectionStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pauseStatus{};
+  shared_ptr<string> requestId{};
+
+  DescribePauseProtectionStatusResponseBody() {}
+
+  explicit DescribePauseProtectionStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pauseStatus) {
+      res["PauseStatus"] = boost::any(*pauseStatus);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PauseStatus") != m.end() && !m["PauseStatus"].empty()) {
+      pauseStatus = make_shared<long>(boost::any_cast<long>(m["PauseStatus"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribePauseProtectionStatusResponseBody() = default;
+};
+class DescribePauseProtectionStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribePauseProtectionStatusResponseBody> body{};
+
+  DescribePauseProtectionStatusResponse() {}
+
+  explicit DescribePauseProtectionStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribePauseProtectionStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribePauseProtectionStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribePauseProtectionStatusResponse() = default;
+};
 class DescribePeakTrendRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTimestamp{};
@@ -20589,6 +20720,137 @@ public:
 
   virtual ~ModifyMemberAccountResponse() = default;
 };
+class ModifyPauseProtectionStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> pauseStatus{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  ModifyPauseProtectionStatusRequest() {}
+
+  explicit ModifyPauseProtectionStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (pauseStatus) {
+      res["PauseStatus"] = boost::any(*pauseStatus);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PauseStatus") != m.end() && !m["PauseStatus"].empty()) {
+      pauseStatus = make_shared<long>(boost::any_cast<long>(m["PauseStatus"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~ModifyPauseProtectionStatusRequest() = default;
+};
+class ModifyPauseProtectionStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyPauseProtectionStatusResponseBody() {}
+
+  explicit ModifyPauseProtectionStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyPauseProtectionStatusResponseBody() = default;
+};
+class ModifyPauseProtectionStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyPauseProtectionStatusResponseBody> body{};
+
+  ModifyPauseProtectionStatusResponse() {}
+
+  explicit ModifyPauseProtectionStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyPauseProtectionStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyPauseProtectionStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyPauseProtectionStatusResponse() = default;
+};
 class ModifyResourceLogStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -21499,6 +21761,8 @@ public:
   DescribeMajorProtectionBlackIpsResponse describeMajorProtectionBlackIps(shared_ptr<DescribeMajorProtectionBlackIpsRequest> request);
   DescribeMemberAccountsResponse describeMemberAccountsWithOptions(shared_ptr<DescribeMemberAccountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeMemberAccountsResponse describeMemberAccounts(shared_ptr<DescribeMemberAccountsRequest> request);
+  DescribePauseProtectionStatusResponse describePauseProtectionStatusWithOptions(shared_ptr<DescribePauseProtectionStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribePauseProtectionStatusResponse describePauseProtectionStatus(shared_ptr<DescribePauseProtectionStatusRequest> request);
   DescribePeakTrendResponse describePeakTrendWithOptions(shared_ptr<DescribePeakTrendRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePeakTrendResponse describePeakTrend(shared_ptr<DescribePeakTrendRequest> request);
   DescribeProductInstancesResponse describeProductInstancesWithOptions(shared_ptr<DescribeProductInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -21585,6 +21849,8 @@ public:
   ModifyMajorProtectionBlackIpResponse modifyMajorProtectionBlackIp(shared_ptr<ModifyMajorProtectionBlackIpRequest> request);
   ModifyMemberAccountResponse modifyMemberAccountWithOptions(shared_ptr<ModifyMemberAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyMemberAccountResponse modifyMemberAccount(shared_ptr<ModifyMemberAccountRequest> request);
+  ModifyPauseProtectionStatusResponse modifyPauseProtectionStatusWithOptions(shared_ptr<ModifyPauseProtectionStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyPauseProtectionStatusResponse modifyPauseProtectionStatus(shared_ptr<ModifyPauseProtectionStatusRequest> request);
   ModifyResourceLogStatusResponse modifyResourceLogStatusWithOptions(shared_ptr<ModifyResourceLogStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyResourceLogStatusResponse modifyResourceLogStatus(shared_ptr<ModifyResourceLogStatusRequest> request);
   ModifyTemplateResourcesResponse modifyTemplateResourcesWithOptions(shared_ptr<ModifyTemplateResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
