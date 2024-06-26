@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_PUSH20160801_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -98,17 +97,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -232,17 +221,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -373,17 +352,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -500,17 +469,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -728,17 +687,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -862,17 +811,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1079,17 +1018,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1213,17 +1142,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1361,17 +1280,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1542,17 +1451,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1745,17 +1644,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -1839,6 +1728,21 @@ public:
   shared_ptr<string> body{};
   shared_ptr<string> deviceType{};
   shared_ptr<string> expireTime{};
+  shared_ptr<string> harmonyAction{};
+  shared_ptr<string> harmonyActionType{};
+  shared_ptr<string> harmonyCategory{};
+  shared_ptr<string> harmonyExtParameters{};
+  shared_ptr<string> harmonyImageUrl{};
+  shared_ptr<string> harmonyInboxContent{};
+  shared_ptr<string> harmonyNotificationSlotType{};
+  shared_ptr<long> harmonyNotifyId{};
+  shared_ptr<string> harmonyReceiptId{};
+  shared_ptr<bool> harmonyRemind{};
+  shared_ptr<string> harmonyRemindBody{};
+  shared_ptr<string> harmonyRemindTitle{};
+  shared_ptr<string> harmonyRenderStyle{};
+  shared_ptr<bool> harmonyTestMessage{};
+  shared_ptr<string> harmonyUri{};
   shared_ptr<string> jobKey{};
   shared_ptr<string> pushTime{};
   shared_ptr<string> pushType{};
@@ -2000,6 +1904,51 @@ public:
     }
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (harmonyAction) {
+      res["HarmonyAction"] = boost::any(*harmonyAction);
+    }
+    if (harmonyActionType) {
+      res["HarmonyActionType"] = boost::any(*harmonyActionType);
+    }
+    if (harmonyCategory) {
+      res["HarmonyCategory"] = boost::any(*harmonyCategory);
+    }
+    if (harmonyExtParameters) {
+      res["HarmonyExtParameters"] = boost::any(*harmonyExtParameters);
+    }
+    if (harmonyImageUrl) {
+      res["HarmonyImageUrl"] = boost::any(*harmonyImageUrl);
+    }
+    if (harmonyInboxContent) {
+      res["HarmonyInboxContent"] = boost::any(*harmonyInboxContent);
+    }
+    if (harmonyNotificationSlotType) {
+      res["HarmonyNotificationSlotType"] = boost::any(*harmonyNotificationSlotType);
+    }
+    if (harmonyNotifyId) {
+      res["HarmonyNotifyId"] = boost::any(*harmonyNotifyId);
+    }
+    if (harmonyReceiptId) {
+      res["HarmonyReceiptId"] = boost::any(*harmonyReceiptId);
+    }
+    if (harmonyRemind) {
+      res["HarmonyRemind"] = boost::any(*harmonyRemind);
+    }
+    if (harmonyRemindBody) {
+      res["HarmonyRemindBody"] = boost::any(*harmonyRemindBody);
+    }
+    if (harmonyRemindTitle) {
+      res["HarmonyRemindTitle"] = boost::any(*harmonyRemindTitle);
+    }
+    if (harmonyRenderStyle) {
+      res["HarmonyRenderStyle"] = boost::any(*harmonyRenderStyle);
+    }
+    if (harmonyTestMessage) {
+      res["HarmonyTestMessage"] = boost::any(*harmonyTestMessage);
+    }
+    if (harmonyUri) {
+      res["HarmonyUri"] = boost::any(*harmonyUri);
     }
     if (jobKey) {
       res["JobKey"] = boost::any(*jobKey);
@@ -2205,6 +2154,51 @@ public:
     }
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
+    }
+    if (m.find("HarmonyAction") != m.end() && !m["HarmonyAction"].empty()) {
+      harmonyAction = make_shared<string>(boost::any_cast<string>(m["HarmonyAction"]));
+    }
+    if (m.find("HarmonyActionType") != m.end() && !m["HarmonyActionType"].empty()) {
+      harmonyActionType = make_shared<string>(boost::any_cast<string>(m["HarmonyActionType"]));
+    }
+    if (m.find("HarmonyCategory") != m.end() && !m["HarmonyCategory"].empty()) {
+      harmonyCategory = make_shared<string>(boost::any_cast<string>(m["HarmonyCategory"]));
+    }
+    if (m.find("HarmonyExtParameters") != m.end() && !m["HarmonyExtParameters"].empty()) {
+      harmonyExtParameters = make_shared<string>(boost::any_cast<string>(m["HarmonyExtParameters"]));
+    }
+    if (m.find("HarmonyImageUrl") != m.end() && !m["HarmonyImageUrl"].empty()) {
+      harmonyImageUrl = make_shared<string>(boost::any_cast<string>(m["HarmonyImageUrl"]));
+    }
+    if (m.find("HarmonyInboxContent") != m.end() && !m["HarmonyInboxContent"].empty()) {
+      harmonyInboxContent = make_shared<string>(boost::any_cast<string>(m["HarmonyInboxContent"]));
+    }
+    if (m.find("HarmonyNotificationSlotType") != m.end() && !m["HarmonyNotificationSlotType"].empty()) {
+      harmonyNotificationSlotType = make_shared<string>(boost::any_cast<string>(m["HarmonyNotificationSlotType"]));
+    }
+    if (m.find("HarmonyNotifyId") != m.end() && !m["HarmonyNotifyId"].empty()) {
+      harmonyNotifyId = make_shared<long>(boost::any_cast<long>(m["HarmonyNotifyId"]));
+    }
+    if (m.find("HarmonyReceiptId") != m.end() && !m["HarmonyReceiptId"].empty()) {
+      harmonyReceiptId = make_shared<string>(boost::any_cast<string>(m["HarmonyReceiptId"]));
+    }
+    if (m.find("HarmonyRemind") != m.end() && !m["HarmonyRemind"].empty()) {
+      harmonyRemind = make_shared<bool>(boost::any_cast<bool>(m["HarmonyRemind"]));
+    }
+    if (m.find("HarmonyRemindBody") != m.end() && !m["HarmonyRemindBody"].empty()) {
+      harmonyRemindBody = make_shared<string>(boost::any_cast<string>(m["HarmonyRemindBody"]));
+    }
+    if (m.find("HarmonyRemindTitle") != m.end() && !m["HarmonyRemindTitle"].empty()) {
+      harmonyRemindTitle = make_shared<string>(boost::any_cast<string>(m["HarmonyRemindTitle"]));
+    }
+    if (m.find("HarmonyRenderStyle") != m.end() && !m["HarmonyRenderStyle"].empty()) {
+      harmonyRenderStyle = make_shared<string>(boost::any_cast<string>(m["HarmonyRenderStyle"]));
+    }
+    if (m.find("HarmonyTestMessage") != m.end() && !m["HarmonyTestMessage"].empty()) {
+      harmonyTestMessage = make_shared<bool>(boost::any_cast<bool>(m["HarmonyTestMessage"]));
+    }
+    if (m.find("HarmonyUri") != m.end() && !m["HarmonyUri"].empty()) {
+      harmonyUri = make_shared<string>(boost::any_cast<string>(m["HarmonyUri"]));
     }
     if (m.find("JobKey") != m.end() && !m["JobKey"].empty()) {
       jobKey = make_shared<string>(boost::any_cast<string>(m["JobKey"]));
@@ -2424,17 +2418,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -2519,6 +2503,21 @@ public:
   shared_ptr<string> body{};
   shared_ptr<string> deviceType{};
   shared_ptr<string> expireTime{};
+  shared_ptr<string> harmonyAction{};
+  shared_ptr<string> harmonyActionType{};
+  shared_ptr<string> harmonyCategory{};
+  shared_ptr<string> harmonyExtParameters{};
+  shared_ptr<string> harmonyImageUrl{};
+  shared_ptr<string> harmonyInboxContent{};
+  shared_ptr<string> harmonyNotificationSlotType{};
+  shared_ptr<long> harmonyNotifyId{};
+  shared_ptr<string> harmonyReceiptId{};
+  shared_ptr<bool> harmonyRemind{};
+  shared_ptr<string> harmonyRemindBody{};
+  shared_ptr<string> harmonyRemindTitle{};
+  shared_ptr<string> harmonyRenderStyle{};
+  shared_ptr<bool> harmonyTestMessage{};
+  shared_ptr<string> harmonyUri{};
   shared_ptr<string> jobKey{};
   shared_ptr<string> pushTime{};
   shared_ptr<string> pushType{};
@@ -2688,6 +2687,51 @@ public:
     }
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (harmonyAction) {
+      res["HarmonyAction"] = boost::any(*harmonyAction);
+    }
+    if (harmonyActionType) {
+      res["HarmonyActionType"] = boost::any(*harmonyActionType);
+    }
+    if (harmonyCategory) {
+      res["HarmonyCategory"] = boost::any(*harmonyCategory);
+    }
+    if (harmonyExtParameters) {
+      res["HarmonyExtParameters"] = boost::any(*harmonyExtParameters);
+    }
+    if (harmonyImageUrl) {
+      res["HarmonyImageUrl"] = boost::any(*harmonyImageUrl);
+    }
+    if (harmonyInboxContent) {
+      res["HarmonyInboxContent"] = boost::any(*harmonyInboxContent);
+    }
+    if (harmonyNotificationSlotType) {
+      res["HarmonyNotificationSlotType"] = boost::any(*harmonyNotificationSlotType);
+    }
+    if (harmonyNotifyId) {
+      res["HarmonyNotifyId"] = boost::any(*harmonyNotifyId);
+    }
+    if (harmonyReceiptId) {
+      res["HarmonyReceiptId"] = boost::any(*harmonyReceiptId);
+    }
+    if (harmonyRemind) {
+      res["HarmonyRemind"] = boost::any(*harmonyRemind);
+    }
+    if (harmonyRemindBody) {
+      res["HarmonyRemindBody"] = boost::any(*harmonyRemindBody);
+    }
+    if (harmonyRemindTitle) {
+      res["HarmonyRemindTitle"] = boost::any(*harmonyRemindTitle);
+    }
+    if (harmonyRenderStyle) {
+      res["HarmonyRenderStyle"] = boost::any(*harmonyRenderStyle);
+    }
+    if (harmonyTestMessage) {
+      res["HarmonyTestMessage"] = boost::any(*harmonyTestMessage);
+    }
+    if (harmonyUri) {
+      res["HarmonyUri"] = boost::any(*harmonyUri);
     }
     if (jobKey) {
       res["JobKey"] = boost::any(*jobKey);
@@ -2912,6 +2956,51 @@ public:
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
     }
+    if (m.find("HarmonyAction") != m.end() && !m["HarmonyAction"].empty()) {
+      harmonyAction = make_shared<string>(boost::any_cast<string>(m["HarmonyAction"]));
+    }
+    if (m.find("HarmonyActionType") != m.end() && !m["HarmonyActionType"].empty()) {
+      harmonyActionType = make_shared<string>(boost::any_cast<string>(m["HarmonyActionType"]));
+    }
+    if (m.find("HarmonyCategory") != m.end() && !m["HarmonyCategory"].empty()) {
+      harmonyCategory = make_shared<string>(boost::any_cast<string>(m["HarmonyCategory"]));
+    }
+    if (m.find("HarmonyExtParameters") != m.end() && !m["HarmonyExtParameters"].empty()) {
+      harmonyExtParameters = make_shared<string>(boost::any_cast<string>(m["HarmonyExtParameters"]));
+    }
+    if (m.find("HarmonyImageUrl") != m.end() && !m["HarmonyImageUrl"].empty()) {
+      harmonyImageUrl = make_shared<string>(boost::any_cast<string>(m["HarmonyImageUrl"]));
+    }
+    if (m.find("HarmonyInboxContent") != m.end() && !m["HarmonyInboxContent"].empty()) {
+      harmonyInboxContent = make_shared<string>(boost::any_cast<string>(m["HarmonyInboxContent"]));
+    }
+    if (m.find("HarmonyNotificationSlotType") != m.end() && !m["HarmonyNotificationSlotType"].empty()) {
+      harmonyNotificationSlotType = make_shared<string>(boost::any_cast<string>(m["HarmonyNotificationSlotType"]));
+    }
+    if (m.find("HarmonyNotifyId") != m.end() && !m["HarmonyNotifyId"].empty()) {
+      harmonyNotifyId = make_shared<long>(boost::any_cast<long>(m["HarmonyNotifyId"]));
+    }
+    if (m.find("HarmonyReceiptId") != m.end() && !m["HarmonyReceiptId"].empty()) {
+      harmonyReceiptId = make_shared<string>(boost::any_cast<string>(m["HarmonyReceiptId"]));
+    }
+    if (m.find("HarmonyRemind") != m.end() && !m["HarmonyRemind"].empty()) {
+      harmonyRemind = make_shared<bool>(boost::any_cast<bool>(m["HarmonyRemind"]));
+    }
+    if (m.find("HarmonyRemindBody") != m.end() && !m["HarmonyRemindBody"].empty()) {
+      harmonyRemindBody = make_shared<string>(boost::any_cast<string>(m["HarmonyRemindBody"]));
+    }
+    if (m.find("HarmonyRemindTitle") != m.end() && !m["HarmonyRemindTitle"].empty()) {
+      harmonyRemindTitle = make_shared<string>(boost::any_cast<string>(m["HarmonyRemindTitle"]));
+    }
+    if (m.find("HarmonyRenderStyle") != m.end() && !m["HarmonyRenderStyle"].empty()) {
+      harmonyRenderStyle = make_shared<string>(boost::any_cast<string>(m["HarmonyRenderStyle"]));
+    }
+    if (m.find("HarmonyTestMessage") != m.end() && !m["HarmonyTestMessage"].empty()) {
+      harmonyTestMessage = make_shared<bool>(boost::any_cast<bool>(m["HarmonyTestMessage"]));
+    }
+    if (m.find("HarmonyUri") != m.end() && !m["HarmonyUri"].empty()) {
+      harmonyUri = make_shared<string>(boost::any_cast<string>(m["HarmonyUri"]));
+    }
     if (m.find("JobKey") != m.end() && !m["JobKey"].empty()) {
       jobKey = make_shared<string>(boost::any_cast<string>(m["JobKey"]));
     }
@@ -3055,17 +3144,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3224,17 +3303,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3393,17 +3462,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3569,17 +3628,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3745,17 +3794,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3955,17 +3994,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4199,17 +4228,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4444,17 +4463,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4618,17 +4627,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -4792,17 +4791,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5149,17 +5138,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5443,17 +5422,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5723,17 +5692,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -5940,17 +5899,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6171,17 +6120,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6298,17 +6237,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6439,17 +6368,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6566,17 +6485,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -6707,17 +6616,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;

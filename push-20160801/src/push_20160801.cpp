@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -602,6 +601,51 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->expireTime)) {
     query->insert(pair<string, string>("ExpireTime", *request->expireTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyAction)) {
+    query->insert(pair<string, string>("HarmonyAction", *request->harmonyAction));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyActionType)) {
+    query->insert(pair<string, string>("HarmonyActionType", *request->harmonyActionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyCategory)) {
+    query->insert(pair<string, string>("HarmonyCategory", *request->harmonyCategory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyExtParameters)) {
+    query->insert(pair<string, string>("HarmonyExtParameters", *request->harmonyExtParameters));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyImageUrl)) {
+    query->insert(pair<string, string>("HarmonyImageUrl", *request->harmonyImageUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyInboxContent)) {
+    query->insert(pair<string, string>("HarmonyInboxContent", *request->harmonyInboxContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyNotificationSlotType)) {
+    query->insert(pair<string, string>("HarmonyNotificationSlotType", *request->harmonyNotificationSlotType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->harmonyNotifyId)) {
+    query->insert(pair<string, long>("HarmonyNotifyId", *request->harmonyNotifyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyReceiptId)) {
+    query->insert(pair<string, string>("HarmonyReceiptId", *request->harmonyReceiptId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->harmonyRemind)) {
+    query->insert(pair<string, bool>("HarmonyRemind", *request->harmonyRemind));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyRemindBody)) {
+    query->insert(pair<string, string>("HarmonyRemindBody", *request->harmonyRemindBody));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyRemindTitle)) {
+    query->insert(pair<string, string>("HarmonyRemindTitle", *request->harmonyRemindTitle));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyRenderStyle)) {
+    query->insert(pair<string, string>("HarmonyRenderStyle", *request->harmonyRenderStyle));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->harmonyTestMessage)) {
+    query->insert(pair<string, bool>("HarmonyTestMessage", *request->harmonyTestMessage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->harmonyUri)) {
+    query->insert(pair<string, string>("HarmonyUri", *request->harmonyUri));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobKey)) {
     query->insert(pair<string, string>("JobKey", *request->jobKey));
