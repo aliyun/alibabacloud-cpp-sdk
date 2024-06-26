@@ -1809,6 +1809,7 @@ public:
   shared_ptr<long> port{};
   shared_ptr<string> schema{};
   shared_ptr<string> type{};
+  shared_ptr<bool> useSsl{};
   shared_ptr<string> userName{};
   shared_ptr<string> vpcId{};
 
@@ -1849,6 +1850,9 @@ public:
     if (type) {
       res["Type"] = boost::any(*type);
     }
+    if (useSsl) {
+      res["UseSsl"] = boost::any(*useSsl);
+    }
     if (userName) {
       res["UserName"] = boost::any(*userName);
     }
@@ -1885,6 +1889,9 @@ public:
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("UseSsl") != m.end() && !m["UseSsl"].empty()) {
+      useSsl = make_shared<bool>(boost::any_cast<bool>(m["UseSsl"]));
     }
     if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
       userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
@@ -2876,6 +2883,8 @@ public:
   shared_ptr<string> rocketMqMsgTags{};
   shared_ptr<string> rocketMqProducerGroup{};
   shared_ptr<long> rocketMqSendMsgTimeout{};
+  shared_ptr<string> sinkStoreFormat{};
+  shared_ptr<string> sourceStoreFormat{};
   shared_ptr<bool> syncSchema{};
   shared_ptr<string> syncSchemaColumnName{};
   shared_ptr<string> tableCategory{};
@@ -2926,6 +2935,12 @@ public:
     }
     if (rocketMqSendMsgTimeout) {
       res["RocketMqSendMsgTimeout"] = boost::any(*rocketMqSendMsgTimeout);
+    }
+    if (sinkStoreFormat) {
+      res["SinkStoreFormat"] = boost::any(*sinkStoreFormat);
+    }
+    if (sourceStoreFormat) {
+      res["SourceStoreFormat"] = boost::any(*sourceStoreFormat);
     }
     if (syncSchema) {
       res["SyncSchema"] = boost::any(*syncSchema);
@@ -2982,6 +2997,12 @@ public:
     }
     if (m.find("RocketMqSendMsgTimeout") != m.end() && !m["RocketMqSendMsgTimeout"].empty()) {
       rocketMqSendMsgTimeout = make_shared<long>(boost::any_cast<long>(m["RocketMqSendMsgTimeout"]));
+    }
+    if (m.find("SinkStoreFormat") != m.end() && !m["SinkStoreFormat"].empty()) {
+      sinkStoreFormat = make_shared<string>(boost::any_cast<string>(m["SinkStoreFormat"]));
+    }
+    if (m.find("SourceStoreFormat") != m.end() && !m["SourceStoreFormat"].empty()) {
+      sourceStoreFormat = make_shared<string>(boost::any_cast<string>(m["SourceStoreFormat"]));
     }
     if (m.find("SyncSchema") != m.end() && !m["SyncSchema"].empty()) {
       syncSchema = make_shared<bool>(boost::any_cast<bool>(m["SyncSchema"]));
@@ -24305,6 +24326,8 @@ public:
   shared_ptr<string> rocketMqMsgTags{};
   shared_ptr<string> rocketMqProducerGroup{};
   shared_ptr<long> rocketMqSendMsgTimeout{};
+  shared_ptr<string> sinkStoreFormat{};
+  shared_ptr<string> sourceStoreFormat{};
   shared_ptr<string> tableCategory{};
 
   DescribeProjectResponseBodyDataCommonTransferConfig() {}
@@ -24347,6 +24370,12 @@ public:
     if (rocketMqSendMsgTimeout) {
       res["RocketMqSendMsgTimeout"] = boost::any(*rocketMqSendMsgTimeout);
     }
+    if (sinkStoreFormat) {
+      res["SinkStoreFormat"] = boost::any(*sinkStoreFormat);
+    }
+    if (sourceStoreFormat) {
+      res["SourceStoreFormat"] = boost::any(*sourceStoreFormat);
+    }
     if (tableCategory) {
       res["TableCategory"] = boost::any(*tableCategory);
     }
@@ -24383,6 +24412,12 @@ public:
     }
     if (m.find("RocketMqSendMsgTimeout") != m.end() && !m["RocketMqSendMsgTimeout"].empty()) {
       rocketMqSendMsgTimeout = make_shared<long>(boost::any_cast<long>(m["RocketMqSendMsgTimeout"]));
+    }
+    if (m.find("SinkStoreFormat") != m.end() && !m["SinkStoreFormat"].empty()) {
+      sinkStoreFormat = make_shared<string>(boost::any_cast<string>(m["SinkStoreFormat"]));
+    }
+    if (m.find("SourceStoreFormat") != m.end() && !m["SourceStoreFormat"].empty()) {
+      sourceStoreFormat = make_shared<string>(boost::any_cast<string>(m["SourceStoreFormat"]));
     }
     if (m.find("TableCategory") != m.end() && !m["TableCategory"].empty()) {
       tableCategory = make_shared<string>(boost::any_cast<string>(m["TableCategory"]));
@@ -53878,6 +53913,42 @@ public:
 
   virtual ~SwitchoverInstanceResponse() = default;
 };
+class UpdateProjectConfigRequestCommonTransferConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> sinkStoreFormat{};
+  shared_ptr<string> sourceStoreFormat{};
+
+  UpdateProjectConfigRequestCommonTransferConfig() {}
+
+  explicit UpdateProjectConfigRequestCommonTransferConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sinkStoreFormat) {
+      res["SinkStoreFormat"] = boost::any(*sinkStoreFormat);
+    }
+    if (sourceStoreFormat) {
+      res["SourceStoreFormat"] = boost::any(*sourceStoreFormat);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SinkStoreFormat") != m.end() && !m["SinkStoreFormat"].empty()) {
+      sinkStoreFormat = make_shared<string>(boost::any_cast<string>(m["SinkStoreFormat"]));
+    }
+    if (m.find("SourceStoreFormat") != m.end() && !m["SourceStoreFormat"].empty()) {
+      sourceStoreFormat = make_shared<string>(boost::any_cast<string>(m["SourceStoreFormat"]));
+    }
+  }
+
+
+  virtual ~UpdateProjectConfigRequestCommonTransferConfig() = default;
+};
 class UpdateProjectConfigRequestFullTransferConfig : public Darabonba::Model {
 public:
   shared_ptr<long> readWorkerNum{};
@@ -54072,6 +54143,7 @@ public:
 };
 class UpdateProjectConfigRequest : public Darabonba::Model {
 public:
+  shared_ptr<UpdateProjectConfigRequestCommonTransferConfig> commonTransferConfig{};
   shared_ptr<UpdateProjectConfigRequestFullTransferConfig> fullTransferConfig{};
   shared_ptr<string> id{};
   shared_ptr<UpdateProjectConfigRequestIncrTransferConfig> incrTransferConfig{};
@@ -54087,6 +54159,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (commonTransferConfig) {
+      res["CommonTransferConfig"] = commonTransferConfig ? boost::any(commonTransferConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (fullTransferConfig) {
       res["FullTransferConfig"] = fullTransferConfig ? boost::any(fullTransferConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -54103,6 +54178,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommonTransferConfig") != m.end() && !m["CommonTransferConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CommonTransferConfig"].type()) {
+        UpdateProjectConfigRequestCommonTransferConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CommonTransferConfig"]));
+        commonTransferConfig = make_shared<UpdateProjectConfigRequestCommonTransferConfig>(model1);
+      }
+    }
     if (m.find("FullTransferConfig") != m.end() && !m["FullTransferConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["FullTransferConfig"].type()) {
         UpdateProjectConfigRequestFullTransferConfig model1;
@@ -54134,6 +54216,7 @@ public:
 };
 class UpdateProjectConfigShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> commonTransferConfigShrink{};
   shared_ptr<string> fullTransferConfigShrink{};
   shared_ptr<string> id{};
   shared_ptr<string> incrTransferConfigShrink{};
@@ -54149,6 +54232,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (commonTransferConfigShrink) {
+      res["CommonTransferConfig"] = boost::any(*commonTransferConfigShrink);
+    }
     if (fullTransferConfigShrink) {
       res["FullTransferConfig"] = boost::any(*fullTransferConfigShrink);
     }
@@ -54165,6 +54251,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommonTransferConfig") != m.end() && !m["CommonTransferConfig"].empty()) {
+      commonTransferConfigShrink = make_shared<string>(boost::any_cast<string>(m["CommonTransferConfig"]));
+    }
     if (m.find("FullTransferConfig") != m.end() && !m["FullTransferConfig"].empty()) {
       fullTransferConfigShrink = make_shared<string>(boost::any_cast<string>(m["FullTransferConfig"]));
     }

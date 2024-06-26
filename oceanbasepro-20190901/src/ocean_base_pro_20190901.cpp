@@ -316,6 +316,9 @@ CreateMySqlDataSourceResponse Alibabacloud_OceanBasePro20190901::Client::createM
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     body->insert(pair<string, string>("Type", *request->type));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->useSsl)) {
+    body->insert(pair<string, bool>("UseSsl", *request->useSsl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userName)) {
     body->insert(pair<string, string>("UserName", *request->userName));
   }
@@ -5071,6 +5074,9 @@ UpdateProjectConfigResponse Alibabacloud_OceanBasePro20190901::Client::updatePro
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateProjectConfigShrinkRequest> request = make_shared<UpdateProjectConfigShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateProjectConfigRequestCommonTransferConfig>(tmpReq->commonTransferConfig)) {
+    request->commonTransferConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->commonTransferConfig, make_shared<string>("CommonTransferConfig"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<UpdateProjectConfigRequestFullTransferConfig>(tmpReq->fullTransferConfig)) {
     request->fullTransferConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->fullTransferConfig, make_shared<string>("FullTransferConfig"), make_shared<string>("json")));
   }
@@ -5081,6 +5087,9 @@ UpdateProjectConfigResponse Alibabacloud_OceanBasePro20190901::Client::updatePro
     request->reverseIncrTransferConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->reverseIncrTransferConfig, make_shared<string>("ReverseIncrTransferConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->commonTransferConfigShrink)) {
+    body->insert(pair<string, string>("CommonTransferConfig", *request->commonTransferConfigShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fullTransferConfigShrink)) {
     body->insert(pair<string, string>("FullTransferConfig", *request->fullTransferConfigShrink));
   }
