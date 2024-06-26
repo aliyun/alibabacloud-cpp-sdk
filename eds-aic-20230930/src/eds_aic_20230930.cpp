@@ -250,6 +250,9 @@ CreateAppResponse Alibabacloud_Eds-aic20230930::Client::createAppWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
     query->insert(pair<string, string>("AppName", *request->appName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
+    query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
@@ -655,6 +658,9 @@ DescribeAppsResponse Alibabacloud_Eds-aic20230930::Client::describeAppsWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
     query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
+    query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->installationStatus)) {
     query->insert(pair<string, string>("InstallationStatus", *request->installationStatus));
