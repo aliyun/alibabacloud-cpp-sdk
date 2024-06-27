@@ -2519,6 +2519,9 @@ DescribeDtsJobsResponse Alibabacloud_Dts20200101::Client::describeDtsJobsWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->dedicatedClusterId)) {
     query->insert(pair<string, string>("DedicatedClusterId", *request->dedicatedClusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destProductType)) {
+    query->insert(pair<string, string>("DestProductType", *request->destProductType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dtsBisLabel)) {
     query->insert(pair<string, string>("DtsBisLabel", *request->dtsBisLabel));
   }
@@ -2566,6 +2569,9 @@ DescribeDtsJobsResponse Alibabacloud_Dts20200101::Client::describeDtsJobsWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->srcProductType)) {
+    query->insert(pair<string, string>("SrcProductType", *request->srcProductType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));

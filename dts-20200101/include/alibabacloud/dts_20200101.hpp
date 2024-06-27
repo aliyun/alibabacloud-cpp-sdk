@@ -17265,6 +17265,7 @@ public:
 class DescribeDtsJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dedicatedClusterId{};
+  shared_ptr<string> destProductType{};
   shared_ptr<string> dtsBisLabel{};
   shared_ptr<string> dtsInstanceId{};
   shared_ptr<string> dtsJobId{};
@@ -17281,6 +17282,7 @@ public:
   shared_ptr<string> region{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> srcProductType{};
   shared_ptr<string> status{};
   shared_ptr<string> tags{};
   shared_ptr<string> type{};
@@ -17299,6 +17301,9 @@ public:
     map<string, boost::any> res;
     if (dedicatedClusterId) {
       res["DedicatedClusterId"] = boost::any(*dedicatedClusterId);
+    }
+    if (destProductType) {
+      res["DestProductType"] = boost::any(*destProductType);
     }
     if (dtsBisLabel) {
       res["DtsBisLabel"] = boost::any(*dtsBisLabel);
@@ -17348,6 +17353,9 @@ public:
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
+    if (srcProductType) {
+      res["SrcProductType"] = boost::any(*srcProductType);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -17369,6 +17377,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DedicatedClusterId") != m.end() && !m["DedicatedClusterId"].empty()) {
       dedicatedClusterId = make_shared<string>(boost::any_cast<string>(m["DedicatedClusterId"]));
+    }
+    if (m.find("DestProductType") != m.end() && !m["DestProductType"].empty()) {
+      destProductType = make_shared<string>(boost::any_cast<string>(m["DestProductType"]));
     }
     if (m.find("DtsBisLabel") != m.end() && !m["DtsBisLabel"].empty()) {
       dtsBisLabel = make_shared<string>(boost::any_cast<string>(m["DtsBisLabel"]));
@@ -17417,6 +17428,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SrcProductType") != m.end() && !m["SrcProductType"].empty()) {
+      srcProductType = make_shared<string>(boost::any_cast<string>(m["SrcProductType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
