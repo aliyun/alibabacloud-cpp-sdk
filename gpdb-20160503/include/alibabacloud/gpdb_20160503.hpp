@@ -21554,7 +21554,9 @@ public:
   shared_ptr<string> serviceDescription{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceIp{};
+  shared_ptr<bool> serviceManaged{};
   shared_ptr<string> serviceName{};
+  shared_ptr<string> serviceOwnerId{};
   shared_ptr<long> servicePort{};
   shared_ptr<string> serviceSpec{};
   shared_ptr<string> status{};
@@ -21587,8 +21589,14 @@ public:
     if (serviceIp) {
       res["ServiceIp"] = boost::any(*serviceIp);
     }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
+    }
+    if (serviceOwnerId) {
+      res["ServiceOwnerId"] = boost::any(*serviceOwnerId);
     }
     if (servicePort) {
       res["ServicePort"] = boost::any(*servicePort);
@@ -21621,8 +21629,14 @@ public:
     if (m.find("ServiceIp") != m.end() && !m["ServiceIp"].empty()) {
       serviceIp = make_shared<string>(boost::any_cast<string>(m["ServiceIp"]));
     }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("ServiceOwnerId") != m.end() && !m["ServiceOwnerId"].empty()) {
+      serviceOwnerId = make_shared<string>(boost::any_cast<string>(m["ServiceOwnerId"]));
     }
     if (m.find("ServicePort") != m.end() && !m["ServicePort"].empty()) {
       servicePort = make_shared<long>(boost::any_cast<long>(m["ServicePort"]));
@@ -26798,7 +26812,9 @@ public:
   shared_ptr<string> serviceDescription{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceIp{};
+  shared_ptr<bool> serviceManaged{};
   shared_ptr<string> serviceName{};
+  shared_ptr<string> serviceOwnerId{};
   shared_ptr<string> servicePort{};
   shared_ptr<string> serviceSpec{};
   shared_ptr<string> serviceType{};
@@ -26829,8 +26845,14 @@ public:
     if (serviceIp) {
       res["ServiceIp"] = boost::any(*serviceIp);
     }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
+    }
+    if (serviceOwnerId) {
+      res["ServiceOwnerId"] = boost::any(*serviceOwnerId);
     }
     if (servicePort) {
       res["ServicePort"] = boost::any(*servicePort);
@@ -26863,8 +26885,14 @@ public:
     if (m.find("ServiceIp") != m.end() && !m["ServiceIp"].empty()) {
       serviceIp = make_shared<string>(boost::any_cast<string>(m["ServiceIp"]));
     }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("ServiceOwnerId") != m.end() && !m["ServiceOwnerId"].empty()) {
+      serviceOwnerId = make_shared<string>(boost::any_cast<string>(m["ServiceOwnerId"]));
     }
     if (m.find("ServicePort") != m.end() && !m["ServicePort"].empty()) {
       servicePort = make_shared<string>(boost::any_cast<string>(m["ServicePort"]));
