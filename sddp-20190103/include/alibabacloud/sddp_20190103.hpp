@@ -10355,6 +10355,7 @@ class DescribeParentInstanceResponseBodyItems : public Darabonba::Model {
 public:
   shared_ptr<long> auditStatus{};
   shared_ptr<long> authStatus{};
+  shared_ptr<long> authTime{};
   shared_ptr<string> clusterStatus{};
   shared_ptr<string> connectNode{};
   shared_ptr<string> dbNum{};
@@ -10387,6 +10388,9 @@ public:
     }
     if (authStatus) {
       res["AuthStatus"] = boost::any(*authStatus);
+    }
+    if (authTime) {
+      res["AuthTime"] = boost::any(*authTime);
     }
     if (clusterStatus) {
       res["ClusterStatus"] = boost::any(*clusterStatus);
@@ -10445,6 +10449,9 @@ public:
     }
     if (m.find("AuthStatus") != m.end() && !m["AuthStatus"].empty()) {
       authStatus = make_shared<long>(boost::any_cast<long>(m["AuthStatus"]));
+    }
+    if (m.find("AuthTime") != m.end() && !m["AuthTime"].empty()) {
+      authTime = make_shared<long>(boost::any_cast<long>(m["AuthTime"]));
     }
     if (m.find("ClusterStatus") != m.end() && !m["ClusterStatus"].empty()) {
       clusterStatus = make_shared<string>(boost::any_cast<string>(m["ClusterStatus"]));
