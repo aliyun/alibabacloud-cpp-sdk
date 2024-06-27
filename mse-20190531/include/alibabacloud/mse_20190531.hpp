@@ -5474,6 +5474,7 @@ public:
   shared_ptr<string> originInstanceNamespace{};
   shared_ptr<string> projectDesc{};
   shared_ptr<string> requestPars{};
+  shared_ptr<string> syncType{};
   shared_ptr<string> targetClusterName{};
   shared_ptr<string> targetClusterUrl{};
   shared_ptr<string> targetInstanceId{};
@@ -5509,6 +5510,9 @@ public:
     if (requestPars) {
       res["RequestPars"] = boost::any(*requestPars);
     }
+    if (syncType) {
+      res["SyncType"] = boost::any(*syncType);
+    }
     if (targetClusterName) {
       res["TargetClusterName"] = boost::any(*targetClusterName);
     }
@@ -5543,6 +5547,9 @@ public:
     if (m.find("RequestPars") != m.end() && !m["RequestPars"].empty()) {
       requestPars = make_shared<string>(boost::any_cast<string>(m["RequestPars"]));
     }
+    if (m.find("SyncType") != m.end() && !m["SyncType"].empty()) {
+      syncType = make_shared<string>(boost::any_cast<string>(m["SyncType"]));
+    }
     if (m.find("TargetClusterName") != m.end() && !m["TargetClusterName"].empty()) {
       targetClusterName = make_shared<string>(boost::any_cast<string>(m["TargetClusterName"]));
     }
@@ -5565,6 +5572,7 @@ public:
   shared_ptr<string> originInstanceName{};
   shared_ptr<string> originInstanceNamespace{};
   shared_ptr<string> projectDesc{};
+  shared_ptr<string> syncType{};
   shared_ptr<string> targetClusterName{};
   shared_ptr<string> targetClusterUrl{};
   shared_ptr<string> targetInstanceId{};
@@ -5597,6 +5605,9 @@ public:
     }
     if (projectDesc) {
       res["ProjectDesc"] = boost::any(*projectDesc);
+    }
+    if (syncType) {
+      res["SyncType"] = boost::any(*syncType);
     }
     if (targetClusterName) {
       res["TargetClusterName"] = boost::any(*targetClusterName);
@@ -5631,6 +5642,9 @@ public:
     }
     if (m.find("ProjectDesc") != m.end() && !m["ProjectDesc"].empty()) {
       projectDesc = make_shared<string>(boost::any_cast<string>(m["ProjectDesc"]));
+    }
+    if (m.find("SyncType") != m.end() && !m["SyncType"].empty()) {
+      syncType = make_shared<string>(boost::any_cast<string>(m["SyncType"]));
     }
     if (m.find("TargetClusterName") != m.end() && !m["TargetClusterName"].empty()) {
       targetClusterName = make_shared<string>(boost::any_cast<string>(m["TargetClusterName"]));
@@ -30911,6 +30925,7 @@ class ImportNacosConfigResponseBodyDataFailData : public Darabonba::Model {
 public:
   shared_ptr<string> dataId{};
   shared_ptr<string> group{};
+  shared_ptr<string> reason{};
 
   ImportNacosConfigResponseBodyDataFailData() {}
 
@@ -30928,6 +30943,9 @@ public:
     if (group) {
       res["Group"] = boost::any(*group);
     }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
     return res;
   }
 
@@ -30937,6 +30955,9 @@ public:
     }
     if (m.find("Group") != m.end() && !m["Group"].empty()) {
       group = make_shared<string>(boost::any_cast<string>(m["Group"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
     }
   }
 
@@ -46931,6 +46952,7 @@ public:
   shared_ptr<string> originInstanceName{};
   shared_ptr<string> originInstanceNamespace{};
   shared_ptr<string> projectDesc{};
+  shared_ptr<string> syncType{};
   shared_ptr<string> targetClusterName{};
   shared_ptr<string> targetClusterUrl{};
   shared_ptr<string> targetInstanceId{};
@@ -46969,6 +46991,9 @@ public:
     }
     if (projectDesc) {
       res["ProjectDesc"] = boost::any(*projectDesc);
+    }
+    if (syncType) {
+      res["SyncType"] = boost::any(*syncType);
     }
     if (targetClusterName) {
       res["TargetClusterName"] = boost::any(*targetClusterName);
@@ -47009,6 +47034,9 @@ public:
     }
     if (m.find("ProjectDesc") != m.end() && !m["ProjectDesc"].empty()) {
       projectDesc = make_shared<string>(boost::any_cast<string>(m["ProjectDesc"]));
+    }
+    if (m.find("SyncType") != m.end() && !m["SyncType"].empty()) {
+      syncType = make_shared<string>(boost::any_cast<string>(m["SyncType"]));
     }
     if (m.find("TargetClusterName") != m.end() && !m["TargetClusterName"].empty()) {
       targetClusterName = make_shared<string>(boost::any_cast<string>(m["TargetClusterName"]));
@@ -68732,6 +68760,7 @@ public:
   shared_ptr<string> originInstanceNamespace{};
   shared_ptr<string> projectDesc{};
   shared_ptr<string> requestPars{};
+  shared_ptr<string> syncType{};
   shared_ptr<string> targetClusterName{};
   shared_ptr<string> targetClusterUrl{};
   shared_ptr<string> targetInstanceId{};
@@ -68770,6 +68799,9 @@ public:
     if (requestPars) {
       res["RequestPars"] = boost::any(*requestPars);
     }
+    if (syncType) {
+      res["SyncType"] = boost::any(*syncType);
+    }
     if (targetClusterName) {
       res["TargetClusterName"] = boost::any(*targetClusterName);
     }
@@ -68807,6 +68839,9 @@ public:
     if (m.find("RequestPars") != m.end() && !m["RequestPars"].empty()) {
       requestPars = make_shared<string>(boost::any_cast<string>(m["RequestPars"]));
     }
+    if (m.find("SyncType") != m.end() && !m["SyncType"].empty()) {
+      syncType = make_shared<string>(boost::any_cast<string>(m["SyncType"]));
+    }
     if (m.find("TargetClusterName") != m.end() && !m["TargetClusterName"].empty()) {
       targetClusterName = make_shared<string>(boost::any_cast<string>(m["TargetClusterName"]));
     }
@@ -68831,6 +68866,7 @@ public:
   shared_ptr<string> originInstanceName{};
   shared_ptr<string> originInstanceNamespace{};
   shared_ptr<string> projectDesc{};
+  shared_ptr<string> syncType{};
   shared_ptr<string> targetClusterName{};
   shared_ptr<string> targetClusterUrl{};
   shared_ptr<string> targetInstanceId{};
@@ -68869,6 +68905,9 @@ public:
     }
     if (projectDesc) {
       res["ProjectDesc"] = boost::any(*projectDesc);
+    }
+    if (syncType) {
+      res["SyncType"] = boost::any(*syncType);
     }
     if (targetClusterName) {
       res["TargetClusterName"] = boost::any(*targetClusterName);
@@ -68909,6 +68948,9 @@ public:
     }
     if (m.find("ProjectDesc") != m.end() && !m["ProjectDesc"].empty()) {
       projectDesc = make_shared<string>(boost::any_cast<string>(m["ProjectDesc"]));
+    }
+    if (m.find("SyncType") != m.end() && !m["SyncType"].empty()) {
+      syncType = make_shared<string>(boost::any_cast<string>(m["SyncType"]));
     }
     if (m.find("TargetClusterName") != m.end() && !m["TargetClusterName"].empty()) {
       targetClusterName = make_shared<string>(boost::any_cast<string>(m["TargetClusterName"]));

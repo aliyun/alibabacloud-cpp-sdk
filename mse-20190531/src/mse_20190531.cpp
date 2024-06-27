@@ -742,6 +742,9 @@ AddMigrationTaskResponse Alibabacloud_Mse20190531::Client::addMigrationTaskWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->requestPars)) {
     query->insert(pair<string, string>("RequestPars", *request->requestPars));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->syncType)) {
+    query->insert(pair<string, string>("SyncType", *request->syncType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->targetClusterName)) {
     query->insert(pair<string, string>("TargetClusterName", *request->targetClusterName));
   }
@@ -4716,7 +4719,37 @@ ImportZookeeperDataResponse Alibabacloud_Mse20190531::Client::importZookeeperDat
 
 ListAnsInstancesResponse Alibabacloud_Mse20190531::Client::listAnsInstancesWithOptions(shared_ptr<ListAnsInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterName)) {
+    query->insert(pair<string, string>("ClusterName", *request->clusterName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
+    query->insert(pair<string, string>("GroupName", *request->groupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
+    query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNum)) {
+    query->insert(pair<string, long>("PageNum", *request->pageNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestPars)) {
+    query->insert(pair<string, string>("RequestPars", *request->requestPars));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
+    query->insert(pair<string, string>("ServiceName", *request->serviceName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4725,7 +4758,7 @@ ListAnsInstancesResponse Alibabacloud_Mse20190531::Client::listAnsInstancesWithO
     {"version", boost::any(string("2019-05-31"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
@@ -9441,6 +9474,9 @@ UpdateMigrationTaskResponse Alibabacloud_Mse20190531::Client::updateMigrationTas
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->requestPars)) {
     query->insert(pair<string, string>("RequestPars", *request->requestPars));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->syncType)) {
+    query->insert(pair<string, string>("SyncType", *request->syncType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->targetClusterName)) {
     query->insert(pair<string, string>("TargetClusterName", *request->targetClusterName));
