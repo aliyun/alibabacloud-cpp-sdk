@@ -3303,6 +3303,7 @@ public:
 };
 class SubmitDocStructureJobRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> allowPptFormat{};
   shared_ptr<string> fileName{};
   shared_ptr<string> fileNameExtension{};
   shared_ptr<string> fileUrl{};
@@ -3319,6 +3320,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowPptFormat) {
+      res["AllowPptFormat"] = boost::any(*allowPptFormat);
+    }
     if (fileName) {
       res["FileName"] = boost::any(*fileName);
     }
@@ -3338,6 +3342,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowPptFormat") != m.end() && !m["AllowPptFormat"].empty()) {
+      allowPptFormat = make_shared<bool>(boost::any_cast<bool>(m["AllowPptFormat"]));
+    }
     if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
       fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
     }
@@ -3360,6 +3367,7 @@ public:
 };
 class SubmitDocStructureJobAdvanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> allowPptFormat{};
   shared_ptr<string> fileName{};
   shared_ptr<string> fileNameExtension{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
@@ -3376,6 +3384,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowPptFormat) {
+      res["AllowPptFormat"] = boost::any(*allowPptFormat);
+    }
     if (fileName) {
       res["FileName"] = boost::any(*fileName);
     }
@@ -3395,6 +3406,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowPptFormat") != m.end() && !m["AllowPptFormat"].empty()) {
+      allowPptFormat = make_shared<bool>(boost::any_cast<bool>(m["AllowPptFormat"]));
+    }
     if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
       fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
     }
@@ -3549,191 +3563,6 @@ public:
 
 
   virtual ~SubmitDocStructureJobResponse() = default;
-};
-class SubmitDocumentCompareJobRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> compareFileName{};
-  shared_ptr<string> compareFileUrl{};
-  shared_ptr<string> originFileName{};
-  shared_ptr<string> originFileUrl{};
-
-  SubmitDocumentCompareJobRequest() {}
-
-  explicit SubmitDocumentCompareJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (compareFileName) {
-      res["CompareFileName"] = boost::any(*compareFileName);
-    }
-    if (compareFileUrl) {
-      res["CompareFileUrl"] = boost::any(*compareFileUrl);
-    }
-    if (originFileName) {
-      res["OriginFileName"] = boost::any(*originFileName);
-    }
-    if (originFileUrl) {
-      res["OriginFileUrl"] = boost::any(*originFileUrl);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("CompareFileName") != m.end() && !m["CompareFileName"].empty()) {
-      compareFileName = make_shared<string>(boost::any_cast<string>(m["CompareFileName"]));
-    }
-    if (m.find("CompareFileUrl") != m.end() && !m["CompareFileUrl"].empty()) {
-      compareFileUrl = make_shared<string>(boost::any_cast<string>(m["CompareFileUrl"]));
-    }
-    if (m.find("OriginFileName") != m.end() && !m["OriginFileName"].empty()) {
-      originFileName = make_shared<string>(boost::any_cast<string>(m["OriginFileName"]));
-    }
-    if (m.find("OriginFileUrl") != m.end() && !m["OriginFileUrl"].empty()) {
-      originFileUrl = make_shared<string>(boost::any_cast<string>(m["OriginFileUrl"]));
-    }
-  }
-
-
-  virtual ~SubmitDocumentCompareJobRequest() = default;
-};
-class SubmitDocumentCompareJobResponseBodyData : public Darabonba::Model {
-public:
-  shared_ptr<string> id{};
-
-  SubmitDocumentCompareJobResponseBodyData() {}
-
-  explicit SubmitDocumentCompareJobResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (id) {
-      res["Id"] = boost::any(*id);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Id") != m.end() && !m["Id"].empty()) {
-      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
-    }
-  }
-
-
-  virtual ~SubmitDocumentCompareJobResponseBodyData() = default;
-};
-class SubmitDocumentCompareJobResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> code{};
-  shared_ptr<SubmitDocumentCompareJobResponseBodyData> data{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-
-  SubmitDocumentCompareJobResponseBody() {}
-
-  explicit SubmitDocumentCompareJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Data"].type()) {
-        SubmitDocumentCompareJobResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
-        data = make_shared<SubmitDocumentCompareJobResponseBodyData>(model1);
-      }
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~SubmitDocumentCompareJobResponseBody() = default;
-};
-class SubmitDocumentCompareJobResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<SubmitDocumentCompareJobResponseBody> body{};
-
-  SubmitDocumentCompareJobResponse() {}
-
-  explicit SubmitDocumentCompareJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        SubmitDocumentCompareJobResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<SubmitDocumentCompareJobResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~SubmitDocumentCompareJobResponse() = default;
 };
 class SubmitDocumentExtractJobRequest : public Darabonba::Model {
 public:
@@ -4227,8 +4056,6 @@ public:
   SubmitDocStructureJobResponse submitDocStructureJobWithOptions(shared_ptr<SubmitDocStructureJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitDocStructureJobResponse submitDocStructureJob(shared_ptr<SubmitDocStructureJobRequest> request);
   SubmitDocStructureJobResponse submitDocStructureJobAdvance(shared_ptr<SubmitDocStructureJobAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SubmitDocumentCompareJobResponse submitDocumentCompareJobWithOptions(shared_ptr<SubmitDocumentCompareJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SubmitDocumentCompareJobResponse submitDocumentCompareJob(shared_ptr<SubmitDocumentCompareJobRequest> request);
   SubmitDocumentExtractJobResponse submitDocumentExtractJobWithOptions(shared_ptr<SubmitDocumentExtractJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitDocumentExtractJobResponse submitDocumentExtractJob(shared_ptr<SubmitDocumentExtractJobRequest> request);
   SubmitDocumentExtractJobResponse submitDocumentExtractJobAdvance(shared_ptr<SubmitDocumentExtractJobAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
