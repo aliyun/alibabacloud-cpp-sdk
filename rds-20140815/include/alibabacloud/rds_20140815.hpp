@@ -22417,6 +22417,7 @@ public:
 class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtra : public Darabonba::Model {
 public:
   shared_ptr<DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtraDBInstanceIds> DBInstanceIds{};
+  shared_ptr<string> recoveryModel{};
 
   DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtra() {}
 
@@ -22431,6 +22432,9 @@ public:
     if (DBInstanceIds) {
       res["DBInstanceIds"] = DBInstanceIds ? boost::any(DBInstanceIds->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (recoveryModel) {
+      res["RecoveryModel"] = boost::any(*recoveryModel);
+    }
     return res;
   }
 
@@ -22441,6 +22445,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DBInstanceIds"]));
         DBInstanceIds = make_shared<DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtraDBInstanceIds>(model1);
       }
+    }
+    if (m.find("RecoveryModel") != m.end() && !m["RecoveryModel"].empty()) {
+      recoveryModel = make_shared<string>(boost::any_cast<string>(m["RecoveryModel"]));
     }
   }
 
@@ -44279,9 +44286,11 @@ public:
 };
 class DescribeParametersResponseBodyRunningParametersDBInstanceParameter : public Darabonba::Model {
 public:
+  shared_ptr<string> parameterDefaultValue{};
   shared_ptr<string> parameterDescription{};
   shared_ptr<string> parameterName{};
   shared_ptr<string> parameterValue{};
+  shared_ptr<string> parameterValueRange{};
 
   DescribeParametersResponseBodyRunningParametersDBInstanceParameter() {}
 
@@ -44293,6 +44302,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (parameterDefaultValue) {
+      res["ParameterDefaultValue"] = boost::any(*parameterDefaultValue);
+    }
     if (parameterDescription) {
       res["ParameterDescription"] = boost::any(*parameterDescription);
     }
@@ -44302,10 +44314,16 @@ public:
     if (parameterValue) {
       res["ParameterValue"] = boost::any(*parameterValue);
     }
+    if (parameterValueRange) {
+      res["ParameterValueRange"] = boost::any(*parameterValueRange);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParameterDefaultValue") != m.end() && !m["ParameterDefaultValue"].empty()) {
+      parameterDefaultValue = make_shared<string>(boost::any_cast<string>(m["ParameterDefaultValue"]));
+    }
     if (m.find("ParameterDescription") != m.end() && !m["ParameterDescription"].empty()) {
       parameterDescription = make_shared<string>(boost::any_cast<string>(m["ParameterDescription"]));
     }
@@ -44314,6 +44332,9 @@ public:
     }
     if (m.find("ParameterValue") != m.end() && !m["ParameterValue"].empty()) {
       parameterValue = make_shared<string>(boost::any_cast<string>(m["ParameterValue"]));
+    }
+    if (m.find("ParameterValueRange") != m.end() && !m["ParameterValueRange"].empty()) {
+      parameterValueRange = make_shared<string>(boost::any_cast<string>(m["ParameterValueRange"]));
     }
   }
 
