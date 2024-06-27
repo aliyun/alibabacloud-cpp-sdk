@@ -4340,6 +4340,49 @@ public:
 
   virtual ~CreateEventStreamingRequestSinkSinkPrometheusParametersData() = default;
 };
+class CreateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  CreateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters() {}
+
+  explicit CreateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters() = default;
+};
 class CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -4645,6 +4688,7 @@ class CreateEventStreamingRequestSinkSinkPrometheusParameters : public Darabonba
 public:
   shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType> authorizationType{};
   shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersData> data{};
+  shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters> headerParameters{};
   shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersNetworkType> networkType{};
   shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersPassword> password{};
   shared_ptr<CreateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId> securityGroupId{};
@@ -4668,6 +4712,9 @@ public:
     }
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (headerParameters) {
+      res["HeaderParameters"] = headerParameters ? boost::any(headerParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (networkType) {
       res["NetworkType"] = networkType ? boost::any(networkType->toMap()) : boost::any(map<string,boost::any>({}));
@@ -4706,6 +4753,13 @@ public:
         CreateEventStreamingRequestSinkSinkPrometheusParametersData model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<CreateEventStreamingRequestSinkSinkPrometheusParametersData>(model1);
+      }
+    }
+    if (m.find("HeaderParameters") != m.end() && !m["HeaderParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HeaderParameters"].type()) {
+        CreateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HeaderParameters"]));
+        headerParameters = make_shared<CreateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters>(model1);
       }
     }
     if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
@@ -32218,6 +32272,49 @@ public:
 
   virtual ~UpdateEventStreamingRequestSinkSinkPrometheusParametersData() = default;
 };
+class UpdateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters() = default;
+};
 class UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -32523,6 +32620,7 @@ class UpdateEventStreamingRequestSinkSinkPrometheusParameters : public Darabonba
 public:
   shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersAuthorizationType> authorizationType{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersData> data{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters> headerParameters{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType> networkType{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword> password{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId> securityGroupId{};
@@ -32546,6 +32644,9 @@ public:
     }
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (headerParameters) {
+      res["HeaderParameters"] = headerParameters ? boost::any(headerParameters->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (networkType) {
       res["NetworkType"] = networkType ? boost::any(networkType->toMap()) : boost::any(map<string,boost::any>({}));
@@ -32584,6 +32685,13 @@ public:
         UpdateEventStreamingRequestSinkSinkPrometheusParametersData model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<UpdateEventStreamingRequestSinkSinkPrometheusParametersData>(model1);
+      }
+    }
+    if (m.find("HeaderParameters") != m.end() && !m["HeaderParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HeaderParameters"].type()) {
+        UpdateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HeaderParameters"]));
+        headerParameters = make_shared<UpdateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters>(model1);
       }
     }
     if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
