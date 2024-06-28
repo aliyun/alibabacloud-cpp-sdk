@@ -5206,6 +5206,7 @@ class DeleteContainerGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> containerGroupId{};
+  shared_ptr<bool> force{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -5227,6 +5228,9 @@ public:
     }
     if (containerGroupId) {
       res["ContainerGroupId"] = boost::any(*containerGroupId);
+    }
+    if (force) {
+      res["Force"] = boost::any(*force);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -5252,6 +5256,9 @@ public:
     }
     if (m.find("ContainerGroupId") != m.end() && !m["ContainerGroupId"].empty()) {
       containerGroupId = make_shared<string>(boost::any_cast<string>(m["ContainerGroupId"]));
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));

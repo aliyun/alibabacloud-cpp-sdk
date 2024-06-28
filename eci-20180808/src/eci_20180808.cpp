@@ -743,6 +743,9 @@ DeleteContainerGroupResponse Alibabacloud_Eci20180808::Client::deleteContainerGr
   if (!Darabonba_Util::Client::isUnset<string>(request->containerGroupId)) {
     query->insert(pair<string, string>("ContainerGroupId", *request->containerGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("Force", *request->force));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
