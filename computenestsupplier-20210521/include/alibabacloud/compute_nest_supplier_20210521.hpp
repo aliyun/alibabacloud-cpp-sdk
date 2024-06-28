@@ -5965,6 +5965,7 @@ public:
 class GetUploadCredentialsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
+  shared_ptr<string> visibility{};
 
   GetUploadCredentialsRequest() {}
 
@@ -5979,12 +5980,18 @@ public:
     if (fileName) {
       res["FileName"] = boost::any(*fileName);
     }
+    if (visibility) {
+      res["Visibility"] = boost::any(*visibility);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
       fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("Visibility") != m.end() && !m["Visibility"].empty()) {
+      visibility = make_shared<string>(boost::any_cast<string>(m["Visibility"]));
     }
   }
 

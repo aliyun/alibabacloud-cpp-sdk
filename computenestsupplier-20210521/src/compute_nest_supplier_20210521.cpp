@@ -739,6 +739,9 @@ GetUploadCredentialsResponse Alibabacloud_ComputeNestSupplier20210521::Client::g
   if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
     query->insert(pair<string, string>("FileName", *request->fileName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->visibility)) {
+    query->insert(pair<string, string>("Visibility", *request->visibility));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
