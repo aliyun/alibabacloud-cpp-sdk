@@ -22322,6 +22322,49 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersBody() = default;
 };
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceEndpoint() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceEndpoint() = default;
+};
 class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceId : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -22364,6 +22407,135 @@ public:
 
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceId() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstancePassword : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstancePassword() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstancePassword(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstancePassword() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceType() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceType() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceUsername : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceUsername() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceUsername(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceUsername() = default;
 };
 class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersKeys : public Darabonba::Model {
 public:
@@ -22408,6 +22580,49 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersKeys() = default;
 };
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersNetwork : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersNetwork() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersNetwork(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersNetwork() = default;
+};
 class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersProperties : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -22450,6 +22665,49 @@ public:
 
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersProperties() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId() = default;
 };
 class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTags : public Darabonba::Model {
 public:
@@ -22537,14 +22795,108 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTopic() = default;
 };
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVSwitchIds : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVSwitchIds() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVSwitchIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVSwitchIds() = default;
+};
+class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVpcId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVpcId() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVpcId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVpcId() = default;
+};
 class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParameters : public Darabonba::Model {
 public:
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersBody> body{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceEndpoint> instanceEndpoint{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceId> instanceId{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstancePassword> instancePassword{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceType> instanceType{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceUsername> instanceUsername{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersKeys> keys{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersNetwork> network{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersProperties> properties{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId> securityGroupId{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTags> tags{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTopic> topic{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVSwitchIds> vSwitchIds{};
+  shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVpcId> vpcId{};
 
   ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParameters() {}
 
@@ -22559,20 +22911,44 @@ public:
     if (body) {
       res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (instanceEndpoint) {
+      res["InstanceEndpoint"] = instanceEndpoint ? boost::any(instanceEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (instanceId) {
       res["InstanceId"] = instanceId ? boost::any(instanceId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instancePassword) {
+      res["InstancePassword"] = instancePassword ? boost::any(instancePassword->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceType) {
+      res["InstanceType"] = instanceType ? boost::any(instanceType->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceUsername) {
+      res["InstanceUsername"] = instanceUsername ? boost::any(instanceUsername->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (keys) {
       res["Keys"] = keys ? boost::any(keys->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (network) {
+      res["Network"] = network ? boost::any(network->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (properties) {
       res["Properties"] = properties ? boost::any(properties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (topic) {
       res["Topic"] = topic ? boost::any(topic->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = vSwitchIds ? boost::any(vSwitchIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vpcId) {
+      res["VpcId"] = vpcId ? boost::any(vpcId->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -22585,11 +22961,39 @@ public:
         body = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersBody>(model1);
       }
     }
+    if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceEndpoint"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceEndpoint"]));
+        instanceEndpoint = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceEndpoint>(model1);
+      }
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       if (typeid(map<string, boost::any>) == m["InstanceId"].type()) {
         ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceId model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceId"]));
         instanceId = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceId>(model1);
+      }
+    }
+    if (m.find("InstancePassword") != m.end() && !m["InstancePassword"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstancePassword"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstancePassword model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstancePassword"]));
+        instancePassword = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstancePassword>(model1);
+      }
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceType"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceType"]));
+        instanceType = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceType>(model1);
+      }
+    }
+    if (m.find("InstanceUsername") != m.end() && !m["InstanceUsername"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceUsername"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceUsername model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceUsername"]));
+        instanceUsername = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceUsername>(model1);
       }
     }
     if (m.find("Keys") != m.end() && !m["Keys"].empty()) {
@@ -22599,11 +23003,25 @@ public:
         keys = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersKeys>(model1);
       }
     }
+    if (m.find("Network") != m.end() && !m["Network"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Network"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersNetwork model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Network"]));
+        network = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersNetwork>(model1);
+      }
+    }
     if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
       if (typeid(map<string, boost::any>) == m["Properties"].type()) {
         ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersProperties model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Properties"]));
         properties = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersProperties>(model1);
+      }
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityGroupId"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
+        securityGroupId = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersSecurityGroupId>(model1);
       }
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
@@ -22618,6 +23036,20 @@ public:
         ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTopic model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Topic"]));
         topic = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTopic>(model1);
+      }
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VSwitchIds"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVSwitchIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VSwitchIds"]));
+        vSwitchIds = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVSwitchIds>(model1);
+      }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VpcId"].type()) {
+        ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVpcId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VpcId"]));
+        vpcId = make_shared<ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVpcId>(model1);
       }
     }
   }
@@ -33299,6 +33731,49 @@ public:
 
   virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersBody() = default;
 };
+class UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint() = default;
+};
 class UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceId : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -33341,6 +33816,135 @@ public:
 
 
   virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceId() = default;
+};
+class UpdateEventStreamingRequestSinkSinkRocketMQParametersInstancePassword : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQParametersInstancePassword() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQParametersInstancePassword(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersInstancePassword() = default;
+};
+class UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceType : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceType() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceType(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceType() = default;
+};
+class UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceUsername : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceUsername() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceUsername(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceUsername() = default;
 };
 class UpdateEventStreamingRequestSinkSinkRocketMQParametersKeys : public Darabonba::Model {
 public:
@@ -33385,6 +33989,49 @@ public:
 
   virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersKeys() = default;
 };
+class UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork() = default;
+};
 class UpdateEventStreamingRequestSinkSinkRocketMQParametersProperties : public Darabonba::Model {
 public:
   shared_ptr<string> form{};
@@ -33427,6 +34074,49 @@ public:
 
 
   virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersProperties() = default;
+};
+class UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId() = default;
 };
 class UpdateEventStreamingRequestSinkSinkRocketMQParametersTags : public Darabonba::Model {
 public:
@@ -33514,14 +34204,108 @@ public:
 
   virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersTopic() = default;
 };
+class UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds() = default;
+};
+class UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId : public Darabonba::Model {
+public:
+  shared_ptr<string> form{};
+  shared_ptr<string> template_{};
+  shared_ptr<string> value{};
+
+  UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId() {}
+
+  explicit UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (form) {
+      res["Form"] = boost::any(*form);
+    }
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Form") != m.end() && !m["Form"].empty()) {
+      form = make_shared<string>(boost::any_cast<string>(m["Form"]));
+    }
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId() = default;
+};
 class UpdateEventStreamingRequestSinkSinkRocketMQParameters : public Darabonba::Model {
 public:
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersBody> body{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint> instanceEndpoint{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceId> instanceId{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersInstancePassword> instancePassword{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceType> instanceType{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceUsername> instanceUsername{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersKeys> keys{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork> network{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersProperties> properties{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId> securityGroupId{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersTags> tags{};
   shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersTopic> topic{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds> vSwitchIds{};
+  shared_ptr<UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId> vpcId{};
 
   UpdateEventStreamingRequestSinkSinkRocketMQParameters() {}
 
@@ -33536,20 +34320,44 @@ public:
     if (body) {
       res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (instanceEndpoint) {
+      res["InstanceEndpoint"] = instanceEndpoint ? boost::any(instanceEndpoint->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (instanceId) {
       res["InstanceId"] = instanceId ? boost::any(instanceId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instancePassword) {
+      res["InstancePassword"] = instancePassword ? boost::any(instancePassword->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceType) {
+      res["InstanceType"] = instanceType ? boost::any(instanceType->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceUsername) {
+      res["InstanceUsername"] = instanceUsername ? boost::any(instanceUsername->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (keys) {
       res["Keys"] = keys ? boost::any(keys->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (network) {
+      res["Network"] = network ? boost::any(network->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (properties) {
       res["Properties"] = properties ? boost::any(properties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = securityGroupId ? boost::any(securityGroupId->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (topic) {
       res["Topic"] = topic ? boost::any(topic->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vSwitchIds) {
+      res["VSwitchIds"] = vSwitchIds ? boost::any(vSwitchIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vpcId) {
+      res["VpcId"] = vpcId ? boost::any(vpcId->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -33562,11 +34370,39 @@ public:
         body = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersBody>(model1);
       }
     }
+    if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceEndpoint"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceEndpoint"]));
+        instanceEndpoint = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint>(model1);
+      }
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       if (typeid(map<string, boost::any>) == m["InstanceId"].type()) {
         UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceId model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceId"]));
         instanceId = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceId>(model1);
+      }
+    }
+    if (m.find("InstancePassword") != m.end() && !m["InstancePassword"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstancePassword"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQParametersInstancePassword model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstancePassword"]));
+        instancePassword = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersInstancePassword>(model1);
+      }
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceType"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceType model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceType"]));
+        instanceType = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceType>(model1);
+      }
+    }
+    if (m.find("InstanceUsername") != m.end() && !m["InstanceUsername"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceUsername"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceUsername model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceUsername"]));
+        instanceUsername = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceUsername>(model1);
       }
     }
     if (m.find("Keys") != m.end() && !m["Keys"].empty()) {
@@ -33576,11 +34412,25 @@ public:
         keys = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersKeys>(model1);
       }
     }
+    if (m.find("Network") != m.end() && !m["Network"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Network"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Network"]));
+        network = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork>(model1);
+      }
+    }
     if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
       if (typeid(map<string, boost::any>) == m["Properties"].type()) {
         UpdateEventStreamingRequestSinkSinkRocketMQParametersProperties model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Properties"]));
         properties = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersProperties>(model1);
+      }
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecurityGroupId"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecurityGroupId"]));
+        securityGroupId = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId>(model1);
       }
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
@@ -33595,6 +34445,20 @@ public:
         UpdateEventStreamingRequestSinkSinkRocketMQParametersTopic model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Topic"]));
         topic = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersTopic>(model1);
+      }
+    }
+    if (m.find("VSwitchIds") != m.end() && !m["VSwitchIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VSwitchIds"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VSwitchIds"]));
+        vSwitchIds = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds>(model1);
+      }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VpcId"].type()) {
+        UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VpcId"]));
+        vpcId = make_shared<UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId>(model1);
       }
     }
   }
