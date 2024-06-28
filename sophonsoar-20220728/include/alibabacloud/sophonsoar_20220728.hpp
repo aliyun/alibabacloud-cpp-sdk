@@ -327,6 +327,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> displayName{};
   shared_ptr<string> lang{};
+  shared_ptr<string> taskflowType{};
 
   CreatePlaybookRequest() {}
 
@@ -347,6 +348,9 @@ public:
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
+    if (taskflowType) {
+      res["TaskflowType"] = boost::any(*taskflowType);
+    }
     return res;
   }
 
@@ -359,6 +363,9 @@ public:
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("TaskflowType") != m.end() && !m["TaskflowType"].empty()) {
+      taskflowType = make_shared<string>(boost::any_cast<string>(m["TaskflowType"]));
     }
   }
 
@@ -1834,6 +1841,7 @@ class DescribeDistinctReleasesResponseBodyRecords : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<string> taskflowMd5{};
+  shared_ptr<string> taskflowType{};
 
   DescribeDistinctReleasesResponseBodyRecords() {}
 
@@ -1851,6 +1859,9 @@ public:
     if (taskflowMd5) {
       res["TaskflowMd5"] = boost::any(*taskflowMd5);
     }
+    if (taskflowType) {
+      res["TaskflowType"] = boost::any(*taskflowType);
+    }
     return res;
   }
 
@@ -1860,6 +1871,9 @@ public:
     }
     if (m.find("TaskflowMd5") != m.end() && !m["TaskflowMd5"].empty()) {
       taskflowMd5 = make_shared<string>(boost::any_cast<string>(m["TaskflowMd5"]));
+    }
+    if (m.find("TaskflowType") != m.end() && !m["TaskflowType"].empty()) {
+      taskflowType = make_shared<string>(boost::any_cast<string>(m["TaskflowType"]));
     }
   }
 
@@ -4321,10 +4335,12 @@ public:
   shared_ptr<long> endMillis{};
   shared_ptr<string> lang{};
   shared_ptr<string> name{};
+  shared_ptr<string> order{};
   shared_ptr<string> ownType{};
   shared_ptr<string> pageNumber{};
   shared_ptr<string> pageSize{};
   shared_ptr<string> playbookUuid{};
+  shared_ptr<string> sort{};
   shared_ptr<long> startMillis{};
 
   DescribePlaybooksRequest() {}
@@ -4349,6 +4365,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
     if (ownType) {
       res["OwnType"] = boost::any(*ownType);
     }
@@ -4360,6 +4379,9 @@ public:
     }
     if (playbookUuid) {
       res["PlaybookUuid"] = boost::any(*playbookUuid);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
     }
     if (startMillis) {
       res["StartMillis"] = boost::any(*startMillis);
@@ -4380,6 +4402,9 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
     if (m.find("OwnType") != m.end() && !m["OwnType"].empty()) {
       ownType = make_shared<string>(boost::any_cast<string>(m["OwnType"]));
     }
@@ -4391,6 +4416,9 @@ public:
     }
     if (m.find("PlaybookUuid") != m.end() && !m["PlaybookUuid"].empty()) {
       playbookUuid = make_shared<string>(boost::any_cast<string>(m["PlaybookUuid"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
     }
     if (m.find("StartMillis") != m.end() && !m["StartMillis"].empty()) {
       startMillis = make_shared<long>(boost::any_cast<long>(m["StartMillis"]));
@@ -4448,6 +4476,7 @@ public:
   shared_ptr<long> active{};
   shared_ptr<string> displayName{};
   shared_ptr<long> gmtCreate{};
+  shared_ptr<string> gmtModified{};
   shared_ptr<long> lastRuntime{};
   shared_ptr<string> ownType{};
   shared_ptr<string> playbookUuid{};
@@ -4471,6 +4500,9 @@ public:
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
     }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
     if (lastRuntime) {
       res["LastRuntime"] = boost::any(*lastRuntime);
     }
@@ -4492,6 +4524,9 @@ public:
     }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
     }
     if (m.find("LastRuntime") != m.end() && !m["LastRuntime"].empty()) {
       lastRuntime = make_shared<long>(boost::any_cast<long>(m["LastRuntime"]));
@@ -5421,6 +5456,9 @@ public:
   shared_ptr<string> creator{};
   shared_ptr<string> entityName{};
   shared_ptr<string> entityType{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMsg{};
+  shared_ptr<string> errTip{};
   shared_ptr<long> gmtCreateMillis{};
   shared_ptr<long> gmtModifiedMillis{};
   shared_ptr<string> inputParams{};
@@ -5434,9 +5472,6 @@ public:
   shared_ptr<string> taskId{};
   shared_ptr<long> taskStatus{};
   shared_ptr<string> yunCode{};
-  shared_ptr<string> errCode{};
-  shared_ptr<string> errMsg{};
-  shared_ptr<string> errTip{};
 
   DescribeProcessTasksResponseBodyProcessTasks() {}
 
@@ -5456,6 +5491,15 @@ public:
     }
     if (entityType) {
       res["EntityType"] = boost::any(*entityType);
+    }
+    if (errCode) {
+      res["ErrCode"] = boost::any(*errCode);
+    }
+    if (errMsg) {
+      res["ErrMsg"] = boost::any(*errMsg);
+    }
+    if (errTip) {
+      res["ErrTip"] = boost::any(*errTip);
     }
     if (gmtCreateMillis) {
       res["GmtCreateMillis"] = boost::any(*gmtCreateMillis);
@@ -5496,15 +5540,6 @@ public:
     if (yunCode) {
       res["YunCode"] = boost::any(*yunCode);
     }
-    if (errCode) {
-      res["errCode"] = boost::any(*errCode);
-    }
-    if (errMsg) {
-      res["errMsg"] = boost::any(*errMsg);
-    }
-    if (errTip) {
-      res["errTip"] = boost::any(*errTip);
-    }
     return res;
   }
 
@@ -5517,6 +5552,15 @@ public:
     }
     if (m.find("EntityType") != m.end() && !m["EntityType"].empty()) {
       entityType = make_shared<string>(boost::any_cast<string>(m["EntityType"]));
+    }
+    if (m.find("ErrCode") != m.end() && !m["ErrCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["ErrCode"]));
+    }
+    if (m.find("ErrMsg") != m.end() && !m["ErrMsg"].empty()) {
+      errMsg = make_shared<string>(boost::any_cast<string>(m["ErrMsg"]));
+    }
+    if (m.find("ErrTip") != m.end() && !m["ErrTip"].empty()) {
+      errTip = make_shared<string>(boost::any_cast<string>(m["ErrTip"]));
     }
     if (m.find("GmtCreateMillis") != m.end() && !m["GmtCreateMillis"].empty()) {
       gmtCreateMillis = make_shared<long>(boost::any_cast<long>(m["GmtCreateMillis"]));
@@ -5556,15 +5600,6 @@ public:
     }
     if (m.find("YunCode") != m.end() && !m["YunCode"].empty()) {
       yunCode = make_shared<string>(boost::any_cast<string>(m["YunCode"]));
-    }
-    if (m.find("errCode") != m.end() && !m["errCode"].empty()) {
-      errCode = make_shared<string>(boost::any_cast<string>(m["errCode"]));
-    }
-    if (m.find("errMsg") != m.end() && !m["errMsg"].empty()) {
-      errMsg = make_shared<string>(boost::any_cast<string>(m["errMsg"]));
-    }
-    if (m.find("errTip") != m.end() && !m["errTip"].empty()) {
-      errTip = make_shared<string>(boost::any_cast<string>(m["errTip"]));
     }
   }
 

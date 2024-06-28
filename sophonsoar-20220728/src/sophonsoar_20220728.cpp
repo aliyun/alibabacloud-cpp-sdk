@@ -122,6 +122,9 @@ CreatePlaybookResponse Alibabacloud_Sophonsoar20220728::Client::createPlaybookWi
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     body->insert(pair<string, string>("Lang", *request->lang));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskflowType)) {
+    body->insert(pair<string, string>("TaskflowType", *request->taskflowType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
