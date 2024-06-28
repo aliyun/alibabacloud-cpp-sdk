@@ -12462,6 +12462,7 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> pipCode{};
   shared_ptr<string> productCode{};
   shared_ptr<string> productType{};
   shared_ptr<string> splitItemID{};
@@ -12504,6 +12505,9 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (pipCode) {
+      res["PipCode"] = boost::any(*pipCode);
     }
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
@@ -12554,6 +12558,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PipCode") != m.end() && !m["PipCode"].empty()) {
+      pipCode = make_shared<string>(boost::any_cast<string>(m["PipCode"]));
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
@@ -13182,184 +13189,6 @@ public:
 
 
   virtual ~DescribeSplitItemBillResponse() = default;
-};
-class EnableBillGenerationRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> ownerId{};
-  shared_ptr<string> productCode{};
-
-  EnableBillGenerationRequest() {}
-
-  explicit EnableBillGenerationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (ownerId) {
-      res["OwnerId"] = boost::any(*ownerId);
-    }
-    if (productCode) {
-      res["ProductCode"] = boost::any(*productCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
-      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
-    }
-    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
-      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
-    }
-  }
-
-
-  virtual ~EnableBillGenerationRequest() = default;
-};
-class EnableBillGenerationResponseBodyData : public Darabonba::Model {
-public:
-  shared_ptr<bool> boolean{};
-
-  EnableBillGenerationResponseBodyData() {}
-
-  explicit EnableBillGenerationResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (boolean) {
-      res["Boolean"] = boost::any(*boolean);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Boolean") != m.end() && !m["Boolean"].empty()) {
-      boolean = make_shared<bool>(boost::any_cast<bool>(m["Boolean"]));
-    }
-  }
-
-
-  virtual ~EnableBillGenerationResponseBodyData() = default;
-};
-class EnableBillGenerationResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> code{};
-  shared_ptr<EnableBillGenerationResponseBodyData> data{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  EnableBillGenerationResponseBody() {}
-
-  explicit EnableBillGenerationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Data"].type()) {
-        EnableBillGenerationResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
-        data = make_shared<EnableBillGenerationResponseBodyData>(model1);
-      }
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~EnableBillGenerationResponseBody() = default;
-};
-class EnableBillGenerationResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<EnableBillGenerationResponseBody> body{};
-
-  EnableBillGenerationResponse() {}
-
-  explicit EnableBillGenerationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        EnableBillGenerationResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<EnableBillGenerationResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~EnableBillGenerationResponse() = default;
 };
 class GetAccountRelationRequest : public Darabonba::Model {
 public:
@@ -21018,10 +20847,12 @@ public:
   shared_ptr<string> apportionName{};
   shared_ptr<string> commodityCode{};
   shared_ptr<string> commodityName{};
+  shared_ptr<string> pipCode{};
   shared_ptr<string> relatedResources{};
   shared_ptr<string> resourceGroup{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceNick{};
+  shared_ptr<string> resourceSource{};
   shared_ptr<string> resourceStatus{};
   shared_ptr<string> resourceTag{};
   shared_ptr<string> resourceType{};
@@ -21050,6 +20881,9 @@ public:
     if (commodityName) {
       res["CommodityName"] = boost::any(*commodityName);
     }
+    if (pipCode) {
+      res["PipCode"] = boost::any(*pipCode);
+    }
     if (relatedResources) {
       res["RelatedResources"] = boost::any(*relatedResources);
     }
@@ -21061,6 +20895,9 @@ public:
     }
     if (resourceNick) {
       res["ResourceNick"] = boost::any(*resourceNick);
+    }
+    if (resourceSource) {
+      res["ResourceSource"] = boost::any(*resourceSource);
     }
     if (resourceStatus) {
       res["ResourceStatus"] = boost::any(*resourceStatus);
@@ -21093,6 +20930,9 @@ public:
     if (m.find("CommodityName") != m.end() && !m["CommodityName"].empty()) {
       commodityName = make_shared<string>(boost::any_cast<string>(m["CommodityName"]));
     }
+    if (m.find("PipCode") != m.end() && !m["PipCode"].empty()) {
+      pipCode = make_shared<string>(boost::any_cast<string>(m["PipCode"]));
+    }
     if (m.find("RelatedResources") != m.end() && !m["RelatedResources"].empty()) {
       relatedResources = make_shared<string>(boost::any_cast<string>(m["RelatedResources"]));
     }
@@ -21104,6 +20944,9 @@ public:
     }
     if (m.find("ResourceNick") != m.end() && !m["ResourceNick"].empty()) {
       resourceNick = make_shared<string>(boost::any_cast<string>(m["ResourceNick"]));
+    }
+    if (m.find("ResourceSource") != m.end() && !m["ResourceSource"].empty()) {
+      resourceSource = make_shared<string>(boost::any_cast<string>(m["ResourceSource"]));
     }
     if (m.find("ResourceStatus") != m.end() && !m["ResourceStatus"].empty()) {
       resourceStatus = make_shared<string>(boost::any_cast<string>(m["ResourceStatus"]));
@@ -33783,6 +33626,7 @@ public:
   shared_ptr<long> rowLimitPerFile{};
   shared_ptr<string> subscribeBucket{};
   shared_ptr<string> subscribeType{};
+  shared_ptr<string> usingSsl{};
 
   SubscribeBillToOSSRequest() {}
 
@@ -33815,6 +33659,9 @@ public:
     if (subscribeType) {
       res["SubscribeType"] = boost::any(*subscribeType);
     }
+    if (usingSsl) {
+      res["UsingSsl"] = boost::any(*usingSsl);
+    }
     return res;
   }
 
@@ -33839,6 +33686,9 @@ public:
     }
     if (m.find("SubscribeType") != m.end() && !m["SubscribeType"].empty()) {
       subscribeType = make_shared<string>(boost::any_cast<string>(m["SubscribeType"]));
+    }
+    if (m.find("UsingSsl") != m.end() && !m["UsingSsl"].empty()) {
+      usingSsl = make_shared<string>(boost::any_cast<string>(m["UsingSsl"]));
     }
   }
 
@@ -34749,8 +34599,6 @@ public:
   DescribeSavingsPlansUsageTotalResponse describeSavingsPlansUsageTotal(shared_ptr<DescribeSavingsPlansUsageTotalRequest> request);
   DescribeSplitItemBillResponse describeSplitItemBillWithOptions(shared_ptr<DescribeSplitItemBillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSplitItemBillResponse describeSplitItemBill(shared_ptr<DescribeSplitItemBillRequest> request);
-  EnableBillGenerationResponse enableBillGenerationWithOptions(shared_ptr<EnableBillGenerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  EnableBillGenerationResponse enableBillGeneration(shared_ptr<EnableBillGenerationRequest> request);
   GetAccountRelationResponse getAccountRelationWithOptions(shared_ptr<GetAccountRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAccountRelationResponse getAccountRelation(shared_ptr<GetAccountRelationRequest> request);
   GetCustomerAccountInfoResponse getCustomerAccountInfoWithOptions(shared_ptr<GetCustomerAccountInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

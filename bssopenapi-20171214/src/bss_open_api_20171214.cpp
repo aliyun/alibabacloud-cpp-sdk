@@ -1596,6 +1596,9 @@ DescribeSplitItemBillResponse Alibabacloud_BssOpenApi20171214::Client::describeS
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pipCode)) {
+    query->insert(pair<string, string>("PipCode", *request->pipCode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
     query->insert(pair<string, string>("ProductCode", *request->productCode));
   }
@@ -1631,37 +1634,6 @@ DescribeSplitItemBillResponse Alibabacloud_BssOpenApi20171214::Client::describeS
 DescribeSplitItemBillResponse Alibabacloud_BssOpenApi20171214::Client::describeSplitItemBill(shared_ptr<DescribeSplitItemBillRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeSplitItemBillWithOptions(request, runtime);
-}
-
-EnableBillGenerationResponse Alibabacloud_BssOpenApi20171214::Client::enableBillGenerationWithOptions(shared_ptr<EnableBillGenerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
-    query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
-    query->insert(pair<string, string>("ProductCode", *request->productCode));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("EnableBillGeneration"))},
-    {"version", boost::any(string("2017-12-14"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return EnableBillGenerationResponse(callApi(params, req, runtime));
-}
-
-EnableBillGenerationResponse Alibabacloud_BssOpenApi20171214::Client::enableBillGeneration(shared_ptr<EnableBillGenerationRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return enableBillGenerationWithOptions(request, runtime);
 }
 
 GetAccountRelationResponse Alibabacloud_BssOpenApi20171214::Client::getAccountRelationWithOptions(shared_ptr<GetAccountRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4095,6 +4067,9 @@ SubscribeBillToOSSResponse Alibabacloud_BssOpenApi20171214::Client::subscribeBil
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscribeType)) {
     query->insert(pair<string, string>("SubscribeType", *request->subscribeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->usingSsl)) {
+    query->insert(pair<string, string>("UsingSsl", *request->usingSsl));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
