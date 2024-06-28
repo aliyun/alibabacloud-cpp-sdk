@@ -3149,6 +3149,7 @@ public:
   shared_ptr<string> idFaceQuality{};
   shared_ptr<string> idOcrPictureBase64{};
   shared_ptr<string> idOcrPictureUrl{};
+  shared_ptr<string> idThreshold{};
   shared_ptr<string> merchantBizId{};
   shared_ptr<string> merchantUserId{};
   shared_ptr<string> ocr{};
@@ -3176,6 +3177,9 @@ public:
     }
     if (idOcrPictureUrl) {
       res["IdOcrPictureUrl"] = boost::any(*idOcrPictureUrl);
+    }
+    if (idThreshold) {
+      res["IdThreshold"] = boost::any(*idThreshold);
     }
     if (merchantBizId) {
       res["MerchantBizId"] = boost::any(*merchantBizId);
@@ -3207,6 +3211,9 @@ public:
     }
     if (m.find("IdOcrPictureUrl") != m.end() && !m["IdOcrPictureUrl"].empty()) {
       idOcrPictureUrl = make_shared<string>(boost::any_cast<string>(m["IdOcrPictureUrl"]));
+    }
+    if (m.find("IdThreshold") != m.end() && !m["IdThreshold"].empty()) {
+      idThreshold = make_shared<string>(boost::any_cast<string>(m["IdThreshold"]));
     }
     if (m.find("MerchantBizId") != m.end() && !m["MerchantBizId"].empty()) {
       merchantBizId = make_shared<string>(boost::any_cast<string>(m["MerchantBizId"]));
@@ -3395,6 +3402,7 @@ public:
   shared_ptr<string> facePictureUrl{};
   shared_ptr<string> idOcrPictureBase64{};
   shared_ptr<string> idOcrPictureUrl{};
+  shared_ptr<string> idThreshold{};
   shared_ptr<string> merchantBizId{};
   shared_ptr<string> merchantUserId{};
   shared_ptr<string> productCode{};
@@ -3436,6 +3444,9 @@ public:
     if (idOcrPictureUrl) {
       res["IdOcrPictureUrl"] = boost::any(*idOcrPictureUrl);
     }
+    if (idThreshold) {
+      res["IdThreshold"] = boost::any(*idThreshold);
+    }
     if (merchantBizId) {
       res["MerchantBizId"] = boost::any(*merchantBizId);
     }
@@ -3475,6 +3486,9 @@ public:
     }
     if (m.find("IdOcrPictureUrl") != m.end() && !m["IdOcrPictureUrl"].empty()) {
       idOcrPictureUrl = make_shared<string>(boost::any_cast<string>(m["IdOcrPictureUrl"]));
+    }
+    if (m.find("IdThreshold") != m.end() && !m["IdThreshold"].empty()) {
+      idThreshold = make_shared<string>(boost::any_cast<string>(m["IdThreshold"]));
     }
     if (m.find("MerchantBizId") != m.end() && !m["MerchantBizId"].empty()) {
       merchantBizId = make_shared<string>(boost::any_cast<string>(m["MerchantBizId"]));
@@ -4485,15 +4499,18 @@ public:
   shared_ptr<string> crop{};
   shared_ptr<string> docScanMode{};
   shared_ptr<string> docType{};
+  shared_ptr<string> docVideo{};
   shared_ptr<string> experienceCode{};
   shared_ptr<string> facePictureBase64{};
   shared_ptr<string> facePictureUrl{};
   shared_ptr<string> idFaceQuality{};
   shared_ptr<string> idSpoof{};
+  shared_ptr<string> idThreshold{};
   shared_ptr<string> languageConfig{};
   shared_ptr<string> merchantBizId{};
   shared_ptr<string> merchantUserId{};
   shared_ptr<string> metaInfo{};
+  shared_ptr<string> model{};
   shared_ptr<string> ocr{};
   shared_ptr<string> productCode{};
   shared_ptr<string> productFlow{};
@@ -4530,6 +4547,9 @@ public:
     if (docType) {
       res["DocType"] = boost::any(*docType);
     }
+    if (docVideo) {
+      res["DocVideo"] = boost::any(*docVideo);
+    }
     if (experienceCode) {
       res["ExperienceCode"] = boost::any(*experienceCode);
     }
@@ -4545,6 +4565,9 @@ public:
     if (idSpoof) {
       res["IdSpoof"] = boost::any(*idSpoof);
     }
+    if (idThreshold) {
+      res["IdThreshold"] = boost::any(*idThreshold);
+    }
     if (languageConfig) {
       res["LanguageConfig"] = boost::any(*languageConfig);
     }
@@ -4556,6 +4579,9 @@ public:
     }
     if (metaInfo) {
       res["MetaInfo"] = boost::any(*metaInfo);
+    }
+    if (model) {
+      res["Model"] = boost::any(*model);
     }
     if (ocr) {
       res["Ocr"] = boost::any(*ocr);
@@ -4600,6 +4626,9 @@ public:
     if (m.find("DocType") != m.end() && !m["DocType"].empty()) {
       docType = make_shared<string>(boost::any_cast<string>(m["DocType"]));
     }
+    if (m.find("DocVideo") != m.end() && !m["DocVideo"].empty()) {
+      docVideo = make_shared<string>(boost::any_cast<string>(m["DocVideo"]));
+    }
     if (m.find("ExperienceCode") != m.end() && !m["ExperienceCode"].empty()) {
       experienceCode = make_shared<string>(boost::any_cast<string>(m["ExperienceCode"]));
     }
@@ -4615,6 +4644,9 @@ public:
     if (m.find("IdSpoof") != m.end() && !m["IdSpoof"].empty()) {
       idSpoof = make_shared<string>(boost::any_cast<string>(m["IdSpoof"]));
     }
+    if (m.find("IdThreshold") != m.end() && !m["IdThreshold"].empty()) {
+      idThreshold = make_shared<string>(boost::any_cast<string>(m["IdThreshold"]));
+    }
     if (m.find("LanguageConfig") != m.end() && !m["LanguageConfig"].empty()) {
       languageConfig = make_shared<string>(boost::any_cast<string>(m["LanguageConfig"]));
     }
@@ -4626,6 +4658,9 @@ public:
     }
     if (m.find("MetaInfo") != m.end() && !m["MetaInfo"].empty()) {
       metaInfo = make_shared<string>(boost::any_cast<string>(m["MetaInfo"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
     }
     if (m.find("Ocr") != m.end() && !m["Ocr"].empty()) {
       ocr = make_shared<string>(boost::any_cast<string>(m["Ocr"]));

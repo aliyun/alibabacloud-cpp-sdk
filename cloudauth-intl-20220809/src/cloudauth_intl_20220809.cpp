@@ -470,6 +470,9 @@ DocOcrResponse Alibabacloud_Cloudauth-intl20220809::Client::docOcrWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->idOcrPictureUrl)) {
     query->insert(pair<string, string>("IdOcrPictureUrl", *request->idOcrPictureUrl));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->idThreshold)) {
+    query->insert(pair<string, string>("IdThreshold", *request->idThreshold));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
     query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
   }
@@ -535,6 +538,9 @@ EkycVerifyResponse Alibabacloud_Cloudauth-intl20220809::Client::ekycVerifyWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->idOcrPictureUrl)) {
     query->insert(pair<string, string>("IdOcrPictureUrl", *request->idOcrPictureUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->idThreshold)) {
+    query->insert(pair<string, string>("IdThreshold", *request->idThreshold));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->merchantBizId)) {
     query->insert(pair<string, string>("MerchantBizId", *request->merchantBizId));
@@ -763,6 +769,9 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->docType)) {
     query->insert(pair<string, string>("DocType", *request->docType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->docVideo)) {
+    query->insert(pair<string, string>("DocVideo", *request->docVideo));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->experienceCode)) {
     query->insert(pair<string, string>("ExperienceCode", *request->experienceCode));
   }
@@ -775,6 +784,9 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->idSpoof)) {
     query->insert(pair<string, string>("IdSpoof", *request->idSpoof));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->idThreshold)) {
+    query->insert(pair<string, string>("IdThreshold", *request->idThreshold));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->languageConfig)) {
     query->insert(pair<string, string>("LanguageConfig", *request->languageConfig));
   }
@@ -786,6 +798,9 @@ InitializeResponse Alibabacloud_Cloudauth-intl20220809::Client::initializeWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->metaInfo)) {
     query->insert(pair<string, string>("MetaInfo", *request->metaInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->model)) {
+    query->insert(pair<string, string>("Model", *request->model));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ocr)) {
     query->insert(pair<string, string>("Ocr", *request->ocr));
