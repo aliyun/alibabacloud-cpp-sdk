@@ -760,6 +760,9 @@ AllocateEipSegmentAddressResponse Alibabacloud_Vpc20160428::Client::allocateEipS
 AllocateIpv6AddressResponse Alibabacloud_Vpc20160428::Client::allocateIpv6AddressWithOptions(shared_ptr<AllocateIpv6AddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressType)) {
+    query->insert(pair<string, string>("AddressType", *request->addressType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -10322,6 +10325,9 @@ DescribeIPv6TranslatorsResponse Alibabacloud_Vpc20160428::Client::describeIPv6Tr
 DescribeIpv6AddressesResponse Alibabacloud_Vpc20160428::Client::describeIpv6AddressesWithOptions(shared_ptr<DescribeIpv6AddressesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressType)) {
+    query->insert(pair<string, string>("AddressType", *request->addressType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->associatedInstanceId)) {
     query->insert(pair<string, string>("AssociatedInstanceId", *request->associatedInstanceId));
   }
@@ -13720,6 +13726,52 @@ GetPhysicalConnectionServiceStatusResponse Alibabacloud_Vpc20160428::Client::get
 GetPhysicalConnectionServiceStatusResponse Alibabacloud_Vpc20160428::Client::getPhysicalConnectionServiceStatus(shared_ptr<GetPhysicalConnectionServiceStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getPhysicalConnectionServiceStatusWithOptions(request, runtime);
+}
+
+GetPublicIpAddressPoolServiceStatusResponse Alibabacloud_Vpc20160428::Client::getPublicIpAddressPoolServiceStatusWithOptions(shared_ptr<GetPublicIpAddressPoolServiceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPublicIpAddressPoolServiceStatus"))},
+    {"version", boost::any(string("2016-04-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPublicIpAddressPoolServiceStatusResponse(callApi(params, req, runtime));
+}
+
+GetPublicIpAddressPoolServiceStatusResponse Alibabacloud_Vpc20160428::Client::getPublicIpAddressPoolServiceStatus(shared_ptr<GetPublicIpAddressPoolServiceStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getPublicIpAddressPoolServiceStatusWithOptions(request, runtime);
 }
 
 GetTrafficMirrorServiceStatusResponse Alibabacloud_Vpc20160428::Client::getTrafficMirrorServiceStatusWithOptions(shared_ptr<GetTrafficMirrorServiceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -17345,6 +17397,9 @@ ModifyRouteTableAttributesResponse Alibabacloud_Vpc20160428::Client::modifyRoute
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->routePropagationEnable)) {
+    query->insert(pair<string, bool>("RoutePropagationEnable", *request->routePropagationEnable));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->routeTableId)) {
     query->insert(pair<string, string>("RouteTableId", *request->routeTableId));
   }
@@ -18842,6 +18897,52 @@ OpenPhysicalConnectionServiceResponse Alibabacloud_Vpc20160428::Client::openPhys
 OpenPhysicalConnectionServiceResponse Alibabacloud_Vpc20160428::Client::openPhysicalConnectionService(shared_ptr<OpenPhysicalConnectionServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return openPhysicalConnectionServiceWithOptions(request, runtime);
+}
+
+OpenPublicIpAddressPoolServiceResponse Alibabacloud_Vpc20160428::Client::openPublicIpAddressPoolServiceWithOptions(shared_ptr<OpenPublicIpAddressPoolServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("OpenPublicIpAddressPoolService"))},
+    {"version", boost::any(string("2016-04-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return OpenPublicIpAddressPoolServiceResponse(callApi(params, req, runtime));
+}
+
+OpenPublicIpAddressPoolServiceResponse Alibabacloud_Vpc20160428::Client::openPublicIpAddressPoolService(shared_ptr<OpenPublicIpAddressPoolServiceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return openPublicIpAddressPoolServiceWithOptions(request, runtime);
 }
 
 OpenTrafficMirrorServiceResponse Alibabacloud_Vpc20160428::Client::openTrafficMirrorServiceWithOptions(shared_ptr<OpenTrafficMirrorServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

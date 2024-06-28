@@ -2288,6 +2288,7 @@ public:
 };
 class AllocateIpv6AddressRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> addressType{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ipv6Address{};
@@ -2312,6 +2313,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addressType) {
+      res["AddressType"] = boost::any(*addressType);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -2359,6 +2363,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
+      addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -42829,6 +42836,7 @@ public:
 };
 class DescribeIpv6AddressesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> addressType{};
   shared_ptr<string> associatedInstanceId{};
   shared_ptr<string> associatedInstanceType{};
   shared_ptr<bool> includeReservationData{};
@@ -42860,6 +42868,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addressType) {
+      res["AddressType"] = boost::any(*addressType);
+    }
     if (associatedInstanceId) {
       res["AssociatedInstanceId"] = boost::any(*associatedInstanceId);
     }
@@ -42928,6 +42939,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
+      addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
+    }
     if (m.find("AssociatedInstanceId") != m.end() && !m["AssociatedInstanceId"].empty()) {
       associatedInstanceId = make_shared<string>(boost::any_cast<string>(m["AssociatedInstanceId"]));
     }
@@ -43176,6 +43190,7 @@ public:
 };
 class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address : public Darabonba::Model {
 public:
+  shared_ptr<string> addressType{};
   shared_ptr<string> allocationTime{};
   shared_ptr<string> associatedInstanceId{};
   shared_ptr<string> associatedInstanceType{};
@@ -43205,6 +43220,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addressType) {
+      res["AddressType"] = boost::any(*addressType);
+    }
     if (allocationTime) {
       res["AllocationTime"] = boost::any(*allocationTime);
     }
@@ -43263,6 +43281,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
+      addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
+    }
     if (m.find("AllocationTime") != m.end() && !m["AllocationTime"].empty()) {
       allocationTime = make_shared<string>(boost::any_cast<string>(m["AllocationTime"]));
     }
@@ -69882,6 +69903,158 @@ public:
 
   virtual ~GetPhysicalConnectionServiceStatusResponse() = default;
 };
+class GetPublicIpAddressPoolServiceStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  GetPublicIpAddressPoolServiceStatusRequest() {}
+
+  explicit GetPublicIpAddressPoolServiceStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~GetPublicIpAddressPoolServiceStatusRequest() = default;
+};
+class GetPublicIpAddressPoolServiceStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> requestId{};
+
+  GetPublicIpAddressPoolServiceStatusResponseBody() {}
+
+  explicit GetPublicIpAddressPoolServiceStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetPublicIpAddressPoolServiceStatusResponseBody() = default;
+};
+class GetPublicIpAddressPoolServiceStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetPublicIpAddressPoolServiceStatusResponseBody> body{};
+
+  GetPublicIpAddressPoolServiceStatusResponse() {}
+
+  explicit GetPublicIpAddressPoolServiceStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetPublicIpAddressPoolServiceStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetPublicIpAddressPoolServiceStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetPublicIpAddressPoolServiceStatusResponse() = default;
+};
 class GetTrafficMirrorServiceStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -86722,6 +86895,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<bool> routePropagationEnable{};
   shared_ptr<string> routeTableId{};
   shared_ptr<string> routeTableName{};
 
@@ -86753,6 +86927,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (routePropagationEnable) {
+      res["RoutePropagationEnable"] = boost::any(*routePropagationEnable);
+    }
     if (routeTableId) {
       res["RouteTableId"] = boost::any(*routeTableId);
     }
@@ -86780,6 +86957,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RoutePropagationEnable") != m.end() && !m["RoutePropagationEnable"].empty()) {
+      routePropagationEnable = make_shared<bool>(boost::any_cast<bool>(m["RoutePropagationEnable"]));
     }
     if (m.find("RouteTableId") != m.end() && !m["RouteTableId"].empty()) {
       routeTableId = make_shared<string>(boost::any_cast<string>(m["RouteTableId"]));
@@ -93791,6 +93971,165 @@ public:
 
 
   virtual ~OpenPhysicalConnectionServiceResponse() = default;
+};
+class OpenPublicIpAddressPoolServiceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  OpenPublicIpAddressPoolServiceRequest() {}
+
+  explicit OpenPublicIpAddressPoolServiceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~OpenPublicIpAddressPoolServiceRequest() = default;
+};
+class OpenPublicIpAddressPoolServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  OpenPublicIpAddressPoolServiceResponseBody() {}
+
+  explicit OpenPublicIpAddressPoolServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~OpenPublicIpAddressPoolServiceResponseBody() = default;
+};
+class OpenPublicIpAddressPoolServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<OpenPublicIpAddressPoolServiceResponseBody> body{};
+
+  OpenPublicIpAddressPoolServiceResponse() {}
+
+  explicit OpenPublicIpAddressPoolServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        OpenPublicIpAddressPoolServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<OpenPublicIpAddressPoolServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~OpenPublicIpAddressPoolServiceResponse() = default;
 };
 class OpenTrafficMirrorServiceRequest : public Darabonba::Model {
 public:
@@ -102736,6 +103075,8 @@ public:
   GetNatGatewayAttributeResponse getNatGatewayAttribute(shared_ptr<GetNatGatewayAttributeRequest> request);
   GetPhysicalConnectionServiceStatusResponse getPhysicalConnectionServiceStatusWithOptions(shared_ptr<GetPhysicalConnectionServiceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPhysicalConnectionServiceStatusResponse getPhysicalConnectionServiceStatus(shared_ptr<GetPhysicalConnectionServiceStatusRequest> request);
+  GetPublicIpAddressPoolServiceStatusResponse getPublicIpAddressPoolServiceStatusWithOptions(shared_ptr<GetPublicIpAddressPoolServiceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetPublicIpAddressPoolServiceStatusResponse getPublicIpAddressPoolServiceStatus(shared_ptr<GetPublicIpAddressPoolServiceStatusRequest> request);
   GetTrafficMirrorServiceStatusResponse getTrafficMirrorServiceStatusWithOptions(shared_ptr<GetTrafficMirrorServiceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTrafficMirrorServiceStatusResponse getTrafficMirrorServiceStatus(shared_ptr<GetTrafficMirrorServiceStatusRequest> request);
   GetVSwitchCidrReservationUsageResponse getVSwitchCidrReservationUsageWithOptions(shared_ptr<GetVSwitchCidrReservationUsageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -102916,6 +103257,8 @@ public:
   OpenFlowLogServiceResponse openFlowLogService(shared_ptr<OpenFlowLogServiceRequest> request);
   OpenPhysicalConnectionServiceResponse openPhysicalConnectionServiceWithOptions(shared_ptr<OpenPhysicalConnectionServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OpenPhysicalConnectionServiceResponse openPhysicalConnectionService(shared_ptr<OpenPhysicalConnectionServiceRequest> request);
+  OpenPublicIpAddressPoolServiceResponse openPublicIpAddressPoolServiceWithOptions(shared_ptr<OpenPublicIpAddressPoolServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  OpenPublicIpAddressPoolServiceResponse openPublicIpAddressPoolService(shared_ptr<OpenPublicIpAddressPoolServiceRequest> request);
   OpenTrafficMirrorServiceResponse openTrafficMirrorServiceWithOptions(shared_ptr<OpenTrafficMirrorServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OpenTrafficMirrorServiceResponse openTrafficMirrorService(shared_ptr<OpenTrafficMirrorServiceRequest> request);
   PublishVpnRouteEntryResponse publishVpnRouteEntryWithOptions(shared_ptr<PublishVpnRouteEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
