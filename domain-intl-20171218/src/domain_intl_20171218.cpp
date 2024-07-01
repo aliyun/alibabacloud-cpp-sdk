@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -852,6 +851,9 @@ QueryDomainByInstanceIdResponse Alibabacloud_Domain-intl20171218::Client::queryD
 QueryDomainListResponse Alibabacloud_Domain-intl20171218::Client::queryDomainListWithOptions(shared_ptr<QueryDomainListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ccompany)) {
+    query->insert(pair<string, string>("Ccompany", *request->ccompany));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
     query->insert(pair<string, string>("DomainName", *request->domainName));
   }
