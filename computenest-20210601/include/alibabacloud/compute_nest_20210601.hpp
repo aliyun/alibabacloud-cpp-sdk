@@ -534,6 +534,7 @@ public:
   shared_ptr<CreateServiceInstanceRequestOperationMetadata> operationMetadata{};
   shared_ptr<map<string, boost::any>> parameters{};
   shared_ptr<string> regionId{};
+  shared_ptr<bool> resourceAutoPay{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceVersion{};
@@ -582,6 +583,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceAutoPay) {
+      res["ResourceAutoPay"] = boost::any(*resourceAutoPay);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -657,6 +661,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceAutoPay") != m.end() && !m["ResourceAutoPay"].empty()) {
+      resourceAutoPay = make_shared<bool>(boost::any_cast<bool>(m["ResourceAutoPay"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -852,6 +859,7 @@ public:
   shared_ptr<CreateServiceInstanceShrinkRequestOperationMetadata> operationMetadata{};
   shared_ptr<string> parametersShrink{};
   shared_ptr<string> regionId{};
+  shared_ptr<bool> resourceAutoPay{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceVersion{};
@@ -900,6 +908,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceAutoPay) {
+      res["ResourceAutoPay"] = boost::any(*resourceAutoPay);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -970,6 +981,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceAutoPay") != m.end() && !m["ResourceAutoPay"].empty()) {
+      resourceAutoPay = make_shared<bool>(boost::any_cast<bool>(m["ResourceAutoPay"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));

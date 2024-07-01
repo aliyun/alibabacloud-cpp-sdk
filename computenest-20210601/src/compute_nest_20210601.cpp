@@ -155,6 +155,9 @@ CreateServiceInstanceResponse Alibabacloud_ComputeNest20210601::Client::createSe
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->resourceAutoPay)) {
+    query->insert(pair<string, bool>("ResourceAutoPay", *request->resourceAutoPay));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
