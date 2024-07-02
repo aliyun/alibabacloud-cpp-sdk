@@ -1042,6 +1042,9 @@ InitFaceVerifyResponse Alibabacloud_Cloudauth20190307::Client::initFaceVerifyWit
   if (!Darabonba_Util::Client::isUnset<string>(request->validityDate)) {
     query->insert(pair<string, string>("ValidityDate", *request->validityDate));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoEvidence)) {
+    query->insert(pair<string, string>("VideoEvidence", *request->videoEvidence));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->voluntaryCustomizedContent)) {
     query->insert(pair<string, string>("VoluntaryCustomizedContent", *request->voluntaryCustomizedContent));
   }

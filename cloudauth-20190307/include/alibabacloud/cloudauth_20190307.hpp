@@ -4870,6 +4870,7 @@ public:
   shared_ptr<string> uiCustomUrl{};
   shared_ptr<string> userId{};
   shared_ptr<string> validityDate{};
+  shared_ptr<string> videoEvidence{};
   shared_ptr<string> voluntaryCustomizedContent{};
 
   InitFaceVerifyRequest() {}
@@ -4981,6 +4982,9 @@ public:
     if (validityDate) {
       res["ValidityDate"] = boost::any(*validityDate);
     }
+    if (videoEvidence) {
+      res["VideoEvidence"] = boost::any(*videoEvidence);
+    }
     if (voluntaryCustomizedContent) {
       res["VoluntaryCustomizedContent"] = boost::any(*voluntaryCustomizedContent);
     }
@@ -5086,6 +5090,9 @@ public:
     }
     if (m.find("ValidityDate") != m.end() && !m["ValidityDate"].empty()) {
       validityDate = make_shared<string>(boost::any_cast<string>(m["ValidityDate"]));
+    }
+    if (m.find("VideoEvidence") != m.end() && !m["VideoEvidence"].empty()) {
+      videoEvidence = make_shared<string>(boost::any_cast<string>(m["VideoEvidence"]));
     }
     if (m.find("VoluntaryCustomizedContent") != m.end() && !m["VoluntaryCustomizedContent"].empty()) {
       voluntaryCustomizedContent = make_shared<string>(boost::any_cast<string>(m["VoluntaryCustomizedContent"]));
