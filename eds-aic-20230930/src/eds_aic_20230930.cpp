@@ -183,6 +183,9 @@ CheckResourceStockResponse Alibabacloud_Eds-aic20230930::Client::checkResourceSt
 CreateAndroidInstanceGroupResponse Alibabacloud_Eds-aic20230930::Client::createAndroidInstanceGroupWithOptions(shared_ptr<CreateAndroidInstanceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->amount)) {
+    query->insert(pair<string, long>("Amount", *request->amount));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
     query->insert(pair<string, bool>("AutoPay", *request->autoPay));
   }
@@ -1377,6 +1380,9 @@ RebootAndroidInstancesInGroupResponse Alibabacloud_Eds-aic20230930::Client::rebo
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->androidInstanceIds)) {
     query->insert(pair<string, vector<string>>("AndroidInstanceIds", *request->androidInstanceIds));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->forceStop)) {
+    query->insert(pair<string, bool>("ForceStop", *request->forceStop));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1642,6 +1648,9 @@ StopAndroidInstanceResponse Alibabacloud_Eds-aic20230930::Client::stopAndroidIns
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->androidInstanceIds)) {
     query->insert(pair<string, vector<string>>("AndroidInstanceIds", *request->androidInstanceIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->forceStop)) {
+    query->insert(pair<string, bool>("ForceStop", *request->forceStop));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

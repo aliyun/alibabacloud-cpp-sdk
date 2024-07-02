@@ -728,6 +728,7 @@ public:
 };
 class CreateAndroidInstanceGroupRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> amount{};
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<string> bizRegionId{};
@@ -752,6 +753,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (amount) {
+      res["Amount"] = boost::any(*amount);
+    }
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
     }
@@ -795,6 +799,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
+      amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
     }
@@ -2378,6 +2385,7 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<string> cpu{};
   shared_ptr<vector<DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks>> disks{};
+  shared_ptr<string> errorCode{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtExpired{};
   shared_ptr<string> gmtModified{};
@@ -2427,6 +2435,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Disks"] = boost::any(temp1);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
     }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
@@ -2516,6 +2527,9 @@ public:
         }
         disks = make_shared<vector<DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks>>(expect1);
       }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
     }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
@@ -6827,6 +6841,7 @@ public:
 class RebootAndroidInstancesInGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIds{};
+  shared_ptr<bool> forceStop{};
 
   RebootAndroidInstancesInGroupRequest() {}
 
@@ -6841,6 +6856,9 @@ public:
     if (androidInstanceIds) {
       res["AndroidInstanceIds"] = boost::any(*androidInstanceIds);
     }
+    if (forceStop) {
+      res["ForceStop"] = boost::any(*forceStop);
+    }
     return res;
   }
 
@@ -6854,6 +6872,9 @@ public:
         }
       }
       androidInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ForceStop") != m.end() && !m["ForceStop"].empty()) {
+      forceStop = make_shared<bool>(boost::any_cast<bool>(m["ForceStop"]));
     }
   }
 
@@ -7950,6 +7971,7 @@ public:
 class StopAndroidInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> androidInstanceIds{};
+  shared_ptr<bool> forceStop{};
 
   StopAndroidInstanceRequest() {}
 
@@ -7964,6 +7986,9 @@ public:
     if (androidInstanceIds) {
       res["AndroidInstanceIds"] = boost::any(*androidInstanceIds);
     }
+    if (forceStop) {
+      res["ForceStop"] = boost::any(*forceStop);
+    }
     return res;
   }
 
@@ -7977,6 +8002,9 @@ public:
         }
       }
       androidInstanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ForceStop") != m.end() && !m["ForceStop"].empty()) {
+      forceStop = make_shared<bool>(boost::any_cast<bool>(m["ForceStop"]));
     }
   }
 
