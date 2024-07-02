@@ -1974,6 +1974,54 @@ ListInstancesResponse Alibabacloud_Searchengine20211025::Client::listInstances(s
   return listInstancesWithOptions(request, headers, runtime);
 }
 
+ListLogsResponse Alibabacloud_Searchengine20211025::Client::listLogsWithOptions(shared_ptr<string> instanceId,
+                                                                                shared_ptr<ListLogsRequest> request,
+                                                                                shared_ptr<map<string, string>> headers,
+                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("endTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageNum)) {
+    query->insert(pair<string, string>("pageNum", *request->pageNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
+    query->insert(pair<string, string>("query", *request->query));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("startTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListLogs"))},
+    {"version", boost::any(string("2021-10-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/ha3/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/logs"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListLogsResponse(callApi(params, req, runtime));
+}
+
+ListLogsResponse Alibabacloud_Searchengine20211025::Client::listLogs(shared_ptr<string> instanceId, shared_ptr<ListLogsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listLogsWithOptions(instanceId, request, headers, runtime);
+}
+
 ListOnlineConfigsResponse Alibabacloud_Searchengine20211025::Client::listOnlineConfigsWithOptions(shared_ptr<string> instanceId,
                                                                                                   shared_ptr<string> nodeName,
                                                                                                   shared_ptr<ListOnlineConfigsRequest> request,
