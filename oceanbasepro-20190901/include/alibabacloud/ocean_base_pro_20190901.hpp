@@ -584,6 +584,130 @@ public:
 
   virtual ~BatchKillProcessListResponse() = default;
 };
+class BatchKillSessionListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> sessionList{};
+  shared_ptr<string> tenantId{};
+
+  BatchKillSessionListRequest() {}
+
+  explicit BatchKillSessionListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (sessionList) {
+      res["SessionList"] = boost::any(*sessionList);
+    }
+    if (tenantId) {
+      res["TenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("SessionList") != m.end() && !m["SessionList"].empty()) {
+      sessionList = make_shared<string>(boost::any_cast<string>(m["SessionList"]));
+    }
+    if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
+    }
+  }
+
+
+  virtual ~BatchKillSessionListRequest() = default;
+};
+class BatchKillSessionListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  BatchKillSessionListResponseBody() {}
+
+  explicit BatchKillSessionListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~BatchKillSessionListResponseBody() = default;
+};
+class BatchKillSessionListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchKillSessionListResponseBody> body{};
+
+  BatchKillSessionListResponse() {}
+
+  explicit BatchKillSessionListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchKillSessionListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchKillSessionListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchKillSessionListResponse() = default;
+};
 class CancelProjectModifyRecordRequest : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
@@ -33708,6 +33832,180 @@ public:
 
   virtual ~DescribeSecurityIpGroupsResponse() = default;
 };
+class DescribeSessionListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> tenantId{};
+
+  DescribeSessionListRequest() {}
+
+  explicit DescribeSessionListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (tenantId) {
+      res["TenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
+    }
+  }
+
+
+  virtual ~DescribeSessionListRequest() = default;
+};
+class DescribeSessionListResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> host{};
+  shared_ptr<string> sessionId{};
+
+  DescribeSessionListResponseBodyData() {}
+
+  explicit DescribeSessionListResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (host) {
+      res["Host"] = boost::any(*host);
+    }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Host") != m.end() && !m["Host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+  }
+
+
+  virtual ~DescribeSessionListResponseBodyData() = default;
+};
+class DescribeSessionListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeSessionListResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+
+  DescribeSessionListResponseBody() {}
+
+  explicit DescribeSessionListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<DescribeSessionListResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSessionListResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<DescribeSessionListResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeSessionListResponseBody() = default;
+};
+class DescribeSessionListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSessionListResponseBody> body{};
+
+  DescribeSessionListResponse() {}
+
+  explicit DescribeSessionListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSessionListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSessionListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSessionListResponse() = default;
+};
 class DescribeSlowSQLHistoryListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
@@ -54571,6 +54869,8 @@ public:
                      shared_ptr<string> endpoint);
   BatchKillProcessListResponse batchKillProcessListWithOptions(shared_ptr<BatchKillProcessListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchKillProcessListResponse batchKillProcessList(shared_ptr<BatchKillProcessListRequest> request);
+  BatchKillSessionListResponse batchKillSessionListWithOptions(shared_ptr<BatchKillSessionListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchKillSessionListResponse batchKillSessionList(shared_ptr<BatchKillSessionListRequest> request);
   CancelProjectModifyRecordResponse cancelProjectModifyRecordWithOptions(shared_ptr<CancelProjectModifyRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelProjectModifyRecordResponse cancelProjectModifyRecord(shared_ptr<CancelProjectModifyRecordRequest> request);
   CreateBackupSetDownloadLinkResponse createBackupSetDownloadLinkWithOptions(shared_ptr<CreateBackupSetDownloadLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -54709,6 +55009,8 @@ public:
   DescribeSampleSqlRawTextsResponse describeSampleSqlRawTexts(shared_ptr<DescribeSampleSqlRawTextsRequest> request);
   DescribeSecurityIpGroupsResponse describeSecurityIpGroupsWithOptions(shared_ptr<DescribeSecurityIpGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSecurityIpGroupsResponse describeSecurityIpGroups(shared_ptr<DescribeSecurityIpGroupsRequest> request);
+  DescribeSessionListResponse describeSessionListWithOptions(shared_ptr<DescribeSessionListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSessionListResponse describeSessionList(shared_ptr<DescribeSessionListRequest> request);
   DescribeSlowSQLHistoryListResponse describeSlowSQLHistoryListWithOptions(shared_ptr<DescribeSlowSQLHistoryListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSlowSQLHistoryListResponse describeSlowSQLHistoryList(shared_ptr<DescribeSlowSQLHistoryListRequest> request);
   DescribeSlowSQLListResponse describeSlowSQLListWithOptions(shared_ptr<DescribeSlowSQLListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
