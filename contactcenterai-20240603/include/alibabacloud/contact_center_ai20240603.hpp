@@ -106,14 +106,14 @@ public:
 
   virtual ~RunCompletionRequestDialogue() = default;
 };
-class RunCompletionRequestDimensions : public Darabonba::Model {
+class RunCompletionRequestFieldsEnumValues : public Darabonba::Model {
 public:
   shared_ptr<string> desc{};
-  shared_ptr<string> name{};
+  shared_ptr<string> enumValue{};
 
-  RunCompletionRequestDimensions() {}
+  RunCompletionRequestFieldsEnumValues() {}
 
-  explicit RunCompletionRequestDimensions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit RunCompletionRequestFieldsEnumValues(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -124,8 +124,8 @@ public:
     if (desc) {
       res["Desc"] = boost::any(*desc);
     }
-    if (name) {
-      res["Name"] = boost::any(*name);
+    if (enumValue) {
+      res["EnumValue"] = boost::any(*enumValue);
     }
     return res;
   }
@@ -134,19 +134,19 @@ public:
     if (m.find("Desc") != m.end() && !m["Desc"].empty()) {
       desc = make_shared<string>(boost::any_cast<string>(m["Desc"]));
     }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    if (m.find("EnumValue") != m.end() && !m["EnumValue"].empty()) {
+      enumValue = make_shared<string>(boost::any_cast<string>(m["EnumValue"]));
     }
   }
 
 
-  virtual ~RunCompletionRequestDimensions() = default;
+  virtual ~RunCompletionRequestFieldsEnumValues() = default;
 };
 class RunCompletionRequestFields : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<string> desc{};
-  shared_ptr<vector<string>> enums{};
+  shared_ptr<vector<RunCompletionRequestFieldsEnumValues>> enumValues{};
   shared_ptr<string> name{};
 
   RunCompletionRequestFields() {}
@@ -165,8 +165,12 @@ public:
     if (desc) {
       res["Desc"] = boost::any(*desc);
     }
-    if (enums) {
-      res["Enums"] = boost::any(*enums);
+    if (enumValues) {
+      vector<boost::any> temp1;
+      for(auto item1:*enumValues){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EnumValues"] = boost::any(temp1);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -181,15 +185,18 @@ public:
     if (m.find("Desc") != m.end() && !m["Desc"].empty()) {
       desc = make_shared<string>(boost::any_cast<string>(m["Desc"]));
     }
-    if (m.find("Enums") != m.end() && !m["Enums"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["Enums"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Enums"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
+    if (m.find("EnumValues") != m.end() && !m["EnumValues"].empty()) {
+      if (typeid(vector<boost::any>) == m["EnumValues"].type()) {
+        vector<RunCompletionRequestFieldsEnumValues> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EnumValues"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunCompletionRequestFieldsEnumValues model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
         }
+        enumValues = make_shared<vector<RunCompletionRequestFieldsEnumValues>>(expect1);
       }
-      enums = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -199,12 +206,105 @@ public:
 
   virtual ~RunCompletionRequestFields() = default;
 };
+class RunCompletionRequestServiceInspectionInspectionContents : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> title{};
+
+  RunCompletionRequestServiceInspectionInspectionContents() {}
+
+  explicit RunCompletionRequestServiceInspectionInspectionContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~RunCompletionRequestServiceInspectionInspectionContents() = default;
+};
+class RunCompletionRequestServiceInspection : public Darabonba::Model {
+public:
+  shared_ptr<vector<RunCompletionRequestServiceInspectionInspectionContents>> inspectionContents{};
+  shared_ptr<string> inspectionIntroduction{};
+  shared_ptr<string> sceneIntroduction{};
+
+  RunCompletionRequestServiceInspection() {}
+
+  explicit RunCompletionRequestServiceInspection(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*inspectionContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InspectionContents"] = boost::any(temp1);
+    }
+    if (inspectionIntroduction) {
+      res["InspectionIntroduction"] = boost::any(*inspectionIntroduction);
+    }
+    if (sceneIntroduction) {
+      res["SceneIntroduction"] = boost::any(*sceneIntroduction);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionContents") != m.end() && !m["InspectionContents"].empty()) {
+      if (typeid(vector<boost::any>) == m["InspectionContents"].type()) {
+        vector<RunCompletionRequestServiceInspectionInspectionContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InspectionContents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunCompletionRequestServiceInspectionInspectionContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        inspectionContents = make_shared<vector<RunCompletionRequestServiceInspectionInspectionContents>>(expect1);
+      }
+    }
+    if (m.find("InspectionIntroduction") != m.end() && !m["InspectionIntroduction"].empty()) {
+      inspectionIntroduction = make_shared<string>(boost::any_cast<string>(m["InspectionIntroduction"]));
+    }
+    if (m.find("SceneIntroduction") != m.end() && !m["SceneIntroduction"].empty()) {
+      sceneIntroduction = make_shared<string>(boost::any_cast<string>(m["SceneIntroduction"]));
+    }
+  }
+
+
+  virtual ~RunCompletionRequestServiceInspection() = default;
+};
 class RunCompletionRequest : public Darabonba::Model {
 public:
   shared_ptr<RunCompletionRequestDialogue> dialogue{};
-  shared_ptr<vector<RunCompletionRequestDimensions>> dimensions{};
   shared_ptr<vector<RunCompletionRequestFields>> fields{};
   shared_ptr<string> modelCode{};
+  shared_ptr<RunCompletionRequestServiceInspection> serviceInspection{};
   shared_ptr<bool> stream{};
   shared_ptr<vector<long>> templateIds{};
 
@@ -221,13 +321,6 @@ public:
     if (dialogue) {
       res["Dialogue"] = dialogue ? boost::any(dialogue->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (dimensions) {
-      vector<boost::any> temp1;
-      for(auto item1:*dimensions){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Dimensions"] = boost::any(temp1);
-    }
     if (fields) {
       vector<boost::any> temp1;
       for(auto item1:*fields){
@@ -237,6 +330,9 @@ public:
     }
     if (modelCode) {
       res["ModelCode"] = boost::any(*modelCode);
+    }
+    if (serviceInspection) {
+      res["ServiceInspection"] = serviceInspection ? boost::any(serviceInspection->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (stream) {
       res["Stream"] = boost::any(*stream);
@@ -255,19 +351,6 @@ public:
         dialogue = make_shared<RunCompletionRequestDialogue>(model1);
       }
     }
-    if (m.find("Dimensions") != m.end() && !m["Dimensions"].empty()) {
-      if (typeid(vector<boost::any>) == m["Dimensions"].type()) {
-        vector<RunCompletionRequestDimensions> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Dimensions"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            RunCompletionRequestDimensions model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        dimensions = make_shared<vector<RunCompletionRequestDimensions>>(expect1);
-      }
-    }
     if (m.find("Fields") != m.end() && !m["Fields"].empty()) {
       if (typeid(vector<boost::any>) == m["Fields"].type()) {
         vector<RunCompletionRequestFields> expect1;
@@ -283,6 +366,13 @@ public:
     }
     if (m.find("ModelCode") != m.end() && !m["ModelCode"].empty()) {
       modelCode = make_shared<string>(boost::any_cast<string>(m["ModelCode"]));
+    }
+    if (m.find("ServiceInspection") != m.end() && !m["ServiceInspection"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ServiceInspection"].type()) {
+        RunCompletionRequestServiceInspection model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ServiceInspection"]));
+        serviceInspection = make_shared<RunCompletionRequestServiceInspection>(model1);
+      }
     }
     if (m.find("Stream") != m.end() && !m["Stream"].empty()) {
       stream = make_shared<bool>(boost::any_cast<bool>(m["Stream"]));

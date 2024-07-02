@@ -47,14 +47,14 @@ RunCompletionResponse Alibabacloud_ContactCenterAI20240603::Client::runCompletio
   if (!Darabonba_Util::Client::isUnset<RunCompletionRequestDialogue>(request->dialogue)) {
     body->insert(pair<string, RunCompletionRequestDialogue>("Dialogue", *request->dialogue));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<RunCompletionRequestDimensions>>(request->dimensions)) {
-    body->insert(pair<string, vector<RunCompletionRequestDimensions>>("Dimensions", *request->dimensions));
-  }
   if (!Darabonba_Util::Client::isUnset<vector<RunCompletionRequestFields>>(request->fields)) {
     body->insert(pair<string, vector<RunCompletionRequestFields>>("Fields", *request->fields));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->modelCode)) {
     body->insert(pair<string, string>("ModelCode", *request->modelCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<RunCompletionRequestServiceInspection>(request->serviceInspection)) {
+    body->insert(pair<string, RunCompletionRequestServiceInspection>("ServiceInspection", *request->serviceInspection));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
     body->insert(pair<string, bool>("Stream", *request->stream));
