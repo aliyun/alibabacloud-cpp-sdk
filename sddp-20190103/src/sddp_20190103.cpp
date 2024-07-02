@@ -108,6 +108,9 @@ CreateDataLimitResponse Alibabacloud_Sddp20190103::Client::createDataLimitWithOp
   if (!Darabonba_Util::Client::isUnset<long>(request->featureType)) {
     query->insert(pair<string, long>("FeatureType", *request->featureType));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->instantlyScan)) {
+    query->insert(pair<string, bool>("InstantlyScan", *request->instantlyScan));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }

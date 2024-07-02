@@ -174,6 +174,7 @@ public:
   shared_ptr<string> engineType{};
   shared_ptr<long> eventStatus{};
   shared_ptr<long> featureType{};
+  shared_ptr<bool> instantlyScan{};
   shared_ptr<string> lang{};
   shared_ptr<long> logStoreDay{};
   shared_ptr<long> ocrStatus{};
@@ -216,6 +217,9 @@ public:
     }
     if (featureType) {
       res["FeatureType"] = boost::any(*featureType);
+    }
+    if (instantlyScan) {
+      res["InstantlyScan"] = boost::any(*instantlyScan);
     }
     if (lang) {
       res["Lang"] = boost::any(*lang);
@@ -274,6 +278,9 @@ public:
     }
     if (m.find("FeatureType") != m.end() && !m["FeatureType"].empty()) {
       featureType = make_shared<long>(boost::any_cast<long>(m["FeatureType"]));
+    }
+    if (m.find("InstantlyScan") != m.end() && !m["InstantlyScan"].empty()) {
+      instantlyScan = make_shared<bool>(boost::any_cast<bool>(m["InstantlyScan"]));
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
