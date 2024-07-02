@@ -1076,6 +1076,8 @@ public:
   shared_ptr<string> goodName{};
   shared_ptr<string> productId{};
   shared_ptr<long> quantity{};
+  shared_ptr<string> skuId{};
+  shared_ptr<string> skuTitle{};
 
   Good() {}
 
@@ -1096,6 +1098,12 @@ public:
     if (quantity) {
       res["quantity"] = boost::any(*quantity);
     }
+    if (skuId) {
+      res["skuId"] = boost::any(*skuId);
+    }
+    if (skuTitle) {
+      res["skuTitle"] = boost::any(*skuTitle);
+    }
     return res;
   }
 
@@ -1108,6 +1116,12 @@ public:
     }
     if (m.find("quantity") != m.end() && !m["quantity"].empty()) {
       quantity = make_shared<long>(boost::any_cast<long>(m["quantity"]));
+    }
+    if (m.find("skuId") != m.end() && !m["skuId"].empty()) {
+      skuId = make_shared<string>(boost::any_cast<string>(m["skuId"]));
+    }
+    if (m.find("skuTitle") != m.end() && !m["skuTitle"].empty()) {
+      skuTitle = make_shared<string>(boost::any_cast<string>(m["skuTitle"]));
     }
   }
 
@@ -2074,6 +2088,7 @@ public:
 class ProductSpecValue : public Darabonba::Model {
 public:
   shared_ptr<string> value{};
+  shared_ptr<string> valueAlias{};
   shared_ptr<long> valueId{};
 
   ProductSpecValue() {}
@@ -2089,6 +2104,9 @@ public:
     if (value) {
       res["value"] = boost::any(*value);
     }
+    if (valueAlias) {
+      res["valueAlias"] = boost::any(*valueAlias);
+    }
     if (valueId) {
       res["valueId"] = boost::any(*valueId);
     }
@@ -2098,6 +2116,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("value") != m.end() && !m["value"].empty()) {
       value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+    if (m.find("valueAlias") != m.end() && !m["valueAlias"].empty()) {
+      valueAlias = make_shared<string>(boost::any_cast<string>(m["valueAlias"]));
     }
     if (m.find("valueId") != m.end() && !m["valueId"].empty()) {
       valueId = make_shared<long>(boost::any_cast<long>(m["valueId"]));
@@ -2212,6 +2233,7 @@ public:
   shared_ptr<string> key{};
   shared_ptr<long> keyId{};
   shared_ptr<string> value{};
+  shared_ptr<string> valueAlias{};
   shared_ptr<long> valueId{};
 
   SkuSpec() {}
@@ -2233,6 +2255,9 @@ public:
     if (value) {
       res["value"] = boost::any(*value);
     }
+    if (valueAlias) {
+      res["valueAlias"] = boost::any(*valueAlias);
+    }
     if (valueId) {
       res["valueId"] = boost::any(*valueId);
     }
@@ -2248,6 +2273,9 @@ public:
     }
     if (m.find("value") != m.end() && !m["value"].empty()) {
       value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+    if (m.find("valueAlias") != m.end() && !m["valueAlias"].empty()) {
+      valueAlias = make_shared<string>(boost::any_cast<string>(m["valueAlias"]));
     }
     if (m.find("valueId") != m.end() && !m["valueId"].empty()) {
       valueId = make_shared<long>(boost::any_cast<long>(m["valueId"]));
