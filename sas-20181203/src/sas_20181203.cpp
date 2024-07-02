@@ -1972,6 +1972,40 @@ CreateHoneypotProbeBindResponse Alibabacloud_Sas20181203::Client::createHoneypot
   return createHoneypotProbeBindWithOptions(request, runtime);
 }
 
+CreateHybridProxyClusterResponse Alibabacloud_Sas20181203::Client::createHybridProxyClusterWithOptions(shared_ptr<CreateHybridProxyClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterName)) {
+    query->insert(pair<string, string>("ClusterName", *request->clusterName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ip)) {
+    query->insert(pair<string, string>("Ip", *request->ip));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateHybridProxyCluster"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateHybridProxyClusterResponse(callApi(params, req, runtime));
+}
+
+CreateHybridProxyClusterResponse Alibabacloud_Sas20181203::Client::createHybridProxyCluster(shared_ptr<CreateHybridProxyClusterRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createHybridProxyClusterWithOptions(request, runtime);
+}
+
 CreateInterceptionRuleResponse Alibabacloud_Sas20181203::Client::createInterceptionRuleWithOptions(shared_ptr<CreateInterceptionRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateInterceptionRuleShrinkRequest> request = make_shared<CreateInterceptionRuleShrinkRequest>();
