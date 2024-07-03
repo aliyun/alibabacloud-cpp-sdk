@@ -3972,6 +3972,9 @@ ModifyScalingConfigurationResponse Alibabacloud_Ess20220222::Client::modifyScali
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
+    query->insert(pair<string, string>("Password", *request->password));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->passwordInherit)) {
     query->insert(pair<string, bool>("PasswordInherit", *request->passwordInherit));
   }

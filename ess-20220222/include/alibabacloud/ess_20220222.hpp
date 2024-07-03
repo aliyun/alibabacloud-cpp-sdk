@@ -18558,6 +18558,7 @@ public:
   shared_ptr<long> memory{};
   shared_ptr<vector<DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces>> networkInterfaces{};
   shared_ptr<bool> passwordInherit{};
+  shared_ptr<bool> passwordSetted{};
   shared_ptr<string> privatePoolOptions_id{};
   shared_ptr<string> privatePoolOptions_matchCriteria{};
   shared_ptr<string> ramRoleName{};
@@ -18720,6 +18721,9 @@ public:
     }
     if (passwordInherit) {
       res["PasswordInherit"] = boost::any(*passwordInherit);
+    }
+    if (passwordSetted) {
+      res["PasswordSetted"] = boost::any(*passwordSetted);
     }
     if (privatePoolOptions_id) {
       res["PrivatePoolOptions.Id"] = boost::any(*privatePoolOptions_id);
@@ -18983,6 +18987,9 @@ public:
     }
     if (m.find("PasswordInherit") != m.end() && !m["PasswordInherit"].empty()) {
       passwordInherit = make_shared<bool>(boost::any_cast<bool>(m["PasswordInherit"]));
+    }
+    if (m.find("PasswordSetted") != m.end() && !m["PasswordSetted"].empty()) {
+      passwordSetted = make_shared<bool>(boost::any_cast<bool>(m["PasswordSetted"]));
     }
     if (m.find("PrivatePoolOptions.Id") != m.end() && !m["PrivatePoolOptions.Id"].empty()) {
       privatePoolOptions_id = make_shared<string>(boost::any_cast<string>(m["PrivatePoolOptions.Id"]));
@@ -30388,6 +30395,7 @@ public:
   shared_ptr<bool> override{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> password{};
   shared_ptr<bool> passwordInherit{};
   shared_ptr<string> ramRoleName{};
   shared_ptr<string> resourceGroupId{};
@@ -30537,6 +30545,9 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
     }
     if (passwordInherit) {
       res["PasswordInherit"] = boost::any(*passwordInherit);
@@ -30773,6 +30784,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
     }
     if (m.find("PasswordInherit") != m.end() && !m["PasswordInherit"].empty()) {
       passwordInherit = make_shared<bool>(boost::any_cast<bool>(m["PasswordInherit"]));
@@ -31591,6 +31605,7 @@ public:
   shared_ptr<bool> override{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> password{};
   shared_ptr<bool> passwordInherit{};
   shared_ptr<string> ramRoleName{};
   shared_ptr<string> resourceGroupId{};
@@ -31740,6 +31755,9 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
     }
     if (passwordInherit) {
       res["PasswordInherit"] = boost::any(*passwordInherit);
@@ -31976,6 +31994,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
     }
     if (m.find("PasswordInherit") != m.end() && !m["PasswordInherit"].empty()) {
       passwordInherit = make_shared<bool>(boost::any_cast<bool>(m["PasswordInherit"]));
