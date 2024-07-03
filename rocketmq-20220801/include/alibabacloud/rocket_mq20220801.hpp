@@ -471,10 +471,40 @@ public:
 
   virtual ~CreateInstanceRequestNetworkInfoInternetInfo() = default;
 };
+class CreateInstanceRequestNetworkInfoVpcInfoVSwitches : public Darabonba::Model {
+public:
+  shared_ptr<string> vSwitchId{};
+
+  CreateInstanceRequestNetworkInfoVpcInfoVSwitches() {}
+
+  explicit CreateInstanceRequestNetworkInfoVpcInfoVSwitches(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vSwitchId) {
+      res["vSwitchId"] = boost::any(*vSwitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("vSwitchId") != m.end() && !m["vSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["vSwitchId"]));
+    }
+  }
+
+
+  virtual ~CreateInstanceRequestNetworkInfoVpcInfoVSwitches() = default;
+};
 class CreateInstanceRequestNetworkInfoVpcInfo : public Darabonba::Model {
 public:
   shared_ptr<string> securityGroupIds{};
   shared_ptr<string> vSwitchId{};
+  shared_ptr<vector<CreateInstanceRequestNetworkInfoVpcInfoVSwitches>> vSwitches{};
   shared_ptr<string> vpcId{};
 
   CreateInstanceRequestNetworkInfoVpcInfo() {}
@@ -493,6 +523,13 @@ public:
     if (vSwitchId) {
       res["vSwitchId"] = boost::any(*vSwitchId);
     }
+    if (vSwitches) {
+      vector<boost::any> temp1;
+      for(auto item1:*vSwitches){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["vSwitches"] = boost::any(temp1);
+    }
     if (vpcId) {
       res["vpcId"] = boost::any(*vpcId);
     }
@@ -505,6 +542,19 @@ public:
     }
     if (m.find("vSwitchId") != m.end() && !m["vSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["vSwitchId"]));
+    }
+    if (m.find("vSwitches") != m.end() && !m["vSwitches"].empty()) {
+      if (typeid(vector<boost::any>) == m["vSwitches"].type()) {
+        vector<CreateInstanceRequestNetworkInfoVpcInfoVSwitches> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["vSwitches"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateInstanceRequestNetworkInfoVpcInfoVSwitches model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        vSwitches = make_shared<vector<CreateInstanceRequestNetworkInfoVpcInfoVSwitches>>(expect1);
+      }
     }
     if (m.find("vpcId") != m.end() && !m["vpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["vpcId"]));
