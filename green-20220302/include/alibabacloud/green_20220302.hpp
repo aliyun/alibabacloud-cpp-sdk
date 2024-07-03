@@ -602,6 +602,7 @@ public:
   shared_ptr<long> frameNum{};
   shared_ptr<string> reqId{};
   shared_ptr<vector<DescribeImageModerationResultResponseBodyDataResult>> result{};
+  shared_ptr<string> riskLevel{};
 
   DescribeImageModerationResultResponseBodyData() {}
 
@@ -632,6 +633,9 @@ public:
       }
       res["Result"] = boost::any(temp1);
     }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
     return res;
   }
 
@@ -660,6 +664,9 @@ public:
         }
         result = make_shared<vector<DescribeImageModerationResultResponseBodyDataResult>>(expect1);
       }
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
     }
   }
 
@@ -2761,6 +2768,7 @@ public:
   shared_ptr<string> dataId{};
   shared_ptr<ImageModerationResponseBodyDataExt> ext{};
   shared_ptr<vector<ImageModerationResponseBodyDataResult>> result{};
+  shared_ptr<string> riskLevel{};
 
   ImageModerationResponseBodyData() {}
 
@@ -2784,6 +2792,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Result"] = boost::any(temp1);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     return res;
   }
@@ -2811,6 +2822,9 @@ public:
         }
         result = make_shared<vector<ImageModerationResponseBodyDataResult>>(expect1);
       }
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
     }
   }
 
@@ -3298,6 +3312,7 @@ class TextModerationPlusResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<TextModerationPlusResponseBodyDataAdvice>> advice{};
   shared_ptr<vector<TextModerationPlusResponseBodyDataResult>> result{};
+  shared_ptr<string> riskLevel{};
   shared_ptr<double> score{};
 
   TextModerationPlusResponseBodyData() {}
@@ -3323,6 +3338,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Result"] = boost::any(temp1);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
     }
     if (score) {
       res["Score"] = boost::any(*score);
@@ -3356,6 +3374,9 @@ public:
         }
         result = make_shared<vector<TextModerationPlusResponseBodyDataResult>>(expect1);
       }
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
     }
     if (m.find("Score") != m.end() && !m["Score"].empty()) {
       score = make_shared<double>(boost::any_cast<double>(m["Score"]));
