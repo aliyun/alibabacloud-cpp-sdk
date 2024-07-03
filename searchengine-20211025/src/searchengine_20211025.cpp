@@ -165,6 +165,47 @@ CloneSqlInstanceResponse Alibabacloud_Searchengine20211025::Client::cloneSqlInst
   return cloneSqlInstanceWithOptions(instanceId, database, sqlInstanceId, request, headers, runtime);
 }
 
+CreateAliasResponse Alibabacloud_Searchengine20211025::Client::createAliasWithOptions(shared_ptr<string> instanceId,
+                                                                                      shared_ptr<CreateAliasRequest> request,
+                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->newMode)) {
+    query->insert(pair<string, bool>("newMode", *request->newMode));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alias)) {
+    body->insert(pair<string, string>("alias", *request->alias));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->index)) {
+    body->insert(pair<string, string>("index", *request->index));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateAlias"))},
+    {"version", boost::any(string("2021-10-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/ha3/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/aliases"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateAliasResponse(callApi(params, req, runtime));
+}
+
+CreateAliasResponse Alibabacloud_Searchengine20211025::Client::createAlias(shared_ptr<string> instanceId, shared_ptr<CreateAliasRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createAliasWithOptions(instanceId, request, headers, runtime);
+}
+
 CreateClusterResponse Alibabacloud_Searchengine20211025::Client::createClusterWithOptions(shared_ptr<string> instanceId,
                                                                                           shared_ptr<CreateClusterRequest> request,
                                                                                           shared_ptr<map<string, string>> headers,
@@ -626,6 +667,33 @@ DeleteAdvanceConfigResponse Alibabacloud_Searchengine20211025::Client::deleteAdv
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return deleteAdvanceConfigWithOptions(instanceId, configName, headers, runtime);
+}
+
+DeleteAliasResponse Alibabacloud_Searchengine20211025::Client::deleteAliasWithOptions(shared_ptr<string> instanceId,
+                                                                                      shared_ptr<string> alias,
+                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteAlias"))},
+    {"version", boost::any(string("2021-10-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/ha3/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/aliases/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(alias)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteAliasResponse(callApi(params, req, runtime));
+}
+
+DeleteAliasResponse Alibabacloud_Searchengine20211025::Client::deleteAlias(shared_ptr<string> instanceId, shared_ptr<string> alias) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteAliasWithOptions(instanceId, alias, headers, runtime);
 }
 
 DeleteConfigDirResponse Alibabacloud_Searchengine20211025::Client::deleteConfigDirWithOptions(shared_ptr<string> instanceId,
@@ -1620,6 +1688,30 @@ ListAdvanceConfigsResponse Alibabacloud_Searchengine20211025::Client::listAdvanc
   return listAdvanceConfigsWithOptions(instanceId, request, headers, runtime);
 }
 
+ListAliasesResponse Alibabacloud_Searchengine20211025::Client::listAliasesWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListAliases"))},
+    {"version", boost::any(string("2021-10-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/ha3/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/aliases"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListAliasesResponse(callApi(params, req, runtime));
+}
+
+ListAliasesResponse Alibabacloud_Searchengine20211025::Client::listAliases(shared_ptr<string> instanceId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listAliasesWithOptions(instanceId, headers, runtime);
+}
+
 ListClusterNamesResponse Alibabacloud_Searchengine20211025::Client::listClusterNamesWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -2531,6 +2623,43 @@ ModifyAdvanceConfigFileResponse Alibabacloud_Searchengine20211025::Client::modif
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return modifyAdvanceConfigFileWithOptions(instanceId, configName, request, headers, runtime);
+}
+
+ModifyAliasResponse Alibabacloud_Searchengine20211025::Client::modifyAliasWithOptions(shared_ptr<string> instanceId,
+                                                                                      shared_ptr<string> alias,
+                                                                                      shared_ptr<ModifyAliasRequest> request,
+                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alias)) {
+    body->insert(pair<string, string>("alias", *request->alias));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->index)) {
+    body->insert(pair<string, string>("index", *request->index));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyAlias"))},
+    {"version", boost::any(string("2021-10-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/ha3/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/aliases/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(alias)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyAliasResponse(callApi(params, req, runtime));
+}
+
+ModifyAliasResponse Alibabacloud_Searchengine20211025::Client::modifyAlias(shared_ptr<string> instanceId, shared_ptr<string> alias, shared_ptr<ModifyAliasRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return modifyAliasWithOptions(instanceId, alias, request, headers, runtime);
 }
 
 ModifyClusterDescResponse Alibabacloud_Searchengine20211025::Client::modifyClusterDescWithOptions(shared_ptr<string> instanceId,
