@@ -8868,6 +8868,7 @@ public:
 class DescribeSqlLogTaskResponseBodyDataQueries : public Darabonba::Model {
 public:
   shared_ptr<string> accountName{};
+  shared_ptr<string> collection{};
   shared_ptr<long> consume{};
   shared_ptr<long> cpuTime{};
   shared_ptr<string> DBName{};
@@ -8912,6 +8913,9 @@ public:
     map<string, boost::any> res;
     if (accountName) {
       res["AccountName"] = boost::any(*accountName);
+    }
+    if (collection) {
+      res["Collection"] = boost::any(*collection);
     }
     if (consume) {
       res["Consume"] = boost::any(*consume);
@@ -9012,6 +9016,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
       accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
+    if (m.find("Collection") != m.end() && !m["Collection"].empty()) {
+      collection = make_shared<string>(boost::any_cast<string>(m["Collection"]));
     }
     if (m.find("Consume") != m.end() && !m["Consume"].empty()) {
       consume = make_shared<long>(boost::any_cast<long>(m["Consume"]));
