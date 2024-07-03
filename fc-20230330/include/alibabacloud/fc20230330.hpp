@@ -10104,6 +10104,7 @@ public:
 };
 class PutLayerACLRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> acl{};
   shared_ptr<string> public_{};
 
   PutLayerACLRequest() {}
@@ -10116,6 +10117,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acl) {
+      res["acl"] = boost::any(*acl);
+    }
     if (public_) {
       res["public"] = boost::any(*public_);
     }
@@ -10123,6 +10127,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("acl") != m.end() && !m["acl"].empty()) {
+      acl = make_shared<string>(boost::any_cast<string>(m["acl"]));
+    }
     if (m.find("public") != m.end() && !m["public"].empty()) {
       public_ = make_shared<string>(boost::any_cast<string>(m["public"]));
     }

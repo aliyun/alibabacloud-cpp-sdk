@@ -1499,6 +1499,9 @@ PutLayerACLResponse Alibabacloud_FC20230330::Client::putLayerACLWithOptions(shar
                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acl)) {
+    query->insert(pair<string, string>("acl", *request->acl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->public_)) {
     query->insert(pair<string, string>("public_", *request->public_));
   }
