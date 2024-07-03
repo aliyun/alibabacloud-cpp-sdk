@@ -15796,6 +15796,7 @@ public:
 };
 class DescribeDocumentResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> chunkFileUrl{};
   shared_ptr<long> docsCount{};
   shared_ptr<string> documentLoader{};
   shared_ptr<string> fileExt{};
@@ -15803,8 +15804,10 @@ public:
   shared_ptr<string> fileMtime{};
   shared_ptr<string> fileName{};
   shared_ptr<long> fileSize{};
+  shared_ptr<string> fileUrl{};
   shared_ptr<long> fileVersion{};
   shared_ptr<string> message{};
+  shared_ptr<string> plainChunkFileUrl{};
   shared_ptr<string> requestId{};
   shared_ptr<string> source{};
   shared_ptr<string> status{};
@@ -15820,6 +15823,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (chunkFileUrl) {
+      res["ChunkFileUrl"] = boost::any(*chunkFileUrl);
+    }
     if (docsCount) {
       res["DocsCount"] = boost::any(*docsCount);
     }
@@ -15841,11 +15847,17 @@ public:
     if (fileSize) {
       res["FileSize"] = boost::any(*fileSize);
     }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
     if (fileVersion) {
       res["FileVersion"] = boost::any(*fileVersion);
     }
     if (message) {
       res["Message"] = boost::any(*message);
+    }
+    if (plainChunkFileUrl) {
+      res["PlainChunkFileUrl"] = boost::any(*plainChunkFileUrl);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -15863,6 +15875,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChunkFileUrl") != m.end() && !m["ChunkFileUrl"].empty()) {
+      chunkFileUrl = make_shared<string>(boost::any_cast<string>(m["ChunkFileUrl"]));
+    }
     if (m.find("DocsCount") != m.end() && !m["DocsCount"].empty()) {
       docsCount = make_shared<long>(boost::any_cast<long>(m["DocsCount"]));
     }
@@ -15884,11 +15899,17 @@ public:
     if (m.find("FileSize") != m.end() && !m["FileSize"].empty()) {
       fileSize = make_shared<long>(boost::any_cast<long>(m["FileSize"]));
     }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
     if (m.find("FileVersion") != m.end() && !m["FileVersion"].empty()) {
       fileVersion = make_shared<long>(boost::any_cast<long>(m["FileVersion"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PlainChunkFileUrl") != m.end() && !m["PlainChunkFileUrl"].empty()) {
+      plainChunkFileUrl = make_shared<string>(boost::any_cast<string>(m["PlainChunkFileUrl"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
