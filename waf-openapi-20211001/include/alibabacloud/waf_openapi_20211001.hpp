@@ -1819,6 +1819,172 @@ public:
 
   virtual ~CreatePostpaidInstanceResponse() = default;
 };
+class CreateSM2CertRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> certName{};
+  shared_ptr<string> encryptCertificate{};
+  shared_ptr<string> encryptPrivateKey{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<string> signCertificate{};
+  shared_ptr<string> signPrivateKey{};
+
+  CreateSM2CertRequest() {}
+
+  explicit CreateSM2CertRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certName) {
+      res["CertName"] = boost::any(*certName);
+    }
+    if (encryptCertificate) {
+      res["EncryptCertificate"] = boost::any(*encryptCertificate);
+    }
+    if (encryptPrivateKey) {
+      res["EncryptPrivateKey"] = boost::any(*encryptPrivateKey);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (signCertificate) {
+      res["SignCertificate"] = boost::any(*signCertificate);
+    }
+    if (signPrivateKey) {
+      res["SignPrivateKey"] = boost::any(*signPrivateKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertName") != m.end() && !m["CertName"].empty()) {
+      certName = make_shared<string>(boost::any_cast<string>(m["CertName"]));
+    }
+    if (m.find("EncryptCertificate") != m.end() && !m["EncryptCertificate"].empty()) {
+      encryptCertificate = make_shared<string>(boost::any_cast<string>(m["EncryptCertificate"]));
+    }
+    if (m.find("EncryptPrivateKey") != m.end() && !m["EncryptPrivateKey"].empty()) {
+      encryptPrivateKey = make_shared<string>(boost::any_cast<string>(m["EncryptPrivateKey"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+    if (m.find("SignCertificate") != m.end() && !m["SignCertificate"].empty()) {
+      signCertificate = make_shared<string>(boost::any_cast<string>(m["SignCertificate"]));
+    }
+    if (m.find("SignPrivateKey") != m.end() && !m["SignPrivateKey"].empty()) {
+      signPrivateKey = make_shared<string>(boost::any_cast<string>(m["SignPrivateKey"]));
+    }
+  }
+
+
+  virtual ~CreateSM2CertRequest() = default;
+};
+class CreateSM2CertResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> certIdentifier{};
+  shared_ptr<string> requestId{};
+
+  CreateSM2CertResponseBody() {}
+
+  explicit CreateSM2CertResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certIdentifier) {
+      res["CertIdentifier"] = boost::any(*certIdentifier);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertIdentifier") != m.end() && !m["CertIdentifier"].empty()) {
+      certIdentifier = make_shared<string>(boost::any_cast<string>(m["CertIdentifier"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateSM2CertResponseBody() = default;
+};
+class CreateSM2CertResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateSM2CertResponseBody> body{};
+
+  CreateSM2CertResponse() {}
+
+  explicit CreateSM2CertResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSM2CertResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSM2CertResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSM2CertResponse() = default;
+};
 class DeleteApisecAbnormalRequest : public Darabonba::Model {
 public:
   shared_ptr<string> abnormalId{};
@@ -5369,6 +5535,187 @@ public:
 
 
   virtual ~DescribeCloudResourcesResponse() = default;
+};
+class DescribeDDoSStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeDDoSStatusRequest() {}
+
+  explicit DescribeDDoSStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeDDoSStatusRequest() = default;
+};
+class DescribeDDoSStatusResponseBodyDDoSStatus : public Darabonba::Model {
+public:
+  shared_ptr<string> eventType{};
+  shared_ptr<string> status{};
+
+  DescribeDDoSStatusResponseBodyDDoSStatus() {}
+
+  explicit DescribeDDoSStatusResponseBodyDDoSStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventType) {
+      res["EventType"] = boost::any(*eventType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
+      eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeDDoSStatusResponseBodyDDoSStatus() = default;
+};
+class DescribeDDoSStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDDoSStatusResponseBodyDDoSStatus>> DDoSStatus{};
+  shared_ptr<string> requestId{};
+
+  DescribeDDoSStatusResponseBody() {}
+
+  explicit DescribeDDoSStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DDoSStatus) {
+      vector<boost::any> temp1;
+      for(auto item1:*DDoSStatus){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DDoSStatus"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DDoSStatus") != m.end() && !m["DDoSStatus"].empty()) {
+      if (typeid(vector<boost::any>) == m["DDoSStatus"].type()) {
+        vector<DescribeDDoSStatusResponseBodyDDoSStatus> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DDoSStatus"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDDoSStatusResponseBodyDDoSStatus model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        DDoSStatus = make_shared<vector<DescribeDDoSStatusResponseBodyDDoSStatus>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDDoSStatusResponseBody() = default;
+};
+class DescribeDDoSStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDDoSStatusResponseBody> body{};
+
+  DescribeDDoSStatusResponse() {}
+
+  explicit DescribeDDoSStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDDoSStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDDoSStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDDoSStatusResponse() = default;
 };
 class DescribeDefenseResourceRequest : public Darabonba::Model {
 public:
@@ -21675,6 +22022,8 @@ public:
   CreateMemberAccountsResponse createMemberAccounts(shared_ptr<CreateMemberAccountsRequest> request);
   CreatePostpaidInstanceResponse createPostpaidInstanceWithOptions(shared_ptr<CreatePostpaidInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePostpaidInstanceResponse createPostpaidInstance(shared_ptr<CreatePostpaidInstanceRequest> request);
+  CreateSM2CertResponse createSM2CertWithOptions(shared_ptr<CreateSM2CertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSM2CertResponse createSM2Cert(shared_ptr<CreateSM2CertRequest> request);
   DeleteApisecAbnormalResponse deleteApisecAbnormalWithOptions(shared_ptr<DeleteApisecAbnormalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteApisecAbnormalResponse deleteApisecAbnormal(shared_ptr<DeleteApisecAbnormalRequest> request);
   DeleteApisecEventResponse deleteApisecEventWithOptions(shared_ptr<DeleteApisecEventRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -21713,6 +22062,8 @@ public:
   DescribeCertsResponse describeCerts(shared_ptr<DescribeCertsRequest> request);
   DescribeCloudResourcesResponse describeCloudResourcesWithOptions(shared_ptr<DescribeCloudResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCloudResourcesResponse describeCloudResources(shared_ptr<DescribeCloudResourcesRequest> request);
+  DescribeDDoSStatusResponse describeDDoSStatusWithOptions(shared_ptr<DescribeDDoSStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDDoSStatusResponse describeDDoSStatus(shared_ptr<DescribeDDoSStatusRequest> request);
   DescribeDefenseResourceResponse describeDefenseResourceWithOptions(shared_ptr<DescribeDefenseResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDefenseResourceResponse describeDefenseResource(shared_ptr<DescribeDefenseResourceRequest> request);
   DescribeDefenseResourceGroupResponse describeDefenseResourceGroupWithOptions(shared_ptr<DescribeDefenseResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
