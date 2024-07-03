@@ -446,6 +446,9 @@ CreateModelVersionResponse Alibabacloud_AIWorkSpace20210204::Client::createModel
   if (!Darabonba_Util::Client::isUnset<string>(request->approvalStatus)) {
     body->insert(pair<string, string>("ApprovalStatus", *request->approvalStatus));
   }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->compressionSpec)) {
+    body->insert(pair<string, map<string, boost::any>>("CompressionSpec", *request->compressionSpec));
+  }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->evaluationSpec)) {
     body->insert(pair<string, map<string, boost::any>>("EvaluationSpec", *request->evaluationSpec));
   }
@@ -2229,6 +2232,9 @@ UpdateModelVersionResponse Alibabacloud_AIWorkSpace20210204::Client::updateModel
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->approvalStatus)) {
     body->insert(pair<string, string>("ApprovalStatus", *request->approvalStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->compressionSpec)) {
+    body->insert(pair<string, map<string, boost::any>>("CompressionSpec", *request->compressionSpec));
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->evaluationSpec)) {
     body->insert(pair<string, map<string, boost::any>>("EvaluationSpec", *request->evaluationSpec));

@@ -625,6 +625,7 @@ public:
 class ModelVersion : public Darabonba::Model {
 public:
   shared_ptr<string> approvalStatus{};
+  shared_ptr<map<string, boost::any>> compressionSpec{};
   shared_ptr<map<string, boost::any>> evaluationSpec{};
   shared_ptr<map<string, boost::any>> extraInfo{};
   shared_ptr<string> formatType{};
@@ -656,6 +657,9 @@ public:
     map<string, boost::any> res;
     if (approvalStatus) {
       res["ApprovalStatus"] = boost::any(*approvalStatus);
+    }
+    if (compressionSpec) {
+      res["CompressionSpec"] = boost::any(*compressionSpec);
     }
     if (evaluationSpec) {
       res["EvaluationSpec"] = boost::any(*evaluationSpec);
@@ -721,6 +725,14 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApprovalStatus") != m.end() && !m["ApprovalStatus"].empty()) {
       approvalStatus = make_shared<string>(boost::any_cast<string>(m["ApprovalStatus"]));
+    }
+    if (m.find("CompressionSpec") != m.end() && !m["CompressionSpec"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["CompressionSpec"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      compressionSpec = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("EvaluationSpec") != m.end() && !m["EvaluationSpec"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["EvaluationSpec"]);
@@ -2862,6 +2874,7 @@ public:
 class CreateModelVersionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> approvalStatus{};
+  shared_ptr<map<string, boost::any>> compressionSpec{};
   shared_ptr<map<string, boost::any>> evaluationSpec{};
   shared_ptr<map<string, boost::any>> extraInfo{};
   shared_ptr<string> formatType{};
@@ -2889,6 +2902,9 @@ public:
     map<string, boost::any> res;
     if (approvalStatus) {
       res["ApprovalStatus"] = boost::any(*approvalStatus);
+    }
+    if (compressionSpec) {
+      res["CompressionSpec"] = boost::any(*compressionSpec);
     }
     if (evaluationSpec) {
       res["EvaluationSpec"] = boost::any(*evaluationSpec);
@@ -2942,6 +2958,14 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApprovalStatus") != m.end() && !m["ApprovalStatus"].empty()) {
       approvalStatus = make_shared<string>(boost::any_cast<string>(m["ApprovalStatus"]));
+    }
+    if (m.find("CompressionSpec") != m.end() && !m["CompressionSpec"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["CompressionSpec"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      compressionSpec = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("EvaluationSpec") != m.end() && !m["EvaluationSpec"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["EvaluationSpec"]);
@@ -6406,6 +6430,7 @@ public:
 class GetModelVersionResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> approvalStatus{};
+  shared_ptr<map<string, boost::any>> compressionSpec{};
   shared_ptr<map<string, boost::any>> evaluationSpec{};
   shared_ptr<map<string, boost::any>> extraInfo{};
   shared_ptr<string> formatType{};
@@ -6438,6 +6463,9 @@ public:
     map<string, boost::any> res;
     if (approvalStatus) {
       res["ApprovalStatus"] = boost::any(*approvalStatus);
+    }
+    if (compressionSpec) {
+      res["CompressionSpec"] = boost::any(*compressionSpec);
     }
     if (evaluationSpec) {
       res["EvaluationSpec"] = boost::any(*evaluationSpec);
@@ -6506,6 +6534,14 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApprovalStatus") != m.end() && !m["ApprovalStatus"].empty()) {
       approvalStatus = make_shared<string>(boost::any_cast<string>(m["ApprovalStatus"]));
+    }
+    if (m.find("CompressionSpec") != m.end() && !m["CompressionSpec"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["CompressionSpec"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      compressionSpec = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("EvaluationSpec") != m.end() && !m["EvaluationSpec"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["EvaluationSpec"]);
@@ -11883,6 +11919,7 @@ public:
 class UpdateModelVersionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> approvalStatus{};
+  shared_ptr<map<string, boost::any>> compressionSpec{};
   shared_ptr<map<string, boost::any>> evaluationSpec{};
   shared_ptr<map<string, boost::any>> extraInfo{};
   shared_ptr<map<string, boost::any>> inferenceSpec{};
@@ -11905,6 +11942,9 @@ public:
     map<string, boost::any> res;
     if (approvalStatus) {
       res["ApprovalStatus"] = boost::any(*approvalStatus);
+    }
+    if (compressionSpec) {
+      res["CompressionSpec"] = boost::any(*compressionSpec);
     }
     if (evaluationSpec) {
       res["EvaluationSpec"] = boost::any(*evaluationSpec);
@@ -11939,6 +11979,14 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApprovalStatus") != m.end() && !m["ApprovalStatus"].empty()) {
       approvalStatus = make_shared<string>(boost::any_cast<string>(m["ApprovalStatus"]));
+    }
+    if (m.find("CompressionSpec") != m.end() && !m["CompressionSpec"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["CompressionSpec"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      compressionSpec = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("EvaluationSpec") != m.end() && !m["EvaluationSpec"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["EvaluationSpec"]);
