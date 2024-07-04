@@ -22680,6 +22680,8 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> recurrenceType{};
+  shared_ptr<string> recurrenceValue{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -22687,6 +22689,8 @@ public:
   shared_ptr<vector<string>> scheduledActions{};
   shared_ptr<vector<string>> scheduledTaskIds{};
   shared_ptr<vector<string>> scheduledTaskNames{};
+  shared_ptr<bool> taskEnabled{};
+  shared_ptr<string> taskName{};
 
   DescribeScheduledTasksRequest() {}
 
@@ -22710,6 +22714,12 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (recurrenceType) {
+      res["RecurrenceType"] = boost::any(*recurrenceType);
+    }
+    if (recurrenceValue) {
+      res["RecurrenceValue"] = boost::any(*recurrenceValue);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -22731,6 +22741,12 @@ public:
     if (scheduledTaskNames) {
       res["ScheduledTaskNames"] = boost::any(*scheduledTaskNames);
     }
+    if (taskEnabled) {
+      res["TaskEnabled"] = boost::any(*taskEnabled);
+    }
+    if (taskName) {
+      res["TaskName"] = boost::any(*taskName);
+    }
     return res;
   }
 
@@ -22746,6 +22762,12 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RecurrenceType") != m.end() && !m["RecurrenceType"].empty()) {
+      recurrenceType = make_shared<string>(boost::any_cast<string>(m["RecurrenceType"]));
+    }
+    if (m.find("RecurrenceValue") != m.end() && !m["RecurrenceValue"].empty()) {
+      recurrenceValue = make_shared<string>(boost::any_cast<string>(m["RecurrenceValue"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -22788,6 +22810,12 @@ public:
         }
       }
       scheduledTaskNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TaskEnabled") != m.end() && !m["TaskEnabled"].empty()) {
+      taskEnabled = make_shared<bool>(boost::any_cast<bool>(m["TaskEnabled"]));
+    }
+    if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
+      taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
     }
   }
 

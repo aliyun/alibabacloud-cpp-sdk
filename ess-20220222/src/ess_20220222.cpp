@@ -2639,6 +2639,12 @@ DescribeScheduledTasksResponse Alibabacloud_Ess20220222::Client::describeSchedul
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recurrenceType)) {
+    query->insert(pair<string, string>("RecurrenceType", *request->recurrenceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->recurrenceValue)) {
+    query->insert(pair<string, string>("RecurrenceValue", *request->recurrenceValue));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -2659,6 +2665,12 @@ DescribeScheduledTasksResponse Alibabacloud_Ess20220222::Client::describeSchedul
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->scheduledTaskNames)) {
     query->insert(pair<string, vector<string>>("ScheduledTaskNames", *request->scheduledTaskNames));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->taskEnabled)) {
+    query->insert(pair<string, bool>("TaskEnabled", *request->taskEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskName)) {
+    query->insert(pair<string, string>("TaskName", *request->taskName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
