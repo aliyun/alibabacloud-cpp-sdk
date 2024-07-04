@@ -8435,6 +8435,337 @@ public:
 
   virtual ~CreateSnatEntryResponse() = default;
 };
+class CreateStorageGatewayRequestOrderDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> ensRegionId{};
+  shared_ptr<string> gatewayName{};
+  shared_ptr<string> gatewayType{};
+  shared_ptr<string> vpcId{};
+
+  CreateStorageGatewayRequestOrderDetails() {}
+
+  explicit CreateStorageGatewayRequestOrderDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (ensRegionId) {
+      res["EnsRegionId"] = boost::any(*ensRegionId);
+    }
+    if (gatewayName) {
+      res["GatewayName"] = boost::any(*gatewayName);
+    }
+    if (gatewayType) {
+      res["GatewayType"] = boost::any(*gatewayType);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EnsRegionId") != m.end() && !m["EnsRegionId"].empty()) {
+      ensRegionId = make_shared<string>(boost::any_cast<string>(m["EnsRegionId"]));
+    }
+    if (m.find("GatewayName") != m.end() && !m["GatewayName"].empty()) {
+      gatewayName = make_shared<string>(boost::any_cast<string>(m["GatewayName"]));
+    }
+    if (m.find("GatewayType") != m.end() && !m["GatewayType"].empty()) {
+      gatewayType = make_shared<string>(boost::any_cast<string>(m["GatewayType"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~CreateStorageGatewayRequestOrderDetails() = default;
+};
+class CreateStorageGatewayRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateStorageGatewayRequestOrderDetails>> orderDetails{};
+
+  CreateStorageGatewayRequest() {}
+
+  explicit CreateStorageGatewayRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*orderDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OrderDetails"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderDetails") != m.end() && !m["OrderDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["OrderDetails"].type()) {
+        vector<CreateStorageGatewayRequestOrderDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OrderDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateStorageGatewayRequestOrderDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        orderDetails = make_shared<vector<CreateStorageGatewayRequestOrderDetails>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateStorageGatewayRequest() = default;
+};
+class CreateStorageGatewayShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> orderDetailsShrink{};
+
+  CreateStorageGatewayShrinkRequest() {}
+
+  explicit CreateStorageGatewayShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderDetailsShrink) {
+      res["OrderDetails"] = boost::any(*orderDetailsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderDetails") != m.end() && !m["OrderDetails"].empty()) {
+      orderDetailsShrink = make_shared<string>(boost::any_cast<string>(m["OrderDetails"]));
+    }
+  }
+
+
+  virtual ~CreateStorageGatewayShrinkRequest() = default;
+};
+class CreateStorageGatewayResponseBodyAllocationId : public Darabonba::Model {
+public:
+  shared_ptr<string> ensRegionId{};
+  shared_ptr<string> instanceId{};
+
+  CreateStorageGatewayResponseBodyAllocationId() {}
+
+  explicit CreateStorageGatewayResponseBodyAllocationId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ensRegionId) {
+      res["EnsRegionId"] = boost::any(*ensRegionId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnsRegionId") != m.end() && !m["EnsRegionId"].empty()) {
+      ensRegionId = make_shared<string>(boost::any_cast<string>(m["EnsRegionId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~CreateStorageGatewayResponseBodyAllocationId() = default;
+};
+class CreateStorageGatewayResponseBodyUnAllocationId : public Darabonba::Model {
+public:
+  shared_ptr<string> ensRegionId{};
+  shared_ptr<string> instanceId{};
+
+  CreateStorageGatewayResponseBodyUnAllocationId() {}
+
+  explicit CreateStorageGatewayResponseBodyUnAllocationId(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ensRegionId) {
+      res["EnsRegionId"] = boost::any(*ensRegionId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnsRegionId") != m.end() && !m["EnsRegionId"].empty()) {
+      ensRegionId = make_shared<string>(boost::any_cast<string>(m["EnsRegionId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~CreateStorageGatewayResponseBodyUnAllocationId() = default;
+};
+class CreateStorageGatewayResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateStorageGatewayResponseBodyAllocationId>> allocationId{};
+  shared_ptr<string> bizStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<CreateStorageGatewayResponseBodyUnAllocationId>> unAllocationId{};
+
+  CreateStorageGatewayResponseBody() {}
+
+  explicit CreateStorageGatewayResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allocationId) {
+      vector<boost::any> temp1;
+      for(auto item1:*allocationId){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AllocationId"] = boost::any(temp1);
+    }
+    if (bizStatusCode) {
+      res["BizStatusCode"] = boost::any(*bizStatusCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (unAllocationId) {
+      vector<boost::any> temp1;
+      for(auto item1:*unAllocationId){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UnAllocationId"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllocationId") != m.end() && !m["AllocationId"].empty()) {
+      if (typeid(vector<boost::any>) == m["AllocationId"].type()) {
+        vector<CreateStorageGatewayResponseBodyAllocationId> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AllocationId"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateStorageGatewayResponseBodyAllocationId model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        allocationId = make_shared<vector<CreateStorageGatewayResponseBodyAllocationId>>(expect1);
+      }
+    }
+    if (m.find("BizStatusCode") != m.end() && !m["BizStatusCode"].empty()) {
+      bizStatusCode = make_shared<string>(boost::any_cast<string>(m["BizStatusCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("UnAllocationId") != m.end() && !m["UnAllocationId"].empty()) {
+      if (typeid(vector<boost::any>) == m["UnAllocationId"].type()) {
+        vector<CreateStorageGatewayResponseBodyUnAllocationId> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UnAllocationId"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateStorageGatewayResponseBodyUnAllocationId model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        unAllocationId = make_shared<vector<CreateStorageGatewayResponseBodyUnAllocationId>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateStorageGatewayResponseBody() = default;
+};
+class CreateStorageGatewayResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateStorageGatewayResponseBody> body{};
+
+  CreateStorageGatewayResponse() {}
+
+  explicit CreateStorageGatewayResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateStorageGatewayResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateStorageGatewayResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateStorageGatewayResponse() = default;
+};
 class CreateVSwitchRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cidrBlock{};
@@ -11960,6 +12291,116 @@ public:
 
 
   virtual ~DeleteSnatIpForSnatEntryResponse() = default;
+};
+class DeleteStorageGatewayRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> gatewayId{};
+
+  DeleteStorageGatewayRequest() {}
+
+  explicit DeleteStorageGatewayRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<string>(boost::any_cast<string>(m["GatewayId"]));
+    }
+  }
+
+
+  virtual ~DeleteStorageGatewayRequest() = default;
+};
+class DeleteStorageGatewayResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteStorageGatewayResponseBody() {}
+
+  explicit DeleteStorageGatewayResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteStorageGatewayResponseBody() = default;
+};
+class DeleteStorageGatewayResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteStorageGatewayResponseBody> body{};
+
+  DeleteStorageGatewayResponse() {}
+
+  explicit DeleteStorageGatewayResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteStorageGatewayResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteStorageGatewayResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteStorageGatewayResponse() = default;
 };
 class DeleteVSwitchRequest : public Darabonba::Model {
 public:
@@ -58502,6 +58943,8 @@ public:
   CreateSnapshotResponse createSnapshot(shared_ptr<CreateSnapshotRequest> request);
   CreateSnatEntryResponse createSnatEntryWithOptions(shared_ptr<CreateSnatEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSnatEntryResponse createSnatEntry(shared_ptr<CreateSnatEntryRequest> request);
+  CreateStorageGatewayResponse createStorageGatewayWithOptions(shared_ptr<CreateStorageGatewayRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateStorageGatewayResponse createStorageGateway(shared_ptr<CreateStorageGatewayRequest> request);
   CreateVSwitchResponse createVSwitchWithOptions(shared_ptr<CreateVSwitchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateVSwitchResponse createVSwitch(shared_ptr<CreateVSwitchRequest> request);
   DeleteApplicationResponse deleteApplicationWithOptions(shared_ptr<DeleteApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -58554,6 +58997,8 @@ public:
   DeleteSnatEntryResponse deleteSnatEntry(shared_ptr<DeleteSnatEntryRequest> request);
   DeleteSnatIpForSnatEntryResponse deleteSnatIpForSnatEntryWithOptions(shared_ptr<DeleteSnatIpForSnatEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSnatIpForSnatEntryResponse deleteSnatIpForSnatEntry(shared_ptr<DeleteSnatIpForSnatEntryRequest> request);
+  DeleteStorageGatewayResponse deleteStorageGatewayWithOptions(shared_ptr<DeleteStorageGatewayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteStorageGatewayResponse deleteStorageGateway(shared_ptr<DeleteStorageGatewayRequest> request);
   DeleteVSwitchResponse deleteVSwitchWithOptions(shared_ptr<DeleteVSwitchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteVSwitchResponse deleteVSwitch(shared_ptr<DeleteVSwitchRequest> request);
   DeployInstanceSDGResponse deployInstanceSDGWithOptions(shared_ptr<DeployInstanceSDGRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

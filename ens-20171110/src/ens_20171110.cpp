@@ -1883,6 +1883,39 @@ CreateSnatEntryResponse Alibabacloud_Ens20171110::Client::createSnatEntry(shared
   return createSnatEntryWithOptions(request, runtime);
 }
 
+CreateStorageGatewayResponse Alibabacloud_Ens20171110::Client::createStorageGatewayWithOptions(shared_ptr<CreateStorageGatewayRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateStorageGatewayShrinkRequest> request = make_shared<CreateStorageGatewayShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateStorageGatewayRequestOrderDetails>>(tmpReq->orderDetails)) {
+    request->orderDetailsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->orderDetails, make_shared<string>("OrderDetails"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderDetailsShrink)) {
+    query->insert(pair<string, string>("OrderDetails", *request->orderDetailsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateStorageGateway"))},
+    {"version", boost::any(string("2017-11-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateStorageGatewayResponse(callApi(params, req, runtime));
+}
+
+CreateStorageGatewayResponse Alibabacloud_Ens20171110::Client::createStorageGateway(shared_ptr<CreateStorageGatewayRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createStorageGatewayWithOptions(request, runtime);
+}
+
 CreateVSwitchResponse Alibabacloud_Ens20171110::Client::createVSwitchWithOptions(shared_ptr<CreateVSwitchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2675,6 +2708,34 @@ DeleteSnatIpForSnatEntryResponse Alibabacloud_Ens20171110::Client::deleteSnatIpF
 DeleteSnatIpForSnatEntryResponse Alibabacloud_Ens20171110::Client::deleteSnatIpForSnatEntry(shared_ptr<DeleteSnatIpForSnatEntryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteSnatIpForSnatEntryWithOptions(request, runtime);
+}
+
+DeleteStorageGatewayResponse Alibabacloud_Ens20171110::Client::deleteStorageGatewayWithOptions(shared_ptr<DeleteStorageGatewayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayId)) {
+    query->insert(pair<string, string>("GatewayId", *request->gatewayId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteStorageGateway"))},
+    {"version", boost::any(string("2017-11-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteStorageGatewayResponse(callApi(params, req, runtime));
+}
+
+DeleteStorageGatewayResponse Alibabacloud_Ens20171110::Client::deleteStorageGateway(shared_ptr<DeleteStorageGatewayRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteStorageGatewayWithOptions(request, runtime);
 }
 
 DeleteVSwitchResponse Alibabacloud_Ens20171110::Client::deleteVSwitchWithOptions(shared_ptr<DeleteVSwitchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
