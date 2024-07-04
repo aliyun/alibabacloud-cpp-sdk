@@ -16453,7 +16453,7 @@ public:
   shared_ptr<string> logicalZone{};
   shared_ptr<long> nodeCopyId{};
   shared_ptr<string> nodeId{};
-  shared_ptr<vector<DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource>> nodeResource{};
+  shared_ptr<DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource> nodeResource{};
   shared_ptr<string> nodeStatus{};
   shared_ptr<long> readOnlyCopyId{};
   shared_ptr<string> replicaType{};
@@ -16481,11 +16481,7 @@ public:
       res["NodeId"] = boost::any(*nodeId);
     }
     if (nodeResource) {
-      vector<boost::any> temp1;
-      for(auto item1:*nodeResource){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["NodeResource"] = boost::any(temp1);
+      res["NodeResource"] = nodeResource ? boost::any(nodeResource->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (nodeStatus) {
       res["NodeStatus"] = boost::any(*nodeStatus);
@@ -16513,16 +16509,10 @@ public:
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
     }
     if (m.find("NodeResource") != m.end() && !m["NodeResource"].empty()) {
-      if (typeid(vector<boost::any>) == m["NodeResource"].type()) {
-        vector<DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["NodeResource"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        nodeResource = make_shared<vector<DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource>>(expect1);
+      if (typeid(map<string, boost::any>) == m["NodeResource"].type()) {
+        DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NodeResource"]));
+        nodeResource = make_shared<DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource>(model1);
       }
     }
     if (m.find("NodeStatus") != m.end() && !m["NodeStatus"].empty()) {
