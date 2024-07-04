@@ -128,6 +128,56 @@ public:
 
   virtual ~AliyunAccounts() = default;
 };
+class AssumeUserInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKeyId{};
+  shared_ptr<string> id{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> type{};
+
+  AssumeUserInfo() {}
+
+  explicit AssumeUserInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKeyId) {
+      res["AccessKeyId"] = boost::any(*accessKeyId);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKeyId") != m.end() && !m["AccessKeyId"].empty()) {
+      accessKeyId = make_shared<string>(boost::any_cast<string>(m["AccessKeyId"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~AssumeUserInfo() = default;
+};
 class CodeSourceItem : public Darabonba::Model {
 public:
   shared_ptr<string> codeBranch{};
@@ -411,6 +461,181 @@ public:
 
 
   virtual ~ContainerSpec() = default;
+};
+class CredentialRole : public Darabonba::Model {
+public:
+  shared_ptr<string> assumeRoleFor{};
+  shared_ptr<AssumeUserInfo> assumeUserInfo{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> roleArn{};
+  shared_ptr<string> roleType{};
+
+  CredentialRole() {}
+
+  explicit CredentialRole(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assumeRoleFor) {
+      res["AssumeRoleFor"] = boost::any(*assumeRoleFor);
+    }
+    if (assumeUserInfo) {
+      res["AssumeUserInfo"] = assumeUserInfo ? boost::any(assumeUserInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (roleArn) {
+      res["RoleArn"] = boost::any(*roleArn);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssumeRoleFor") != m.end() && !m["AssumeRoleFor"].empty()) {
+      assumeRoleFor = make_shared<string>(boost::any_cast<string>(m["AssumeRoleFor"]));
+    }
+    if (m.find("AssumeUserInfo") != m.end() && !m["AssumeUserInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AssumeUserInfo"].type()) {
+        AssumeUserInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AssumeUserInfo"]));
+        assumeUserInfo = make_shared<AssumeUserInfo>(model1);
+      }
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("RoleArn") != m.end() && !m["RoleArn"].empty()) {
+      roleArn = make_shared<string>(boost::any_cast<string>(m["RoleArn"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<string>(boost::any_cast<string>(m["RoleType"]));
+    }
+  }
+
+
+  virtual ~CredentialRole() = default;
+};
+class CredentialConfigItem : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<vector<CredentialRole>> roles{};
+  shared_ptr<string> type{};
+
+  CredentialConfigItem() {}
+
+  explicit CredentialConfigItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (roles) {
+      vector<boost::any> temp1;
+      for(auto item1:*roles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Roles"] = boost::any(temp1);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Roles") != m.end() && !m["Roles"].empty()) {
+      if (typeid(vector<boost::any>) == m["Roles"].type()) {
+        vector<CredentialRole> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Roles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CredentialRole model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        roles = make_shared<vector<CredentialRole>>(expect1);
+      }
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CredentialConfigItem() = default;
+};
+class CredentialConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunEnvRoleKey{};
+  shared_ptr<vector<CredentialConfigItem>> credentialConfigItems{};
+  shared_ptr<bool> enableCredentialInject{};
+
+  CredentialConfig() {}
+
+  explicit CredentialConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunEnvRoleKey) {
+      res["AliyunEnvRoleKey"] = boost::any(*aliyunEnvRoleKey);
+    }
+    if (credentialConfigItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*credentialConfigItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CredentialConfigItems"] = boost::any(temp1);
+    }
+    if (enableCredentialInject) {
+      res["EnableCredentialInject"] = boost::any(*enableCredentialInject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunEnvRoleKey") != m.end() && !m["AliyunEnvRoleKey"].empty()) {
+      aliyunEnvRoleKey = make_shared<string>(boost::any_cast<string>(m["AliyunEnvRoleKey"]));
+    }
+    if (m.find("CredentialConfigItems") != m.end() && !m["CredentialConfigItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["CredentialConfigItems"].type()) {
+        vector<CredentialConfigItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CredentialConfigItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CredentialConfigItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        credentialConfigItems = make_shared<vector<CredentialConfigItem>>(expect1);
+      }
+    }
+    if (m.find("EnableCredentialInject") != m.end() && !m["EnableCredentialInject"].empty()) {
+      enableCredentialInject = make_shared<bool>(boost::any_cast<bool>(m["EnableCredentialInject"]));
+    }
+  }
+
+
+  virtual ~CredentialConfig() = default;
 };
 class DataSourceItem : public Darabonba::Model {
 public:
@@ -2090,6 +2315,7 @@ public:
 class JobItem : public Darabonba::Model {
 public:
   shared_ptr<JobItemCodeSource> codeSource{};
+  shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<vector<JobItemDataSources>> dataSources{};
   shared_ptr<string> displayName{};
   shared_ptr<long> duration{};
@@ -2136,6 +2362,9 @@ public:
     map<string, boost::any> res;
     if (codeSource) {
       res["CodeSource"] = codeSource ? boost::any(codeSource->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (credentialConfig) {
+      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (dataSources) {
       vector<boost::any> temp1;
@@ -2253,6 +2482,13 @@ public:
         JobItemCodeSource model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CodeSource"]));
         codeSource = make_shared<JobItemCodeSource>(model1);
+      }
+    }
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
+        CredentialConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
+        credentialConfig = make_shared<CredentialConfig>(model1);
       }
     }
     if (m.find("DataSources") != m.end() && !m["DataSources"].empty()) {
