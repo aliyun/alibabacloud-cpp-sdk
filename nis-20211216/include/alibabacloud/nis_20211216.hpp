@@ -2195,6 +2195,1035 @@ public:
 
   virtual ~GetNetworkReachableAnalysisResponse() = default;
 };
+class GetNisNetworkMetricsRequestDimensions : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  GetNisNetworkMetricsRequestDimensions() {}
+
+  explicit GetNisNetworkMetricsRequestDimensions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetNisNetworkMetricsRequestDimensions() = default;
+};
+class GetNisNetworkMetricsRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<vector<GetNisNetworkMetricsRequestDimensions>> dimensions{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> metricName{};
+  shared_ptr<string> regionNo{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> scanBy{};
+  shared_ptr<bool> useCrossAccount{};
+
+  GetNisNetworkMetricsRequest() {}
+
+  explicit GetNisNetworkMetricsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountIds) {
+      res["AccountIds"] = boost::any(*accountIds);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (dimensions) {
+      vector<boost::any> temp1;
+      for(auto item1:*dimensions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Dimensions"] = boost::any(temp1);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (metricName) {
+      res["MetricName"] = boost::any(*metricName);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (scanBy) {
+      res["ScanBy"] = boost::any(*scanBy);
+    }
+    if (useCrossAccount) {
+      res["UseCrossAccount"] = boost::any(*useCrossAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("Dimensions") != m.end() && !m["Dimensions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Dimensions"].type()) {
+        vector<GetNisNetworkMetricsRequestDimensions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Dimensions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetNisNetworkMetricsRequestDimensions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dimensions = make_shared<vector<GetNisNetworkMetricsRequestDimensions>>(expect1);
+      }
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
+      metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("ScanBy") != m.end() && !m["ScanBy"].empty()) {
+      scanBy = make_shared<string>(boost::any_cast<string>(m["ScanBy"]));
+    }
+    if (m.find("UseCrossAccount") != m.end() && !m["UseCrossAccount"].empty()) {
+      useCrossAccount = make_shared<bool>(boost::any_cast<bool>(m["UseCrossAccount"]));
+    }
+  }
+
+
+  virtual ~GetNisNetworkMetricsRequest() = default;
+};
+class GetNisNetworkMetricsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> dimensionsShrink{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> metricName{};
+  shared_ptr<string> regionNo{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> scanBy{};
+  shared_ptr<bool> useCrossAccount{};
+
+  GetNisNetworkMetricsShrinkRequest() {}
+
+  explicit GetNisNetworkMetricsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountIds) {
+      res["AccountIds"] = boost::any(*accountIds);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (dimensionsShrink) {
+      res["Dimensions"] = boost::any(*dimensionsShrink);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (metricName) {
+      res["MetricName"] = boost::any(*metricName);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (scanBy) {
+      res["ScanBy"] = boost::any(*scanBy);
+    }
+    if (useCrossAccount) {
+      res["UseCrossAccount"] = boost::any(*useCrossAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("Dimensions") != m.end() && !m["Dimensions"].empty()) {
+      dimensionsShrink = make_shared<string>(boost::any_cast<string>(m["Dimensions"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
+      metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("ScanBy") != m.end() && !m["ScanBy"].empty()) {
+      scanBy = make_shared<string>(boost::any_cast<string>(m["ScanBy"]));
+    }
+    if (m.find("UseCrossAccount") != m.end() && !m["UseCrossAccount"].empty()) {
+      useCrossAccount = make_shared<bool>(boost::any_cast<bool>(m["UseCrossAccount"]));
+    }
+  }
+
+
+  virtual ~GetNisNetworkMetricsShrinkRequest() = default;
+};
+class GetNisNetworkMetricsResponseBodyDataMetrics : public Darabonba::Model {
+public:
+  shared_ptr<long> timeStamp{};
+  shared_ptr<double> value{};
+
+  GetNisNetworkMetricsResponseBodyDataMetrics() {}
+
+  explicit GetNisNetworkMetricsResponseBodyDataMetrics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (timeStamp) {
+      res["TimeStamp"] = boost::any(*timeStamp);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TimeStamp") != m.end() && !m["TimeStamp"].empty()) {
+      timeStamp = make_shared<long>(boost::any_cast<long>(m["TimeStamp"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetNisNetworkMetricsResponseBodyDataMetrics() = default;
+};
+class GetNisNetworkMetricsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetNisNetworkMetricsResponseBodyDataMetrics>> metrics{};
+  shared_ptr<string> unit{};
+
+  GetNisNetworkMetricsResponseBodyData() {}
+
+  explicit GetNisNetworkMetricsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (metrics) {
+      vector<boost::any> temp1;
+      for(auto item1:*metrics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Metrics"] = boost::any(temp1);
+    }
+    if (unit) {
+      res["Unit"] = boost::any(*unit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Metrics") != m.end() && !m["Metrics"].empty()) {
+      if (typeid(vector<boost::any>) == m["Metrics"].type()) {
+        vector<GetNisNetworkMetricsResponseBodyDataMetrics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Metrics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetNisNetworkMetricsResponseBodyDataMetrics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        metrics = make_shared<vector<GetNisNetworkMetricsResponseBodyDataMetrics>>(expect1);
+      }
+    }
+    if (m.find("Unit") != m.end() && !m["Unit"].empty()) {
+      unit = make_shared<string>(boost::any_cast<string>(m["Unit"]));
+    }
+  }
+
+
+  virtual ~GetNisNetworkMetricsResponseBodyData() = default;
+};
+class GetNisNetworkMetricsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetNisNetworkMetricsResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  GetNisNetworkMetricsResponseBody() {}
+
+  explicit GetNisNetworkMetricsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetNisNetworkMetricsResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetNisNetworkMetricsResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetNisNetworkMetricsResponseBody() = default;
+};
+class GetNisNetworkMetricsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetNisNetworkMetricsResponseBody> body{};
+
+  GetNisNetworkMetricsResponse() {}
+
+  explicit GetNisNetworkMetricsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetNisNetworkMetricsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetNisNetworkMetricsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetNisNetworkMetricsResponse() = default;
+};
+class GetNisNetworkRankingRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  GetNisNetworkRankingRequestFilter() {}
+
+  explicit GetNisNetworkRankingRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetNisNetworkRankingRequestFilter() = default;
+};
+class GetNisNetworkRankingRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> direction{};
+  shared_ptr<long> endTime{};
+  shared_ptr<vector<GetNisNetworkRankingRequestFilter>> filter{};
+  shared_ptr<string> groupBy{};
+  shared_ptr<string> orderBy{};
+  shared_ptr<string> regionNo{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> sort{};
+  shared_ptr<long> topN{};
+  shared_ptr<bool> useCrossAccount{};
+
+  GetNisNetworkRankingRequest() {}
+
+  explicit GetNisNetworkRankingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountIds) {
+      res["AccountIds"] = boost::any(*accountIds);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (filter) {
+      vector<boost::any> temp1;
+      for(auto item1:*filter){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filter"] = boost::any(temp1);
+    }
+    if (groupBy) {
+      res["GroupBy"] = boost::any(*groupBy);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
+    }
+    if (topN) {
+      res["TopN"] = boost::any(*topN);
+    }
+    if (useCrossAccount) {
+      res["UseCrossAccount"] = boost::any(*useCrossAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filter"].type()) {
+        vector<GetNisNetworkRankingRequestFilter> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filter"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetNisNetworkRankingRequestFilter model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filter = make_shared<vector<GetNisNetworkRankingRequestFilter>>(expect1);
+      }
+    }
+    if (m.find("GroupBy") != m.end() && !m["GroupBy"].empty()) {
+      groupBy = make_shared<string>(boost::any_cast<string>(m["GroupBy"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+    if (m.find("TopN") != m.end() && !m["TopN"].empty()) {
+      topN = make_shared<long>(boost::any_cast<long>(m["TopN"]));
+    }
+    if (m.find("UseCrossAccount") != m.end() && !m["UseCrossAccount"].empty()) {
+      useCrossAccount = make_shared<bool>(boost::any_cast<bool>(m["UseCrossAccount"]));
+    }
+  }
+
+
+  virtual ~GetNisNetworkRankingRequest() = default;
+};
+class GetNisNetworkRankingShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> direction{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> filterShrink{};
+  shared_ptr<string> groupBy{};
+  shared_ptr<string> orderBy{};
+  shared_ptr<string> regionNo{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> sort{};
+  shared_ptr<long> topN{};
+  shared_ptr<bool> useCrossAccount{};
+
+  GetNisNetworkRankingShrinkRequest() {}
+
+  explicit GetNisNetworkRankingShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountIds) {
+      res["AccountIds"] = boost::any(*accountIds);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (filterShrink) {
+      res["Filter"] = boost::any(*filterShrink);
+    }
+    if (groupBy) {
+      res["GroupBy"] = boost::any(*groupBy);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
+    }
+    if (topN) {
+      res["TopN"] = boost::any(*topN);
+    }
+    if (useCrossAccount) {
+      res["UseCrossAccount"] = boost::any(*useCrossAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filterShrink = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("GroupBy") != m.end() && !m["GroupBy"].empty()) {
+      groupBy = make_shared<string>(boost::any_cast<string>(m["GroupBy"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+    if (m.find("TopN") != m.end() && !m["TopN"].empty()) {
+      topN = make_shared<long>(boost::any_cast<long>(m["TopN"]));
+    }
+    if (m.find("UseCrossAccount") != m.end() && !m["UseCrossAccount"].empty()) {
+      useCrossAccount = make_shared<bool>(boost::any_cast<bool>(m["UseCrossAccount"]));
+    }
+  }
+
+
+  virtual ~GetNisNetworkRankingShrinkRequest() = default;
+};
+class GetNisNetworkRankingResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<double> activeSessionCount{};
+  shared_ptr<string> asn{};
+  shared_ptr<string> attachmentId{};
+  shared_ptr<string> bandwidthPackageId{};
+  shared_ptr<double> byteCount{};
+  shared_ptr<string> city{};
+  shared_ptr<string> country{};
+  shared_ptr<string> destinationIp{};
+  shared_ptr<string> destinationIsp{};
+  shared_ptr<string> destinationPort{};
+  shared_ptr<string> destinationRegionNo{};
+  shared_ptr<string> destinationZone{};
+  shared_ptr<string> IP{};
+  shared_ptr<double> inBps{};
+  shared_ptr<double> inPps{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> isp{};
+  shared_ptr<double> newSessionPerSecond{};
+  shared_ptr<double> outBps{};
+  shared_ptr<double> outPps{};
+  shared_ptr<double> packetCount{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> province{};
+  shared_ptr<double> RTT{};
+  shared_ptr<string> regionNo{};
+  shared_ptr<double> retransmitRate{};
+  shared_ptr<string> sourceIp{};
+  shared_ptr<string> sourceIsp{};
+  shared_ptr<string> sourcePort{};
+  shared_ptr<string> sourceZone{};
+  shared_ptr<string> vbrId{};
+
+  GetNisNetworkRankingResponseBodyData() {}
+
+  explicit GetNisNetworkRankingResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (activeSessionCount) {
+      res["ActiveSessionCount"] = boost::any(*activeSessionCount);
+    }
+    if (asn) {
+      res["Asn"] = boost::any(*asn);
+    }
+    if (attachmentId) {
+      res["AttachmentId"] = boost::any(*attachmentId);
+    }
+    if (bandwidthPackageId) {
+      res["BandwidthPackageId"] = boost::any(*bandwidthPackageId);
+    }
+    if (byteCount) {
+      res["ByteCount"] = boost::any(*byteCount);
+    }
+    if (city) {
+      res["City"] = boost::any(*city);
+    }
+    if (country) {
+      res["Country"] = boost::any(*country);
+    }
+    if (destinationIp) {
+      res["DestinationIp"] = boost::any(*destinationIp);
+    }
+    if (destinationIsp) {
+      res["DestinationIsp"] = boost::any(*destinationIsp);
+    }
+    if (destinationPort) {
+      res["DestinationPort"] = boost::any(*destinationPort);
+    }
+    if (destinationRegionNo) {
+      res["DestinationRegionNo"] = boost::any(*destinationRegionNo);
+    }
+    if (destinationZone) {
+      res["DestinationZone"] = boost::any(*destinationZone);
+    }
+    if (IP) {
+      res["IP"] = boost::any(*IP);
+    }
+    if (inBps) {
+      res["InBps"] = boost::any(*inBps);
+    }
+    if (inPps) {
+      res["InPps"] = boost::any(*inPps);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (isp) {
+      res["Isp"] = boost::any(*isp);
+    }
+    if (newSessionPerSecond) {
+      res["NewSessionPerSecond"] = boost::any(*newSessionPerSecond);
+    }
+    if (outBps) {
+      res["OutBps"] = boost::any(*outBps);
+    }
+    if (outPps) {
+      res["OutPps"] = boost::any(*outPps);
+    }
+    if (packetCount) {
+      res["PacketCount"] = boost::any(*packetCount);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (province) {
+      res["Province"] = boost::any(*province);
+    }
+    if (RTT) {
+      res["RTT"] = boost::any(*RTT);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    if (retransmitRate) {
+      res["RetransmitRate"] = boost::any(*retransmitRate);
+    }
+    if (sourceIp) {
+      res["SourceIp"] = boost::any(*sourceIp);
+    }
+    if (sourceIsp) {
+      res["SourceIsp"] = boost::any(*sourceIsp);
+    }
+    if (sourcePort) {
+      res["SourcePort"] = boost::any(*sourcePort);
+    }
+    if (sourceZone) {
+      res["SourceZone"] = boost::any(*sourceZone);
+    }
+    if (vbrId) {
+      res["VbrId"] = boost::any(*vbrId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActiveSessionCount") != m.end() && !m["ActiveSessionCount"].empty()) {
+      activeSessionCount = make_shared<double>(boost::any_cast<double>(m["ActiveSessionCount"]));
+    }
+    if (m.find("Asn") != m.end() && !m["Asn"].empty()) {
+      asn = make_shared<string>(boost::any_cast<string>(m["Asn"]));
+    }
+    if (m.find("AttachmentId") != m.end() && !m["AttachmentId"].empty()) {
+      attachmentId = make_shared<string>(boost::any_cast<string>(m["AttachmentId"]));
+    }
+    if (m.find("BandwidthPackageId") != m.end() && !m["BandwidthPackageId"].empty()) {
+      bandwidthPackageId = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageId"]));
+    }
+    if (m.find("ByteCount") != m.end() && !m["ByteCount"].empty()) {
+      byteCount = make_shared<double>(boost::any_cast<double>(m["ByteCount"]));
+    }
+    if (m.find("City") != m.end() && !m["City"].empty()) {
+      city = make_shared<string>(boost::any_cast<string>(m["City"]));
+    }
+    if (m.find("Country") != m.end() && !m["Country"].empty()) {
+      country = make_shared<string>(boost::any_cast<string>(m["Country"]));
+    }
+    if (m.find("DestinationIp") != m.end() && !m["DestinationIp"].empty()) {
+      destinationIp = make_shared<string>(boost::any_cast<string>(m["DestinationIp"]));
+    }
+    if (m.find("DestinationIsp") != m.end() && !m["DestinationIsp"].empty()) {
+      destinationIsp = make_shared<string>(boost::any_cast<string>(m["DestinationIsp"]));
+    }
+    if (m.find("DestinationPort") != m.end() && !m["DestinationPort"].empty()) {
+      destinationPort = make_shared<string>(boost::any_cast<string>(m["DestinationPort"]));
+    }
+    if (m.find("DestinationRegionNo") != m.end() && !m["DestinationRegionNo"].empty()) {
+      destinationRegionNo = make_shared<string>(boost::any_cast<string>(m["DestinationRegionNo"]));
+    }
+    if (m.find("DestinationZone") != m.end() && !m["DestinationZone"].empty()) {
+      destinationZone = make_shared<string>(boost::any_cast<string>(m["DestinationZone"]));
+    }
+    if (m.find("IP") != m.end() && !m["IP"].empty()) {
+      IP = make_shared<string>(boost::any_cast<string>(m["IP"]));
+    }
+    if (m.find("InBps") != m.end() && !m["InBps"].empty()) {
+      inBps = make_shared<double>(boost::any_cast<double>(m["InBps"]));
+    }
+    if (m.find("InPps") != m.end() && !m["InPps"].empty()) {
+      inPps = make_shared<double>(boost::any_cast<double>(m["InPps"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
+      isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
+    }
+    if (m.find("NewSessionPerSecond") != m.end() && !m["NewSessionPerSecond"].empty()) {
+      newSessionPerSecond = make_shared<double>(boost::any_cast<double>(m["NewSessionPerSecond"]));
+    }
+    if (m.find("OutBps") != m.end() && !m["OutBps"].empty()) {
+      outBps = make_shared<double>(boost::any_cast<double>(m["OutBps"]));
+    }
+    if (m.find("OutPps") != m.end() && !m["OutPps"].empty()) {
+      outPps = make_shared<double>(boost::any_cast<double>(m["OutPps"]));
+    }
+    if (m.find("PacketCount") != m.end() && !m["PacketCount"].empty()) {
+      packetCount = make_shared<double>(boost::any_cast<double>(m["PacketCount"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("Province") != m.end() && !m["Province"].empty()) {
+      province = make_shared<string>(boost::any_cast<string>(m["Province"]));
+    }
+    if (m.find("RTT") != m.end() && !m["RTT"].empty()) {
+      RTT = make_shared<double>(boost::any_cast<double>(m["RTT"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+    if (m.find("RetransmitRate") != m.end() && !m["RetransmitRate"].empty()) {
+      retransmitRate = make_shared<double>(boost::any_cast<double>(m["RetransmitRate"]));
+    }
+    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
+      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
+    }
+    if (m.find("SourceIsp") != m.end() && !m["SourceIsp"].empty()) {
+      sourceIsp = make_shared<string>(boost::any_cast<string>(m["SourceIsp"]));
+    }
+    if (m.find("SourcePort") != m.end() && !m["SourcePort"].empty()) {
+      sourcePort = make_shared<string>(boost::any_cast<string>(m["SourcePort"]));
+    }
+    if (m.find("SourceZone") != m.end() && !m["SourceZone"].empty()) {
+      sourceZone = make_shared<string>(boost::any_cast<string>(m["SourceZone"]));
+    }
+    if (m.find("VbrId") != m.end() && !m["VbrId"].empty()) {
+      vbrId = make_shared<string>(boost::any_cast<string>(m["VbrId"]));
+    }
+  }
+
+
+  virtual ~GetNisNetworkRankingResponseBodyData() = default;
+};
+class GetNisNetworkRankingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetNisNetworkRankingResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+
+  GetNisNetworkRankingResponseBody() {}
+
+  explicit GetNisNetworkRankingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<GetNisNetworkRankingResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetNisNetworkRankingResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<GetNisNetworkRankingResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetNisNetworkRankingResponseBody() = default;
+};
+class GetNisNetworkRankingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetNisNetworkRankingResponseBody> body{};
+
+  GetNisNetworkRankingResponse() {}
+
+  explicit GetNisNetworkRankingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetNisNetworkRankingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetNisNetworkRankingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetNisNetworkRankingResponse() = default;
+};
 class GetTransitRouterFlowTopNRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<long>> accountIds{};
@@ -3250,6 +4279,10 @@ public:
   GetNatTopNResponse getNatTopN(shared_ptr<GetNatTopNRequest> request);
   GetNetworkReachableAnalysisResponse getNetworkReachableAnalysisWithOptions(shared_ptr<GetNetworkReachableAnalysisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetNetworkReachableAnalysisResponse getNetworkReachableAnalysis(shared_ptr<GetNetworkReachableAnalysisRequest> request);
+  GetNisNetworkMetricsResponse getNisNetworkMetricsWithOptions(shared_ptr<GetNisNetworkMetricsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetNisNetworkMetricsResponse getNisNetworkMetrics(shared_ptr<GetNisNetworkMetricsRequest> request);
+  GetNisNetworkRankingResponse getNisNetworkRankingWithOptions(shared_ptr<GetNisNetworkRankingRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetNisNetworkRankingResponse getNisNetworkRanking(shared_ptr<GetNisNetworkRankingRequest> request);
   GetTransitRouterFlowTopNResponse getTransitRouterFlowTopNWithOptions(shared_ptr<GetTransitRouterFlowTopNRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTransitRouterFlowTopNResponse getTransitRouterFlowTopN(shared_ptr<GetTransitRouterFlowTopNRequest> request);
   GetVbrFlowTopNResponse getVbrFlowTopNWithOptions(shared_ptr<GetVbrFlowTopNRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
