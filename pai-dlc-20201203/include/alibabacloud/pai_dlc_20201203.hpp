@@ -4096,6 +4096,7 @@ public:
 class CreateJobRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateJobRequestCodeSource> codeSource{};
+  shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<vector<CreateJobRequestDataSources>> dataSources{};
   shared_ptr<string> debuggerConfigContent{};
   shared_ptr<string> displayName{};
@@ -4127,6 +4128,9 @@ public:
     map<string, boost::any> res;
     if (codeSource) {
       res["CodeSource"] = codeSource ? boost::any(codeSource->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (credentialConfig) {
+      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (dataSources) {
       vector<boost::any> temp1;
@@ -4199,6 +4203,13 @@ public:
         CreateJobRequestCodeSource model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CodeSource"]));
         codeSource = make_shared<CreateJobRequestCodeSource>(model1);
+      }
+    }
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
+        CredentialConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
+        credentialConfig = make_shared<CredentialConfig>(model1);
       }
     }
     if (m.find("DataSources") != m.end() && !m["DataSources"].empty()) {

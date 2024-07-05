@@ -96,6 +96,9 @@ CreateJobResponse Alibabacloud_Pai-dlc20201203::Client::createJobWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<CreateJobRequestCodeSource>(request->codeSource)) {
     body->insert(pair<string, CreateJobRequestCodeSource>("CodeSource", *request->codeSource));
   }
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(request->credentialConfig)) {
+    body->insert(pair<string, CredentialConfig>("CredentialConfig", *request->credentialConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateJobRequestDataSources>>(request->dataSources)) {
     body->insert(pair<string, vector<CreateJobRequestDataSources>>("DataSources", *request->dataSources));
   }
