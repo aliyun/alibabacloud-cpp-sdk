@@ -7639,6 +7639,7 @@ class DescribeDDosEventAreaRequest : public Darabonba::Model {
 public:
   shared_ptr<string> eventType{};
   shared_ptr<string> ip{};
+  shared_ptr<long> range{};
   shared_ptr<long> startTime{};
 
   DescribeDDosEventAreaRequest() {}
@@ -7657,6 +7658,9 @@ public:
     if (ip) {
       res["Ip"] = boost::any(*ip);
     }
+    if (range) {
+      res["Range"] = boost::any(*range);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -7669,6 +7673,9 @@ public:
     }
     if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
       ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("Range") != m.end() && !m["Range"].empty()) {
+      range = make_shared<long>(boost::any_cast<long>(m["Range"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -8001,6 +8008,7 @@ class DescribeDDosEventIspRequest : public Darabonba::Model {
 public:
   shared_ptr<string> eventType{};
   shared_ptr<string> ip{};
+  shared_ptr<long> range{};
   shared_ptr<long> startTime{};
 
   DescribeDDosEventIspRequest() {}
@@ -8019,6 +8027,9 @@ public:
     if (ip) {
       res["Ip"] = boost::any(*ip);
     }
+    if (range) {
+      res["Range"] = boost::any(*range);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -8031,6 +8042,9 @@ public:
     }
     if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
       ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("Range") != m.end() && !m["Range"].empty()) {
+      range = make_shared<long>(boost::any_cast<long>(m["Range"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -8918,6 +8932,201 @@ public:
 
 
   virtual ~DescribeDefenseRecordsResponse() = default;
+};
+class DescribeDestinationPortEventRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> eventType{};
+  shared_ptr<string> ip{};
+  shared_ptr<long> range{};
+  shared_ptr<string> region{};
+  shared_ptr<long> startTime{};
+
+  DescribeDestinationPortEventRequest() {}
+
+  explicit DescribeDestinationPortEventRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventType) {
+      res["EventType"] = boost::any(*eventType);
+    }
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    if (range) {
+      res["Range"] = boost::any(*range);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
+      eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
+    }
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("Range") != m.end() && !m["Range"].empty()) {
+      range = make_shared<long>(boost::any_cast<long>(m["Range"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeDestinationPortEventRequest() = default;
+};
+class DescribeDestinationPortEventResponseBodyPortList : public Darabonba::Model {
+public:
+  shared_ptr<string> dstPort{};
+  shared_ptr<long> inPkts{};
+
+  DescribeDestinationPortEventResponseBodyPortList() {}
+
+  explicit DescribeDestinationPortEventResponseBodyPortList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dstPort) {
+      res["DstPort"] = boost::any(*dstPort);
+    }
+    if (inPkts) {
+      res["InPkts"] = boost::any(*inPkts);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DstPort") != m.end() && !m["DstPort"].empty()) {
+      dstPort = make_shared<string>(boost::any_cast<string>(m["DstPort"]));
+    }
+    if (m.find("InPkts") != m.end() && !m["InPkts"].empty()) {
+      inPkts = make_shared<long>(boost::any_cast<long>(m["InPkts"]));
+    }
+  }
+
+
+  virtual ~DescribeDestinationPortEventResponseBodyPortList() = default;
+};
+class DescribeDestinationPortEventResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDestinationPortEventResponseBodyPortList>> portList{};
+  shared_ptr<string> requestId{};
+
+  DescribeDestinationPortEventResponseBody() {}
+
+  explicit DescribeDestinationPortEventResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (portList) {
+      vector<boost::any> temp1;
+      for(auto item1:*portList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PortList") != m.end() && !m["PortList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortList"].type()) {
+        vector<DescribeDestinationPortEventResponseBodyPortList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDestinationPortEventResponseBodyPortList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portList = make_shared<vector<DescribeDestinationPortEventResponseBodyPortList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDestinationPortEventResponseBody() = default;
+};
+class DescribeDestinationPortEventResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDestinationPortEventResponseBody> body{};
+
+  DescribeDestinationPortEventResponse() {}
+
+  explicit DescribeDestinationPortEventResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDestinationPortEventResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDestinationPortEventResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDestinationPortEventResponse() = default;
 };
 class DescribeDomainAttackEventsRequest : public Darabonba::Model {
 public:
@@ -31983,6 +32192,8 @@ public:
   DescribeDefenseCountStatisticsResponse describeDefenseCountStatistics(shared_ptr<DescribeDefenseCountStatisticsRequest> request);
   DescribeDefenseRecordsResponse describeDefenseRecordsWithOptions(shared_ptr<DescribeDefenseRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDefenseRecordsResponse describeDefenseRecords(shared_ptr<DescribeDefenseRecordsRequest> request);
+  DescribeDestinationPortEventResponse describeDestinationPortEventWithOptions(shared_ptr<DescribeDestinationPortEventRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDestinationPortEventResponse describeDestinationPortEvent(shared_ptr<DescribeDestinationPortEventRequest> request);
   DescribeDomainAttackEventsResponse describeDomainAttackEventsWithOptions(shared_ptr<DescribeDomainAttackEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDomainAttackEventsResponse describeDomainAttackEvents(shared_ptr<DescribeDomainAttackEventsRequest> request);
   DescribeDomainOverviewResponse describeDomainOverviewWithOptions(shared_ptr<DescribeDomainOverviewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
