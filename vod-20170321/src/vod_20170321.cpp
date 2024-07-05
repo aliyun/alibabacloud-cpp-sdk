@@ -2012,6 +2012,52 @@ DescribeVodDomainLogResponse Alibabacloud_Vod20170321::Client::describeVodDomain
   return describeVodDomainLogWithOptions(request, runtime);
 }
 
+DescribeVodDomainQpsDataResponse Alibabacloud_Vod20170321::Client::describeVodDomainQpsDataWithOptions(shared_ptr<DescribeVodDomainQpsDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
+    query->insert(pair<string, string>("DomainName", *request->domainName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->interval)) {
+    query->insert(pair<string, string>("Interval", *request->interval));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ispNameEn)) {
+    query->insert(pair<string, string>("IspNameEn", *request->ispNameEn));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->locationNameEn)) {
+    query->insert(pair<string, string>("LocationNameEn", *request->locationNameEn));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeVodDomainQpsData"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeVodDomainQpsDataResponse(callApi(params, req, runtime));
+}
+
+DescribeVodDomainQpsDataResponse Alibabacloud_Vod20170321::Client::describeVodDomainQpsData(shared_ptr<DescribeVodDomainQpsDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeVodDomainQpsDataWithOptions(request, runtime);
+}
+
 DescribeVodDomainRealTimeBpsDataResponse Alibabacloud_Vod20170321::Client::describeVodDomainRealTimeBpsDataWithOptions(shared_ptr<DescribeVodDomainRealTimeBpsDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -2622,6 +2668,9 @@ DescribeVodRefreshTasksResponse Alibabacloud_Vod20170321::Client::describeVodRef
 DescribeVodStorageDataResponse Alibabacloud_Vod20170321::Client::describeVodStorageDataWithOptions(shared_ptr<DescribeVodStorageDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
   }
@@ -2660,6 +2709,86 @@ DescribeVodStorageDataResponse Alibabacloud_Vod20170321::Client::describeVodStor
 DescribeVodStorageDataResponse Alibabacloud_Vod20170321::Client::describeVodStorageData(shared_ptr<DescribeVodStorageDataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeVodStorageDataWithOptions(request, runtime);
+}
+
+DescribeVodTieringStorageDataResponse Alibabacloud_Vod20170321::Client::describeVodTieringStorageDataWithOptions(shared_ptr<DescribeVodTieringStorageDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("Region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageClass)) {
+    query->insert(pair<string, string>("StorageClass", *request->storageClass));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeVodTieringStorageData"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeVodTieringStorageDataResponse(callApi(params, req, runtime));
+}
+
+DescribeVodTieringStorageDataResponse Alibabacloud_Vod20170321::Client::describeVodTieringStorageData(shared_ptr<DescribeVodTieringStorageDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeVodTieringStorageDataWithOptions(request, runtime);
+}
+
+DescribeVodTieringStorageRetrievalDataResponse Alibabacloud_Vod20170321::Client::describeVodTieringStorageRetrievalDataWithOptions(shared_ptr<DescribeVodTieringStorageRetrievalDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("Region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageClass)) {
+    query->insert(pair<string, string>("StorageClass", *request->storageClass));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeVodTieringStorageRetrievalData"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeVodTieringStorageRetrievalDataResponse(callApi(params, req, runtime));
+}
+
+DescribeVodTieringStorageRetrievalDataResponse Alibabacloud_Vod20170321::Client::describeVodTieringStorageRetrievalData(shared_ptr<DescribeVodTieringStorageRetrievalDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeVodTieringStorageRetrievalDataWithOptions(request, runtime);
 }
 
 DescribeVodTranscodeDataResponse Alibabacloud_Vod20170321::Client::describeVodTranscodeDataWithOptions(shared_ptr<DescribeVodTranscodeDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4546,6 +4675,12 @@ MoveAppResourceResponse Alibabacloud_Vod20170321::Client::moveAppResource(shared
 PreloadVodObjectCachesResponse Alibabacloud_Vod20170321::Client::preloadVodObjectCachesWithOptions(shared_ptr<PreloadVodObjectCachesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->area)) {
+    query->insert(pair<string, string>("Area", *request->area));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->l2Preload)) {
+    query->insert(pair<string, bool>("L2Preload", *request->l2Preload));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->objectPath)) {
     query->insert(pair<string, string>("ObjectPath", *request->objectPath));
   }
@@ -4554,6 +4689,9 @@ PreloadVodObjectCachesResponse Alibabacloud_Vod20170321::Client::preloadVodObjec
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->withHeader)) {
+    query->insert(pair<string, string>("WithHeader", *request->withHeader));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
