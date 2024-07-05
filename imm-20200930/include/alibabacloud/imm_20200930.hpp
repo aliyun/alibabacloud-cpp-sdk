@@ -2540,6 +2540,7 @@ public:
 class ElementContent : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
+  shared_ptr<vector<long>> timeRange{};
   shared_ptr<string> type{};
   shared_ptr<string> URL{};
 
@@ -2556,6 +2557,9 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (timeRange) {
+      res["TimeRange"] = boost::any(*timeRange);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -2568,6 +2572,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("TimeRange") != m.end() && !m["TimeRange"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["TimeRange"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TimeRange"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      timeRange = make_shared<vector<long>>(toVec1);
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -3121,6 +3135,56 @@ public:
 
   virtual ~Label() = default;
 };
+class SceneElement : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> frameTimes{};
+  shared_ptr<vector<long>> timeRange{};
+
+  SceneElement() {}
+
+  explicit SceneElement(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (frameTimes) {
+      res["FrameTimes"] = boost::any(*frameTimes);
+    }
+    if (timeRange) {
+      res["TimeRange"] = boost::any(*timeRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FrameTimes") != m.end() && !m["FrameTimes"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["FrameTimes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FrameTimes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      frameTimes = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TimeRange") != m.end() && !m["TimeRange"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["TimeRange"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TimeRange"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      timeRange = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~SceneElement() = default;
+};
 class SubtitleStream : public Darabonba::Model {
 public:
   shared_ptr<long> bitrate{};
@@ -3478,6 +3542,7 @@ public:
   shared_ptr<string> fileCreateTime{};
   shared_ptr<string> fileHash{};
   shared_ptr<string> fileModifiedTime{};
+  shared_ptr<string> fileStatus{};
   shared_ptr<string> filename{};
   shared_ptr<string> formatLongName{};
   shared_ptr<string> formatName{};
@@ -3510,6 +3575,8 @@ public:
   shared_ptr<string> produceTime{};
   shared_ptr<long> programCount{};
   shared_ptr<string> projectName{};
+  shared_ptr<string> reason{};
+  shared_ptr<vector<SceneElement>> sceneElements{};
   shared_ptr<vector<string>> semanticTypes{};
   shared_ptr<string> serverSideDataEncryption{};
   shared_ptr<string> serverSideEncryption{};
@@ -3655,6 +3722,9 @@ public:
     if (fileModifiedTime) {
       res["FileModifiedTime"] = boost::any(*fileModifiedTime);
     }
+    if (fileStatus) {
+      res["FileStatus"] = boost::any(*fileStatus);
+    }
     if (filename) {
       res["Filename"] = boost::any(*filename);
     }
@@ -3758,6 +3828,16 @@ public:
     }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    if (sceneElements) {
+      vector<boost::any> temp1;
+      for(auto item1:*sceneElements){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SceneElements"] = boost::any(temp1);
     }
     if (semanticTypes) {
       res["SemanticTypes"] = boost::any(*semanticTypes);
@@ -3980,6 +4060,9 @@ public:
     if (m.find("FileModifiedTime") != m.end() && !m["FileModifiedTime"].empty()) {
       fileModifiedTime = make_shared<string>(boost::any_cast<string>(m["FileModifiedTime"]));
     }
+    if (m.find("FileStatus") != m.end() && !m["FileStatus"].empty()) {
+      fileStatus = make_shared<string>(boost::any_cast<string>(m["FileStatus"]));
+    }
     if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
       filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
     }
@@ -4109,6 +4192,22 @@ public:
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+    if (m.find("SceneElements") != m.end() && !m["SceneElements"].empty()) {
+      if (typeid(vector<boost::any>) == m["SceneElements"].type()) {
+        vector<SceneElement> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SceneElements"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SceneElement model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sceneElements = make_shared<vector<SceneElement>>(expect1);
+      }
     }
     if (m.find("SemanticTypes") != m.end() && !m["SemanticTypes"].empty()) {
       vector<string> toVec1;
@@ -5858,6 +5957,7 @@ class TargetAudioTranscodeAudio : public Darabonba::Model {
 public:
   shared_ptr<long> bitrate{};
   shared_ptr<string> bitrateOption{};
+  shared_ptr<long> bitsPerSample{};
   shared_ptr<long> channel{};
   shared_ptr<string> codec{};
   shared_ptr<long> quality{};
@@ -5879,6 +5979,9 @@ public:
     }
     if (bitrateOption) {
       res["BitrateOption"] = boost::any(*bitrateOption);
+    }
+    if (bitsPerSample) {
+      res["BitsPerSample"] = boost::any(*bitsPerSample);
     }
     if (channel) {
       res["Channel"] = boost::any(*channel);
@@ -5904,6 +6007,9 @@ public:
     }
     if (m.find("BitrateOption") != m.end() && !m["BitrateOption"].empty()) {
       bitrateOption = make_shared<string>(boost::any_cast<string>(m["BitrateOption"]));
+    }
+    if (m.find("BitsPerSample") != m.end() && !m["BitsPerSample"].empty()) {
+      bitsPerSample = make_shared<long>(boost::any_cast<long>(m["BitsPerSample"]));
     }
     if (m.find("Channel") != m.end() && !m["Channel"].empty()) {
       channel = make_shared<long>(boost::any_cast<long>(m["Channel"]));
