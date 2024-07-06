@@ -13539,6 +13539,179 @@ public:
 
   virtual ~ExportDoNotCallNumbersResponse() = default;
 };
+class FinishTicketTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> ticketId{};
+
+  FinishTicketTaskRequest() {}
+
+  explicit FinishTicketTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (ticketId) {
+      res["TicketId"] = boost::any(*ticketId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TicketId") != m.end() && !m["TicketId"].empty()) {
+      ticketId = make_shared<string>(boost::any_cast<string>(m["TicketId"]));
+    }
+  }
+
+
+  virtual ~FinishTicketTaskRequest() = default;
+};
+class FinishTicketTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<boost::any> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<vector<string>> params{};
+  shared_ptr<string> requestId{};
+
+  FinishTicketTaskResponseBody() {}
+
+  explicit FinishTicketTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Params"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Params"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      params = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~FinishTicketTaskResponseBody() = default;
+};
+class FinishTicketTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<FinishTicketTaskResponseBody> body{};
+
+  FinishTicketTaskResponse() {}
+
+  explicit FinishTicketTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        FinishTicketTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<FinishTicketTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~FinishTicketTaskResponse() = default;
+};
 class GetAccessChannelOfStagingRequest : public Darabonba::Model {
 public:
   shared_ptr<string> searchPattern{};
@@ -71689,6 +71862,8 @@ public:
   ExportCustomCallTaggingResponse exportCustomCallTagging(shared_ptr<ExportCustomCallTaggingRequest> request);
   ExportDoNotCallNumbersResponse exportDoNotCallNumbersWithOptions(shared_ptr<ExportDoNotCallNumbersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExportDoNotCallNumbersResponse exportDoNotCallNumbers(shared_ptr<ExportDoNotCallNumbersRequest> request);
+  FinishTicketTaskResponse finishTicketTaskWithOptions(shared_ptr<FinishTicketTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  FinishTicketTaskResponse finishTicketTask(shared_ptr<FinishTicketTaskRequest> request);
   GetAccessChannelOfStagingResponse getAccessChannelOfStagingWithOptions(shared_ptr<GetAccessChannelOfStagingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAccessChannelOfStagingResponse getAccessChannelOfStaging(shared_ptr<GetAccessChannelOfStagingRequest> request);
   GetAudioFileResponse getAudioFileWithOptions(shared_ptr<GetAudioFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
