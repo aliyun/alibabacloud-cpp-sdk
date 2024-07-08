@@ -82,6 +82,9 @@ CreateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::createInstanceWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
     body->insert(pair<string, string>("Accessibility", *request->accessibility));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateInstanceRequestAffinity>(request->affinity)) {
+    body->insert(pair<string, CreateInstanceRequestAffinity>("Affinity", *request->affinity));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateInstanceRequestCloudDisks>>(request->cloudDisks)) {
     body->insert(pair<string, vector<CreateInstanceRequestCloudDisks>>("CloudDisks", *request->cloudDisks));
   }
@@ -962,6 +965,9 @@ UpdateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::updateInstanceWithO
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
     body->insert(pair<string, string>("Accessibility", *request->accessibility));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateInstanceRequestAffinity>(request->affinity)) {
+    body->insert(pair<string, UpdateInstanceRequestAffinity>("Affinity", *request->affinity));
   }
   if (!Darabonba_Util::Client::isUnset<vector<UpdateInstanceRequestCloudDisks>>(request->cloudDisks)) {
     body->insert(pair<string, vector<UpdateInstanceRequestCloudDisks>>("CloudDisks", *request->cloudDisks));

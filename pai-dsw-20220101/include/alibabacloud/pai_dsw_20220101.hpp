@@ -499,6 +499,68 @@ public:
 
   virtual ~CreateIdleInstanceCullerResponse() = default;
 };
+class CreateInstanceRequestAffinityCPU : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  CreateInstanceRequestAffinityCPU() {}
+
+  explicit CreateInstanceRequestAffinityCPU(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~CreateInstanceRequestAffinityCPU() = default;
+};
+class CreateInstanceRequestAffinity : public Darabonba::Model {
+public:
+  shared_ptr<CreateInstanceRequestAffinityCPU> CPU{};
+
+  CreateInstanceRequestAffinity() {}
+
+  explicit CreateInstanceRequestAffinity(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (CPU) {
+      res["CPU"] = CPU ? boost::any(CPU->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CPU") != m.end() && !m["CPU"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CPU"].type()) {
+        CreateInstanceRequestAffinityCPU model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CPU"]));
+        CPU = make_shared<CreateInstanceRequestAffinityCPU>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateInstanceRequestAffinity() = default;
+};
 class CreateInstanceRequestCloudDisksStatus : public Darabonba::Model {
 public:
   shared_ptr<long> available{};
@@ -841,6 +903,7 @@ public:
 class CreateInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessibility{};
+  shared_ptr<CreateInstanceRequestAffinity> affinity{};
   shared_ptr<vector<CreateInstanceRequestCloudDisks>> cloudDisks{};
   shared_ptr<vector<CreateInstanceRequestDatasets>> datasets{};
   shared_ptr<string> driver{};
@@ -870,6 +933,9 @@ public:
     map<string, boost::any> res;
     if (accessibility) {
       res["Accessibility"] = boost::any(*accessibility);
+    }
+    if (affinity) {
+      res["Affinity"] = affinity ? boost::any(affinity->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (cloudDisks) {
       vector<boost::any> temp1;
@@ -937,6 +1003,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
       accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
+    if (m.find("Affinity") != m.end() && !m["Affinity"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Affinity"].type()) {
+        CreateInstanceRequestAffinity model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Affinity"]));
+        affinity = make_shared<CreateInstanceRequestAffinity>(model1);
+      }
     }
     if (m.find("CloudDisks") != m.end() && !m["CloudDisks"].empty()) {
       if (typeid(vector<boost::any>) == m["CloudDisks"].type()) {
@@ -2147,6 +2220,68 @@ public:
 
   virtual ~GetIdleInstanceCullerResponse() = default;
 };
+class GetInstanceResponseBodyAffinityCPU : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  GetInstanceResponseBodyAffinityCPU() {}
+
+  explicit GetInstanceResponseBodyAffinityCPU(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~GetInstanceResponseBodyAffinityCPU() = default;
+};
+class GetInstanceResponseBodyAffinity : public Darabonba::Model {
+public:
+  shared_ptr<GetInstanceResponseBodyAffinityCPU> CPU{};
+
+  GetInstanceResponseBodyAffinity() {}
+
+  explicit GetInstanceResponseBodyAffinity(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (CPU) {
+      res["CPU"] = CPU ? boost::any(CPU->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CPU") != m.end() && !m["CPU"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CPU"].type()) {
+        GetInstanceResponseBodyAffinityCPU model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CPU"]));
+        CPU = make_shared<GetInstanceResponseBodyAffinityCPU>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetInstanceResponseBodyAffinity() = default;
+};
 class GetInstanceResponseBodyCloudDisks : public Darabonba::Model {
 public:
   shared_ptr<string> capacity{};
@@ -2764,6 +2899,7 @@ public:
   shared_ptr<string> acceleratorType{};
   shared_ptr<string> accessibility{};
   shared_ptr<long> accumulatedRunningTimeInMs{};
+  shared_ptr<GetInstanceResponseBodyAffinity> affinity{};
   shared_ptr<vector<GetInstanceResponseBodyCloudDisks>> cloudDisks{};
   shared_ptr<string> code{};
   shared_ptr<vector<GetInstanceResponseBodyDatasets>> datasets{};
@@ -2824,6 +2960,9 @@ public:
     }
     if (accumulatedRunningTimeInMs) {
       res["AccumulatedRunningTimeInMs"] = boost::any(*accumulatedRunningTimeInMs);
+    }
+    if (affinity) {
+      res["Affinity"] = affinity ? boost::any(affinity->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (cloudDisks) {
       vector<boost::any> temp1;
@@ -2976,6 +3115,13 @@ public:
     }
     if (m.find("AccumulatedRunningTimeInMs") != m.end() && !m["AccumulatedRunningTimeInMs"].empty()) {
       accumulatedRunningTimeInMs = make_shared<long>(boost::any_cast<long>(m["AccumulatedRunningTimeInMs"]));
+    }
+    if (m.find("Affinity") != m.end() && !m["Affinity"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Affinity"].type()) {
+        GetInstanceResponseBodyAffinity model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Affinity"]));
+        affinity = make_shared<GetInstanceResponseBodyAffinity>(model1);
+      }
     }
     if (m.find("CloudDisks") != m.end() && !m["CloudDisks"].empty()) {
       if (typeid(vector<boost::any>) == m["CloudDisks"].type()) {
@@ -6168,6 +6314,68 @@ public:
 
   virtual ~ListInstancesShrinkRequest() = default;
 };
+class ListInstancesResponseBodyInstancesAffinityCPU : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  ListInstancesResponseBodyInstancesAffinityCPU() {}
+
+  explicit ListInstancesResponseBodyInstancesAffinityCPU(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~ListInstancesResponseBodyInstancesAffinityCPU() = default;
+};
+class ListInstancesResponseBodyInstancesAffinity : public Darabonba::Model {
+public:
+  shared_ptr<ListInstancesResponseBodyInstancesAffinityCPU> CPU{};
+
+  ListInstancesResponseBodyInstancesAffinity() {}
+
+  explicit ListInstancesResponseBodyInstancesAffinity(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (CPU) {
+      res["CPU"] = CPU ? boost::any(CPU->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CPU") != m.end() && !m["CPU"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CPU"].type()) {
+        ListInstancesResponseBodyInstancesAffinityCPU model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CPU"]));
+        CPU = make_shared<ListInstancesResponseBodyInstancesAffinityCPU>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListInstancesResponseBodyInstancesAffinity() = default;
+};
 class ListInstancesResponseBodyInstancesCloudDisks : public Darabonba::Model {
 public:
   shared_ptr<string> capacity{};
@@ -6742,6 +6950,7 @@ public:
   shared_ptr<string> acceleratorType{};
   shared_ptr<string> accessibility{};
   shared_ptr<long> accumulatedRunningTimeInMs{};
+  shared_ptr<ListInstancesResponseBodyInstancesAffinity> affinity{};
   shared_ptr<vector<ListInstancesResponseBodyInstancesCloudDisks>> cloudDisks{};
   shared_ptr<vector<ListInstancesResponseBodyInstancesDatasets>> datasets{};
   shared_ptr<string> driver{};
@@ -6796,6 +7005,9 @@ public:
     }
     if (accumulatedRunningTimeInMs) {
       res["AccumulatedRunningTimeInMs"] = boost::any(*accumulatedRunningTimeInMs);
+    }
+    if (affinity) {
+      res["Affinity"] = affinity ? boost::any(affinity->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (cloudDisks) {
       vector<boost::any> temp1;
@@ -6930,6 +7142,13 @@ public:
     }
     if (m.find("AccumulatedRunningTimeInMs") != m.end() && !m["AccumulatedRunningTimeInMs"].empty()) {
       accumulatedRunningTimeInMs = make_shared<long>(boost::any_cast<long>(m["AccumulatedRunningTimeInMs"]));
+    }
+    if (m.find("Affinity") != m.end() && !m["Affinity"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Affinity"].type()) {
+        ListInstancesResponseBodyInstancesAffinity model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Affinity"]));
+        affinity = make_shared<ListInstancesResponseBodyInstancesAffinity>(model1);
+      }
     }
     if (m.find("CloudDisks") != m.end() && !m["CloudDisks"].empty()) {
       if (typeid(vector<boost::any>) == m["CloudDisks"].type()) {
@@ -7504,6 +7723,68 @@ public:
 
   virtual ~StopInstanceResponse() = default;
 };
+class UpdateInstanceRequestAffinityCPU : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+
+  UpdateInstanceRequestAffinityCPU() {}
+
+  explicit UpdateInstanceRequestAffinityCPU(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~UpdateInstanceRequestAffinityCPU() = default;
+};
+class UpdateInstanceRequestAffinity : public Darabonba::Model {
+public:
+  shared_ptr<UpdateInstanceRequestAffinityCPU> CPU{};
+
+  UpdateInstanceRequestAffinity() {}
+
+  explicit UpdateInstanceRequestAffinity(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (CPU) {
+      res["CPU"] = CPU ? boost::any(CPU->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CPU") != m.end() && !m["CPU"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CPU"].type()) {
+        UpdateInstanceRequestAffinityCPU model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CPU"]));
+        CPU = make_shared<UpdateInstanceRequestAffinityCPU>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateInstanceRequestAffinity() = default;
+};
 class UpdateInstanceRequestCloudDisks : public Darabonba::Model {
 public:
   shared_ptr<string> capacity{};
@@ -7742,6 +8023,7 @@ public:
 class UpdateInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessibility{};
+  shared_ptr<UpdateInstanceRequestAffinity> affinity{};
   shared_ptr<vector<UpdateInstanceRequestCloudDisks>> cloudDisks{};
   shared_ptr<vector<UpdateInstanceRequestDatasets>> datasets{};
   shared_ptr<bool> disassociateDatasets{};
@@ -7771,6 +8053,9 @@ public:
     map<string, boost::any> res;
     if (accessibility) {
       res["Accessibility"] = boost::any(*accessibility);
+    }
+    if (affinity) {
+      res["Affinity"] = affinity ? boost::any(affinity->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (cloudDisks) {
       vector<boost::any> temp1;
@@ -7834,6 +8119,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
       accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
+    if (m.find("Affinity") != m.end() && !m["Affinity"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Affinity"].type()) {
+        UpdateInstanceRequestAffinity model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Affinity"]));
+        affinity = make_shared<UpdateInstanceRequestAffinity>(model1);
+      }
     }
     if (m.find("CloudDisks") != m.end() && !m["CloudDisks"].empty()) {
       if (typeid(vector<boost::any>) == m["CloudDisks"].type()) {
