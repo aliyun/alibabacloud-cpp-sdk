@@ -2428,11 +2428,13 @@ public:
 class DescribePhoneNumberOperatorAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authCode{};
+  shared_ptr<string> flowName{};
   shared_ptr<string> inputNumber{};
   shared_ptr<string> mask{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> resultCount{};
 
   DescribePhoneNumberOperatorAttributeRequest() {}
 
@@ -2446,6 +2448,9 @@ public:
     map<string, boost::any> res;
     if (authCode) {
       res["AuthCode"] = boost::any(*authCode);
+    }
+    if (flowName) {
+      res["FlowName"] = boost::any(*flowName);
     }
     if (inputNumber) {
       res["InputNumber"] = boost::any(*inputNumber);
@@ -2462,12 +2467,18 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (resultCount) {
+      res["ResultCount"] = boost::any(*resultCount);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
       authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
+    }
+    if (m.find("FlowName") != m.end() && !m["FlowName"].empty()) {
+      flowName = make_shared<string>(boost::any_cast<string>(m["FlowName"]));
     }
     if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
       inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
@@ -2483,6 +2494,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ResultCount") != m.end() && !m["ResultCount"].empty()) {
+      resultCount = make_shared<string>(boost::any_cast<string>(m["ResultCount"]));
     }
   }
 
@@ -2555,6 +2569,7 @@ public:
 };
 class DescribePhoneNumberOperatorAttributeResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<DescribePhoneNumberOperatorAttributeResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -2570,6 +2585,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -2586,6 +2604,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }

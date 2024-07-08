@@ -491,6 +491,9 @@ DescribePhoneNumberOperatorAttributeResponse Alibabacloud_Dytnsapi20200217::Clie
   if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
     query->insert(pair<string, string>("AuthCode", *request->authCode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowName)) {
+    query->insert(pair<string, string>("FlowName", *request->flowName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
     query->insert(pair<string, string>("InputNumber", *request->inputNumber));
   }
@@ -505,6 +508,9 @@ DescribePhoneNumberOperatorAttributeResponse Alibabacloud_Dytnsapi20200217::Clie
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resultCount)) {
+    query->insert(pair<string, string>("ResultCount", *request->resultCount));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
