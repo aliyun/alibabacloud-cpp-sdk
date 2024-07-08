@@ -3367,14 +3367,22 @@ ModifyDataFlowAutoRefreshResponse Alibabacloud_NAS20170626::Client::modifyDataFl
   return modifyDataFlowAutoRefreshWithOptions(request, runtime);
 }
 
-ModifyFileSystemResponse Alibabacloud_NAS20170626::Client::modifyFileSystemWithOptions(shared_ptr<ModifyFileSystemRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ModifyFileSystemResponse Alibabacloud_NAS20170626::Client::modifyFileSystemWithOptions(shared_ptr<ModifyFileSystemRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ModifyFileSystemShrinkRequest> request = make_shared<ModifyFileSystemShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ModifyFileSystemRequestOptions>(tmpReq->options)) {
+    request->optionsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->options, make_shared<string>("Options"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileSystemId)) {
     query->insert(pair<string, string>("FileSystemId", *request->fileSystemId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->optionsShrink)) {
+    query->insert(pair<string, string>("Options", *request->optionsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

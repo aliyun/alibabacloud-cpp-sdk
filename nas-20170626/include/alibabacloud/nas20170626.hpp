@@ -10654,6 +10654,35 @@ public:
 
   virtual ~DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets() = default;
 };
+class DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableOplock{};
+
+  DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions() {}
+
+  explicit DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableOplock) {
+      res["EnableOplock"] = boost::any(*enableOplock);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableOplock") != m.end() && !m["EnableOplock"].empty()) {
+      enableOplock = make_shared<bool>(boost::any_cast<bool>(m["EnableOplock"]));
+    }
+  }
+
+
+  virtual ~DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions() = default;
+};
 class DescribeFileSystemsResponseBodyFileSystemsFileSystemPackagesPackage : public Darabonba::Model {
 public:
   shared_ptr<string> expiredTime{};
@@ -10887,6 +10916,7 @@ public:
   shared_ptr<long> meteredIASize{};
   shared_ptr<long> meteredSize{};
   shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets> mountTargets{};
+  shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions> options{};
   shared_ptr<DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages> packages{};
   shared_ptr<string> protocolType{};
   shared_ptr<string> regionId{};
@@ -10955,6 +10985,9 @@ public:
     }
     if (mountTargets) {
       res["MountTargets"] = mountTargets ? boost::any(mountTargets->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (options) {
+      res["Options"] = options ? boost::any(options->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (packages) {
       res["Packages"] = packages ? boost::any(packages->toMap()) : boost::any(map<string,boost::any>({}));
@@ -11044,6 +11077,13 @@ public:
         DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MountTargets"]));
         mountTargets = make_shared<DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets>(model1);
+      }
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Options"].type()) {
+        DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Options"]));
+        options = make_shared<DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions>(model1);
       }
     }
     if (m.find("Packages") != m.end() && !m["Packages"].empty()) {
@@ -18477,10 +18517,40 @@ public:
 
   virtual ~ModifyDataFlowAutoRefreshResponse() = default;
 };
+class ModifyFileSystemRequestOptions : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableOplock{};
+
+  ModifyFileSystemRequestOptions() {}
+
+  explicit ModifyFileSystemRequestOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableOplock) {
+      res["EnableOplock"] = boost::any(*enableOplock);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableOplock") != m.end() && !m["EnableOplock"].empty()) {
+      enableOplock = make_shared<bool>(boost::any_cast<bool>(m["EnableOplock"]));
+    }
+  }
+
+
+  virtual ~ModifyFileSystemRequestOptions() = default;
+};
 class ModifyFileSystemRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<string> fileSystemId{};
+  shared_ptr<ModifyFileSystemRequestOptions> options{};
 
   ModifyFileSystemRequest() {}
 
@@ -18498,6 +18568,9 @@ public:
     if (fileSystemId) {
       res["FileSystemId"] = boost::any(*fileSystemId);
     }
+    if (options) {
+      res["Options"] = options ? boost::any(options->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -18508,10 +18581,60 @@ public:
     if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
       fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
     }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Options"].type()) {
+        ModifyFileSystemRequestOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Options"]));
+        options = make_shared<ModifyFileSystemRequestOptions>(model1);
+      }
+    }
   }
 
 
   virtual ~ModifyFileSystemRequest() = default;
+};
+class ModifyFileSystemShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> fileSystemId{};
+  shared_ptr<string> optionsShrink{};
+
+  ModifyFileSystemShrinkRequest() {}
+
+  explicit ModifyFileSystemShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
+    if (optionsShrink) {
+      res["Options"] = boost::any(*optionsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      optionsShrink = make_shared<string>(boost::any_cast<string>(m["Options"]));
+    }
+  }
+
+
+  virtual ~ModifyFileSystemShrinkRequest() = default;
 };
 class ModifyFileSystemResponseBody : public Darabonba::Model {
 public:
@@ -21393,7 +21516,7 @@ public:
   ModifyDataFlowResponse modifyDataFlow(shared_ptr<ModifyDataFlowRequest> request);
   ModifyDataFlowAutoRefreshResponse modifyDataFlowAutoRefreshWithOptions(shared_ptr<ModifyDataFlowAutoRefreshRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDataFlowAutoRefreshResponse modifyDataFlowAutoRefresh(shared_ptr<ModifyDataFlowAutoRefreshRequest> request);
-  ModifyFileSystemResponse modifyFileSystemWithOptions(shared_ptr<ModifyFileSystemRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyFileSystemResponse modifyFileSystemWithOptions(shared_ptr<ModifyFileSystemRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyFileSystemResponse modifyFileSystem(shared_ptr<ModifyFileSystemRequest> request);
   ModifyFilesetResponse modifyFilesetWithOptions(shared_ptr<ModifyFilesetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyFilesetResponse modifyFileset(shared_ptr<ModifyFilesetRequest> request);
