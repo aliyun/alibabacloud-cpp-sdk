@@ -8003,6 +8003,332 @@ public:
 
   virtual ~DescribeCdnDomainStagingConfigResponse() = default;
 };
+class DescribeCdnFullDomainsBlockIPConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> IPList{};
+
+  DescribeCdnFullDomainsBlockIPConfigRequest() {}
+
+  explicit DescribeCdnFullDomainsBlockIPConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (IPList) {
+      res["IPList"] = boost::any(*IPList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IPList") != m.end() && !m["IPList"].empty()) {
+      IPList = make_shared<string>(boost::any_cast<string>(m["IPList"]));
+    }
+  }
+
+
+  virtual ~DescribeCdnFullDomainsBlockIPConfigRequest() = default;
+};
+class DescribeCdnFullDomainsBlockIPConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DescribeCdnFullDomainsBlockIPConfigResponseBody() {}
+
+  explicit DescribeCdnFullDomainsBlockIPConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeCdnFullDomainsBlockIPConfigResponseBody() = default;
+};
+class DescribeCdnFullDomainsBlockIPConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCdnFullDomainsBlockIPConfigResponseBody> body{};
+
+  DescribeCdnFullDomainsBlockIPConfigResponse() {}
+
+  explicit DescribeCdnFullDomainsBlockIPConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCdnFullDomainsBlockIPConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCdnFullDomainsBlockIPConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCdnFullDomainsBlockIPConfigResponse() = default;
+};
+class DescribeCdnFullDomainsBlockIPHistoryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> IPList{};
+  shared_ptr<string> startTime{};
+
+  DescribeCdnFullDomainsBlockIPHistoryRequest() {}
+
+  explicit DescribeCdnFullDomainsBlockIPHistoryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (IPList) {
+      res["IPList"] = boost::any(*IPList);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("IPList") != m.end() && !m["IPList"].empty()) {
+      IPList = make_shared<string>(boost::any_cast<string>(m["IPList"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeCdnFullDomainsBlockIPHistoryRequest() = default;
+};
+class DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> blockIP{};
+  shared_ptr<string> deliverTime{};
+  shared_ptr<string> status{};
+
+  DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo() {}
+
+  explicit DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockIP) {
+      res["BlockIP"] = boost::any(*blockIP);
+    }
+    if (deliverTime) {
+      res["DeliverTime"] = boost::any(*deliverTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockIP") != m.end() && !m["BlockIP"].empty()) {
+      blockIP = make_shared<string>(boost::any_cast<string>(m["BlockIP"]));
+    }
+    if (m.find("DeliverTime") != m.end() && !m["DeliverTime"].empty()) {
+      deliverTime = make_shared<string>(boost::any_cast<string>(m["DeliverTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo() = default;
+};
+class DescribeCdnFullDomainsBlockIPHistoryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> description{};
+  shared_ptr<vector<DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo>> IPBlockInfo{};
+  shared_ptr<string> requestId{};
+
+  DescribeCdnFullDomainsBlockIPHistoryResponseBody() {}
+
+  explicit DescribeCdnFullDomainsBlockIPHistoryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (IPBlockInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*IPBlockInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IPBlockInfo"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("IPBlockInfo") != m.end() && !m["IPBlockInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["IPBlockInfo"].type()) {
+        vector<DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IPBlockInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        IPBlockInfo = make_shared<vector<DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeCdnFullDomainsBlockIPHistoryResponseBody() = default;
+};
+class DescribeCdnFullDomainsBlockIPHistoryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCdnFullDomainsBlockIPHistoryResponseBody> body{};
+
+  DescribeCdnFullDomainsBlockIPHistoryResponse() {}
+
+  explicit DescribeCdnFullDomainsBlockIPHistoryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCdnFullDomainsBlockIPHistoryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCdnFullDomainsBlockIPHistoryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCdnFullDomainsBlockIPHistoryResponse() = default;
+};
 class DescribeCdnHttpsDomainListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> keyword{};
@@ -26050,47 +26376,11 @@ public:
 
   virtual ~DescribeEsExceptionDataRequest() = default;
 };
-class DescribeEsExceptionDataResponseBodyContentsPoints : public Darabonba::Model {
-public:
-  shared_ptr<vector<string>> points{};
-
-  DescribeEsExceptionDataResponseBodyContentsPoints() {}
-
-  explicit DescribeEsExceptionDataResponseBodyContentsPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (points) {
-      res["Points"] = boost::any(*points);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Points") != m.end() && !m["Points"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["Points"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Points"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      points = make_shared<vector<string>>(toVec1);
-    }
-  }
-
-
-  virtual ~DescribeEsExceptionDataResponseBodyContentsPoints() = default;
-};
 class DescribeEsExceptionDataResponseBodyContents : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> columns{};
   shared_ptr<string> name{};
-  shared_ptr<vector<DescribeEsExceptionDataResponseBodyContentsPoints>> points{};
+  shared_ptr<vector<string>> points{};
 
   DescribeEsExceptionDataResponseBodyContents() {}
 
@@ -26109,11 +26399,7 @@ public:
       res["Name"] = boost::any(*name);
     }
     if (points) {
-      vector<boost::any> temp1;
-      for(auto item1:*points){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Points"] = boost::any(temp1);
+      res["Points"] = boost::any(*points);
     }
     return res;
   }
@@ -26133,17 +26419,14 @@ public:
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
     if (m.find("Points") != m.end() && !m["Points"].empty()) {
+      vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["Points"].type()) {
-        vector<DescribeEsExceptionDataResponseBodyContentsPoints> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Points"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeEsExceptionDataResponseBodyContentsPoints model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Points"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
         }
-        points = make_shared<vector<DescribeEsExceptionDataResponseBodyContentsPoints>>(expect1);
       }
+      points = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -34569,6 +34852,151 @@ public:
 
   virtual ~SetCdnDomainStagingConfigResponse() = default;
 };
+class SetCdnFullDomainsBlockIPRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> blockInterval{};
+  shared_ptr<string> IPList{};
+  shared_ptr<string> operationType{};
+  shared_ptr<string> updateType{};
+
+  SetCdnFullDomainsBlockIPRequest() {}
+
+  explicit SetCdnFullDomainsBlockIPRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockInterval) {
+      res["BlockInterval"] = boost::any(*blockInterval);
+    }
+    if (IPList) {
+      res["IPList"] = boost::any(*IPList);
+    }
+    if (operationType) {
+      res["OperationType"] = boost::any(*operationType);
+    }
+    if (updateType) {
+      res["UpdateType"] = boost::any(*updateType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockInterval") != m.end() && !m["BlockInterval"].empty()) {
+      blockInterval = make_shared<long>(boost::any_cast<long>(m["BlockInterval"]));
+    }
+    if (m.find("IPList") != m.end() && !m["IPList"].empty()) {
+      IPList = make_shared<string>(boost::any_cast<string>(m["IPList"]));
+    }
+    if (m.find("OperationType") != m.end() && !m["OperationType"].empty()) {
+      operationType = make_shared<string>(boost::any_cast<string>(m["OperationType"]));
+    }
+    if (m.find("UpdateType") != m.end() && !m["UpdateType"].empty()) {
+      updateType = make_shared<string>(boost::any_cast<string>(m["UpdateType"]));
+    }
+  }
+
+
+  virtual ~SetCdnFullDomainsBlockIPRequest() = default;
+};
+class SetCdnFullDomainsBlockIPResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  SetCdnFullDomainsBlockIPResponseBody() {}
+
+  explicit SetCdnFullDomainsBlockIPResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetCdnFullDomainsBlockIPResponseBody() = default;
+};
+class SetCdnFullDomainsBlockIPResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetCdnFullDomainsBlockIPResponseBody> body{};
+
+  SetCdnFullDomainsBlockIPResponse() {}
+
+  explicit SetCdnFullDomainsBlockIPResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetCdnFullDomainsBlockIPResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetCdnFullDomainsBlockIPResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetCdnFullDomainsBlockIPResponse() = default;
+};
 class SetDomainServerCertificateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> certName{};
@@ -36235,6 +36663,10 @@ public:
   DescribeCdnDomainLogsExTtlResponse describeCdnDomainLogsExTtl(shared_ptr<DescribeCdnDomainLogsExTtlRequest> request);
   DescribeCdnDomainStagingConfigResponse describeCdnDomainStagingConfigWithOptions(shared_ptr<DescribeCdnDomainStagingConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCdnDomainStagingConfigResponse describeCdnDomainStagingConfig(shared_ptr<DescribeCdnDomainStagingConfigRequest> request);
+  DescribeCdnFullDomainsBlockIPConfigResponse describeCdnFullDomainsBlockIPConfigWithOptions(shared_ptr<DescribeCdnFullDomainsBlockIPConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCdnFullDomainsBlockIPConfigResponse describeCdnFullDomainsBlockIPConfig(shared_ptr<DescribeCdnFullDomainsBlockIPConfigRequest> request);
+  DescribeCdnFullDomainsBlockIPHistoryResponse describeCdnFullDomainsBlockIPHistoryWithOptions(shared_ptr<DescribeCdnFullDomainsBlockIPHistoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCdnFullDomainsBlockIPHistoryResponse describeCdnFullDomainsBlockIPHistory(shared_ptr<DescribeCdnFullDomainsBlockIPHistoryRequest> request);
   DescribeCdnHttpsDomainListResponse describeCdnHttpsDomainListWithOptions(shared_ptr<DescribeCdnHttpsDomainListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCdnHttpsDomainListResponse describeCdnHttpsDomainList(shared_ptr<DescribeCdnHttpsDomainListRequest> request);
   DescribeCdnMigrateRegisterStatusResponse describeCdnMigrateRegisterStatusWithOptions(shared_ptr<DescribeCdnMigrateRegisterStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -36461,6 +36893,8 @@ public:
   SetCdnDomainSSLCertificateResponse setCdnDomainSSLCertificate(shared_ptr<SetCdnDomainSSLCertificateRequest> request);
   SetCdnDomainStagingConfigResponse setCdnDomainStagingConfigWithOptions(shared_ptr<SetCdnDomainStagingConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetCdnDomainStagingConfigResponse setCdnDomainStagingConfig(shared_ptr<SetCdnDomainStagingConfigRequest> request);
+  SetCdnFullDomainsBlockIPResponse setCdnFullDomainsBlockIPWithOptions(shared_ptr<SetCdnFullDomainsBlockIPRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetCdnFullDomainsBlockIPResponse setCdnFullDomainsBlockIP(shared_ptr<SetCdnFullDomainsBlockIPRequest> request);
   SetDomainServerCertificateResponse setDomainServerCertificateWithOptions(shared_ptr<SetDomainServerCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetDomainServerCertificateResponse setDomainServerCertificate(shared_ptr<SetDomainServerCertificateRequest> request);
   SetReqHeaderConfigResponse setReqHeaderConfigWithOptions(shared_ptr<SetReqHeaderConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

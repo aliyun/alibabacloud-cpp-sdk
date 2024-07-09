@@ -1626,6 +1626,68 @@ DescribeCdnDomainStagingConfigResponse Alibabacloud_Cdn20180510::Client::describ
   return describeCdnDomainStagingConfigWithOptions(request, runtime);
 }
 
+DescribeCdnFullDomainsBlockIPConfigResponse Alibabacloud_Cdn20180510::Client::describeCdnFullDomainsBlockIPConfigWithOptions(shared_ptr<DescribeCdnFullDomainsBlockIPConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->IPList)) {
+    body->insert(pair<string, string>("IPList", *request->IPList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCdnFullDomainsBlockIPConfig"))},
+    {"version", boost::any(string("2018-05-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCdnFullDomainsBlockIPConfigResponse(callApi(params, req, runtime));
+}
+
+DescribeCdnFullDomainsBlockIPConfigResponse Alibabacloud_Cdn20180510::Client::describeCdnFullDomainsBlockIPConfig(shared_ptr<DescribeCdnFullDomainsBlockIPConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCdnFullDomainsBlockIPConfigWithOptions(request, runtime);
+}
+
+DescribeCdnFullDomainsBlockIPHistoryResponse Alibabacloud_Cdn20180510::Client::describeCdnFullDomainsBlockIPHistoryWithOptions(shared_ptr<DescribeCdnFullDomainsBlockIPHistoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    body->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->IPList)) {
+    body->insert(pair<string, string>("IPList", *request->IPList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    body->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCdnFullDomainsBlockIPHistory"))},
+    {"version", boost::any(string("2018-05-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCdnFullDomainsBlockIPHistoryResponse(callApi(params, req, runtime));
+}
+
+DescribeCdnFullDomainsBlockIPHistoryResponse Alibabacloud_Cdn20180510::Client::describeCdnFullDomainsBlockIPHistory(shared_ptr<DescribeCdnFullDomainsBlockIPHistoryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCdnFullDomainsBlockIPHistoryWithOptions(request, runtime);
+}
+
 DescribeCdnHttpsDomainListResponse Alibabacloud_Cdn20180510::Client::describeCdnHttpsDomainListWithOptions(shared_ptr<DescribeCdnHttpsDomainListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5451,6 +5513,43 @@ SetCdnDomainStagingConfigResponse Alibabacloud_Cdn20180510::Client::setCdnDomain
 SetCdnDomainStagingConfigResponse Alibabacloud_Cdn20180510::Client::setCdnDomainStagingConfig(shared_ptr<SetCdnDomainStagingConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return setCdnDomainStagingConfigWithOptions(request, runtime);
+}
+
+SetCdnFullDomainsBlockIPResponse Alibabacloud_Cdn20180510::Client::setCdnFullDomainsBlockIPWithOptions(shared_ptr<SetCdnFullDomainsBlockIPRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->blockInterval)) {
+    body->insert(pair<string, long>("BlockInterval", *request->blockInterval));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->IPList)) {
+    body->insert(pair<string, string>("IPList", *request->IPList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operationType)) {
+    body->insert(pair<string, string>("OperationType", *request->operationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->updateType)) {
+    body->insert(pair<string, string>("UpdateType", *request->updateType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetCdnFullDomainsBlockIP"))},
+    {"version", boost::any(string("2018-05-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetCdnFullDomainsBlockIPResponse(callApi(params, req, runtime));
+}
+
+SetCdnFullDomainsBlockIPResponse Alibabacloud_Cdn20180510::Client::setCdnFullDomainsBlockIP(shared_ptr<SetCdnFullDomainsBlockIPRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setCdnFullDomainsBlockIPWithOptions(request, runtime);
 }
 
 SetDomainServerCertificateResponse Alibabacloud_Cdn20180510::Client::setDomainServerCertificateWithOptions(shared_ptr<SetDomainServerCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
