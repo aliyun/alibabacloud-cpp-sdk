@@ -909,6 +909,7 @@ public:
   shared_ptr<string> driver{};
   shared_ptr<string> ecsSpec{};
   shared_ptr<map<string, string>> environmentVariables{};
+  shared_ptr<string> imageAuth{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> instanceName{};
@@ -959,6 +960,9 @@ public:
     }
     if (environmentVariables) {
       res["EnvironmentVariables"] = boost::any(*environmentVariables);
+    }
+    if (imageAuth) {
+      res["ImageAuth"] = boost::any(*imageAuth);
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
@@ -1050,6 +1054,9 @@ public:
          toMap1[item.first] = item.second;
       }
       environmentVariables = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("ImageAuth") != m.end() && !m["ImageAuth"].empty()) {
+      imageAuth = make_shared<string>(boost::any_cast<string>(m["ImageAuth"]));
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
@@ -2910,6 +2917,7 @@ public:
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<long> httpStatusCode{};
   shared_ptr<GetInstanceResponseBodyIdleInstanceCuller> idleInstanceCuller{};
+  shared_ptr<string> imageAuth{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageName{};
   shared_ptr<string> imageUrl{};
@@ -3001,6 +3009,9 @@ public:
     }
     if (idleInstanceCuller) {
       res["IdleInstanceCuller"] = idleInstanceCuller ? boost::any(idleInstanceCuller->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (imageAuth) {
+      res["ImageAuth"] = boost::any(*imageAuth);
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
@@ -3181,6 +3192,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IdleInstanceCuller"]));
         idleInstanceCuller = make_shared<GetInstanceResponseBodyIdleInstanceCuller>(model1);
       }
+    }
+    if (m.find("ImageAuth") != m.end() && !m["ImageAuth"].empty()) {
+      imageAuth = make_shared<string>(boost::any_cast<string>(m["ImageAuth"]));
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
@@ -6959,6 +6973,7 @@ public:
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<ListInstancesResponseBodyInstancesIdleInstanceCuller> idleInstanceCuller{};
+  shared_ptr<string> imageAuth{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageName{};
   shared_ptr<string> imageUrl{};
@@ -7040,6 +7055,9 @@ public:
     }
     if (idleInstanceCuller) {
       res["IdleInstanceCuller"] = idleInstanceCuller ? boost::any(idleInstanceCuller->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (imageAuth) {
+      res["ImageAuth"] = boost::any(*imageAuth);
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
@@ -7202,6 +7220,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IdleInstanceCuller"]));
         idleInstanceCuller = make_shared<ListInstancesResponseBodyInstancesIdleInstanceCuller>(model1);
       }
+    }
+    if (m.find("ImageAuth") != m.end() && !m["ImageAuth"].empty()) {
+      imageAuth = make_shared<string>(boost::any_cast<string>(m["ImageAuth"]));
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
@@ -8032,6 +8053,7 @@ public:
   shared_ptr<bool> disassociateVpc{};
   shared_ptr<string> driver{};
   shared_ptr<string> ecsSpec{};
+  shared_ptr<string> imageAuth{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> instanceName{};
@@ -8088,6 +8110,9 @@ public:
     }
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
+    }
+    if (imageAuth) {
+      res["ImageAuth"] = boost::any(*imageAuth);
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
@@ -8170,6 +8195,9 @@ public:
     }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
       ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
+    }
+    if (m.find("ImageAuth") != m.end() && !m["ImageAuth"].empty()) {
+      imageAuth = make_shared<string>(boost::any_cast<string>(m["ImageAuth"]));
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));

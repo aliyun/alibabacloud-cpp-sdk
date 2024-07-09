@@ -100,6 +100,9 @@ CreateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::createInstanceWithO
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(request->environmentVariables)) {
     body->insert(pair<string, map<string, string>>("EnvironmentVariables", *request->environmentVariables));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageAuth)) {
+    body->insert(pair<string, string>("ImageAuth", *request->imageAuth));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     body->insert(pair<string, string>("ImageId", *request->imageId));
   }
@@ -992,6 +995,9 @@ UpdateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::updateInstanceWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ecsSpec)) {
     body->insert(pair<string, string>("EcsSpec", *request->ecsSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageAuth)) {
+    body->insert(pair<string, string>("ImageAuth", *request->imageAuth));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     body->insert(pair<string, string>("ImageId", *request->imageId));
