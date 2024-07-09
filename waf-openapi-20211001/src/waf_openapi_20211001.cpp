@@ -1294,6 +1294,9 @@ DescribeCloudResourcesResponse Alibabacloud_Waf-openapi20211001::Client::describ
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceInstanceId)) {
     query->insert(pair<string, string>("ResourceInstanceId", *request->resourceInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceInstanceName)) {
+    query->insert(pair<string, string>("ResourceInstanceName", *request->resourceInstanceName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
     query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
   }
@@ -1329,6 +1332,40 @@ DescribeCloudResourcesResponse Alibabacloud_Waf-openapi20211001::Client::describ
 DescribeCloudResourcesResponse Alibabacloud_Waf-openapi20211001::Client::describeCloudResources(shared_ptr<DescribeCloudResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeCloudResourcesWithOptions(request, runtime);
+}
+
+DescribeCnameCountResponse Alibabacloud_Waf-openapi20211001::Client::describeCnameCountWithOptions(shared_ptr<DescribeCnameCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceManagerResourceGroupId)) {
+    query->insert(pair<string, string>("ResourceManagerResourceGroupId", *request->resourceManagerResourceGroupId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCnameCount"))},
+    {"version", boost::any(string("2021-10-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCnameCountResponse(callApi(params, req, runtime));
+}
+
+DescribeCnameCountResponse Alibabacloud_Waf-openapi20211001::Client::describeCnameCount(shared_ptr<DescribeCnameCountRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCnameCountWithOptions(request, runtime);
 }
 
 DescribeDDoSStatusResponse Alibabacloud_Waf-openapi20211001::Client::describeDDoSStatusWithOptions(shared_ptr<DescribeDDoSStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2500,6 +2537,12 @@ DescribeProductInstancesResponse Alibabacloud_Waf-openapi20211001::Client::descr
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceInstanceId)) {
     query->insert(pair<string, string>("ResourceInstanceId", *request->resourceInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceInstanceIp)) {
+    query->insert(pair<string, string>("ResourceInstanceIp", *request->resourceInstanceIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceInstanceName)) {
+    query->insert(pair<string, string>("ResourceInstanceName", *request->resourceInstanceName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceIp)) {
     query->insert(pair<string, string>("ResourceIp", *request->resourceIp));

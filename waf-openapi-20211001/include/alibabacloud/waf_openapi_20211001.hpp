@@ -5239,6 +5239,7 @@ public:
   shared_ptr<string> resourceDomain{};
   shared_ptr<string> resourceFunction{};
   shared_ptr<string> resourceInstanceId{};
+  shared_ptr<string> resourceInstanceName{};
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<string> resourceName{};
   shared_ptr<string> resourceProduct{};
@@ -5278,6 +5279,9 @@ public:
     }
     if (resourceInstanceId) {
       res["ResourceInstanceId"] = boost::any(*resourceInstanceId);
+    }
+    if (resourceInstanceName) {
+      res["ResourceInstanceName"] = boost::any(*resourceInstanceName);
     }
     if (resourceManagerResourceGroupId) {
       res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
@@ -5322,6 +5326,9 @@ public:
     if (m.find("ResourceInstanceId") != m.end() && !m["ResourceInstanceId"].empty()) {
       resourceInstanceId = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceId"]));
     }
+    if (m.find("ResourceInstanceName") != m.end() && !m["ResourceInstanceName"].empty()) {
+      resourceInstanceName = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceName"]));
+    }
     if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
       resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
     }
@@ -5344,10 +5351,15 @@ public:
 };
 class DescribeCloudResourcesResponseBodyCloudResources : public Darabonba::Model {
 public:
+  shared_ptr<long> httpPortCount{};
+  shared_ptr<long> httpsPortCount{};
   shared_ptr<string> ownerUserId{};
   shared_ptr<string> resourceDomain{};
   shared_ptr<string> resourceFunction{};
   shared_ptr<string> resourceInstance{};
+  shared_ptr<string> resourceInstanceId{};
+  shared_ptr<string> resourceInstanceIp{};
+  shared_ptr<string> resourceInstanceName{};
   shared_ptr<string> resourceName{};
   shared_ptr<string> resourceProduct{};
   shared_ptr<string> resourceRegionId{};
@@ -5364,6 +5376,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (httpPortCount) {
+      res["HttpPortCount"] = boost::any(*httpPortCount);
+    }
+    if (httpsPortCount) {
+      res["HttpsPortCount"] = boost::any(*httpsPortCount);
+    }
     if (ownerUserId) {
       res["OwnerUserId"] = boost::any(*ownerUserId);
     }
@@ -5375,6 +5393,15 @@ public:
     }
     if (resourceInstance) {
       res["ResourceInstance"] = boost::any(*resourceInstance);
+    }
+    if (resourceInstanceId) {
+      res["ResourceInstanceId"] = boost::any(*resourceInstanceId);
+    }
+    if (resourceInstanceIp) {
+      res["ResourceInstanceIp"] = boost::any(*resourceInstanceIp);
+    }
+    if (resourceInstanceName) {
+      res["ResourceInstanceName"] = boost::any(*resourceInstanceName);
     }
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
@@ -5395,6 +5422,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("HttpPortCount") != m.end() && !m["HttpPortCount"].empty()) {
+      httpPortCount = make_shared<long>(boost::any_cast<long>(m["HttpPortCount"]));
+    }
+    if (m.find("HttpsPortCount") != m.end() && !m["HttpsPortCount"].empty()) {
+      httpsPortCount = make_shared<long>(boost::any_cast<long>(m["HttpsPortCount"]));
+    }
     if (m.find("OwnerUserId") != m.end() && !m["OwnerUserId"].empty()) {
       ownerUserId = make_shared<string>(boost::any_cast<string>(m["OwnerUserId"]));
     }
@@ -5406,6 +5439,15 @@ public:
     }
     if (m.find("ResourceInstance") != m.end() && !m["ResourceInstance"].empty()) {
       resourceInstance = make_shared<string>(boost::any_cast<string>(m["ResourceInstance"]));
+    }
+    if (m.find("ResourceInstanceId") != m.end() && !m["ResourceInstanceId"].empty()) {
+      resourceInstanceId = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceId"]));
+    }
+    if (m.find("ResourceInstanceIp") != m.end() && !m["ResourceInstanceIp"].empty()) {
+      resourceInstanceIp = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceIp"]));
+    }
+    if (m.find("ResourceInstanceName") != m.end() && !m["ResourceInstanceName"].empty()) {
+      resourceInstanceName = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceName"]));
     }
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
@@ -5535,6 +5577,184 @@ public:
 
 
   virtual ~DescribeCloudResourcesResponse() = default;
+};
+class DescribeCnameCountRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeCnameCountRequest() {}
+
+  explicit DescribeCnameCountRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeCnameCountRequest() = default;
+};
+class DescribeCnameCountResponseBodyCnameCount : public Darabonba::Model {
+public:
+  shared_ptr<long> cname{};
+  shared_ptr<long> hybridCloudCname{};
+  shared_ptr<long> total{};
+
+  DescribeCnameCountResponseBodyCnameCount() {}
+
+  explicit DescribeCnameCountResponseBodyCnameCount(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cname) {
+      res["Cname"] = boost::any(*cname);
+    }
+    if (hybridCloudCname) {
+      res["HybridCloudCname"] = boost::any(*hybridCloudCname);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cname") != m.end() && !m["Cname"].empty()) {
+      cname = make_shared<long>(boost::any_cast<long>(m["Cname"]));
+    }
+    if (m.find("HybridCloudCname") != m.end() && !m["HybridCloudCname"].empty()) {
+      hybridCloudCname = make_shared<long>(boost::any_cast<long>(m["HybridCloudCname"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~DescribeCnameCountResponseBodyCnameCount() = default;
+};
+class DescribeCnameCountResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeCnameCountResponseBodyCnameCount> cnameCount{};
+  shared_ptr<string> requestId{};
+
+  DescribeCnameCountResponseBody() {}
+
+  explicit DescribeCnameCountResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cnameCount) {
+      res["CnameCount"] = cnameCount ? boost::any(cnameCount->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CnameCount") != m.end() && !m["CnameCount"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CnameCount"].type()) {
+        DescribeCnameCountResponseBodyCnameCount model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CnameCount"]));
+        cnameCount = make_shared<DescribeCnameCountResponseBodyCnameCount>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeCnameCountResponseBody() = default;
+};
+class DescribeCnameCountResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCnameCountResponseBody> body{};
+
+  DescribeCnameCountResponse() {}
+
+  explicit DescribeCnameCountResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCnameCountResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCnameCountResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCnameCountResponse() = default;
 };
 class DescribeDDoSStatusRequest : public Darabonba::Model {
 public:
@@ -13173,6 +13393,8 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceInstanceId{};
+  shared_ptr<string> resourceInstanceIp{};
+  shared_ptr<string> resourceInstanceName{};
   shared_ptr<string> resourceIp{};
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<string> resourceName{};
@@ -13206,6 +13428,12 @@ public:
     }
     if (resourceInstanceId) {
       res["ResourceInstanceId"] = boost::any(*resourceInstanceId);
+    }
+    if (resourceInstanceIp) {
+      res["ResourceInstanceIp"] = boost::any(*resourceInstanceIp);
+    }
+    if (resourceInstanceName) {
+      res["ResourceInstanceName"] = boost::any(*resourceInstanceName);
     }
     if (resourceIp) {
       res["ResourceIp"] = boost::any(*resourceIp);
@@ -13243,6 +13471,12 @@ public:
     }
     if (m.find("ResourceInstanceId") != m.end() && !m["ResourceInstanceId"].empty()) {
       resourceInstanceId = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceId"]));
+    }
+    if (m.find("ResourceInstanceIp") != m.end() && !m["ResourceInstanceIp"].empty()) {
+      resourceInstanceIp = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceIp"]));
+    }
+    if (m.find("ResourceInstanceName") != m.end() && !m["ResourceInstanceName"].empty()) {
+      resourceInstanceName = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceName"]));
     }
     if (m.find("ResourceIp") != m.end() && !m["ResourceIp"].empty()) {
       resourceIp = make_shared<string>(boost::any_cast<string>(m["ResourceIp"]));
@@ -13361,6 +13595,8 @@ class DescribeProductInstancesResponseBodyProductInstances : public Darabonba::M
 public:
   shared_ptr<string> ownerUserId{};
   shared_ptr<string> resourceInstanceId{};
+  shared_ptr<string> resourceInstanceIp{};
+  shared_ptr<string> resourceInstanceName{};
   shared_ptr<string> resourceIp{};
   shared_ptr<string> resourceName{};
   shared_ptr<vector<DescribeProductInstancesResponseBodyProductInstancesResourcePorts>> resourcePorts{};
@@ -13382,6 +13618,12 @@ public:
     }
     if (resourceInstanceId) {
       res["ResourceInstanceId"] = boost::any(*resourceInstanceId);
+    }
+    if (resourceInstanceIp) {
+      res["ResourceInstanceIp"] = boost::any(*resourceInstanceIp);
+    }
+    if (resourceInstanceName) {
+      res["ResourceInstanceName"] = boost::any(*resourceInstanceName);
     }
     if (resourceIp) {
       res["ResourceIp"] = boost::any(*resourceIp);
@@ -13411,6 +13653,12 @@ public:
     }
     if (m.find("ResourceInstanceId") != m.end() && !m["ResourceInstanceId"].empty()) {
       resourceInstanceId = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceId"]));
+    }
+    if (m.find("ResourceInstanceIp") != m.end() && !m["ResourceInstanceIp"].empty()) {
+      resourceInstanceIp = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceIp"]));
+    }
+    if (m.find("ResourceInstanceName") != m.end() && !m["ResourceInstanceName"].empty()) {
+      resourceInstanceName = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceName"]));
     }
     if (m.find("ResourceIp") != m.end() && !m["ResourceIp"].empty()) {
       resourceIp = make_shared<string>(boost::any_cast<string>(m["ResourceIp"]));
@@ -22186,6 +22434,8 @@ public:
   DescribeCertsResponse describeCerts(shared_ptr<DescribeCertsRequest> request);
   DescribeCloudResourcesResponse describeCloudResourcesWithOptions(shared_ptr<DescribeCloudResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCloudResourcesResponse describeCloudResources(shared_ptr<DescribeCloudResourcesRequest> request);
+  DescribeCnameCountResponse describeCnameCountWithOptions(shared_ptr<DescribeCnameCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCnameCountResponse describeCnameCount(shared_ptr<DescribeCnameCountRequest> request);
   DescribeDDoSStatusResponse describeDDoSStatusWithOptions(shared_ptr<DescribeDDoSStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDDoSStatusResponse describeDDoSStatus(shared_ptr<DescribeDDoSStatusRequest> request);
   DescribeDefenseResourceResponse describeDefenseResourceWithOptions(shared_ptr<DescribeDefenseResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
