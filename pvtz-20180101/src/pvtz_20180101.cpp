@@ -772,6 +772,9 @@ DescribeResolverEndpointsResponse Alibabacloud_Pvtz20180101::Client::describeRes
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcRegionId)) {
+    query->insert(pair<string, string>("VpcRegionId", *request->vpcRegionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1490,6 +1493,9 @@ UpdateResolverEndpointResponse Alibabacloud_Pvtz20180101::Client::updateResolver
 UpdateResolverRuleResponse Alibabacloud_Pvtz20180101::Client::updateResolverRuleWithOptions(shared_ptr<UpdateResolverRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointId)) {
+    query->insert(pair<string, string>("EndpointId", *request->endpointId));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<UpdateResolverRuleRequestForwardIp>>(request->forwardIp)) {
     query->insert(pair<string, vector<UpdateResolverRuleRequestForwardIp>>("ForwardIp", *request->forwardIp));
   }

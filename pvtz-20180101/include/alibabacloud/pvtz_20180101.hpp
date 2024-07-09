@@ -3403,6 +3403,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> status{};
+  shared_ptr<string> vpcRegionId{};
 
   DescribeResolverEndpointsRequest() {}
 
@@ -3429,6 +3430,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (vpcRegionId) {
+      res["VpcRegionId"] = boost::any(*vpcRegionId);
+    }
     return res;
   }
 
@@ -3447,6 +3451,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("VpcRegionId") != m.end() && !m["VpcRegionId"].empty()) {
+      vpcRegionId = make_shared<string>(boost::any_cast<string>(m["VpcRegionId"]));
     }
   }
 
@@ -8738,6 +8745,7 @@ public:
 };
 class UpdateResolverRuleRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> endpointId{};
   shared_ptr<vector<UpdateResolverRuleRequestForwardIp>> forwardIp{};
   shared_ptr<string> lang{};
   shared_ptr<string> name{};
@@ -8753,6 +8761,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
     if (forwardIp) {
       vector<boost::any> temp1;
       for(auto item1:*forwardIp){
@@ -8773,6 +8784,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
     if (m.find("ForwardIp") != m.end() && !m["ForwardIp"].empty()) {
       if (typeid(vector<boost::any>) == m["ForwardIp"].type()) {
         vector<UpdateResolverRuleRequestForwardIp> expect1;
