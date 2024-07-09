@@ -3640,6 +3640,7 @@ public:
 };
 class ListSessionClustersRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> kind{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> queueName{};
@@ -3656,6 +3657,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (kind) {
+      res["kind"] = boost::any(*kind);
+    }
     if (maxResults) {
       res["maxResults"] = boost::any(*maxResults);
     }
@@ -3675,6 +3679,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("kind") != m.end() && !m["kind"].empty()) {
+      kind = make_shared<string>(boost::any_cast<string>(m["kind"]));
+    }
     if (m.find("maxResults") != m.end() && !m["maxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["maxResults"]));
     }
@@ -3844,13 +3851,18 @@ public:
   shared_ptr<vector<ListSessionClustersResponseBodySessionClustersApplicationConfigs>> applicationConfigs{};
   shared_ptr<ListSessionClustersResponseBodySessionClustersAutoStartConfiguration> autoStartConfiguration{};
   shared_ptr<ListSessionClustersResponseBodySessionClustersAutoStopConfiguration> autoStopConfiguration{};
+  shared_ptr<string> domain{};
+  shared_ptr<string> draftId{};
+  shared_ptr<string> kind{};
   shared_ptr<string> name{};
   shared_ptr<string> queueName{};
+  shared_ptr<string> releaseVersion{};
   shared_ptr<string> sessionClusterId{};
   shared_ptr<string> state{};
   shared_ptr<ListSessionClustersResponseBodySessionClustersStateChangeReason> stateChangeReason{};
   shared_ptr<string> userId{};
   shared_ptr<string> userName{};
+  shared_ptr<string> webUI{};
   shared_ptr<string> workspaceId{};
 
   ListSessionClustersResponseBodySessionClusters() {}
@@ -3876,11 +3888,23 @@ public:
     if (autoStopConfiguration) {
       res["autoStopConfiguration"] = autoStopConfiguration ? boost::any(autoStopConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (domain) {
+      res["domain"] = boost::any(*domain);
+    }
+    if (draftId) {
+      res["draftId"] = boost::any(*draftId);
+    }
+    if (kind) {
+      res["kind"] = boost::any(*kind);
+    }
     if (name) {
       res["name"] = boost::any(*name);
     }
     if (queueName) {
       res["queueName"] = boost::any(*queueName);
+    }
+    if (releaseVersion) {
+      res["releaseVersion"] = boost::any(*releaseVersion);
     }
     if (sessionClusterId) {
       res["sessionClusterId"] = boost::any(*sessionClusterId);
@@ -3896,6 +3920,9 @@ public:
     }
     if (userName) {
       res["userName"] = boost::any(*userName);
+    }
+    if (webUI) {
+      res["webUI"] = boost::any(*webUI);
     }
     if (workspaceId) {
       res["workspaceId"] = boost::any(*workspaceId);
@@ -3931,11 +3958,23 @@ public:
         autoStopConfiguration = make_shared<ListSessionClustersResponseBodySessionClustersAutoStopConfiguration>(model1);
       }
     }
+    if (m.find("domain") != m.end() && !m["domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["domain"]));
+    }
+    if (m.find("draftId") != m.end() && !m["draftId"].empty()) {
+      draftId = make_shared<string>(boost::any_cast<string>(m["draftId"]));
+    }
+    if (m.find("kind") != m.end() && !m["kind"].empty()) {
+      kind = make_shared<string>(boost::any_cast<string>(m["kind"]));
+    }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
     if (m.find("queueName") != m.end() && !m["queueName"].empty()) {
       queueName = make_shared<string>(boost::any_cast<string>(m["queueName"]));
+    }
+    if (m.find("releaseVersion") != m.end() && !m["releaseVersion"].empty()) {
+      releaseVersion = make_shared<string>(boost::any_cast<string>(m["releaseVersion"]));
     }
     if (m.find("sessionClusterId") != m.end() && !m["sessionClusterId"].empty()) {
       sessionClusterId = make_shared<string>(boost::any_cast<string>(m["sessionClusterId"]));
@@ -3955,6 +3994,9 @@ public:
     }
     if (m.find("userName") != m.end() && !m["userName"].empty()) {
       userName = make_shared<string>(boost::any_cast<string>(m["userName"]));
+    }
+    if (m.find("webUI") != m.end() && !m["webUI"].empty()) {
+      webUI = make_shared<string>(boost::any_cast<string>(m["webUI"]));
     }
     if (m.find("workspaceId") != m.end() && !m["workspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["workspaceId"]));

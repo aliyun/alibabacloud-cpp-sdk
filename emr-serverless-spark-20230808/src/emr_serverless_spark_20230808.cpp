@@ -390,6 +390,9 @@ ListSessionClustersResponse Alibabacloud_Emr-serverless-spark20230808::Client::l
                                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->kind)) {
+    query->insert(pair<string, string>("kind", *request->kind));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("maxResults", *request->maxResults));
   }
