@@ -300,6 +300,98 @@ public:
 
   virtual ~FilePermissionMember() = default;
 };
+class Permission : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> destCidrIp{};
+  shared_ptr<string> ipProtocol{};
+  shared_ptr<string> nicType{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> portRange{};
+  shared_ptr<string> priority{};
+  shared_ptr<string> sourceCidrIp{};
+  shared_ptr<string> sourcePortRange{};
+
+  Permission() {}
+
+  explicit Permission(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (destCidrIp) {
+      res["DestCidrIp"] = boost::any(*destCidrIp);
+    }
+    if (ipProtocol) {
+      res["IpProtocol"] = boost::any(*ipProtocol);
+    }
+    if (nicType) {
+      res["NicType"] = boost::any(*nicType);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (portRange) {
+      res["PortRange"] = boost::any(*portRange);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (sourceCidrIp) {
+      res["SourceCidrIp"] = boost::any(*sourceCidrIp);
+    }
+    if (sourcePortRange) {
+      res["SourcePortRange"] = boost::any(*sourcePortRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DestCidrIp") != m.end() && !m["DestCidrIp"].empty()) {
+      destCidrIp = make_shared<string>(boost::any_cast<string>(m["DestCidrIp"]));
+    }
+    if (m.find("IpProtocol") != m.end() && !m["IpProtocol"].empty()) {
+      ipProtocol = make_shared<string>(boost::any_cast<string>(m["IpProtocol"]));
+    }
+    if (m.find("NicType") != m.end() && !m["NicType"].empty()) {
+      nicType = make_shared<string>(boost::any_cast<string>(m["NicType"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("PortRange") != m.end() && !m["PortRange"].empty()) {
+      portRange = make_shared<string>(boost::any_cast<string>(m["PortRange"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("SourceCidrIp") != m.end() && !m["SourceCidrIp"].empty()) {
+      sourceCidrIp = make_shared<string>(boost::any_cast<string>(m["SourceCidrIp"]));
+    }
+    if (m.find("SourcePortRange") != m.end() && !m["SourcePortRange"].empty()) {
+      sourcePortRange = make_shared<string>(boost::any_cast<string>(m["SourcePortRange"]));
+    }
+  }
+
+
+  virtual ~Permission() = default;
+};
 class ActivateOfficeSiteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> officeSiteId{};
@@ -417,12 +509,49 @@ public:
 
   virtual ~ActivateOfficeSiteResponse() = default;
 };
+class AddDesktopOversoldUserGroupRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  AddDesktopOversoldUserGroupRequestTag() {}
+
+  explicit AddDesktopOversoldUserGroupRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~AddDesktopOversoldUserGroupRequestTag() = default;
+};
 class AddDesktopOversoldUserGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageId{};
   shared_ptr<string> name{};
   shared_ptr<string> oversoldGroupId{};
   shared_ptr<string> policyGroupId{};
+  shared_ptr<vector<AddDesktopOversoldUserGroupRequestTag>> tag{};
 
   AddDesktopOversoldUserGroupRequest() {}
 
@@ -446,6 +575,13 @@ public:
     if (policyGroupId) {
       res["PolicyGroupId"] = boost::any(*policyGroupId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -461,6 +597,19 @@ public:
     }
     if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
       policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<AddDesktopOversoldUserGroupRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddDesktopOversoldUserGroupRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<AddDesktopOversoldUserGroupRequestTag>>(expect1);
+      }
     }
   }
 
@@ -4195,6 +4344,8 @@ public:
 class CreateADConnectorOfficeSiteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> adHostname{};
+  shared_ptr<string> backupDCHostname{};
+  shared_ptr<string> backupDns{};
   shared_ptr<long> bandwidth{};
   shared_ptr<string> cenId{};
   shared_ptr<long> cenOwnerId{};
@@ -4227,6 +4378,12 @@ public:
     map<string, boost::any> res;
     if (adHostname) {
       res["AdHostname"] = boost::any(*adHostname);
+    }
+    if (backupDCHostname) {
+      res["BackupDCHostname"] = boost::any(*backupDCHostname);
+    }
+    if (backupDns) {
+      res["BackupDns"] = boost::any(*backupDns);
     }
     if (bandwidth) {
       res["Bandwidth"] = boost::any(*bandwidth);
@@ -4291,6 +4448,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AdHostname") != m.end() && !m["AdHostname"].empty()) {
       adHostname = make_shared<string>(boost::any_cast<string>(m["AdHostname"]));
+    }
+    if (m.find("BackupDCHostname") != m.end() && !m["BackupDCHostname"].empty()) {
+      backupDCHostname = make_shared<string>(boost::any_cast<string>(m["BackupDCHostname"]));
+    }
+    if (m.find("BackupDns") != m.end() && !m["BackupDns"].empty()) {
+      backupDns = make_shared<string>(boost::any_cast<string>(m["BackupDns"]));
     }
     if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
       bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
@@ -5991,6 +6154,42 @@ public:
 
   virtual ~CreateCloudDriveUsersResponse() = default;
 };
+class CreateDesktopGroupRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateDesktopGroupRequestTag() {}
+
+  explicit CreateDesktopGroupRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateDesktopGroupRequestTag() = default;
+};
 class CreateDesktopGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> allClassifyUsers{};
@@ -6028,6 +6227,7 @@ public:
   shared_ptr<long> resetType{};
   shared_ptr<string> scaleStrategyId{};
   shared_ptr<long> stopDuration{};
+  shared_ptr<vector<CreateDesktopGroupRequestTag>> tag{};
   shared_ptr<bool> volumeEncryptionEnabled{};
   shared_ptr<string> volumeEncryptionKey{};
   shared_ptr<string> vpcId{};
@@ -6146,6 +6346,13 @@ public:
     }
     if (stopDuration) {
       res["StopDuration"] = boost::any(*stopDuration);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (volumeEncryptionEnabled) {
       res["VolumeEncryptionEnabled"] = boost::any(*volumeEncryptionEnabled);
@@ -6271,6 +6478,19 @@ public:
     }
     if (m.find("StopDuration") != m.end() && !m["StopDuration"].empty()) {
       stopDuration = make_shared<long>(boost::any_cast<long>(m["StopDuration"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateDesktopGroupRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateDesktopGroupRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateDesktopGroupRequestTag>>(expect1);
+      }
     }
     if (m.find("VolumeEncryptionEnabled") != m.end() && !m["VolumeEncryptionEnabled"].empty()) {
       volumeEncryptionEnabled = make_shared<bool>(boost::any_cast<bool>(m["VolumeEncryptionEnabled"]));
@@ -8248,6 +8468,7 @@ public:
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> internetCommunicationProtocol{};
   shared_ptr<string> localDrive{};
+  shared_ptr<long> maxReconnectTime{};
   shared_ptr<string> name{};
   shared_ptr<string> netRedirect{};
   shared_ptr<string> preemptLogin{};
@@ -8361,6 +8582,9 @@ public:
     }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (maxReconnectTime) {
+      res["MaxReconnectTime"] = boost::any(*maxReconnectTime);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -8568,6 +8792,9 @@ public:
     }
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
+    }
+    if (m.find("MaxReconnectTime") != m.end() && !m["MaxReconnectTime"].empty()) {
+      maxReconnectTime = make_shared<long>(boost::any_cast<long>(m["MaxReconnectTime"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -14827,6 +15054,42 @@ public:
 
   virtual ~DescribeDesktopGroupSessionsResponse() = default;
 };
+class DescribeDesktopGroupsRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeDesktopGroupsRequestTag() {}
+
+  explicit DescribeDesktopGroupsRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeDesktopGroupsRequestTag() = default;
+};
 class DescribeDesktopGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> bundleId{};
@@ -14845,6 +15108,7 @@ public:
   shared_ptr<string> protocolType{};
   shared_ptr<string> regionId{};
   shared_ptr<long> status{};
+  shared_ptr<vector<DescribeDesktopGroupsRequestTag>> tag{};
 
   DescribeDesktopGroupsRequest() {}
 
@@ -14903,6 +15167,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     return res;
   }
@@ -14984,6 +15255,19 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeDesktopGroupsRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDesktopGroupsRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeDesktopGroupsRequestTag>>(expect1);
+      }
+    }
   }
 
 
@@ -15024,6 +15308,42 @@ public:
 
 
   virtual ~DescribeDesktopGroupsResponseBodyDesktopGroupsCountPerStatus() = default;
+};
+class DescribeDesktopGroupsResponseBodyDesktopGroupsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeDesktopGroupsResponseBodyDesktopGroupsTags() {}
+
+  explicit DescribeDesktopGroupsResponseBodyDesktopGroupsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeDesktopGroupsResponseBodyDesktopGroupsTags() = default;
 };
 class DescribeDesktopGroupsResponseBodyDesktopGroups : public Darabonba::Model {
 public:
@@ -15071,6 +15391,7 @@ public:
   shared_ptr<string> subnetId{};
   shared_ptr<string> systemDiskCategory{};
   shared_ptr<long> systemDiskSize{};
+  shared_ptr<vector<DescribeDesktopGroupsResponseBodyDesktopGroupsTags>> tags{};
   shared_ptr<long> version{};
   shared_ptr<bool> volumeEncryptionEnabled{};
   shared_ptr<string> volumeEncryptionKey{};
@@ -15220,6 +15541,13 @@ public:
     }
     if (systemDiskSize) {
       res["SystemDiskSize"] = boost::any(*systemDiskSize);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (version) {
       res["Version"] = boost::any(*version);
@@ -15375,6 +15703,19 @@ public:
     }
     if (m.find("SystemDiskSize") != m.end() && !m["SystemDiskSize"].empty()) {
       systemDiskSize = make_shared<long>(boost::any_cast<long>(m["SystemDiskSize"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeDesktopGroupsResponseBodyDesktopGroupsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDesktopGroupsResponseBodyDesktopGroupsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeDesktopGroupsResponseBodyDesktopGroupsTags>>(expect1);
+      }
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<long>(boost::any_cast<long>(m["Version"]));
@@ -16540,6 +16881,7 @@ public:
 };
 class DescribeDesktopSessionsRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> checkOsSession{};
   shared_ptr<vector<string>> desktopId{};
   shared_ptr<string> desktopName{};
   shared_ptr<string> endTime{};
@@ -16550,6 +16892,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> sessionStatus{};
   shared_ptr<string> startTime{};
+  shared_ptr<string> subPayType{};
 
   DescribeDesktopSessionsRequest() {}
 
@@ -16561,6 +16904,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (checkOsSession) {
+      res["CheckOsSession"] = boost::any(*checkOsSession);
+    }
     if (desktopId) {
       res["DesktopId"] = boost::any(*desktopId);
     }
@@ -16591,10 +16937,16 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (subPayType) {
+      res["SubPayType"] = boost::any(*subPayType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckOsSession") != m.end() && !m["CheckOsSession"].empty()) {
+      checkOsSession = make_shared<bool>(boost::any_cast<bool>(m["CheckOsSession"]));
+    }
     if (m.find("DesktopId") != m.end() && !m["DesktopId"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["DesktopId"].type()) {
@@ -16632,6 +16984,9 @@ public:
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
+    if (m.find("SubPayType") != m.end() && !m["SubPayType"].empty()) {
+      subPayType = make_shared<string>(boost::any_cast<string>(m["SubPayType"]));
+    }
   }
 
 
@@ -16649,12 +17004,14 @@ public:
   shared_ptr<long> latestConnectionTime{};
   shared_ptr<string> officeSiteId{};
   shared_ptr<string> officeSiteName{};
+  shared_ptr<string> osSessionStatus{};
   shared_ptr<string> osType{};
   shared_ptr<string> protocolType{};
   shared_ptr<string> sessionEndTime{};
   shared_ptr<long> sessionIdleTime{};
   shared_ptr<string> sessionStartTime{};
   shared_ptr<string> sessionStatus{};
+  shared_ptr<string> subPayType{};
   shared_ptr<long> totalConnectionTime{};
 
   DescribeDesktopSessionsResponseBodySessions() {}
@@ -16697,6 +17054,9 @@ public:
     if (officeSiteName) {
       res["OfficeSiteName"] = boost::any(*officeSiteName);
     }
+    if (osSessionStatus) {
+      res["OsSessionStatus"] = boost::any(*osSessionStatus);
+    }
     if (osType) {
       res["OsType"] = boost::any(*osType);
     }
@@ -16714,6 +17074,9 @@ public:
     }
     if (sessionStatus) {
       res["SessionStatus"] = boost::any(*sessionStatus);
+    }
+    if (subPayType) {
+      res["SubPayType"] = boost::any(*subPayType);
     }
     if (totalConnectionTime) {
       res["TotalConnectionTime"] = boost::any(*totalConnectionTime);
@@ -16752,6 +17115,9 @@ public:
     if (m.find("OfficeSiteName") != m.end() && !m["OfficeSiteName"].empty()) {
       officeSiteName = make_shared<string>(boost::any_cast<string>(m["OfficeSiteName"]));
     }
+    if (m.find("OsSessionStatus") != m.end() && !m["OsSessionStatus"].empty()) {
+      osSessionStatus = make_shared<string>(boost::any_cast<string>(m["OsSessionStatus"]));
+    }
     if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
       osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
     }
@@ -16769,6 +17135,9 @@ public:
     }
     if (m.find("SessionStatus") != m.end() && !m["SessionStatus"].empty()) {
       sessionStatus = make_shared<string>(boost::any_cast<string>(m["SessionStatus"]));
+    }
+    if (m.find("SubPayType") != m.end() && !m["SubPayType"].empty()) {
+      subPayType = make_shared<string>(boost::any_cast<string>(m["SubPayType"]));
     }
     if (m.find("TotalConnectionTime") != m.end() && !m["TotalConnectionTime"].empty()) {
       totalConnectionTime = make_shared<long>(boost::any_cast<long>(m["TotalConnectionTime"]));
@@ -17215,7 +17584,9 @@ public:
   shared_ptr<vector<string>> endUserId{};
   shared_ptr<vector<string>> excludedEndUserId{};
   shared_ptr<string> expiredTime{};
+  shared_ptr<bool> fillResourceGroup{};
   shared_ptr<bool> filterDesktopGroup{};
+  shared_ptr<string> gpuInstanceGroupId{};
   shared_ptr<string> groupId{};
   shared_ptr<vector<string>> imageId{};
   shared_ptr<string> managementFlag{};
@@ -17227,9 +17598,12 @@ public:
   shared_ptr<vector<string>> osTypes{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> protocolType{};
+  shared_ptr<string> qosRuleId{};
   shared_ptr<bool> queryFotaUpdate{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> snapshotPolicyId{};
+  shared_ptr<string> subPayType{};
   shared_ptr<vector<DescribeDesktopsRequestTag>> tag{};
   shared_ptr<string> userName{};
 
@@ -17276,8 +17650,14 @@ public:
     if (expiredTime) {
       res["ExpiredTime"] = boost::any(*expiredTime);
     }
+    if (fillResourceGroup) {
+      res["FillResourceGroup"] = boost::any(*fillResourceGroup);
+    }
     if (filterDesktopGroup) {
       res["FilterDesktopGroup"] = boost::any(*filterDesktopGroup);
+    }
+    if (gpuInstanceGroupId) {
+      res["GpuInstanceGroupId"] = boost::any(*gpuInstanceGroupId);
     }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
@@ -17312,14 +17692,23 @@ public:
     if (protocolType) {
       res["ProtocolType"] = boost::any(*protocolType);
     }
+    if (qosRuleId) {
+      res["QosRuleId"] = boost::any(*qosRuleId);
+    }
     if (queryFotaUpdate) {
       res["QueryFotaUpdate"] = boost::any(*queryFotaUpdate);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (snapshotPolicyId) {
       res["SnapshotPolicyId"] = boost::any(*snapshotPolicyId);
+    }
+    if (subPayType) {
+      res["SubPayType"] = boost::any(*subPayType);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -17396,8 +17785,14 @@ public:
     if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
       expiredTime = make_shared<string>(boost::any_cast<string>(m["ExpiredTime"]));
     }
+    if (m.find("FillResourceGroup") != m.end() && !m["FillResourceGroup"].empty()) {
+      fillResourceGroup = make_shared<bool>(boost::any_cast<bool>(m["FillResourceGroup"]));
+    }
     if (m.find("FilterDesktopGroup") != m.end() && !m["FilterDesktopGroup"].empty()) {
       filterDesktopGroup = make_shared<bool>(boost::any_cast<bool>(m["FilterDesktopGroup"]));
+    }
+    if (m.find("GpuInstanceGroupId") != m.end() && !m["GpuInstanceGroupId"].empty()) {
+      gpuInstanceGroupId = make_shared<string>(boost::any_cast<string>(m["GpuInstanceGroupId"]));
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
@@ -17446,14 +17841,23 @@ public:
     if (m.find("ProtocolType") != m.end() && !m["ProtocolType"].empty()) {
       protocolType = make_shared<string>(boost::any_cast<string>(m["ProtocolType"]));
     }
+    if (m.find("QosRuleId") != m.end() && !m["QosRuleId"].empty()) {
+      qosRuleId = make_shared<string>(boost::any_cast<string>(m["QosRuleId"]));
+    }
     if (m.find("QueryFotaUpdate") != m.end() && !m["QueryFotaUpdate"].empty()) {
       queryFotaUpdate = make_shared<bool>(boost::any_cast<bool>(m["QueryFotaUpdate"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("SnapshotPolicyId") != m.end() && !m["SnapshotPolicyId"].empty()) {
       snapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["SnapshotPolicyId"]));
+    }
+    if (m.find("SubPayType") != m.end() && !m["SubPayType"].empty()) {
+      subPayType = make_shared<string>(boost::any_cast<string>(m["SubPayType"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -17590,6 +17994,42 @@ public:
 
   virtual ~DescribeDesktopsResponseBodyDesktopsFotaUpdate() = default;
 };
+class DescribeDesktopsResponseBodyDesktopsResourceGroups : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+
+  DescribeDesktopsResponseBodyDesktopsResourceGroups() {}
+
+  explicit DescribeDesktopsResponseBodyDesktopsResourceGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~DescribeDesktopsResponseBodyDesktopsResourceGroups() = default;
+};
 class DescribeDesktopsResponseBodyDesktopsSessions : public Darabonba::Model {
 public:
   shared_ptr<string> endUserId{};
@@ -17718,6 +18158,7 @@ public:
   shared_ptr<vector<string>> policyGroupNameList{};
   shared_ptr<string> progress{};
   shared_ptr<string> protocolType{};
+  shared_ptr<vector<DescribeDesktopsResponseBodyDesktopsResourceGroups>> resourceGroups{};
   shared_ptr<string> sessionType{};
   shared_ptr<vector<DescribeDesktopsResponseBodyDesktopsSessions>> sessions{};
   shared_ptr<string> snapshotPolicyId{};
@@ -17885,6 +18326,13 @@ public:
     }
     if (protocolType) {
       res["ProtocolType"] = boost::any(*protocolType);
+    }
+    if (resourceGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceGroups"] = boost::any(temp1);
     }
     if (sessionType) {
       res["SessionType"] = boost::any(*sessionType);
@@ -18116,6 +18564,19 @@ public:
     }
     if (m.find("ProtocolType") != m.end() && !m["ProtocolType"].empty()) {
       protocolType = make_shared<string>(boost::any_cast<string>(m["ProtocolType"]));
+    }
+    if (m.find("ResourceGroups") != m.end() && !m["ResourceGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceGroups"].type()) {
+        vector<DescribeDesktopsResponseBodyDesktopsResourceGroups> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDesktopsResponseBodyDesktopsResourceGroups model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceGroups = make_shared<vector<DescribeDesktopsResponseBodyDesktopsResourceGroups>>(expect1);
+      }
     }
     if (m.find("SessionType") != m.end() && !m["SessionType"].empty()) {
       sessionType = make_shared<string>(boost::any_cast<string>(m["SessionType"]));
@@ -19420,6 +19881,9 @@ public:
 class DescribeDirectoriesResponseBodyDirectories : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeDirectoriesResponseBodyDirectoriesADConnectors>> ADConnectors{};
+  shared_ptr<string> adHostname{};
+  shared_ptr<string> backupDCHostname{};
+  shared_ptr<string> backupDns{};
   shared_ptr<string> creationTime{};
   shared_ptr<string> customSecurityGroupId{};
   shared_ptr<string> desktopAccessType{};
@@ -19464,6 +19928,15 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ADConnectors"] = boost::any(temp1);
+    }
+    if (adHostname) {
+      res["AdHostname"] = boost::any(*adHostname);
+    }
+    if (backupDCHostname) {
+      res["BackupDCHostname"] = boost::any(*backupDCHostname);
+    }
+    if (backupDns) {
+      res["BackupDns"] = boost::any(*backupDns);
     }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
@@ -19566,6 +20039,15 @@ public:
         }
         ADConnectors = make_shared<vector<DescribeDirectoriesResponseBodyDirectoriesADConnectors>>(expect1);
       }
+    }
+    if (m.find("AdHostname") != m.end() && !m["AdHostname"].empty()) {
+      adHostname = make_shared<string>(boost::any_cast<string>(m["AdHostname"]));
+    }
+    if (m.find("BackupDCHostname") != m.end() && !m["BackupDCHostname"].empty()) {
+      backupDCHostname = make_shared<string>(boost::any_cast<string>(m["BackupDCHostname"]));
+    }
+    if (m.find("BackupDns") != m.end() && !m["BackupDns"].empty()) {
+      backupDns = make_shared<string>(boost::any_cast<string>(m["BackupDns"]));
     }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
@@ -23435,6 +23917,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<vector<string>> subDnsAddress{};
   shared_ptr<string> subDomainName{};
+  shared_ptr<string> subnetMode{};
   shared_ptr<long> totalEdsCount{};
   shared_ptr<long> totalEdsCountForGroup{};
   shared_ptr<string> trustPassword{};
@@ -23585,6 +24068,9 @@ public:
     }
     if (subDomainName) {
       res["SubDomainName"] = boost::any(*subDomainName);
+    }
+    if (subnetMode) {
+      res["SubnetMode"] = boost::any(*subnetMode);
     }
     if (totalEdsCount) {
       res["TotalEdsCount"] = boost::any(*totalEdsCount);
@@ -23774,6 +24260,9 @@ public:
     }
     if (m.find("SubDomainName") != m.end() && !m["SubDomainName"].empty()) {
       subDomainName = make_shared<string>(boost::any_cast<string>(m["SubDomainName"]));
+    }
+    if (m.find("SubnetMode") != m.end() && !m["SubnetMode"].empty()) {
+      subnetMode = make_shared<string>(boost::any_cast<string>(m["SubnetMode"]));
     }
     if (m.find("TotalEdsCount") != m.end() && !m["TotalEdsCount"].empty()) {
       totalEdsCount = make_shared<long>(boost::any_cast<long>(m["TotalEdsCount"]));
@@ -24287,12 +24776,14 @@ public:
   shared_ptr<string> cameraRedirect{};
   shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes>> clientTypes{};
   shared_ptr<string> clipboard{};
+  shared_ptr<string> colorEnhancement{};
   shared_ptr<long> cpuDownGradeDuration{};
   shared_ptr<vector<string>> cpuProcessors{};
   shared_ptr<string> cpuProtectedMode{};
   shared_ptr<long> cpuRateLimit{};
   shared_ptr<long> cpuSampleDuration{};
   shared_ptr<long> cpuSingleRateLimit{};
+  shared_ptr<string> displayMode{};
   shared_ptr<string> domainList{};
   shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule>> domainResolveRule{};
   shared_ptr<string> domainResolveRuleType{};
@@ -24304,6 +24795,7 @@ public:
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> internetCommunicationProtocol{};
   shared_ptr<string> localDrive{};
+  shared_ptr<long> maxReconnectTime{};
   shared_ptr<long> memoryDownGradeDuration{};
   shared_ptr<vector<string>> memoryProcessors{};
   shared_ptr<string> memoryProtectedMode{};
@@ -24319,6 +24811,7 @@ public:
   shared_ptr<string> preemptLogin{};
   shared_ptr<vector<string>> preemptLoginUsers{};
   shared_ptr<string> printerRedirection{};
+  shared_ptr<string> qualityEnhancement{};
   shared_ptr<string> recordContent{};
   shared_ptr<long> recordContentExpires{};
   shared_ptr<string> recording{};
@@ -24333,8 +24826,16 @@ public:
   shared_ptr<string> remoteCoordinate{};
   shared_ptr<string> scope{};
   shared_ptr<vector<string>> scopeValue{};
+  shared_ptr<string> smoothEnhancement{};
+  shared_ptr<string> streamingMode{};
+  shared_ptr<long> targetFps{};
   shared_ptr<string> usbRedirect{};
   shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule>> usbSupplyRedirectRule{};
+  shared_ptr<long> videoEncAvgKbps{};
+  shared_ptr<long> videoEncMaxQP{};
+  shared_ptr<long> videoEncMinQP{};
+  shared_ptr<long> videoEncPeakKbps{};
+  shared_ptr<string> videoEncPolicy{};
   shared_ptr<string> videoRedirect{};
   shared_ptr<string> visualQuality{};
   shared_ptr<string> watermark{};
@@ -24394,6 +24895,9 @@ public:
     if (clipboard) {
       res["Clipboard"] = boost::any(*clipboard);
     }
+    if (colorEnhancement) {
+      res["ColorEnhancement"] = boost::any(*colorEnhancement);
+    }
     if (cpuDownGradeDuration) {
       res["CpuDownGradeDuration"] = boost::any(*cpuDownGradeDuration);
     }
@@ -24411,6 +24915,9 @@ public:
     }
     if (cpuSingleRateLimit) {
       res["CpuSingleRateLimit"] = boost::any(*cpuSingleRateLimit);
+    }
+    if (displayMode) {
+      res["DisplayMode"] = boost::any(*displayMode);
     }
     if (domainList) {
       res["DomainList"] = boost::any(*domainList);
@@ -24448,6 +24955,9 @@ public:
     }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (maxReconnectTime) {
+      res["MaxReconnectTime"] = boost::any(*maxReconnectTime);
     }
     if (memoryDownGradeDuration) {
       res["MemoryDownGradeDuration"] = boost::any(*memoryDownGradeDuration);
@@ -24498,6 +25008,9 @@ public:
     if (printerRedirection) {
       res["PrinterRedirection"] = boost::any(*printerRedirection);
     }
+    if (qualityEnhancement) {
+      res["QualityEnhancement"] = boost::any(*qualityEnhancement);
+    }
     if (recordContent) {
       res["RecordContent"] = boost::any(*recordContent);
     }
@@ -24540,6 +25053,15 @@ public:
     if (scopeValue) {
       res["ScopeValue"] = boost::any(*scopeValue);
     }
+    if (smoothEnhancement) {
+      res["SmoothEnhancement"] = boost::any(*smoothEnhancement);
+    }
+    if (streamingMode) {
+      res["StreamingMode"] = boost::any(*streamingMode);
+    }
+    if (targetFps) {
+      res["TargetFps"] = boost::any(*targetFps);
+    }
     if (usbRedirect) {
       res["UsbRedirect"] = boost::any(*usbRedirect);
     }
@@ -24549,6 +25071,21 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["UsbSupplyRedirectRule"] = boost::any(temp1);
+    }
+    if (videoEncAvgKbps) {
+      res["VideoEncAvgKbps"] = boost::any(*videoEncAvgKbps);
+    }
+    if (videoEncMaxQP) {
+      res["VideoEncMaxQP"] = boost::any(*videoEncMaxQP);
+    }
+    if (videoEncMinQP) {
+      res["VideoEncMinQP"] = boost::any(*videoEncMinQP);
+    }
+    if (videoEncPeakKbps) {
+      res["VideoEncPeakKbps"] = boost::any(*videoEncPeakKbps);
+    }
+    if (videoEncPolicy) {
+      res["VideoEncPolicy"] = boost::any(*videoEncPolicy);
     }
     if (videoRedirect) {
       res["VideoRedirect"] = boost::any(*videoRedirect);
@@ -24650,6 +25187,9 @@ public:
     if (m.find("Clipboard") != m.end() && !m["Clipboard"].empty()) {
       clipboard = make_shared<string>(boost::any_cast<string>(m["Clipboard"]));
     }
+    if (m.find("ColorEnhancement") != m.end() && !m["ColorEnhancement"].empty()) {
+      colorEnhancement = make_shared<string>(boost::any_cast<string>(m["ColorEnhancement"]));
+    }
     if (m.find("CpuDownGradeDuration") != m.end() && !m["CpuDownGradeDuration"].empty()) {
       cpuDownGradeDuration = make_shared<long>(boost::any_cast<long>(m["CpuDownGradeDuration"]));
     }
@@ -24674,6 +25214,9 @@ public:
     }
     if (m.find("CpuSingleRateLimit") != m.end() && !m["CpuSingleRateLimit"].empty()) {
       cpuSingleRateLimit = make_shared<long>(boost::any_cast<long>(m["CpuSingleRateLimit"]));
+    }
+    if (m.find("DisplayMode") != m.end() && !m["DisplayMode"].empty()) {
+      displayMode = make_shared<string>(boost::any_cast<string>(m["DisplayMode"]));
     }
     if (m.find("DomainList") != m.end() && !m["DomainList"].empty()) {
       domainList = make_shared<string>(boost::any_cast<string>(m["DomainList"]));
@@ -24717,6 +25260,9 @@ public:
     }
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
+    }
+    if (m.find("MaxReconnectTime") != m.end() && !m["MaxReconnectTime"].empty()) {
+      maxReconnectTime = make_shared<long>(boost::any_cast<long>(m["MaxReconnectTime"]));
     }
     if (m.find("MemoryDownGradeDuration") != m.end() && !m["MemoryDownGradeDuration"].empty()) {
       memoryDownGradeDuration = make_shared<long>(boost::any_cast<long>(m["MemoryDownGradeDuration"]));
@@ -24787,6 +25333,9 @@ public:
     if (m.find("PrinterRedirection") != m.end() && !m["PrinterRedirection"].empty()) {
       printerRedirection = make_shared<string>(boost::any_cast<string>(m["PrinterRedirection"]));
     }
+    if (m.find("QualityEnhancement") != m.end() && !m["QualityEnhancement"].empty()) {
+      qualityEnhancement = make_shared<string>(boost::any_cast<string>(m["QualityEnhancement"]));
+    }
     if (m.find("RecordContent") != m.end() && !m["RecordContent"].empty()) {
       recordContent = make_shared<string>(boost::any_cast<string>(m["RecordContent"]));
     }
@@ -24836,6 +25385,15 @@ public:
       }
       scopeValue = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("SmoothEnhancement") != m.end() && !m["SmoothEnhancement"].empty()) {
+      smoothEnhancement = make_shared<string>(boost::any_cast<string>(m["SmoothEnhancement"]));
+    }
+    if (m.find("StreamingMode") != m.end() && !m["StreamingMode"].empty()) {
+      streamingMode = make_shared<string>(boost::any_cast<string>(m["StreamingMode"]));
+    }
+    if (m.find("TargetFps") != m.end() && !m["TargetFps"].empty()) {
+      targetFps = make_shared<long>(boost::any_cast<long>(m["TargetFps"]));
+    }
     if (m.find("UsbRedirect") != m.end() && !m["UsbRedirect"].empty()) {
       usbRedirect = make_shared<string>(boost::any_cast<string>(m["UsbRedirect"]));
     }
@@ -24851,6 +25409,21 @@ public:
         }
         usbSupplyRedirectRule = make_shared<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule>>(expect1);
       }
+    }
+    if (m.find("VideoEncAvgKbps") != m.end() && !m["VideoEncAvgKbps"].empty()) {
+      videoEncAvgKbps = make_shared<long>(boost::any_cast<long>(m["VideoEncAvgKbps"]));
+    }
+    if (m.find("VideoEncMaxQP") != m.end() && !m["VideoEncMaxQP"].empty()) {
+      videoEncMaxQP = make_shared<long>(boost::any_cast<long>(m["VideoEncMaxQP"]));
+    }
+    if (m.find("VideoEncMinQP") != m.end() && !m["VideoEncMinQP"].empty()) {
+      videoEncMinQP = make_shared<long>(boost::any_cast<long>(m["VideoEncMinQP"]));
+    }
+    if (m.find("VideoEncPeakKbps") != m.end() && !m["VideoEncPeakKbps"].empty()) {
+      videoEncPeakKbps = make_shared<long>(boost::any_cast<long>(m["VideoEncPeakKbps"]));
+    }
+    if (m.find("VideoEncPolicy") != m.end() && !m["VideoEncPolicy"].empty()) {
+      videoEncPolicy = make_shared<string>(boost::any_cast<string>(m["VideoEncPolicy"]));
     }
     if (m.find("VideoRedirect") != m.end() && !m["VideoRedirect"].empty()) {
       videoRedirect = make_shared<string>(boost::any_cast<string>(m["VideoRedirect"]));
@@ -25016,6 +25589,10 @@ public:
   shared_ptr<long> amount{};
   shared_ptr<string> bundleId{};
   shared_ptr<long> duration{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> osType{};
+  shared_ptr<string> rootDiskId{};
+  shared_ptr<string> userDiskId{};
 
   DescribePriceRequestBundleModels() {}
 
@@ -25036,6 +25613,18 @@ public:
     if (duration) {
       res["Duration"] = boost::any(*duration);
     }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (osType) {
+      res["OsType"] = boost::any(*osType);
+    }
+    if (rootDiskId) {
+      res["RootDiskId"] = boost::any(*rootDiskId);
+    }
+    if (userDiskId) {
+      res["UserDiskId"] = boost::any(*userDiskId);
+    }
     return res;
   }
 
@@ -25048,6 +25637,18 @@ public:
     }
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
+      osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
+    }
+    if (m.find("RootDiskId") != m.end() && !m["RootDiskId"].empty()) {
+      rootDiskId = make_shared<string>(boost::any_cast<string>(m["RootDiskId"]));
+    }
+    if (m.find("UserDiskId") != m.end() && !m["UserDiskId"].empty()) {
+      userDiskId = make_shared<string>(boost::any_cast<string>(m["UserDiskId"]));
     }
   }
 
@@ -30129,6 +30730,42 @@ public:
 
   virtual ~ExportClientEventsResponse() = default;
 };
+class ExportDesktopGroupInfoRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ExportDesktopGroupInfoRequestTag() {}
+
+  explicit ExportDesktopGroupInfoRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ExportDesktopGroupInfoRequestTag() = default;
+};
 class ExportDesktopGroupInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> chargeType{};
@@ -30142,6 +30779,7 @@ public:
   shared_ptr<string> officeSiteId{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> regionId{};
+  shared_ptr<vector<ExportDesktopGroupInfoRequestTag>> tag{};
 
   ExportDesktopGroupInfoRequest() {}
 
@@ -30185,6 +30823,13 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     return res;
   }
@@ -30236,6 +30881,19 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ExportDesktopGroupInfoRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExportDesktopGroupInfoRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ExportDesktopGroupInfoRequestTag>>(expect1);
+      }
     }
   }
 
@@ -34684,6 +35342,8 @@ public:
 class ModifyADConnectorOfficeSiteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> adHostname{};
+  shared_ptr<string> backupDCHostname{};
+  shared_ptr<string> backupDns{};
   shared_ptr<vector<string>> dnsAddress{};
   shared_ptr<string> domainName{};
   shared_ptr<string> domainPassword{};
@@ -34708,6 +35368,12 @@ public:
     map<string, boost::any> res;
     if (adHostname) {
       res["AdHostname"] = boost::any(*adHostname);
+    }
+    if (backupDCHostname) {
+      res["BackupDCHostname"] = boost::any(*backupDCHostname);
+    }
+    if (backupDns) {
+      res["BackupDns"] = boost::any(*backupDns);
     }
     if (dnsAddress) {
       res["DnsAddress"] = boost::any(*dnsAddress);
@@ -34748,6 +35414,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AdHostname") != m.end() && !m["AdHostname"].empty()) {
       adHostname = make_shared<string>(boost::any_cast<string>(m["AdHostname"]));
+    }
+    if (m.find("BackupDCHostname") != m.end() && !m["BackupDCHostname"].empty()) {
+      backupDCHostname = make_shared<string>(boost::any_cast<string>(m["BackupDCHostname"]));
+    }
+    if (m.find("BackupDns") != m.end() && !m["BackupDns"].empty()) {
+      backupDns = make_shared<string>(boost::any_cast<string>(m["BackupDns"]));
     }
     if (m.find("DnsAddress") != m.end() && !m["DnsAddress"].empty()) {
       vector<string> toVec1;
@@ -37677,6 +38349,49 @@ public:
 
   virtual ~ModifyDesktopOversoldUserGroupResponse() = default;
 };
+class ModifyDesktopSpecRequestResourceSpecs : public Darabonba::Model {
+public:
+  shared_ptr<string> desktopId{};
+  shared_ptr<long> rootDiskSizeGib{};
+  shared_ptr<long> userDiskSizeGib{};
+
+  ModifyDesktopSpecRequestResourceSpecs() {}
+
+  explicit ModifyDesktopSpecRequestResourceSpecs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desktopId) {
+      res["DesktopId"] = boost::any(*desktopId);
+    }
+    if (rootDiskSizeGib) {
+      res["RootDiskSizeGib"] = boost::any(*rootDiskSizeGib);
+    }
+    if (userDiskSizeGib) {
+      res["UserDiskSizeGib"] = boost::any(*userDiskSizeGib);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DesktopId") != m.end() && !m["DesktopId"].empty()) {
+      desktopId = make_shared<string>(boost::any_cast<string>(m["DesktopId"]));
+    }
+    if (m.find("RootDiskSizeGib") != m.end() && !m["RootDiskSizeGib"].empty()) {
+      rootDiskSizeGib = make_shared<long>(boost::any_cast<long>(m["RootDiskSizeGib"]));
+    }
+    if (m.find("UserDiskSizeGib") != m.end() && !m["UserDiskSizeGib"].empty()) {
+      userDiskSizeGib = make_shared<long>(boost::any_cast<long>(m["UserDiskSizeGib"]));
+    }
+  }
+
+
+  virtual ~ModifyDesktopSpecRequestResourceSpecs() = default;
+};
 class ModifyDesktopSpecRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
@@ -37684,6 +38399,8 @@ public:
   shared_ptr<string> desktopType{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
+  shared_ptr<vector<ModifyDesktopSpecRequestResourceSpecs>> resourceSpecs{};
+  shared_ptr<string> resourceType{};
   shared_ptr<long> rootDiskSizeGib{};
   shared_ptr<string> userDiskPerformanceLevel{};
   shared_ptr<long> userDiskSizeGib{};
@@ -37713,6 +38430,16 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceSpecs) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceSpecs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceSpecs"] = boost::any(temp1);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     if (rootDiskSizeGib) {
       res["RootDiskSizeGib"] = boost::any(*rootDiskSizeGib);
     }
@@ -37741,6 +38468,22 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceSpecs") != m.end() && !m["ResourceSpecs"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceSpecs"].type()) {
+        vector<ModifyDesktopSpecRequestResourceSpecs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceSpecs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyDesktopSpecRequestResourceSpecs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceSpecs = make_shared<vector<ModifyDesktopSpecRequestResourceSpecs>>(expect1);
+      }
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
     if (m.find("RootDiskSizeGib") != m.end() && !m["RootDiskSizeGib"].empty()) {
       rootDiskSizeGib = make_shared<long>(boost::any_cast<long>(m["RootDiskSizeGib"]));
     }
@@ -37758,6 +38501,7 @@ public:
 class ModifyDesktopSpecResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> orderId{};
+  shared_ptr<vector<long>> orderIds{};
   shared_ptr<string> requestId{};
 
   ModifyDesktopSpecResponseBody() {}
@@ -37773,6 +38517,9 @@ public:
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
     }
+    if (orderIds) {
+      res["OrderIds"] = boost::any(*orderIds);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -37782,6 +38529,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OrderIds") != m.end() && !m["OrderIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["OrderIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OrderIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      orderIds = make_shared<vector<long>>(toVec1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -40024,6 +40781,7 @@ public:
   shared_ptr<string> html5FileTransfer{};
   shared_ptr<string> internetCommunicationProtocol{};
   shared_ptr<string> localDrive{};
+  shared_ptr<long> maxReconnectTime{};
   shared_ptr<string> name{};
   shared_ptr<string> netRedirect{};
   shared_ptr<string> policyGroupId{};
@@ -40140,6 +40898,9 @@ public:
     }
     if (localDrive) {
       res["LocalDrive"] = boost::any(*localDrive);
+    }
+    if (maxReconnectTime) {
+      res["MaxReconnectTime"] = boost::any(*maxReconnectTime);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -40364,6 +41125,9 @@ public:
     }
     if (m.find("LocalDrive") != m.end() && !m["LocalDrive"].empty()) {
       localDrive = make_shared<string>(boost::any_cast<string>(m["LocalDrive"]));
+    }
+    if (m.find("MaxReconnectTime") != m.end() && !m["MaxReconnectTime"].empty()) {
+      maxReconnectTime = make_shared<long>(boost::any_cast<long>(m["MaxReconnectTime"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -41264,6 +42028,7 @@ class RebuildDesktopsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> desktopId{};
   shared_ptr<string> imageId{};
+  shared_ptr<string> language{};
   shared_ptr<string> operateType{};
   shared_ptr<string> regionId{};
 
@@ -41282,6 +42047,9 @@ public:
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
     }
     if (operateType) {
       res["OperateType"] = boost::any(*operateType);
@@ -41305,6 +42073,9 @@ public:
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
     if (m.find("OperateType") != m.end() && !m["OperateType"].empty()) {
       operateType = make_shared<string>(boost::any_cast<string>(m["OperateType"]));
@@ -42211,6 +42982,7 @@ public:
 class RenewDesktopsRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
+  shared_ptr<bool> autoRenew{};
   shared_ptr<vector<string>> desktopId{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
@@ -42230,6 +43002,9 @@ public:
     map<string, boost::any> res;
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
     }
     if (desktopId) {
       res["DesktopId"] = boost::any(*desktopId);
@@ -42255,6 +43030,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
     }
     if (m.find("DesktopId") != m.end() && !m["DesktopId"].empty()) {
       vector<string> toVec1;
@@ -43859,6 +44637,137 @@ public:
 
 
   virtual ~SetDesktopGroupTimerStatusResponse() = default;
+};
+class SetDesktopMaintenanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> desktopIds{};
+  shared_ptr<string> mode{};
+  shared_ptr<string> regionId{};
+
+  SetDesktopMaintenanceRequest() {}
+
+  explicit SetDesktopMaintenanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desktopIds) {
+      res["DesktopIds"] = boost::any(*desktopIds);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DesktopIds") != m.end() && !m["DesktopIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DesktopIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DesktopIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      desktopIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~SetDesktopMaintenanceRequest() = default;
+};
+class SetDesktopMaintenanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SetDesktopMaintenanceResponseBody() {}
+
+  explicit SetDesktopMaintenanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetDesktopMaintenanceResponseBody() = default;
+};
+class SetDesktopMaintenanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetDesktopMaintenanceResponseBody> body{};
+
+  SetDesktopMaintenanceResponse() {}
+
+  explicit SetDesktopMaintenanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetDesktopMaintenanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetDesktopMaintenanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetDesktopMaintenanceResponse() = default;
 };
 class SetDirectorySsoStatusRequest : public Darabonba::Model {
 public:
@@ -46627,6 +47536,8 @@ public:
   SetDesktopGroupTimerResponse setDesktopGroupTimer(shared_ptr<SetDesktopGroupTimerRequest> request);
   SetDesktopGroupTimerStatusResponse setDesktopGroupTimerStatusWithOptions(shared_ptr<SetDesktopGroupTimerStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetDesktopGroupTimerStatusResponse setDesktopGroupTimerStatus(shared_ptr<SetDesktopGroupTimerStatusRequest> request);
+  SetDesktopMaintenanceResponse setDesktopMaintenanceWithOptions(shared_ptr<SetDesktopMaintenanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetDesktopMaintenanceResponse setDesktopMaintenance(shared_ptr<SetDesktopMaintenanceRequest> request);
   SetDirectorySsoStatusResponse setDirectorySsoStatusWithOptions(shared_ptr<SetDirectorySsoStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetDirectorySsoStatusResponse setDirectorySsoStatus(shared_ptr<SetDirectorySsoStatusRequest> request);
   SetIdpMetadataResponse setIdpMetadataWithOptions(shared_ptr<SetIdpMetadataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
