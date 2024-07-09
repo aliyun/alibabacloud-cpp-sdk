@@ -1926,6 +1926,269 @@ public:
 
   virtual ~RetrieveResponse() = default;
 };
+class SubmitIndexAddDocumentsJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> categoryIds{};
+  shared_ptr<vector<string>> documentIds{};
+  shared_ptr<string> indexId{};
+  shared_ptr<string> sourceType{};
+
+  SubmitIndexAddDocumentsJobRequest() {}
+
+  explicit SubmitIndexAddDocumentsJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryIds) {
+      res["CategoryIds"] = boost::any(*categoryIds);
+    }
+    if (documentIds) {
+      res["DocumentIds"] = boost::any(*documentIds);
+    }
+    if (indexId) {
+      res["IndexId"] = boost::any(*indexId);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryIds") != m.end() && !m["CategoryIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CategoryIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CategoryIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      categoryIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DocumentIds") != m.end() && !m["DocumentIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DocumentIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DocumentIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      documentIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IndexId") != m.end() && !m["IndexId"].empty()) {
+      indexId = make_shared<string>(boost::any_cast<string>(m["IndexId"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+  }
+
+
+  virtual ~SubmitIndexAddDocumentsJobRequest() = default;
+};
+class SubmitIndexAddDocumentsJobShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryIdsShrink{};
+  shared_ptr<string> documentIdsShrink{};
+  shared_ptr<string> indexId{};
+  shared_ptr<string> sourceType{};
+
+  SubmitIndexAddDocumentsJobShrinkRequest() {}
+
+  explicit SubmitIndexAddDocumentsJobShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryIdsShrink) {
+      res["CategoryIds"] = boost::any(*categoryIdsShrink);
+    }
+    if (documentIdsShrink) {
+      res["DocumentIds"] = boost::any(*documentIdsShrink);
+    }
+    if (indexId) {
+      res["IndexId"] = boost::any(*indexId);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryIds") != m.end() && !m["CategoryIds"].empty()) {
+      categoryIdsShrink = make_shared<string>(boost::any_cast<string>(m["CategoryIds"]));
+    }
+    if (m.find("DocumentIds") != m.end() && !m["DocumentIds"].empty()) {
+      documentIdsShrink = make_shared<string>(boost::any_cast<string>(m["DocumentIds"]));
+    }
+    if (m.find("IndexId") != m.end() && !m["IndexId"].empty()) {
+      indexId = make_shared<string>(boost::any_cast<string>(m["IndexId"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+  }
+
+
+  virtual ~SubmitIndexAddDocumentsJobShrinkRequest() = default;
+};
+class SubmitIndexAddDocumentsJobResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+
+  SubmitIndexAddDocumentsJobResponseBodyData() {}
+
+  explicit SubmitIndexAddDocumentsJobResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+  }
+
+
+  virtual ~SubmitIndexAddDocumentsJobResponseBodyData() = default;
+};
+class SubmitIndexAddDocumentsJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<SubmitIndexAddDocumentsJobResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+  shared_ptr<bool> success{};
+
+  SubmitIndexAddDocumentsJobResponseBody() {}
+
+  explicit SubmitIndexAddDocumentsJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        SubmitIndexAddDocumentsJobResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<SubmitIndexAddDocumentsJobResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SubmitIndexAddDocumentsJobResponseBody() = default;
+};
+class SubmitIndexAddDocumentsJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitIndexAddDocumentsJobResponseBody> body{};
+
+  SubmitIndexAddDocumentsJobResponse() {}
+
+  explicit SubmitIndexAddDocumentsJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitIndexAddDocumentsJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitIndexAddDocumentsJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitIndexAddDocumentsJobResponse() = default;
+};
 class SubmitIndexJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> indexId{};
@@ -2152,6 +2415,11 @@ public:
                                        shared_ptr<map<string, string>> headers,
                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RetrieveResponse retrieve(shared_ptr<string> WorkspaceId, shared_ptr<RetrieveRequest> request);
+  SubmitIndexAddDocumentsJobResponse submitIndexAddDocumentsJobWithOptions(shared_ptr<string> WorkspaceId,
+                                                                           shared_ptr<SubmitIndexAddDocumentsJobRequest> tmpReq,
+                                                                           shared_ptr<map<string, string>> headers,
+                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitIndexAddDocumentsJobResponse submitIndexAddDocumentsJob(shared_ptr<string> WorkspaceId, shared_ptr<SubmitIndexAddDocumentsJobRequest> request);
   SubmitIndexJobResponse submitIndexJobWithOptions(shared_ptr<string> WorkspaceId,
                                                    shared_ptr<SubmitIndexJobRequest> request,
                                                    shared_ptr<map<string, string>> headers,
