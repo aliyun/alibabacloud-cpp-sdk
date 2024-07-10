@@ -23695,6 +23695,7 @@ public:
   shared_ptr<vector<string>> officeSiteId{};
   shared_ptr<string> officeSiteType{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> securityProtection{};
   shared_ptr<string> status{};
 
   DescribeOfficeSitesRequest() {}
@@ -23721,6 +23722,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (securityProtection) {
+      res["SecurityProtection"] = boost::any(*securityProtection);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -23750,6 +23754,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecurityProtection") != m.end() && !m["SecurityProtection"].empty()) {
+      securityProtection = make_shared<string>(boost::any_cast<string>(m["SecurityProtection"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -23912,6 +23919,7 @@ public:
   shared_ptr<string> rdsLicenseAddress{};
   shared_ptr<string> rdsLicenseDomainName{};
   shared_ptr<string> rdsLicenseStatus{};
+  shared_ptr<string> securityProtection{};
   shared_ptr<bool> ssoEnabled{};
   shared_ptr<string> ssoType{};
   shared_ptr<string> status{};
@@ -24053,6 +24061,9 @@ public:
     }
     if (rdsLicenseStatus) {
       res["RdsLicenseStatus"] = boost::any(*rdsLicenseStatus);
+    }
+    if (securityProtection) {
+      res["SecurityProtection"] = boost::any(*securityProtection);
     }
     if (ssoEnabled) {
       res["SsoEnabled"] = boost::any(*ssoEnabled);
@@ -24239,6 +24250,9 @@ public:
     if (m.find("RdsLicenseStatus") != m.end() && !m["RdsLicenseStatus"].empty()) {
       rdsLicenseStatus = make_shared<string>(boost::any_cast<string>(m["RdsLicenseStatus"]));
     }
+    if (m.find("SecurityProtection") != m.end() && !m["SecurityProtection"].empty()) {
+      securityProtection = make_shared<string>(boost::any_cast<string>(m["SecurityProtection"]));
+    }
     if (m.find("SsoEnabled") != m.end() && !m["SsoEnabled"].empty()) {
       ssoEnabled = make_shared<bool>(boost::any_cast<bool>(m["SsoEnabled"]));
     }
@@ -24299,6 +24313,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<vector<DescribeOfficeSitesResponseBodyOfficeSites>> officeSites{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
 
   DescribeOfficeSitesResponseBody() {}
 
@@ -24323,6 +24338,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
@@ -24345,6 +24363,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 

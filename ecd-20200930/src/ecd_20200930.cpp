@@ -4490,6 +4490,9 @@ DescribeOfficeSitesResponse Alibabacloud_Ecd20200930::Client::describeOfficeSite
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityProtection)) {
+    query->insert(pair<string, string>("SecurityProtection", *request->securityProtection));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
   }
