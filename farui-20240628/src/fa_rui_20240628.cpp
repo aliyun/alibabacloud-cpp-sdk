@@ -158,6 +158,94 @@ CreateTextFileResponse Alibabacloud_FaRui20240628::Client::createTextFileAdvance
   return *createTextFileResp;
 }
 
+RunContractResultGenerationResponse Alibabacloud_FaRui20240628::Client::runContractResultGenerationWithOptions(shared_ptr<string> workspaceId,
+                                                                                                               shared_ptr<RunContractResultGenerationRequest> tmpReq,
+                                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<RunContractResultGenerationShrinkRequest> request = make_shared<RunContractResultGenerationShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<RunContractResultGenerationRequestAssistant>(tmpReq->assistant)) {
+    request->assistantShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->assistant, make_shared<string>("assistant"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    body->insert(pair<string, string>("appId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->assistantShrink)) {
+    body->insert(pair<string, string>("assistant", *request->assistantShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
+    body->insert(pair<string, bool>("stream", *request->stream));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunContractResultGeneration"))},
+    {"version", boost::any(string("2024-06-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/farui/contract/result/genarate"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunContractResultGenerationResponse(callApi(params, req, runtime));
+}
+
+RunContractResultGenerationResponse Alibabacloud_FaRui20240628::Client::runContractResultGeneration(shared_ptr<string> workspaceId, shared_ptr<RunContractResultGenerationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runContractResultGenerationWithOptions(workspaceId, request, headers, runtime);
+}
+
+RunContractRuleGenerationResponse Alibabacloud_FaRui20240628::Client::runContractRuleGenerationWithOptions(shared_ptr<string> workspaceId,
+                                                                                                           shared_ptr<RunContractRuleGenerationRequest> tmpReq,
+                                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<RunContractRuleGenerationShrinkRequest> request = make_shared<RunContractRuleGenerationShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<RunContractRuleGenerationRequestAssistant>(tmpReq->assistant)) {
+    request->assistantShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->assistant, make_shared<string>("assistant"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    body->insert(pair<string, string>("appId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->assistantShrink)) {
+    body->insert(pair<string, string>("assistant", *request->assistantShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->stream)) {
+    body->insert(pair<string, bool>("stream", *request->stream));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunContractRuleGeneration"))},
+    {"version", boost::any(string("2024-06-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workspaceId)) + string("/farui/contract/rule/genarate"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunContractRuleGenerationResponse(callApi(params, req, runtime));
+}
+
+RunContractRuleGenerationResponse Alibabacloud_FaRui20240628::Client::runContractRuleGeneration(shared_ptr<string> workspaceId, shared_ptr<RunContractRuleGenerationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runContractRuleGenerationWithOptions(workspaceId, request, headers, runtime);
+}
+
 RunLegalAdviceConsultationResponse Alibabacloud_FaRui20240628::Client::runLegalAdviceConsultationWithOptions(shared_ptr<string> workspaceId,
                                                                                                              shared_ptr<RunLegalAdviceConsultationRequest> tmpReq,
                                                                                                              shared_ptr<map<string, string>> headers,
