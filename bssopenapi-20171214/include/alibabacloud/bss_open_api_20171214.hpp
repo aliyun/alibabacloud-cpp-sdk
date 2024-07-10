@@ -13808,9 +13808,369 @@ public:
 
   virtual ~GetOrderDetailRequest() = default;
 };
+class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModulePropertiesBillModuleProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> attrApiCode{};
+  shared_ptr<string> moduleApiCode{};
+  shared_ptr<string> value{};
+
+  GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModulePropertiesBillModuleProperties() {}
+
+  explicit GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModulePropertiesBillModuleProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attrApiCode) {
+      res["AttrApiCode"] = boost::any(*attrApiCode);
+    }
+    if (moduleApiCode) {
+      res["ModuleApiCode"] = boost::any(*moduleApiCode);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttrApiCode") != m.end() && !m["AttrApiCode"].empty()) {
+      attrApiCode = make_shared<string>(boost::any_cast<string>(m["AttrApiCode"]));
+    }
+    if (m.find("ModuleApiCode") != m.end() && !m["ModuleApiCode"].empty()) {
+      moduleApiCode = make_shared<string>(boost::any_cast<string>(m["ModuleApiCode"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModulePropertiesBillModuleProperties() = default;
+};
+class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModuleProperties : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModulePropertiesBillModuleProperties>> billModuleProperties{};
+
+  GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModuleProperties() {}
+
+  explicit GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModuleProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (billModuleProperties) {
+      vector<boost::any> temp1;
+      for(auto item1:*billModuleProperties){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["billModuleProperties"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("billModuleProperties") != m.end() && !m["billModuleProperties"].empty()) {
+      if (typeid(vector<boost::any>) == m["billModuleProperties"].type()) {
+        vector<GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModulePropertiesBillModuleProperties> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["billModuleProperties"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModulePropertiesBillModuleProperties model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        billModuleProperties = make_shared<vector<GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModulePropertiesBillModuleProperties>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModuleProperties() = default;
+};
+class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> apiCode{};
+  shared_ptr<GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModuleProperties> billModuleProperties{};
+  shared_ptr<string> code{};
+  shared_ptr<string> name{};
+
+  GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfig() {}
+
+  explicit GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiCode) {
+      res["ApiCode"] = boost::any(*apiCode);
+    }
+    if (billModuleProperties) {
+      res["BillModuleProperties"] = billModuleProperties ? boost::any(billModuleProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiCode") != m.end() && !m["ApiCode"].empty()) {
+      apiCode = make_shared<string>(boost::any_cast<string>(m["ApiCode"]));
+    }
+    if (m.find("BillModuleProperties") != m.end() && !m["BillModuleProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BillModuleProperties"].type()) {
+        GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModuleProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BillModuleProperties"]));
+        billModuleProperties = make_shared<GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModuleProperties>(model1);
+      }
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfig() = default;
+};
+class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfig>> billModuleConfig{};
+
+  GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig() {}
+
+  explicit GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (billModuleConfig) {
+      vector<boost::any> temp1;
+      for(auto item1:*billModuleConfig){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["billModuleConfig"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("billModuleConfig") != m.end() && !m["billModuleConfig"].empty()) {
+      if (typeid(vector<boost::any>) == m["billModuleConfig"].type()) {
+        vector<GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["billModuleConfig"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        billModuleConfig = make_shared<vector<GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfig>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig() = default;
+};
+class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModulePropertiesModuleProperties : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModulePropertiesModuleProperties() {}
+
+  explicit GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModulePropertiesModuleProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModulePropertiesModuleProperties() = default;
+};
+class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModuleProperties : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModulePropertiesModuleProperties>> moduleProperties{};
+
+  GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModuleProperties() {}
+
+  explicit GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModuleProperties(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (moduleProperties) {
+      vector<boost::any> temp1;
+      for(auto item1:*moduleProperties){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["moduleProperties"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("moduleProperties") != m.end() && !m["moduleProperties"].empty()) {
+      if (typeid(vector<boost::any>) == m["moduleProperties"].type()) {
+        vector<GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModulePropertiesModuleProperties> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["moduleProperties"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModulePropertiesModuleProperties model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        moduleProperties = make_shared<vector<GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModulePropertiesModuleProperties>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModuleProperties() = default;
+};
+class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModuleProperties> moduleProperties{};
+  shared_ptr<string> name{};
+
+  GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfig() {}
+
+  explicit GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (moduleProperties) {
+      res["ModuleProperties"] = moduleProperties ? boost::any(moduleProperties->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ModuleProperties") != m.end() && !m["ModuleProperties"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ModuleProperties"].type()) {
+        GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModuleProperties model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ModuleProperties"]));
+        moduleProperties = make_shared<GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModuleProperties>(model1);
+      }
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfig() = default;
+};
+class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfig>> originalModuleConfig{};
+
+  GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig() {}
+
+  explicit GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (originalModuleConfig) {
+      vector<boost::any> temp1;
+      for(auto item1:*originalModuleConfig){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["originalModuleConfig"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("originalModuleConfig") != m.end() && !m["originalModuleConfig"].empty()) {
+      if (typeid(vector<boost::any>) == m["originalModuleConfig"].type()) {
+        vector<GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["originalModuleConfig"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        originalModuleConfig = make_shared<vector<GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfig>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig() = default;
+};
 class GetOrderDetailResponseBodyDataOrderListOrder : public Darabonba::Model {
 public:
   shared_ptr<string> afterTaxAmount{};
+  shared_ptr<GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig> billModuleConfig{};
   shared_ptr<string> commodityCode{};
   shared_ptr<string> config{};
   shared_ptr<string> createTime{};
@@ -13822,6 +14182,7 @@ public:
   shared_ptr<string> orderSubType{};
   shared_ptr<string> orderType{};
   shared_ptr<string> originalConfig{};
+  shared_ptr<GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig> originalModuleConfig{};
   shared_ptr<string> paymentCurrency{};
   shared_ptr<string> paymentStatus{};
   shared_ptr<string> paymentTime{};
@@ -13851,6 +14212,9 @@ public:
     map<string, boost::any> res;
     if (afterTaxAmount) {
       res["AfterTaxAmount"] = boost::any(*afterTaxAmount);
+    }
+    if (billModuleConfig) {
+      res["BillModuleConfig"] = billModuleConfig ? boost::any(billModuleConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (commodityCode) {
       res["CommodityCode"] = boost::any(*commodityCode);
@@ -13884,6 +14248,9 @@ public:
     }
     if (originalConfig) {
       res["OriginalConfig"] = boost::any(*originalConfig);
+    }
+    if (originalModuleConfig) {
+      res["OriginalModuleConfig"] = originalModuleConfig ? boost::any(originalModuleConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (paymentCurrency) {
       res["PaymentCurrency"] = boost::any(*paymentCurrency);
@@ -13940,6 +14307,13 @@ public:
     if (m.find("AfterTaxAmount") != m.end() && !m["AfterTaxAmount"].empty()) {
       afterTaxAmount = make_shared<string>(boost::any_cast<string>(m["AfterTaxAmount"]));
     }
+    if (m.find("BillModuleConfig") != m.end() && !m["BillModuleConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BillModuleConfig"].type()) {
+        GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BillModuleConfig"]));
+        billModuleConfig = make_shared<GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig>(model1);
+      }
+    }
     if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
       commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
     }
@@ -13977,6 +14351,13 @@ public:
     }
     if (m.find("OriginalConfig") != m.end() && !m["OriginalConfig"].empty()) {
       originalConfig = make_shared<string>(boost::any_cast<string>(m["OriginalConfig"]));
+    }
+    if (m.find("OriginalModuleConfig") != m.end() && !m["OriginalModuleConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OriginalModuleConfig"].type()) {
+        GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OriginalModuleConfig"]));
+        originalModuleConfig = make_shared<GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig>(model1);
+      }
     }
     if (m.find("PaymentCurrency") != m.end() && !m["PaymentCurrency"].empty()) {
       paymentCurrency = make_shared<string>(boost::any_cast<string>(m["PaymentCurrency"]));
