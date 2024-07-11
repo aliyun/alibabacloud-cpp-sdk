@@ -487,6 +487,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<bool> internal{};
   shared_ptr<string> virtualHost{};
+  shared_ptr<string> XDelayedType{};
 
   CreateExchangeRequest() {}
 
@@ -519,6 +520,9 @@ public:
     if (virtualHost) {
       res["VirtualHost"] = boost::any(*virtualHost);
     }
+    if (XDelayedType) {
+      res["XDelayedType"] = boost::any(*XDelayedType);
+    }
     return res;
   }
 
@@ -543,6 +547,9 @@ public:
     }
     if (m.find("VirtualHost") != m.end() && !m["VirtualHost"].empty()) {
       virtualHost = make_shared<string>(boost::any_cast<string>(m["VirtualHost"]));
+    }
+    if (m.find("XDelayedType") != m.end() && !m["XDelayedType"].empty()) {
+      XDelayedType = make_shared<string>(boost::any_cast<string>(m["XDelayedType"]));
     }
   }
 
