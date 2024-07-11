@@ -1905,6 +1905,9 @@ ListGitRepositoriesResponse Alibabacloud_Oos20190601::Client::listGitRepositorie
   if (!Darabonba_Util::Client::isUnset<string>(request->platform)) {
     query->insert(pair<string, string>("Platform", *request->platform));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2727,6 +2730,9 @@ ListTemplatesResponse Alibabacloud_Oos20190601::Client::listTemplatesWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->hasTrigger)) {
     query->insert(pair<string, bool>("HasTrigger", *request->hasTrigger));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isExample)) {
+    query->insert(pair<string, bool>("IsExample", *request->isExample));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isFavorite)) {
     query->insert(pair<string, bool>("IsFavorite", *request->isFavorite));

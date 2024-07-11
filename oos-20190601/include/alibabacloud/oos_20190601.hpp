@@ -11591,6 +11591,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> platform{};
+  shared_ptr<string> regionId{};
 
   ListGitRepositoriesRequest() {}
 
@@ -11620,6 +11621,9 @@ public:
     if (platform) {
       res["Platform"] = boost::any(*platform);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -11641,6 +11645,9 @@ public:
     }
     if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
       platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -17004,6 +17011,7 @@ public:
   shared_ptr<string> createdDateAfter{};
   shared_ptr<string> createdDateBefore{};
   shared_ptr<bool> hasTrigger{};
+  shared_ptr<bool> isExample{};
   shared_ptr<bool> isFavorite{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -17041,6 +17049,9 @@ public:
     }
     if (hasTrigger) {
       res["HasTrigger"] = boost::any(*hasTrigger);
+    }
+    if (isExample) {
+      res["IsExample"] = boost::any(*isExample);
     }
     if (isFavorite) {
       res["IsFavorite"] = boost::any(*isFavorite);
@@ -17097,6 +17108,9 @@ public:
     if (m.find("HasTrigger") != m.end() && !m["HasTrigger"].empty()) {
       hasTrigger = make_shared<bool>(boost::any_cast<bool>(m["HasTrigger"]));
     }
+    if (m.find("IsExample") != m.end() && !m["IsExample"].empty()) {
+      isExample = make_shared<bool>(boost::any_cast<bool>(m["IsExample"]));
+    }
     if (m.find("IsFavorite") != m.end() && !m["IsFavorite"].empty()) {
       isFavorite = make_shared<bool>(boost::any_cast<bool>(m["IsFavorite"]));
     }
@@ -17150,6 +17164,7 @@ public:
   shared_ptr<string> createdDateAfter{};
   shared_ptr<string> createdDateBefore{};
   shared_ptr<bool> hasTrigger{};
+  shared_ptr<bool> isExample{};
   shared_ptr<bool> isFavorite{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -17187,6 +17202,9 @@ public:
     }
     if (hasTrigger) {
       res["HasTrigger"] = boost::any(*hasTrigger);
+    }
+    if (isExample) {
+      res["IsExample"] = boost::any(*isExample);
     }
     if (isFavorite) {
       res["IsFavorite"] = boost::any(*isFavorite);
@@ -17242,6 +17260,9 @@ public:
     }
     if (m.find("HasTrigger") != m.end() && !m["HasTrigger"].empty()) {
       hasTrigger = make_shared<bool>(boost::any_cast<bool>(m["HasTrigger"]));
+    }
+    if (m.find("IsExample") != m.end() && !m["IsExample"].empty()) {
+      isExample = make_shared<bool>(boost::any_cast<bool>(m["IsExample"]));
     }
     if (m.find("IsFavorite") != m.end() && !m["IsFavorite"].empty()) {
       isFavorite = make_shared<bool>(boost::any_cast<bool>(m["IsFavorite"]));
