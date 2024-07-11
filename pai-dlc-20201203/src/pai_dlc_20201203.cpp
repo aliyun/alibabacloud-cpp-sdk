@@ -207,6 +207,12 @@ CreateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::createTensorboar
   if (!Darabonba_Util::Client::isUnset<string>(request->options)) {
     body->insert(pair<string, string>("Options", *request->options));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->priority)) {
+    body->insert(pair<string, string>("Priority", *request->priority));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->quotaId)) {
+    body->insert(pair<string, string>("QuotaId", *request->quotaId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceId)) {
     body->insert(pair<string, string>("SourceId", *request->sourceId));
   }
@@ -901,6 +907,9 @@ ListTensorboardsResponse Alibabacloud_Pai-dlc20201203::Client::listTensorboardsW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->paymentType)) {
     query->insert(pair<string, string>("PaymentType", *request->paymentType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->quotaId)) {
+    query->insert(pair<string, string>("QuotaId", *request->quotaId));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->showOwn)) {
     query->insert(pair<string, bool>("ShowOwn", *request->showOwn));

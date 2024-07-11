@@ -3648,6 +3648,9 @@ public:
   shared_ptr<string> gmtFinishTime{};
   shared_ptr<string> gmtModifyTime{};
   shared_ptr<string> jobId{};
+  shared_ptr<string> priority{};
+  shared_ptr<string> quotaId{};
+  shared_ptr<string> quotaName{};
   shared_ptr<string> reasonCode{};
   shared_ptr<string> reasonMessage{};
   shared_ptr<string> requestId{};
@@ -3690,6 +3693,15 @@ public:
     }
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (quotaId) {
+      res["QuotaId"] = boost::any(*quotaId);
+    }
+    if (quotaName) {
+      res["QuotaName"] = boost::any(*quotaName);
     }
     if (reasonCode) {
       res["ReasonCode"] = boost::any(*reasonCode);
@@ -3752,6 +3764,15 @@ public:
     }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("QuotaId") != m.end() && !m["QuotaId"].empty()) {
+      quotaId = make_shared<string>(boost::any_cast<string>(m["QuotaId"]));
+    }
+    if (m.find("QuotaName") != m.end() && !m["QuotaName"].empty()) {
+      quotaName = make_shared<string>(boost::any_cast<string>(m["QuotaName"]));
     }
     if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
       reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
@@ -4414,6 +4435,8 @@ public:
   shared_ptr<long> maxRunningTimeMinutes{};
   shared_ptr<long> memory{};
   shared_ptr<string> options{};
+  shared_ptr<string> priority{};
+  shared_ptr<string> quotaId{};
   shared_ptr<string> sourceId{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> summaryPath{};
@@ -4463,6 +4486,12 @@ public:
     }
     if (options) {
       res["Options"] = boost::any(*options);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (quotaId) {
+      res["QuotaId"] = boost::any(*quotaId);
     }
     if (sourceId) {
       res["SourceId"] = boost::any(*sourceId);
@@ -4532,6 +4561,12 @@ public:
     }
     if (m.find("Options") != m.end() && !m["Options"].empty()) {
       options = make_shared<string>(boost::any_cast<string>(m["Options"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("QuotaId") != m.end() && !m["QuotaId"].empty()) {
+      quotaId = make_shared<string>(boost::any_cast<string>(m["QuotaId"]));
     }
     if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
       sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
@@ -7699,6 +7734,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> paymentType{};
+  shared_ptr<string> quotaId{};
   shared_ptr<bool> showOwn{};
   shared_ptr<string> sortBy{};
   shared_ptr<string> sourceId{};
@@ -7741,6 +7777,9 @@ public:
     }
     if (paymentType) {
       res["PaymentType"] = boost::any(*paymentType);
+    }
+    if (quotaId) {
+      res["QuotaId"] = boost::any(*quotaId);
     }
     if (showOwn) {
       res["ShowOwn"] = boost::any(*showOwn);
@@ -7799,6 +7838,9 @@ public:
     }
     if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
       paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
+    }
+    if (m.find("QuotaId") != m.end() && !m["QuotaId"].empty()) {
+      quotaId = make_shared<string>(boost::any_cast<string>(m["QuotaId"]));
     }
     if (m.find("ShowOwn") != m.end() && !m["ShowOwn"].empty()) {
       showOwn = make_shared<bool>(boost::any_cast<bool>(m["ShowOwn"]));
