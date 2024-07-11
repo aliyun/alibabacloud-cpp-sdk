@@ -1585,6 +1585,61 @@ CarSceneQueryResponse Alibabacloud_BtripOpen20220520::Client::carSceneQuery() {
   return carSceneQueryWithOptions(headers, runtime);
 }
 
+ChannelCorpCreateResponse Alibabacloud_BtripOpen20220520::Client::channelCorpCreateWithOptions(shared_ptr<ChannelCorpCreateRequest> request, shared_ptr<ChannelCorpCreateHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->administratorName)) {
+    body->insert(pair<string, string>("administrator_name", *request->administratorName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->administratorPhone)) {
+    body->insert(pair<string, string>("administrator_phone", *request->administratorPhone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->city)) {
+    body->insert(pair<string, string>("city", *request->city));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->corpName)) {
+    body->insert(pair<string, string>("corp_name", *request->corpName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->province)) {
+    body->insert(pair<string, string>("province", *request->province));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->scope)) {
+    body->insert(pair<string, long>("scope", *request->scope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->thirdCorpId)) {
+    body->insert(pair<string, string>("third_corp_id", *request->thirdCorpId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ChannelCorpCreate"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/corp/v1/channelCorps"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ChannelCorpCreateResponse(callApi(params, req, runtime));
+}
+
+ChannelCorpCreateResponse Alibabacloud_BtripOpen20220520::Client::channelCorpCreate(shared_ptr<ChannelCorpCreateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ChannelCorpCreateHeaders> headers = make_shared<ChannelCorpCreateHeaders>();
+  return channelCorpCreateWithOptions(request, headers, runtime);
+}
+
 CitySearchResponse Alibabacloud_BtripOpen20220520::Client::citySearchWithOptions(shared_ptr<CitySearchRequest> request, shared_ptr<CitySearchHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3510,6 +3565,12 @@ FlightModifyOrderDetailV2Response Alibabacloud_BtripOpen20220520::Client::flight
   if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
     query->insert(pair<string, string>("order_id", *request->orderId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outModifyApplyId)) {
+    query->insert(pair<string, string>("out_modify_apply_id", *request->outModifyApplyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outOrderId)) {
+    query->insert(pair<string, string>("out_order_id", *request->outOrderId));
+  }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
     realHeaders = headers->commonHeaders;
@@ -4338,6 +4399,12 @@ FlightRefundDetailV2Response Alibabacloud_BtripOpen20220520::Client::flightRefun
   if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
     query->insert(pair<string, string>("order_id", *request->orderId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outOrderId)) {
+    query->insert(pair<string, string>("out_order_id", *request->outOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outRefundApplyId)) {
+    query->insert(pair<string, string>("out_refund_apply_id", *request->outRefundApplyId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->refundApplyId)) {
     query->insert(pair<string, string>("refund_apply_id", *request->refundApplyId));
   }
@@ -5086,6 +5153,106 @@ HotelOrderCancelResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderCance
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<HotelOrderCancelHeaders> headers = make_shared<HotelOrderCancelHeaders>();
   return hotelOrderCancelWithOptions(request, headers, runtime);
+}
+
+HotelOrderChangeApplyResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderChangeApplyWithOptions(shared_ptr<HotelOrderChangeApplyRequest> tmpReq, shared_ptr<HotelOrderChangeApplyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<HotelOrderChangeApplyShrinkRequest> request = make_shared<HotelOrderChangeApplyShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<HotelOrderChangeApplyRequestRoomInfoList>>(tmpReq->roomInfoList)) {
+    request->roomInfoListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->roomInfoList, make_shared<string>("room_info_list"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->btripUserId)) {
+    body->insert(pair<string, string>("btrip_user_id", *request->btripUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->disOrderId)) {
+    body->insert(pair<string, string>("dis_order_id", *request->disOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reason)) {
+    body->insert(pair<string, string>("reason", *request->reason));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roomInfoListShrink)) {
+    body->insert(pair<string, string>("room_info_list", *request->roomInfoListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->saleOrderId)) {
+    body->insert(pair<string, string>("sale_order_id", *request->saleOrderId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("HotelOrderChangeApply"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dtb-hotel/v1/orders/action/change/apply"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return HotelOrderChangeApplyResponse(callApi(params, req, runtime));
+}
+
+HotelOrderChangeApplyResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderChangeApply(shared_ptr<HotelOrderChangeApplyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<HotelOrderChangeApplyHeaders> headers = make_shared<HotelOrderChangeApplyHeaders>();
+  return hotelOrderChangeApplyWithOptions(request, headers, runtime);
+}
+
+HotelOrderChangeDetailResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderChangeDetailWithOptions(shared_ptr<HotelOrderChangeDetailRequest> request, shared_ptr<HotelOrderChangeDetailHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->btripUserId)) {
+    body->insert(pair<string, string>("btrip_user_id", *request->btripUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->changeOrderId)) {
+    body->insert(pair<string, string>("change_order_id", *request->changeOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->disOrderId)) {
+    body->insert(pair<string, string>("dis_order_id", *request->disOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->saleOrderId)) {
+    body->insert(pair<string, string>("sale_order_id", *request->saleOrderId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("HotelOrderChangeDetail"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dtb-hotel/v1/orders/action/change/detail"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return HotelOrderChangeDetailResponse(callApi(params, req, runtime));
+}
+
+HotelOrderChangeDetailResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderChangeDetail(shared_ptr<HotelOrderChangeDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<HotelOrderChangeDetailHeaders> headers = make_shared<HotelOrderChangeDetailHeaders>();
+  return hotelOrderChangeDetailWithOptions(request, headers, runtime);
 }
 
 HotelOrderCreateResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderCreateWithOptions(shared_ptr<HotelOrderCreateRequest> tmpReq, shared_ptr<HotelOrderCreateHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
