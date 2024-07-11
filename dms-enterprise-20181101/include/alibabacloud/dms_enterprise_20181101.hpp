@@ -2329,6 +2329,7 @@ public:
   shared_ptr<long> newApprover{};
   shared_ptr<string> newApproverList{};
   shared_ptr<long> oldApprover{};
+  shared_ptr<string> realLoginUserUid{};
   shared_ptr<long> tid{};
   shared_ptr<long> workflowInstanceId{};
 
@@ -2363,6 +2364,9 @@ public:
     if (oldApprover) {
       res["OldApprover"] = boost::any(*oldApprover);
     }
+    if (realLoginUserUid) {
+      res["RealLoginUserUid"] = boost::any(*realLoginUserUid);
+    }
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
@@ -2393,6 +2397,9 @@ public:
     }
     if (m.find("OldApprover") != m.end() && !m["OldApprover"].empty()) {
       oldApprover = make_shared<long>(boost::any_cast<long>(m["OldApprover"]));
+    }
+    if (m.find("RealLoginUserUid") != m.end() && !m["RealLoginUserUid"].empty()) {
+      realLoginUserUid = make_shared<string>(boost::any_cast<string>(m["RealLoginUserUid"]));
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
@@ -4479,6 +4486,7 @@ public:
   shared_ptr<string> attachmentKey{};
   shared_ptr<string> comment{};
   shared_ptr<CreateDataCorrectOrderRequestParam> param{};
+  shared_ptr<string> realLoginUserUid{};
   shared_ptr<vector<long>> relatedUserList{};
   shared_ptr<long> tid{};
 
@@ -4500,6 +4508,9 @@ public:
     }
     if (param) {
       res["Param"] = param ? boost::any(param->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (realLoginUserUid) {
+      res["RealLoginUserUid"] = boost::any(*realLoginUserUid);
     }
     if (relatedUserList) {
       res["RelatedUserList"] = boost::any(*relatedUserList);
@@ -4524,6 +4535,9 @@ public:
         param = make_shared<CreateDataCorrectOrderRequestParam>(model1);
       }
     }
+    if (m.find("RealLoginUserUid") != m.end() && !m["RealLoginUserUid"].empty()) {
+      realLoginUserUid = make_shared<string>(boost::any_cast<string>(m["RealLoginUserUid"]));
+    }
     if (m.find("RelatedUserList") != m.end() && !m["RelatedUserList"].empty()) {
       vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["RelatedUserList"].type()) {
@@ -4547,6 +4561,7 @@ public:
   shared_ptr<string> attachmentKey{};
   shared_ptr<string> comment{};
   shared_ptr<string> paramShrink{};
+  shared_ptr<string> realLoginUserUid{};
   shared_ptr<string> relatedUserListShrink{};
   shared_ptr<long> tid{};
 
@@ -4569,6 +4584,9 @@ public:
     if (paramShrink) {
       res["Param"] = boost::any(*paramShrink);
     }
+    if (realLoginUserUid) {
+      res["RealLoginUserUid"] = boost::any(*realLoginUserUid);
+    }
     if (relatedUserListShrink) {
       res["RelatedUserList"] = boost::any(*relatedUserListShrink);
     }
@@ -4587,6 +4605,9 @@ public:
     }
     if (m.find("Param") != m.end() && !m["Param"].empty()) {
       paramShrink = make_shared<string>(boost::any_cast<string>(m["Param"]));
+    }
+    if (m.find("RealLoginUserUid") != m.end() && !m["RealLoginUserUid"].empty()) {
+      realLoginUserUid = make_shared<string>(boost::any_cast<string>(m["RealLoginUserUid"]));
     }
     if (m.find("RelatedUserList") != m.end() && !m["RelatedUserList"].empty()) {
       relatedUserListShrink = make_shared<string>(boost::any_cast<string>(m["RelatedUserList"]));
@@ -5307,6 +5328,7 @@ public:
   shared_ptr<string> comment{};
   shared_ptr<long> parentId{};
   shared_ptr<CreateDataExportOrderRequestPluginParam> pluginParam{};
+  shared_ptr<string> realLoginUserUid{};
   shared_ptr<vector<long>> relatedUserList{};
   shared_ptr<long> tid{};
 
@@ -5331,6 +5353,9 @@ public:
     }
     if (pluginParam) {
       res["PluginParam"] = pluginParam ? boost::any(pluginParam->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (realLoginUserUid) {
+      res["RealLoginUserUid"] = boost::any(*realLoginUserUid);
     }
     if (relatedUserList) {
       res["RelatedUserList"] = boost::any(*relatedUserList);
@@ -5358,6 +5383,9 @@ public:
         pluginParam = make_shared<CreateDataExportOrderRequestPluginParam>(model1);
       }
     }
+    if (m.find("RealLoginUserUid") != m.end() && !m["RealLoginUserUid"].empty()) {
+      realLoginUserUid = make_shared<string>(boost::any_cast<string>(m["RealLoginUserUid"]));
+    }
     if (m.find("RelatedUserList") != m.end() && !m["RelatedUserList"].empty()) {
       vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["RelatedUserList"].type()) {
@@ -5382,6 +5410,7 @@ public:
   shared_ptr<string> comment{};
   shared_ptr<long> parentId{};
   shared_ptr<string> pluginParamShrink{};
+  shared_ptr<string> realLoginUserUid{};
   shared_ptr<string> relatedUserListShrink{};
   shared_ptr<long> tid{};
 
@@ -5407,6 +5436,9 @@ public:
     if (pluginParamShrink) {
       res["PluginParam"] = boost::any(*pluginParamShrink);
     }
+    if (realLoginUserUid) {
+      res["RealLoginUserUid"] = boost::any(*realLoginUserUid);
+    }
     if (relatedUserListShrink) {
       res["RelatedUserList"] = boost::any(*relatedUserListShrink);
     }
@@ -5428,6 +5460,9 @@ public:
     }
     if (m.find("PluginParam") != m.end() && !m["PluginParam"].empty()) {
       pluginParamShrink = make_shared<string>(boost::any_cast<string>(m["PluginParam"]));
+    }
+    if (m.find("RealLoginUserUid") != m.end() && !m["RealLoginUserUid"].empty()) {
+      realLoginUserUid = make_shared<string>(boost::any_cast<string>(m["RealLoginUserUid"]));
     }
     if (m.find("RelatedUserList") != m.end() && !m["RelatedUserList"].empty()) {
       relatedUserListShrink = make_shared<string>(boost::any_cast<string>(m["RelatedUserList"]));
@@ -13440,6 +13475,7 @@ class ExecuteDataCorrectRequest : public Darabonba::Model {
 public:
   shared_ptr<map<string, boost::any>> actionDetail{};
   shared_ptr<long> orderId{};
+  shared_ptr<string> realLoginUserUid{};
   shared_ptr<string> tid{};
 
   ExecuteDataCorrectRequest() {}
@@ -13457,6 +13493,9 @@ public:
     }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
+    }
+    if (realLoginUserUid) {
+      res["RealLoginUserUid"] = boost::any(*realLoginUserUid);
     }
     if (tid) {
       res["Tid"] = boost::any(*tid);
@@ -13476,6 +13515,9 @@ public:
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
     }
+    if (m.find("RealLoginUserUid") != m.end() && !m["RealLoginUserUid"].empty()) {
+      realLoginUserUid = make_shared<string>(boost::any_cast<string>(m["RealLoginUserUid"]));
+    }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<string>(boost::any_cast<string>(m["Tid"]));
     }
@@ -13488,6 +13530,7 @@ class ExecuteDataCorrectShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> actionDetailShrink{};
   shared_ptr<long> orderId{};
+  shared_ptr<string> realLoginUserUid{};
   shared_ptr<string> tid{};
 
   ExecuteDataCorrectShrinkRequest() {}
@@ -13506,6 +13549,9 @@ public:
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
     }
+    if (realLoginUserUid) {
+      res["RealLoginUserUid"] = boost::any(*realLoginUserUid);
+    }
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
@@ -13518,6 +13564,9 @@ public:
     }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("RealLoginUserUid") != m.end() && !m["RealLoginUserUid"].empty()) {
+      realLoginUserUid = make_shared<string>(boost::any_cast<string>(m["RealLoginUserUid"]));
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<string>(boost::any_cast<string>(m["Tid"]));
@@ -13633,6 +13682,7 @@ class ExecuteDataExportRequest : public Darabonba::Model {
 public:
   shared_ptr<map<string, boost::any>> actionDetail{};
   shared_ptr<long> orderId{};
+  shared_ptr<string> realLoginUserUid{};
   shared_ptr<long> tid{};
 
   ExecuteDataExportRequest() {}
@@ -13650,6 +13700,9 @@ public:
     }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
+    }
+    if (realLoginUserUid) {
+      res["RealLoginUserUid"] = boost::any(*realLoginUserUid);
     }
     if (tid) {
       res["Tid"] = boost::any(*tid);
@@ -13669,6 +13722,9 @@ public:
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
     }
+    if (m.find("RealLoginUserUid") != m.end() && !m["RealLoginUserUid"].empty()) {
+      realLoginUserUid = make_shared<string>(boost::any_cast<string>(m["RealLoginUserUid"]));
+    }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
@@ -13681,6 +13737,7 @@ class ExecuteDataExportShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> actionDetailShrink{};
   shared_ptr<long> orderId{};
+  shared_ptr<string> realLoginUserUid{};
   shared_ptr<long> tid{};
 
   ExecuteDataExportShrinkRequest() {}
@@ -13699,6 +13756,9 @@ public:
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
     }
+    if (realLoginUserUid) {
+      res["RealLoginUserUid"] = boost::any(*realLoginUserUid);
+    }
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
@@ -13711,6 +13771,9 @@ public:
     }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("RealLoginUserUid") != m.end() && !m["RealLoginUserUid"].empty()) {
+      realLoginUserUid = make_shared<string>(boost::any_cast<string>(m["RealLoginUserUid"]));
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
@@ -19348,6 +19411,7 @@ public:
 class GetDataExportDownloadURLRequest : public Darabonba::Model {
 public:
   shared_ptr<long> orderId{};
+  shared_ptr<string> realLoginUserUid{};
   shared_ptr<long> tid{};
 
   GetDataExportDownloadURLRequest() {}
@@ -19363,6 +19427,9 @@ public:
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
     }
+    if (realLoginUserUid) {
+      res["RealLoginUserUid"] = boost::any(*realLoginUserUid);
+    }
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
@@ -19372,6 +19439,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("RealLoginUserUid") != m.end() && !m["RealLoginUserUid"].empty()) {
+      realLoginUserUid = make_shared<string>(boost::any_cast<string>(m["RealLoginUserUid"]));
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
@@ -55658,6 +55728,7 @@ public:
 class SubmitOrderApprovalRequest : public Darabonba::Model {
 public:
   shared_ptr<long> orderId{};
+  shared_ptr<string> realLoginUserUid{};
   shared_ptr<long> tid{};
 
   SubmitOrderApprovalRequest() {}
@@ -55673,6 +55744,9 @@ public:
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
     }
+    if (realLoginUserUid) {
+      res["RealLoginUserUid"] = boost::any(*realLoginUserUid);
+    }
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
@@ -55682,6 +55756,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("RealLoginUserUid") != m.end() && !m["RealLoginUserUid"].empty()) {
+      realLoginUserUid = make_shared<string>(boost::any_cast<string>(m["RealLoginUserUid"]));
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));

@@ -372,6 +372,9 @@ ApproveOrderResponse Alibabacloud_Dms-enterprise20181101::Client::approveOrderWi
   if (!Darabonba_Util::Client::isUnset<long>(request->oldApprover)) {
     query->insert(pair<string, long>("OldApprover", *request->oldApprover));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realLoginUserUid)) {
+    query->insert(pair<string, string>("RealLoginUserUid", *request->realLoginUserUid));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
   }
@@ -768,6 +771,9 @@ CreateDataCorrectOrderResponse Alibabacloud_Dms-enterprise20181101::Client::crea
   if (!Darabonba_Util::Client::isUnset<string>(request->paramShrink)) {
     query->insert(pair<string, string>("Param", *request->paramShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realLoginUserUid)) {
+    query->insert(pair<string, string>("RealLoginUserUid", *request->realLoginUserUid));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->relatedUserListShrink)) {
     query->insert(pair<string, string>("RelatedUserList", *request->relatedUserListShrink));
   }
@@ -866,6 +872,9 @@ CreateDataExportOrderResponse Alibabacloud_Dms-enterprise20181101::Client::creat
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pluginParamShrink)) {
     query->insert(pair<string, string>("PluginParam", *request->pluginParamShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realLoginUserUid)) {
+    query->insert(pair<string, string>("RealLoginUserUid", *request->realLoginUserUid));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->relatedUserListShrink)) {
     query->insert(pair<string, string>("RelatedUserList", *request->relatedUserListShrink));
@@ -2369,6 +2378,9 @@ ExecuteDataCorrectResponse Alibabacloud_Dms-enterprise20181101::Client::executeD
   if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
     query->insert(pair<string, long>("OrderId", *request->orderId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realLoginUserUid)) {
+    query->insert(pair<string, string>("RealLoginUserUid", *request->realLoginUserUid));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tid)) {
     query->insert(pair<string, string>("Tid", *request->tid));
   }
@@ -2407,6 +2419,9 @@ ExecuteDataExportResponse Alibabacloud_Dms-enterprise20181101::Client::executeDa
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
     query->insert(pair<string, long>("OrderId", *request->orderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realLoginUserUid)) {
+    query->insert(pair<string, string>("RealLoginUserUid", *request->realLoginUserUid));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
@@ -2991,6 +3006,9 @@ GetDataExportDownloadURLResponse Alibabacloud_Dms-enterprise20181101::Client::ge
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
     query->insert(pair<string, long>("OrderId", *request->orderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realLoginUserUid)) {
+    query->insert(pair<string, string>("RealLoginUserUid", *request->realLoginUserUid));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
@@ -7687,6 +7705,9 @@ SubmitOrderApprovalResponse Alibabacloud_Dms-enterprise20181101::Client::submitO
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
     query->insert(pair<string, long>("OrderId", *request->orderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->realLoginUserUid)) {
+    query->insert(pair<string, string>("RealLoginUserUid", *request->realLoginUserUid));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));
