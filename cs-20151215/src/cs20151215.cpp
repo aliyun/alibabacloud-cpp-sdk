@@ -4598,6 +4598,42 @@ UntagResourcesResponse Alibabacloud_CS20151215::Client::untagResources(shared_pt
   return untagResourcesWithOptions(request, headers, runtime);
 }
 
+UpdateClusterAuditLogConfigResponse Alibabacloud_CS20151215::Client::updateClusterAuditLogConfigWithOptions(shared_ptr<string> clusterid,
+                                                                                                            shared_ptr<UpdateClusterAuditLogConfigRequest> request,
+                                                                                                            shared_ptr<map<string, string>> headers,
+                                                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->disable)) {
+    body->insert(pair<string, bool>("disable", *request->disable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->slsProjectName)) {
+    body->insert(pair<string, string>("sls_project_name", *request->slsProjectName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateClusterAuditLogConfig"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/clusters/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(clusterid)) + string("/audit_log"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateClusterAuditLogConfigResponse(callApi(params, req, runtime));
+}
+
+UpdateClusterAuditLogConfigResponse Alibabacloud_CS20151215::Client::updateClusterAuditLogConfig(shared_ptr<string> clusterid, shared_ptr<UpdateClusterAuditLogConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateClusterAuditLogConfigWithOptions(clusterid, request, headers, runtime);
+}
+
 UpdateContactGroupForAlertResponse Alibabacloud_CS20151215::Client::updateContactGroupForAlertWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
