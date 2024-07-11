@@ -3465,6 +3465,40 @@ SubmitIProductionJobResponse Alibabacloud_Mts20140618::Client::submitIProduction
   return submitIProductionJobWithOptions(request, runtime);
 }
 
+SubmitImageCopyrightResponse Alibabacloud_Mts20140618::Client::submitImageCopyrightWithOptions(shared_ptr<SubmitImageCopyrightRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->message)) {
+    query->insert(pair<string, string>("Message", *request->message));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->output)) {
+    query->insert(pair<string, string>("Output", *request->output));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    query->insert(pair<string, string>("Params", *request->params));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitImageCopyright"))},
+    {"version", boost::any(string("2014-06-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitImageCopyrightResponse(callApi(params, req, runtime));
+}
+
+SubmitImageCopyrightResponse Alibabacloud_Mts20140618::Client::submitImageCopyright(shared_ptr<SubmitImageCopyrightRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitImageCopyrightWithOptions(request, runtime);
+}
+
 SubmitJobsResponse Alibabacloud_Mts20140618::Client::submitJobsWithOptions(shared_ptr<SubmitJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

@@ -37147,6 +37147,184 @@ public:
 
   virtual ~SubmitIProductionJobResponse() = default;
 };
+class SubmitImageCopyrightRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> output{};
+  shared_ptr<string> params{};
+
+  SubmitImageCopyrightRequest() {}
+
+  explicit SubmitImageCopyrightRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (output) {
+      res["Output"] = boost::any(*output);
+    }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Output") != m.end() && !m["Output"].empty()) {
+      output = make_shared<string>(boost::any_cast<string>(m["Output"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      params = make_shared<string>(boost::any_cast<string>(m["Params"]));
+    }
+  }
+
+
+  virtual ~SubmitImageCopyrightRequest() = default;
+};
+class SubmitImageCopyrightResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+
+  SubmitImageCopyrightResponseBodyData() {}
+
+  explicit SubmitImageCopyrightResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+  }
+
+
+  virtual ~SubmitImageCopyrightResponseBodyData() = default;
+};
+class SubmitImageCopyrightResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<SubmitImageCopyrightResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> statusCode{};
+
+  SubmitImageCopyrightResponseBody() {}
+
+  explicit SubmitImageCopyrightResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (statusCode) {
+      res["StatusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        SubmitImageCopyrightResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<SubmitImageCopyrightResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["StatusCode"]));
+    }
+  }
+
+
+  virtual ~SubmitImageCopyrightResponseBody() = default;
+};
+class SubmitImageCopyrightResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitImageCopyrightResponseBody> body{};
+
+  SubmitImageCopyrightResponse() {}
+
+  explicit SubmitImageCopyrightResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitImageCopyrightResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitImageCopyrightResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitImageCopyrightResponse() = default;
+};
 class SubmitJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> input{};
@@ -47504,6 +47682,8 @@ public:
   SubmitFpShotJobResponse submitFpShotJob(shared_ptr<SubmitFpShotJobRequest> request);
   SubmitIProductionJobResponse submitIProductionJobWithOptions(shared_ptr<SubmitIProductionJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitIProductionJobResponse submitIProductionJob(shared_ptr<SubmitIProductionJobRequest> request);
+  SubmitImageCopyrightResponse submitImageCopyrightWithOptions(shared_ptr<SubmitImageCopyrightRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitImageCopyrightResponse submitImageCopyright(shared_ptr<SubmitImageCopyrightRequest> request);
   SubmitJobsResponse submitJobsWithOptions(shared_ptr<SubmitJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitJobsResponse submitJobs(shared_ptr<SubmitJobsRequest> request);
   SubmitMediaCensorJobResponse submitMediaCensorJobWithOptions(shared_ptr<SubmitMediaCensorJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
