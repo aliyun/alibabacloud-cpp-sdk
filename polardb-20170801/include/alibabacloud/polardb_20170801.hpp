@@ -11909,6 +11909,7 @@ public:
   shared_ptr<string> interval{};
   shared_ptr<string> key{};
   shared_ptr<string> startTime{};
+  shared_ptr<string> type{};
 
   DescribeDBClusterPerformanceRequest() {}
 
@@ -11935,6 +11936,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -11953,6 +11957,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
