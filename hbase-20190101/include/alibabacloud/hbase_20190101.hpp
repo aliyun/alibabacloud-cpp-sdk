@@ -8582,6 +8582,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<DescribeInstanceResponseBodyTags> tags{};
   shared_ptr<string> taskProgress{};
+  shared_ptr<string> taskStatus{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> vswitchId{};
   shared_ptr<string> zoneId{};
@@ -8745,6 +8746,9 @@ public:
     }
     if (taskProgress) {
       res["TaskProgress"] = boost::any(*taskProgress);
+    }
+    if (taskStatus) {
+      res["TaskStatus"] = boost::any(*taskStatus);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -8916,6 +8920,9 @@ public:
     }
     if (m.find("TaskProgress") != m.end() && !m["TaskProgress"].empty()) {
       taskProgress = make_shared<string>(boost::any_cast<string>(m["TaskProgress"]));
+    }
+    if (m.find("TaskStatus") != m.end() && !m["TaskStatus"].empty()) {
+      taskStatus = make_shared<string>(boost::any_cast<string>(m["TaskStatus"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -11584,6 +11591,8 @@ public:
   shared_ptr<string> standbyZoneId{};
   shared_ptr<string> status{};
   shared_ptr<DescribeMultiZoneClusterResponseBodyTags> tags{};
+  shared_ptr<string> taskProgress{};
+  shared_ptr<string> taskStatus{};
   shared_ptr<string> vpcId{};
 
   DescribeMultiZoneClusterResponseBody() {}
@@ -11745,6 +11754,12 @@ public:
     }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (taskProgress) {
+      res["TaskProgress"] = boost::any(*taskProgress);
+    }
+    if (taskStatus) {
+      res["TaskStatus"] = boost::any(*taskStatus);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -11910,6 +11925,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
         tags = make_shared<DescribeMultiZoneClusterResponseBodyTags>(model1);
       }
+    }
+    if (m.find("TaskProgress") != m.end() && !m["TaskProgress"].empty()) {
+      taskProgress = make_shared<string>(boost::any_cast<string>(m["TaskProgress"]));
+    }
+    if (m.find("TaskStatus") != m.end() && !m["TaskStatus"].empty()) {
+      taskStatus = make_shared<string>(boost::any_cast<string>(m["TaskStatus"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
