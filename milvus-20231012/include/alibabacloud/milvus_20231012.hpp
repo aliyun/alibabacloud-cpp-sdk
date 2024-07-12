@@ -1830,6 +1830,7 @@ public:
 };
 class UpdatePublicNetworkStatusRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> cidr{};
   shared_ptr<string> componentType{};
   shared_ptr<string> instanceId{};
   shared_ptr<bool> publicNetworkEnabled{};
@@ -1844,6 +1845,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cidr) {
+      res["Cidr"] = boost::any(*cidr);
+    }
     if (componentType) {
       res["ComponentType"] = boost::any(*componentType);
     }
@@ -1857,6 +1861,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cidr") != m.end() && !m["Cidr"].empty()) {
+      cidr = make_shared<string>(boost::any_cast<string>(m["Cidr"]));
+    }
     if (m.find("ComponentType") != m.end() && !m["ComponentType"].empty()) {
       componentType = make_shared<string>(boost::any_cast<string>(m["ComponentType"]));
     }

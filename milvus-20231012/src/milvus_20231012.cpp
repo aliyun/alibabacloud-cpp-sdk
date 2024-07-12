@@ -277,6 +277,9 @@ UpdateInstanceNameResponse Alibabacloud_Milvus20231012::Client::updateInstanceNa
 UpdatePublicNetworkStatusResponse Alibabacloud_Milvus20231012::Client::updatePublicNetworkStatusWithOptions(shared_ptr<UpdatePublicNetworkStatusRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cidr)) {
+    query->insert(pair<string, string>("Cidr", *request->cidr));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->componentType)) {
     query->insert(pair<string, string>("ComponentType", *request->componentType));
   }
