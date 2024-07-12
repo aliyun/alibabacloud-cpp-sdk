@@ -5,7 +5,6 @@
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
-#include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -212,6 +211,9 @@ CreatePublicTemplateResponse Alibabacloud_Oosops20190601::Client::createPublicTe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     query->insert(pair<string, string>("Content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isExample)) {
+    query->insert(pair<string, bool>("IsExample", *request->isExample));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->popularity)) {
     query->insert(pair<string, long>("Popularity", *request->popularity));
@@ -994,6 +996,9 @@ ListPublicTemplatesResponse Alibabacloud_Oosops20190601::Client::listPublicTempl
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->createdDateBefore)) {
     query->insert(pair<string, string>("CreatedDateBefore", *request->createdDateBefore));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isExample)) {
+    query->insert(pair<string, bool>("IsExample", *request->isExample));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
