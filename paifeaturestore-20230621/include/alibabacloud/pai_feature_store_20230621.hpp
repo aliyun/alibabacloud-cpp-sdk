@@ -2572,6 +2572,7 @@ class ExportModelFeatureTrainingSetTableRequest : public Darabonba::Model {
 public:
   shared_ptr<map<string, FeatureViewConfigValue>> featureViewConfig{};
   shared_ptr<ExportModelFeatureTrainingSetTableRequestLabelInputConfig> labelInputConfig{};
+  shared_ptr<long> realTimeIterateInterval{};
   shared_ptr<ExportModelFeatureTrainingSetTableRequestTrainingSetConfig> trainingSetConfig{};
 
   ExportModelFeatureTrainingSetTableRequest() {}
@@ -2593,6 +2594,9 @@ public:
     }
     if (labelInputConfig) {
       res["LabelInputConfig"] = labelInputConfig ? boost::any(labelInputConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (realTimeIterateInterval) {
+      res["RealTimeIterateInterval"] = boost::any(*realTimeIterateInterval);
     }
     if (trainingSetConfig) {
       res["TrainingSetConfig"] = trainingSetConfig ? boost::any(trainingSetConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2620,6 +2624,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LabelInputConfig"]));
         labelInputConfig = make_shared<ExportModelFeatureTrainingSetTableRequestLabelInputConfig>(model1);
       }
+    }
+    if (m.find("RealTimeIterateInterval") != m.end() && !m["RealTimeIterateInterval"].empty()) {
+      realTimeIterateInterval = make_shared<long>(boost::any_cast<long>(m["RealTimeIterateInterval"]));
     }
     if (m.find("TrainingSetConfig") != m.end() && !m["TrainingSetConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["TrainingSetConfig"].type()) {

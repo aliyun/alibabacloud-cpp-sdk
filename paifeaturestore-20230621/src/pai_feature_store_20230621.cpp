@@ -698,6 +698,9 @@ ExportModelFeatureTrainingSetTableResponse Alibabacloud_PaiFeatureStore20230621:
   if (!Darabonba_Util::Client::isUnset<ExportModelFeatureTrainingSetTableRequestLabelInputConfig>(request->labelInputConfig)) {
     body->insert(pair<string, ExportModelFeatureTrainingSetTableRequestLabelInputConfig>("LabelInputConfig", *request->labelInputConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->realTimeIterateInterval)) {
+    body->insert(pair<string, long>("RealTimeIterateInterval", *request->realTimeIterateInterval));
+  }
   if (!Darabonba_Util::Client::isUnset<ExportModelFeatureTrainingSetTableRequestTrainingSetConfig>(request->trainingSetConfig)) {
     body->insert(pair<string, ExportModelFeatureTrainingSetTableRequestTrainingSetConfig>("TrainingSetConfig", *request->trainingSetConfig));
   }
