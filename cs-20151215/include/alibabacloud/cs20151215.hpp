@@ -2974,6 +2974,243 @@ public:
 
   virtual ~CheckServiceRoleResponse() = default;
 };
+class CleanClusterUserPermissionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> force{};
+
+  CleanClusterUserPermissionsRequest() {}
+
+  explicit CleanClusterUserPermissionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
+    }
+  }
+
+
+  virtual ~CleanClusterUserPermissionsRequest() = default;
+};
+class CleanClusterUserPermissionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  CleanClusterUserPermissionsResponse() {}
+
+  explicit CleanClusterUserPermissionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~CleanClusterUserPermissionsResponse() = default;
+};
+class CleanUserPermissionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> clusterIds{};
+  shared_ptr<bool> force{};
+
+  CleanUserPermissionsRequest() {}
+
+  explicit CleanUserPermissionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterIds) {
+      res["ClusterIds"] = boost::any(*clusterIds);
+    }
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterIds") != m.end() && !m["ClusterIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ClusterIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ClusterIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      clusterIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
+    }
+  }
+
+
+  virtual ~CleanUserPermissionsRequest() = default;
+};
+class CleanUserPermissionsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterIdsShrink{};
+  shared_ptr<bool> force{};
+
+  CleanUserPermissionsShrinkRequest() {}
+
+  explicit CleanUserPermissionsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterIdsShrink) {
+      res["ClusterIds"] = boost::any(*clusterIdsShrink);
+    }
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterIds") != m.end() && !m["ClusterIds"].empty()) {
+      clusterIdsShrink = make_shared<string>(boost::any_cast<string>(m["ClusterIds"]));
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
+    }
+  }
+
+
+  virtual ~CleanUserPermissionsShrinkRequest() = default;
+};
+class CleanUserPermissionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  CleanUserPermissionsResponseBody() {}
+
+  explicit CleanUserPermissionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["request_id"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["task_id"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("request_id") != m.end() && !m["request_id"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["request_id"]));
+    }
+    if (m.find("task_id") != m.end() && !m["task_id"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["task_id"]));
+    }
+  }
+
+
+  virtual ~CleanUserPermissionsResponseBody() = default;
+};
+class CleanUserPermissionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CleanUserPermissionsResponseBody> body{};
+
+  CleanUserPermissionsResponse() {}
+
+  explicit CleanUserPermissionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CleanUserPermissionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CleanUserPermissionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CleanUserPermissionsResponse() = default;
+};
 class CreateAutoscalingConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> coolDownDuration{};
@@ -21511,6 +21748,269 @@ public:
 
   virtual ~ListClusterChecksResponse() = default;
 };
+class ListClusterKubeconfigStatesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  ListClusterKubeconfigStatesRequest() {}
+
+  explicit ListClusterKubeconfigStatesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+  }
+
+
+  virtual ~ListClusterKubeconfigStatesRequest() = default;
+};
+class ListClusterKubeconfigStatesResponseBodyPage : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  ListClusterKubeconfigStatesResponseBodyPage() {}
+
+  explicit ListClusterKubeconfigStatesResponseBodyPage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["page_number"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["page_size"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["total_count"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("page_number") != m.end() && !m["page_number"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["page_number"]));
+    }
+    if (m.find("page_size") != m.end() && !m["page_size"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["page_size"]));
+    }
+    if (m.find("total_count") != m.end() && !m["total_count"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["total_count"]));
+    }
+  }
+
+
+  virtual ~ListClusterKubeconfigStatesResponseBodyPage() = default;
+};
+class ListClusterKubeconfigStatesResponseBodyStates : public Darabonba::Model {
+public:
+  shared_ptr<string> accountDisplayName{};
+  shared_ptr<string> accountId{};
+  shared_ptr<string> accountName{};
+  shared_ptr<string> accountState{};
+  shared_ptr<string> accountType{};
+  shared_ptr<string> certExpireTime{};
+  shared_ptr<string> certState{};
+  shared_ptr<bool> revokable{};
+
+  ListClusterKubeconfigStatesResponseBodyStates() {}
+
+  explicit ListClusterKubeconfigStatesResponseBodyStates(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountDisplayName) {
+      res["account_display_name"] = boost::any(*accountDisplayName);
+    }
+    if (accountId) {
+      res["account_id"] = boost::any(*accountId);
+    }
+    if (accountName) {
+      res["account_name"] = boost::any(*accountName);
+    }
+    if (accountState) {
+      res["account_state"] = boost::any(*accountState);
+    }
+    if (accountType) {
+      res["account_type"] = boost::any(*accountType);
+    }
+    if (certExpireTime) {
+      res["cert_expire_time"] = boost::any(*certExpireTime);
+    }
+    if (certState) {
+      res["cert_state"] = boost::any(*certState);
+    }
+    if (revokable) {
+      res["revokable"] = boost::any(*revokable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("account_display_name") != m.end() && !m["account_display_name"].empty()) {
+      accountDisplayName = make_shared<string>(boost::any_cast<string>(m["account_display_name"]));
+    }
+    if (m.find("account_id") != m.end() && !m["account_id"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["account_id"]));
+    }
+    if (m.find("account_name") != m.end() && !m["account_name"].empty()) {
+      accountName = make_shared<string>(boost::any_cast<string>(m["account_name"]));
+    }
+    if (m.find("account_state") != m.end() && !m["account_state"].empty()) {
+      accountState = make_shared<string>(boost::any_cast<string>(m["account_state"]));
+    }
+    if (m.find("account_type") != m.end() && !m["account_type"].empty()) {
+      accountType = make_shared<string>(boost::any_cast<string>(m["account_type"]));
+    }
+    if (m.find("cert_expire_time") != m.end() && !m["cert_expire_time"].empty()) {
+      certExpireTime = make_shared<string>(boost::any_cast<string>(m["cert_expire_time"]));
+    }
+    if (m.find("cert_state") != m.end() && !m["cert_state"].empty()) {
+      certState = make_shared<string>(boost::any_cast<string>(m["cert_state"]));
+    }
+    if (m.find("revokable") != m.end() && !m["revokable"].empty()) {
+      revokable = make_shared<bool>(boost::any_cast<bool>(m["revokable"]));
+    }
+  }
+
+
+  virtual ~ListClusterKubeconfigStatesResponseBodyStates() = default;
+};
+class ListClusterKubeconfigStatesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListClusterKubeconfigStatesResponseBodyPage> page{};
+  shared_ptr<vector<ListClusterKubeconfigStatesResponseBodyStates>> states{};
+
+  ListClusterKubeconfigStatesResponseBody() {}
+
+  explicit ListClusterKubeconfigStatesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (page) {
+      res["page"] = page ? boost::any(page->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (states) {
+      vector<boost::any> temp1;
+      for(auto item1:*states){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["states"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("page") != m.end() && !m["page"].empty()) {
+      if (typeid(map<string, boost::any>) == m["page"].type()) {
+        ListClusterKubeconfigStatesResponseBodyPage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["page"]));
+        page = make_shared<ListClusterKubeconfigStatesResponseBodyPage>(model1);
+      }
+    }
+    if (m.find("states") != m.end() && !m["states"].empty()) {
+      if (typeid(vector<boost::any>) == m["states"].type()) {
+        vector<ListClusterKubeconfigStatesResponseBodyStates> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["states"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListClusterKubeconfigStatesResponseBodyStates model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        states = make_shared<vector<ListClusterKubeconfigStatesResponseBodyStates>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListClusterKubeconfigStatesResponseBody() = default;
+};
+class ListClusterKubeconfigStatesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListClusterKubeconfigStatesResponseBody> body{};
+
+  ListClusterKubeconfigStatesResponse() {}
+
+  explicit ListClusterKubeconfigStatesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListClusterKubeconfigStatesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListClusterKubeconfigStatesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListClusterKubeconfigStatesResponse() = default;
+};
 class ListOperationPlansRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -22053,6 +22553,248 @@ public:
 
 
   virtual ~ListTagResourcesResponse() = default;
+};
+class ListUserKubeConfigStatesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  ListUserKubeConfigStatesRequest() {}
+
+  explicit ListUserKubeConfigStatesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["page_number"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["page_size"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("page_number") != m.end() && !m["page_number"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["page_number"]));
+    }
+    if (m.find("page_size") != m.end() && !m["page_size"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["page_size"]));
+    }
+  }
+
+
+  virtual ~ListUserKubeConfigStatesRequest() = default;
+};
+class ListUserKubeConfigStatesResponseBodyPage : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  ListUserKubeConfigStatesResponseBodyPage() {}
+
+  explicit ListUserKubeConfigStatesResponseBodyPage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["page_number"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["page_size"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["total_count"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("page_number") != m.end() && !m["page_number"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["page_number"]));
+    }
+    if (m.find("page_size") != m.end() && !m["page_size"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["page_size"]));
+    }
+    if (m.find("total_count") != m.end() && !m["total_count"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["total_count"]));
+    }
+  }
+
+
+  virtual ~ListUserKubeConfigStatesResponseBodyPage() = default;
+};
+class ListUserKubeConfigStatesResponseBodyStates : public Darabonba::Model {
+public:
+  shared_ptr<string> certExpireTime{};
+  shared_ptr<string> certState{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> clusterName{};
+  shared_ptr<string> clusterState{};
+
+  ListUserKubeConfigStatesResponseBodyStates() {}
+
+  explicit ListUserKubeConfigStatesResponseBodyStates(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certExpireTime) {
+      res["cert_expire_time"] = boost::any(*certExpireTime);
+    }
+    if (certState) {
+      res["cert_state"] = boost::any(*certState);
+    }
+    if (clusterId) {
+      res["cluster_id"] = boost::any(*clusterId);
+    }
+    if (clusterName) {
+      res["cluster_name"] = boost::any(*clusterName);
+    }
+    if (clusterState) {
+      res["cluster_state"] = boost::any(*clusterState);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cert_expire_time") != m.end() && !m["cert_expire_time"].empty()) {
+      certExpireTime = make_shared<string>(boost::any_cast<string>(m["cert_expire_time"]));
+    }
+    if (m.find("cert_state") != m.end() && !m["cert_state"].empty()) {
+      certState = make_shared<string>(boost::any_cast<string>(m["cert_state"]));
+    }
+    if (m.find("cluster_id") != m.end() && !m["cluster_id"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["cluster_id"]));
+    }
+    if (m.find("cluster_name") != m.end() && !m["cluster_name"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["cluster_name"]));
+    }
+    if (m.find("cluster_state") != m.end() && !m["cluster_state"].empty()) {
+      clusterState = make_shared<string>(boost::any_cast<string>(m["cluster_state"]));
+    }
+  }
+
+
+  virtual ~ListUserKubeConfigStatesResponseBodyStates() = default;
+};
+class ListUserKubeConfigStatesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListUserKubeConfigStatesResponseBodyPage> page{};
+  shared_ptr<vector<ListUserKubeConfigStatesResponseBodyStates>> states{};
+
+  ListUserKubeConfigStatesResponseBody() {}
+
+  explicit ListUserKubeConfigStatesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (page) {
+      res["page"] = page ? boost::any(page->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (states) {
+      vector<boost::any> temp1;
+      for(auto item1:*states){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["states"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("page") != m.end() && !m["page"].empty()) {
+      if (typeid(map<string, boost::any>) == m["page"].type()) {
+        ListUserKubeConfigStatesResponseBodyPage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["page"]));
+        page = make_shared<ListUserKubeConfigStatesResponseBodyPage>(model1);
+      }
+    }
+    if (m.find("states") != m.end() && !m["states"].empty()) {
+      if (typeid(vector<boost::any>) == m["states"].type()) {
+        vector<ListUserKubeConfigStatesResponseBodyStates> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["states"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListUserKubeConfigStatesResponseBodyStates model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        states = make_shared<vector<ListUserKubeConfigStatesResponseBodyStates>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListUserKubeConfigStatesResponseBody() = default;
+};
+class ListUserKubeConfigStatesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListUserKubeConfigStatesResponseBody> body{};
+
+  ListUserKubeConfigStatesResponse() {}
+
+  explicit ListUserKubeConfigStatesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListUserKubeConfigStatesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListUserKubeConfigStatesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListUserKubeConfigStatesResponse() = default;
 };
 class MigrateClusterRequest : public Darabonba::Model {
 public:
@@ -28852,6 +29594,17 @@ public:
   CheckControlPlaneLogEnableResponse checkControlPlaneLogEnable(shared_ptr<string> ClusterId);
   CheckServiceRoleResponse checkServiceRoleWithOptions(shared_ptr<CheckServiceRoleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckServiceRoleResponse checkServiceRole(shared_ptr<CheckServiceRoleRequest> request);
+  CleanClusterUserPermissionsResponse cleanClusterUserPermissionsWithOptions(shared_ptr<string> ClusterId,
+                                                                             shared_ptr<string> Uid,
+                                                                             shared_ptr<CleanClusterUserPermissionsRequest> request,
+                                                                             shared_ptr<map<string, string>> headers,
+                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CleanClusterUserPermissionsResponse cleanClusterUserPermissions(shared_ptr<string> ClusterId, shared_ptr<string> Uid, shared_ptr<CleanClusterUserPermissionsRequest> request);
+  CleanUserPermissionsResponse cleanUserPermissionsWithOptions(shared_ptr<string> Uid,
+                                                               shared_ptr<CleanUserPermissionsRequest> tmpReq,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CleanUserPermissionsResponse cleanUserPermissions(shared_ptr<string> Uid, shared_ptr<CleanUserPermissionsRequest> request);
   CreateAutoscalingConfigResponse createAutoscalingConfigWithOptions(shared_ptr<string> ClusterId,
                                                                      shared_ptr<CreateAutoscalingConfigRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
@@ -29141,10 +29894,20 @@ public:
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListClusterChecksResponse listClusterChecks(shared_ptr<string> clusterId, shared_ptr<ListClusterChecksRequest> request);
+  ListClusterKubeconfigStatesResponse listClusterKubeconfigStatesWithOptions(shared_ptr<string> ClusterId,
+                                                                             shared_ptr<ListClusterKubeconfigStatesRequest> request,
+                                                                             shared_ptr<map<string, string>> headers,
+                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListClusterKubeconfigStatesResponse listClusterKubeconfigStates(shared_ptr<string> ClusterId, shared_ptr<ListClusterKubeconfigStatesRequest> request);
   ListOperationPlansResponse listOperationPlansWithOptions(shared_ptr<ListOperationPlansRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListOperationPlansResponse listOperationPlans(shared_ptr<ListOperationPlansRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
+  ListUserKubeConfigStatesResponse listUserKubeConfigStatesWithOptions(shared_ptr<string> Uid,
+                                                                       shared_ptr<ListUserKubeConfigStatesRequest> request,
+                                                                       shared_ptr<map<string, string>> headers,
+                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListUserKubeConfigStatesResponse listUserKubeConfigStates(shared_ptr<string> Uid, shared_ptr<ListUserKubeConfigStatesRequest> request);
   MigrateClusterResponse migrateClusterWithOptions(shared_ptr<string> clusterId,
                                                    shared_ptr<MigrateClusterRequest> request,
                                                    shared_ptr<map<string, string>> headers,
