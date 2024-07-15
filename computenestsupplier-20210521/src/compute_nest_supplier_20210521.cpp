@@ -1319,6 +1319,9 @@ UpdateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateSe
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateServiceShrinkRequest> request = make_shared<UpdateServiceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateServiceRequestCommodity>(tmpReq->commodity)) {
+    request->commodityShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->commodity, make_shared<string>("Commodity"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<UpdateServiceRequestUpdateOption>(tmpReq->updateOption)) {
     request->updateOptionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->updateOption, make_shared<string>("UpdateOption"), make_shared<string>("json")));
   }
@@ -1331,6 +1334,9 @@ UpdateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateSe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->commodityShrink)) {
+    query->insert(pair<string, string>("Commodity", *request->commodityShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deployMetadata)) {
     query->insert(pair<string, string>("DeployMetadata", *request->deployMetadata));
@@ -1414,11 +1420,19 @@ UpdateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateSe
   return updateServiceWithOptions(request, runtime);
 }
 
-UpdateServiceInstanceAttributeResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateServiceInstanceAttributeWithOptions(shared_ptr<UpdateServiceInstanceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpdateServiceInstanceAttributeResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateServiceInstanceAttributeWithOptions(shared_ptr<UpdateServiceInstanceAttributeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateServiceInstanceAttributeShrinkRequest> request = make_shared<UpdateServiceInstanceAttributeShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateServiceInstanceAttributeRequestLicenseData>(tmpReq->licenseData)) {
+    request->licenseDataShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->licenseData, make_shared<string>("LicenseData"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->licenseDataShrink)) {
+    query->insert(pair<string, string>("LicenseData", *request->licenseDataShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
