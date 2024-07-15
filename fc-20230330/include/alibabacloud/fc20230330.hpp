@@ -4832,6 +4832,7 @@ public:
 class ProvisionConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> alwaysAllocateCPU{};
+  shared_ptr<bool> alwaysAllocateGPU{};
   shared_ptr<long> current{};
   shared_ptr<string> currentError{};
   shared_ptr<string> functionArn{};
@@ -4851,6 +4852,9 @@ public:
     map<string, boost::any> res;
     if (alwaysAllocateCPU) {
       res["alwaysAllocateCPU"] = boost::any(*alwaysAllocateCPU);
+    }
+    if (alwaysAllocateGPU) {
+      res["alwaysAllocateGPU"] = boost::any(*alwaysAllocateGPU);
     }
     if (current) {
       res["current"] = boost::any(*current);
@@ -4884,6 +4888,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("alwaysAllocateCPU") != m.end() && !m["alwaysAllocateCPU"].empty()) {
       alwaysAllocateCPU = make_shared<bool>(boost::any_cast<bool>(m["alwaysAllocateCPU"]));
+    }
+    if (m.find("alwaysAllocateGPU") != m.end() && !m["alwaysAllocateGPU"].empty()) {
+      alwaysAllocateGPU = make_shared<bool>(boost::any_cast<bool>(m["alwaysAllocateGPU"]));
     }
     if (m.find("current") != m.end() && !m["current"].empty()) {
       current = make_shared<long>(boost::any_cast<long>(m["current"]));
@@ -5734,6 +5741,7 @@ public:
 class PutProvisionConfigInput : public Darabonba::Model {
 public:
   shared_ptr<bool> alwaysAllocateCPU{};
+  shared_ptr<bool> alwaysAllocateGPU{};
   shared_ptr<vector<ScheduledAction>> scheduledActions{};
   shared_ptr<long> target{};
   shared_ptr<vector<TargetTrackingPolicy>> targetTrackingPolicies{};
@@ -5750,6 +5758,9 @@ public:
     map<string, boost::any> res;
     if (alwaysAllocateCPU) {
       res["alwaysAllocateCPU"] = boost::any(*alwaysAllocateCPU);
+    }
+    if (alwaysAllocateGPU) {
+      res["alwaysAllocateGPU"] = boost::any(*alwaysAllocateGPU);
     }
     if (scheduledActions) {
       vector<boost::any> temp1;
@@ -5774,6 +5785,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("alwaysAllocateCPU") != m.end() && !m["alwaysAllocateCPU"].empty()) {
       alwaysAllocateCPU = make_shared<bool>(boost::any_cast<bool>(m["alwaysAllocateCPU"]));
+    }
+    if (m.find("alwaysAllocateGPU") != m.end() && !m["alwaysAllocateGPU"].empty()) {
+      alwaysAllocateGPU = make_shared<bool>(boost::any_cast<bool>(m["alwaysAllocateGPU"]));
     }
     if (m.find("scheduledActions") != m.end() && !m["scheduledActions"].empty()) {
       if (typeid(vector<boost::any>) == m["scheduledActions"].type()) {
