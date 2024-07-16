@@ -899,6 +899,9 @@ GetSuppressionListLevelResponse Alibabacloud_Dm20151123::Client::getSuppressionL
 GetTrackListResponse Alibabacloud_Dm20151123::Client::getTrackListWithOptions(shared_ptr<GetTrackListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountName)) {
+    query->insert(pair<string, string>("AccountName", *request->accountName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
   }
@@ -928,6 +931,9 @@ GetTrackListResponse Alibabacloud_Dm20151123::Client::getTrackListWithOptions(sh
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagName)) {
+    query->insert(pair<string, string>("TagName", *request->tagName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->total)) {
     query->insert(pair<string, string>("Total", *request->total));
