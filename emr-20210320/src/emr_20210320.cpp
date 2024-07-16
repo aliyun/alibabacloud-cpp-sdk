@@ -1565,9 +1565,6 @@ ListComponentsResponse Alibabacloud_Emr20210320::Client::listComponentsWithOptio
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->componentStates)) {
     query->insert(pair<string, vector<string>>("ComponentStates", *request->componentStates));
   }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->includeExpiredConfig)) {
-    query->insert(pair<string, bool>("IncludeExpiredConfig", *request->includeExpiredConfig));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }

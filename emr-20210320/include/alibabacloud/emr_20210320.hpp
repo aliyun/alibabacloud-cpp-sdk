@@ -33061,7 +33061,6 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<vector<string>> componentNames{};
   shared_ptr<vector<string>> componentStates{};
-  shared_ptr<bool> includeExpiredConfig{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
@@ -33087,9 +33086,6 @@ public:
     }
     if (componentStates) {
       res["ComponentStates"] = boost::any(*componentStates);
-    }
-    if (includeExpiredConfig) {
-      res["IncludeExpiredConfig"] = boost::any(*includeExpiredConfig);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -33136,9 +33132,6 @@ public:
         }
       }
       componentStates = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("IncludeExpiredConfig") != m.end() && !m["IncludeExpiredConfig"].empty()) {
-      includeExpiredConfig = make_shared<bool>(boost::any_cast<bool>(m["IncludeExpiredConfig"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
