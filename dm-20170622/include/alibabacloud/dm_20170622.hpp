@@ -3425,6 +3425,7 @@ public:
 };
 class GetTrackListRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accountName{};
   shared_ptr<string> endTime{};
   shared_ptr<string> offset{};
   shared_ptr<string> offsetCreateTime{};
@@ -3435,6 +3436,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> startTime{};
+  shared_ptr<string> tagName{};
   shared_ptr<string> total{};
 
   GetTrackListRequest() {}
@@ -3447,6 +3449,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountName) {
+      res["AccountName"] = boost::any(*accountName);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -3477,6 +3482,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (tagName) {
+      res["TagName"] = boost::any(*tagName);
+    }
     if (total) {
       res["Total"] = boost::any(*total);
     }
@@ -3484,6 +3492,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
+      accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -3513,6 +3524,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("TagName") != m.end() && !m["TagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["TagName"]));
     }
     if (m.find("Total") != m.end() && !m["Total"].empty()) {
       total = make_shared<string>(boost::any_cast<string>(m["Total"]));
