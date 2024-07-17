@@ -3944,6 +3944,9 @@ SplitTrafficControlTargetResponse Alibabacloud_PaiRecService20221213::Client::sp
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     body->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->setPoints)) {
+    body->insert(pair<string, vector<long>>("SetPoints", *request->setPoints));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<long>>(request->setValues)) {
     body->insert(pair<string, vector<long>>("SetValues", *request->setValues));
   }

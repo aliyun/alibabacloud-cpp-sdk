@@ -10331,6 +10331,7 @@ public:
 };
 class GetTrafficControlTargetResponseBodySplitParts : public Darabonba::Model {
 public:
+  shared_ptr<vector<long>> setPoints{};
   shared_ptr<vector<long>> setValues{};
   shared_ptr<vector<long>> timePoints{};
 
@@ -10344,6 +10345,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (setPoints) {
+      res["SetPoints"] = boost::any(*setPoints);
+    }
     if (setValues) {
       res["SetValues"] = boost::any(*setValues);
     }
@@ -10354,6 +10358,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SetPoints") != m.end() && !m["SetPoints"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["SetPoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SetPoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      setPoints = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("SetValues") != m.end() && !m["SetValues"].empty()) {
       vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["SetValues"].type()) {
@@ -10636,6 +10650,7 @@ public:
 class GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts : public Darabonba::Model {
 public:
   shared_ptr<vector<long>> setPoints{};
+  shared_ptr<vector<long>> setValues{};
   shared_ptr<vector<long>> timePoints{};
 
   GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts() {}
@@ -10650,6 +10665,9 @@ public:
     map<string, boost::any> res;
     if (setPoints) {
       res["SetPoints"] = boost::any(*setPoints);
+    }
+    if (setValues) {
+      res["SetValues"] = boost::any(*setValues);
     }
     if (timePoints) {
       res["TimePoints"] = boost::any(*timePoints);
@@ -10667,6 +10685,16 @@ public:
         }
       }
       setPoints = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("SetValues") != m.end() && !m["SetValues"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["SetValues"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SetValues"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      setValues = make_shared<vector<long>>(toVec1);
     }
     if (m.find("TimePoints") != m.end() && !m["TimePoints"].empty()) {
       vector<long> toVec1;
@@ -19261,6 +19289,7 @@ class SplitTrafficControlTargetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> environment{};
   shared_ptr<string> instanceId{};
+  shared_ptr<vector<long>> setPoints{};
   shared_ptr<vector<long>> setValues{};
   shared_ptr<vector<long>> timePoints{};
 
@@ -19280,6 +19309,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (setPoints) {
+      res["SetPoints"] = boost::any(*setPoints);
+    }
     if (setValues) {
       res["SetValues"] = boost::any(*setValues);
     }
@@ -19295,6 +19327,16 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("SetPoints") != m.end() && !m["SetPoints"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["SetPoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SetPoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      setPoints = make_shared<vector<long>>(toVec1);
     }
     if (m.find("SetValues") != m.end() && !m["SetValues"].empty()) {
       vector<long> toVec1;
