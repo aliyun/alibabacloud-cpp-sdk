@@ -5242,6 +5242,7 @@ public:
   shared_ptr<GetServiceInstanceResponseBodyNetworkConfig> networkConfig{};
   shared_ptr<string> operatedServiceInstanceId{};
   shared_ptr<string> operationEndTime{};
+  shared_ptr<string> operationExtraInfo{};
   shared_ptr<string> operationStartTime{};
   shared_ptr<string> outputs{};
   shared_ptr<string> parameters{};
@@ -5309,6 +5310,9 @@ public:
     }
     if (operationEndTime) {
       res["OperationEndTime"] = boost::any(*operationEndTime);
+    }
+    if (operationExtraInfo) {
+      res["OperationExtraInfo"] = boost::any(*operationExtraInfo);
     }
     if (operationStartTime) {
       res["OperationStartTime"] = boost::any(*operationStartTime);
@@ -5420,6 +5424,9 @@ public:
     }
     if (m.find("OperationEndTime") != m.end() && !m["OperationEndTime"].empty()) {
       operationEndTime = make_shared<string>(boost::any_cast<string>(m["OperationEndTime"]));
+    }
+    if (m.find("OperationExtraInfo") != m.end() && !m["OperationExtraInfo"].empty()) {
+      operationExtraInfo = make_shared<string>(boost::any_cast<string>(m["OperationExtraInfo"]));
     }
     if (m.find("OperationStartTime") != m.end() && !m["OperationStartTime"].empty()) {
       operationStartTime = make_shared<string>(boost::any_cast<string>(m["OperationStartTime"]));
