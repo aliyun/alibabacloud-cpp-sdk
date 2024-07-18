@@ -14,6 +14,296 @@
 using namespace std;
 
 namespace Alibabacloud_Gpdb20160503 {
+class ColumnMetadata : public Darabonba::Model {
+public:
+  shared_ptr<string> columnDefault{};
+  shared_ptr<string> comment{};
+  shared_ptr<string> dataType{};
+  shared_ptr<bool> isCaseSensitive{};
+  shared_ptr<bool> isCurrency{};
+  shared_ptr<bool> isPrimaryKey{};
+  shared_ptr<bool> isSigned{};
+  shared_ptr<long> maxLength{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> nullable{};
+  shared_ptr<long> precision{};
+  shared_ptr<long> scale{};
+  shared_ptr<string> schemaName{};
+  shared_ptr<string> tableName{};
+  shared_ptr<string> udtName{};
+
+  ColumnMetadata() {}
+
+  explicit ColumnMetadata(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (columnDefault) {
+      res["ColumnDefault"] = boost::any(*columnDefault);
+    }
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (dataType) {
+      res["DataType"] = boost::any(*dataType);
+    }
+    if (isCaseSensitive) {
+      res["IsCaseSensitive"] = boost::any(*isCaseSensitive);
+    }
+    if (isCurrency) {
+      res["IsCurrency"] = boost::any(*isCurrency);
+    }
+    if (isPrimaryKey) {
+      res["IsPrimaryKey"] = boost::any(*isPrimaryKey);
+    }
+    if (isSigned) {
+      res["IsSigned"] = boost::any(*isSigned);
+    }
+    if (maxLength) {
+      res["MaxLength"] = boost::any(*maxLength);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (nullable) {
+      res["Nullable"] = boost::any(*nullable);
+    }
+    if (precision) {
+      res["Precision"] = boost::any(*precision);
+    }
+    if (scale) {
+      res["Scale"] = boost::any(*scale);
+    }
+    if (schemaName) {
+      res["SchemaName"] = boost::any(*schemaName);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (udtName) {
+      res["UdtName"] = boost::any(*udtName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ColumnDefault") != m.end() && !m["ColumnDefault"].empty()) {
+      columnDefault = make_shared<string>(boost::any_cast<string>(m["ColumnDefault"]));
+    }
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("DataType") != m.end() && !m["DataType"].empty()) {
+      dataType = make_shared<string>(boost::any_cast<string>(m["DataType"]));
+    }
+    if (m.find("IsCaseSensitive") != m.end() && !m["IsCaseSensitive"].empty()) {
+      isCaseSensitive = make_shared<bool>(boost::any_cast<bool>(m["IsCaseSensitive"]));
+    }
+    if (m.find("IsCurrency") != m.end() && !m["IsCurrency"].empty()) {
+      isCurrency = make_shared<bool>(boost::any_cast<bool>(m["IsCurrency"]));
+    }
+    if (m.find("IsPrimaryKey") != m.end() && !m["IsPrimaryKey"].empty()) {
+      isPrimaryKey = make_shared<bool>(boost::any_cast<bool>(m["IsPrimaryKey"]));
+    }
+    if (m.find("IsSigned") != m.end() && !m["IsSigned"].empty()) {
+      isSigned = make_shared<bool>(boost::any_cast<bool>(m["IsSigned"]));
+    }
+    if (m.find("MaxLength") != m.end() && !m["MaxLength"].empty()) {
+      maxLength = make_shared<long>(boost::any_cast<long>(m["MaxLength"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Nullable") != m.end() && !m["Nullable"].empty()) {
+      nullable = make_shared<bool>(boost::any_cast<bool>(m["Nullable"]));
+    }
+    if (m.find("Precision") != m.end() && !m["Precision"].empty()) {
+      precision = make_shared<long>(boost::any_cast<long>(m["Precision"]));
+    }
+    if (m.find("Scale") != m.end() && !m["Scale"].empty()) {
+      scale = make_shared<long>(boost::any_cast<long>(m["Scale"]));
+    }
+    if (m.find("SchemaName") != m.end() && !m["SchemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["SchemaName"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("UdtName") != m.end() && !m["UdtName"].empty()) {
+      udtName = make_shared<string>(boost::any_cast<string>(m["UdtName"]));
+    }
+  }
+
+
+  virtual ~ColumnMetadata() = default;
+};
+class Field : public Darabonba::Model {
+public:
+  shared_ptr<string> blobValue{};
+  shared_ptr<bool> booleanValue{};
+  shared_ptr<double> doubleValue{};
+  shared_ptr<bool> isNull{};
+  shared_ptr<long> longValue{};
+  shared_ptr<string> stringValue{};
+
+  Field() {}
+
+  explicit Field(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blobValue) {
+      res["BlobValue"] = boost::any(*blobValue);
+    }
+    if (booleanValue) {
+      res["BooleanValue"] = boost::any(*booleanValue);
+    }
+    if (doubleValue) {
+      res["DoubleValue"] = boost::any(*doubleValue);
+    }
+    if (isNull) {
+      res["IsNull"] = boost::any(*isNull);
+    }
+    if (longValue) {
+      res["LongValue"] = boost::any(*longValue);
+    }
+    if (stringValue) {
+      res["StringValue"] = boost::any(*stringValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlobValue") != m.end() && !m["BlobValue"].empty()) {
+      blobValue = make_shared<string>(boost::any_cast<string>(m["BlobValue"]));
+    }
+    if (m.find("BooleanValue") != m.end() && !m["BooleanValue"].empty()) {
+      booleanValue = make_shared<bool>(boost::any_cast<bool>(m["BooleanValue"]));
+    }
+    if (m.find("DoubleValue") != m.end() && !m["DoubleValue"].empty()) {
+      doubleValue = make_shared<double>(boost::any_cast<double>(m["DoubleValue"]));
+    }
+    if (m.find("IsNull") != m.end() && !m["IsNull"].empty()) {
+      isNull = make_shared<bool>(boost::any_cast<bool>(m["IsNull"]));
+    }
+    if (m.find("LongValue") != m.end() && !m["LongValue"].empty()) {
+      longValue = make_shared<long>(boost::any_cast<long>(m["LongValue"]));
+    }
+    if (m.find("StringValue") != m.end() && !m["StringValue"].empty()) {
+      stringValue = make_shared<string>(boost::any_cast<string>(m["StringValue"]));
+    }
+  }
+
+
+  virtual ~Field() = default;
+};
+class StatementData : public Darabonba::Model {
+public:
+  shared_ptr<string> createdAt{};
+  shared_ptr<string> database{};
+  shared_ptr<string> id{};
+  shared_ptr<vector<string>> parameters{};
+  shared_ptr<string> secretArn{};
+  shared_ptr<string> sql{};
+  shared_ptr<vector<string>> sqls{};
+  shared_ptr<string> status{};
+  shared_ptr<string> updatedAt{};
+
+  StatementData() {}
+
+  explicit StatementData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createdAt) {
+      res["CreatedAt"] = boost::any(*createdAt);
+    }
+    if (database) {
+      res["Database"] = boost::any(*database);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (parameters) {
+      res["Parameters"] = boost::any(*parameters);
+    }
+    if (secretArn) {
+      res["SecretArn"] = boost::any(*secretArn);
+    }
+    if (sql) {
+      res["Sql"] = boost::any(*sql);
+    }
+    if (sqls) {
+      res["Sqls"] = boost::any(*sqls);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (updatedAt) {
+      res["UpdatedAt"] = boost::any(*updatedAt);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreatedAt") != m.end() && !m["CreatedAt"].empty()) {
+      createdAt = make_shared<string>(boost::any_cast<string>(m["CreatedAt"]));
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["Database"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Parameters"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Parameters"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parameters = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SecretArn") != m.end() && !m["SecretArn"].empty()) {
+      secretArn = make_shared<string>(boost::any_cast<string>(m["SecretArn"]));
+    }
+    if (m.find("Sql") != m.end() && !m["Sql"].empty()) {
+      sql = make_shared<string>(boost::any_cast<string>(m["Sql"]));
+    }
+    if (m.find("Sqls") != m.end() && !m["Sqls"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Sqls"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Sqls"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sqls = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UpdatedAt") != m.end() && !m["UpdatedAt"].empty()) {
+      updatedAt = make_shared<string>(boost::any_cast<string>(m["UpdatedAt"]));
+    }
+  }
+
+
+  virtual ~StatementData() = default;
+};
 class AllocateInstancePublicConnectionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> addressType{};
@@ -25544,8 +25834,10 @@ class ListDocumentsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> collection{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<long> maxResults{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> namespacePassword{};
+  shared_ptr<string> nextToken{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
 
@@ -25565,11 +25857,17 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
     }
     if (namespacePassword) {
       res["NamespacePassword"] = boost::any(*namespacePassword);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -25587,11 +25885,17 @@ public:
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
     }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("NamespacePassword") != m.end() && !m["NamespacePassword"].empty()) {
       namespacePassword = make_shared<string>(boost::any_cast<string>(m["NamespacePassword"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -25685,8 +25989,10 @@ public:
 };
 class ListDocumentsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> count{};
   shared_ptr<ListDocumentsResponseBodyItems> items{};
   shared_ptr<string> message{};
+  shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
 
@@ -25700,11 +26006,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
     if (items) {
       res["Items"] = items ? boost::any(items->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (message) {
       res["Message"] = boost::any(*message);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -25716,6 +26028,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
     if (m.find("Items") != m.end() && !m["Items"].empty()) {
       if (typeid(map<string, boost::any>) == m["Items"].type()) {
         ListDocumentsResponseBodyItems model1;
@@ -25725,6 +26040,9 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -32015,6 +32333,7 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<string> hybridSearch{};
   shared_ptr<map<string, map<string, boost::any>>> hybridSearchArgs{};
+  shared_ptr<bool> includeFileUrl{};
   shared_ptr<string> includeMetadataFields{};
   shared_ptr<bool> includeVector{};
   shared_ptr<string> metrics{};
@@ -32060,6 +32379,9 @@ public:
     }
     if (hybridSearchArgs) {
       res["HybridSearchArgs"] = boost::any(*hybridSearchArgs);
+    }
+    if (includeFileUrl) {
+      res["IncludeFileUrl"] = boost::any(*includeFileUrl);
     }
     if (includeMetadataFields) {
       res["IncludeMetadataFields"] = boost::any(*includeMetadataFields);
@@ -32132,6 +32454,9 @@ public:
       }
       hybridSearchArgs = make_shared<map<string, map<string, boost::any>>>(toMap1);
     }
+    if (m.find("IncludeFileUrl") != m.end() && !m["IncludeFileUrl"].empty()) {
+      includeFileUrl = make_shared<bool>(boost::any_cast<bool>(m["IncludeFileUrl"]));
+    }
     if (m.find("IncludeMetadataFields") != m.end() && !m["IncludeMetadataFields"].empty()) {
       includeMetadataFields = make_shared<string>(boost::any_cast<string>(m["IncludeMetadataFields"]));
     }
@@ -32187,6 +32512,7 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<string> hybridSearch{};
   shared_ptr<map<string, map<string, boost::any>>> hybridSearchArgs{};
+  shared_ptr<bool> includeFileUrl{};
   shared_ptr<string> includeMetadataFields{};
   shared_ptr<bool> includeVector{};
   shared_ptr<string> metrics{};
@@ -32232,6 +32558,9 @@ public:
     }
     if (hybridSearchArgs) {
       res["HybridSearchArgs"] = boost::any(*hybridSearchArgs);
+    }
+    if (includeFileUrl) {
+      res["IncludeFileUrl"] = boost::any(*includeFileUrl);
     }
     if (includeMetadataFields) {
       res["IncludeMetadataFields"] = boost::any(*includeMetadataFields);
@@ -32304,6 +32633,9 @@ public:
       }
       hybridSearchArgs = make_shared<map<string, map<string, boost::any>>>(toMap1);
     }
+    if (m.find("IncludeFileUrl") != m.end() && !m["IncludeFileUrl"].empty()) {
+      includeFileUrl = make_shared<bool>(boost::any_cast<bool>(m["IncludeFileUrl"]));
+    }
     if (m.find("IncludeMetadataFields") != m.end() && !m["IncludeMetadataFields"].empty()) {
       includeMetadataFields = make_shared<string>(boost::any_cast<string>(m["IncludeMetadataFields"]));
     }
@@ -32359,6 +32691,7 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<string> hybridSearch{};
   shared_ptr<string> hybridSearchArgsShrink{};
+  shared_ptr<bool> includeFileUrl{};
   shared_ptr<string> includeMetadataFields{};
   shared_ptr<bool> includeVector{};
   shared_ptr<string> metrics{};
@@ -32404,6 +32737,9 @@ public:
     }
     if (hybridSearchArgsShrink) {
       res["HybridSearchArgs"] = boost::any(*hybridSearchArgsShrink);
+    }
+    if (includeFileUrl) {
+      res["IncludeFileUrl"] = boost::any(*includeFileUrl);
     }
     if (includeMetadataFields) {
       res["IncludeMetadataFields"] = boost::any(*includeMetadataFields);
@@ -32465,6 +32801,9 @@ public:
     }
     if (m.find("HybridSearchArgs") != m.end() && !m["HybridSearchArgs"].empty()) {
       hybridSearchArgsShrink = make_shared<string>(boost::any_cast<string>(m["HybridSearchArgs"]));
+    }
+    if (m.find("IncludeFileUrl") != m.end() && !m["IncludeFileUrl"].empty()) {
+      includeFileUrl = make_shared<bool>(boost::any_cast<bool>(m["IncludeFileUrl"]));
     }
     if (m.find("IncludeMetadataFields") != m.end() && !m["IncludeMetadataFields"].empty()) {
       includeMetadataFields = make_shared<string>(boost::any_cast<string>(m["IncludeMetadataFields"]));

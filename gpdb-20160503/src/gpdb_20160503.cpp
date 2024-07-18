@@ -4858,11 +4858,17 @@ ListDocumentsResponse Alibabacloud_Gpdb20160503::Client::listDocumentsWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespacePassword)) {
     query->insert(pair<string, string>("NamespacePassword", *request->namespacePassword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
@@ -6247,6 +6253,9 @@ QueryContentResponse Alibabacloud_Gpdb20160503::Client::queryContentWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->hybridSearchArgsShrink)) {
     query->insert(pair<string, string>("HybridSearchArgs", *request->hybridSearchArgsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->includeFileUrl)) {
+    query->insert(pair<string, bool>("IncludeFileUrl", *request->includeFileUrl));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->includeMetadataFields)) {
     query->insert(pair<string, string>("IncludeMetadataFields", *request->includeMetadataFields));
