@@ -4128,6 +4128,103 @@ ListCallDetailRecordsResponse Alibabacloud_CCC20200701::Client::listCallDetailRe
   return listCallDetailRecordsWithOptions(request, runtime);
 }
 
+ListCallDetailRecordsV2Response Alibabacloud_CCC20200701::Client::listCallDetailRecordsV2WithOptions(shared_ptr<ListCallDetailRecordsV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessChannelTypeList)) {
+    query->insert(pair<string, string>("AccessChannelTypeList", *request->accessChannelTypeList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentId)) {
+    query->insert(pair<string, string>("AgentId", *request->agentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->broker)) {
+    query->insert(pair<string, string>("Broker", *request->broker));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->calledNumber)) {
+    query->insert(pair<string, string>("CalledNumber", *request->calledNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callingNumber)) {
+    query->insert(pair<string, string>("CallingNumber", *request->callingNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->contactDispositionList)) {
+    query->insert(pair<string, string>("ContactDispositionList", *request->contactDispositionList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->contactIdList)) {
+    query->insert(pair<string, string>("ContactIdList", *request->contactIdList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->contactTypeList)) {
+    query->insert(pair<string, string>("ContactTypeList", *request->contactTypeList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->earlyMediaStateList)) {
+    query->insert(pair<string, string>("EarlyMediaStateList", *request->earlyMediaStateList));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->firstAgentId)) {
+    query->insert(pair<string, string>("FirstAgentId", *request->firstAgentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->number)) {
+    query->insert(pair<string, string>("Number", *request->number));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderByField)) {
+    query->insert(pair<string, string>("OrderByField", *request->orderByField));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->satisfactionDescriptionList)) {
+    query->insert(pair<string, string>("SatisfactionDescriptionList", *request->satisfactionDescriptionList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->satisfactionRateList)) {
+    query->insert(pair<string, string>("SatisfactionRateList", *request->satisfactionRateList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->satisfactionSurveyChannel)) {
+    query->insert(pair<string, string>("SatisfactionSurveyChannel", *request->satisfactionSurveyChannel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->searchPattern)) {
+    query->insert(pair<string, string>("SearchPattern", *request->searchPattern));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->skillGroupIdList)) {
+    query->insert(pair<string, string>("SkillGroupIdList", *request->skillGroupIdList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortOrder)) {
+    query->insert(pair<string, string>("SortOrder", *request->sortOrder));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCallDetailRecordsV2"))},
+    {"version", boost::any(string("2020-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCallDetailRecordsV2Response(callApi(params, req, runtime));
+}
+
+ListCallDetailRecordsV2Response Alibabacloud_CCC20200701::Client::listCallDetailRecordsV2(shared_ptr<ListCallDetailRecordsV2Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCallDetailRecordsV2WithOptions(request, runtime);
+}
+
 ListCallTagsResponse Alibabacloud_CCC20200701::Client::listCallTagsWithOptions(shared_ptr<ListCallTagsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

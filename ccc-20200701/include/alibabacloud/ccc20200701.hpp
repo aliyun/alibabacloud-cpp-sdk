@@ -30980,6 +30980,759 @@ public:
 
   virtual ~ListCallDetailRecordsResponse() = default;
 };
+class ListCallDetailRecordsV2Request : public Darabonba::Model {
+public:
+  shared_ptr<string> accessChannelTypeList{};
+  shared_ptr<string> agentId{};
+  shared_ptr<string> broker{};
+  shared_ptr<string> calledNumber{};
+  shared_ptr<string> callingNumber{};
+  shared_ptr<string> contactDispositionList{};
+  shared_ptr<string> contactIdList{};
+  shared_ptr<string> contactTypeList{};
+  shared_ptr<string> earlyMediaStateList{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> firstAgentId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> mediaType{};
+  shared_ptr<string> number{};
+  shared_ptr<string> orderByField{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> satisfactionDescriptionList{};
+  shared_ptr<string> satisfactionRateList{};
+  shared_ptr<string> satisfactionSurveyChannel{};
+  shared_ptr<string> searchPattern{};
+  shared_ptr<string> skillGroupIdList{};
+  shared_ptr<string> sortOrder{};
+  shared_ptr<long> startTime{};
+
+  ListCallDetailRecordsV2Request() {}
+
+  explicit ListCallDetailRecordsV2Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessChannelTypeList) {
+      res["AccessChannelTypeList"] = boost::any(*accessChannelTypeList);
+    }
+    if (agentId) {
+      res["AgentId"] = boost::any(*agentId);
+    }
+    if (broker) {
+      res["Broker"] = boost::any(*broker);
+    }
+    if (calledNumber) {
+      res["CalledNumber"] = boost::any(*calledNumber);
+    }
+    if (callingNumber) {
+      res["CallingNumber"] = boost::any(*callingNumber);
+    }
+    if (contactDispositionList) {
+      res["ContactDispositionList"] = boost::any(*contactDispositionList);
+    }
+    if (contactIdList) {
+      res["ContactIdList"] = boost::any(*contactIdList);
+    }
+    if (contactTypeList) {
+      res["ContactTypeList"] = boost::any(*contactTypeList);
+    }
+    if (earlyMediaStateList) {
+      res["EarlyMediaStateList"] = boost::any(*earlyMediaStateList);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (firstAgentId) {
+      res["FirstAgentId"] = boost::any(*firstAgentId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
+    }
+    if (number) {
+      res["Number"] = boost::any(*number);
+    }
+    if (orderByField) {
+      res["OrderByField"] = boost::any(*orderByField);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (satisfactionDescriptionList) {
+      res["SatisfactionDescriptionList"] = boost::any(*satisfactionDescriptionList);
+    }
+    if (satisfactionRateList) {
+      res["SatisfactionRateList"] = boost::any(*satisfactionRateList);
+    }
+    if (satisfactionSurveyChannel) {
+      res["SatisfactionSurveyChannel"] = boost::any(*satisfactionSurveyChannel);
+    }
+    if (searchPattern) {
+      res["SearchPattern"] = boost::any(*searchPattern);
+    }
+    if (skillGroupIdList) {
+      res["SkillGroupIdList"] = boost::any(*skillGroupIdList);
+    }
+    if (sortOrder) {
+      res["SortOrder"] = boost::any(*sortOrder);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessChannelTypeList") != m.end() && !m["AccessChannelTypeList"].empty()) {
+      accessChannelTypeList = make_shared<string>(boost::any_cast<string>(m["AccessChannelTypeList"]));
+    }
+    if (m.find("AgentId") != m.end() && !m["AgentId"].empty()) {
+      agentId = make_shared<string>(boost::any_cast<string>(m["AgentId"]));
+    }
+    if (m.find("Broker") != m.end() && !m["Broker"].empty()) {
+      broker = make_shared<string>(boost::any_cast<string>(m["Broker"]));
+    }
+    if (m.find("CalledNumber") != m.end() && !m["CalledNumber"].empty()) {
+      calledNumber = make_shared<string>(boost::any_cast<string>(m["CalledNumber"]));
+    }
+    if (m.find("CallingNumber") != m.end() && !m["CallingNumber"].empty()) {
+      callingNumber = make_shared<string>(boost::any_cast<string>(m["CallingNumber"]));
+    }
+    if (m.find("ContactDispositionList") != m.end() && !m["ContactDispositionList"].empty()) {
+      contactDispositionList = make_shared<string>(boost::any_cast<string>(m["ContactDispositionList"]));
+    }
+    if (m.find("ContactIdList") != m.end() && !m["ContactIdList"].empty()) {
+      contactIdList = make_shared<string>(boost::any_cast<string>(m["ContactIdList"]));
+    }
+    if (m.find("ContactTypeList") != m.end() && !m["ContactTypeList"].empty()) {
+      contactTypeList = make_shared<string>(boost::any_cast<string>(m["ContactTypeList"]));
+    }
+    if (m.find("EarlyMediaStateList") != m.end() && !m["EarlyMediaStateList"].empty()) {
+      earlyMediaStateList = make_shared<string>(boost::any_cast<string>(m["EarlyMediaStateList"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("FirstAgentId") != m.end() && !m["FirstAgentId"].empty()) {
+      firstAgentId = make_shared<string>(boost::any_cast<string>(m["FirstAgentId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
+    if (m.find("Number") != m.end() && !m["Number"].empty()) {
+      number = make_shared<string>(boost::any_cast<string>(m["Number"]));
+    }
+    if (m.find("OrderByField") != m.end() && !m["OrderByField"].empty()) {
+      orderByField = make_shared<string>(boost::any_cast<string>(m["OrderByField"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SatisfactionDescriptionList") != m.end() && !m["SatisfactionDescriptionList"].empty()) {
+      satisfactionDescriptionList = make_shared<string>(boost::any_cast<string>(m["SatisfactionDescriptionList"]));
+    }
+    if (m.find("SatisfactionRateList") != m.end() && !m["SatisfactionRateList"].empty()) {
+      satisfactionRateList = make_shared<string>(boost::any_cast<string>(m["SatisfactionRateList"]));
+    }
+    if (m.find("SatisfactionSurveyChannel") != m.end() && !m["SatisfactionSurveyChannel"].empty()) {
+      satisfactionSurveyChannel = make_shared<string>(boost::any_cast<string>(m["SatisfactionSurveyChannel"]));
+    }
+    if (m.find("SearchPattern") != m.end() && !m["SearchPattern"].empty()) {
+      searchPattern = make_shared<string>(boost::any_cast<string>(m["SearchPattern"]));
+    }
+    if (m.find("SkillGroupIdList") != m.end() && !m["SkillGroupIdList"].empty()) {
+      skillGroupIdList = make_shared<string>(boost::any_cast<string>(m["SkillGroupIdList"]));
+    }
+    if (m.find("SortOrder") != m.end() && !m["SortOrder"].empty()) {
+      sortOrder = make_shared<string>(boost::any_cast<string>(m["SortOrder"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~ListCallDetailRecordsV2Request() = default;
+};
+class ListCallDetailRecordsV2ResponseBodyDataList : public Darabonba::Model {
+public:
+  shared_ptr<string> accessChannelName{};
+  shared_ptr<string> accessChannelType{};
+  shared_ptr<string> accessChannelUserId{};
+  shared_ptr<string> accessChannelUserName{};
+  shared_ptr<string> additionalBroker{};
+  shared_ptr<string> agentIds{};
+  shared_ptr<string> agentNames{};
+  shared_ptr<string> broker{};
+  shared_ptr<string> callDuration{};
+  shared_ptr<string> calledNumber{};
+  shared_ptr<string> calleeLocation{};
+  shared_ptr<string> callerLocation{};
+  shared_ptr<string> callingNumber{};
+  shared_ptr<string> clientAppName{};
+  shared_ptr<string> clientIpAddress{};
+  shared_ptr<string> clientLocation{};
+  shared_ptr<string> clientUserAgent{};
+  shared_ptr<string> contactDisposition{};
+  shared_ptr<string> contactId{};
+  shared_ptr<string> contactType{};
+  shared_ptr<long> dialingTime{};
+  shared_ptr<string> earlyMediaState{};
+  shared_ptr<string> earlyMediaText{};
+  shared_ptr<long> establishedTime{};
+  shared_ptr<long> firstResponseTime{};
+  shared_ptr<long> heldTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> ivrTime{};
+  shared_ptr<string> mediaType{};
+  shared_ptr<long> messagesSent{};
+  shared_ptr<long> messagesSentByAgent{};
+  shared_ptr<long> messagesSentByCustomer{};
+  shared_ptr<string> offSiteAgentIds{};
+  shared_ptr<string> offsiteAgentDestinationNumbers{};
+  shared_ptr<string> offsiteAgentOriginatorNumbers{};
+  shared_ptr<long> queueTime{};
+  shared_ptr<long> recordingDuration{};
+  shared_ptr<bool> recordingReady{};
+  shared_ptr<string> releaseInitiator{};
+  shared_ptr<string> releaseReason{};
+  shared_ptr<long> releaseTime{};
+  shared_ptr<long> ringTime{};
+  shared_ptr<string> satisfactionDescription{};
+  shared_ptr<long> satisfactionIndex{};
+  shared_ptr<string> satisfactionSurveyChannel{};
+  shared_ptr<bool> satisfactionSurveyOffered{};
+  shared_ptr<string> skillGroupIds{};
+  shared_ptr<string> skillGroupNames{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> talkTime{};
+  shared_ptr<long> transferCount{};
+  shared_ptr<long> waitTime{};
+
+  ListCallDetailRecordsV2ResponseBodyDataList() {}
+
+  explicit ListCallDetailRecordsV2ResponseBodyDataList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessChannelName) {
+      res["AccessChannelName"] = boost::any(*accessChannelName);
+    }
+    if (accessChannelType) {
+      res["AccessChannelType"] = boost::any(*accessChannelType);
+    }
+    if (accessChannelUserId) {
+      res["AccessChannelUserId"] = boost::any(*accessChannelUserId);
+    }
+    if (accessChannelUserName) {
+      res["AccessChannelUserName"] = boost::any(*accessChannelUserName);
+    }
+    if (additionalBroker) {
+      res["AdditionalBroker"] = boost::any(*additionalBroker);
+    }
+    if (agentIds) {
+      res["AgentIds"] = boost::any(*agentIds);
+    }
+    if (agentNames) {
+      res["AgentNames"] = boost::any(*agentNames);
+    }
+    if (broker) {
+      res["Broker"] = boost::any(*broker);
+    }
+    if (callDuration) {
+      res["CallDuration"] = boost::any(*callDuration);
+    }
+    if (calledNumber) {
+      res["CalledNumber"] = boost::any(*calledNumber);
+    }
+    if (calleeLocation) {
+      res["CalleeLocation"] = boost::any(*calleeLocation);
+    }
+    if (callerLocation) {
+      res["CallerLocation"] = boost::any(*callerLocation);
+    }
+    if (callingNumber) {
+      res["CallingNumber"] = boost::any(*callingNumber);
+    }
+    if (clientAppName) {
+      res["ClientAppName"] = boost::any(*clientAppName);
+    }
+    if (clientIpAddress) {
+      res["ClientIpAddress"] = boost::any(*clientIpAddress);
+    }
+    if (clientLocation) {
+      res["ClientLocation"] = boost::any(*clientLocation);
+    }
+    if (clientUserAgent) {
+      res["ClientUserAgent"] = boost::any(*clientUserAgent);
+    }
+    if (contactDisposition) {
+      res["ContactDisposition"] = boost::any(*contactDisposition);
+    }
+    if (contactId) {
+      res["ContactId"] = boost::any(*contactId);
+    }
+    if (contactType) {
+      res["ContactType"] = boost::any(*contactType);
+    }
+    if (dialingTime) {
+      res["DialingTime"] = boost::any(*dialingTime);
+    }
+    if (earlyMediaState) {
+      res["EarlyMediaState"] = boost::any(*earlyMediaState);
+    }
+    if (earlyMediaText) {
+      res["EarlyMediaText"] = boost::any(*earlyMediaText);
+    }
+    if (establishedTime) {
+      res["EstablishedTime"] = boost::any(*establishedTime);
+    }
+    if (firstResponseTime) {
+      res["FirstResponseTime"] = boost::any(*firstResponseTime);
+    }
+    if (heldTime) {
+      res["HeldTime"] = boost::any(*heldTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ivrTime) {
+      res["IvrTime"] = boost::any(*ivrTime);
+    }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
+    }
+    if (messagesSent) {
+      res["MessagesSent"] = boost::any(*messagesSent);
+    }
+    if (messagesSentByAgent) {
+      res["MessagesSentByAgent"] = boost::any(*messagesSentByAgent);
+    }
+    if (messagesSentByCustomer) {
+      res["MessagesSentByCustomer"] = boost::any(*messagesSentByCustomer);
+    }
+    if (offSiteAgentIds) {
+      res["OffSiteAgentIds"] = boost::any(*offSiteAgentIds);
+    }
+    if (offsiteAgentDestinationNumbers) {
+      res["OffsiteAgentDestinationNumbers"] = boost::any(*offsiteAgentDestinationNumbers);
+    }
+    if (offsiteAgentOriginatorNumbers) {
+      res["OffsiteAgentOriginatorNumbers"] = boost::any(*offsiteAgentOriginatorNumbers);
+    }
+    if (queueTime) {
+      res["QueueTime"] = boost::any(*queueTime);
+    }
+    if (recordingDuration) {
+      res["RecordingDuration"] = boost::any(*recordingDuration);
+    }
+    if (recordingReady) {
+      res["RecordingReady"] = boost::any(*recordingReady);
+    }
+    if (releaseInitiator) {
+      res["ReleaseInitiator"] = boost::any(*releaseInitiator);
+    }
+    if (releaseReason) {
+      res["ReleaseReason"] = boost::any(*releaseReason);
+    }
+    if (releaseTime) {
+      res["ReleaseTime"] = boost::any(*releaseTime);
+    }
+    if (ringTime) {
+      res["RingTime"] = boost::any(*ringTime);
+    }
+    if (satisfactionDescription) {
+      res["SatisfactionDescription"] = boost::any(*satisfactionDescription);
+    }
+    if (satisfactionIndex) {
+      res["SatisfactionIndex"] = boost::any(*satisfactionIndex);
+    }
+    if (satisfactionSurveyChannel) {
+      res["SatisfactionSurveyChannel"] = boost::any(*satisfactionSurveyChannel);
+    }
+    if (satisfactionSurveyOffered) {
+      res["SatisfactionSurveyOffered"] = boost::any(*satisfactionSurveyOffered);
+    }
+    if (skillGroupIds) {
+      res["SkillGroupIds"] = boost::any(*skillGroupIds);
+    }
+    if (skillGroupNames) {
+      res["SkillGroupNames"] = boost::any(*skillGroupNames);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (talkTime) {
+      res["TalkTime"] = boost::any(*talkTime);
+    }
+    if (transferCount) {
+      res["TransferCount"] = boost::any(*transferCount);
+    }
+    if (waitTime) {
+      res["WaitTime"] = boost::any(*waitTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessChannelName") != m.end() && !m["AccessChannelName"].empty()) {
+      accessChannelName = make_shared<string>(boost::any_cast<string>(m["AccessChannelName"]));
+    }
+    if (m.find("AccessChannelType") != m.end() && !m["AccessChannelType"].empty()) {
+      accessChannelType = make_shared<string>(boost::any_cast<string>(m["AccessChannelType"]));
+    }
+    if (m.find("AccessChannelUserId") != m.end() && !m["AccessChannelUserId"].empty()) {
+      accessChannelUserId = make_shared<string>(boost::any_cast<string>(m["AccessChannelUserId"]));
+    }
+    if (m.find("AccessChannelUserName") != m.end() && !m["AccessChannelUserName"].empty()) {
+      accessChannelUserName = make_shared<string>(boost::any_cast<string>(m["AccessChannelUserName"]));
+    }
+    if (m.find("AdditionalBroker") != m.end() && !m["AdditionalBroker"].empty()) {
+      additionalBroker = make_shared<string>(boost::any_cast<string>(m["AdditionalBroker"]));
+    }
+    if (m.find("AgentIds") != m.end() && !m["AgentIds"].empty()) {
+      agentIds = make_shared<string>(boost::any_cast<string>(m["AgentIds"]));
+    }
+    if (m.find("AgentNames") != m.end() && !m["AgentNames"].empty()) {
+      agentNames = make_shared<string>(boost::any_cast<string>(m["AgentNames"]));
+    }
+    if (m.find("Broker") != m.end() && !m["Broker"].empty()) {
+      broker = make_shared<string>(boost::any_cast<string>(m["Broker"]));
+    }
+    if (m.find("CallDuration") != m.end() && !m["CallDuration"].empty()) {
+      callDuration = make_shared<string>(boost::any_cast<string>(m["CallDuration"]));
+    }
+    if (m.find("CalledNumber") != m.end() && !m["CalledNumber"].empty()) {
+      calledNumber = make_shared<string>(boost::any_cast<string>(m["CalledNumber"]));
+    }
+    if (m.find("CalleeLocation") != m.end() && !m["CalleeLocation"].empty()) {
+      calleeLocation = make_shared<string>(boost::any_cast<string>(m["CalleeLocation"]));
+    }
+    if (m.find("CallerLocation") != m.end() && !m["CallerLocation"].empty()) {
+      callerLocation = make_shared<string>(boost::any_cast<string>(m["CallerLocation"]));
+    }
+    if (m.find("CallingNumber") != m.end() && !m["CallingNumber"].empty()) {
+      callingNumber = make_shared<string>(boost::any_cast<string>(m["CallingNumber"]));
+    }
+    if (m.find("ClientAppName") != m.end() && !m["ClientAppName"].empty()) {
+      clientAppName = make_shared<string>(boost::any_cast<string>(m["ClientAppName"]));
+    }
+    if (m.find("ClientIpAddress") != m.end() && !m["ClientIpAddress"].empty()) {
+      clientIpAddress = make_shared<string>(boost::any_cast<string>(m["ClientIpAddress"]));
+    }
+    if (m.find("ClientLocation") != m.end() && !m["ClientLocation"].empty()) {
+      clientLocation = make_shared<string>(boost::any_cast<string>(m["ClientLocation"]));
+    }
+    if (m.find("ClientUserAgent") != m.end() && !m["ClientUserAgent"].empty()) {
+      clientUserAgent = make_shared<string>(boost::any_cast<string>(m["ClientUserAgent"]));
+    }
+    if (m.find("ContactDisposition") != m.end() && !m["ContactDisposition"].empty()) {
+      contactDisposition = make_shared<string>(boost::any_cast<string>(m["ContactDisposition"]));
+    }
+    if (m.find("ContactId") != m.end() && !m["ContactId"].empty()) {
+      contactId = make_shared<string>(boost::any_cast<string>(m["ContactId"]));
+    }
+    if (m.find("ContactType") != m.end() && !m["ContactType"].empty()) {
+      contactType = make_shared<string>(boost::any_cast<string>(m["ContactType"]));
+    }
+    if (m.find("DialingTime") != m.end() && !m["DialingTime"].empty()) {
+      dialingTime = make_shared<long>(boost::any_cast<long>(m["DialingTime"]));
+    }
+    if (m.find("EarlyMediaState") != m.end() && !m["EarlyMediaState"].empty()) {
+      earlyMediaState = make_shared<string>(boost::any_cast<string>(m["EarlyMediaState"]));
+    }
+    if (m.find("EarlyMediaText") != m.end() && !m["EarlyMediaText"].empty()) {
+      earlyMediaText = make_shared<string>(boost::any_cast<string>(m["EarlyMediaText"]));
+    }
+    if (m.find("EstablishedTime") != m.end() && !m["EstablishedTime"].empty()) {
+      establishedTime = make_shared<long>(boost::any_cast<long>(m["EstablishedTime"]));
+    }
+    if (m.find("FirstResponseTime") != m.end() && !m["FirstResponseTime"].empty()) {
+      firstResponseTime = make_shared<long>(boost::any_cast<long>(m["FirstResponseTime"]));
+    }
+    if (m.find("HeldTime") != m.end() && !m["HeldTime"].empty()) {
+      heldTime = make_shared<long>(boost::any_cast<long>(m["HeldTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IvrTime") != m.end() && !m["IvrTime"].empty()) {
+      ivrTime = make_shared<long>(boost::any_cast<long>(m["IvrTime"]));
+    }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
+    if (m.find("MessagesSent") != m.end() && !m["MessagesSent"].empty()) {
+      messagesSent = make_shared<long>(boost::any_cast<long>(m["MessagesSent"]));
+    }
+    if (m.find("MessagesSentByAgent") != m.end() && !m["MessagesSentByAgent"].empty()) {
+      messagesSentByAgent = make_shared<long>(boost::any_cast<long>(m["MessagesSentByAgent"]));
+    }
+    if (m.find("MessagesSentByCustomer") != m.end() && !m["MessagesSentByCustomer"].empty()) {
+      messagesSentByCustomer = make_shared<long>(boost::any_cast<long>(m["MessagesSentByCustomer"]));
+    }
+    if (m.find("OffSiteAgentIds") != m.end() && !m["OffSiteAgentIds"].empty()) {
+      offSiteAgentIds = make_shared<string>(boost::any_cast<string>(m["OffSiteAgentIds"]));
+    }
+    if (m.find("OffsiteAgentDestinationNumbers") != m.end() && !m["OffsiteAgentDestinationNumbers"].empty()) {
+      offsiteAgentDestinationNumbers = make_shared<string>(boost::any_cast<string>(m["OffsiteAgentDestinationNumbers"]));
+    }
+    if (m.find("OffsiteAgentOriginatorNumbers") != m.end() && !m["OffsiteAgentOriginatorNumbers"].empty()) {
+      offsiteAgentOriginatorNumbers = make_shared<string>(boost::any_cast<string>(m["OffsiteAgentOriginatorNumbers"]));
+    }
+    if (m.find("QueueTime") != m.end() && !m["QueueTime"].empty()) {
+      queueTime = make_shared<long>(boost::any_cast<long>(m["QueueTime"]));
+    }
+    if (m.find("RecordingDuration") != m.end() && !m["RecordingDuration"].empty()) {
+      recordingDuration = make_shared<long>(boost::any_cast<long>(m["RecordingDuration"]));
+    }
+    if (m.find("RecordingReady") != m.end() && !m["RecordingReady"].empty()) {
+      recordingReady = make_shared<bool>(boost::any_cast<bool>(m["RecordingReady"]));
+    }
+    if (m.find("ReleaseInitiator") != m.end() && !m["ReleaseInitiator"].empty()) {
+      releaseInitiator = make_shared<string>(boost::any_cast<string>(m["ReleaseInitiator"]));
+    }
+    if (m.find("ReleaseReason") != m.end() && !m["ReleaseReason"].empty()) {
+      releaseReason = make_shared<string>(boost::any_cast<string>(m["ReleaseReason"]));
+    }
+    if (m.find("ReleaseTime") != m.end() && !m["ReleaseTime"].empty()) {
+      releaseTime = make_shared<long>(boost::any_cast<long>(m["ReleaseTime"]));
+    }
+    if (m.find("RingTime") != m.end() && !m["RingTime"].empty()) {
+      ringTime = make_shared<long>(boost::any_cast<long>(m["RingTime"]));
+    }
+    if (m.find("SatisfactionDescription") != m.end() && !m["SatisfactionDescription"].empty()) {
+      satisfactionDescription = make_shared<string>(boost::any_cast<string>(m["SatisfactionDescription"]));
+    }
+    if (m.find("SatisfactionIndex") != m.end() && !m["SatisfactionIndex"].empty()) {
+      satisfactionIndex = make_shared<long>(boost::any_cast<long>(m["SatisfactionIndex"]));
+    }
+    if (m.find("SatisfactionSurveyChannel") != m.end() && !m["SatisfactionSurveyChannel"].empty()) {
+      satisfactionSurveyChannel = make_shared<string>(boost::any_cast<string>(m["SatisfactionSurveyChannel"]));
+    }
+    if (m.find("SatisfactionSurveyOffered") != m.end() && !m["SatisfactionSurveyOffered"].empty()) {
+      satisfactionSurveyOffered = make_shared<bool>(boost::any_cast<bool>(m["SatisfactionSurveyOffered"]));
+    }
+    if (m.find("SkillGroupIds") != m.end() && !m["SkillGroupIds"].empty()) {
+      skillGroupIds = make_shared<string>(boost::any_cast<string>(m["SkillGroupIds"]));
+    }
+    if (m.find("SkillGroupNames") != m.end() && !m["SkillGroupNames"].empty()) {
+      skillGroupNames = make_shared<string>(boost::any_cast<string>(m["SkillGroupNames"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("TalkTime") != m.end() && !m["TalkTime"].empty()) {
+      talkTime = make_shared<long>(boost::any_cast<long>(m["TalkTime"]));
+    }
+    if (m.find("TransferCount") != m.end() && !m["TransferCount"].empty()) {
+      transferCount = make_shared<long>(boost::any_cast<long>(m["TransferCount"]));
+    }
+    if (m.find("WaitTime") != m.end() && !m["WaitTime"].empty()) {
+      waitTime = make_shared<long>(boost::any_cast<long>(m["WaitTime"]));
+    }
+  }
+
+
+  virtual ~ListCallDetailRecordsV2ResponseBodyDataList() = default;
+};
+class ListCallDetailRecordsV2ResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListCallDetailRecordsV2ResponseBodyDataList>> list{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  ListCallDetailRecordsV2ResponseBodyData() {}
+
+  explicit ListCallDetailRecordsV2ResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (list) {
+      vector<boost::any> temp1;
+      for(auto item1:*list){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["List"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("List") != m.end() && !m["List"].empty()) {
+      if (typeid(vector<boost::any>) == m["List"].type()) {
+        vector<ListCallDetailRecordsV2ResponseBodyDataList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["List"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCallDetailRecordsV2ResponseBodyDataList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        list = make_shared<vector<ListCallDetailRecordsV2ResponseBodyDataList>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListCallDetailRecordsV2ResponseBodyData() = default;
+};
+class ListCallDetailRecordsV2ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ListCallDetailRecordsV2ResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  ListCallDetailRecordsV2ResponseBody() {}
+
+  explicit ListCallDetailRecordsV2ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListCallDetailRecordsV2ResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListCallDetailRecordsV2ResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListCallDetailRecordsV2ResponseBody() = default;
+};
+class ListCallDetailRecordsV2Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCallDetailRecordsV2ResponseBody> body{};
+
+  ListCallDetailRecordsV2Response() {}
+
+  explicit ListCallDetailRecordsV2Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCallDetailRecordsV2ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCallDetailRecordsV2ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCallDetailRecordsV2Response() = default;
+};
 class ListCallTagsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -71972,6 +72725,8 @@ public:
   ListBriefSkillGroupsResponse listBriefSkillGroups(shared_ptr<ListBriefSkillGroupsRequest> request);
   ListCallDetailRecordsResponse listCallDetailRecordsWithOptions(shared_ptr<ListCallDetailRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCallDetailRecordsResponse listCallDetailRecords(shared_ptr<ListCallDetailRecordsRequest> request);
+  ListCallDetailRecordsV2Response listCallDetailRecordsV2WithOptions(shared_ptr<ListCallDetailRecordsV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCallDetailRecordsV2Response listCallDetailRecordsV2(shared_ptr<ListCallDetailRecordsV2Request> request);
   ListCallTagsResponse listCallTagsWithOptions(shared_ptr<ListCallTagsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCallTagsResponse listCallTags(shared_ptr<ListCallTagsRequest> request);
   ListCampaignTrendingReportResponse listCampaignTrendingReportWithOptions(shared_ptr<ListCampaignTrendingReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
