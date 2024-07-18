@@ -12352,6 +12352,49 @@ public:
 
   virtual ~GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors() = default;
 };
+class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceType{};
+
+  GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails() {}
+
+  explicit GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (resourceName) {
+      res["ResourceName"] = boost::any(*resourceName);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails() = default;
+};
 class GetTemplateParameterConstraintsResponseBodyParameterConstraints : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> allowedValues{};
@@ -12364,6 +12407,7 @@ public:
   shared_ptr<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints>> originalConstraints{};
   shared_ptr<string> parameterKey{};
   shared_ptr<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors>> queryErrors{};
+  shared_ptr<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails>> queryTimeoutDetails{};
   shared_ptr<string> type{};
 
   GetTemplateParameterConstraintsResponseBodyParameterConstraints() {}
@@ -12417,6 +12461,13 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["QueryErrors"] = boost::any(temp1);
+    }
+    if (queryTimeoutDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*queryTimeoutDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["QueryTimeoutDetails"] = boost::any(temp1);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -12511,6 +12562,19 @@ public:
           }
         }
         queryErrors = make_shared<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors>>(expect1);
+      }
+    }
+    if (m.find("QueryTimeoutDetails") != m.end() && !m["QueryTimeoutDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["QueryTimeoutDetails"].type()) {
+        vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["QueryTimeoutDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        queryTimeoutDetails = make_shared<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails>>(expect1);
       }
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
