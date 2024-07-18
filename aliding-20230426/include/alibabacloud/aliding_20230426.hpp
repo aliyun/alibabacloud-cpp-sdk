@@ -5200,6 +5200,328 @@ public:
 
   virtual ~CancelScheduleConferenceResponse() = default;
 };
+class CheckAlibabaStaffHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  CheckAlibabaStaffHeadersAccountContext() {}
+
+  explicit CheckAlibabaStaffHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~CheckAlibabaStaffHeadersAccountContext() = default;
+};
+class CheckAlibabaStaffHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<CheckAlibabaStaffHeadersAccountContext> accountContext{};
+
+  CheckAlibabaStaffHeaders() {}
+
+  explicit CheckAlibabaStaffHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        CheckAlibabaStaffHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<CheckAlibabaStaffHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckAlibabaStaffHeaders() = default;
+};
+class CheckAlibabaStaffShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  CheckAlibabaStaffShrinkHeaders() {}
+
+  explicit CheckAlibabaStaffShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~CheckAlibabaStaffShrinkHeaders() = default;
+};
+class CheckAlibabaStaffRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  CheckAlibabaStaffRequestTenantContext() {}
+
+  explicit CheckAlibabaStaffRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~CheckAlibabaStaffRequestTenantContext() = default;
+};
+class CheckAlibabaStaffRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mobile{};
+  shared_ptr<CheckAlibabaStaffRequestTenantContext> tenantContext{};
+
+  CheckAlibabaStaffRequest() {}
+
+  explicit CheckAlibabaStaffRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mobile) {
+      res["Mobile"] = boost::any(*mobile);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mobile") != m.end() && !m["Mobile"].empty()) {
+      mobile = make_shared<string>(boost::any_cast<string>(m["Mobile"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        CheckAlibabaStaffRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<CheckAlibabaStaffRequestTenantContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckAlibabaStaffRequest() = default;
+};
+class CheckAlibabaStaffShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mobile{};
+  shared_ptr<string> tenantContextShrink{};
+
+  CheckAlibabaStaffShrinkRequest() {}
+
+  explicit CheckAlibabaStaffShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mobile) {
+      res["Mobile"] = boost::any(*mobile);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mobile") != m.end() && !m["Mobile"].empty()) {
+      mobile = make_shared<string>(boost::any_cast<string>(m["Mobile"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+  }
+
+
+  virtual ~CheckAlibabaStaffShrinkRequest() = default;
+};
+class CheckAlibabaStaffResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> isAlibabaStaff{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  CheckAlibabaStaffResponseBody() {}
+
+  explicit CheckAlibabaStaffResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isAlibabaStaff) {
+      res["isAlibabaStaff"] = boost::any(*isAlibabaStaff);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("isAlibabaStaff") != m.end() && !m["isAlibabaStaff"].empty()) {
+      isAlibabaStaff = make_shared<bool>(boost::any_cast<bool>(m["isAlibabaStaff"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~CheckAlibabaStaffResponseBody() = default;
+};
+class CheckAlibabaStaffResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CheckAlibabaStaffResponseBody> body{};
+
+  CheckAlibabaStaffResponse() {}
+
+  explicit CheckAlibabaStaffResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CheckAlibabaStaffResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CheckAlibabaStaffResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckAlibabaStaffResponse() = default;
+};
 class CheckUserIsGroupMemberHeadersAccountContext : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -81877,6 +82199,419 @@ public:
 
   virtual ~UpdateUserAvatarResponse() = default;
 };
+class UpdateVideoConferenceSettingHeadersAccountContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  UpdateVideoConferenceSettingHeadersAccountContext() {}
+
+  explicit UpdateVideoConferenceSettingHeadersAccountContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["accountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
+    }
+  }
+
+
+  virtual ~UpdateVideoConferenceSettingHeadersAccountContext() = default;
+};
+class UpdateVideoConferenceSettingHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<UpdateVideoConferenceSettingHeadersAccountContext> accountContext{};
+
+  UpdateVideoConferenceSettingHeaders() {}
+
+  explicit UpdateVideoConferenceSettingHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContext) {
+      res["AccountContext"] = accountContext ? boost::any(accountContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountContext"].type()) {
+        UpdateVideoConferenceSettingHeadersAccountContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountContext"]));
+        accountContext = make_shared<UpdateVideoConferenceSettingHeadersAccountContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateVideoConferenceSettingHeaders() = default;
+};
+class UpdateVideoConferenceSettingShrinkHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> accountContextShrink{};
+
+  UpdateVideoConferenceSettingShrinkHeaders() {}
+
+  explicit UpdateVideoConferenceSettingShrinkHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (accountContextShrink) {
+      res["AccountContext"] = boost::any(*accountContextShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("AccountContext") != m.end() && !m["AccountContext"].empty()) {
+      accountContextShrink = make_shared<string>(boost::any_cast<string>(m["AccountContext"]));
+    }
+  }
+
+
+  virtual ~UpdateVideoConferenceSettingShrinkHeaders() = default;
+};
+class UpdateVideoConferenceSettingRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  UpdateVideoConferenceSettingRequestTenantContext() {}
+
+  explicit UpdateVideoConferenceSettingRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~UpdateVideoConferenceSettingRequestTenantContext() = default;
+};
+class UpdateVideoConferenceSettingRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> allowUnmuteSelf{};
+  shared_ptr<bool> autoTransferHost{};
+  shared_ptr<bool> forbiddenShareScreen{};
+  shared_ptr<bool> lockConference{};
+  shared_ptr<bool> muteAll{};
+  shared_ptr<bool> onlyInternalEmployeesJoin{};
+  shared_ptr<UpdateVideoConferenceSettingRequestTenantContext> tenantContext{};
+  shared_ptr<string> conferenceId{};
+
+  UpdateVideoConferenceSettingRequest() {}
+
+  explicit UpdateVideoConferenceSettingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowUnmuteSelf) {
+      res["AllowUnmuteSelf"] = boost::any(*allowUnmuteSelf);
+    }
+    if (autoTransferHost) {
+      res["AutoTransferHost"] = boost::any(*autoTransferHost);
+    }
+    if (forbiddenShareScreen) {
+      res["ForbiddenShareScreen"] = boost::any(*forbiddenShareScreen);
+    }
+    if (lockConference) {
+      res["LockConference"] = boost::any(*lockConference);
+    }
+    if (muteAll) {
+      res["MuteAll"] = boost::any(*muteAll);
+    }
+    if (onlyInternalEmployeesJoin) {
+      res["OnlyInternalEmployeesJoin"] = boost::any(*onlyInternalEmployeesJoin);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (conferenceId) {
+      res["conferenceId"] = boost::any(*conferenceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowUnmuteSelf") != m.end() && !m["AllowUnmuteSelf"].empty()) {
+      allowUnmuteSelf = make_shared<bool>(boost::any_cast<bool>(m["AllowUnmuteSelf"]));
+    }
+    if (m.find("AutoTransferHost") != m.end() && !m["AutoTransferHost"].empty()) {
+      autoTransferHost = make_shared<bool>(boost::any_cast<bool>(m["AutoTransferHost"]));
+    }
+    if (m.find("ForbiddenShareScreen") != m.end() && !m["ForbiddenShareScreen"].empty()) {
+      forbiddenShareScreen = make_shared<bool>(boost::any_cast<bool>(m["ForbiddenShareScreen"]));
+    }
+    if (m.find("LockConference") != m.end() && !m["LockConference"].empty()) {
+      lockConference = make_shared<bool>(boost::any_cast<bool>(m["LockConference"]));
+    }
+    if (m.find("MuteAll") != m.end() && !m["MuteAll"].empty()) {
+      muteAll = make_shared<bool>(boost::any_cast<bool>(m["MuteAll"]));
+    }
+    if (m.find("OnlyInternalEmployeesJoin") != m.end() && !m["OnlyInternalEmployeesJoin"].empty()) {
+      onlyInternalEmployeesJoin = make_shared<bool>(boost::any_cast<bool>(m["OnlyInternalEmployeesJoin"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        UpdateVideoConferenceSettingRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<UpdateVideoConferenceSettingRequestTenantContext>(model1);
+      }
+    }
+    if (m.find("conferenceId") != m.end() && !m["conferenceId"].empty()) {
+      conferenceId = make_shared<string>(boost::any_cast<string>(m["conferenceId"]));
+    }
+  }
+
+
+  virtual ~UpdateVideoConferenceSettingRequest() = default;
+};
+class UpdateVideoConferenceSettingShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> allowUnmuteSelf{};
+  shared_ptr<bool> autoTransferHost{};
+  shared_ptr<bool> forbiddenShareScreen{};
+  shared_ptr<bool> lockConference{};
+  shared_ptr<bool> muteAll{};
+  shared_ptr<bool> onlyInternalEmployeesJoin{};
+  shared_ptr<string> tenantContextShrink{};
+  shared_ptr<string> conferenceId{};
+
+  UpdateVideoConferenceSettingShrinkRequest() {}
+
+  explicit UpdateVideoConferenceSettingShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowUnmuteSelf) {
+      res["AllowUnmuteSelf"] = boost::any(*allowUnmuteSelf);
+    }
+    if (autoTransferHost) {
+      res["AutoTransferHost"] = boost::any(*autoTransferHost);
+    }
+    if (forbiddenShareScreen) {
+      res["ForbiddenShareScreen"] = boost::any(*forbiddenShareScreen);
+    }
+    if (lockConference) {
+      res["LockConference"] = boost::any(*lockConference);
+    }
+    if (muteAll) {
+      res["MuteAll"] = boost::any(*muteAll);
+    }
+    if (onlyInternalEmployeesJoin) {
+      res["OnlyInternalEmployeesJoin"] = boost::any(*onlyInternalEmployeesJoin);
+    }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
+    if (conferenceId) {
+      res["conferenceId"] = boost::any(*conferenceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowUnmuteSelf") != m.end() && !m["AllowUnmuteSelf"].empty()) {
+      allowUnmuteSelf = make_shared<bool>(boost::any_cast<bool>(m["AllowUnmuteSelf"]));
+    }
+    if (m.find("AutoTransferHost") != m.end() && !m["AutoTransferHost"].empty()) {
+      autoTransferHost = make_shared<bool>(boost::any_cast<bool>(m["AutoTransferHost"]));
+    }
+    if (m.find("ForbiddenShareScreen") != m.end() && !m["ForbiddenShareScreen"].empty()) {
+      forbiddenShareScreen = make_shared<bool>(boost::any_cast<bool>(m["ForbiddenShareScreen"]));
+    }
+    if (m.find("LockConference") != m.end() && !m["LockConference"].empty()) {
+      lockConference = make_shared<bool>(boost::any_cast<bool>(m["LockConference"]));
+    }
+    if (m.find("MuteAll") != m.end() && !m["MuteAll"].empty()) {
+      muteAll = make_shared<bool>(boost::any_cast<bool>(m["MuteAll"]));
+    }
+    if (m.find("OnlyInternalEmployeesJoin") != m.end() && !m["OnlyInternalEmployeesJoin"].empty()) {
+      onlyInternalEmployeesJoin = make_shared<bool>(boost::any_cast<bool>(m["OnlyInternalEmployeesJoin"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
+    }
+    if (m.find("conferenceId") != m.end() && !m["conferenceId"].empty()) {
+      conferenceId = make_shared<string>(boost::any_cast<string>(m["conferenceId"]));
+    }
+  }
+
+
+  virtual ~UpdateVideoConferenceSettingShrinkRequest() = default;
+};
+class UpdateVideoConferenceSettingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> caseResult{};
+  shared_ptr<string> code{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
+
+  UpdateVideoConferenceSettingResponseBody() {}
+
+  explicit UpdateVideoConferenceSettingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (caseResult) {
+      res["caseResult"] = boost::any(*caseResult);
+    }
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("caseResult") != m.end() && !m["caseResult"].empty()) {
+      caseResult = make_shared<string>(boost::any_cast<string>(m["caseResult"]));
+    }
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
+    }
+  }
+
+
+  virtual ~UpdateVideoConferenceSettingResponseBody() = default;
+};
+class UpdateVideoConferenceSettingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateVideoConferenceSettingResponseBody> body{};
+
+  UpdateVideoConferenceSettingResponse() {}
+
+  explicit UpdateVideoConferenceSettingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateVideoConferenceSettingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateVideoConferenceSettingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateVideoConferenceSettingResponse() = default;
+};
 class UpdateWorkspaceDocMembersHeadersAccountContext : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -83444,6 +84179,8 @@ public:
   BatchUpdateFormDataByInstanceMapResponse batchUpdateFormDataByInstanceMap(shared_ptr<BatchUpdateFormDataByInstanceMapRequest> request);
   CancelScheduleConferenceResponse cancelScheduleConferenceWithOptions(shared_ptr<CancelScheduleConferenceRequest> tmpReq, shared_ptr<CancelScheduleConferenceHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelScheduleConferenceResponse cancelScheduleConference(shared_ptr<CancelScheduleConferenceRequest> request);
+  CheckAlibabaStaffResponse checkAlibabaStaffWithOptions(shared_ptr<CheckAlibabaStaffRequest> tmpReq, shared_ptr<CheckAlibabaStaffHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CheckAlibabaStaffResponse checkAlibabaStaff(shared_ptr<CheckAlibabaStaffRequest> request);
   CheckUserIsGroupMemberResponse checkUserIsGroupMemberWithOptions(shared_ptr<CheckUserIsGroupMemberRequest> request, shared_ptr<CheckUserIsGroupMemberHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckUserIsGroupMemberResponse checkUserIsGroupMember(shared_ptr<CheckUserIsGroupMemberRequest> request);
   ClearResponse clearWithOptions(shared_ptr<ClearRequest> tmpReq, shared_ptr<ClearHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -83788,6 +84525,8 @@ public:
   UpdateTodoTaskExecutorStatusResponse updateTodoTaskExecutorStatus(shared_ptr<UpdateTodoTaskExecutorStatusRequest> request);
   UpdateUserAvatarResponse updateUserAvatarWithOptions(shared_ptr<UpdateUserAvatarRequest> request, shared_ptr<UpdateUserAvatarHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateUserAvatarResponse updateUserAvatar(shared_ptr<UpdateUserAvatarRequest> request);
+  UpdateVideoConferenceSettingResponse updateVideoConferenceSettingWithOptions(shared_ptr<UpdateVideoConferenceSettingRequest> tmpReq, shared_ptr<UpdateVideoConferenceSettingHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateVideoConferenceSettingResponse updateVideoConferenceSetting(shared_ptr<UpdateVideoConferenceSettingRequest> request);
   UpdateWorkspaceDocMembersResponse updateWorkspaceDocMembersWithOptions(shared_ptr<UpdateWorkspaceDocMembersRequest> tmpReq, shared_ptr<UpdateWorkspaceDocMembersHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateWorkspaceDocMembersResponse updateWorkspaceDocMembers(shared_ptr<UpdateWorkspaceDocMembersRequest> request);
   UpdateWorkspaceMembersResponse updateWorkspaceMembersWithOptions(shared_ptr<UpdateWorkspaceMembersRequest> tmpReq, shared_ptr<UpdateWorkspaceMembersHeaders> tmpHeader, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
