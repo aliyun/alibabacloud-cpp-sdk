@@ -1277,6 +1277,7 @@ public:
   shared_ptr<string> periodUnit{};
   shared_ptr<string> platform{};
   shared_ptr<NodepoolScalingGroupPrivatePoolOptions> privatePoolOptions{};
+  shared_ptr<string> ramRoleName{};
   shared_ptr<vector<string>> rdsInstances{};
   shared_ptr<string> scalingPolicy{};
   shared_ptr<string> securityGroupId{};
@@ -1376,6 +1377,9 @@ public:
     }
     if (privatePoolOptions) {
       res["private_pool_options"] = privatePoolOptions ? boost::any(privatePoolOptions->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ramRoleName) {
+      res["ram_role_name"] = boost::any(*ramRoleName);
     }
     if (rdsInstances) {
       res["rds_instances"] = boost::any(*rdsInstances);
@@ -1532,6 +1536,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["private_pool_options"]));
         privatePoolOptions = make_shared<NodepoolScalingGroupPrivatePoolOptions>(model1);
       }
+    }
+    if (m.find("ram_role_name") != m.end() && !m["ram_role_name"].empty()) {
+      ramRoleName = make_shared<string>(boost::any_cast<string>(m["ram_role_name"]));
     }
     if (m.find("rds_instances") != m.end() && !m["rds_instances"].empty()) {
       vector<string> toVec1;
