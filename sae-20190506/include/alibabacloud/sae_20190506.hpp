@@ -1758,7 +1758,6 @@ public:
 class Application : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> applicationID{};
   shared_ptr<string> applicationId{};
   shared_ptr<string> applicationName{};
   shared_ptr<string> args{};
@@ -1822,9 +1821,6 @@ public:
     map<string, boost::any> res;
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
-    }
-    if (applicationID) {
-      res["applicationID"] = boost::any(*applicationID);
     }
     if (applicationId) {
       res["applicationId"] = boost::any(*applicationId);
@@ -1982,9 +1978,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("applicationID") != m.end() && !m["applicationID"].empty()) {
-      applicationID = make_shared<string>(boost::any_cast<string>(m["applicationID"]));
     }
     if (m.find("applicationId") != m.end() && !m["applicationId"].empty()) {
       applicationId = make_shared<string>(boost::any_cast<string>(m["applicationId"]));
