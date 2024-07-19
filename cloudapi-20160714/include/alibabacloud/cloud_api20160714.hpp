@@ -40621,6 +40621,257 @@ public:
 
   virtual ~EnableInstanceAccessControlResponse() = default;
 };
+class ExportOASRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> apiIdList{};
+  shared_ptr<string> dataFormat{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> oasVersion{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> stageName{};
+  shared_ptr<bool> withXExtensions{};
+
+  ExportOASRequest() {}
+
+  explicit ExportOASRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiIdList) {
+      res["ApiIdList"] = boost::any(*apiIdList);
+    }
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (oasVersion) {
+      res["OasVersion"] = boost::any(*oasVersion);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (stageName) {
+      res["StageName"] = boost::any(*stageName);
+    }
+    if (withXExtensions) {
+      res["WithXExtensions"] = boost::any(*withXExtensions);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiIdList") != m.end() && !m["ApiIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApiIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApiIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      apiIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("OasVersion") != m.end() && !m["OasVersion"].empty()) {
+      oasVersion = make_shared<string>(boost::any_cast<string>(m["OasVersion"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
+      stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
+    }
+    if (m.find("WithXExtensions") != m.end() && !m["WithXExtensions"].empty()) {
+      withXExtensions = make_shared<bool>(boost::any_cast<bool>(m["WithXExtensions"]));
+    }
+  }
+
+
+  virtual ~ExportOASRequest() = default;
+};
+class ExportOASShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> apiIdListShrink{};
+  shared_ptr<string> dataFormat{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> oasVersion{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> stageName{};
+  shared_ptr<bool> withXExtensions{};
+
+  ExportOASShrinkRequest() {}
+
+  explicit ExportOASShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiIdListShrink) {
+      res["ApiIdList"] = boost::any(*apiIdListShrink);
+    }
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (oasVersion) {
+      res["OasVersion"] = boost::any(*oasVersion);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (stageName) {
+      res["StageName"] = boost::any(*stageName);
+    }
+    if (withXExtensions) {
+      res["WithXExtensions"] = boost::any(*withXExtensions);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiIdList") != m.end() && !m["ApiIdList"].empty()) {
+      apiIdListShrink = make_shared<string>(boost::any_cast<string>(m["ApiIdList"]));
+    }
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("OasVersion") != m.end() && !m["OasVersion"].empty()) {
+      oasVersion = make_shared<string>(boost::any_cast<string>(m["OasVersion"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
+      stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
+    }
+    if (m.find("WithXExtensions") != m.end() && !m["WithXExtensions"].empty()) {
+      withXExtensions = make_shared<bool>(boost::any_cast<bool>(m["WithXExtensions"]));
+    }
+  }
+
+
+  virtual ~ExportOASShrinkRequest() = default;
+};
+class ExportOASResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> data{};
+  shared_ptr<string> requestId{};
+
+  ExportOASResponseBody() {}
+
+  explicit ExportOASResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ExportOASResponseBody() = default;
+};
+class ExportOASResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExportOASResponseBody> body{};
+
+  ExportOASResponse() {}
+
+  explicit ExportOASResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExportOASResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExportOASResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExportOASResponse() = default;
+};
 class ImportOASRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authType{};
@@ -52156,6 +52407,8 @@ public:
   DryRunSwaggerResponse dryRunSwagger(shared_ptr<DryRunSwaggerRequest> request);
   EnableInstanceAccessControlResponse enableInstanceAccessControlWithOptions(shared_ptr<EnableInstanceAccessControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableInstanceAccessControlResponse enableInstanceAccessControl(shared_ptr<EnableInstanceAccessControlRequest> request);
+  ExportOASResponse exportOASWithOptions(shared_ptr<ExportOASRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExportOASResponse exportOAS(shared_ptr<ExportOASRequest> request);
   ImportOASResponse importOASWithOptions(shared_ptr<ImportOASRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportOASResponse importOAS(shared_ptr<ImportOASRequest> request);
   ImportSwaggerResponse importSwaggerWithOptions(shared_ptr<ImportSwaggerRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
