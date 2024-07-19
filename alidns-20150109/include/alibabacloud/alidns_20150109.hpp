@@ -32133,6 +32133,7 @@ public:
   shared_ptr<long> pdnsId{};
   shared_ptr<string> serviceType{};
   shared_ptr<string> state{};
+  shared_ptr<string> statisticSwitchStatus{};
   shared_ptr<string> stoppedService{};
 
   DescribePdnsUserInfoResponseBodyUserInfo() {}
@@ -32157,6 +32158,9 @@ public:
     if (state) {
       res["State"] = boost::any(*state);
     }
+    if (statisticSwitchStatus) {
+      res["StatisticSwitchStatus"] = boost::any(*statisticSwitchStatus);
+    }
     if (stoppedService) {
       res["StoppedService"] = boost::any(*stoppedService);
     }
@@ -32175,6 +32179,9 @@ public:
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("StatisticSwitchStatus") != m.end() && !m["StatisticSwitchStatus"].empty()) {
+      statisticSwitchStatus = make_shared<string>(boost::any_cast<string>(m["StatisticSwitchStatus"]));
     }
     if (m.find("StoppedService") != m.end() && !m["StoppedService"].empty()) {
       stoppedService = make_shared<string>(boost::any_cast<string>(m["StoppedService"]));
@@ -34748,6 +34755,7 @@ public:
 class GetTxtRecordForVerifyResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
+  shared_ptr<string> parentDomainName{};
   shared_ptr<string> RR{};
   shared_ptr<string> requestId{};
   shared_ptr<string> value{};
@@ -34765,6 +34773,9 @@ public:
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
     }
+    if (parentDomainName) {
+      res["ParentDomainName"] = boost::any(*parentDomainName);
+    }
     if (RR) {
       res["RR"] = boost::any(*RR);
     }
@@ -34780,6 +34791,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("ParentDomainName") != m.end() && !m["ParentDomainName"].empty()) {
+      parentDomainName = make_shared<string>(boost::any_cast<string>(m["ParentDomainName"]));
     }
     if (m.find("RR") != m.end() && !m["RR"].empty()) {
       RR = make_shared<string>(boost::any_cast<string>(m["RR"]));
