@@ -194,6 +194,8 @@ public:
 class Instance : public Darabonba::Model {
 public:
   shared_ptr<double> currentAmount{};
+  shared_ptr<string> externalIP{};
+  shared_ptr<long> externalInstancePort{};
   shared_ptr<string> hostIP{};
   shared_ptr<string> hostName{};
   shared_ptr<string> innerIP{};
@@ -210,10 +212,12 @@ public:
   shared_ptr<long> restartCount{};
   shared_ptr<string> role{};
   shared_ptr<string> startAt{};
+  shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<string> tenantHostIP{};
   shared_ptr<string> tenantInstanceIP{};
   shared_ptr<long> totalProcesses{};
+  shared_ptr<string> zone{};
 
   Instance() {}
 
@@ -227,6 +231,12 @@ public:
     map<string, boost::any> res;
     if (currentAmount) {
       res["CurrentAmount"] = boost::any(*currentAmount);
+    }
+    if (externalIP) {
+      res["ExternalIP"] = boost::any(*externalIP);
+    }
+    if (externalInstancePort) {
+      res["ExternalInstancePort"] = boost::any(*externalInstancePort);
     }
     if (hostIP) {
       res["HostIP"] = boost::any(*hostIP);
@@ -276,6 +286,9 @@ public:
     if (startAt) {
       res["StartAt"] = boost::any(*startAt);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -288,12 +301,21 @@ public:
     if (totalProcesses) {
       res["TotalProcesses"] = boost::any(*totalProcesses);
     }
+    if (zone) {
+      res["Zone"] = boost::any(*zone);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CurrentAmount") != m.end() && !m["CurrentAmount"].empty()) {
       currentAmount = make_shared<double>(boost::any_cast<double>(m["CurrentAmount"]));
+    }
+    if (m.find("ExternalIP") != m.end() && !m["ExternalIP"].empty()) {
+      externalIP = make_shared<string>(boost::any_cast<string>(m["ExternalIP"]));
+    }
+    if (m.find("ExternalInstancePort") != m.end() && !m["ExternalInstancePort"].empty()) {
+      externalInstancePort = make_shared<long>(boost::any_cast<long>(m["ExternalInstancePort"]));
     }
     if (m.find("HostIP") != m.end() && !m["HostIP"].empty()) {
       hostIP = make_shared<string>(boost::any_cast<string>(m["HostIP"]));
@@ -355,6 +377,9 @@ public:
     if (m.find("StartAt") != m.end() && !m["StartAt"].empty()) {
       startAt = make_shared<string>(boost::any_cast<string>(m["StartAt"]));
     }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
@@ -366,6 +391,9 @@ public:
     }
     if (m.find("TotalProcesses") != m.end() && !m["TotalProcesses"].empty()) {
       totalProcesses = make_shared<long>(boost::any_cast<long>(m["TotalProcesses"]));
+    }
+    if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
+      zone = make_shared<string>(boost::any_cast<string>(m["Zone"]));
     }
   }
 
@@ -388,6 +416,7 @@ public:
   shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
+  shared_ptr<string> vendor{};
 
   Resource() {}
 
@@ -441,6 +470,9 @@ public:
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
+    if (vendor) {
+      res["Vendor"] = boost::any(*vendor);
+    }
     return res;
   }
 
@@ -491,6 +523,9 @@ public:
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+    if (m.find("Vendor") != m.end() && !m["Vendor"].empty()) {
+      vendor = make_shared<string>(boost::any_cast<string>(m["Vendor"]));
     }
   }
 
