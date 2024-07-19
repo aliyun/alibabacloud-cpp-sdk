@@ -2852,6 +2852,9 @@ CreateFailoverTestJobResponse Alibabacloud_Vpc20160428::Client::createFailoverTe
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->jobDuration)) {
     query->insert(pair<string, long>("JobDuration", *request->jobDuration));
   }
@@ -20632,6 +20635,9 @@ UpdateFailoverTestJobResponse Alibabacloud_Vpc20160428::Client::updateFailoverTe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->jobDuration)) {
     query->insert(pair<string, long>("JobDuration", *request->jobDuration));

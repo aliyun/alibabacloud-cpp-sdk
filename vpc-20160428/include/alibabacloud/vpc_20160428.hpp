@@ -9178,6 +9178,7 @@ class CreateFailoverTestJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<long> jobDuration{};
   shared_ptr<string> jobType{};
   shared_ptr<string> name{};
@@ -9203,6 +9204,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
     }
     if (jobDuration) {
       res["JobDuration"] = boost::any(*jobDuration);
@@ -9240,6 +9244,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
     }
     if (m.find("JobDuration") != m.end() && !m["JobDuration"].empty()) {
       jobDuration = make_shared<long>(boost::any_cast<long>(m["JobDuration"]));
@@ -99821,6 +99828,7 @@ class UpdateFailoverTestJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<long> jobDuration{};
   shared_ptr<string> jobId{};
   shared_ptr<string> name{};
@@ -99845,6 +99853,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
     }
     if (jobDuration) {
       res["JobDuration"] = boost::any(*jobDuration);
@@ -99879,6 +99890,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
     }
     if (m.find("JobDuration") != m.end() && !m["JobDuration"].empty()) {
       jobDuration = make_shared<long>(boost::any_cast<long>(m["JobDuration"]));
