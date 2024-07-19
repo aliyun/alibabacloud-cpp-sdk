@@ -8335,6 +8335,106 @@ public:
 
   virtual ~CreatePolicyGroupRequestClientType() = default;
 };
+class CreatePolicyGroupRequestDeviceRedirects : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> redirectType{};
+
+  CreatePolicyGroupRequestDeviceRedirects() {}
+
+  explicit CreatePolicyGroupRequestDeviceRedirects(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (redirectType) {
+      res["RedirectType"] = boost::any(*redirectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
+      redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
+    }
+  }
+
+
+  virtual ~CreatePolicyGroupRequestDeviceRedirects() = default;
+};
+class CreatePolicyGroupRequestDeviceRules : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> devicePid{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> deviceVid{};
+  shared_ptr<string> optCommand{};
+  shared_ptr<string> redirectType{};
+
+  CreatePolicyGroupRequestDeviceRules() {}
+
+  explicit CreatePolicyGroupRequestDeviceRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (devicePid) {
+      res["DevicePid"] = boost::any(*devicePid);
+    }
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (deviceVid) {
+      res["DeviceVid"] = boost::any(*deviceVid);
+    }
+    if (optCommand) {
+      res["OptCommand"] = boost::any(*optCommand);
+    }
+    if (redirectType) {
+      res["RedirectType"] = boost::any(*redirectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("DevicePid") != m.end() && !m["DevicePid"].empty()) {
+      devicePid = make_shared<string>(boost::any_cast<string>(m["DevicePid"]));
+    }
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("DeviceVid") != m.end() && !m["DeviceVid"].empty()) {
+      deviceVid = make_shared<string>(boost::any_cast<string>(m["DeviceVid"]));
+    }
+    if (m.find("OptCommand") != m.end() && !m["OptCommand"].empty()) {
+      optCommand = make_shared<string>(boost::any_cast<string>(m["OptCommand"]));
+    }
+    if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
+      redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
+    }
+  }
+
+
+  virtual ~CreatePolicyGroupRequestDeviceRules() = default;
+};
 class CreatePolicyGroupRequestDomainResolveRule : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -8458,6 +8558,8 @@ public:
   shared_ptr<string> cameraRedirect{};
   shared_ptr<vector<CreatePolicyGroupRequestClientType>> clientType{};
   shared_ptr<string> clipboard{};
+  shared_ptr<vector<CreatePolicyGroupRequestDeviceRedirects>> deviceRedirects{};
+  shared_ptr<vector<CreatePolicyGroupRequestDeviceRules>> deviceRules{};
   shared_ptr<string> domainList{};
   shared_ptr<vector<CreatePolicyGroupRequestDomainResolveRule>> domainResolveRule{};
   shared_ptr<string> domainResolveRuleType{};
@@ -8548,6 +8650,20 @@ public:
     }
     if (clipboard) {
       res["Clipboard"] = boost::any(*clipboard);
+    }
+    if (deviceRedirects) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceRedirects){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceRedirects"] = boost::any(temp1);
+    }
+    if (deviceRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceRules"] = boost::any(temp1);
     }
     if (domainList) {
       res["DomainList"] = boost::any(*domainList);
@@ -8752,6 +8868,32 @@ public:
     }
     if (m.find("Clipboard") != m.end() && !m["Clipboard"].empty()) {
       clipboard = make_shared<string>(boost::any_cast<string>(m["Clipboard"]));
+    }
+    if (m.find("DeviceRedirects") != m.end() && !m["DeviceRedirects"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceRedirects"].type()) {
+        vector<CreatePolicyGroupRequestDeviceRedirects> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceRedirects"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePolicyGroupRequestDeviceRedirects model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceRedirects = make_shared<vector<CreatePolicyGroupRequestDeviceRedirects>>(expect1);
+      }
+    }
+    if (m.find("DeviceRules") != m.end() && !m["DeviceRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceRules"].type()) {
+        vector<CreatePolicyGroupRequestDeviceRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePolicyGroupRequestDeviceRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceRules = make_shared<vector<CreatePolicyGroupRequestDeviceRules>>(expect1);
+      }
     }
     if (m.find("DomainList") != m.end() && !m["DomainList"].empty()) {
       domainList = make_shared<string>(boost::any_cast<string>(m["DomainList"]));
@@ -12202,6 +12344,7 @@ public:
   shared_ptr<string> fotaChannel{};
   shared_ptr<bool> fromDesktopGroup{};
   shared_ptr<double> gpuCount{};
+  shared_ptr<string> gpuDriverType{};
   shared_ptr<vector<string>> imageId{};
   shared_ptr<long> maxResults{};
   shared_ptr<long> memorySize{};
@@ -12248,6 +12391,9 @@ public:
     }
     if (gpuCount) {
       res["GpuCount"] = boost::any(*gpuCount);
+    }
+    if (gpuDriverType) {
+      res["GpuDriverType"] = boost::any(*gpuDriverType);
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
@@ -12319,6 +12465,9 @@ public:
     }
     if (m.find("GpuCount") != m.end() && !m["GpuCount"].empty()) {
       gpuCount = make_shared<double>(boost::any_cast<double>(m["GpuCount"]));
+    }
+    if (m.find("GpuDriverType") != m.end() && !m["GpuDriverType"].empty()) {
+      gpuDriverType = make_shared<string>(boost::any_cast<string>(m["GpuDriverType"]));
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       vector<string> toVec1;
@@ -17264,6 +17413,7 @@ public:
   shared_ptr<string> desktopIdForModify{};
   shared_ptr<string> desktopTypeId{};
   shared_ptr<double> gpuCount{};
+  shared_ptr<string> gpuDriverType{};
   shared_ptr<string> instanceTypeFamily{};
   shared_ptr<long> memorySize{};
   shared_ptr<string> orderType{};
@@ -17296,6 +17446,9 @@ public:
     }
     if (gpuCount) {
       res["GpuCount"] = boost::any(*gpuCount);
+    }
+    if (gpuDriverType) {
+      res["GpuDriverType"] = boost::any(*gpuDriverType);
     }
     if (instanceTypeFamily) {
       res["InstanceTypeFamily"] = boost::any(*instanceTypeFamily);
@@ -17330,6 +17483,9 @@ public:
     }
     if (m.find("GpuCount") != m.end() && !m["GpuCount"].empty()) {
       gpuCount = make_shared<double>(boost::any_cast<double>(m["GpuCount"]));
+    }
+    if (m.find("GpuDriverType") != m.end() && !m["GpuDriverType"].empty()) {
+      gpuDriverType = make_shared<string>(boost::any_cast<string>(m["GpuDriverType"]));
     }
     if (m.find("InstanceTypeFamily") != m.end() && !m["InstanceTypeFamily"].empty()) {
       instanceTypeFamily = make_shared<string>(boost::any_cast<string>(m["InstanceTypeFamily"]));
@@ -24631,6 +24787,106 @@ public:
 
   virtual ~DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes() = default;
 };
+class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> redirectType{};
+
+  DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects() {}
+
+  explicit DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (redirectType) {
+      res["RedirectType"] = boost::any(*redirectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
+      redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
+    }
+  }
+
+
+  virtual ~DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects() = default;
+};
+class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> devicePid{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> deviceVid{};
+  shared_ptr<string> optCommand{};
+  shared_ptr<string> redirectType{};
+
+  DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules() {}
+
+  explicit DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (devicePid) {
+      res["DevicePid"] = boost::any(*devicePid);
+    }
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (deviceVid) {
+      res["DeviceVid"] = boost::any(*deviceVid);
+    }
+    if (optCommand) {
+      res["OptCommand"] = boost::any(*optCommand);
+    }
+    if (redirectType) {
+      res["RedirectType"] = boost::any(*redirectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("DevicePid") != m.end() && !m["DevicePid"].empty()) {
+      devicePid = make_shared<string>(boost::any_cast<string>(m["DevicePid"]));
+    }
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("DeviceVid") != m.end() && !m["DeviceVid"].empty()) {
+      deviceVid = make_shared<string>(boost::any_cast<string>(m["DeviceVid"]));
+    }
+    if (m.find("OptCommand") != m.end() && !m["OptCommand"].empty()) {
+      optCommand = make_shared<string>(boost::any_cast<string>(m["OptCommand"]));
+    }
+    if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
+      redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
+    }
+  }
+
+
+  virtual ~DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules() = default;
+};
 class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -24804,6 +25060,8 @@ public:
   shared_ptr<long> cpuRateLimit{};
   shared_ptr<long> cpuSampleDuration{};
   shared_ptr<long> cpuSingleRateLimit{};
+  shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects>> deviceRedirects{};
+  shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules>> deviceRules{};
   shared_ptr<string> displayMode{};
   shared_ptr<string> domainList{};
   shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule>> domainResolveRule{};
@@ -24936,6 +25194,20 @@ public:
     }
     if (cpuSingleRateLimit) {
       res["CpuSingleRateLimit"] = boost::any(*cpuSingleRateLimit);
+    }
+    if (deviceRedirects) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceRedirects){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceRedirects"] = boost::any(temp1);
+    }
+    if (deviceRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceRules"] = boost::any(temp1);
     }
     if (displayMode) {
       res["DisplayMode"] = boost::any(*displayMode);
@@ -25235,6 +25507,32 @@ public:
     }
     if (m.find("CpuSingleRateLimit") != m.end() && !m["CpuSingleRateLimit"].empty()) {
       cpuSingleRateLimit = make_shared<long>(boost::any_cast<long>(m["CpuSingleRateLimit"]));
+    }
+    if (m.find("DeviceRedirects") != m.end() && !m["DeviceRedirects"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceRedirects"].type()) {
+        vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceRedirects"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceRedirects = make_shared<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects>>(expect1);
+      }
+    }
+    if (m.find("DeviceRules") != m.end() && !m["DeviceRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceRules"].type()) {
+        vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceRules = make_shared<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules>>(expect1);
+      }
     }
     if (m.find("DisplayMode") != m.end() && !m["DisplayMode"].empty()) {
       displayMode = make_shared<string>(boost::any_cast<string>(m["DisplayMode"]));
@@ -40562,6 +40860,106 @@ public:
 
   virtual ~ModifyPolicyGroupRequestClientType() = default;
 };
+class ModifyPolicyGroupRequestDeviceRedirects : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> redirectType{};
+
+  ModifyPolicyGroupRequestDeviceRedirects() {}
+
+  explicit ModifyPolicyGroupRequestDeviceRedirects(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (redirectType) {
+      res["RedirectType"] = boost::any(*redirectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
+      redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyGroupRequestDeviceRedirects() = default;
+};
+class ModifyPolicyGroupRequestDeviceRules : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> devicePid{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<string> deviceVid{};
+  shared_ptr<string> optCommand{};
+  shared_ptr<string> redirectType{};
+
+  ModifyPolicyGroupRequestDeviceRules() {}
+
+  explicit ModifyPolicyGroupRequestDeviceRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (devicePid) {
+      res["DevicePid"] = boost::any(*devicePid);
+    }
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (deviceVid) {
+      res["DeviceVid"] = boost::any(*deviceVid);
+    }
+    if (optCommand) {
+      res["OptCommand"] = boost::any(*optCommand);
+    }
+    if (redirectType) {
+      res["RedirectType"] = boost::any(*redirectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("DevicePid") != m.end() && !m["DevicePid"].empty()) {
+      devicePid = make_shared<string>(boost::any_cast<string>(m["DevicePid"]));
+    }
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("DeviceVid") != m.end() && !m["DeviceVid"].empty()) {
+      deviceVid = make_shared<string>(boost::any_cast<string>(m["DeviceVid"]));
+    }
+    if (m.find("OptCommand") != m.end() && !m["OptCommand"].empty()) {
+      optCommand = make_shared<string>(boost::any_cast<string>(m["OptCommand"]));
+    }
+    if (m.find("RedirectType") != m.end() && !m["RedirectType"].empty()) {
+      redirectType = make_shared<string>(boost::any_cast<string>(m["RedirectType"]));
+    }
+  }
+
+
+  virtual ~ModifyPolicyGroupRequestDeviceRules() = default;
+};
 class ModifyPolicyGroupRequestDomainResolveRule : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -40792,6 +41190,8 @@ public:
   shared_ptr<string> cameraRedirect{};
   shared_ptr<vector<ModifyPolicyGroupRequestClientType>> clientType{};
   shared_ptr<string> clipboard{};
+  shared_ptr<vector<ModifyPolicyGroupRequestDeviceRedirects>> deviceRedirects{};
+  shared_ptr<vector<ModifyPolicyGroupRequestDeviceRules>> deviceRules{};
   shared_ptr<string> domainList{};
   shared_ptr<vector<ModifyPolicyGroupRequestDomainResolveRule>> domainResolveRule{};
   shared_ptr<string> domainResolveRuleType{};
@@ -40885,6 +41285,20 @@ public:
     }
     if (clipboard) {
       res["Clipboard"] = boost::any(*clipboard);
+    }
+    if (deviceRedirects) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceRedirects){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceRedirects"] = boost::any(temp1);
+    }
+    if (deviceRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceRules"] = boost::any(temp1);
     }
     if (domainList) {
       res["DomainList"] = boost::any(*domainList);
@@ -41106,6 +41520,32 @@ public:
     }
     if (m.find("Clipboard") != m.end() && !m["Clipboard"].empty()) {
       clipboard = make_shared<string>(boost::any_cast<string>(m["Clipboard"]));
+    }
+    if (m.find("DeviceRedirects") != m.end() && !m["DeviceRedirects"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceRedirects"].type()) {
+        vector<ModifyPolicyGroupRequestDeviceRedirects> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceRedirects"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyPolicyGroupRequestDeviceRedirects model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceRedirects = make_shared<vector<ModifyPolicyGroupRequestDeviceRedirects>>(expect1);
+      }
+    }
+    if (m.find("DeviceRules") != m.end() && !m["DeviceRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceRules"].type()) {
+        vector<ModifyPolicyGroupRequestDeviceRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyPolicyGroupRequestDeviceRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceRules = make_shared<vector<ModifyPolicyGroupRequestDeviceRules>>(expect1);
+      }
     }
     if (m.find("DomainList") != m.end() && !m["DomainList"].empty()) {
       domainList = make_shared<string>(boost::any_cast<string>(m["DomainList"]));

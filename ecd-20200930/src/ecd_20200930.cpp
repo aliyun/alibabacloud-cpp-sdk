@@ -1975,6 +1975,12 @@ CreatePolicyGroupResponse Alibabacloud_Ecd20200930::Client::createPolicyGroupWit
   if (!Darabonba_Util::Client::isUnset<string>(request->clipboard)) {
     query->insert(pair<string, string>("Clipboard", *request->clipboard));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreatePolicyGroupRequestDeviceRedirects>>(request->deviceRedirects)) {
+    query->insert(pair<string, vector<CreatePolicyGroupRequestDeviceRedirects>>("DeviceRedirects", *request->deviceRedirects));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreatePolicyGroupRequestDeviceRules>>(request->deviceRules)) {
+    query->insert(pair<string, vector<CreatePolicyGroupRequestDeviceRules>>("DeviceRules", *request->deviceRules));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->domainList)) {
     query->insert(pair<string, string>("DomainList", *request->domainList));
   }
@@ -2946,6 +2952,9 @@ DescribeBundlesResponse Alibabacloud_Ecd20200930::Client::describeBundlesWithOpt
   if (!Darabonba_Util::Client::isUnset<double>(request->gpuCount)) {
     query->insert(pair<string, double>("GpuCount", *request->gpuCount));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gpuDriverType)) {
+    query->insert(pair<string, string>("GpuDriverType", *request->gpuDriverType));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->imageId)) {
     query->insert(pair<string, vector<string>>("ImageId", *request->imageId));
   }
@@ -3671,6 +3680,9 @@ DescribeDesktopTypesResponse Alibabacloud_Ecd20200930::Client::describeDesktopTy
   }
   if (!Darabonba_Util::Client::isUnset<double>(request->gpuCount)) {
     query->insert(pair<string, double>("GpuCount", *request->gpuCount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gpuDriverType)) {
+    query->insert(pair<string, string>("GpuDriverType", *request->gpuDriverType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceTypeFamily)) {
     query->insert(pair<string, string>("InstanceTypeFamily", *request->instanceTypeFamily));
@@ -7714,6 +7726,12 @@ ModifyPolicyGroupResponse Alibabacloud_Ecd20200930::Client::modifyPolicyGroupWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clipboard)) {
     query->insert(pair<string, string>("Clipboard", *request->clipboard));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyPolicyGroupRequestDeviceRedirects>>(request->deviceRedirects)) {
+    query->insert(pair<string, vector<ModifyPolicyGroupRequestDeviceRedirects>>("DeviceRedirects", *request->deviceRedirects));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyPolicyGroupRequestDeviceRules>>(request->deviceRules)) {
+    query->insert(pair<string, vector<ModifyPolicyGroupRequestDeviceRules>>("DeviceRules", *request->deviceRules));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->domainList)) {
     query->insert(pair<string, string>("DomainList", *request->domainList));
