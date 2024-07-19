@@ -37,6 +37,33 @@ string Alibabacloud_Es-serverless20230627::Client::getEndpoint(shared_ptr<string
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CancelSpecReviewTaskResponse Alibabacloud_Es-serverless20230627::Client::cancelSpecReviewTaskWithOptions(shared_ptr<string> appName,
+                                                                                                         shared_ptr<string> taskId,
+                                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelSpecReviewTask"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/spec-review-tasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(taskId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelSpecReviewTaskResponse(callApi(params, req, runtime));
+}
+
+CancelSpecReviewTaskResponse Alibabacloud_Es-serverless20230627::Client::cancelSpecReviewTask(shared_ptr<string> appName, shared_ptr<string> taskId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return cancelSpecReviewTaskWithOptions(appName, taskId, headers, runtime);
+}
+
 CreateAppResponse Alibabacloud_Es-serverless20230627::Client::createAppWithOptions(shared_ptr<CreateAppRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -140,6 +167,48 @@ CreateEndpointResponse Alibabacloud_Es-serverless20230627::Client::createEndpoin
   return createEndpointWithOptions(request, headers, runtime);
 }
 
+CreateSnapshotResponse Alibabacloud_Es-serverless20230627::Client::createSnapshotWithOptions(shared_ptr<string> appName,
+                                                                                             shared_ptr<string> repository,
+                                                                                             shared_ptr<CreateSnapshotRequest> request,
+                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("dryRun", *request->dryRun));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->indices)) {
+    body->insert(pair<string, string>("indices", *request->indices));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->snapshot)) {
+    body->insert(pair<string, string>("snapshot", *request->snapshot));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateSnapshot"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/snapshot-repositories/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(repository)) + string("/snapshots"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateSnapshotResponse(callApi(params, req, runtime));
+}
+
+CreateSnapshotResponse Alibabacloud_Es-serverless20230627::Client::createSnapshot(shared_ptr<string> appName, shared_ptr<string> repository, shared_ptr<CreateSnapshotRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createSnapshotWithOptions(appName, repository, request, headers, runtime);
+}
+
 DeleteAppResponse Alibabacloud_Es-serverless20230627::Client::deleteAppWithOptions(shared_ptr<string> appName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -162,6 +231,94 @@ DeleteAppResponse Alibabacloud_Es-serverless20230627::Client::deleteApp(shared_p
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return deleteAppWithOptions(appName, headers, runtime);
+}
+
+DeleteDictResponse Alibabacloud_Es-serverless20230627::Client::deleteDictWithOptions(shared_ptr<string> appName,
+                                                                                     shared_ptr<DeleteDictRequest> request,
+                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    body->insert(pair<string, string>("type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDict"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/dicts/actions/remove"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteDictResponse(callApi(params, req, runtime));
+}
+
+DeleteDictResponse Alibabacloud_Es-serverless20230627::Client::deleteDict(shared_ptr<string> appName, shared_ptr<DeleteDictRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteDictWithOptions(appName, request, headers, runtime);
+}
+
+DeleteEndpointResponse Alibabacloud_Es-serverless20230627::Client::deleteEndpointWithOptions(shared_ptr<string> endpointId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteEndpoint"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/endpoints/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(endpointId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteEndpointResponse(callApi(params, req, runtime));
+}
+
+DeleteEndpointResponse Alibabacloud_Es-serverless20230627::Client::deleteEndpoint(shared_ptr<string> endpointId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteEndpointWithOptions(endpointId, headers, runtime);
+}
+
+DeleteSnapshotResponse Alibabacloud_Es-serverless20230627::Client::deleteSnapshotWithOptions(shared_ptr<string> appName,
+                                                                                             shared_ptr<string> repository,
+                                                                                             shared_ptr<string> snapshot,
+                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteSnapshot"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/snapshot-repositories/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(repository)) + string("/snapshots/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(snapshot)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteSnapshotResponse(callApi(params, req, runtime));
+}
+
+DeleteSnapshotResponse Alibabacloud_Es-serverless20230627::Client::deleteSnapshot(shared_ptr<string> appName, shared_ptr<string> repository, shared_ptr<string> snapshot) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteSnapshotWithOptions(appName, repository, snapshot, headers, runtime);
 }
 
 GetAppResponse Alibabacloud_Es-serverless20230627::Client::getAppWithOptions(shared_ptr<string> appName,
@@ -247,6 +404,57 @@ GetMonitorDataResponse Alibabacloud_Es-serverless20230627::Client::getMonitorDat
   return getMonitorDataWithOptions(request, headers, runtime);
 }
 
+GetSnapshotSettingResponse Alibabacloud_Es-serverless20230627::Client::getSnapshotSettingWithOptions(shared_ptr<string> appName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSnapshotSetting"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/auto-snapshot-setting"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSnapshotSettingResponse(callApi(params, req, runtime));
+}
+
+GetSnapshotSettingResponse Alibabacloud_Es-serverless20230627::Client::getSnapshotSetting(shared_ptr<string> appName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getSnapshotSettingWithOptions(appName, headers, runtime);
+}
+
+GetSpecReviewTaskResponse Alibabacloud_Es-serverless20230627::Client::getSpecReviewTaskWithOptions(shared_ptr<string> appName,
+                                                                                                   shared_ptr<string> taskId,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSpecReviewTask"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/spec-review-tasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(taskId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSpecReviewTaskResponse(callApi(params, req, runtime));
+}
+
+GetSpecReviewTaskResponse Alibabacloud_Es-serverless20230627::Client::getSpecReviewTask(shared_ptr<string> appName, shared_ptr<string> taskId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getSpecReviewTaskWithOptions(appName, taskId, headers, runtime);
+}
+
 ListAppsResponse Alibabacloud_Es-serverless20230627::Client::listAppsWithOptions(shared_ptr<ListAppsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -293,6 +501,213 @@ ListAppsResponse Alibabacloud_Es-serverless20230627::Client::listApps(shared_ptr
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listAppsWithOptions(request, headers, runtime);
+}
+
+ListDictsResponse Alibabacloud_Es-serverless20230627::Client::listDictsWithOptions(shared_ptr<string> appName,
+                                                                                   shared_ptr<ListDictsRequest> request,
+                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDicts"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/dicts"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDictsResponse(callApi(params, req, runtime));
+}
+
+ListDictsResponse Alibabacloud_Es-serverless20230627::Client::listDicts(shared_ptr<string> appName, shared_ptr<ListDictsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listDictsWithOptions(appName, request, headers, runtime);
+}
+
+ListEndpointsResponse Alibabacloud_Es-serverless20230627::Client::listEndpointsWithOptions(shared_ptr<ListEndpointsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
+    query->insert(pair<string, string>("resourceId", *request->resourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("type", *request->type));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("vpcId", *request->vpcId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListEndpoints"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/endpoints"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListEndpointsResponse(callApi(params, req, runtime));
+}
+
+ListEndpointsResponse Alibabacloud_Es-serverless20230627::Client::listEndpoints(shared_ptr<ListEndpointsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listEndpointsWithOptions(request, headers, runtime);
+}
+
+ListIndicesResponse Alibabacloud_Es-serverless20230627::Client::listIndicesWithOptions(shared_ptr<string> appName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListIndices"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/indices"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListIndicesResponse(callApi(params, req, runtime));
+}
+
+ListIndicesResponse Alibabacloud_Es-serverless20230627::Client::listIndices(shared_ptr<string> appName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listIndicesWithOptions(appName, headers, runtime);
+}
+
+ListSnapshotRepositoriesResponse Alibabacloud_Es-serverless20230627::Client::listSnapshotRepositoriesWithOptions(shared_ptr<string> appName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSnapshotRepositories"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/snapshot-repositories"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSnapshotRepositoriesResponse(callApi(params, req, runtime));
+}
+
+ListSnapshotRepositoriesResponse Alibabacloud_Es-serverless20230627::Client::listSnapshotRepositories(shared_ptr<string> appName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listSnapshotRepositoriesWithOptions(appName, headers, runtime);
+}
+
+ListSnapshotsResponse Alibabacloud_Es-serverless20230627::Client::listSnapshotsWithOptions(shared_ptr<string> appName,
+                                                                                           shared_ptr<ListSnapshotsRequest> request,
+                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repository)) {
+    query->insert(pair<string, string>("repository", *request->repository));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->snapshot)) {
+    query->insert(pair<string, string>("snapshot", *request->snapshot));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSnapshots"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/snapshots"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSnapshotsResponse(callApi(params, req, runtime));
+}
+
+ListSnapshotsResponse Alibabacloud_Es-serverless20230627::Client::listSnapshots(shared_ptr<string> appName, shared_ptr<ListSnapshotsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listSnapshotsWithOptions(appName, request, headers, runtime);
+}
+
+ListSpecReviewTasksResponse Alibabacloud_Es-serverless20230627::Client::listSpecReviewTasksWithOptions(shared_ptr<string> appName,
+                                                                                                       shared_ptr<ListSpecReviewTasksRequest> request,
+                                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->page)) {
+    query->insert(pair<string, long>("page", *request->page));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->size)) {
+    query->insert(pair<string, long>("size", *request->size));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSpecReviewTasks"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/spec-review-tasks"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSpecReviewTasksResponse(callApi(params, req, runtime));
+}
+
+ListSpecReviewTasksResponse Alibabacloud_Es-serverless20230627::Client::listSpecReviewTasks(shared_ptr<string> appName, shared_ptr<ListSpecReviewTasksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listSpecReviewTasksWithOptions(appName, request, headers, runtime);
 }
 
 UpdateAppResponse Alibabacloud_Es-serverless20230627::Client::updateAppWithOptions(shared_ptr<string> appName,
@@ -344,5 +759,124 @@ UpdateAppResponse Alibabacloud_Es-serverless20230627::Client::updateApp(shared_p
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateAppWithOptions(appName, request, headers, runtime);
+}
+
+UpdateDictResponse Alibabacloud_Es-serverless20230627::Client::updateDictWithOptions(shared_ptr<string> appName,
+                                                                                     shared_ptr<UpdateDictRequest> request,
+                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->allowCover)) {
+    query->insert(pair<string, bool>("allowCover", *request->allowCover));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("dryRun", *request->dryRun));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateDictRequestFiles>>(request->files)) {
+    body->insert(pair<string, vector<UpdateDictRequestFiles>>("files", *request->files));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
+    body->insert(pair<string, string>("sourceType", *request->sourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    body->insert(pair<string, string>("type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateDict"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/dicts"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateDictResponse(callApi(params, req, runtime));
+}
+
+UpdateDictResponse Alibabacloud_Es-serverless20230627::Client::updateDict(shared_ptr<string> appName, shared_ptr<UpdateDictRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateDictWithOptions(appName, request, headers, runtime);
+}
+
+UpdateEndpointResponse Alibabacloud_Es-serverless20230627::Client::updateEndpointWithOptions(shared_ptr<string> endpointId,
+                                                                                             shared_ptr<UpdateEndpointRequest> request,
+                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateEndpointRequestEndpointZones>>(request->endpointZones)) {
+    body->insert(pair<string, vector<UpdateEndpointRequestEndpointZones>>("endpointZones", *request->endpointZones));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateEndpoint"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/endpoints/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(endpointId)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateEndpointResponse(callApi(params, req, runtime));
+}
+
+UpdateEndpointResponse Alibabacloud_Es-serverless20230627::Client::updateEndpoint(shared_ptr<string> endpointId, shared_ptr<UpdateEndpointRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateEndpointWithOptions(endpointId, request, headers, runtime);
+}
+
+UpdateSnapshotSettingResponse Alibabacloud_Es-serverless20230627::Client::updateSnapshotSettingWithOptions(shared_ptr<string> appName,
+                                                                                                           shared_ptr<UpdateSnapshotSettingRequest> request,
+                                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
+    body->insert(pair<string, bool>("enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->quartzRegex)) {
+    body->insert(pair<string, string>("quartzRegex", *request->quartzRegex));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateSnapshotSetting"))},
+    {"version", boost::any(string("2023-06-27"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/es-serverless/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/auto-snapshot-setting"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateSnapshotSettingResponse(callApi(params, req, runtime));
+}
+
+UpdateSnapshotSettingResponse Alibabacloud_Es-serverless20230627::Client::updateSnapshotSetting(shared_ptr<string> appName, shared_ptr<UpdateSnapshotSettingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateSnapshotSettingWithOptions(appName, request, headers, runtime);
 }
 
