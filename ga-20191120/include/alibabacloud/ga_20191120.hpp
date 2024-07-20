@@ -5640,6 +5640,7 @@ public:
   shared_ptr<vector<CreateEndpointGroupRequestEndpointConfigurations>> endpointConfigurations{};
   shared_ptr<string> endpointGroupRegion{};
   shared_ptr<string> endpointGroupType{};
+  shared_ptr<string> endpointProtocolVersion{};
   shared_ptr<string> endpointRequestProtocol{};
   shared_ptr<bool> healthCheckEnabled{};
   shared_ptr<long> healthCheckIntervalSeconds{};
@@ -5685,6 +5686,9 @@ public:
     }
     if (endpointGroupType) {
       res["EndpointGroupType"] = boost::any(*endpointGroupType);
+    }
+    if (endpointProtocolVersion) {
+      res["EndpointProtocolVersion"] = boost::any(*endpointProtocolVersion);
     }
     if (endpointRequestProtocol) {
       res["EndpointRequestProtocol"] = boost::any(*endpointRequestProtocol);
@@ -5764,6 +5768,9 @@ public:
     }
     if (m.find("EndpointGroupType") != m.end() && !m["EndpointGroupType"].empty()) {
       endpointGroupType = make_shared<string>(boost::any_cast<string>(m["EndpointGroupType"]));
+    }
+    if (m.find("EndpointProtocolVersion") != m.end() && !m["EndpointProtocolVersion"].empty()) {
+      endpointProtocolVersion = make_shared<string>(boost::any_cast<string>(m["EndpointProtocolVersion"]));
     }
     if (m.find("EndpointRequestProtocol") != m.end() && !m["EndpointRequestProtocol"].empty()) {
       endpointRequestProtocol = make_shared<string>(boost::any_cast<string>(m["EndpointRequestProtocol"]));
@@ -6091,6 +6098,7 @@ public:
   shared_ptr<string> endpointGroupName{};
   shared_ptr<string> endpointGroupRegion{};
   shared_ptr<string> endpointGroupType{};
+  shared_ptr<string> endpointProtocolVersion{};
   shared_ptr<string> endpointRequestProtocol{};
   shared_ptr<bool> healthCheckEnabled{};
   shared_ptr<long> healthCheckIntervalSeconds{};
@@ -6137,6 +6145,9 @@ public:
     }
     if (endpointGroupType) {
       res["EndpointGroupType"] = boost::any(*endpointGroupType);
+    }
+    if (endpointProtocolVersion) {
+      res["EndpointProtocolVersion"] = boost::any(*endpointProtocolVersion);
     }
     if (endpointRequestProtocol) {
       res["EndpointRequestProtocol"] = boost::any(*endpointRequestProtocol);
@@ -6217,6 +6228,9 @@ public:
     }
     if (m.find("EndpointGroupType") != m.end() && !m["EndpointGroupType"].empty()) {
       endpointGroupType = make_shared<string>(boost::any_cast<string>(m["EndpointGroupType"]));
+    }
+    if (m.find("EndpointProtocolVersion") != m.end() && !m["EndpointProtocolVersion"].empty()) {
+      endpointProtocolVersion = make_shared<string>(boost::any_cast<string>(m["EndpointProtocolVersion"]));
     }
     if (m.find("EndpointRequestProtocol") != m.end() && !m["EndpointRequestProtocol"].empty()) {
       endpointRequestProtocol = make_shared<string>(boost::any_cast<string>(m["EndpointRequestProtocol"]));
@@ -7684,6 +7698,7 @@ public:
   shared_ptr<string> endpointGroupName{};
   shared_ptr<string> endpointGroupRegion{};
   shared_ptr<string> endpointGroupType{};
+  shared_ptr<string> endpointProtocolVersion{};
   shared_ptr<string> endpointRequestProtocol{};
   shared_ptr<bool> healthCheckEnabled{};
   shared_ptr<long> healthCheckIntervalSeconds{};
@@ -7728,6 +7743,9 @@ public:
     }
     if (endpointGroupType) {
       res["EndpointGroupType"] = boost::any(*endpointGroupType);
+    }
+    if (endpointProtocolVersion) {
+      res["EndpointProtocolVersion"] = boost::any(*endpointProtocolVersion);
     }
     if (endpointRequestProtocol) {
       res["EndpointRequestProtocol"] = boost::any(*endpointRequestProtocol);
@@ -7794,6 +7812,9 @@ public:
     }
     if (m.find("EndpointGroupType") != m.end() && !m["EndpointGroupType"].empty()) {
       endpointGroupType = make_shared<string>(boost::any_cast<string>(m["EndpointGroupType"]));
+    }
+    if (m.find("EndpointProtocolVersion") != m.end() && !m["EndpointProtocolVersion"].empty()) {
+      endpointProtocolVersion = make_shared<string>(boost::any_cast<string>(m["EndpointProtocolVersion"]));
     }
     if (m.find("EndpointRequestProtocol") != m.end() && !m["EndpointRequestProtocol"].empty()) {
       endpointRequestProtocol = make_shared<string>(boost::any_cast<string>(m["EndpointRequestProtocol"]));
@@ -15335,6 +15356,7 @@ public:
   shared_ptr<string> endpointGroupRegion{};
   shared_ptr<string> endpointGroupType{};
   shared_ptr<vector<string>> endpointGroupUnconfirmedIpList{};
+  shared_ptr<string> endpointProtocolVersion{};
   shared_ptr<string> endpointRequestProtocol{};
   shared_ptr<vector<string>> forwardingRuleIds{};
   shared_ptr<bool> healthCheckEnabled{};
@@ -15400,6 +15422,9 @@ public:
     }
     if (endpointGroupUnconfirmedIpList) {
       res["EndpointGroupUnconfirmedIpList"] = boost::any(*endpointGroupUnconfirmedIpList);
+    }
+    if (endpointProtocolVersion) {
+      res["EndpointProtocolVersion"] = boost::any(*endpointProtocolVersion);
     }
     if (endpointRequestProtocol) {
       res["EndpointRequestProtocol"] = boost::any(*endpointRequestProtocol);
@@ -15533,6 +15558,9 @@ public:
         }
       }
       endpointGroupUnconfirmedIpList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EndpointProtocolVersion") != m.end() && !m["EndpointProtocolVersion"].empty()) {
+      endpointProtocolVersion = make_shared<string>(boost::any_cast<string>(m["EndpointProtocolVersion"]));
     }
     if (m.find("EndpointRequestProtocol") != m.end() && !m["EndpointRequestProtocol"].empty()) {
       endpointRequestProtocol = make_shared<string>(boost::any_cast<string>(m["EndpointRequestProtocol"]));
@@ -27643,6 +27671,7 @@ public:
 };
 class ListEndpointGroupIpAddressCidrBlocksRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> acceleratorId{};
   shared_ptr<string> endpointGroupRegion{};
   shared_ptr<string> regionId{};
 
@@ -27656,6 +27685,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
     if (endpointGroupRegion) {
       res["EndpointGroupRegion"] = boost::any(*endpointGroupRegion);
     }
@@ -27666,6 +27698,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
     if (m.find("EndpointGroupRegion") != m.end() && !m["EndpointGroupRegion"].empty()) {
       endpointGroupRegion = make_shared<string>(boost::any_cast<string>(m["EndpointGroupRegion"]));
     }
@@ -28131,6 +28166,7 @@ public:
   shared_ptr<string> endpointGroupRegion{};
   shared_ptr<string> endpointGroupType{};
   shared_ptr<vector<string>> endpointGroupUnconfirmedIpList{};
+  shared_ptr<string> endpointProtocolVersion{};
   shared_ptr<string> endpointRequestProtocol{};
   shared_ptr<vector<string>> forwardingRuleIds{};
   shared_ptr<bool> healthCheckEnabled{};
@@ -28186,6 +28222,9 @@ public:
     }
     if (endpointGroupUnconfirmedIpList) {
       res["EndpointGroupUnconfirmedIpList"] = boost::any(*endpointGroupUnconfirmedIpList);
+    }
+    if (endpointProtocolVersion) {
+      res["EndpointProtocolVersion"] = boost::any(*endpointProtocolVersion);
     }
     if (endpointRequestProtocol) {
       res["EndpointRequestProtocol"] = boost::any(*endpointRequestProtocol);
@@ -28301,6 +28340,9 @@ public:
         }
       }
       endpointGroupUnconfirmedIpList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EndpointProtocolVersion") != m.end() && !m["EndpointProtocolVersion"].empty()) {
+      endpointProtocolVersion = make_shared<string>(boost::any_cast<string>(m["EndpointProtocolVersion"]));
     }
     if (m.find("EndpointRequestProtocol") != m.end() && !m["EndpointRequestProtocol"].empty()) {
       endpointRequestProtocol = make_shared<string>(boost::any_cast<string>(m["EndpointRequestProtocol"]));
@@ -35502,6 +35544,7 @@ public:
   shared_ptr<vector<UpdateEndpointGroupRequestEndpointConfigurations>> endpointConfigurations{};
   shared_ptr<string> endpointGroupId{};
   shared_ptr<string> endpointGroupRegion{};
+  shared_ptr<string> endpointProtocolVersion{};
   shared_ptr<string> endpointRequestProtocol{};
   shared_ptr<bool> healthCheckEnabled{};
   shared_ptr<long> healthCheckIntervalSeconds{};
@@ -35542,6 +35585,9 @@ public:
     }
     if (endpointGroupRegion) {
       res["EndpointGroupRegion"] = boost::any(*endpointGroupRegion);
+    }
+    if (endpointProtocolVersion) {
+      res["EndpointProtocolVersion"] = boost::any(*endpointProtocolVersion);
     }
     if (endpointRequestProtocol) {
       res["EndpointRequestProtocol"] = boost::any(*endpointRequestProtocol);
@@ -35608,6 +35654,9 @@ public:
     }
     if (m.find("EndpointGroupRegion") != m.end() && !m["EndpointGroupRegion"].empty()) {
       endpointGroupRegion = make_shared<string>(boost::any_cast<string>(m["EndpointGroupRegion"]));
+    }
+    if (m.find("EndpointProtocolVersion") != m.end() && !m["EndpointProtocolVersion"].empty()) {
+      endpointProtocolVersion = make_shared<string>(boost::any_cast<string>(m["EndpointProtocolVersion"]));
     }
     if (m.find("EndpointRequestProtocol") != m.end() && !m["EndpointRequestProtocol"].empty()) {
       endpointRequestProtocol = make_shared<string>(boost::any_cast<string>(m["EndpointRequestProtocol"]));
@@ -35970,6 +36019,7 @@ public:
   shared_ptr<string> endpointGroupDescription{};
   shared_ptr<string> endpointGroupId{};
   shared_ptr<string> endpointGroupName{};
+  shared_ptr<string> endpointProtocolVersion{};
   shared_ptr<string> endpointRequestProtocol{};
   shared_ptr<bool> healthCheckEnabled{};
   shared_ptr<long> healthCheckIntervalSeconds{};
@@ -36011,6 +36061,9 @@ public:
     }
     if (endpointGroupName) {
       res["EndpointGroupName"] = boost::any(*endpointGroupName);
+    }
+    if (endpointProtocolVersion) {
+      res["EndpointProtocolVersion"] = boost::any(*endpointProtocolVersion);
     }
     if (endpointRequestProtocol) {
       res["EndpointRequestProtocol"] = boost::any(*endpointRequestProtocol);
@@ -36074,6 +36127,9 @@ public:
     }
     if (m.find("EndpointGroupName") != m.end() && !m["EndpointGroupName"].empty()) {
       endpointGroupName = make_shared<string>(boost::any_cast<string>(m["EndpointGroupName"]));
+    }
+    if (m.find("EndpointProtocolVersion") != m.end() && !m["EndpointProtocolVersion"].empty()) {
+      endpointProtocolVersion = make_shared<string>(boost::any_cast<string>(m["EndpointProtocolVersion"]));
     }
     if (m.find("EndpointRequestProtocol") != m.end() && !m["EndpointRequestProtocol"].empty()) {
       endpointRequestProtocol = make_shared<string>(boost::any_cast<string>(m["EndpointRequestProtocol"]));

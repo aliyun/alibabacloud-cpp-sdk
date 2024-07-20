@@ -1251,6 +1251,9 @@ CreateEndpointGroupResponse Alibabacloud_Ga20191120::Client::createEndpointGroup
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupType)) {
     query->insert(pair<string, string>("EndpointGroupType", *request->endpointGroupType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointProtocolVersion)) {
+    query->insert(pair<string, string>("EndpointProtocolVersion", *request->endpointProtocolVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointRequestProtocol)) {
     query->insert(pair<string, string>("EndpointRequestProtocol", *request->endpointRequestProtocol));
   }
@@ -4468,6 +4471,9 @@ ListDomainsResponse Alibabacloud_Ga20191120::Client::listDomains(shared_ptr<List
 ListEndpointGroupIpAddressCidrBlocksResponse Alibabacloud_Ga20191120::Client::listEndpointGroupIpAddressCidrBlocksWithOptions(shared_ptr<ListEndpointGroupIpAddressCidrBlocksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorId)) {
+    query->insert(pair<string, string>("AcceleratorId", *request->acceleratorId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupRegion)) {
     query->insert(pair<string, string>("EndpointGroupRegion", *request->endpointGroupRegion));
   }
@@ -5919,6 +5925,9 @@ UpdateEndpointGroupResponse Alibabacloud_Ga20191120::Client::updateEndpointGroup
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupRegion)) {
     query->insert(pair<string, string>("EndpointGroupRegion", *request->endpointGroupRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointProtocolVersion)) {
+    query->insert(pair<string, string>("EndpointProtocolVersion", *request->endpointProtocolVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointRequestProtocol)) {
     query->insert(pair<string, string>("EndpointRequestProtocol", *request->endpointRequestProtocol));
