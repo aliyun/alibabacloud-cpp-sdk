@@ -205,6 +205,33 @@ CreateIndexResponse Alibabacloud_Bailian20231229::Client::createIndex(shared_ptr
   return createIndexWithOptions(WorkspaceId, request, headers, runtime);
 }
 
+DeleteFileResponse Alibabacloud_Bailian20231229::Client::deleteFileWithOptions(shared_ptr<string> FileId,
+                                                                               shared_ptr<string> WorkspaceId,
+                                                                               shared_ptr<map<string, string>> headers,
+                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteFile"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(WorkspaceId)) + string("/datacenter/file/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(FileId)) + string("/"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteFileResponse(callApi(params, req, runtime));
+}
+
+DeleteFileResponse Alibabacloud_Bailian20231229::Client::deleteFile(shared_ptr<string> FileId, shared_ptr<string> WorkspaceId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteFileWithOptions(FileId, WorkspaceId, headers, runtime);
+}
+
 DeleteIndexResponse Alibabacloud_Bailian20231229::Client::deleteIndexWithOptions(shared_ptr<string> WorkspaceId,
                                                                                  shared_ptr<DeleteIndexRequest> request,
                                                                                  shared_ptr<map<string, string>> headers,
