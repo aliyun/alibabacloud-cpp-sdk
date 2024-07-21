@@ -5469,6 +5469,46 @@ DissociateNetworkPackageResponse Alibabacloud_Ecd20200930::Client::dissociateNet
   return dissociateNetworkPackageWithOptions(request, runtime);
 }
 
+DownloadCdsFileResponse Alibabacloud_Ecd20200930::Client::downloadCdsFileWithOptions(shared_ptr<DownloadCdsFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cdsId)) {
+    query->insert(pair<string, string>("CdsId", *request->cdsId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endUserId)) {
+    query->insert(pair<string, string>("EndUserId", *request->endUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileId)) {
+    query->insert(pair<string, string>("FileId", *request->fileId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DownloadCdsFile"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DownloadCdsFileResponse(callApi(params, req, runtime));
+}
+
+DownloadCdsFileResponse Alibabacloud_Ecd20200930::Client::downloadCdsFile(shared_ptr<DownloadCdsFileRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return downloadCdsFileWithOptions(request, runtime);
+}
+
 ExportClientEventsResponse Alibabacloud_Ecd20200930::Client::exportClientEventsWithOptions(shared_ptr<ExportClientEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
