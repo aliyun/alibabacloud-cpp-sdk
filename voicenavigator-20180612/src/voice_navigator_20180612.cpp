@@ -1306,6 +1306,9 @@ ModifySilenceTimeoutConfigResponse Alibabacloud_VoiceNavigator20180612::Client::
 ModifyTTSConfigResponse Alibabacloud_VoiceNavigator20180612::Client::modifyTTSConfigWithOptions(shared_ptr<ModifyTTSConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliCustomizedVoice)) {
+    query->insert(pair<string, string>("AliCustomizedVoice", *request->aliCustomizedVoice));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appKey)) {
     query->insert(pair<string, string>("AppKey", *request->appKey));
   }

@@ -2966,6 +2966,7 @@ public:
 };
 class DescribeTTSConfigResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> aliCustomizedVoice{};
   shared_ptr<string> appKey{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineXunfei{};
@@ -2986,6 +2987,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aliCustomizedVoice) {
+      res["AliCustomizedVoice"] = boost::any(*aliCustomizedVoice);
+    }
     if (appKey) {
       res["AppKey"] = boost::any(*appKey);
     }
@@ -3017,6 +3021,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliCustomizedVoice") != m.end() && !m["AliCustomizedVoice"].empty()) {
+      aliCustomizedVoice = make_shared<string>(boost::any_cast<string>(m["AliCustomizedVoice"]));
+    }
     if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
       appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
     }
@@ -6824,6 +6831,7 @@ public:
 };
 class ModifyTTSConfigRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> aliCustomizedVoice{};
   shared_ptr<string> appKey{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineXunfei{};
@@ -6843,6 +6851,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aliCustomizedVoice) {
+      res["AliCustomizedVoice"] = boost::any(*aliCustomizedVoice);
+    }
     if (appKey) {
       res["AppKey"] = boost::any(*appKey);
     }
@@ -6871,6 +6882,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliCustomizedVoice") != m.end() && !m["AliCustomizedVoice"].empty()) {
+      aliCustomizedVoice = make_shared<string>(boost::any_cast<string>(m["AliCustomizedVoice"]));
+    }
     if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
       appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
     }
