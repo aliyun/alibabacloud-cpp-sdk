@@ -6096,6 +6096,7 @@ public:
   shared_ptr<string> path{};
   shared_ptr<string> productCode{};
   shared_ptr<long> productId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> regionName{};
   shared_ptr<vector<DescribeDataObjectsResponseBodyItemsRuleList>> ruleList{};
   shared_ptr<long> sensitiveCount{};
@@ -6156,6 +6157,9 @@ public:
     }
     if (productId) {
       res["ProductId"] = boost::any(*productId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (regionName) {
       res["RegionName"] = boost::any(*regionName);
@@ -6235,6 +6239,9 @@ public:
     }
     if (m.find("ProductId") != m.end() && !m["ProductId"].empty()) {
       productId = make_shared<long>(boost::any_cast<long>(m["ProductId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RegionName") != m.end() && !m["RegionName"].empty()) {
       regionName = make_shared<string>(boost::any_cast<string>(m["RegionName"]));
