@@ -11817,7 +11817,9 @@ public:
   shared_ptr<string> allocationId{};
   shared_ptr<string> eipType{};
   shared_ptr<string> intranetAddress{};
+  shared_ptr<string> intranetAddressHcStatus{};
   shared_ptr<string> ipv6Address{};
+  shared_ptr<string> ipv6AddressHcStatus{};
 
   GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses() {}
 
@@ -11841,8 +11843,14 @@ public:
     if (intranetAddress) {
       res["IntranetAddress"] = boost::any(*intranetAddress);
     }
+    if (intranetAddressHcStatus) {
+      res["IntranetAddressHcStatus"] = boost::any(*intranetAddressHcStatus);
+    }
     if (ipv6Address) {
       res["Ipv6Address"] = boost::any(*ipv6Address);
+    }
+    if (ipv6AddressHcStatus) {
+      res["Ipv6AddressHcStatus"] = boost::any(*ipv6AddressHcStatus);
     }
     return res;
   }
@@ -11860,8 +11868,14 @@ public:
     if (m.find("IntranetAddress") != m.end() && !m["IntranetAddress"].empty()) {
       intranetAddress = make_shared<string>(boost::any_cast<string>(m["IntranetAddress"]));
     }
+    if (m.find("IntranetAddressHcStatus") != m.end() && !m["IntranetAddressHcStatus"].empty()) {
+      intranetAddressHcStatus = make_shared<string>(boost::any_cast<string>(m["IntranetAddressHcStatus"]));
+    }
     if (m.find("Ipv6Address") != m.end() && !m["Ipv6Address"].empty()) {
       ipv6Address = make_shared<string>(boost::any_cast<string>(m["Ipv6Address"]));
+    }
+    if (m.find("Ipv6AddressHcStatus") != m.end() && !m["Ipv6AddressHcStatus"].empty()) {
+      ipv6AddressHcStatus = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressHcStatus"]));
     }
   }
 
@@ -11871,6 +11885,7 @@ public:
 class GetLoadBalancerAttributeResponseBodyZoneMappings : public Darabonba::Model {
 public:
   shared_ptr<vector<GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses>> loadBalancerAddresses{};
+  shared_ptr<string> status{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> zoneId{};
 
@@ -11890,6 +11905,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["LoadBalancerAddresses"] = boost::any(temp1);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -11913,6 +11931,9 @@ public:
         }
         loadBalancerAddresses = make_shared<vector<GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses>>(expect1);
       }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
