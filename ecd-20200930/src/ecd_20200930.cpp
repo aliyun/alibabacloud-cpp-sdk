@@ -1730,6 +1730,9 @@ CreateDesktopsResponse Alibabacloud_Ecd20200930::Client::createDesktopsWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->snapshotPolicyId)) {
+    query->insert(pair<string, string>("SnapshotPolicyId", *request->snapshotPolicyId));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateDesktopsRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<CreateDesktopsRequestTag>>("Tag", *request->tag));
   }

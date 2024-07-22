@@ -7164,6 +7164,7 @@ public:
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> snapshotPolicyId{};
   shared_ptr<vector<CreateDesktopsRequestTag>> tag{};
   shared_ptr<string> userAssignMode{};
   shared_ptr<vector<CreateDesktopsRequestUserCommands>> userCommands{};
@@ -7252,6 +7253,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (snapshotPolicyId) {
+      res["SnapshotPolicyId"] = boost::any(*snapshotPolicyId);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -7379,6 +7383,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SnapshotPolicyId") != m.end() && !m["SnapshotPolicyId"].empty()) {
+      snapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["SnapshotPolicyId"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
