@@ -10373,11 +10373,6 @@ public:
 class GetBatchMediaProducingJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> jobId{};
-  shared_ptr<string> signature{};
-  shared_ptr<string> signatureMehtod{};
-  shared_ptr<string> signatureNonce{};
-  shared_ptr<string> signatureType{};
-  shared_ptr<string> signatureVersion{};
 
   GetBatchMediaProducingJobRequest() {}
 
@@ -10392,42 +10387,12 @@ public:
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
     }
-    if (signature) {
-      res["Signature"] = boost::any(*signature);
-    }
-    if (signatureMehtod) {
-      res["SignatureMehtod"] = boost::any(*signatureMehtod);
-    }
-    if (signatureNonce) {
-      res["SignatureNonce"] = boost::any(*signatureNonce);
-    }
-    if (signatureType) {
-      res["SignatureType"] = boost::any(*signatureType);
-    }
-    if (signatureVersion) {
-      res["SignatureVersion"] = boost::any(*signatureVersion);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
-    }
-    if (m.find("Signature") != m.end() && !m["Signature"].empty()) {
-      signature = make_shared<string>(boost::any_cast<string>(m["Signature"]));
-    }
-    if (m.find("SignatureMehtod") != m.end() && !m["SignatureMehtod"].empty()) {
-      signatureMehtod = make_shared<string>(boost::any_cast<string>(m["SignatureMehtod"]));
-    }
-    if (m.find("SignatureNonce") != m.end() && !m["SignatureNonce"].empty()) {
-      signatureNonce = make_shared<string>(boost::any_cast<string>(m["SignatureNonce"]));
-    }
-    if (m.find("SignatureType") != m.end() && !m["SignatureType"].empty()) {
-      signatureType = make_shared<string>(boost::any_cast<string>(m["SignatureType"]));
-    }
-    if (m.find("SignatureVersion") != m.end() && !m["SignatureVersion"].empty()) {
-      signatureVersion = make_shared<string>(boost::any_cast<string>(m["SignatureVersion"]));
     }
   }
 
@@ -10441,6 +10406,7 @@ public:
   shared_ptr<string> jobId{};
   shared_ptr<string> mediaId{};
   shared_ptr<string> mediaURL{};
+  shared_ptr<string> projectId{};
   shared_ptr<string> status{};
 
   GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList() {}
@@ -10468,6 +10434,9 @@ public:
     if (mediaURL) {
       res["MediaURL"] = boost::any(*mediaURL);
     }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -10489,6 +10458,9 @@ public:
     }
     if (m.find("MediaURL") != m.end() && !m["MediaURL"].empty()) {
       mediaURL = make_shared<string>(boost::any_cast<string>(m["MediaURL"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -28949,7 +28921,7 @@ class ListDNADBResponseBodyDBList : public Darabonba::Model {
 public:
   shared_ptr<string> DBId{};
   shared_ptr<string> description{};
-  shared_ptr<long> model{};
+  shared_ptr<string> model{};
   shared_ptr<string> name{};
   shared_ptr<string> status{};
 
@@ -28989,7 +28961,7 @@ public:
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Model") != m.end() && !m["Model"].empty()) {
-      model = make_shared<long>(boost::any_cast<long>(m["Model"]));
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
