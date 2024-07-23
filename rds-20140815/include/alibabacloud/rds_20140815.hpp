@@ -46027,7 +46027,7 @@ public:
   shared_ptr<DescribePriceResponseBodyPriceInfoCoupons> coupons{};
   shared_ptr<string> currency{};
   shared_ptr<double> discountPrice{};
-  shared_ptr<string> orderLines{};
+  shared_ptr<boost::any> orderLines{};
   shared_ptr<double> originalPrice{};
   shared_ptr<DescribePriceResponseBodyPriceInfoRuleIds> ruleIds{};
   shared_ptr<double> tradeMaxRCUAmount{};
@@ -46099,7 +46099,7 @@ public:
       discountPrice = make_shared<double>(boost::any_cast<double>(m["DiscountPrice"]));
     }
     if (m.find("OrderLines") != m.end() && !m["OrderLines"].empty()) {
-      orderLines = make_shared<string>(boost::any_cast<string>(m["OrderLines"]));
+      orderLines = make_shared<boost::any>(boost::any_cast<boost::any>(m["OrderLines"]));
     }
     if (m.find("OriginalPrice") != m.end() && !m["OriginalPrice"].empty()) {
       originalPrice = make_shared<double>(boost::any_cast<double>(m["OriginalPrice"]));
