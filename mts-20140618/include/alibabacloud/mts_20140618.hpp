@@ -36205,7 +36205,7 @@ public:
   shared_ptr<string> callBack{};
   shared_ptr<string> description{};
   shared_ptr<string> input{};
-  shared_ptr<string> level{};
+  shared_ptr<long> level{};
   shared_ptr<string> message{};
   shared_ptr<string> output{};
   shared_ptr<string> params{};
@@ -36271,7 +36271,7 @@ public:
       input = make_shared<string>(boost::any_cast<string>(m["Input"]));
     }
     if (m.find("Level") != m.end() && !m["Level"].empty()) {
-      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+      level = make_shared<long>(boost::any_cast<long>(m["Level"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -43100,7 +43100,7 @@ public:
   shared_ptr<string> callBack{};
   shared_ptr<string> cipherBase64ed{};
   shared_ptr<string> input{};
-  shared_ptr<string> level{};
+  shared_ptr<long> level{};
   shared_ptr<string> output{};
   shared_ptr<string> startTime{};
   shared_ptr<string> totalTime{};
@@ -43158,7 +43158,7 @@ public:
       input = make_shared<string>(boost::any_cast<string>(m["Input"]));
     }
     if (m.find("Level") != m.end() && !m["Level"].empty()) {
-      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+      level = make_shared<long>(boost::any_cast<long>(m["Level"]));
     }
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));

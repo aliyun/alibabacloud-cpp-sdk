@@ -3205,8 +3205,8 @@ SubmitCopyrightJobResponse Alibabacloud_Mts20140618::Client::submitCopyrightJobW
   if (!Darabonba_Util::Client::isUnset<string>(request->input)) {
     query->insert(pair<string, string>("Input", *request->input));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->level)) {
-    query->insert(pair<string, string>("Level", *request->level));
+  if (!Darabonba_Util::Client::isUnset<long>(request->level)) {
+    query->insert(pair<string, long>("Level", *request->level));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->message)) {
     query->insert(pair<string, string>("Message", *request->message));
@@ -3795,8 +3795,8 @@ SubmitTraceAbJobResponse Alibabacloud_Mts20140618::Client::submitTraceAbJobWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->input)) {
     query->insert(pair<string, string>("Input", *request->input));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->level)) {
-    query->insert(pair<string, string>("Level", *request->level));
+  if (!Darabonba_Util::Client::isUnset<long>(request->level)) {
+    query->insert(pair<string, long>("Level", *request->level));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->output)) {
     query->insert(pair<string, string>("Output", *request->output));
