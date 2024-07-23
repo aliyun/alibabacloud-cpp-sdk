@@ -7729,8 +7729,10 @@ public:
   shared_ptr<long> requestStopTime{};
   shared_ptr<long> retention{};
   shared_ptr<bool> sqlLogEnable{};
+  shared_ptr<string> sqlLogSource{};
   shared_ptr<string> sqlLogState{};
   shared_ptr<long> sqlLogVisibleTime{};
+  shared_ptr<bool> supportMigration{};
   shared_ptr<string> supportVersion{};
   shared_ptr<string> version{};
 
@@ -7783,11 +7785,17 @@ public:
     if (sqlLogEnable) {
       res["SqlLogEnable"] = boost::any(*sqlLogEnable);
     }
+    if (sqlLogSource) {
+      res["SqlLogSource"] = boost::any(*sqlLogSource);
+    }
     if (sqlLogState) {
       res["SqlLogState"] = boost::any(*sqlLogState);
     }
     if (sqlLogVisibleTime) {
       res["SqlLogVisibleTime"] = boost::any(*sqlLogVisibleTime);
+    }
+    if (supportMigration) {
+      res["SupportMigration"] = boost::any(*supportMigration);
     }
     if (supportVersion) {
       res["SupportVersion"] = boost::any(*supportVersion);
@@ -7838,11 +7846,17 @@ public:
     if (m.find("SqlLogEnable") != m.end() && !m["SqlLogEnable"].empty()) {
       sqlLogEnable = make_shared<bool>(boost::any_cast<bool>(m["SqlLogEnable"]));
     }
+    if (m.find("SqlLogSource") != m.end() && !m["SqlLogSource"].empty()) {
+      sqlLogSource = make_shared<string>(boost::any_cast<string>(m["SqlLogSource"]));
+    }
     if (m.find("SqlLogState") != m.end() && !m["SqlLogState"].empty()) {
       sqlLogState = make_shared<string>(boost::any_cast<string>(m["SqlLogState"]));
     }
     if (m.find("SqlLogVisibleTime") != m.end() && !m["SqlLogVisibleTime"].empty()) {
       sqlLogVisibleTime = make_shared<long>(boost::any_cast<long>(m["SqlLogVisibleTime"]));
+    }
+    if (m.find("SupportMigration") != m.end() && !m["SupportMigration"].empty()) {
+      supportMigration = make_shared<bool>(boost::any_cast<bool>(m["SupportMigration"]));
     }
     if (m.find("SupportVersion") != m.end() && !m["SupportVersion"].empty()) {
       supportVersion = make_shared<string>(boost::any_cast<string>(m["SupportVersion"]));
