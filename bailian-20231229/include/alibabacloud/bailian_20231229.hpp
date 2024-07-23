@@ -2992,6 +2992,7 @@ public:
   shared_ptr<long> rerankTopN{};
   shared_ptr<vector<RetrieveRequestRewrite>> rewrite{};
   shared_ptr<bool> saveRetrieverHistory{};
+  shared_ptr<vector<map<string, string>>> searchFilters{};
   shared_ptr<long> sparseSimilarityTopK{};
 
   RetrieveRequest() {}
@@ -3041,6 +3042,9 @@ public:
     }
     if (saveRetrieverHistory) {
       res["SaveRetrieverHistory"] = boost::any(*saveRetrieverHistory);
+    }
+    if (searchFilters) {
+      res["SearchFilters"] = boost::any(*searchFilters);
     }
     if (sparseSimilarityTopK) {
       res["SparseSimilarityTopK"] = boost::any(*sparseSimilarityTopK);
@@ -3099,6 +3103,21 @@ public:
     if (m.find("SaveRetrieverHistory") != m.end() && !m["SaveRetrieverHistory"].empty()) {
       saveRetrieverHistory = make_shared<bool>(boost::any_cast<bool>(m["SaveRetrieverHistory"]));
     }
+    if (m.find("SearchFilters") != m.end() && !m["SearchFilters"].empty()) {
+      vector<map<string, string>> toVec1;
+      if (typeid(vector<boost::any>) == m["SearchFilters"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SearchFilters"]);
+        for (auto item:vec1) {
+          map<string, string> map2 = boost::any_cast<map<string, string>>(item);
+          map<string, string> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      searchFilters = make_shared<vector<map<string, string>>>(toVec1);
+    }
     if (m.find("SparseSimilarityTopK") != m.end() && !m["SparseSimilarityTopK"].empty()) {
       sparseSimilarityTopK = make_shared<long>(boost::any_cast<long>(m["SparseSimilarityTopK"]));
     }
@@ -3119,6 +3138,7 @@ public:
   shared_ptr<long> rerankTopN{};
   shared_ptr<string> rewriteShrink{};
   shared_ptr<bool> saveRetrieverHistory{};
+  shared_ptr<string> searchFiltersShrink{};
   shared_ptr<long> sparseSimilarityTopK{};
 
   RetrieveShrinkRequest() {}
@@ -3161,6 +3181,9 @@ public:
     if (saveRetrieverHistory) {
       res["SaveRetrieverHistory"] = boost::any(*saveRetrieverHistory);
     }
+    if (searchFiltersShrink) {
+      res["SearchFilters"] = boost::any(*searchFiltersShrink);
+    }
     if (sparseSimilarityTopK) {
       res["SparseSimilarityTopK"] = boost::any(*sparseSimilarityTopK);
     }
@@ -3197,6 +3220,9 @@ public:
     }
     if (m.find("SaveRetrieverHistory") != m.end() && !m["SaveRetrieverHistory"].empty()) {
       saveRetrieverHistory = make_shared<bool>(boost::any_cast<bool>(m["SaveRetrieverHistory"]));
+    }
+    if (m.find("SearchFilters") != m.end() && !m["SearchFilters"].empty()) {
+      searchFiltersShrink = make_shared<string>(boost::any_cast<string>(m["SearchFilters"]));
     }
     if (m.find("SparseSimilarityTopK") != m.end() && !m["SparseSimilarityTopK"].empty()) {
       sparseSimilarityTopK = make_shared<long>(boost::any_cast<long>(m["SparseSimilarityTopK"]));

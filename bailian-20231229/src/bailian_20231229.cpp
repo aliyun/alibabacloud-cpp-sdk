@@ -511,6 +511,9 @@ RetrieveResponse Alibabacloud_Bailian20231229::Client::retrieveWithOptions(share
   if (!Darabonba_Util::Client::isUnset<vector<RetrieveRequestRewrite>>(tmpReq->rewrite)) {
     request->rewriteShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->rewrite, make_shared<string>("Rewrite"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<map<string, string>>>(tmpReq->searchFilters)) {
+    request->searchFiltersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->searchFilters, make_shared<string>("SearchFilters"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->denseSimilarityTopK)) {
     query->insert(pair<string, long>("DenseSimilarityTopK", *request->denseSimilarityTopK));
@@ -541,6 +544,9 @@ RetrieveResponse Alibabacloud_Bailian20231229::Client::retrieveWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->saveRetrieverHistory)) {
     query->insert(pair<string, bool>("SaveRetrieverHistory", *request->saveRetrieverHistory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->searchFiltersShrink)) {
+    query->insert(pair<string, string>("SearchFilters", *request->searchFiltersShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->sparseSimilarityTopK)) {
     query->insert(pair<string, long>("SparseSimilarityTopK", *request->sparseSimilarityTopK));
