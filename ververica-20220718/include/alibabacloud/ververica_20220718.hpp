@@ -2183,8 +2183,6 @@ class SqlStatementWithContext : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> additionalDependencies{};
   shared_ptr<bool> batchMode{};
-  shared_ptr<string> catalog{};
-  shared_ptr<string> database{};
   shared_ptr<map<string, boost::any>> flinkConfiguration{};
   shared_ptr<string> statement{};
   shared_ptr<string> versionName{};
@@ -2204,12 +2202,6 @@ public:
     }
     if (batchMode) {
       res["batchMode"] = boost::any(*batchMode);
-    }
-    if (catalog) {
-      res["catalog"] = boost::any(*catalog);
-    }
-    if (database) {
-      res["database"] = boost::any(*database);
     }
     if (flinkConfiguration) {
       res["flinkConfiguration"] = boost::any(*flinkConfiguration);
@@ -2236,12 +2228,6 @@ public:
     }
     if (m.find("batchMode") != m.end() && !m["batchMode"].empty()) {
       batchMode = make_shared<bool>(boost::any_cast<bool>(m["batchMode"]));
-    }
-    if (m.find("catalog") != m.end() && !m["catalog"].empty()) {
-      catalog = make_shared<string>(boost::any_cast<string>(m["catalog"]));
-    }
-    if (m.find("database") != m.end() && !m["database"].empty()) {
-      database = make_shared<string>(boost::any_cast<string>(m["database"]));
     }
     if (m.find("flinkConfiguration") != m.end() && !m["flinkConfiguration"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["flinkConfiguration"]);
@@ -4841,6 +4827,163 @@ public:
 
 
   virtual ~GetJobResponse() = default;
+};
+class GetLatestJobStartLogHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> workspace{};
+
+  GetLatestJobStartLogHeaders() {}
+
+  explicit GetLatestJobStartLogHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (workspace) {
+      res["workspace"] = boost::any(*workspace);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("workspace") != m.end() && !m["workspace"].empty()) {
+      workspace = make_shared<string>(boost::any_cast<string>(m["workspace"]));
+    }
+  }
+
+
+  virtual ~GetLatestJobStartLogHeaders() = default;
+};
+class GetLatestJobStartLogResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> httpCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetLatestJobStartLogResponseBody() {}
+
+  explicit GetLatestJobStartLogResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (httpCode) {
+      res["httpCode"] = boost::any(*httpCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["data"]));
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("httpCode") != m.end() && !m["httpCode"].empty()) {
+      httpCode = make_shared<long>(boost::any_cast<long>(m["httpCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~GetLatestJobStartLogResponseBody() = default;
+};
+class GetLatestJobStartLogResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetLatestJobStartLogResponseBody> body{};
+
+  GetLatestJobStartLogResponse() {}
+
+  explicit GetLatestJobStartLogResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetLatestJobStartLogResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetLatestJobStartLogResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetLatestJobStartLogResponse() = default;
 };
 class GetMemberHeaders : public Darabonba::Model {
 public:
@@ -7981,6 +8124,200 @@ public:
 
   virtual ~UpdateMemberResponse() = default;
 };
+class ValidateSqlStatementHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> workspace{};
+
+  ValidateSqlStatementHeaders() {}
+
+  explicit ValidateSqlStatementHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (workspace) {
+      res["workspace"] = boost::any(*workspace);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("workspace") != m.end() && !m["workspace"].empty()) {
+      workspace = make_shared<string>(boost::any_cast<string>(m["workspace"]));
+    }
+  }
+
+
+  virtual ~ValidateSqlStatementHeaders() = default;
+};
+class ValidateSqlStatementRequest : public Darabonba::Model {
+public:
+  shared_ptr<SqlStatementWithContext> body{};
+
+  ValidateSqlStatementRequest() {}
+
+  explicit ValidateSqlStatementRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SqlStatementWithContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SqlStatementWithContext>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ValidateSqlStatementRequest() = default;
+};
+class ValidateSqlStatementResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<SqlStatementValidationResult> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> httpCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ValidateSqlStatementResponseBody() {}
+
+  explicit ValidateSqlStatementResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (httpCode) {
+      res["httpCode"] = boost::any(*httpCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        SqlStatementValidationResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<SqlStatementValidationResult>(model1);
+      }
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("httpCode") != m.end() && !m["httpCode"].empty()) {
+      httpCode = make_shared<long>(boost::any_cast<long>(m["httpCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~ValidateSqlStatementResponseBody() = default;
+};
+class ValidateSqlStatementResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ValidateSqlStatementResponseBody> body{};
+
+  ValidateSqlStatementResponse() {}
+
+  explicit ValidateSqlStatementResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ValidateSqlStatementResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ValidateSqlStatementResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ValidateSqlStatementResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -8059,6 +8396,11 @@ public:
                                    shared_ptr<GetJobHeaders> headers,
                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetJobResponse getJob(shared_ptr<string> namespace_, shared_ptr<string> jobId);
+  GetLatestJobStartLogResponse getLatestJobStartLogWithOptions(shared_ptr<string> namespace_,
+                                                               shared_ptr<string> deploymentId,
+                                                               shared_ptr<GetLatestJobStartLogHeaders> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetLatestJobStartLogResponse getLatestJobStartLog(shared_ptr<string> namespace_, shared_ptr<string> deploymentId);
   GetMemberResponse getMemberWithOptions(shared_ptr<string> namespace_,
                                          shared_ptr<string> member,
                                          shared_ptr<GetMemberHeaders> headers,
@@ -8130,6 +8472,11 @@ public:
                                                shared_ptr<UpdateMemberHeaders> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateMemberResponse updateMember(shared_ptr<string> namespace_, shared_ptr<UpdateMemberRequest> request);
+  ValidateSqlStatementResponse validateSqlStatementWithOptions(shared_ptr<string> namespace_,
+                                                               shared_ptr<ValidateSqlStatementRequest> request,
+                                                               shared_ptr<ValidateSqlStatementHeaders> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ValidateSqlStatementResponse validateSqlStatement(shared_ptr<string> namespace_, shared_ptr<ValidateSqlStatementRequest> request);
 
   virtual ~Client() = default;
 };

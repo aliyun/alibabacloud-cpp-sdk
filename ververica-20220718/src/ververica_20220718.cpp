@@ -546,6 +546,40 @@ GetJobResponse Alibabacloud_Ververica20220718::Client::getJob(shared_ptr<string>
   return getJobWithOptions(shared_ptr<string> namespace_, jobId, headers, runtime);
 }
 
+GetLatestJobStartLogResponse Alibabacloud_Ververica20220718::Client::getLatestJobStartLogWithOptions(shared_ptr<string> namespace_,
+                                                                                                     shared_ptr<string> deploymentId,
+                                                                                                     shared_ptr<GetLatestJobStartLogHeaders> headers,
+                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetLatestJobStartLog"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/deployments/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(deploymentId)) + string("/latest_jobmanager_start_log"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetLatestJobStartLogResponse(callApi(params, req, runtime));
+}
+
+GetLatestJobStartLogResponse Alibabacloud_Ververica20220718::Client::getLatestJobStartLog(shared_ptr<string> namespace_, shared_ptr<string> deploymentId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<GetLatestJobStartLogHeaders> headers = make_shared<GetLatestJobStartLogHeaders>();
+  return getLatestJobStartLogWithOptions(shared_ptr<string> namespace_, deploymentId, headers, runtime);
+}
+
 GetMemberResponse Alibabacloud_Ververica20220718::Client::getMemberWithOptions(shared_ptr<string> namespace_,
                                                                                shared_ptr<string> member,
                                                                                shared_ptr<GetMemberHeaders> headers,
@@ -1158,5 +1192,41 @@ UpdateMemberResponse Alibabacloud_Ververica20220718::Client::updateMember(shared
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<UpdateMemberHeaders> headers = make_shared<UpdateMemberHeaders>();
   return updateMemberWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+}
+
+ValidateSqlStatementResponse Alibabacloud_Ververica20220718::Client::validateSqlStatementWithOptions(shared_ptr<string> namespace_,
+                                                                                                     shared_ptr<ValidateSqlStatementRequest> request,
+                                                                                                     shared_ptr<ValidateSqlStatementHeaders> headers,
+                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ValidateSqlStatement"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/sql-statement/validate"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ValidateSqlStatementResponse(callApi(params, req, runtime));
+}
+
+ValidateSqlStatementResponse Alibabacloud_Ververica20220718::Client::validateSqlStatement(shared_ptr<string> namespace_, shared_ptr<ValidateSqlStatementRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ValidateSqlStatementHeaders> headers = make_shared<ValidateSqlStatementHeaders>();
+  return validateSqlStatementWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
