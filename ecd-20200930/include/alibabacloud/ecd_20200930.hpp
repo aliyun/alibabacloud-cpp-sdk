@@ -13985,8 +13985,13 @@ public:
 };
 class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos : public Darabonba::Model {
 public:
+  shared_ptr<string> email{};
   shared_ptr<string> endUserId{};
+  shared_ptr<string> jobNumber{};
   shared_ptr<string> nickName{};
+  shared_ptr<string> phone{};
+  shared_ptr<string> realNickName{};
+  shared_ptr<string> remark{};
 
   DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos() {}
 
@@ -13998,21 +14003,51 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (email) {
+      res["Email"] = boost::any(*email);
+    }
     if (endUserId) {
       res["EndUserId"] = boost::any(*endUserId);
     }
+    if (jobNumber) {
+      res["JobNumber"] = boost::any(*jobNumber);
+    }
     if (nickName) {
       res["NickName"] = boost::any(*nickName);
+    }
+    if (phone) {
+      res["Phone"] = boost::any(*phone);
+    }
+    if (realNickName) {
+      res["RealNickName"] = boost::any(*realNickName);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Email") != m.end() && !m["Email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["Email"]));
+    }
     if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
       endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
     }
+    if (m.find("JobNumber") != m.end() && !m["JobNumber"].empty()) {
+      jobNumber = make_shared<string>(boost::any_cast<string>(m["JobNumber"]));
+    }
     if (m.find("NickName") != m.end() && !m["NickName"].empty()) {
       nickName = make_shared<string>(boost::any_cast<string>(m["NickName"]));
+    }
+    if (m.find("Phone") != m.end() && !m["Phone"].empty()) {
+      phone = make_shared<string>(boost::any_cast<string>(m["Phone"]));
+    }
+    if (m.find("RealNickName") != m.end() && !m["RealNickName"].empty()) {
+      realNickName = make_shared<string>(boost::any_cast<string>(m["RealNickName"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
     }
   }
 
