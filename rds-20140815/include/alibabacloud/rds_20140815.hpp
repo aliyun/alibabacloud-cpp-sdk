@@ -4355,6 +4355,7 @@ public:
 class CreateDBInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> amount{};
+  shared_ptr<bool> autoCreateProxy{};
   shared_ptr<bool> autoPay{};
   shared_ptr<string> autoRenew{};
   shared_ptr<string> babelfishConfig{};
@@ -4423,6 +4424,9 @@ public:
     map<string, boost::any> res;
     if (amount) {
       res["Amount"] = boost::any(*amount);
+    }
+    if (autoCreateProxy) {
+      res["AutoCreateProxy"] = boost::any(*autoCreateProxy);
     }
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
@@ -4599,6 +4603,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
       amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
+    if (m.find("AutoCreateProxy") != m.end() && !m["AutoCreateProxy"].empty()) {
+      autoCreateProxy = make_shared<bool>(boost::any_cast<bool>(m["AutoCreateProxy"]));
     }
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
@@ -4823,6 +4830,7 @@ public:
 class CreateDBInstanceShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<long> amount{};
+  shared_ptr<bool> autoCreateProxy{};
   shared_ptr<bool> autoPay{};
   shared_ptr<string> autoRenew{};
   shared_ptr<string> babelfishConfig{};
@@ -4891,6 +4899,9 @@ public:
     map<string, boost::any> res;
     if (amount) {
       res["Amount"] = boost::any(*amount);
+    }
+    if (autoCreateProxy) {
+      res["AutoCreateProxy"] = boost::any(*autoCreateProxy);
     }
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
@@ -5067,6 +5078,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
       amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
+    if (m.find("AutoCreateProxy") != m.end() && !m["AutoCreateProxy"].empty()) {
+      autoCreateProxy = make_shared<bool>(boost::any_cast<bool>(m["AutoCreateProxy"]));
     }
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
@@ -9802,6 +9816,7 @@ public:
 };
 class CreateReadOnlyDBInstanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoCreateProxy{};
   shared_ptr<bool> autoPay{};
   shared_ptr<string> autoRenew{};
   shared_ptr<string> bpeEnabled{};
@@ -9848,6 +9863,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoCreateProxy) {
+      res["AutoCreateProxy"] = boost::any(*autoCreateProxy);
+    }
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
     }
@@ -9957,6 +9975,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoCreateProxy") != m.end() && !m["AutoCreateProxy"].empty()) {
+      autoCreateProxy = make_shared<bool>(boost::any_cast<bool>(m["AutoCreateProxy"]));
+    }
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
     }

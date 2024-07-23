@@ -1202,6 +1202,9 @@ CreateDBInstanceResponse Alibabacloud_Rds20140815::Client::createDBInstanceWithO
   if (!Darabonba_Util::Client::isUnset<long>(request->amount)) {
     query->insert(pair<string, long>("Amount", *request->amount));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoCreateProxy)) {
+    query->insert(pair<string, bool>("AutoCreateProxy", *request->autoCreateProxy));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
     query->insert(pair<string, bool>("AutoPay", *request->autoPay));
   }
@@ -2416,6 +2419,9 @@ CreatePostgresExtensionsResponse Alibabacloud_Rds20140815::Client::createPostgre
 CreateReadOnlyDBInstanceResponse Alibabacloud_Rds20140815::Client::createReadOnlyDBInstanceWithOptions(shared_ptr<CreateReadOnlyDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoCreateProxy)) {
+    query->insert(pair<string, bool>("AutoCreateProxy", *request->autoCreateProxy));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
     query->insert(pair<string, bool>("AutoPay", *request->autoPay));
   }
