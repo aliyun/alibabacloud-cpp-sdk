@@ -1928,8 +1928,13 @@ CreateRetcodeAppResponse Alibabacloud_ARMS20190808::Client::createRetcodeApp(sha
   return createRetcodeAppWithOptions(request, runtime);
 }
 
-CreateRumAppResponse Alibabacloud_ARMS20190808::Client::createRumAppWithOptions(shared_ptr<CreateRumAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateRumAppResponse Alibabacloud_ARMS20190808::Client::createRumAppWithOptions(shared_ptr<CreateRumAppRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateRumAppShrinkRequest> request = make_shared<CreateRumAppShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateRumAppRequestTag>>(tmpReq->tag)) {
+    request->tagShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tag, make_shared<string>("Tag"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appGroup)) {
     query->insert(pair<string, string>("AppGroup", *request->appGroup));
@@ -1939,6 +1944,9 @@ CreateRumAppResponse Alibabacloud_ARMS20190808::Client::createRumAppWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nickName)) {
+    query->insert(pair<string, string>("NickName", *request->nickName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->packageName)) {
     query->insert(pair<string, string>("PackageName", *request->packageName));
@@ -1955,8 +1963,8 @@ CreateRumAppResponse Alibabacloud_ARMS20190808::Client::createRumAppWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateRumAppRequestTag>>(request->tag)) {
-    query->insert(pair<string, vector<CreateRumAppRequestTag>>("Tag", *request->tag));
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagShrink)) {
+    query->insert(pair<string, string>("Tag", *request->tagShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3953,6 +3961,37 @@ DescribeWebhookContactsResponse Alibabacloud_ARMS20190808::Client::describeWebho
   return describeWebhookContactsWithOptions(request, runtime);
 }
 
+DoInsightsActionResponse Alibabacloud_ARMS20190808::Client::doInsightsActionWithOptions(shared_ptr<DoInsightsActionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->data)) {
+    body->insert(pair<string, string>("Data", *request->data));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->module)) {
+    body->insert(pair<string, string>("Module", *request->module));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DoInsightsAction"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DoInsightsActionResponse(callApi(params, req, runtime));
+}
+
+DoInsightsActionResponse Alibabacloud_ARMS20190808::Client::doInsightsAction(shared_ptr<DoInsightsActionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return doInsightsActionWithOptions(request, runtime);
+}
+
 EnableMetricResponse Alibabacloud_ARMS20190808::Client::enableMetricWithOptions(shared_ptr<EnableMetricRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4856,8 +4895,13 @@ GetRumAppInfoResponse Alibabacloud_ARMS20190808::Client::getRumAppInfo(shared_pt
   return getRumAppInfoWithOptions(request, runtime);
 }
 
-GetRumAppsResponse Alibabacloud_ARMS20190808::Client::getRumAppsWithOptions(shared_ptr<GetRumAppsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+GetRumAppsResponse Alibabacloud_ARMS20190808::Client::getRumAppsWithOptions(shared_ptr<GetRumAppsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetRumAppsShrinkRequest> request = make_shared<GetRumAppsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<GetRumAppsRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appGroup)) {
     query->insert(pair<string, string>("AppGroup", *request->appGroup));
@@ -4874,8 +4918,8 @@ GetRumAppsResponse Alibabacloud_ARMS20190808::Client::getRumAppsWithOptions(shar
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<GetRumAppsRequestTags>>(request->tags)) {
-    query->insert(pair<string, vector<GetRumAppsRequestTags>>("Tags", *request->tags));
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("Tags", *request->tagsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4989,6 +5033,39 @@ GetRumExceptionStackResponse Alibabacloud_ARMS20190808::Client::getRumExceptionS
 GetRumExceptionStackResponse Alibabacloud_ARMS20190808::Client::getRumExceptionStack(shared_ptr<GetRumExceptionStackRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getRumExceptionStackWithOptions(request, runtime);
+}
+
+GetRumOcuStatisticDataResponse Alibabacloud_ARMS20190808::Client::getRumOcuStatisticDataWithOptions(shared_ptr<GetRumOcuStatisticDataRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetRumOcuStatisticDataShrinkRequest> request = make_shared<GetRumOcuStatisticDataShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<GetRumOcuStatisticDataRequestFilter>>(tmpReq->filter)) {
+    request->filterShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filter, make_shared<string>("Filter"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->group)) {
+    request->groupShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->group, make_shared<string>("Group"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetRumOcuStatisticData"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetRumOcuStatisticDataResponse(callApi(params, req, runtime));
+}
+
+GetRumOcuStatisticDataResponse Alibabacloud_ARMS20190808::Client::getRumOcuStatisticData(shared_ptr<GetRumOcuStatisticDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getRumOcuStatisticDataWithOptions(request, runtime);
 }
 
 GetRumUploadFilesResponse Alibabacloud_ARMS20190808::Client::getRumUploadFilesWithOptions(shared_ptr<GetRumUploadFilesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -9366,6 +9443,9 @@ UpdateRumAppResponse Alibabacloud_ARMS20190808::Client::updateRumAppWithOptions(
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoRestart)) {
     query->insert(pair<string, bool>("AutoRestart", *request->autoRestart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bonreeSDKConfigJson)) {
+    query->insert(pair<string, string>("BonreeSDKConfigJson", *request->bonreeSDKConfigJson));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
