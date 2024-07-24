@@ -18,8 +18,11 @@ class AddChatappPhoneNumberRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cc{};
   shared_ptr<string> custSpaceId{};
+  shared_ptr<long> ownerId{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<string> preValidateId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> verifiedName{};
 
   AddChatappPhoneNumberRequest() {}
@@ -38,11 +41,20 @@ public:
     if (custSpaceId) {
       res["CustSpaceId"] = boost::any(*custSpaceId);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (phoneNumber) {
       res["PhoneNumber"] = boost::any(*phoneNumber);
     }
     if (preValidateId) {
       res["PreValidateId"] = boost::any(*preValidateId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     if (verifiedName) {
       res["VerifiedName"] = boost::any(*verifiedName);
@@ -57,11 +69,20 @@ public:
     if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
       custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
     }
     if (m.find("PreValidateId") != m.end() && !m["PreValidateId"].empty()) {
       preValidateId = make_shared<string>(boost::any_cast<string>(m["PreValidateId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
     if (m.find("VerifiedName") != m.end() && !m["VerifiedName"].empty()) {
       verifiedName = make_shared<string>(boost::any_cast<string>(m["VerifiedName"]));
@@ -77,6 +98,7 @@ public:
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   AddChatappPhoneNumberResponseBody() {}
 
@@ -100,6 +122,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
@@ -115,6 +140,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -1354,6 +1382,9 @@ public:
 };
 class ChatappBindWabaRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> wabaId{};
 
   ChatappBindWabaRequest() {}
@@ -1366,6 +1397,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
     if (wabaId) {
       res["WabaId"] = boost::any(*wabaId);
     }
@@ -1373,6 +1413,15 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
     if (m.find("WabaId") != m.end() && !m["WabaId"].empty()) {
       wabaId = make_shared<string>(boost::any_cast<string>(m["WabaId"]));
     }
@@ -1424,6 +1473,7 @@ public:
   shared_ptr<ChatappBindWabaResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   ChatappBindWabaResponseBody() {}
 
@@ -1450,6 +1500,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
@@ -1472,6 +1525,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -2210,7 +2266,10 @@ public:
 class ChatappPhoneNumberRegisterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> custSpaceId{};
+  shared_ptr<long> ownerId{};
   shared_ptr<string> phoneNumber{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
 
   ChatappPhoneNumberRegisterRequest() {}
 
@@ -2225,8 +2284,17 @@ public:
     if (custSpaceId) {
       res["CustSpaceId"] = boost::any(*custSpaceId);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (phoneNumber) {
       res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     return res;
   }
@@ -2235,8 +2303,17 @@ public:
     if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
       custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
   }
 
@@ -2249,6 +2326,7 @@ public:
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   ChatappPhoneNumberRegisterResponseBody() {}
 
@@ -2272,6 +2350,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
@@ -2287,6 +2368,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -2348,6 +2432,9 @@ public:
 class ChatappSyncPhoneNumberRequest : public Darabonba::Model {
 public:
   shared_ptr<string> custSpaceId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
 
   ChatappSyncPhoneNumberRequest() {}
 
@@ -2362,12 +2449,30 @@ public:
     if (custSpaceId) {
       res["CustSpaceId"] = boost::any(*custSpaceId);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
       custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
   }
 
@@ -2487,6 +2592,7 @@ public:
   shared_ptr<string> message{};
   shared_ptr<vector<ChatappSyncPhoneNumberResponseBodyPhoneNumbers>> phoneNumbers{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   ChatappSyncPhoneNumberResponseBody() {}
 
@@ -2517,6 +2623,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
@@ -2545,6 +2654,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -2606,7 +2718,10 @@ public:
 class ChatappVerifyAndRegisterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> custSpaceId{};
+  shared_ptr<long> ownerId{};
   shared_ptr<string> phoneNumber{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> verifyCode{};
 
   ChatappVerifyAndRegisterRequest() {}
@@ -2622,8 +2737,17 @@ public:
     if (custSpaceId) {
       res["CustSpaceId"] = boost::any(*custSpaceId);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (phoneNumber) {
       res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     if (verifyCode) {
       res["VerifyCode"] = boost::any(*verifyCode);
@@ -2635,8 +2759,17 @@ public:
     if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
       custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
     if (m.find("VerifyCode") != m.end() && !m["VerifyCode"].empty()) {
       verifyCode = make_shared<string>(boost::any_cast<string>(m["VerifyCode"]));
@@ -2652,6 +2785,7 @@ public:
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   ChatappVerifyAndRegisterResponseBody() {}
 
@@ -2675,6 +2809,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
@@ -2690,6 +2827,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -4277,6 +4417,9 @@ public:
   shared_ptr<string> custWabaId{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> language{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> templateCode{};
   shared_ptr<string> templateName{};
   shared_ptr<string> templateType{};
@@ -4303,6 +4446,15 @@ public:
     if (language) {
       res["Language"] = boost::any(*language);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
     if (templateCode) {
       res["TemplateCode"] = boost::any(*templateCode);
     }
@@ -4328,6 +4480,15 @@ public:
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
     if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
       templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
     }
@@ -4348,6 +4509,7 @@ public:
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   DeleteChatappTemplateResponseBody() {}
 
@@ -4371,6 +4533,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
@@ -4386,6 +4551,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -6681,7 +6849,10 @@ public:
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> locale{};
   shared_ptr<string> method{};
+  shared_ptr<long> ownerId{};
   shared_ptr<string> phoneNumber{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
 
   GetChatappVerifyCodeRequest() {}
 
@@ -6702,8 +6873,17 @@ public:
     if (method) {
       res["Method"] = boost::any(*method);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (phoneNumber) {
       res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     return res;
   }
@@ -6718,8 +6898,17 @@ public:
     if (m.find("Method") != m.end() && !m["Method"].empty()) {
       method = make_shared<string>(boost::any_cast<string>(m["Method"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
   }
 
@@ -6732,6 +6921,7 @@ public:
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   GetChatappVerifyCodeResponseBody() {}
 
@@ -6755,6 +6945,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
@@ -6770,6 +6963,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -6831,7 +7027,10 @@ public:
 class GetCommerceSettingRequest : public Darabonba::Model {
 public:
   shared_ptr<string> custSpaceId{};
+  shared_ptr<long> ownerId{};
   shared_ptr<string> phoneNumber{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
 
   GetCommerceSettingRequest() {}
 
@@ -6846,8 +7045,17 @@ public:
     if (custSpaceId) {
       res["CustSpaceId"] = boost::any(*custSpaceId);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (phoneNumber) {
       res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     return res;
   }
@@ -6856,8 +7064,17 @@ public:
     if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
       custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
   }
 
@@ -6902,10 +7119,12 @@ public:
 };
 class GetCommerceSettingResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<GetCommerceSettingResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   GetCommerceSettingResponseBody() {}
 
@@ -6917,6 +7136,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -6929,10 +7151,16 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -6948,6 +7176,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -9076,6 +9307,7 @@ public:
   shared_ptr<string> auditStatus{};
   shared_ptr<string> category{};
   shared_ptr<string> language{};
+  shared_ptr<long> lastUpdateTime{};
   shared_ptr<string> reason{};
   shared_ptr<string> templateCode{};
   shared_ptr<string> templateName{};
@@ -9099,6 +9331,9 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
+    }
+    if (lastUpdateTime) {
+      res["LastUpdateTime"] = boost::any(*lastUpdateTime);
     }
     if (reason) {
       res["Reason"] = boost::any(*reason);
@@ -9124,6 +9359,9 @@ public:
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("LastUpdateTime") != m.end() && !m["LastUpdateTime"].empty()) {
+      lastUpdateTime = make_shared<long>(boost::any_cast<long>(m["LastUpdateTime"]));
     }
     if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
       reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
@@ -11564,8 +11802,11 @@ public:
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> description{};
   shared_ptr<string> email{};
+  shared_ptr<long> ownerId{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<string> profilePictureUrl{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> vertical{};
   shared_ptr<vector<string>> websites{};
 
@@ -11594,11 +11835,20 @@ public:
     if (email) {
       res["Email"] = boost::any(*email);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (phoneNumber) {
       res["PhoneNumber"] = boost::any(*phoneNumber);
     }
     if (profilePictureUrl) {
       res["ProfilePictureUrl"] = boost::any(*profilePictureUrl);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     if (vertical) {
       res["Vertical"] = boost::any(*vertical);
@@ -11625,11 +11875,20 @@ public:
     if (m.find("Email") != m.end() && !m["Email"].empty()) {
       email = make_shared<string>(boost::any_cast<string>(m["Email"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
     }
     if (m.find("ProfilePictureUrl") != m.end() && !m["ProfilePictureUrl"].empty()) {
       profilePictureUrl = make_shared<string>(boost::any_cast<string>(m["ProfilePictureUrl"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
     if (m.find("Vertical") != m.end() && !m["Vertical"].empty()) {
       vertical = make_shared<string>(boost::any_cast<string>(m["Vertical"]));
@@ -11656,8 +11915,11 @@ public:
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> description{};
   shared_ptr<string> email{};
+  shared_ptr<long> ownerId{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<string> profilePictureUrl{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> vertical{};
   shared_ptr<string> websitesShrink{};
 
@@ -11686,11 +11948,20 @@ public:
     if (email) {
       res["Email"] = boost::any(*email);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (phoneNumber) {
       res["PhoneNumber"] = boost::any(*phoneNumber);
     }
     if (profilePictureUrl) {
       res["ProfilePictureUrl"] = boost::any(*profilePictureUrl);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     if (vertical) {
       res["Vertical"] = boost::any(*vertical);
@@ -11717,11 +11988,20 @@ public:
     if (m.find("Email") != m.end() && !m["Email"].empty()) {
       email = make_shared<string>(boost::any_cast<string>(m["Email"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
     }
     if (m.find("ProfilePictureUrl") != m.end() && !m["ProfilePictureUrl"].empty()) {
       profilePictureUrl = make_shared<string>(boost::any_cast<string>(m["ProfilePictureUrl"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
     if (m.find("Vertical") != m.end() && !m["Vertical"].empty()) {
       vertical = make_shared<string>(boost::any_cast<string>(m["Vertical"]));
@@ -11740,6 +12020,7 @@ public:
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   ModifyPhoneBusinessProfileResponseBody() {}
 
@@ -11763,6 +12044,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
@@ -11778,6 +12062,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -12495,7 +12782,10 @@ public:
 class QueryPhoneBusinessProfileRequest : public Darabonba::Model {
 public:
   shared_ptr<string> custSpaceId{};
+  shared_ptr<long> ownerId{};
   shared_ptr<string> phoneNumber{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
 
   QueryPhoneBusinessProfileRequest() {}
 
@@ -12510,8 +12800,17 @@ public:
     if (custSpaceId) {
       res["CustSpaceId"] = boost::any(*custSpaceId);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (phoneNumber) {
       res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     return res;
   }
@@ -12520,8 +12819,17 @@ public:
     if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
       custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
   }
 
@@ -12613,6 +12921,7 @@ public:
   shared_ptr<QueryPhoneBusinessProfileResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   QueryPhoneBusinessProfileResponseBody() {}
 
@@ -12639,6 +12948,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
@@ -12661,6 +12973,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -12722,6 +13037,9 @@ public:
 class QueryWabaBusinessInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> custSpaceId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> wabaId{};
 
   QueryWabaBusinessInfoRequest() {}
@@ -12737,6 +13055,15 @@ public:
     if (custSpaceId) {
       res["CustSpaceId"] = boost::any(*custSpaceId);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
     if (wabaId) {
       res["WabaId"] = boost::any(*wabaId);
     }
@@ -12746,6 +13073,15 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
       custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
     if (m.find("WabaId") != m.end() && !m["WabaId"].empty()) {
       wabaId = make_shared<string>(boost::any_cast<string>(m["WabaId"]));
@@ -12812,6 +13148,7 @@ public:
   shared_ptr<QueryWabaBusinessInfoResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   QueryWabaBusinessInfoResponseBody() {}
 
@@ -12838,6 +13175,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
@@ -12860,6 +13200,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -14600,7 +14943,10 @@ public:
   shared_ptr<bool> cartEnable{};
   shared_ptr<bool> catalogVisible{};
   shared_ptr<string> custSpaceId{};
+  shared_ptr<long> ownerId{};
   shared_ptr<string> phoneNumber{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
 
   UpdateCommerceSettingRequest() {}
 
@@ -14621,8 +14967,17 @@ public:
     if (custSpaceId) {
       res["CustSpaceId"] = boost::any(*custSpaceId);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (phoneNumber) {
       res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     return res;
   }
@@ -14637,8 +14992,17 @@ public:
     if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
       custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
   }
 
@@ -14647,9 +15011,11 @@ public:
 };
 class UpdateCommerceSettingResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   UpdateCommerceSettingResponseBody() {}
 
@@ -14661,6 +15027,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -14670,10 +15039,16 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -14682,6 +15057,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
