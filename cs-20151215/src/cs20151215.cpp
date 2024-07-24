@@ -5064,7 +5064,7 @@ UpgradeClusterAddonsResponse Alibabacloud_CS20151215::Client::upgradeClusterAddo
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
+    {"bodyType", boost::any(string("json"))}
   }));
   return UpgradeClusterAddonsResponse(callApi(params, req, runtime));
 }

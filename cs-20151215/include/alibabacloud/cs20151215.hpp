@@ -29306,10 +29306,54 @@ public:
 
   virtual ~UpgradeClusterAddonsRequest() = default;
 };
+class UpgradeClusterAddonsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  UpgradeClusterAddonsResponseBody() {}
+
+  explicit UpgradeClusterAddonsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["cluster_id"] = boost::any(*clusterId);
+    }
+    if (requestId) {
+      res["request_id"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["task_id"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cluster_id") != m.end() && !m["cluster_id"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["cluster_id"]));
+    }
+    if (m.find("request_id") != m.end() && !m["request_id"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["request_id"]));
+    }
+    if (m.find("task_id") != m.end() && !m["task_id"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["task_id"]));
+    }
+  }
+
+
+  virtual ~UpgradeClusterAddonsResponseBody() = default;
+};
 class UpgradeClusterAddonsResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
   shared_ptr<long> statusCode{};
+  shared_ptr<UpgradeClusterAddonsResponseBody> body{};
 
   UpgradeClusterAddonsResponse() {}
 
@@ -29327,6 +29371,9 @@ public:
     if (statusCode) {
       res["statusCode"] = boost::any(*statusCode);
     }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -29341,6 +29388,13 @@ public:
     }
     if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
       statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpgradeClusterAddonsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpgradeClusterAddonsResponseBody>(model1);
+      }
     }
   }
 
