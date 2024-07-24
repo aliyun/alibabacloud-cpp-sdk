@@ -10811,6 +10811,264 @@ public:
 
   virtual ~DescribeDtsEtlJobVersionInfoResponse() = default;
 };
+class DescribeDtsJobConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dtsJobId{};
+  shared_ptr<string> forAcceleration{};
+  shared_ptr<string> module{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+
+  DescribeDtsJobConfigRequest() {}
+
+  explicit DescribeDtsJobConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dtsJobId) {
+      res["DtsJobId"] = boost::any(*dtsJobId);
+    }
+    if (forAcceleration) {
+      res["ForAcceleration"] = boost::any(*forAcceleration);
+    }
+    if (module) {
+      res["Module"] = boost::any(*module);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
+      dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
+    }
+    if (m.find("ForAcceleration") != m.end() && !m["ForAcceleration"].empty()) {
+      forAcceleration = make_shared<string>(boost::any_cast<string>(m["ForAcceleration"]));
+    }
+    if (m.find("Module") != m.end() && !m["Module"].empty()) {
+      module = make_shared<string>(boost::any_cast<string>(m["Module"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeDtsJobConfigRequest() = default;
+};
+class DescribeDtsJobConfigResponseBodyParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> checkingCode{};
+  shared_ptr<string> defaultValue{};
+  shared_ptr<string> description{};
+  shared_ptr<string> forceRestart{};
+  shared_ptr<string> modifiable{};
+  shared_ptr<string> module{};
+  shared_ptr<string> name{};
+  shared_ptr<string> recommendValue{};
+  shared_ptr<string> runningValue{};
+  shared_ptr<long> valueType{};
+
+  DescribeDtsJobConfigResponseBodyParameters() {}
+
+  explicit DescribeDtsJobConfigResponseBodyParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkingCode) {
+      res["CheckingCode"] = boost::any(*checkingCode);
+    }
+    if (defaultValue) {
+      res["DefaultValue"] = boost::any(*defaultValue);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (forceRestart) {
+      res["ForceRestart"] = boost::any(*forceRestart);
+    }
+    if (modifiable) {
+      res["Modifiable"] = boost::any(*modifiable);
+    }
+    if (module) {
+      res["Module"] = boost::any(*module);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (recommendValue) {
+      res["RecommendValue"] = boost::any(*recommendValue);
+    }
+    if (runningValue) {
+      res["RunningValue"] = boost::any(*runningValue);
+    }
+    if (valueType) {
+      res["ValueType"] = boost::any(*valueType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckingCode") != m.end() && !m["CheckingCode"].empty()) {
+      checkingCode = make_shared<string>(boost::any_cast<string>(m["CheckingCode"]));
+    }
+    if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
+      defaultValue = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ForceRestart") != m.end() && !m["ForceRestart"].empty()) {
+      forceRestart = make_shared<string>(boost::any_cast<string>(m["ForceRestart"]));
+    }
+    if (m.find("Modifiable") != m.end() && !m["Modifiable"].empty()) {
+      modifiable = make_shared<string>(boost::any_cast<string>(m["Modifiable"]));
+    }
+    if (m.find("Module") != m.end() && !m["Module"].empty()) {
+      module = make_shared<string>(boost::any_cast<string>(m["Module"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RecommendValue") != m.end() && !m["RecommendValue"].empty()) {
+      recommendValue = make_shared<string>(boost::any_cast<string>(m["RecommendValue"]));
+    }
+    if (m.find("RunningValue") != m.end() && !m["RunningValue"].empty()) {
+      runningValue = make_shared<string>(boost::any_cast<string>(m["RunningValue"]));
+    }
+    if (m.find("ValueType") != m.end() && !m["ValueType"].empty()) {
+      valueType = make_shared<long>(boost::any_cast<long>(m["ValueType"]));
+    }
+  }
+
+
+  virtual ~DescribeDtsJobConfigResponseBodyParameters() = default;
+};
+class DescribeDtsJobConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDtsJobConfigResponseBodyParameters>> parameters{};
+  shared_ptr<string> requestId{};
+
+  DescribeDtsJobConfigResponseBody() {}
+
+  explicit DescribeDtsJobConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*parameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Parameters"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["Parameters"].type()) {
+        vector<DescribeDtsJobConfigResponseBodyParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Parameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDtsJobConfigResponseBodyParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        parameters = make_shared<vector<DescribeDtsJobConfigResponseBodyParameters>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDtsJobConfigResponseBody() = default;
+};
+class DescribeDtsJobConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDtsJobConfigResponseBody> body{};
+
+  DescribeDtsJobConfigResponse() {}
+
+  explicit DescribeDtsJobConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDtsJobConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDtsJobConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDtsJobConfigResponse() = default;
+};
 class DescribeDtsJobDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dtsInstanceID{};
@@ -43608,6 +43866,8 @@ public:
   DescribeDedicatedClusterMonitorRuleResponse describeDedicatedClusterMonitorRule(shared_ptr<DescribeDedicatedClusterMonitorRuleRequest> request);
   DescribeDtsEtlJobVersionInfoResponse describeDtsEtlJobVersionInfoWithOptions(shared_ptr<DescribeDtsEtlJobVersionInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDtsEtlJobVersionInfoResponse describeDtsEtlJobVersionInfo(shared_ptr<DescribeDtsEtlJobVersionInfoRequest> request);
+  DescribeDtsJobConfigResponse describeDtsJobConfigWithOptions(shared_ptr<DescribeDtsJobConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDtsJobConfigResponse describeDtsJobConfig(shared_ptr<DescribeDtsJobConfigRequest> request);
   DescribeDtsJobDetailResponse describeDtsJobDetailWithOptions(shared_ptr<DescribeDtsJobDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDtsJobDetailResponse describeDtsJobDetail(shared_ptr<DescribeDtsJobDetailRequest> request);
   DescribeDtsJobsResponse describeDtsJobsWithOptions(shared_ptr<DescribeDtsJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
