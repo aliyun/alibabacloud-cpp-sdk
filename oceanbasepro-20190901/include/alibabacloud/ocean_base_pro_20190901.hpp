@@ -33442,6 +33442,564 @@ public:
 
   virtual ~DescribeSQLSamplesResponse() = default;
 };
+class DescribeSQLTuningAdvicesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> sqlId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> tenantId{};
+
+  DescribeSQLTuningAdvicesRequest() {}
+
+  explicit DescribeSQLTuningAdvicesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (sqlId) {
+      res["SqlId"] = boost::any(*sqlId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (tenantId) {
+      res["TenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("SqlId") != m.end() && !m["SqlId"].empty()) {
+      sqlId = make_shared<string>(boost::any_cast<string>(m["SqlId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
+    }
+  }
+
+
+  virtual ~DescribeSQLTuningAdvicesRequest() = default;
+};
+class DescribeSQLTuningAdvicesResponseBodyDataColumns : public Darabonba::Model {
+public:
+  shared_ptr<string> columnName{};
+  shared_ptr<string> maxValue{};
+  shared_ptr<string> minValue{};
+  shared_ptr<double> ndv{};
+
+  DescribeSQLTuningAdvicesResponseBodyDataColumns() {}
+
+  explicit DescribeSQLTuningAdvicesResponseBodyDataColumns(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (columnName) {
+      res["ColumnName"] = boost::any(*columnName);
+    }
+    if (maxValue) {
+      res["MaxValue"] = boost::any(*maxValue);
+    }
+    if (minValue) {
+      res["MinValue"] = boost::any(*minValue);
+    }
+    if (ndv) {
+      res["Ndv"] = boost::any(*ndv);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ColumnName") != m.end() && !m["ColumnName"].empty()) {
+      columnName = make_shared<string>(boost::any_cast<string>(m["ColumnName"]));
+    }
+    if (m.find("MaxValue") != m.end() && !m["MaxValue"].empty()) {
+      maxValue = make_shared<string>(boost::any_cast<string>(m["MaxValue"]));
+    }
+    if (m.find("MinValue") != m.end() && !m["MinValue"].empty()) {
+      minValue = make_shared<string>(boost::any_cast<string>(m["MinValue"]));
+    }
+    if (m.find("Ndv") != m.end() && !m["Ndv"].empty()) {
+      ndv = make_shared<double>(boost::any_cast<double>(m["Ndv"]));
+    }
+  }
+
+
+  virtual ~DescribeSQLTuningAdvicesResponseBodyDataColumns() = default;
+};
+class DescribeSQLTuningAdvicesResponseBodyDataPlan : public Darabonba::Model {
+public:
+  shared_ptr<double> avgApplicationWaitTime{};
+  shared_ptr<double> avgBufferGets{};
+  shared_ptr<double> avgConcurrencyWaitTime{};
+  shared_ptr<double> avgCpuTime{};
+  shared_ptr<double> avgDiskReads{};
+  shared_ptr<double> avgDiskWrites{};
+  shared_ptr<double> avgElapsedTime{};
+  shared_ptr<double> avgRowProcessed{};
+  shared_ptr<double> avgUserIoWaitTime{};
+  shared_ptr<long> collectTimeUs{};
+  shared_ptr<double> delayedLargeQueryPercentage{};
+  shared_ptr<double> execPs{};
+  shared_ptr<long> executions{};
+  shared_ptr<string> firstLoadTime{};
+  shared_ptr<long> firstLoadTimeUs{};
+  shared_ptr<bool> hitDiagnosis{};
+  shared_ptr<double> hitPercentage{};
+  shared_ptr<double> largeQueryPercentage{};
+  shared_ptr<long> mergedVersion{};
+  shared_ptr<long> obDbId{};
+  shared_ptr<long> obServerId{};
+  shared_ptr<string> outlineData{};
+  shared_ptr<long> outlineId{};
+  shared_ptr<string> planHash{};
+  shared_ptr<long> planId{};
+  shared_ptr<long> planSize{};
+  shared_ptr<string> planType{};
+  shared_ptr<long> schemaVersion{};
+  shared_ptr<string> serverSn{};
+  shared_ptr<bool> tableScan{};
+  shared_ptr<double> timeoutPercentage{};
+  shared_ptr<string> uid{};
+
+  DescribeSQLTuningAdvicesResponseBodyDataPlan() {}
+
+  explicit DescribeSQLTuningAdvicesResponseBodyDataPlan(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (avgApplicationWaitTime) {
+      res["AvgApplicationWaitTime"] = boost::any(*avgApplicationWaitTime);
+    }
+    if (avgBufferGets) {
+      res["AvgBufferGets"] = boost::any(*avgBufferGets);
+    }
+    if (avgConcurrencyWaitTime) {
+      res["AvgConcurrencyWaitTime"] = boost::any(*avgConcurrencyWaitTime);
+    }
+    if (avgCpuTime) {
+      res["AvgCpuTime"] = boost::any(*avgCpuTime);
+    }
+    if (avgDiskReads) {
+      res["AvgDiskReads"] = boost::any(*avgDiskReads);
+    }
+    if (avgDiskWrites) {
+      res["AvgDiskWrites"] = boost::any(*avgDiskWrites);
+    }
+    if (avgElapsedTime) {
+      res["AvgElapsedTime"] = boost::any(*avgElapsedTime);
+    }
+    if (avgRowProcessed) {
+      res["AvgRowProcessed"] = boost::any(*avgRowProcessed);
+    }
+    if (avgUserIoWaitTime) {
+      res["AvgUserIoWaitTime"] = boost::any(*avgUserIoWaitTime);
+    }
+    if (collectTimeUs) {
+      res["CollectTimeUs"] = boost::any(*collectTimeUs);
+    }
+    if (delayedLargeQueryPercentage) {
+      res["DelayedLargeQueryPercentage"] = boost::any(*delayedLargeQueryPercentage);
+    }
+    if (execPs) {
+      res["ExecPs"] = boost::any(*execPs);
+    }
+    if (executions) {
+      res["Executions"] = boost::any(*executions);
+    }
+    if (firstLoadTime) {
+      res["FirstLoadTime"] = boost::any(*firstLoadTime);
+    }
+    if (firstLoadTimeUs) {
+      res["FirstLoadTimeUs"] = boost::any(*firstLoadTimeUs);
+    }
+    if (hitDiagnosis) {
+      res["HitDiagnosis"] = boost::any(*hitDiagnosis);
+    }
+    if (hitPercentage) {
+      res["HitPercentage"] = boost::any(*hitPercentage);
+    }
+    if (largeQueryPercentage) {
+      res["LargeQueryPercentage"] = boost::any(*largeQueryPercentage);
+    }
+    if (mergedVersion) {
+      res["MergedVersion"] = boost::any(*mergedVersion);
+    }
+    if (obDbId) {
+      res["ObDbId"] = boost::any(*obDbId);
+    }
+    if (obServerId) {
+      res["ObServerId"] = boost::any(*obServerId);
+    }
+    if (outlineData) {
+      res["OutlineData"] = boost::any(*outlineData);
+    }
+    if (outlineId) {
+      res["OutlineId"] = boost::any(*outlineId);
+    }
+    if (planHash) {
+      res["PlanHash"] = boost::any(*planHash);
+    }
+    if (planId) {
+      res["PlanId"] = boost::any(*planId);
+    }
+    if (planSize) {
+      res["PlanSize"] = boost::any(*planSize);
+    }
+    if (planType) {
+      res["PlanType"] = boost::any(*planType);
+    }
+    if (schemaVersion) {
+      res["SchemaVersion"] = boost::any(*schemaVersion);
+    }
+    if (serverSn) {
+      res["ServerSn"] = boost::any(*serverSn);
+    }
+    if (tableScan) {
+      res["TableScan"] = boost::any(*tableScan);
+    }
+    if (timeoutPercentage) {
+      res["TimeoutPercentage"] = boost::any(*timeoutPercentage);
+    }
+    if (uid) {
+      res["Uid"] = boost::any(*uid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AvgApplicationWaitTime") != m.end() && !m["AvgApplicationWaitTime"].empty()) {
+      avgApplicationWaitTime = make_shared<double>(boost::any_cast<double>(m["AvgApplicationWaitTime"]));
+    }
+    if (m.find("AvgBufferGets") != m.end() && !m["AvgBufferGets"].empty()) {
+      avgBufferGets = make_shared<double>(boost::any_cast<double>(m["AvgBufferGets"]));
+    }
+    if (m.find("AvgConcurrencyWaitTime") != m.end() && !m["AvgConcurrencyWaitTime"].empty()) {
+      avgConcurrencyWaitTime = make_shared<double>(boost::any_cast<double>(m["AvgConcurrencyWaitTime"]));
+    }
+    if (m.find("AvgCpuTime") != m.end() && !m["AvgCpuTime"].empty()) {
+      avgCpuTime = make_shared<double>(boost::any_cast<double>(m["AvgCpuTime"]));
+    }
+    if (m.find("AvgDiskReads") != m.end() && !m["AvgDiskReads"].empty()) {
+      avgDiskReads = make_shared<double>(boost::any_cast<double>(m["AvgDiskReads"]));
+    }
+    if (m.find("AvgDiskWrites") != m.end() && !m["AvgDiskWrites"].empty()) {
+      avgDiskWrites = make_shared<double>(boost::any_cast<double>(m["AvgDiskWrites"]));
+    }
+    if (m.find("AvgElapsedTime") != m.end() && !m["AvgElapsedTime"].empty()) {
+      avgElapsedTime = make_shared<double>(boost::any_cast<double>(m["AvgElapsedTime"]));
+    }
+    if (m.find("AvgRowProcessed") != m.end() && !m["AvgRowProcessed"].empty()) {
+      avgRowProcessed = make_shared<double>(boost::any_cast<double>(m["AvgRowProcessed"]));
+    }
+    if (m.find("AvgUserIoWaitTime") != m.end() && !m["AvgUserIoWaitTime"].empty()) {
+      avgUserIoWaitTime = make_shared<double>(boost::any_cast<double>(m["AvgUserIoWaitTime"]));
+    }
+    if (m.find("CollectTimeUs") != m.end() && !m["CollectTimeUs"].empty()) {
+      collectTimeUs = make_shared<long>(boost::any_cast<long>(m["CollectTimeUs"]));
+    }
+    if (m.find("DelayedLargeQueryPercentage") != m.end() && !m["DelayedLargeQueryPercentage"].empty()) {
+      delayedLargeQueryPercentage = make_shared<double>(boost::any_cast<double>(m["DelayedLargeQueryPercentage"]));
+    }
+    if (m.find("ExecPs") != m.end() && !m["ExecPs"].empty()) {
+      execPs = make_shared<double>(boost::any_cast<double>(m["ExecPs"]));
+    }
+    if (m.find("Executions") != m.end() && !m["Executions"].empty()) {
+      executions = make_shared<long>(boost::any_cast<long>(m["Executions"]));
+    }
+    if (m.find("FirstLoadTime") != m.end() && !m["FirstLoadTime"].empty()) {
+      firstLoadTime = make_shared<string>(boost::any_cast<string>(m["FirstLoadTime"]));
+    }
+    if (m.find("FirstLoadTimeUs") != m.end() && !m["FirstLoadTimeUs"].empty()) {
+      firstLoadTimeUs = make_shared<long>(boost::any_cast<long>(m["FirstLoadTimeUs"]));
+    }
+    if (m.find("HitDiagnosis") != m.end() && !m["HitDiagnosis"].empty()) {
+      hitDiagnosis = make_shared<bool>(boost::any_cast<bool>(m["HitDiagnosis"]));
+    }
+    if (m.find("HitPercentage") != m.end() && !m["HitPercentage"].empty()) {
+      hitPercentage = make_shared<double>(boost::any_cast<double>(m["HitPercentage"]));
+    }
+    if (m.find("LargeQueryPercentage") != m.end() && !m["LargeQueryPercentage"].empty()) {
+      largeQueryPercentage = make_shared<double>(boost::any_cast<double>(m["LargeQueryPercentage"]));
+    }
+    if (m.find("MergedVersion") != m.end() && !m["MergedVersion"].empty()) {
+      mergedVersion = make_shared<long>(boost::any_cast<long>(m["MergedVersion"]));
+    }
+    if (m.find("ObDbId") != m.end() && !m["ObDbId"].empty()) {
+      obDbId = make_shared<long>(boost::any_cast<long>(m["ObDbId"]));
+    }
+    if (m.find("ObServerId") != m.end() && !m["ObServerId"].empty()) {
+      obServerId = make_shared<long>(boost::any_cast<long>(m["ObServerId"]));
+    }
+    if (m.find("OutlineData") != m.end() && !m["OutlineData"].empty()) {
+      outlineData = make_shared<string>(boost::any_cast<string>(m["OutlineData"]));
+    }
+    if (m.find("OutlineId") != m.end() && !m["OutlineId"].empty()) {
+      outlineId = make_shared<long>(boost::any_cast<long>(m["OutlineId"]));
+    }
+    if (m.find("PlanHash") != m.end() && !m["PlanHash"].empty()) {
+      planHash = make_shared<string>(boost::any_cast<string>(m["PlanHash"]));
+    }
+    if (m.find("PlanId") != m.end() && !m["PlanId"].empty()) {
+      planId = make_shared<long>(boost::any_cast<long>(m["PlanId"]));
+    }
+    if (m.find("PlanSize") != m.end() && !m["PlanSize"].empty()) {
+      planSize = make_shared<long>(boost::any_cast<long>(m["PlanSize"]));
+    }
+    if (m.find("PlanType") != m.end() && !m["PlanType"].empty()) {
+      planType = make_shared<string>(boost::any_cast<string>(m["PlanType"]));
+    }
+    if (m.find("SchemaVersion") != m.end() && !m["SchemaVersion"].empty()) {
+      schemaVersion = make_shared<long>(boost::any_cast<long>(m["SchemaVersion"]));
+    }
+    if (m.find("ServerSn") != m.end() && !m["ServerSn"].empty()) {
+      serverSn = make_shared<string>(boost::any_cast<string>(m["ServerSn"]));
+    }
+    if (m.find("TableScan") != m.end() && !m["TableScan"].empty()) {
+      tableScan = make_shared<bool>(boost::any_cast<bool>(m["TableScan"]));
+    }
+    if (m.find("TimeoutPercentage") != m.end() && !m["TimeoutPercentage"].empty()) {
+      timeoutPercentage = make_shared<double>(boost::any_cast<double>(m["TimeoutPercentage"]));
+    }
+    if (m.find("Uid") != m.end() && !m["Uid"].empty()) {
+      uid = make_shared<string>(boost::any_cast<string>(m["Uid"]));
+    }
+  }
+
+
+  virtual ~DescribeSQLTuningAdvicesResponseBodyDataPlan() = default;
+};
+class DescribeSQLTuningAdvicesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> columnNames{};
+  shared_ptr<vector<DescribeSQLTuningAdvicesResponseBodyDataColumns>> columns{};
+  shared_ptr<string> dbName{};
+  shared_ptr<string> localityType{};
+  shared_ptr<DescribeSQLTuningAdvicesResponseBodyDataPlan> plan{};
+  shared_ptr<string> table{};
+  shared_ptr<string> type{};
+
+  DescribeSQLTuningAdvicesResponseBodyData() {}
+
+  explicit DescribeSQLTuningAdvicesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (columnNames) {
+      res["ColumnNames"] = boost::any(*columnNames);
+    }
+    if (columns) {
+      vector<boost::any> temp1;
+      for(auto item1:*columns){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Columns"] = boost::any(temp1);
+    }
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (localityType) {
+      res["LocalityType"] = boost::any(*localityType);
+    }
+    if (plan) {
+      res["Plan"] = plan ? boost::any(plan->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (table) {
+      res["Table"] = boost::any(*table);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ColumnNames") != m.end() && !m["ColumnNames"].empty()) {
+      columnNames = make_shared<string>(boost::any_cast<string>(m["ColumnNames"]));
+    }
+    if (m.find("Columns") != m.end() && !m["Columns"].empty()) {
+      if (typeid(vector<boost::any>) == m["Columns"].type()) {
+        vector<DescribeSQLTuningAdvicesResponseBodyDataColumns> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Columns"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSQLTuningAdvicesResponseBodyDataColumns model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        columns = make_shared<vector<DescribeSQLTuningAdvicesResponseBodyDataColumns>>(expect1);
+      }
+    }
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("LocalityType") != m.end() && !m["LocalityType"].empty()) {
+      localityType = make_shared<string>(boost::any_cast<string>(m["LocalityType"]));
+    }
+    if (m.find("Plan") != m.end() && !m["Plan"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Plan"].type()) {
+        DescribeSQLTuningAdvicesResponseBodyDataPlan model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Plan"]));
+        plan = make_shared<DescribeSQLTuningAdvicesResponseBodyDataPlan>(model1);
+      }
+    }
+    if (m.find("Table") != m.end() && !m["Table"].empty()) {
+      table = make_shared<string>(boost::any_cast<string>(m["Table"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeSQLTuningAdvicesResponseBodyData() = default;
+};
+class DescribeSQLTuningAdvicesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeSQLTuningAdvicesResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+
+  DescribeSQLTuningAdvicesResponseBody() {}
+
+  explicit DescribeSQLTuningAdvicesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<DescribeSQLTuningAdvicesResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSQLTuningAdvicesResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<DescribeSQLTuningAdvicesResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeSQLTuningAdvicesResponseBody() = default;
+};
+class DescribeSQLTuningAdvicesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSQLTuningAdvicesResponseBody> body{};
+
+  DescribeSQLTuningAdvicesResponse() {}
+
+  explicit DescribeSQLTuningAdvicesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSQLTuningAdvicesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSQLTuningAdvicesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSQLTuningAdvicesResponse() = default;
+};
 class DescribeSampleSqlRawTextsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dbName{};
@@ -54995,6 +55553,8 @@ public:
   DescribeSQLPlansResponse describeSQLPlans(shared_ptr<DescribeSQLPlansRequest> request);
   DescribeSQLSamplesResponse describeSQLSamplesWithOptions(shared_ptr<DescribeSQLSamplesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSQLSamplesResponse describeSQLSamples(shared_ptr<DescribeSQLSamplesRequest> request);
+  DescribeSQLTuningAdvicesResponse describeSQLTuningAdvicesWithOptions(shared_ptr<DescribeSQLTuningAdvicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSQLTuningAdvicesResponse describeSQLTuningAdvices(shared_ptr<DescribeSQLTuningAdvicesRequest> request);
   DescribeSampleSqlRawTextsResponse describeSampleSqlRawTextsWithOptions(shared_ptr<DescribeSampleSqlRawTextsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSampleSqlRawTextsResponse describeSampleSqlRawTexts(shared_ptr<DescribeSampleSqlRawTextsRequest> request);
   DescribeSecurityIpGroupsResponse describeSecurityIpGroupsWithOptions(shared_ptr<DescribeSecurityIpGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
