@@ -836,6 +836,12 @@ AllocateIpv6InternetBandwidthResponse Alibabacloud_Vpc20160428::Client::allocate
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->internetChargeType)) {
     query->insert(pair<string, string>("InternetChargeType", *request->internetChargeType));
   }
@@ -7099,6 +7105,12 @@ DeleteIpv6EgressOnlyRuleResponse Alibabacloud_Vpc20160428::Client::deleteIpv6Egr
 DeleteIpv6GatewayResponse Alibabacloud_Vpc20160428::Client::deleteIpv6GatewayWithOptions(shared_ptr<DeleteIpv6GatewayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipv6GatewayId)) {
     query->insert(pair<string, string>("Ipv6GatewayId", *request->ipv6GatewayId));
   }
@@ -7145,6 +7157,12 @@ DeleteIpv6GatewayResponse Alibabacloud_Vpc20160428::Client::deleteIpv6Gateway(sh
 DeleteIpv6InternetBandwidthResponse Alibabacloud_Vpc20160428::Client::deleteIpv6InternetBandwidthWithOptions(shared_ptr<DeleteIpv6InternetBandwidthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipv6AddressId)) {
     query->insert(pair<string, string>("Ipv6AddressId", *request->ipv6AddressId));
   }
@@ -8073,6 +8091,12 @@ DeleteVSwitchResponse Alibabacloud_Vpc20160428::Client::deleteVSwitch(shared_ptr
 DeleteVSwitchCidrReservationResponse Alibabacloud_Vpc20160428::Client::deleteVSwitchCidrReservationWithOptions(shared_ptr<DeleteVSwitchCidrReservationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -8263,6 +8287,9 @@ DeleteVirtualBorderRouterResponse Alibabacloud_Vpc20160428::Client::deleteVirtua
 DeleteVpcResponse Alibabacloud_Vpc20160428::Client::deleteVpcWithOptions(shared_ptr<DeleteVpcRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
@@ -10901,6 +10928,9 @@ DescribePhysicalConnectionsResponse Alibabacloud_Vpc20160428::Client::describePh
 DescribePublicIpAddressResponse Alibabacloud_Vpc20160428::Client::describePublicIpAddressWithOptions(shared_ptr<DescribePublicIpAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipVersion)) {
+    query->insert(pair<string, string>("IpVersion", *request->ipVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -16800,8 +16830,14 @@ ModifyIPv6TranslatorEntryResponse Alibabacloud_Vpc20160428::Client::modifyIPv6Tr
 ModifyIpv6AddressAttributeResponse Alibabacloud_Vpc20160428::Client::modifyIpv6AddressAttributeWithOptions(shared_ptr<ModifyIpv6AddressAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipv6AddressId)) {
     query->insert(pair<string, string>("Ipv6AddressId", *request->ipv6AddressId));
@@ -16852,8 +16888,14 @@ ModifyIpv6AddressAttributeResponse Alibabacloud_Vpc20160428::Client::modifyIpv6A
 ModifyIpv6GatewayAttributeResponse Alibabacloud_Vpc20160428::Client::modifyIpv6GatewayAttributeWithOptions(shared_ptr<ModifyIpv6GatewayAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipv6GatewayId)) {
     query->insert(pair<string, string>("Ipv6GatewayId", *request->ipv6GatewayId));
@@ -16909,6 +16951,12 @@ ModifyIpv6InternetBandwidthResponse Alibabacloud_Vpc20160428::Client::modifyIpv6
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipv6AddressId)) {
     query->insert(pair<string, string>("Ipv6AddressId", *request->ipv6AddressId));
@@ -17901,6 +17949,12 @@ ModifyVSwitchAttributeResponse Alibabacloud_Vpc20160428::Client::modifyVSwitchAt
 ModifyVSwitchCidrReservationAttributeResponse Alibabacloud_Vpc20160428::Client::modifyVSwitchCidrReservationAttributeWithOptions(shared_ptr<ModifyVSwitchCidrReservationAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }

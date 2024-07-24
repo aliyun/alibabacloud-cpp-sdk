@@ -2526,6 +2526,7 @@ class AllocateIpv6InternetBandwidthRequest : public Darabonba::Model {
 public:
   shared_ptr<long> bandwidth{};
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<string> ipv6AddressId{};
   shared_ptr<string> ipv6GatewayId{};
@@ -2550,6 +2551,9 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
     }
     if (internetChargeType) {
       res["InternetChargeType"] = boost::any(*internetChargeType);
@@ -2584,6 +2588,9 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
     }
     if (m.find("InternetChargeType") != m.end() && !m["InternetChargeType"].empty()) {
       internetChargeType = make_shared<string>(boost::any_cast<string>(m["InternetChargeType"]));
@@ -25912,6 +25919,8 @@ public:
 };
 class DeleteIpv6GatewayRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> ipv6GatewayId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -25929,6 +25938,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
     if (ipv6GatewayId) {
       res["Ipv6GatewayId"] = boost::any(*ipv6GatewayId);
     }
@@ -25951,6 +25966,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
     if (m.find("Ipv6GatewayId") != m.end() && !m["Ipv6GatewayId"].empty()) {
       ipv6GatewayId = make_shared<string>(boost::any_cast<string>(m["Ipv6GatewayId"]));
     }
@@ -26057,6 +26078,8 @@ public:
 };
 class DeleteIpv6InternetBandwidthRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> ipv6AddressId{};
   shared_ptr<string> ipv6InternetBandwidthId{};
   shared_ptr<string> ownerAccount{};
@@ -26075,6 +26098,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
     if (ipv6AddressId) {
       res["Ipv6AddressId"] = boost::any(*ipv6AddressId);
     }
@@ -26100,6 +26129,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
     if (m.find("Ipv6AddressId") != m.end() && !m["Ipv6AddressId"].empty()) {
       ipv6AddressId = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressId"]));
     }
@@ -29242,6 +29277,8 @@ public:
 };
 class DeleteVSwitchCidrReservationRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -29259,6 +29296,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
     }
@@ -29281,6 +29324,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
@@ -29864,6 +29913,7 @@ public:
 };
 class DeleteVpcRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<bool> forceDelete{};
   shared_ptr<string> ownerAccount{};
@@ -29883,6 +29933,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
     }
@@ -29911,6 +29964,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
     }
@@ -48339,6 +48395,7 @@ public:
 };
 class DescribePublicIpAddressRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> ipVersion{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
@@ -48357,6 +48414,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ipVersion) {
+      res["IpVersion"] = boost::any(*ipVersion);
+    }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
     }
@@ -48382,6 +48442,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
+      ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
+    }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
@@ -85006,7 +85069,9 @@ public:
 };
 class ModifyIpv6AddressAttributeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> ipv6AddressId{};
   shared_ptr<string> name{};
   shared_ptr<string> ownerAccount{};
@@ -85025,8 +85090,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
     }
     if (ipv6AddressId) {
       res["Ipv6AddressId"] = boost::any(*ipv6AddressId);
@@ -85053,8 +85124,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
     }
     if (m.find("Ipv6AddressId") != m.end() && !m["Ipv6AddressId"].empty()) {
       ipv6AddressId = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressId"]));
@@ -85165,7 +85242,9 @@ public:
 };
 class ModifyIpv6GatewayAttributeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> ipv6GatewayId{};
   shared_ptr<string> name{};
   shared_ptr<string> ownerAccount{};
@@ -85184,8 +85263,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
     }
     if (ipv6GatewayId) {
       res["Ipv6GatewayId"] = boost::any(*ipv6GatewayId);
@@ -85212,8 +85297,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
     }
     if (m.find("Ipv6GatewayId") != m.end() && !m["Ipv6GatewayId"].empty()) {
       ipv6GatewayId = make_shared<string>(boost::any_cast<string>(m["Ipv6GatewayId"]));
@@ -85326,6 +85417,7 @@ class ModifyIpv6InternetBandwidthRequest : public Darabonba::Model {
 public:
   shared_ptr<long> bandwidth{};
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> ipv6AddressId{};
   shared_ptr<string> ipv6InternetBandwidthId{};
   shared_ptr<string> ownerAccount{};
@@ -85349,6 +85441,9 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
     }
     if (ipv6AddressId) {
       res["Ipv6AddressId"] = boost::any(*ipv6AddressId);
@@ -85380,6 +85475,9 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
     }
     if (m.find("Ipv6AddressId") != m.end() && !m["Ipv6AddressId"].empty()) {
       ipv6AddressId = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressId"]));
@@ -89216,6 +89314,8 @@ public:
 };
 class ModifyVSwitchCidrReservationAttributeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -89235,6 +89335,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
     }
@@ -89263,6 +89369,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
