@@ -3026,6 +3026,30 @@ GetClusterAddonInstanceResponse Alibabacloud_CS20151215::Client::getClusterAddon
   return getClusterAddonInstanceWithOptions(clusterId, instanceName, headers, runtime);
 }
 
+GetClusterAuditProjectResponse Alibabacloud_CS20151215::Client::getClusterAuditProjectWithOptions(shared_ptr<string> clusterid, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetClusterAuditProject"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/clusters/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(clusterid)) + string("/audit"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetClusterAuditProjectResponse(callApi(params, req, runtime));
+}
+
+GetClusterAuditProjectResponse Alibabacloud_CS20151215::Client::getClusterAuditProject(shared_ptr<string> clusterid) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getClusterAuditProjectWithOptions(clusterid, headers, runtime);
+}
+
 GetClusterCheckResponse Alibabacloud_CS20151215::Client::getClusterCheckWithOptions(shared_ptr<string> clusterId,
                                                                                     shared_ptr<string> checkId,
                                                                                     shared_ptr<map<string, string>> headers,
