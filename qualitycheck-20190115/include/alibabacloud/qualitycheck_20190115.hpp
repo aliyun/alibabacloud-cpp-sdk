@@ -11873,10 +11873,45 @@ public:
 
   virtual ~GetResultResponseBodyDataResultInfoRecording() = default;
 };
-class GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRule : public Darabonba::Model {
+class GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule : public Darabonba::Model {
 public:
   shared_ptr<long> rid{};
   shared_ptr<string> ruleName{};
+
+  GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule() {}
+
+  explicit GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rid) {
+      res["rid"] = boost::any(*rid);
+    }
+    if (ruleName) {
+      res["ruleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("rid") != m.end() && !m["rid"].empty()) {
+      rid = make_shared<long>(boost::any_cast<long>(m["rid"]));
+    }
+    if (m.find("ruleName") != m.end() && !m["ruleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["ruleName"]));
+    }
+  }
+
+
+  virtual ~GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule() = default;
+};
+class GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRule : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule>> reviewRightRule{};
 
   GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRule() {}
 
@@ -11888,21 +11923,29 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (rid) {
-      res["Rid"] = boost::any(*rid);
-    }
-    if (ruleName) {
-      res["RuleName"] = boost::any(*ruleName);
+    if (reviewRightRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*reviewRightRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ReviewRightRule"] = boost::any(temp1);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Rid") != m.end() && !m["Rid"].empty()) {
-      rid = make_shared<long>(boost::any_cast<long>(m["Rid"]));
-    }
-    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
-      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    if (m.find("ReviewRightRule") != m.end() && !m["ReviewRightRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["ReviewRightRule"].type()) {
+        vector<GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ReviewRightRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        reviewRightRule = make_shared<vector<GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule>>(expect1);
+      }
     }
   }
 
@@ -13689,10 +13732,45 @@ public:
 
   virtual ~GetResultToReviewResponseBodyDataManualScoreInfoList() = default;
 };
-class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRule : public Darabonba::Model {
+class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule : public Darabonba::Model {
 public:
   shared_ptr<long> rid{};
   shared_ptr<string> ruleName{};
+
+  GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule() {}
+
+  explicit GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rid) {
+      res["rid"] = boost::any(*rid);
+    }
+    if (ruleName) {
+      res["ruleName"] = boost::any(*ruleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("rid") != m.end() && !m["rid"].empty()) {
+      rid = make_shared<long>(boost::any_cast<long>(m["rid"]));
+    }
+    if (m.find("ruleName") != m.end() && !m["ruleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["ruleName"]));
+    }
+  }
+
+
+  virtual ~GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule() = default;
+};
+class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRule : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule>> reviewRightRule{};
 
   GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRule() {}
 
@@ -13704,21 +13782,29 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (rid) {
-      res["Rid"] = boost::any(*rid);
-    }
-    if (ruleName) {
-      res["RuleName"] = boost::any(*ruleName);
+    if (reviewRightRule) {
+      vector<boost::any> temp1;
+      for(auto item1:*reviewRightRule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ReviewRightRule"] = boost::any(temp1);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Rid") != m.end() && !m["Rid"].empty()) {
-      rid = make_shared<long>(boost::any_cast<long>(m["Rid"]));
-    }
-    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
-      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    if (m.find("ReviewRightRule") != m.end() && !m["ReviewRightRule"].empty()) {
+      if (typeid(vector<boost::any>) == m["ReviewRightRule"].type()) {
+        vector<GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ReviewRightRule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        reviewRightRule = make_shared<vector<GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule>>(expect1);
+      }
     }
   }
 
