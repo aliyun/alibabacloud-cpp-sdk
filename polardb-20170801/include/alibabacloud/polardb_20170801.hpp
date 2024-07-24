@@ -13689,6 +13689,7 @@ public:
   shared_ptr<string> engine{};
   shared_ptr<string> expireTime{};
   shared_ptr<string> expired{};
+  shared_ptr<string> hotStandbyCluster{};
   shared_ptr<string> lockMode{};
   shared_ptr<string> memorySize{};
   shared_ptr<string> payType{};
@@ -13767,6 +13768,9 @@ public:
     }
     if (expired) {
       res["Expired"] = boost::any(*expired);
+    }
+    if (hotStandbyCluster) {
+      res["HotStandbyCluster"] = boost::any(*hotStandbyCluster);
     }
     if (lockMode) {
       res["LockMode"] = boost::any(*lockMode);
@@ -13877,6 +13881,9 @@ public:
     }
     if (m.find("Expired") != m.end() && !m["Expired"].empty()) {
       expired = make_shared<string>(boost::any_cast<string>(m["Expired"]));
+    }
+    if (m.find("HotStandbyCluster") != m.end() && !m["HotStandbyCluster"].empty()) {
+      hotStandbyCluster = make_shared<string>(boost::any_cast<string>(m["HotStandbyCluster"]));
     }
     if (m.find("LockMode") != m.end() && !m["LockMode"].empty()) {
       lockMode = make_shared<string>(boost::any_cast<string>(m["LockMode"]));
