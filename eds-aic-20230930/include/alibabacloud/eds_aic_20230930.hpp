@@ -733,6 +733,7 @@ public:
   shared_ptr<bool> autoRenew{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> chargeType{};
+  shared_ptr<bool> gpuAcceleration{};
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceGroupName{};
   shared_ptr<string> instanceGroupSpec{};
@@ -767,6 +768,9 @@ public:
     }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (gpuAcceleration) {
+      res["GpuAcceleration"] = boost::any(*gpuAcceleration);
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
@@ -813,6 +817,9 @@ public:
     }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("GpuAcceleration") != m.end() && !m["GpuAcceleration"].empty()) {
+      gpuAcceleration = make_shared<bool>(boost::any_cast<bool>(m["GpuAcceleration"]));
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
@@ -2401,6 +2408,7 @@ public:
   shared_ptr<string> officeSiteId{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> renderingType{};
   shared_ptr<long> resolutionHeight{};
   shared_ptr<long> resolutionWidth{};
   shared_ptr<string> saleMode{};
@@ -2483,6 +2491,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (renderingType) {
+      res["RenderingType"] = boost::any(*renderingType);
     }
     if (resolutionHeight) {
       res["ResolutionHeight"] = boost::any(*resolutionHeight);
@@ -2575,6 +2586,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RenderingType") != m.end() && !m["RenderingType"].empty()) {
+      renderingType = make_shared<string>(boost::any_cast<string>(m["RenderingType"]));
     }
     if (m.find("ResolutionHeight") != m.end() && !m["ResolutionHeight"].empty()) {
       resolutionHeight = make_shared<long>(boost::any_cast<long>(m["ResolutionHeight"]));
@@ -2815,6 +2829,7 @@ public:
   shared_ptr<string> persistentAppInstanceId{};
   shared_ptr<long> rate{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> renderingType{};
 
   DescribeAndroidInstancesResponseBodyInstanceModel() {}
 
@@ -2874,6 +2889,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (renderingType) {
+      res["RenderingType"] = boost::any(*renderingType);
+    }
     return res;
   }
 
@@ -2925,6 +2943,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RenderingType") != m.end() && !m["RenderingType"].empty()) {
+      renderingType = make_shared<string>(boost::any_cast<string>(m["RenderingType"]));
     }
   }
 
@@ -3779,6 +3800,8 @@ public:
   shared_ptr<vector<string>> imageRegionList{};
   shared_ptr<string> imageType{};
   shared_ptr<string> language{};
+  shared_ptr<string> releaseTime{};
+  shared_ptr<string> renderingType{};
   shared_ptr<string> status{};
   shared_ptr<string> systemType{};
 
@@ -3825,6 +3848,12 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
+    }
+    if (releaseTime) {
+      res["ReleaseTime"] = boost::any(*releaseTime);
+    }
+    if (renderingType) {
+      res["RenderingType"] = boost::any(*renderingType);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -3882,6 +3911,12 @@ public:
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("ReleaseTime") != m.end() && !m["ReleaseTime"].empty()) {
+      releaseTime = make_shared<string>(boost::any_cast<string>(m["ReleaseTime"]));
+    }
+    if (m.find("RenderingType") != m.end() && !m["RenderingType"].empty()) {
+      renderingType = make_shared<string>(boost::any_cast<string>(m["RenderingType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -8788,6 +8823,7 @@ public:
 };
 class UpgradeAndroidInstanceGroupResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> instanceIds{};
   shared_ptr<string> orderId{};
   shared_ptr<string> requestId{};
 
@@ -8801,6 +8837,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
     }
@@ -8811,6 +8850,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      instanceIds = make_shared<string>(boost::any_cast<string>(m["InstanceIds"]));
+    }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
     }

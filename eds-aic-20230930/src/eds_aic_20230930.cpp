@@ -198,6 +198,9 @@ CreateAndroidInstanceGroupResponse Alibabacloud_Eds-aic20230930::Client::createA
   if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
     query->insert(pair<string, string>("ChargeType", *request->chargeType));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->gpuAcceleration)) {
+    query->insert(pair<string, bool>("GpuAcceleration", *request->gpuAcceleration));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     query->insert(pair<string, string>("ImageId", *request->imageId));
   }
