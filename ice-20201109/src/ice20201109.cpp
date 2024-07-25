@@ -6169,6 +6169,37 @@ SubmitLiveTranscodeJobResponse Alibabacloud_ICE20201109::Client::submitLiveTrans
   return submitLiveTranscodeJobWithOptions(request, runtime);
 }
 
+SubmitMediaAiAnalysisJobResponse Alibabacloud_ICE20201109::Client::submitMediaAiAnalysisJobWithOptions(shared_ptr<SubmitMediaAiAnalysisJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->analysisParams)) {
+    query->insert(pair<string, string>("AnalysisParams", *request->analysisParams));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->input)) {
+    query->insert(pair<string, string>("Input", *request->input));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitMediaAiAnalysisJob"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitMediaAiAnalysisJobResponse(callApi(params, req, runtime));
+}
+
+SubmitMediaAiAnalysisJobResponse Alibabacloud_ICE20201109::Client::submitMediaAiAnalysisJob(shared_ptr<SubmitMediaAiAnalysisJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitMediaAiAnalysisJobWithOptions(request, runtime);
+}
+
 SubmitMediaCensorJobResponse Alibabacloud_ICE20201109::Client::submitMediaCensorJobWithOptions(shared_ptr<SubmitMediaCensorJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<SubmitMediaCensorJobShrinkRequest> request = make_shared<SubmitMediaCensorJobShrinkRequest>();
