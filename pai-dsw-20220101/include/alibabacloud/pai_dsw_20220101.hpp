@@ -6101,6 +6101,7 @@ class ListInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorType{};
   shared_ptr<string> accessibility{};
+  shared_ptr<string> createUserId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<map<string, boost::any>> labels{};
@@ -6128,6 +6129,9 @@ public:
     }
     if (accessibility) {
       res["Accessibility"] = boost::any(*accessibility);
+    }
+    if (createUserId) {
+      res["CreateUserId"] = boost::any(*createUserId);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -6171,6 +6175,9 @@ public:
     }
     if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
       accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
+    if (m.find("CreateUserId") != m.end() && !m["CreateUserId"].empty()) {
+      createUserId = make_shared<string>(boost::any_cast<string>(m["CreateUserId"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -6219,6 +6226,7 @@ class ListInstancesShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorType{};
   shared_ptr<string> accessibility{};
+  shared_ptr<string> createUserId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> labelsShrink{};
@@ -6246,6 +6254,9 @@ public:
     }
     if (accessibility) {
       res["Accessibility"] = boost::any(*accessibility);
+    }
+    if (createUserId) {
+      res["CreateUserId"] = boost::any(*createUserId);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -6289,6 +6300,9 @@ public:
     }
     if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
       accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
+    if (m.find("CreateUserId") != m.end() && !m["CreateUserId"].empty()) {
+      createUserId = make_shared<string>(boost::any_cast<string>(m["CreateUserId"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));

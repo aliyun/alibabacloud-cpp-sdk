@@ -846,6 +846,9 @@ ListInstancesResponse Alibabacloud_Pai-dsw20220101::Client::listInstancesWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
     query->insert(pair<string, string>("Accessibility", *request->accessibility));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->createUserId)) {
+    query->insert(pair<string, string>("CreateUserId", *request->createUserId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
