@@ -1399,6 +1399,7 @@ class DescribeUrlModerationResultResponseBodyDataExtraInfo : public Darabonba::M
 public:
   shared_ptr<string> icpNo{};
   shared_ptr<string> icpType{};
+  shared_ptr<string> siteType{};
 
   DescribeUrlModerationResultResponseBodyDataExtraInfo() {}
 
@@ -1416,6 +1417,9 @@ public:
     if (icpType) {
       res["IcpType"] = boost::any(*icpType);
     }
+    if (siteType) {
+      res["SiteType"] = boost::any(*siteType);
+    }
     return res;
   }
 
@@ -1425,6 +1429,9 @@ public:
     }
     if (m.find("IcpType") != m.end() && !m["IcpType"].empty()) {
       icpType = make_shared<string>(boost::any_cast<string>(m["IcpType"]));
+    }
+    if (m.find("SiteType") != m.end() && !m["SiteType"].empty()) {
+      siteType = make_shared<string>(boost::any_cast<string>(m["SiteType"]));
     }
   }
 
@@ -2306,10 +2313,61 @@ public:
 
   virtual ~ImageModerationResponseBodyDataExtOcrResult() = default;
 };
+class ImageModerationResponseBodyDataExtPublicFigureLocation : public Darabonba::Model {
+public:
+  shared_ptr<long> h{};
+  shared_ptr<long> w{};
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  ImageModerationResponseBodyDataExtPublicFigureLocation() {}
+
+  explicit ImageModerationResponseBodyDataExtPublicFigureLocation(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (h) {
+      res["H"] = boost::any(*h);
+    }
+    if (w) {
+      res["W"] = boost::any(*w);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("H") != m.end() && !m["H"].empty()) {
+      h = make_shared<long>(boost::any_cast<long>(m["H"]));
+    }
+    if (m.find("W") != m.end() && !m["W"].empty()) {
+      w = make_shared<long>(boost::any_cast<long>(m["W"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~ImageModerationResponseBodyDataExtPublicFigureLocation() = default;
+};
 class ImageModerationResponseBodyDataExtPublicFigure : public Darabonba::Model {
 public:
   shared_ptr<string> figureId{};
   shared_ptr<string> figureName{};
+  shared_ptr<vector<ImageModerationResponseBodyDataExtPublicFigureLocation>> location{};
 
   ImageModerationResponseBodyDataExtPublicFigure() {}
 
@@ -2327,6 +2385,13 @@ public:
     if (figureName) {
       res["FigureName"] = boost::any(*figureName);
     }
+    if (location) {
+      vector<boost::any> temp1;
+      for(auto item1:*location){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Location"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -2336,6 +2401,19 @@ public:
     }
     if (m.find("FigureName") != m.end() && !m["FigureName"].empty()) {
       figureName = make_shared<string>(boost::any_cast<string>(m["FigureName"]));
+    }
+    if (m.find("Location") != m.end() && !m["Location"].empty()) {
+      if (typeid(vector<boost::any>) == m["Location"].type()) {
+        vector<ImageModerationResponseBodyDataExtPublicFigureLocation> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Location"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImageModerationResponseBodyDataExtPublicFigureLocation model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        location = make_shared<vector<ImageModerationResponseBodyDataExtPublicFigureLocation>>(expect1);
+      }
     }
   }
 
