@@ -14,6 +14,474 @@
 using namespace std;
 
 namespace Alibabacloud_ComputeNest20210601 {
+class CommodityValueResultOrder : public Darabonba::Model {
+public:
+  shared_ptr<string> currency{};
+  shared_ptr<string> tradeAmount{};
+  shared_ptr<string> discountAmount{};
+  shared_ptr<string> originalAmount{};
+
+  CommodityValueResultOrder() {}
+
+  explicit CommodityValueResultOrder(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currency) {
+      res["Currency"] = boost::any(*currency);
+    }
+    if (tradeAmount) {
+      res["TradeAmount"] = boost::any(*tradeAmount);
+    }
+    if (discountAmount) {
+      res["DiscountAmount"] = boost::any(*discountAmount);
+    }
+    if (originalAmount) {
+      res["OriginalAmount"] = boost::any(*originalAmount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
+      currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
+    }
+    if (m.find("TradeAmount") != m.end() && !m["TradeAmount"].empty()) {
+      tradeAmount = make_shared<string>(boost::any_cast<string>(m["TradeAmount"]));
+    }
+    if (m.find("DiscountAmount") != m.end() && !m["DiscountAmount"].empty()) {
+      discountAmount = make_shared<string>(boost::any_cast<string>(m["DiscountAmount"]));
+    }
+    if (m.find("OriginalAmount") != m.end() && !m["OriginalAmount"].empty()) {
+      originalAmount = make_shared<string>(boost::any_cast<string>(m["OriginalAmount"]));
+    }
+  }
+
+
+  virtual ~CommodityValueResultOrder() = default;
+};
+class CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs : public Darabonba::Model {
+public:
+  shared_ptr<long> type{};
+  shared_ptr<string> name{};
+  shared_ptr<string> code{};
+  shared_ptr<string> value{};
+  shared_ptr<string> unit{};
+
+  CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs() {}
+
+  explicit CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    if (unit) {
+      res["Unit"] = boost::any(*unit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+    if (m.find("Unit") != m.end() && !m["Unit"].empty()) {
+      unit = make_shared<string>(boost::any_cast<string>(m["Unit"]));
+    }
+  }
+
+
+  virtual ~CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs() = default;
+};
+class CommodityValueResultSubOrdersSubOrderModuleInstance : public Darabonba::Model {
+public:
+  shared_ptr<long> moduleId{};
+  shared_ptr<string> moduleName{};
+  shared_ptr<string> moduleCode{};
+  shared_ptr<double> totalProductFee{};
+  shared_ptr<double> discountFee{};
+  shared_ptr<double> payFee{};
+  shared_ptr<string> priceUnit{};
+  shared_ptr<bool> isPricingModule{};
+  shared_ptr<bool> needOrderPay{};
+  shared_ptr<string> priceType{};
+  shared_ptr<vector<CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs>> moduleAttrs{};
+
+  CommodityValueResultSubOrdersSubOrderModuleInstance() {}
+
+  explicit CommodityValueResultSubOrdersSubOrderModuleInstance(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (moduleId) {
+      res["ModuleId"] = boost::any(*moduleId);
+    }
+    if (moduleName) {
+      res["ModuleName"] = boost::any(*moduleName);
+    }
+    if (moduleCode) {
+      res["ModuleCode"] = boost::any(*moduleCode);
+    }
+    if (totalProductFee) {
+      res["TotalProductFee"] = boost::any(*totalProductFee);
+    }
+    if (discountFee) {
+      res["DiscountFee"] = boost::any(*discountFee);
+    }
+    if (payFee) {
+      res["PayFee"] = boost::any(*payFee);
+    }
+    if (priceUnit) {
+      res["PriceUnit"] = boost::any(*priceUnit);
+    }
+    if (isPricingModule) {
+      res["IsPricingModule"] = boost::any(*isPricingModule);
+    }
+    if (needOrderPay) {
+      res["NeedOrderPay"] = boost::any(*needOrderPay);
+    }
+    if (priceType) {
+      res["PriceType"] = boost::any(*priceType);
+    }
+    if (moduleAttrs) {
+      vector<boost::any> temp1;
+      for(auto item1:*moduleAttrs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ModuleAttrs"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ModuleId") != m.end() && !m["ModuleId"].empty()) {
+      moduleId = make_shared<long>(boost::any_cast<long>(m["ModuleId"]));
+    }
+    if (m.find("ModuleName") != m.end() && !m["ModuleName"].empty()) {
+      moduleName = make_shared<string>(boost::any_cast<string>(m["ModuleName"]));
+    }
+    if (m.find("ModuleCode") != m.end() && !m["ModuleCode"].empty()) {
+      moduleCode = make_shared<string>(boost::any_cast<string>(m["ModuleCode"]));
+    }
+    if (m.find("TotalProductFee") != m.end() && !m["TotalProductFee"].empty()) {
+      totalProductFee = make_shared<double>(boost::any_cast<double>(m["TotalProductFee"]));
+    }
+    if (m.find("DiscountFee") != m.end() && !m["DiscountFee"].empty()) {
+      discountFee = make_shared<double>(boost::any_cast<double>(m["DiscountFee"]));
+    }
+    if (m.find("PayFee") != m.end() && !m["PayFee"].empty()) {
+      payFee = make_shared<double>(boost::any_cast<double>(m["PayFee"]));
+    }
+    if (m.find("PriceUnit") != m.end() && !m["PriceUnit"].empty()) {
+      priceUnit = make_shared<string>(boost::any_cast<string>(m["PriceUnit"]));
+    }
+    if (m.find("IsPricingModule") != m.end() && !m["IsPricingModule"].empty()) {
+      isPricingModule = make_shared<bool>(boost::any_cast<bool>(m["IsPricingModule"]));
+    }
+    if (m.find("NeedOrderPay") != m.end() && !m["NeedOrderPay"].empty()) {
+      needOrderPay = make_shared<bool>(boost::any_cast<bool>(m["NeedOrderPay"]));
+    }
+    if (m.find("PriceType") != m.end() && !m["PriceType"].empty()) {
+      priceType = make_shared<string>(boost::any_cast<string>(m["PriceType"]));
+    }
+    if (m.find("ModuleAttrs") != m.end() && !m["ModuleAttrs"].empty()) {
+      if (typeid(vector<boost::any>) == m["ModuleAttrs"].type()) {
+        vector<CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ModuleAttrs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        moduleAttrs = make_shared<vector<CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CommodityValueResultSubOrdersSubOrderModuleInstance() = default;
+};
+class CommodityValueResultSubOrdersSubOrder : public Darabonba::Model {
+public:
+  shared_ptr<vector<CommodityValueResultSubOrdersSubOrderModuleInstance>> moduleInstance{};
+
+  CommodityValueResultSubOrdersSubOrder() {}
+
+  explicit CommodityValueResultSubOrdersSubOrder(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (moduleInstance) {
+      vector<boost::any> temp1;
+      for(auto item1:*moduleInstance){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ModuleInstance"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ModuleInstance") != m.end() && !m["ModuleInstance"].empty()) {
+      if (typeid(vector<boost::any>) == m["ModuleInstance"].type()) {
+        vector<CommodityValueResultSubOrdersSubOrderModuleInstance> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ModuleInstance"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CommodityValueResultSubOrdersSubOrderModuleInstance model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        moduleInstance = make_shared<vector<CommodityValueResultSubOrdersSubOrderModuleInstance>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CommodityValueResultSubOrdersSubOrder() = default;
+};
+class CommodityValueResultSubOrders : public Darabonba::Model {
+public:
+  shared_ptr<vector<CommodityValueResultSubOrdersSubOrder>> subOrder{};
+
+  CommodityValueResultSubOrders() {}
+
+  explicit CommodityValueResultSubOrders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (subOrder) {
+      vector<boost::any> temp1;
+      for(auto item1:*subOrder){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubOrder"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SubOrder") != m.end() && !m["SubOrder"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubOrder"].type()) {
+        vector<CommodityValueResultSubOrdersSubOrder> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubOrder"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CommodityValueResultSubOrdersSubOrder model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subOrder = make_shared<vector<CommodityValueResultSubOrdersSubOrder>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CommodityValueResultSubOrders() = default;
+};
+class CommodityValueResultCoupons : public Darabonba::Model {
+public:
+  shared_ptr<double> canPromFee{};
+  shared_ptr<string> couponDesc{};
+  shared_ptr<string> couponName{};
+  shared_ptr<string> couponOptionNo{};
+  shared_ptr<bool> selected{};
+
+  CommodityValueResultCoupons() {}
+
+  explicit CommodityValueResultCoupons(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (canPromFee) {
+      res["CanPromFee"] = boost::any(*canPromFee);
+    }
+    if (couponDesc) {
+      res["CouponDesc"] = boost::any(*couponDesc);
+    }
+    if (couponName) {
+      res["CouponName"] = boost::any(*couponName);
+    }
+    if (couponOptionNo) {
+      res["CouponOptionNo"] = boost::any(*couponOptionNo);
+    }
+    if (selected) {
+      res["Selected"] = boost::any(*selected);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CanPromFee") != m.end() && !m["CanPromFee"].empty()) {
+      canPromFee = make_shared<double>(boost::any_cast<double>(m["CanPromFee"]));
+    }
+    if (m.find("CouponDesc") != m.end() && !m["CouponDesc"].empty()) {
+      couponDesc = make_shared<string>(boost::any_cast<string>(m["CouponDesc"]));
+    }
+    if (m.find("CouponName") != m.end() && !m["CouponName"].empty()) {
+      couponName = make_shared<string>(boost::any_cast<string>(m["CouponName"]));
+    }
+    if (m.find("CouponOptionNo") != m.end() && !m["CouponOptionNo"].empty()) {
+      couponOptionNo = make_shared<string>(boost::any_cast<string>(m["CouponOptionNo"]));
+    }
+    if (m.find("Selected") != m.end() && !m["Selected"].empty()) {
+      selected = make_shared<bool>(boost::any_cast<bool>(m["Selected"]));
+    }
+  }
+
+
+  virtual ~CommodityValueResultCoupons() = default;
+};
+class CommodityValueResult : public Darabonba::Model {
+public:
+  shared_ptr<CommodityValueResultOrder> order{};
+  shared_ptr<string> inquiryType{};
+  shared_ptr<CommodityValueResultSubOrders> subOrders{};
+  shared_ptr<vector<CommodityValueResultCoupons>> coupons{};
+
+  CommodityValueResult() {}
+
+  explicit CommodityValueResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (order) {
+      res["Order"] = order ? boost::any(order->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (inquiryType) {
+      res["InquiryType"] = boost::any(*inquiryType);
+    }
+    if (subOrders) {
+      res["SubOrders"] = subOrders ? boost::any(subOrders->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (coupons) {
+      vector<boost::any> temp1;
+      for(auto item1:*coupons){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Coupons"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Order"].type()) {
+        CommodityValueResultOrder model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Order"]));
+        order = make_shared<CommodityValueResultOrder>(model1);
+      }
+    }
+    if (m.find("InquiryType") != m.end() && !m["InquiryType"].empty()) {
+      inquiryType = make_shared<string>(boost::any_cast<string>(m["InquiryType"]));
+    }
+    if (m.find("SubOrders") != m.end() && !m["SubOrders"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SubOrders"].type()) {
+        CommodityValueResultSubOrders model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SubOrders"]));
+        subOrders = make_shared<CommodityValueResultSubOrders>(model1);
+      }
+    }
+    if (m.find("Coupons") != m.end() && !m["Coupons"].empty()) {
+      if (typeid(vector<boost::any>) == m["Coupons"].type()) {
+        vector<CommodityValueResultCoupons> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Coupons"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CommodityValueResultCoupons model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        coupons = make_shared<vector<CommodityValueResultCoupons>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CommodityValueResult() = default;
+};
+class CommodityValue : public Darabonba::Model {
+public:
+  shared_ptr<CommodityValueResult> result{};
+
+  CommodityValue() {}
+
+  explicit CommodityValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        CommodityValueResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<CommodityValueResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CommodityValue() = default;
+};
 class CancelServiceUsageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -507,6 +975,7 @@ class CreateServiceInstanceRequestCommodity : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
+  shared_ptr<string> couponId{};
   shared_ptr<long> payPeriod{};
   shared_ptr<string> payPeriodUnit{};
 
@@ -526,6 +995,9 @@ public:
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
     }
+    if (couponId) {
+      res["CouponId"] = boost::any(*couponId);
+    }
     if (payPeriod) {
       res["PayPeriod"] = boost::any(*payPeriod);
     }
@@ -541,6 +1013,9 @@ public:
     }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("CouponId") != m.end() && !m["CouponId"].empty()) {
+      couponId = make_shared<string>(boost::any_cast<string>(m["CouponId"]));
     }
     if (m.find("PayPeriod") != m.end() && !m["PayPeriod"].empty()) {
       payPeriod = make_shared<long>(boost::any_cast<long>(m["PayPeriod"]));
@@ -832,6 +1307,7 @@ class CreateServiceInstanceShrinkRequestCommodity : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
   shared_ptr<bool> autoRenew{};
+  shared_ptr<string> couponId{};
   shared_ptr<long> payPeriod{};
   shared_ptr<string> payPeriodUnit{};
 
@@ -851,6 +1327,9 @@ public:
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
     }
+    if (couponId) {
+      res["CouponId"] = boost::any(*couponId);
+    }
     if (payPeriod) {
       res["PayPeriod"] = boost::any(*payPeriod);
     }
@@ -866,6 +1345,9 @@ public:
     }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("CouponId") != m.end() && !m["CouponId"].empty()) {
+      couponId = make_shared<string>(boost::any_cast<string>(m["CouponId"]));
     }
     if (m.find("PayPeriod") != m.end() && !m["PayPeriod"].empty()) {
       payPeriod = make_shared<long>(boost::any_cast<long>(m["PayPeriod"]));
@@ -1792,6 +2274,7 @@ public:
 };
 class GetServiceEstimateCostRequestCommodity : public Darabonba::Model {
 public:
+  shared_ptr<string> couponId{};
   shared_ptr<long> payPeriod{};
   shared_ptr<string> payPeriodUnit{};
 
@@ -1805,6 +2288,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (couponId) {
+      res["CouponId"] = boost::any(*couponId);
+    }
     if (payPeriod) {
       res["PayPeriod"] = boost::any(*payPeriod);
     }
@@ -1815,6 +2301,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CouponId") != m.end() && !m["CouponId"].empty()) {
+      couponId = make_shared<string>(boost::any_cast<string>(m["CouponId"]));
+    }
     if (m.find("PayPeriod") != m.end() && !m["PayPeriod"].empty()) {
       payPeriod = make_shared<long>(boost::any_cast<long>(m["PayPeriod"]));
     }
@@ -2035,7 +2524,7 @@ public:
 };
 class GetServiceEstimateCostResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<map<string, boost::any>> commodity{};
+  shared_ptr<map<string, CommodityValue>> commodity{};
   shared_ptr<string> requestId{};
   shared_ptr<map<string, boost::any>> resources{};
 
@@ -2050,7 +2539,11 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (commodity) {
-      res["Commodity"] = boost::any(*commodity);
+      map<string, boost::any> temp1;
+      for(auto item1:*commodity){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["Commodity"] = boost::any(temp1);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -2063,12 +2556,17 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Commodity") != m.end() && !m["Commodity"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Commodity"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["Commodity"].type()) {
+        map<string, CommodityValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["Commodity"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            CommodityValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
+        }
+        commodity = make_shared<map<string, CommodityValue>>(expect1);
       }
-      commodity = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -4075,8 +4573,52 @@ public:
 
   virtual ~ListServiceCategoriesResponse() = default;
 };
+class ListServiceInstanceLogsRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> value{};
+
+  ListServiceInstanceLogsRequestFilter() {}
+
+  explicit ListServiceInstanceLogsRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Value"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Value"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      value = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListServiceInstanceLogsRequestFilter() = default;
+};
 class ListServiceInstanceLogsRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<ListServiceInstanceLogsRequestFilter>> filter{};
   shared_ptr<string> logSource{};
   shared_ptr<string> logstore{};
   shared_ptr<long> maxResults{};
@@ -4094,6 +4636,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (filter) {
+      vector<boost::any> temp1;
+      for(auto item1:*filter){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filter"] = boost::any(temp1);
+    }
     if (logSource) {
       res["LogSource"] = boost::any(*logSource);
     }
@@ -4116,6 +4665,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filter"].type()) {
+        vector<ListServiceInstanceLogsRequestFilter> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filter"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListServiceInstanceLogsRequestFilter model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filter = make_shared<vector<ListServiceInstanceLogsRequestFilter>>(expect1);
+      }
+    }
     if (m.find("LogSource") != m.end() && !m["LogSource"].empty()) {
       logSource = make_shared<string>(boost::any_cast<string>(m["LogSource"]));
     }

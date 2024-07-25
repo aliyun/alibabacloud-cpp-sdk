@@ -584,6 +584,9 @@ ListServiceCategoriesResponse Alibabacloud_ComputeNest20210601::Client::listServ
 ListServiceInstanceLogsResponse Alibabacloud_ComputeNest20210601::Client::listServiceInstanceLogsWithOptions(shared_ptr<ListServiceInstanceLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<ListServiceInstanceLogsRequestFilter>>(request->filter)) {
+    query->insert(pair<string, vector<ListServiceInstanceLogsRequestFilter>>("Filter", *request->filter));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->logSource)) {
     query->insert(pair<string, string>("LogSource", *request->logSource));
   }
