@@ -5282,6 +5282,7 @@ public:
   shared_ptr<string> options{};
   shared_ptr<string> ownerId{};
   shared_ptr<string> property{};
+  shared_ptr<string> provider{};
   shared_ptr<string> providerType{};
   shared_ptr<string> requestId{};
   shared_ptr<string> sourceId{};
@@ -5339,6 +5340,9 @@ public:
     }
     if (property) {
       res["Property"] = boost::any(*property);
+    }
+    if (provider) {
+      res["Provider"] = boost::any(*provider);
     }
     if (providerType) {
       res["ProviderType"] = boost::any(*providerType);
@@ -5410,6 +5414,9 @@ public:
     }
     if (m.find("Property") != m.end() && !m["Property"].empty()) {
       property = make_shared<string>(boost::any_cast<string>(m["Property"]));
+    }
+    if (m.find("Provider") != m.end() && !m["Provider"].empty()) {
+      provider = make_shared<string>(boost::any_cast<string>(m["Provider"]));
     }
     if (m.find("ProviderType") != m.end() && !m["ProviderType"].empty()) {
       providerType = make_shared<string>(boost::any_cast<string>(m["ProviderType"]));
