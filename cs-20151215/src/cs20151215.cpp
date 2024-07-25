@@ -4194,6 +4194,30 @@ ResumeUpgradeClusterResponse Alibabacloud_CS20151215::Client::resumeUpgradeClust
   return resumeUpgradeClusterWithOptions(ClusterId, headers, runtime);
 }
 
+RevokeK8sClusterKubeConfigResponse Alibabacloud_CS20151215::Client::revokeK8sClusterKubeConfigWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RevokeK8sClusterKubeConfig"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/k8s/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/certs"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RevokeK8sClusterKubeConfigResponse(callApi(params, req, runtime));
+}
+
+RevokeK8sClusterKubeConfigResponse Alibabacloud_CS20151215::Client::revokeK8sClusterKubeConfig(shared_ptr<string> ClusterId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return revokeK8sClusterKubeConfigWithOptions(ClusterId, headers, runtime);
+}
+
 RunClusterCheckResponse Alibabacloud_CS20151215::Client::runClusterCheckWithOptions(shared_ptr<string> clusterId,
                                                                                     shared_ptr<RunClusterCheckRequest> request,
                                                                                     shared_ptr<map<string, string>> headers,
