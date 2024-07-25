@@ -4000,6 +4000,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<string>> seriesCodes{};
   shared_ptr<string> tags{};
 
   ListInstancesRequest() {}
@@ -4024,6 +4025,9 @@ public:
     if (resourceGroupId) {
       res["resourceGroupId"] = boost::any(*resourceGroupId);
     }
+    if (seriesCodes) {
+      res["seriesCodes"] = boost::any(*seriesCodes);
+    }
     if (tags) {
       res["tags"] = boost::any(*tags);
     }
@@ -4043,6 +4047,16 @@ public:
     if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
+    if (m.find("seriesCodes") != m.end() && !m["seriesCodes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["seriesCodes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["seriesCodes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      seriesCodes = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("tags") != m.end() && !m["tags"].empty()) {
       tags = make_shared<string>(boost::any_cast<string>(m["tags"]));
     }
@@ -4050,6 +4064,70 @@ public:
 
 
   virtual ~ListInstancesRequest() = default;
+};
+class ListInstancesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filter{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> seriesCodesShrink{};
+  shared_ptr<string> tags{};
+
+  ListInstancesShrinkRequest() {}
+
+  explicit ListInstancesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filter) {
+      res["filter"] = boost::any(*filter);
+    }
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    if (resourceGroupId) {
+      res["resourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (seriesCodesShrink) {
+      res["seriesCodes"] = boost::any(*seriesCodesShrink);
+    }
+    if (tags) {
+      res["tags"] = boost::any(*tags);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("filter") != m.end() && !m["filter"].empty()) {
+      filter = make_shared<string>(boost::any_cast<string>(m["filter"]));
+    }
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
+    }
+    if (m.find("seriesCodes") != m.end() && !m["seriesCodes"].empty()) {
+      seriesCodesShrink = make_shared<string>(boost::any_cast<string>(m["seriesCodes"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      tags = make_shared<string>(boost::any_cast<string>(m["tags"]));
+    }
+  }
+
+
+  virtual ~ListInstancesShrinkRequest() = default;
 };
 class ListInstancesResponseBodyDataListProductInfo : public Darabonba::Model {
 public:
@@ -6330,7 +6408,7 @@ public:
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListConsumerGroupsResponse listConsumerGroups(shared_ptr<string> instanceId, shared_ptr<ListConsumerGroupsRequest> request);
-  ListInstancesResponse listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListInstancesResponse listInstancesWithOptions(shared_ptr<ListInstancesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInstancesResponse listInstances(shared_ptr<ListInstancesRequest> request);
   ListRegionsResponse listRegionsWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRegionsResponse listRegions();

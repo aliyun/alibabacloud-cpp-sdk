@@ -500,8 +500,13 @@ ListConsumerGroupsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGr
   return listConsumerGroupsWithOptions(instanceId, request, headers, runtime);
 }
 
-ListInstancesResponse Alibabacloud_RocketMQ20220801::Client::listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListInstancesResponse Alibabacloud_RocketMQ20220801::Client::listInstancesWithOptions(shared_ptr<ListInstancesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListInstancesShrinkRequest> request = make_shared<ListInstancesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->seriesCodes)) {
+    request->seriesCodesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->seriesCodes, make_shared<string>("seriesCodes"), make_shared<string>("simple")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     query->insert(pair<string, string>("filter", *request->filter));
@@ -514,6 +519,9 @@ ListInstancesResponse Alibabacloud_RocketMQ20220801::Client::listInstancesWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->seriesCodesShrink)) {
+    query->insert(pair<string, string>("seriesCodes", *request->seriesCodesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tags)) {
     query->insert(pair<string, string>("tags", *request->tags));
