@@ -3542,7 +3542,6 @@ public:
   shared_ptr<string> fileCreateTime{};
   shared_ptr<string> fileHash{};
   shared_ptr<string> fileModifiedTime{};
-  shared_ptr<string> fileStatus{};
   shared_ptr<string> filename{};
   shared_ptr<string> formatLongName{};
   shared_ptr<string> formatName{};
@@ -3567,6 +3566,7 @@ public:
   shared_ptr<string> OSSVersionId{};
   shared_ptr<string> objectACL{};
   shared_ptr<string> objectId{};
+  shared_ptr<string> objectStatus{};
   shared_ptr<string> objectType{};
   shared_ptr<long> orientation{};
   shared_ptr<string> ownerId{};
@@ -3722,9 +3722,6 @@ public:
     if (fileModifiedTime) {
       res["FileModifiedTime"] = boost::any(*fileModifiedTime);
     }
-    if (fileStatus) {
-      res["FileStatus"] = boost::any(*fileStatus);
-    }
     if (filename) {
       res["Filename"] = boost::any(*filename);
     }
@@ -3804,6 +3801,9 @@ public:
     }
     if (objectId) {
       res["ObjectId"] = boost::any(*objectId);
+    }
+    if (objectStatus) {
+      res["ObjectStatus"] = boost::any(*objectStatus);
     }
     if (objectType) {
       res["ObjectType"] = boost::any(*objectType);
@@ -4060,9 +4060,6 @@ public:
     if (m.find("FileModifiedTime") != m.end() && !m["FileModifiedTime"].empty()) {
       fileModifiedTime = make_shared<string>(boost::any_cast<string>(m["FileModifiedTime"]));
     }
-    if (m.find("FileStatus") != m.end() && !m["FileStatus"].empty()) {
-      fileStatus = make_shared<string>(boost::any_cast<string>(m["FileStatus"]));
-    }
     if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
       filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
     }
@@ -4168,6 +4165,9 @@ public:
     }
     if (m.find("ObjectId") != m.end() && !m["ObjectId"].empty()) {
       objectId = make_shared<string>(boost::any_cast<string>(m["ObjectId"]));
+    }
+    if (m.find("ObjectStatus") != m.end() && !m["ObjectStatus"].empty()) {
+      objectStatus = make_shared<string>(boost::any_cast<string>(m["ObjectStatus"]));
     }
     if (m.find("ObjectType") != m.end() && !m["ObjectType"].empty()) {
       objectType = make_shared<string>(boost::any_cast<string>(m["ObjectType"]));
@@ -5235,42 +5235,6 @@ public:
 
 
   virtual ~OctreeOption() = default;
-};
-class PresetReference : public Darabonba::Model {
-public:
-  shared_ptr<string> name{};
-  shared_ptr<string> type{};
-
-  PresetReference() {}
-
-  explicit PresetReference(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-  }
-
-
-  virtual ~PresetReference() = default;
 };
 class ProjectTags : public Darabonba::Model {
 public:
