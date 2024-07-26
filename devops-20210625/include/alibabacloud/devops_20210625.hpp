@@ -944,6 +944,116 @@ public:
 
   virtual ~AddWebhookResponse() = default;
 };
+class CancelExecutionReleaseStageRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> organizationId{};
+
+  CancelExecutionReleaseStageRequest() {}
+
+  explicit CancelExecutionReleaseStageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+  }
+
+
+  virtual ~CancelExecutionReleaseStageRequest() = default;
+};
+class CancelExecutionReleaseStageResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> success{};
+
+  CancelExecutionReleaseStageResponseBody() {}
+
+  explicit CancelExecutionReleaseStageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~CancelExecutionReleaseStageResponseBody() = default;
+};
+class CancelExecutionReleaseStageResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CancelExecutionReleaseStageResponseBody> body{};
+
+  CancelExecutionReleaseStageResponse() {}
+
+  explicit CancelExecutionReleaseStageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CancelExecutionReleaseStageResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CancelExecutionReleaseStageResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CancelExecutionReleaseStageResponse() = default;
+};
 class CloseMergeRequestRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessToken{};
@@ -17945,6 +18055,142 @@ public:
 
   virtual ~EnableDeployKeyResponse() = default;
 };
+class ExecuteChangeRequestReleaseStageRequest : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> params{};
+  shared_ptr<string> organizationId{};
+
+  ExecuteChangeRequestReleaseStageRequest() {}
+
+  explicit ExecuteChangeRequestReleaseStageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (params) {
+      res["params"] = boost::any(*params);
+    }
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("params") != m.end() && !m["params"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["params"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      params = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+  }
+
+
+  virtual ~ExecuteChangeRequestReleaseStageRequest() = default;
+};
+class ExecuteChangeRequestReleaseStageResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> object{};
+  shared_ptr<long> pipelineId{};
+  shared_ptr<long> pipelineRunId{};
+
+  ExecuteChangeRequestReleaseStageResponseBody() {}
+
+  explicit ExecuteChangeRequestReleaseStageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (object) {
+      res["object"] = boost::any(*object);
+    }
+    if (pipelineId) {
+      res["pipelineId"] = boost::any(*pipelineId);
+    }
+    if (pipelineRunId) {
+      res["pipelineRunId"] = boost::any(*pipelineRunId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("object") != m.end() && !m["object"].empty()) {
+      object = make_shared<long>(boost::any_cast<long>(m["object"]));
+    }
+    if (m.find("pipelineId") != m.end() && !m["pipelineId"].empty()) {
+      pipelineId = make_shared<long>(boost::any_cast<long>(m["pipelineId"]));
+    }
+    if (m.find("pipelineRunId") != m.end() && !m["pipelineRunId"].empty()) {
+      pipelineRunId = make_shared<long>(boost::any_cast<long>(m["pipelineRunId"]));
+    }
+  }
+
+
+  virtual ~ExecuteChangeRequestReleaseStageResponseBody() = default;
+};
+class ExecuteChangeRequestReleaseStageResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExecuteChangeRequestReleaseStageResponseBody> body{};
+
+  ExecuteChangeRequestReleaseStageResponse() {}
+
+  explicit ExecuteChangeRequestReleaseStageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExecuteChangeRequestReleaseStageResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExecuteChangeRequestReleaseStageResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExecuteChangeRequestReleaseStageResponse() = default;
+};
 class ExportInsightCustomValueRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
@@ -29483,6 +29729,590 @@ public:
 
 
   virtual ~GetPushRuleResponse() = default;
+};
+class GetReleaseStagePipelineRunRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> organizationId{};
+
+  GetReleaseStagePipelineRunRequest() {}
+
+  explicit GetReleaseStagePipelineRunRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+  }
+
+
+  virtual ~GetReleaseStagePipelineRunRequest() = default;
+};
+class GetReleaseStagePipelineRunResponseBodyPipelineRunSourcesData : public Darabonba::Model {
+public:
+  shared_ptr<string> branch{};
+  shared_ptr<string> commit{};
+  shared_ptr<string> repo{};
+
+  GetReleaseStagePipelineRunResponseBodyPipelineRunSourcesData() {}
+
+  explicit GetReleaseStagePipelineRunResponseBodyPipelineRunSourcesData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (branch) {
+      res["branch"] = boost::any(*branch);
+    }
+    if (commit) {
+      res["commit"] = boost::any(*commit);
+    }
+    if (repo) {
+      res["repo"] = boost::any(*repo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("branch") != m.end() && !m["branch"].empty()) {
+      branch = make_shared<string>(boost::any_cast<string>(m["branch"]));
+    }
+    if (m.find("commit") != m.end() && !m["commit"].empty()) {
+      commit = make_shared<string>(boost::any_cast<string>(m["commit"]));
+    }
+    if (m.find("repo") != m.end() && !m["repo"].empty()) {
+      repo = make_shared<string>(boost::any_cast<string>(m["repo"]));
+    }
+  }
+
+
+  virtual ~GetReleaseStagePipelineRunResponseBodyPipelineRunSourcesData() = default;
+};
+class GetReleaseStagePipelineRunResponseBodyPipelineRunSources : public Darabonba::Model {
+public:
+  shared_ptr<GetReleaseStagePipelineRunResponseBodyPipelineRunSourcesData> data{};
+  shared_ptr<string> sign{};
+  shared_ptr<string> type{};
+
+  GetReleaseStagePipelineRunResponseBodyPipelineRunSources() {}
+
+  explicit GetReleaseStagePipelineRunResponseBodyPipelineRunSources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sign) {
+      res["sign"] = boost::any(*sign);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        GetReleaseStagePipelineRunResponseBodyPipelineRunSourcesData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<GetReleaseStagePipelineRunResponseBodyPipelineRunSourcesData>(model1);
+      }
+    }
+    if (m.find("sign") != m.end() && !m["sign"].empty()) {
+      sign = make_shared<string>(boost::any_cast<string>(m["sign"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~GetReleaseStagePipelineRunResponseBodyPipelineRunSources() = default;
+};
+class GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions : public Darabonba::Model {
+public:
+  shared_ptr<bool> disable{};
+  shared_ptr<boost::any> params{};
+  shared_ptr<string> type{};
+
+  GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions() {}
+
+  explicit GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disable) {
+      res["disable"] = boost::any(*disable);
+    }
+    if (params) {
+      res["params"] = boost::any(*params);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("disable") != m.end() && !m["disable"].empty()) {
+      disable = make_shared<bool>(boost::any_cast<bool>(m["disable"]));
+    }
+    if (m.find("params") != m.end() && !m["params"].empty()) {
+      params = make_shared<boost::any>(boost::any_cast<boost::any>(m["params"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions() = default;
+};
+class GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobs : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions>> actions{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> params{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> status{};
+
+  GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobs() {}
+
+  explicit GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (actions) {
+      vector<boost::any> temp1;
+      for(auto item1:*actions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["actions"] = boost::any(temp1);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (params) {
+      res["params"] = boost::any(*params);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("actions") != m.end() && !m["actions"].empty()) {
+      if (typeid(vector<boost::any>) == m["actions"].type()) {
+        vector<GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["actions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        actions = make_shared<vector<GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions>>(expect1);
+      }
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("params") != m.end() && !m["params"].empty()) {
+      params = make_shared<string>(boost::any_cast<string>(m["params"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+  }
+
+
+  virtual ~GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobs() = default;
+};
+class GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<vector<GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobs>> jobs{};
+  shared_ptr<string> name{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> status{};
+
+  GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfo() {}
+
+  explicit GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (jobs) {
+      vector<boost::any> temp1;
+      for(auto item1:*jobs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["jobs"] = boost::any(temp1);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("jobs") != m.end() && !m["jobs"].empty()) {
+      if (typeid(vector<boost::any>) == m["jobs"].type()) {
+        vector<GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["jobs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        jobs = make_shared<vector<GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfoJobs>>(expect1);
+      }
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+  }
+
+
+  virtual ~GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfo() = default;
+};
+class GetReleaseStagePipelineRunResponseBodyPipelineRunStages : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfo> stageInfo{};
+
+  GetReleaseStagePipelineRunResponseBodyPipelineRunStages() {}
+
+  explicit GetReleaseStagePipelineRunResponseBodyPipelineRunStages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (stageInfo) {
+      res["stageInfo"] = stageInfo ? boost::any(stageInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("stageInfo") != m.end() && !m["stageInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["stageInfo"].type()) {
+        GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["stageInfo"]));
+        stageInfo = make_shared<GetReleaseStagePipelineRunResponseBodyPipelineRunStagesStageInfo>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetReleaseStagePipelineRunResponseBodyPipelineRunStages() = default;
+};
+class GetReleaseStagePipelineRunResponseBodyPipelineRun : public Darabonba::Model {
+public:
+  shared_ptr<long> createTime{};
+  shared_ptr<string> creatorAccountId{};
+  shared_ptr<string> modifierAccountId{};
+  shared_ptr<long> pipelineId{};
+  shared_ptr<long> pipelineRunId{};
+  shared_ptr<vector<GetReleaseStagePipelineRunResponseBodyPipelineRunSources>> sources{};
+  shared_ptr<vector<vector<string>>> stageGroup{};
+  shared_ptr<vector<GetReleaseStagePipelineRunResponseBodyPipelineRunStages>> stages{};
+  shared_ptr<string> status{};
+  shared_ptr<long> triggerMode{};
+  shared_ptr<long> updateTime{};
+
+  GetReleaseStagePipelineRunResponseBodyPipelineRun() {}
+
+  explicit GetReleaseStagePipelineRunResponseBodyPipelineRun(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
+    }
+    if (creatorAccountId) {
+      res["creatorAccountId"] = boost::any(*creatorAccountId);
+    }
+    if (modifierAccountId) {
+      res["modifierAccountId"] = boost::any(*modifierAccountId);
+    }
+    if (pipelineId) {
+      res["pipelineId"] = boost::any(*pipelineId);
+    }
+    if (pipelineRunId) {
+      res["pipelineRunId"] = boost::any(*pipelineRunId);
+    }
+    if (sources) {
+      vector<boost::any> temp1;
+      for(auto item1:*sources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["sources"] = boost::any(temp1);
+    }
+    if (stageGroup) {
+      res["stageGroup"] = boost::any(*stageGroup);
+    }
+    if (stages) {
+      vector<boost::any> temp1;
+      for(auto item1:*stages){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["stages"] = boost::any(temp1);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (triggerMode) {
+      res["triggerMode"] = boost::any(*triggerMode);
+    }
+    if (updateTime) {
+      res["updateTime"] = boost::any(*updateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["createTime"]));
+    }
+    if (m.find("creatorAccountId") != m.end() && !m["creatorAccountId"].empty()) {
+      creatorAccountId = make_shared<string>(boost::any_cast<string>(m["creatorAccountId"]));
+    }
+    if (m.find("modifierAccountId") != m.end() && !m["modifierAccountId"].empty()) {
+      modifierAccountId = make_shared<string>(boost::any_cast<string>(m["modifierAccountId"]));
+    }
+    if (m.find("pipelineId") != m.end() && !m["pipelineId"].empty()) {
+      pipelineId = make_shared<long>(boost::any_cast<long>(m["pipelineId"]));
+    }
+    if (m.find("pipelineRunId") != m.end() && !m["pipelineRunId"].empty()) {
+      pipelineRunId = make_shared<long>(boost::any_cast<long>(m["pipelineRunId"]));
+    }
+    if (m.find("sources") != m.end() && !m["sources"].empty()) {
+      if (typeid(vector<boost::any>) == m["sources"].type()) {
+        vector<GetReleaseStagePipelineRunResponseBodyPipelineRunSources> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["sources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetReleaseStagePipelineRunResponseBodyPipelineRunSources model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sources = make_shared<vector<GetReleaseStagePipelineRunResponseBodyPipelineRunSources>>(expect1);
+      }
+    }
+    if (m.find("stageGroup") != m.end() && !m["stageGroup"].empty()) {
+      vector<vector<string>> toVec1;
+      if (typeid(vector<boost::any>) == m["stageGroup"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["stageGroup"]);
+        for (auto item:vec1) {
+          vector<string> toVec2;
+          if (typeid(vector<boost::any>) == item.type()) {
+            vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item);
+            for (auto item:vec2) {
+               toVec2.push_back(boost::any_cast<string>(item));
+            }
+          }
+           toVec1 = toVec2;
+        }
+      }
+      stageGroup = make_shared<vector<vector<string>>>(toVec1);
+    }
+    if (m.find("stages") != m.end() && !m["stages"].empty()) {
+      if (typeid(vector<boost::any>) == m["stages"].type()) {
+        vector<GetReleaseStagePipelineRunResponseBodyPipelineRunStages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["stages"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetReleaseStagePipelineRunResponseBodyPipelineRunStages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        stages = make_shared<vector<GetReleaseStagePipelineRunResponseBodyPipelineRunStages>>(expect1);
+      }
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("triggerMode") != m.end() && !m["triggerMode"].empty()) {
+      triggerMode = make_shared<long>(boost::any_cast<long>(m["triggerMode"]));
+    }
+    if (m.find("updateTime") != m.end() && !m["updateTime"].empty()) {
+      updateTime = make_shared<long>(boost::any_cast<long>(m["updateTime"]));
+    }
+  }
+
+
+  virtual ~GetReleaseStagePipelineRunResponseBodyPipelineRun() = default;
+};
+class GetReleaseStagePipelineRunResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetReleaseStagePipelineRunResponseBodyPipelineRun> pipelineRun{};
+
+  GetReleaseStagePipelineRunResponseBody() {}
+
+  explicit GetReleaseStagePipelineRunResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pipelineRun) {
+      res["pipelineRun"] = pipelineRun ? boost::any(pipelineRun->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("pipelineRun") != m.end() && !m["pipelineRun"].empty()) {
+      if (typeid(map<string, boost::any>) == m["pipelineRun"].type()) {
+        GetReleaseStagePipelineRunResponseBodyPipelineRun model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["pipelineRun"]));
+        pipelineRun = make_shared<GetReleaseStagePipelineRunResponseBodyPipelineRun>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetReleaseStagePipelineRunResponseBody() = default;
+};
+class GetReleaseStagePipelineRunResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetReleaseStagePipelineRunResponseBody> body{};
+
+  GetReleaseStagePipelineRunResponse() {}
+
+  explicit GetReleaseStagePipelineRunResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetReleaseStagePipelineRunResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetReleaseStagePipelineRunResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetReleaseStagePipelineRunResponse() = default;
 };
 class GetRepositoryRequest : public Darabonba::Model {
 public:
@@ -69836,6 +70666,18 @@ public:
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddWebhookResponse addWebhook(shared_ptr<string> repositoryId, shared_ptr<AddWebhookRequest> request);
+  CancelExecutionReleaseStageResponse cancelExecutionReleaseStageWithOptions(shared_ptr<string> appName,
+                                                                             shared_ptr<string> releaseWorkflowSn,
+                                                                             shared_ptr<string> releaseStageSn,
+                                                                             shared_ptr<string> executionNumber,
+                                                                             shared_ptr<CancelExecutionReleaseStageRequest> request,
+                                                                             shared_ptr<map<string, string>> headers,
+                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CancelExecutionReleaseStageResponse cancelExecutionReleaseStage(shared_ptr<string> appName,
+                                                                  shared_ptr<string> releaseWorkflowSn,
+                                                                  shared_ptr<string> releaseStageSn,
+                                                                  shared_ptr<string> executionNumber,
+                                                                  shared_ptr<CancelExecutionReleaseStageRequest> request);
   CloseMergeRequestResponse closeMergeRequestWithOptions(shared_ptr<string> repositoryId,
                                                          shared_ptr<string> localId,
                                                          shared_ptr<CloseMergeRequestRequest> request,
@@ -70145,6 +70987,16 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableDeployKeyResponse enableDeployKey(shared_ptr<string> repositoryId, shared_ptr<string> keyId, shared_ptr<EnableDeployKeyRequest> request);
+  ExecuteChangeRequestReleaseStageResponse executeChangeRequestReleaseStageWithOptions(shared_ptr<string> appName,
+                                                                                       shared_ptr<string> releaseWorkflowSn,
+                                                                                       shared_ptr<string> releaseStageSn,
+                                                                                       shared_ptr<ExecuteChangeRequestReleaseStageRequest> request,
+                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExecuteChangeRequestReleaseStageResponse executeChangeRequestReleaseStage(shared_ptr<string> appName,
+                                                                            shared_ptr<string> releaseWorkflowSn,
+                                                                            shared_ptr<string> releaseStageSn,
+                                                                            shared_ptr<ExecuteChangeRequestReleaseStageRequest> request);
   ExportInsightCustomValueResponse exportInsightCustomValueWithOptions(shared_ptr<string> organizationId,
                                                                        shared_ptr<ExportInsightCustomValueRequest> request,
                                                                        shared_ptr<map<string, string>> headers,
@@ -70329,6 +71181,18 @@ public:
                                              shared_ptr<map<string, string>> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPushRuleResponse getPushRule(shared_ptr<string> repositoryId, shared_ptr<string> pushRuleId, shared_ptr<GetPushRuleRequest> request);
+  GetReleaseStagePipelineRunResponse getReleaseStagePipelineRunWithOptions(shared_ptr<string> appName,
+                                                                           shared_ptr<string> releaseWorkflowSn,
+                                                                           shared_ptr<string> releaseStageSn,
+                                                                           shared_ptr<string> executionNumber,
+                                                                           shared_ptr<GetReleaseStagePipelineRunRequest> request,
+                                                                           shared_ptr<map<string, string>> headers,
+                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetReleaseStagePipelineRunResponse getReleaseStagePipelineRun(shared_ptr<string> appName,
+                                                                shared_ptr<string> releaseWorkflowSn,
+                                                                shared_ptr<string> releaseStageSn,
+                                                                shared_ptr<string> executionNumber,
+                                                                shared_ptr<GetReleaseStagePipelineRunRequest> request);
   GetRepositoryResponse getRepositoryWithOptions(shared_ptr<GetRepositoryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetRepositoryResponse getRepository(shared_ptr<GetRepositoryRequest> request);
   GetRepositoryCommitResponse getRepositoryCommitWithOptions(shared_ptr<string> repositoryId,

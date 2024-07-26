@@ -224,6 +224,46 @@ AddWebhookResponse Alibabacloud_Devops20210625::Client::addWebhook(shared_ptr<st
   return addWebhookWithOptions(repositoryId, request, headers, runtime);
 }
 
+CancelExecutionReleaseStageResponse Alibabacloud_Devops20210625::Client::cancelExecutionReleaseStageWithOptions(shared_ptr<string> appName,
+                                                                                                                shared_ptr<string> releaseWorkflowSn,
+                                                                                                                shared_ptr<string> releaseStageSn,
+                                                                                                                shared_ptr<string> executionNumber,
+                                                                                                                shared_ptr<CancelExecutionReleaseStageRequest> request,
+                                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelExecutionReleaseStage"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/appstack/apps/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/releaseWorkflows/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(releaseWorkflowSn)) + string("/releaseStages/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(releaseStageSn)) + string("/executions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(executionNumber)) + string("%3Acancel"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelExecutionReleaseStageResponse(callApi(params, req, runtime));
+}
+
+CancelExecutionReleaseStageResponse Alibabacloud_Devops20210625::Client::cancelExecutionReleaseStage(shared_ptr<string> appName,
+                                                                                                     shared_ptr<string> releaseWorkflowSn,
+                                                                                                     shared_ptr<string> releaseStageSn,
+                                                                                                     shared_ptr<string> executionNumber,
+                                                                                                     shared_ptr<CancelExecutionReleaseStageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return cancelExecutionReleaseStageWithOptions(appName, releaseWorkflowSn, releaseStageSn, executionNumber, request, headers, runtime);
+}
+
 CloseMergeRequestResponse Alibabacloud_Devops20210625::Client::closeMergeRequestWithOptions(shared_ptr<string> repositoryId,
                                                                                             shared_ptr<string> localId,
                                                                                             shared_ptr<CloseMergeRequestRequest> request,
@@ -3055,6 +3095,49 @@ EnableDeployKeyResponse Alibabacloud_Devops20210625::Client::enableDeployKey(sha
   return enableDeployKeyWithOptions(repositoryId, keyId, request, headers, runtime);
 }
 
+ExecuteChangeRequestReleaseStageResponse Alibabacloud_Devops20210625::Client::executeChangeRequestReleaseStageWithOptions(shared_ptr<string> appName,
+                                                                                                                          shared_ptr<string> releaseWorkflowSn,
+                                                                                                                          shared_ptr<string> releaseStageSn,
+                                                                                                                          shared_ptr<ExecuteChangeRequestReleaseStageRequest> request,
+                                                                                                                          shared_ptr<map<string, string>> headers,
+                                                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->params)) {
+    body->insert(pair<string, map<string, boost::any>>("params", *request->params));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteChangeRequestReleaseStage"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/appstack/apps/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/releaseWorkflows/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(releaseWorkflowSn)) + string("/releaseStages/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(releaseStageSn)) + string("%3Aexecute"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExecuteChangeRequestReleaseStageResponse(callApi(params, req, runtime));
+}
+
+ExecuteChangeRequestReleaseStageResponse Alibabacloud_Devops20210625::Client::executeChangeRequestReleaseStage(shared_ptr<string> appName,
+                                                                                                               shared_ptr<string> releaseWorkflowSn,
+                                                                                                               shared_ptr<string> releaseStageSn,
+                                                                                                               shared_ptr<ExecuteChangeRequestReleaseStageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return executeChangeRequestReleaseStageWithOptions(appName, releaseWorkflowSn, releaseStageSn, request, headers, runtime);
+}
+
 ExportInsightCustomValueResponse Alibabacloud_Devops20210625::Client::exportInsightCustomValueWithOptions(shared_ptr<string> organizationId,
                                                                                                           shared_ptr<ExportInsightCustomValueRequest> request,
                                                                                                           shared_ptr<map<string, string>> headers,
@@ -4432,6 +4515,46 @@ GetPushRuleResponse Alibabacloud_Devops20210625::Client::getPushRule(shared_ptr<
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getPushRuleWithOptions(repositoryId, pushRuleId, request, headers, runtime);
+}
+
+GetReleaseStagePipelineRunResponse Alibabacloud_Devops20210625::Client::getReleaseStagePipelineRunWithOptions(shared_ptr<string> appName,
+                                                                                                              shared_ptr<string> releaseWorkflowSn,
+                                                                                                              shared_ptr<string> releaseStageSn,
+                                                                                                              shared_ptr<string> executionNumber,
+                                                                                                              shared_ptr<GetReleaseStagePipelineRunRequest> request,
+                                                                                                              shared_ptr<map<string, string>> headers,
+                                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetReleaseStagePipelineRun"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/appstack/apps/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appName)) + string("/releaseWorkflows/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(releaseWorkflowSn)) + string("/releaseStages/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(releaseStageSn)) + string("/executions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(executionNumber)) + string("%3AgetPipelineRun"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetReleaseStagePipelineRunResponse(callApi(params, req, runtime));
+}
+
+GetReleaseStagePipelineRunResponse Alibabacloud_Devops20210625::Client::getReleaseStagePipelineRun(shared_ptr<string> appName,
+                                                                                                   shared_ptr<string> releaseWorkflowSn,
+                                                                                                   shared_ptr<string> releaseStageSn,
+                                                                                                   shared_ptr<string> executionNumber,
+                                                                                                   shared_ptr<GetReleaseStagePipelineRunRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getReleaseStagePipelineRunWithOptions(appName, releaseWorkflowSn, releaseStageSn, executionNumber, request, headers, runtime);
 }
 
 GetRepositoryResponse Alibabacloud_Devops20210625::Client::getRepositoryWithOptions(shared_ptr<GetRepositoryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
