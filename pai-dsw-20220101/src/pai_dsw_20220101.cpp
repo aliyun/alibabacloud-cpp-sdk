@@ -292,6 +292,39 @@ DeleteInstanceResponse Alibabacloud_Pai-dsw20220101::Client::deleteInstance(shar
   return deleteInstanceWithOptions(InstanceId, headers, runtime);
 }
 
+DeleteInstanceLabelsResponse Alibabacloud_Pai-dsw20220101::Client::deleteInstanceLabelsWithOptions(shared_ptr<string> InstanceId,
+                                                                                                   shared_ptr<DeleteInstanceLabelsRequest> request,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->labelKeys)) {
+    query->insert(pair<string, string>("LabelKeys", *request->labelKeys));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteInstanceLabels"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(InstanceId)) + string("/labels"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteInstanceLabelsResponse(callApi(params, req, runtime));
+}
+
+DeleteInstanceLabelsResponse Alibabacloud_Pai-dsw20220101::Client::deleteInstanceLabels(shared_ptr<string> InstanceId, shared_ptr<DeleteInstanceLabelsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteInstanceLabelsWithOptions(InstanceId, request, headers, runtime);
+}
+
 DeleteInstanceShutdownTimerResponse Alibabacloud_Pai-dsw20220101::Client::deleteInstanceShutdownTimerWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -1048,5 +1081,38 @@ UpdateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::updateInstance(shar
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateInstanceWithOptions(InstanceId, request, headers, runtime);
+}
+
+UpdateInstanceLabelsResponse Alibabacloud_Pai-dsw20220101::Client::updateInstanceLabelsWithOptions(shared_ptr<string> InstanceId,
+                                                                                                   shared_ptr<UpdateInstanceLabelsRequest> request,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateInstanceLabelsRequestLabels>>(request->labels)) {
+    body->insert(pair<string, vector<UpdateInstanceLabelsRequestLabels>>("Labels", *request->labels));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateInstanceLabels"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(InstanceId)) + string("/labels"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateInstanceLabelsResponse(callApi(params, req, runtime));
+}
+
+UpdateInstanceLabelsResponse Alibabacloud_Pai-dsw20220101::Client::updateInstanceLabels(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceLabelsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateInstanceLabelsWithOptions(InstanceId, request, headers, runtime);
 }
 

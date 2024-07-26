@@ -1851,6 +1851,116 @@ public:
 
   virtual ~DeleteInstanceResponse() = default;
 };
+class DeleteInstanceLabelsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> labelKeys{};
+
+  DeleteInstanceLabelsRequest() {}
+
+  explicit DeleteInstanceLabelsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (labelKeys) {
+      res["LabelKeys"] = boost::any(*labelKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LabelKeys") != m.end() && !m["LabelKeys"].empty()) {
+      labelKeys = make_shared<string>(boost::any_cast<string>(m["LabelKeys"]));
+    }
+  }
+
+
+  virtual ~DeleteInstanceLabelsRequest() = default;
+};
+class DeleteInstanceLabelsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteInstanceLabelsResponseBody() {}
+
+  explicit DeleteInstanceLabelsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteInstanceLabelsResponseBody() = default;
+};
+class DeleteInstanceLabelsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteInstanceLabelsResponseBody> body{};
+
+  DeleteInstanceLabelsResponse() {}
+
+  explicit DeleteInstanceLabelsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteInstanceLabelsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteInstanceLabelsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteInstanceLabelsResponse() = default;
+};
 class DeleteInstanceShutdownTimerResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
@@ -8366,6 +8476,166 @@ public:
 
   virtual ~UpdateInstanceResponse() = default;
 };
+class UpdateInstanceLabelsRequestLabels : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  UpdateInstanceLabelsRequestLabels() {}
+
+  explicit UpdateInstanceLabelsRequestLabels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateInstanceLabelsRequestLabels() = default;
+};
+class UpdateInstanceLabelsRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<UpdateInstanceLabelsRequestLabels>> labels{};
+
+  UpdateInstanceLabelsRequest() {}
+
+  explicit UpdateInstanceLabelsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (labels) {
+      vector<boost::any> temp1;
+      for(auto item1:*labels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Labels"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<UpdateInstanceLabelsRequestLabels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Labels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateInstanceLabelsRequestLabels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        labels = make_shared<vector<UpdateInstanceLabelsRequestLabels>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateInstanceLabelsRequest() = default;
+};
+class UpdateInstanceLabelsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateInstanceLabelsResponseBody() {}
+
+  explicit UpdateInstanceLabelsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateInstanceLabelsResponseBody() = default;
+};
+class UpdateInstanceLabelsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateInstanceLabelsResponseBody> body{};
+
+  UpdateInstanceLabelsResponse() {}
+
+  explicit UpdateInstanceLabelsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateInstanceLabelsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateInstanceLabelsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateInstanceLabelsResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -8397,6 +8667,11 @@ public:
   DeleteIdleInstanceCullerResponse deleteIdleInstanceCuller(shared_ptr<string> InstanceId);
   DeleteInstanceResponse deleteInstanceWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteInstanceResponse deleteInstance(shared_ptr<string> InstanceId);
+  DeleteInstanceLabelsResponse deleteInstanceLabelsWithOptions(shared_ptr<string> InstanceId,
+                                                               shared_ptr<DeleteInstanceLabelsRequest> request,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteInstanceLabelsResponse deleteInstanceLabels(shared_ptr<string> InstanceId, shared_ptr<DeleteInstanceLabelsRequest> request);
   DeleteInstanceShutdownTimerResponse deleteInstanceShutdownTimerWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteInstanceShutdownTimerResponse deleteInstanceShutdownTimer(shared_ptr<string> InstanceId);
   DeleteInstanceSnapshotResponse deleteInstanceSnapshotWithOptions(shared_ptr<string> InstanceId,
@@ -8464,6 +8739,11 @@ public:
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateInstanceResponse updateInstance(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceRequest> request);
+  UpdateInstanceLabelsResponse updateInstanceLabelsWithOptions(shared_ptr<string> InstanceId,
+                                                               shared_ptr<UpdateInstanceLabelsRequest> request,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateInstanceLabelsResponse updateInstanceLabels(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceLabelsRequest> request);
 
   virtual ~Client() = default;
 };
