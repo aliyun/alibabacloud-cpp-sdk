@@ -10807,6 +10807,7 @@ public:
   shared_ptr<string> keyword{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<bool> publishedOnly{};
 
   ListHttpApisRequest() {}
 
@@ -10827,6 +10828,9 @@ public:
     if (pageSize) {
       res["pageSize"] = boost::any(*pageSize);
     }
+    if (publishedOnly) {
+      res["publishedOnly"] = boost::any(*publishedOnly);
+    }
     return res;
   }
 
@@ -10839,6 +10843,9 @@ public:
     }
     if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+    if (m.find("publishedOnly") != m.end() && !m["publishedOnly"].empty()) {
+      publishedOnly = make_shared<bool>(boost::any_cast<bool>(m["publishedOnly"]));
     }
   }
 

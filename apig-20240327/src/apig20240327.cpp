@@ -1077,6 +1077,9 @@ ListHttpApisResponse Alibabacloud_APIG20240327::Client::listHttpApisWithOptions(
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("pageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->publishedOnly)) {
+    query->insert(pair<string, bool>("publishedOnly", *request->publishedOnly));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
