@@ -4334,6 +4334,418 @@ public:
 
   virtual ~ResourceStatistic() = default;
 };
+class RouteRulesConflictInfoConflictsDetailsConflictingMatchOperationInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> operationId{};
+
+  RouteRulesConflictInfoConflictsDetailsConflictingMatchOperationInfo() {}
+
+  explicit RouteRulesConflictInfoConflictsDetailsConflictingMatchOperationInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (operationId) {
+      res["operationId"] = boost::any(*operationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("operationId") != m.end() && !m["operationId"].empty()) {
+      operationId = make_shared<string>(boost::any_cast<string>(m["operationId"]));
+    }
+  }
+
+
+  virtual ~RouteRulesConflictInfoConflictsDetailsConflictingMatchOperationInfo() = default;
+};
+class RouteRulesConflictInfoConflictsDetailsConflictingMatch : public Darabonba::Model {
+public:
+  shared_ptr<HttpRouteMatch> match{};
+  shared_ptr<RouteRulesConflictInfoConflictsDetailsConflictingMatchOperationInfo> operationInfo{};
+
+  RouteRulesConflictInfoConflictsDetailsConflictingMatch() {}
+
+  explicit RouteRulesConflictInfoConflictsDetailsConflictingMatch(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (match) {
+      res["match"] = match ? boost::any(match->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (operationInfo) {
+      res["operationInfo"] = operationInfo ? boost::any(operationInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("match") != m.end() && !m["match"].empty()) {
+      if (typeid(map<string, boost::any>) == m["match"].type()) {
+        HttpRouteMatch model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["match"]));
+        match = make_shared<HttpRouteMatch>(model1);
+      }
+    }
+    if (m.find("operationInfo") != m.end() && !m["operationInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["operationInfo"].type()) {
+        RouteRulesConflictInfoConflictsDetailsConflictingMatchOperationInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["operationInfo"]));
+        operationInfo = make_shared<RouteRulesConflictInfoConflictsDetailsConflictingMatchOperationInfo>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RouteRulesConflictInfoConflictsDetailsConflictingMatch() = default;
+};
+class RouteRulesConflictInfoConflictsDetailsDetectedMatchOperationInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> operationId{};
+
+  RouteRulesConflictInfoConflictsDetailsDetectedMatchOperationInfo() {}
+
+  explicit RouteRulesConflictInfoConflictsDetailsDetectedMatchOperationInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (operationId) {
+      res["operationId"] = boost::any(*operationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("operationId") != m.end() && !m["operationId"].empty()) {
+      operationId = make_shared<string>(boost::any_cast<string>(m["operationId"]));
+    }
+  }
+
+
+  virtual ~RouteRulesConflictInfoConflictsDetailsDetectedMatchOperationInfo() = default;
+};
+class RouteRulesConflictInfoConflictsDetailsDetectedMatch : public Darabonba::Model {
+public:
+  shared_ptr<HttpRouteMatch> match{};
+  shared_ptr<RouteRulesConflictInfoConflictsDetailsDetectedMatchOperationInfo> operationInfo{};
+
+  RouteRulesConflictInfoConflictsDetailsDetectedMatch() {}
+
+  explicit RouteRulesConflictInfoConflictsDetailsDetectedMatch(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (match) {
+      res["match"] = match ? boost::any(match->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (operationInfo) {
+      res["operationInfo"] = operationInfo ? boost::any(operationInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("match") != m.end() && !m["match"].empty()) {
+      if (typeid(map<string, boost::any>) == m["match"].type()) {
+        HttpRouteMatch model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["match"]));
+        match = make_shared<HttpRouteMatch>(model1);
+      }
+    }
+    if (m.find("operationInfo") != m.end() && !m["operationInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["operationInfo"].type()) {
+        RouteRulesConflictInfoConflictsDetailsDetectedMatchOperationInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["operationInfo"]));
+        operationInfo = make_shared<RouteRulesConflictInfoConflictsDetailsDetectedMatchOperationInfo>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RouteRulesConflictInfoConflictsDetailsDetectedMatch() = default;
+};
+class RouteRulesConflictInfoConflictsDetails : public Darabonba::Model {
+public:
+  shared_ptr<RouteRulesConflictInfoConflictsDetailsConflictingMatch> conflictingMatch{};
+  shared_ptr<RouteRulesConflictInfoConflictsDetailsDetectedMatch> detectedMatch{};
+  shared_ptr<string> level{};
+
+  RouteRulesConflictInfoConflictsDetails() {}
+
+  explicit RouteRulesConflictInfoConflictsDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conflictingMatch) {
+      res["conflictingMatch"] = conflictingMatch ? boost::any(conflictingMatch->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (detectedMatch) {
+      res["detectedMatch"] = detectedMatch ? boost::any(detectedMatch->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (level) {
+      res["level"] = boost::any(*level);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("conflictingMatch") != m.end() && !m["conflictingMatch"].empty()) {
+      if (typeid(map<string, boost::any>) == m["conflictingMatch"].type()) {
+        RouteRulesConflictInfoConflictsDetailsConflictingMatch model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["conflictingMatch"]));
+        conflictingMatch = make_shared<RouteRulesConflictInfoConflictsDetailsConflictingMatch>(model1);
+      }
+    }
+    if (m.find("detectedMatch") != m.end() && !m["detectedMatch"].empty()) {
+      if (typeid(map<string, boost::any>) == m["detectedMatch"].type()) {
+        RouteRulesConflictInfoConflictsDetailsDetectedMatch model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["detectedMatch"]));
+        detectedMatch = make_shared<RouteRulesConflictInfoConflictsDetailsDetectedMatch>(model1);
+      }
+    }
+    if (m.find("level") != m.end() && !m["level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["level"]));
+    }
+  }
+
+
+  virtual ~RouteRulesConflictInfoConflictsDetails() = default;
+};
+class RouteRulesConflictInfoConflictsEnvironmentInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> environmentId{};
+  shared_ptr<string> name{};
+
+  RouteRulesConflictInfoConflictsEnvironmentInfo() {}
+
+  explicit RouteRulesConflictInfoConflictsEnvironmentInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (environmentId) {
+      res["environmentId"] = boost::any(*environmentId);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("environmentId") != m.end() && !m["environmentId"].empty()) {
+      environmentId = make_shared<string>(boost::any_cast<string>(m["environmentId"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~RouteRulesConflictInfoConflictsEnvironmentInfo() = default;
+};
+class RouteRulesConflictInfoConflicts : public Darabonba::Model {
+public:
+  shared_ptr<vector<RouteRulesConflictInfoConflictsDetails>> details{};
+  shared_ptr<RouteRulesConflictInfoConflictsEnvironmentInfo> environmentInfo{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceType{};
+
+  RouteRulesConflictInfoConflicts() {}
+
+  explicit RouteRulesConflictInfoConflicts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (details) {
+      vector<boost::any> temp1;
+      for(auto item1:*details){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["details"] = boost::any(temp1);
+    }
+    if (environmentInfo) {
+      res["environmentInfo"] = environmentInfo ? boost::any(environmentInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceId) {
+      res["resourceId"] = boost::any(*resourceId);
+    }
+    if (resourceName) {
+      res["resourceName"] = boost::any(*resourceName);
+    }
+    if (resourceType) {
+      res["resourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("details") != m.end() && !m["details"].empty()) {
+      if (typeid(vector<boost::any>) == m["details"].type()) {
+        vector<RouteRulesConflictInfoConflictsDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["details"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RouteRulesConflictInfoConflictsDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        details = make_shared<vector<RouteRulesConflictInfoConflictsDetails>>(expect1);
+      }
+    }
+    if (m.find("environmentInfo") != m.end() && !m["environmentInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["environmentInfo"].type()) {
+        RouteRulesConflictInfoConflictsEnvironmentInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["environmentInfo"]));
+        environmentInfo = make_shared<RouteRulesConflictInfoConflictsEnvironmentInfo>(model1);
+      }
+    }
+    if (m.find("resourceId") != m.end() && !m["resourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["resourceId"]));
+    }
+    if (m.find("resourceName") != m.end() && !m["resourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["resourceName"]));
+    }
+    if (m.find("resourceType") != m.end() && !m["resourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["resourceType"]));
+    }
+  }
+
+
+  virtual ~RouteRulesConflictInfoConflicts() = default;
+};
+class RouteRulesConflictInfoDomainInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> domainId{};
+  shared_ptr<string> name{};
+
+  RouteRulesConflictInfoDomainInfo() {}
+
+  explicit RouteRulesConflictInfoDomainInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainId) {
+      res["domainId"] = boost::any(*domainId);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("domainId") != m.end() && !m["domainId"].empty()) {
+      domainId = make_shared<string>(boost::any_cast<string>(m["domainId"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~RouteRulesConflictInfoDomainInfo() = default;
+};
+class RouteRulesConflictInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<RouteRulesConflictInfoConflicts>> conflicts{};
+  shared_ptr<RouteRulesConflictInfoDomainInfo> domainInfo{};
+
+  RouteRulesConflictInfo() {}
+
+  explicit RouteRulesConflictInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conflicts) {
+      vector<boost::any> temp1;
+      for(auto item1:*conflicts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["conflicts"] = boost::any(temp1);
+    }
+    if (domainInfo) {
+      res["domainInfo"] = domainInfo ? boost::any(domainInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("conflicts") != m.end() && !m["conflicts"].empty()) {
+      if (typeid(vector<boost::any>) == m["conflicts"].type()) {
+        vector<RouteRulesConflictInfoConflicts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["conflicts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RouteRulesConflictInfoConflicts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conflicts = make_shared<vector<RouteRulesConflictInfoConflicts>>(expect1);
+      }
+    }
+    if (m.find("domainInfo") != m.end() && !m["domainInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["domainInfo"].type()) {
+        RouteRulesConflictInfoDomainInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["domainInfo"]));
+        domainInfo = make_shared<RouteRulesConflictInfoDomainInfo>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RouteRulesConflictInfo() = default;
+};
 class ServiceLinkedRole : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
@@ -9090,6 +9502,7 @@ public:
 };
 class ListDomainsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> gatewayId{};
   shared_ptr<string> nameLike{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -9104,6 +9517,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (gatewayId) {
+      res["gatewayId"] = boost::any(*gatewayId);
+    }
     if (nameLike) {
       res["nameLike"] = boost::any(*nameLike);
     }
@@ -9117,6 +9533,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("gatewayId") != m.end() && !m["gatewayId"].empty()) {
+      gatewayId = make_shared<string>(boost::any_cast<string>(m["gatewayId"]));
+    }
     if (m.find("nameLike") != m.end() && !m["nameLike"].empty()) {
       nameLike = make_shared<string>(boost::any_cast<string>(m["nameLike"]));
     }

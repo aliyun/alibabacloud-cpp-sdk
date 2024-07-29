@@ -810,6 +810,9 @@ GetHttpApiOperationResponse Alibabacloud_APIG20240327::Client::getHttpApiOperati
 ListDomainsResponse Alibabacloud_APIG20240327::Client::listDomainsWithOptions(shared_ptr<ListDomainsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayId)) {
+    query->insert(pair<string, string>("gatewayId", *request->gatewayId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->nameLike)) {
     query->insert(pair<string, string>("nameLike", *request->nameLike));
   }
