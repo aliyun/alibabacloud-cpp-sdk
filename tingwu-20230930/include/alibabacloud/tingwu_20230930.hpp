@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_TINGWU20230930_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
@@ -284,6 +285,111 @@ public:
 
   virtual ~CreateTaskRequestParametersMeetingAssistance() = default;
 };
+class CreateTaskRequestParametersServiceInspectionInspectionContents : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> title{};
+
+  CreateTaskRequestParametersServiceInspectionInspectionContents() {}
+
+  explicit CreateTaskRequestParametersServiceInspectionInspectionContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~CreateTaskRequestParametersServiceInspectionInspectionContents() = default;
+};
+class CreateTaskRequestParametersServiceInspection : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateTaskRequestParametersServiceInspectionInspectionContents>> inspectionContents{};
+  shared_ptr<string> inspectionIntroduction{};
+  shared_ptr<string> sceneIntroduction{};
+  shared_ptr<map<string, boost::any>> speakerMap{};
+
+  CreateTaskRequestParametersServiceInspection() {}
+
+  explicit CreateTaskRequestParametersServiceInspection(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inspectionContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*inspectionContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InspectionContents"] = boost::any(temp1);
+    }
+    if (inspectionIntroduction) {
+      res["InspectionIntroduction"] = boost::any(*inspectionIntroduction);
+    }
+    if (sceneIntroduction) {
+      res["SceneIntroduction"] = boost::any(*sceneIntroduction);
+    }
+    if (speakerMap) {
+      res["SpeakerMap"] = boost::any(*speakerMap);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InspectionContents") != m.end() && !m["InspectionContents"].empty()) {
+      if (typeid(vector<boost::any>) == m["InspectionContents"].type()) {
+        vector<CreateTaskRequestParametersServiceInspectionInspectionContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InspectionContents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateTaskRequestParametersServiceInspectionInspectionContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        inspectionContents = make_shared<vector<CreateTaskRequestParametersServiceInspectionInspectionContents>>(expect1);
+      }
+    }
+    if (m.find("InspectionIntroduction") != m.end() && !m["InspectionIntroduction"].empty()) {
+      inspectionIntroduction = make_shared<string>(boost::any_cast<string>(m["InspectionIntroduction"]));
+    }
+    if (m.find("SceneIntroduction") != m.end() && !m["SceneIntroduction"].empty()) {
+      sceneIntroduction = make_shared<string>(boost::any_cast<string>(m["SceneIntroduction"]));
+    }
+    if (m.find("SpeakerMap") != m.end() && !m["SpeakerMap"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["SpeakerMap"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      speakerMap = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~CreateTaskRequestParametersServiceInspection() = default;
+};
 class CreateTaskRequestParametersSummarization : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> types{};
@@ -533,6 +639,8 @@ public:
   shared_ptr<CreateTaskRequestParametersMeetingAssistance> meetingAssistance{};
   shared_ptr<bool> meetingAssistanceEnabled{};
   shared_ptr<bool> pptExtractionEnabled{};
+  shared_ptr<CreateTaskRequestParametersServiceInspection> serviceInspection{};
+  shared_ptr<bool> serviceInspectionEnabled{};
   shared_ptr<CreateTaskRequestParametersSummarization> summarization{};
   shared_ptr<bool> summarizationEnabled{};
   shared_ptr<bool> textPolishEnabled{};
@@ -571,6 +679,12 @@ public:
     }
     if (pptExtractionEnabled) {
       res["PptExtractionEnabled"] = boost::any(*pptExtractionEnabled);
+    }
+    if (serviceInspection) {
+      res["ServiceInspection"] = serviceInspection ? boost::any(serviceInspection->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (serviceInspectionEnabled) {
+      res["ServiceInspectionEnabled"] = boost::any(*serviceInspectionEnabled);
     }
     if (summarization) {
       res["Summarization"] = summarization ? boost::any(summarization->toMap()) : boost::any(map<string,boost::any>({}));
@@ -629,6 +743,16 @@ public:
     }
     if (m.find("PptExtractionEnabled") != m.end() && !m["PptExtractionEnabled"].empty()) {
       pptExtractionEnabled = make_shared<bool>(boost::any_cast<bool>(m["PptExtractionEnabled"]));
+    }
+    if (m.find("ServiceInspection") != m.end() && !m["ServiceInspection"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ServiceInspection"].type()) {
+        CreateTaskRequestParametersServiceInspection model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ServiceInspection"]));
+        serviceInspection = make_shared<CreateTaskRequestParametersServiceInspection>(model1);
+      }
+    }
+    if (m.find("ServiceInspectionEnabled") != m.end() && !m["ServiceInspectionEnabled"].empty()) {
+      serviceInspectionEnabled = make_shared<bool>(boost::any_cast<bool>(m["ServiceInspectionEnabled"]));
     }
     if (m.find("Summarization") != m.end() && !m["Summarization"].empty()) {
       if (typeid(map<string, boost::any>) == m["Summarization"].type()) {
