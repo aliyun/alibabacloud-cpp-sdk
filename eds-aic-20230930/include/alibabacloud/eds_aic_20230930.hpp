@@ -542,6 +542,7 @@ class CheckResourceStockRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acpSpecId{};
   shared_ptr<string> bizRegionId{};
+  shared_ptr<bool> gpuAcceleration{};
   shared_ptr<string> zoneId{};
 
   CheckResourceStockRequest() {}
@@ -560,6 +561,9 @@ public:
     if (bizRegionId) {
       res["BizRegionId"] = boost::any(*bizRegionId);
     }
+    if (gpuAcceleration) {
+      res["GpuAcceleration"] = boost::any(*gpuAcceleration);
+    }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
@@ -572,6 +576,9 @@ public:
     }
     if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
       bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
+    }
+    if (m.find("GpuAcceleration") != m.end() && !m["GpuAcceleration"].empty()) {
+      gpuAcceleration = make_shared<bool>(boost::any_cast<bool>(m["GpuAcceleration"]));
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));

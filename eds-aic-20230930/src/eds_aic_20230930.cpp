@@ -155,6 +155,9 @@ CheckResourceStockResponse Alibabacloud_Eds-aic20230930::Client::checkResourceSt
   if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
     query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->gpuAcceleration)) {
+    query->insert(pair<string, bool>("GpuAcceleration", *request->gpuAcceleration));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
     query->insert(pair<string, string>("ZoneId", *request->zoneId));
   }
