@@ -59184,6 +59184,123 @@ public:
 
   virtual ~PassPipelineValidateResponse() = default;
 };
+class PassReleaseStagePipelineValidateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> organizationId{};
+
+  PassReleaseStagePipelineValidateRequest() {}
+
+  explicit PassReleaseStagePipelineValidateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["jobId"] = boost::any(*jobId);
+    }
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("jobId") != m.end() && !m["jobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["jobId"]));
+    }
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+  }
+
+
+  virtual ~PassReleaseStagePipelineValidateRequest() = default;
+};
+class PassReleaseStagePipelineValidateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> success{};
+
+  PassReleaseStagePipelineValidateResponseBody() {}
+
+  explicit PassReleaseStagePipelineValidateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~PassReleaseStagePipelineValidateResponseBody() = default;
+};
+class PassReleaseStagePipelineValidateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PassReleaseStagePipelineValidateResponseBody> body{};
+
+  PassReleaseStagePipelineValidateResponse() {}
+
+  explicit PassReleaseStagePipelineValidateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PassReleaseStagePipelineValidateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PassReleaseStagePipelineValidateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PassReleaseStagePipelineValidateResponse() = default;
+};
 class RefusePipelineValidateResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> errorCode{};
@@ -59285,6 +59402,123 @@ public:
 
 
   virtual ~RefusePipelineValidateResponse() = default;
+};
+class RefuseReleaseStagePipelineValidateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> organizationId{};
+
+  RefuseReleaseStagePipelineValidateRequest() {}
+
+  explicit RefuseReleaseStagePipelineValidateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["jobId"] = boost::any(*jobId);
+    }
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("jobId") != m.end() && !m["jobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["jobId"]));
+    }
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+  }
+
+
+  virtual ~RefuseReleaseStagePipelineValidateRequest() = default;
+};
+class RefuseReleaseStagePipelineValidateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> success{};
+
+  RefuseReleaseStagePipelineValidateResponseBody() {}
+
+  explicit RefuseReleaseStagePipelineValidateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~RefuseReleaseStagePipelineValidateResponseBody() = default;
+};
+class RefuseReleaseStagePipelineValidateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RefuseReleaseStagePipelineValidateResponseBody> body{};
+
+  RefuseReleaseStagePipelineValidateResponse() {}
+
+  explicit RefuseReleaseStagePipelineValidateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RefuseReleaseStagePipelineValidateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RefuseReleaseStagePipelineValidateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RefuseReleaseStagePipelineValidateResponse() = default;
 };
 class ReleaseWorkspaceResponseBody : public Darabonba::Model {
 public:
@@ -71602,6 +71836,18 @@ public:
                                                     shared_ptr<string> pipelineId,
                                                     shared_ptr<string> pipelineRunId,
                                                     shared_ptr<string> jobId);
+  PassReleaseStagePipelineValidateResponse passReleaseStagePipelineValidateWithOptions(shared_ptr<string> appName,
+                                                                                       shared_ptr<string> releaseWorkflowSn,
+                                                                                       shared_ptr<string> releaseStageSn,
+                                                                                       shared_ptr<string> executionNumber,
+                                                                                       shared_ptr<PassReleaseStagePipelineValidateRequest> request,
+                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PassReleaseStagePipelineValidateResponse passReleaseStagePipelineValidate(shared_ptr<string> appName,
+                                                                            shared_ptr<string> releaseWorkflowSn,
+                                                                            shared_ptr<string> releaseStageSn,
+                                                                            shared_ptr<string> executionNumber,
+                                                                            shared_ptr<PassReleaseStagePipelineValidateRequest> request);
   RefusePipelineValidateResponse refusePipelineValidateWithOptions(shared_ptr<string> organizationId,
                                                                    shared_ptr<string> pipelineId,
                                                                    shared_ptr<string> pipelineRunId,
@@ -71612,6 +71858,18 @@ public:
                                                         shared_ptr<string> pipelineId,
                                                         shared_ptr<string> pipelineRunId,
                                                         shared_ptr<string> jobId);
+  RefuseReleaseStagePipelineValidateResponse refuseReleaseStagePipelineValidateWithOptions(shared_ptr<string> appName,
+                                                                                           shared_ptr<string> releaseWorkflowSn,
+                                                                                           shared_ptr<string> releaseStageSn,
+                                                                                           shared_ptr<string> executionNumber,
+                                                                                           shared_ptr<RefuseReleaseStagePipelineValidateRequest> request,
+                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RefuseReleaseStagePipelineValidateResponse refuseReleaseStagePipelineValidate(shared_ptr<string> appName,
+                                                                                shared_ptr<string> releaseWorkflowSn,
+                                                                                shared_ptr<string> releaseStageSn,
+                                                                                shared_ptr<string> executionNumber,
+                                                                                shared_ptr<RefuseReleaseStagePipelineValidateRequest> request);
   ReleaseWorkspaceResponse releaseWorkspaceWithOptions(shared_ptr<string> workspaceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReleaseWorkspaceResponse releaseWorkspace(shared_ptr<string> workspaceId);
   ReopenMergeRequestResponse reopenMergeRequestWithOptions(shared_ptr<string> repositoryId,
