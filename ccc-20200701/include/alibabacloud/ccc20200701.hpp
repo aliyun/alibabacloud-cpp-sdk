@@ -30550,6 +30550,7 @@ public:
   shared_ptr<string> agentNames{};
   shared_ptr<string> broker{};
   shared_ptr<string> callDuration{};
+  shared_ptr<string> callIds{};
   shared_ptr<string> calledNumber{};
   shared_ptr<string> calleeLocation{};
   shared_ptr<string> callerLocation{};
@@ -30604,6 +30605,9 @@ public:
     }
     if (callDuration) {
       res["CallDuration"] = boost::any(*callDuration);
+    }
+    if (callIds) {
+      res["CallIds"] = boost::any(*callIds);
     }
     if (calledNumber) {
       res["CalledNumber"] = boost::any(*calledNumber);
@@ -30710,6 +30714,9 @@ public:
     }
     if (m.find("CallDuration") != m.end() && !m["CallDuration"].empty()) {
       callDuration = make_shared<string>(boost::any_cast<string>(m["CallDuration"]));
+    }
+    if (m.find("CallIds") != m.end() && !m["CallIds"].empty()) {
+      callIds = make_shared<string>(boost::any_cast<string>(m["CallIds"]));
     }
     if (m.find("CalledNumber") != m.end() && !m["CalledNumber"].empty()) {
       calledNumber = make_shared<string>(boost::any_cast<string>(m["CalledNumber"]));
