@@ -31982,6 +31982,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
   shared_ptr<long> totalCount{};
+  shared_ptr<string> totalPages{};
 
   DescribePdnsUdpIpSegmentsResponseBody() {}
 
@@ -32012,6 +32013,9 @@ public:
     if (totalCount) {
       res["TotalCount"] = boost::any(*totalCount);
     }
+    if (totalPages) {
+      res["TotalPages"] = boost::any(*totalPages);
+    }
     return res;
   }
 
@@ -32040,6 +32044,9 @@ public:
     }
     if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
       totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("TotalPages") != m.end() && !m["TotalPages"].empty()) {
+      totalPages = make_shared<string>(boost::any_cast<string>(m["TotalPages"]));
     }
   }
 
