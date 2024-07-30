@@ -5575,6 +5575,7 @@ public:
 class GetConsumerProgressRequest : public Darabonba::Model {
 public:
   shared_ptr<string> consumerId{};
+  shared_ptr<bool> hideLastTimestamp{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
 
@@ -5591,6 +5592,9 @@ public:
     if (consumerId) {
       res["ConsumerId"] = boost::any(*consumerId);
     }
+    if (hideLastTimestamp) {
+      res["HideLastTimestamp"] = boost::any(*hideLastTimestamp);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -5603,6 +5607,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConsumerId") != m.end() && !m["ConsumerId"].empty()) {
       consumerId = make_shared<string>(boost::any_cast<string>(m["ConsumerId"]));
+    }
+    if (m.find("HideLastTimestamp") != m.end() && !m["HideLastTimestamp"].empty()) {
+      hideLastTimestamp = make_shared<bool>(boost::any_cast<bool>(m["HideLastTimestamp"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));

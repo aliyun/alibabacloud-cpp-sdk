@@ -1032,6 +1032,9 @@ GetConsumerProgressResponse Alibabacloud_Alikafka20190916::Client::getConsumerPr
   if (!Darabonba_Util::Client::isUnset<string>(request->consumerId)) {
     query->insert(pair<string, string>("ConsumerId", *request->consumerId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->hideLastTimestamp)) {
+    query->insert(pair<string, bool>("HideLastTimestamp", *request->hideLastTimestamp));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
