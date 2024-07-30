@@ -9358,6 +9358,1855 @@ public:
 
   virtual ~GetRootOrganizationalUnitResponse() = default;
 };
+class GetSynchronizationJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> synchronizationJobId{};
+
+  GetSynchronizationJobRequest() {}
+
+  explicit GetSynchronizationJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (synchronizationJobId) {
+      res["SynchronizationJobId"] = boost::any(*synchronizationJobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("SynchronizationJobId") != m.end() && !m["SynchronizationJobId"].empty()) {
+      synchronizationJobId = make_shared<string>(boost::any_cast<string>(m["SynchronizationJobId"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobRequest() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsBinded : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsBinded() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsBinded(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsBinded() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsCreated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsCreated() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsCreated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsCreated() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsDeleted : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsDeleted() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsDeleted(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsDeleted() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsPushed : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsPushed() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsPushed(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsPushed() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsSame : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsSame() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsSame(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsSame() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsUpdated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsUpdated() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsUpdated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsUpdated() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatistics : public Darabonba::Model {
+public:
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsBinded> binded{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsCreated> created{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsDeleted> deleted{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsPushed> pushed{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsSame> same{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsUpdated> updated{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatistics() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatistics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (binded) {
+      res["Binded"] = binded ? boost::any(binded->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (created) {
+      res["Created"] = created ? boost::any(created->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deleted) {
+      res["Deleted"] = deleted ? boost::any(deleted->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pushed) {
+      res["Pushed"] = pushed ? boost::any(pushed->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (same) {
+      res["Same"] = same ? boost::any(same->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (updated) {
+      res["Updated"] = updated ? boost::any(updated->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Binded") != m.end() && !m["Binded"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Binded"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsBinded model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Binded"]));
+        binded = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsBinded>(model1);
+      }
+    }
+    if (m.find("Created") != m.end() && !m["Created"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Created"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsCreated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Created"]));
+        created = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsCreated>(model1);
+      }
+    }
+    if (m.find("Deleted") != m.end() && !m["Deleted"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Deleted"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsDeleted model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Deleted"]));
+        deleted = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsDeleted>(model1);
+      }
+    }
+    if (m.find("Pushed") != m.end() && !m["Pushed"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Pushed"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsPushed model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Pushed"]));
+        pushed = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsPushed>(model1);
+      }
+    }
+    if (m.find("Same") != m.end() && !m["Same"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Same"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsSame model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Same"]));
+        same = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsSame>(model1);
+      }
+    }
+    if (m.find("Updated") != m.end() && !m["Updated"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Updated"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsUpdated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Updated"]));
+        updated = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatisticsUpdated>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatistics() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsBinded : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsBinded() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsBinded(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsBinded() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsCreated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsCreated() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsCreated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsCreated() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsDeleted : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsDeleted() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsDeleted(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsDeleted() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsPushed : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsPushed() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsPushed(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsPushed() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsSame : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsSame() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsSame(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsSame() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsUpdated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsUpdated() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsUpdated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsUpdated() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatistics : public Darabonba::Model {
+public:
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsBinded> binded{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsCreated> created{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsDeleted> deleted{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsPushed> pushed{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsSame> same{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsUpdated> updated{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatistics() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatistics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (binded) {
+      res["Binded"] = binded ? boost::any(binded->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (created) {
+      res["Created"] = created ? boost::any(created->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deleted) {
+      res["Deleted"] = deleted ? boost::any(deleted->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pushed) {
+      res["Pushed"] = pushed ? boost::any(pushed->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (same) {
+      res["Same"] = same ? boost::any(same->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (updated) {
+      res["Updated"] = updated ? boost::any(updated->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Binded") != m.end() && !m["Binded"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Binded"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsBinded model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Binded"]));
+        binded = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsBinded>(model1);
+      }
+    }
+    if (m.find("Created") != m.end() && !m["Created"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Created"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsCreated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Created"]));
+        created = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsCreated>(model1);
+      }
+    }
+    if (m.find("Deleted") != m.end() && !m["Deleted"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Deleted"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsDeleted model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Deleted"]));
+        deleted = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsDeleted>(model1);
+      }
+    }
+    if (m.find("Pushed") != m.end() && !m["Pushed"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Pushed"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsPushed model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Pushed"]));
+        pushed = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsPushed>(model1);
+      }
+    }
+    if (m.find("Same") != m.end() && !m["Same"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Same"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsSame model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Same"]));
+        same = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsSame>(model1);
+      }
+    }
+    if (m.find("Updated") != m.end() && !m["Updated"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Updated"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsUpdated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Updated"]));
+        updated = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatisticsUpdated>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatistics() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsBinded : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsBinded() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsBinded(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsBinded() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsCreated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsCreated() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsCreated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsCreated() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsDeleted : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsDeleted() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsDeleted(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsDeleted() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsPushed : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsPushed() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsPushed(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsPushed() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsSame : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsSame() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsSame(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsSame() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsUpdated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsUpdated() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsUpdated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsUpdated() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatistics : public Darabonba::Model {
+public:
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsBinded> binded{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsCreated> created{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsDeleted> deleted{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsPushed> pushed{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsSame> same{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsUpdated> updated{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatistics() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatistics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (binded) {
+      res["Binded"] = binded ? boost::any(binded->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (created) {
+      res["Created"] = created ? boost::any(created->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deleted) {
+      res["Deleted"] = deleted ? boost::any(deleted->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pushed) {
+      res["Pushed"] = pushed ? boost::any(pushed->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (same) {
+      res["Same"] = same ? boost::any(same->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (updated) {
+      res["Updated"] = updated ? boost::any(updated->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Binded") != m.end() && !m["Binded"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Binded"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsBinded model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Binded"]));
+        binded = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsBinded>(model1);
+      }
+    }
+    if (m.find("Created") != m.end() && !m["Created"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Created"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsCreated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Created"]));
+        created = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsCreated>(model1);
+      }
+    }
+    if (m.find("Deleted") != m.end() && !m["Deleted"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Deleted"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsDeleted model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Deleted"]));
+        deleted = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsDeleted>(model1);
+      }
+    }
+    if (m.find("Pushed") != m.end() && !m["Pushed"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Pushed"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsPushed model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Pushed"]));
+        pushed = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsPushed>(model1);
+      }
+    }
+    if (m.find("Same") != m.end() && !m["Same"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Same"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsSame model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Same"]));
+        same = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsSame>(model1);
+      }
+    }
+    if (m.find("Updated") != m.end() && !m["Updated"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Updated"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsUpdated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Updated"]));
+        updated = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatisticsUpdated>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatistics() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsBinded : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsBinded() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsBinded(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsBinded() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsCreated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsCreated() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsCreated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsCreated() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsDeleted : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsDeleted() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsDeleted(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsDeleted() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsPushed : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsPushed() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsPushed(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsPushed() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsSame : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsSame() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsSame(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsSame() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsUpdated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsUpdated() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsUpdated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsUpdated() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResultUserStatistics : public Darabonba::Model {
+public:
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsBinded> binded{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsCreated> created{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsDeleted> deleted{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsPushed> pushed{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsSame> same{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsUpdated> updated{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResultUserStatistics() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResultUserStatistics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (binded) {
+      res["Binded"] = binded ? boost::any(binded->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (created) {
+      res["Created"] = created ? boost::any(created->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deleted) {
+      res["Deleted"] = deleted ? boost::any(deleted->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pushed) {
+      res["Pushed"] = pushed ? boost::any(pushed->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (same) {
+      res["Same"] = same ? boost::any(same->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (updated) {
+      res["Updated"] = updated ? boost::any(updated->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Binded") != m.end() && !m["Binded"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Binded"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsBinded model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Binded"]));
+        binded = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsBinded>(model1);
+      }
+    }
+    if (m.find("Created") != m.end() && !m["Created"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Created"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsCreated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Created"]));
+        created = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsCreated>(model1);
+      }
+    }
+    if (m.find("Deleted") != m.end() && !m["Deleted"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Deleted"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsDeleted model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Deleted"]));
+        deleted = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsDeleted>(model1);
+      }
+    }
+    if (m.find("Pushed") != m.end() && !m["Pushed"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Pushed"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsPushed model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Pushed"]));
+        pushed = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsPushed>(model1);
+      }
+    }
+    if (m.find("Same") != m.end() && !m["Same"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Same"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsSame model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Same"]));
+        same = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsSame>(model1);
+      }
+    }
+    if (m.find("Updated") != m.end() && !m["Updated"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Updated"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsUpdated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Updated"]));
+        updated = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatisticsUpdated>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResultUserStatistics() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJobResult : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatistics> groupMemberStatistics{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatistics> groupStatistics{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatistics> organizationalUnitStatistics{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatistics> userStatistics{};
+
+  GetSynchronizationJobResponseBodySynchronizationJobResult() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJobResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (groupMemberStatistics) {
+      res["GroupMemberStatistics"] = groupMemberStatistics ? boost::any(groupMemberStatistics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (groupStatistics) {
+      res["GroupStatistics"] = groupStatistics ? boost::any(groupStatistics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (organizationalUnitStatistics) {
+      res["OrganizationalUnitStatistics"] = organizationalUnitStatistics ? boost::any(organizationalUnitStatistics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (userStatistics) {
+      res["UserStatistics"] = userStatistics ? boost::any(userStatistics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("GroupMemberStatistics") != m.end() && !m["GroupMemberStatistics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GroupMemberStatistics"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatistics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GroupMemberStatistics"]));
+        groupMemberStatistics = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupMemberStatistics>(model1);
+      }
+    }
+    if (m.find("GroupStatistics") != m.end() && !m["GroupStatistics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GroupStatistics"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatistics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GroupStatistics"]));
+        groupStatistics = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultGroupStatistics>(model1);
+      }
+    }
+    if (m.find("OrganizationalUnitStatistics") != m.end() && !m["OrganizationalUnitStatistics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OrganizationalUnitStatistics"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatistics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OrganizationalUnitStatistics"]));
+        organizationalUnitStatistics = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultOrganizationalUnitStatistics>(model1);
+      }
+    }
+    if (m.find("UserStatistics") != m.end() && !m["UserStatistics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserStatistics"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResultUserStatistics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserStatistics"]));
+        userStatistics = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResultUserStatistics>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJobResult() = default;
+};
+class GetSynchronizationJobResponseBodySynchronizationJob : public Darabonba::Model {
+public:
+  shared_ptr<string> direction{};
+  shared_ptr<long> endTime{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJobResult> result{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> synchronizationJobId{};
+  shared_ptr<string> targetId{};
+  shared_ptr<string> targetType{};
+  shared_ptr<string> triggerType{};
+
+  GetSynchronizationJobResponseBodySynchronizationJob() {}
+
+  explicit GetSynchronizationJobResponseBodySynchronizationJob(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (synchronizationJobId) {
+      res["SynchronizationJobId"] = boost::any(*synchronizationJobId);
+    }
+    if (targetId) {
+      res["TargetId"] = boost::any(*targetId);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    if (triggerType) {
+      res["TriggerType"] = boost::any(*triggerType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJobResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<GetSynchronizationJobResponseBodySynchronizationJobResult>(model1);
+      }
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SynchronizationJobId") != m.end() && !m["SynchronizationJobId"].empty()) {
+      synchronizationJobId = make_shared<string>(boost::any_cast<string>(m["SynchronizationJobId"]));
+    }
+    if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
+      targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+    if (m.find("TriggerType") != m.end() && !m["TriggerType"].empty()) {
+      triggerType = make_shared<string>(boost::any_cast<string>(m["TriggerType"]));
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBodySynchronizationJob() = default;
+};
+class GetSynchronizationJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<GetSynchronizationJobResponseBodySynchronizationJob> synchronizationJob{};
+
+  GetSynchronizationJobResponseBody() {}
+
+  explicit GetSynchronizationJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (synchronizationJob) {
+      res["SynchronizationJob"] = synchronizationJob ? boost::any(synchronizationJob->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SynchronizationJob") != m.end() && !m["SynchronizationJob"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SynchronizationJob"].type()) {
+        GetSynchronizationJobResponseBodySynchronizationJob model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SynchronizationJob"]));
+        synchronizationJob = make_shared<GetSynchronizationJobResponseBodySynchronizationJob>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponseBody() = default;
+};
+class GetSynchronizationJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetSynchronizationJobResponseBody> body{};
+
+  GetSynchronizationJobResponse() {}
+
+  explicit GetSynchronizationJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSynchronizationJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSynchronizationJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSynchronizationJobResponse() = default;
+};
 class GetUserRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -14216,6 +16065,1949 @@ public:
 
   virtual ~ListRegionsResponse() = default;
 };
+class ListSynchronizationJobsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> direction{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> status{};
+  shared_ptr<vector<string>> targetIds{};
+  shared_ptr<string> targetType{};
+
+  ListSynchronizationJobsRequest() {}
+
+  explicit ListSynchronizationJobsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (targetIds) {
+      res["TargetIds"] = boost::any(*targetIds);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TargetIds") != m.end() && !m["TargetIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TargetIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TargetIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      targetIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsRequest() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsBinded : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsBinded() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsBinded(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsBinded() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsCreated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsCreated() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsCreated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsCreated() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsDeleted : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsDeleted() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsDeleted(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsDeleted() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsPushed : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsPushed() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsPushed(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsPushed() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsSame : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsSame() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsSame(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsSame() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsUpdated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsUpdated() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsUpdated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsUpdated() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatistics : public Darabonba::Model {
+public:
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsBinded> binded{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsCreated> created{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsDeleted> deleted{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsPushed> pushed{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsSame> same{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsUpdated> updated{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatistics() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatistics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (binded) {
+      res["Binded"] = binded ? boost::any(binded->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (created) {
+      res["Created"] = created ? boost::any(created->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deleted) {
+      res["Deleted"] = deleted ? boost::any(deleted->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pushed) {
+      res["Pushed"] = pushed ? boost::any(pushed->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (same) {
+      res["Same"] = same ? boost::any(same->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (updated) {
+      res["Updated"] = updated ? boost::any(updated->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Binded") != m.end() && !m["Binded"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Binded"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsBinded model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Binded"]));
+        binded = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsBinded>(model1);
+      }
+    }
+    if (m.find("Created") != m.end() && !m["Created"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Created"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsCreated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Created"]));
+        created = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsCreated>(model1);
+      }
+    }
+    if (m.find("Deleted") != m.end() && !m["Deleted"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Deleted"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsDeleted model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Deleted"]));
+        deleted = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsDeleted>(model1);
+      }
+    }
+    if (m.find("Pushed") != m.end() && !m["Pushed"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Pushed"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsPushed model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Pushed"]));
+        pushed = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsPushed>(model1);
+      }
+    }
+    if (m.find("Same") != m.end() && !m["Same"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Same"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsSame model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Same"]));
+        same = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsSame>(model1);
+      }
+    }
+    if (m.find("Updated") != m.end() && !m["Updated"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Updated"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsUpdated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Updated"]));
+        updated = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsUpdated>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatistics() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsBinded : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsBinded() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsBinded(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsBinded() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsCreated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsCreated() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsCreated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsCreated() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsDeleted : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsDeleted() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsDeleted(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsDeleted() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsPushed : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsPushed() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsPushed(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsPushed() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsSame : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsSame() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsSame(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsSame() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsUpdated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsUpdated() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsUpdated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsUpdated() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatistics : public Darabonba::Model {
+public:
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsBinded> binded{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsCreated> created{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsDeleted> deleted{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsPushed> pushed{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsSame> same{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsUpdated> updated{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatistics() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatistics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (binded) {
+      res["Binded"] = binded ? boost::any(binded->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (created) {
+      res["Created"] = created ? boost::any(created->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deleted) {
+      res["Deleted"] = deleted ? boost::any(deleted->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pushed) {
+      res["Pushed"] = pushed ? boost::any(pushed->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (same) {
+      res["Same"] = same ? boost::any(same->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (updated) {
+      res["Updated"] = updated ? boost::any(updated->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Binded") != m.end() && !m["Binded"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Binded"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsBinded model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Binded"]));
+        binded = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsBinded>(model1);
+      }
+    }
+    if (m.find("Created") != m.end() && !m["Created"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Created"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsCreated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Created"]));
+        created = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsCreated>(model1);
+      }
+    }
+    if (m.find("Deleted") != m.end() && !m["Deleted"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Deleted"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsDeleted model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Deleted"]));
+        deleted = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsDeleted>(model1);
+      }
+    }
+    if (m.find("Pushed") != m.end() && !m["Pushed"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Pushed"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsPushed model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Pushed"]));
+        pushed = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsPushed>(model1);
+      }
+    }
+    if (m.find("Same") != m.end() && !m["Same"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Same"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsSame model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Same"]));
+        same = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsSame>(model1);
+      }
+    }
+    if (m.find("Updated") != m.end() && !m["Updated"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Updated"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsUpdated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Updated"]));
+        updated = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsUpdated>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatistics() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsBinded : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsBinded() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsBinded(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsBinded() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsCreated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsCreated() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsCreated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsCreated() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsDeleted : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsDeleted() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsDeleted(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsDeleted() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsPushed : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsPushed() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsPushed(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsPushed() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsSame : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsSame() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsSame(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsSame() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsUpdated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsUpdated() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsUpdated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsUpdated() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatistics : public Darabonba::Model {
+public:
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsBinded> binded{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsCreated> created{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsDeleted> deleted{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsPushed> pushed{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsSame> same{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsUpdated> updated{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatistics() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatistics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (binded) {
+      res["Binded"] = binded ? boost::any(binded->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (created) {
+      res["Created"] = created ? boost::any(created->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deleted) {
+      res["Deleted"] = deleted ? boost::any(deleted->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pushed) {
+      res["Pushed"] = pushed ? boost::any(pushed->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (same) {
+      res["Same"] = same ? boost::any(same->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (updated) {
+      res["Updated"] = updated ? boost::any(updated->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Binded") != m.end() && !m["Binded"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Binded"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsBinded model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Binded"]));
+        binded = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsBinded>(model1);
+      }
+    }
+    if (m.find("Created") != m.end() && !m["Created"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Created"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsCreated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Created"]));
+        created = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsCreated>(model1);
+      }
+    }
+    if (m.find("Deleted") != m.end() && !m["Deleted"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Deleted"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsDeleted model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Deleted"]));
+        deleted = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsDeleted>(model1);
+      }
+    }
+    if (m.find("Pushed") != m.end() && !m["Pushed"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Pushed"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsPushed model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Pushed"]));
+        pushed = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsPushed>(model1);
+      }
+    }
+    if (m.find("Same") != m.end() && !m["Same"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Same"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsSame model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Same"]));
+        same = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsSame>(model1);
+      }
+    }
+    if (m.find("Updated") != m.end() && !m["Updated"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Updated"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsUpdated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Updated"]));
+        updated = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsUpdated>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatistics() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsBinded : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsBinded() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsBinded(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsBinded() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsCreated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsCreated() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsCreated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsCreated() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsDeleted : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsDeleted() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsDeleted(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsDeleted() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsPushed : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsPushed() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsPushed(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsPushed() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsSame : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsSame() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsSame(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsSame() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsUpdated : public Darabonba::Model {
+public:
+  shared_ptr<long> failed{};
+  shared_ptr<long> skipped{};
+  shared_ptr<long> success{};
+  shared_ptr<long> total{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsUpdated() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsUpdated(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failed) {
+      res["Failed"] = boost::any(*failed);
+    }
+    if (skipped) {
+      res["Skipped"] = boost::any(*skipped);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Failed") != m.end() && !m["Failed"].empty()) {
+      failed = make_shared<long>(boost::any_cast<long>(m["Failed"]));
+    }
+    if (m.find("Skipped") != m.end() && !m["Skipped"].empty()) {
+      skipped = make_shared<long>(boost::any_cast<long>(m["Skipped"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<long>(boost::any_cast<long>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsUpdated() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatistics : public Darabonba::Model {
+public:
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsBinded> binded{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsCreated> created{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsDeleted> deleted{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsPushed> pushed{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsSame> same{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsUpdated> updated{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatistics() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatistics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (binded) {
+      res["Binded"] = binded ? boost::any(binded->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (created) {
+      res["Created"] = created ? boost::any(created->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deleted) {
+      res["Deleted"] = deleted ? boost::any(deleted->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pushed) {
+      res["Pushed"] = pushed ? boost::any(pushed->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (same) {
+      res["Same"] = same ? boost::any(same->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (updated) {
+      res["Updated"] = updated ? boost::any(updated->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Binded") != m.end() && !m["Binded"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Binded"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsBinded model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Binded"]));
+        binded = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsBinded>(model1);
+      }
+    }
+    if (m.find("Created") != m.end() && !m["Created"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Created"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsCreated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Created"]));
+        created = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsCreated>(model1);
+      }
+    }
+    if (m.find("Deleted") != m.end() && !m["Deleted"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Deleted"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsDeleted model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Deleted"]));
+        deleted = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsDeleted>(model1);
+      }
+    }
+    if (m.find("Pushed") != m.end() && !m["Pushed"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Pushed"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsPushed model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Pushed"]));
+        pushed = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsPushed>(model1);
+      }
+    }
+    if (m.find("Same") != m.end() && !m["Same"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Same"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsSame model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Same"]));
+        same = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsSame>(model1);
+      }
+    }
+    if (m.find("Updated") != m.end() && !m["Updated"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Updated"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsUpdated model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Updated"]));
+        updated = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsUpdated>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatistics() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobsResult : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatistics> groupMemberStatistics{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatistics> groupStatistics{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatistics> organizationalUnitStatistics{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatistics> userStatistics{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobsResult() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobsResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (groupMemberStatistics) {
+      res["GroupMemberStatistics"] = groupMemberStatistics ? boost::any(groupMemberStatistics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (groupStatistics) {
+      res["GroupStatistics"] = groupStatistics ? boost::any(groupStatistics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (organizationalUnitStatistics) {
+      res["OrganizationalUnitStatistics"] = organizationalUnitStatistics ? boost::any(organizationalUnitStatistics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (userStatistics) {
+      res["UserStatistics"] = userStatistics ? boost::any(userStatistics->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("GroupMemberStatistics") != m.end() && !m["GroupMemberStatistics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GroupMemberStatistics"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatistics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GroupMemberStatistics"]));
+        groupMemberStatistics = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatistics>(model1);
+      }
+    }
+    if (m.find("GroupStatistics") != m.end() && !m["GroupStatistics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GroupStatistics"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatistics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GroupStatistics"]));
+        groupStatistics = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatistics>(model1);
+      }
+    }
+    if (m.find("OrganizationalUnitStatistics") != m.end() && !m["OrganizationalUnitStatistics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OrganizationalUnitStatistics"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatistics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OrganizationalUnitStatistics"]));
+        organizationalUnitStatistics = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatistics>(model1);
+      }
+    }
+    if (m.find("UserStatistics") != m.end() && !m["UserStatistics"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserStatistics"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatistics model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserStatistics"]));
+        userStatistics = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatistics>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobsResult() = default;
+};
+class ListSynchronizationJobsResponseBodySynchronizationJobs : public Darabonba::Model {
+public:
+  shared_ptr<string> direction{};
+  shared_ptr<long> endTime{};
+  shared_ptr<ListSynchronizationJobsResponseBodySynchronizationJobsResult> result{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> synchronizationJobId{};
+  shared_ptr<string> targetId{};
+  shared_ptr<string> targetType{};
+  shared_ptr<string> triggerType{};
+
+  ListSynchronizationJobsResponseBodySynchronizationJobs() {}
+
+  explicit ListSynchronizationJobsResponseBodySynchronizationJobs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (synchronizationJobId) {
+      res["SynchronizationJobId"] = boost::any(*synchronizationJobId);
+    }
+    if (targetId) {
+      res["TargetId"] = boost::any(*targetId);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    if (triggerType) {
+      res["TriggerType"] = boost::any(*triggerType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        ListSynchronizationJobsResponseBodySynchronizationJobsResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<ListSynchronizationJobsResponseBodySynchronizationJobsResult>(model1);
+      }
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SynchronizationJobId") != m.end() && !m["SynchronizationJobId"].empty()) {
+      synchronizationJobId = make_shared<string>(boost::any_cast<string>(m["SynchronizationJobId"]));
+    }
+    if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
+      targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+    if (m.find("TriggerType") != m.end() && !m["TriggerType"].empty()) {
+      triggerType = make_shared<string>(boost::any_cast<string>(m["TriggerType"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBodySynchronizationJobs() = default;
+};
+class ListSynchronizationJobsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListSynchronizationJobsResponseBodySynchronizationJobs>> synchronizationJobs{};
+  shared_ptr<long> totalCount{};
+
+  ListSynchronizationJobsResponseBody() {}
+
+  explicit ListSynchronizationJobsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (synchronizationJobs) {
+      vector<boost::any> temp1;
+      for(auto item1:*synchronizationJobs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SynchronizationJobs"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SynchronizationJobs") != m.end() && !m["SynchronizationJobs"].empty()) {
+      if (typeid(vector<boost::any>) == m["SynchronizationJobs"].type()) {
+        vector<ListSynchronizationJobsResponseBodySynchronizationJobs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SynchronizationJobs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSynchronizationJobsResponseBodySynchronizationJobs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        synchronizationJobs = make_shared<vector<ListSynchronizationJobsResponseBodySynchronizationJobs>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponseBody() = default;
+};
+class ListSynchronizationJobsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListSynchronizationJobsResponseBody> body{};
+
+  ListSynchronizationJobsResponse() {}
+
+  explicit ListSynchronizationJobsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSynchronizationJobsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSynchronizationJobsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSynchronizationJobsResponse() = default;
+};
 class ListUsersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> displayNameStartsWith{};
@@ -16112,6 +19904,137 @@ public:
 
 
   virtual ~RevokeApplicationFromUsersResponse() = default;
+};
+class RunSynchronizationJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> targetId{};
+  shared_ptr<string> targetType{};
+
+  RunSynchronizationJobRequest() {}
+
+  explicit RunSynchronizationJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (targetId) {
+      res["TargetId"] = boost::any(*targetId);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
+      targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~RunSynchronizationJobRequest() = default;
+};
+class RunSynchronizationJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> synchronizationJobId{};
+
+  RunSynchronizationJobResponseBody() {}
+
+  explicit RunSynchronizationJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (synchronizationJobId) {
+      res["SynchronizationJobId"] = boost::any(*synchronizationJobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SynchronizationJobId") != m.end() && !m["SynchronizationJobId"].empty()) {
+      synchronizationJobId = make_shared<string>(boost::any_cast<string>(m["SynchronizationJobId"]));
+    }
+  }
+
+
+  virtual ~RunSynchronizationJobResponseBody() = default;
+};
+class RunSynchronizationJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RunSynchronizationJobResponseBody> body{};
+
+  RunSynchronizationJobResponse() {}
+
+  explicit RunSynchronizationJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RunSynchronizationJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RunSynchronizationJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunSynchronizationJobResponse() = default;
 };
 class SetApplicationGrantScopeRequest : public Darabonba::Model {
 public:
@@ -20106,6 +24029,8 @@ public:
   GetPasswordInitializationConfigurationResponse getPasswordInitializationConfiguration(shared_ptr<GetPasswordInitializationConfigurationRequest> request);
   GetRootOrganizationalUnitResponse getRootOrganizationalUnitWithOptions(shared_ptr<GetRootOrganizationalUnitRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetRootOrganizationalUnitResponse getRootOrganizationalUnit(shared_ptr<GetRootOrganizationalUnitRequest> request);
+  GetSynchronizationJobResponse getSynchronizationJobWithOptions(shared_ptr<GetSynchronizationJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSynchronizationJobResponse getSynchronizationJob(shared_ptr<GetSynchronizationJobRequest> request);
   GetUserResponse getUserWithOptions(shared_ptr<GetUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetUserResponse getUser(shared_ptr<GetUserRequest> request);
   ListApplicationClientSecretsResponse listApplicationClientSecretsWithOptions(shared_ptr<ListApplicationClientSecretsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -20148,6 +24073,8 @@ public:
   ListOrganizationalUnitsForApplicationResponse listOrganizationalUnitsForApplication(shared_ptr<ListOrganizationalUnitsForApplicationRequest> request);
   ListRegionsResponse listRegionsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRegionsResponse listRegions();
+  ListSynchronizationJobsResponse listSynchronizationJobsWithOptions(shared_ptr<ListSynchronizationJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSynchronizationJobsResponse listSynchronizationJobs(shared_ptr<ListSynchronizationJobsRequest> request);
   ListUsersResponse listUsersWithOptions(shared_ptr<ListUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListUsersResponse listUsers(shared_ptr<ListUsersRequest> request);
   ListUsersForApplicationResponse listUsersForApplicationWithOptions(shared_ptr<ListUsersForApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -20168,6 +24095,8 @@ public:
   RevokeApplicationFromOrganizationalUnitsResponse revokeApplicationFromOrganizationalUnits(shared_ptr<RevokeApplicationFromOrganizationalUnitsRequest> request);
   RevokeApplicationFromUsersResponse revokeApplicationFromUsersWithOptions(shared_ptr<RevokeApplicationFromUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RevokeApplicationFromUsersResponse revokeApplicationFromUsers(shared_ptr<RevokeApplicationFromUsersRequest> request);
+  RunSynchronizationJobResponse runSynchronizationJobWithOptions(shared_ptr<RunSynchronizationJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RunSynchronizationJobResponse runSynchronizationJob(shared_ptr<RunSynchronizationJobRequest> request);
   SetApplicationGrantScopeResponse setApplicationGrantScopeWithOptions(shared_ptr<SetApplicationGrantScopeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetApplicationGrantScopeResponse setApplicationGrantScope(shared_ptr<SetApplicationGrantScopeRequest> request);
   SetApplicationProvisioningConfigResponse setApplicationProvisioningConfigWithOptions(shared_ptr<SetApplicationProvisioningConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
