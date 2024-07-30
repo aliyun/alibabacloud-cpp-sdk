@@ -10148,6 +10148,7 @@ public:
   shared_ptr<long> begin{};
   shared_ptr<long> emotionValue{};
   shared_ptr<long> end{};
+  shared_ptr<string> identity{};
   shared_ptr<string> role{};
   shared_ptr<long> speechRate{};
   shared_ptr<string> words{};
@@ -10171,6 +10172,9 @@ public:
     if (end) {
       res["End"] = boost::any(*end);
     }
+    if (identity) {
+      res["Identity"] = boost::any(*identity);
+    }
     if (role) {
       res["Role"] = boost::any(*role);
     }
@@ -10192,6 +10196,9 @@ public:
     }
     if (m.find("End") != m.end() && !m["End"].empty()) {
       end = make_shared<long>(boost::any_cast<long>(m["End"]));
+    }
+    if (m.find("Identity") != m.end() && !m["Identity"].empty()) {
+      identity = make_shared<string>(boost::any_cast<string>(m["Identity"]));
     }
     if (m.find("Role") != m.end() && !m["Role"].empty()) {
       role = make_shared<string>(boost::any_cast<string>(m["Role"]));
