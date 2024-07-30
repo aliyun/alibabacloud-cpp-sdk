@@ -2152,9 +2152,12 @@ public:
   shared_ptr<string> nodes{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> polarSccTimeoutAction{};
+  shared_ptr<string> polarSccWaitTimeout{};
   shared_ptr<string> readWriteMode{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> sccMode{};
 
   CreateDBClusterEndpointRequest() {}
 
@@ -2193,6 +2196,12 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (polarSccTimeoutAction) {
+      res["PolarSccTimeoutAction"] = boost::any(*polarSccTimeoutAction);
+    }
+    if (polarSccWaitTimeout) {
+      res["PolarSccWaitTimeout"] = boost::any(*polarSccWaitTimeout);
+    }
     if (readWriteMode) {
       res["ReadWriteMode"] = boost::any(*readWriteMode);
     }
@@ -2201,6 +2210,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (sccMode) {
+      res["SccMode"] = boost::any(*sccMode);
     }
     return res;
   }
@@ -2233,6 +2245,12 @@ public:
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
+    if (m.find("PolarSccTimeoutAction") != m.end() && !m["PolarSccTimeoutAction"].empty()) {
+      polarSccTimeoutAction = make_shared<string>(boost::any_cast<string>(m["PolarSccTimeoutAction"]));
+    }
+    if (m.find("PolarSccWaitTimeout") != m.end() && !m["PolarSccWaitTimeout"].empty()) {
+      polarSccWaitTimeout = make_shared<string>(boost::any_cast<string>(m["PolarSccWaitTimeout"]));
+    }
     if (m.find("ReadWriteMode") != m.end() && !m["ReadWriteMode"].empty()) {
       readWriteMode = make_shared<string>(boost::any_cast<string>(m["ReadWriteMode"]));
     }
@@ -2241,6 +2259,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SccMode") != m.end() && !m["SccMode"].empty()) {
+      sccMode = make_shared<string>(boost::any_cast<string>(m["SccMode"]));
     }
   }
 
@@ -8986,6 +9007,7 @@ public:
   shared_ptr<long> maxConnections{};
   shared_ptr<long> maxIOPS{};
   shared_ptr<string> memorySize{};
+  shared_ptr<string> mirrorInsName{};
   shared_ptr<string> orca{};
   shared_ptr<string> remoteMemorySize{};
   shared_ptr<string> sccMode{};
@@ -9045,6 +9067,9 @@ public:
     }
     if (memorySize) {
       res["MemorySize"] = boost::any(*memorySize);
+    }
+    if (mirrorInsName) {
+      res["MirrorInsName"] = boost::any(*mirrorInsName);
     }
     if (orca) {
       res["Orca"] = boost::any(*orca);
@@ -9112,6 +9137,9 @@ public:
     }
     if (m.find("MemorySize") != m.end() && !m["MemorySize"].empty()) {
       memorySize = make_shared<string>(boost::any_cast<string>(m["MemorySize"]));
+    }
+    if (m.find("MirrorInsName") != m.end() && !m["MirrorInsName"].empty()) {
+      mirrorInsName = make_shared<string>(boost::any_cast<string>(m["MirrorInsName"]));
     }
     if (m.find("Orca") != m.end() && !m["Orca"].empty()) {
       orca = make_shared<string>(boost::any_cast<string>(m["Orca"]));
@@ -10526,7 +10554,10 @@ public:
   shared_ptr<string> endpointType{};
   shared_ptr<string> nodeWithRoles{};
   shared_ptr<string> nodes{};
+  shared_ptr<string> polarSccTimeoutAction{};
+  shared_ptr<string> polarSccWaitTimeout{};
   shared_ptr<string> readWriteMode{};
+  shared_ptr<string> sccMode{};
 
   DescribeDBClusterEndpointsResponseBodyItems() {}
 
@@ -10569,8 +10600,17 @@ public:
     if (nodes) {
       res["Nodes"] = boost::any(*nodes);
     }
+    if (polarSccTimeoutAction) {
+      res["PolarSccTimeoutAction"] = boost::any(*polarSccTimeoutAction);
+    }
+    if (polarSccWaitTimeout) {
+      res["PolarSccWaitTimeout"] = boost::any(*polarSccWaitTimeout);
+    }
     if (readWriteMode) {
       res["ReadWriteMode"] = boost::any(*readWriteMode);
+    }
+    if (sccMode) {
+      res["SccMode"] = boost::any(*sccMode);
     }
     return res;
   }
@@ -10613,8 +10653,17 @@ public:
     if (m.find("Nodes") != m.end() && !m["Nodes"].empty()) {
       nodes = make_shared<string>(boost::any_cast<string>(m["Nodes"]));
     }
+    if (m.find("PolarSccTimeoutAction") != m.end() && !m["PolarSccTimeoutAction"].empty()) {
+      polarSccTimeoutAction = make_shared<string>(boost::any_cast<string>(m["PolarSccTimeoutAction"]));
+    }
+    if (m.find("PolarSccWaitTimeout") != m.end() && !m["PolarSccWaitTimeout"].empty()) {
+      polarSccWaitTimeout = make_shared<string>(boost::any_cast<string>(m["PolarSccWaitTimeout"]));
+    }
     if (m.find("ReadWriteMode") != m.end() && !m["ReadWriteMode"].empty()) {
       readWriteMode = make_shared<string>(boost::any_cast<string>(m["ReadWriteMode"]));
+    }
+    if (m.find("SccMode") != m.end() && !m["SccMode"].empty()) {
+      sccMode = make_shared<string>(boost::any_cast<string>(m["SccMode"]));
     }
   }
 
@@ -12544,6 +12593,7 @@ public:
 };
 class DescribeDBClusterServerlessConfResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> agileScaleMax{};
   shared_ptr<string> allowShutDown{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> requestId{};
@@ -12558,6 +12608,7 @@ public:
   shared_ptr<string> serverlessRuleCpuShrinkThreshold{};
   shared_ptr<string> serverlessRuleMode{};
   shared_ptr<string> switchs{};
+  shared_ptr<string> traditionalScaleMaxThreshold{};
 
   DescribeDBClusterServerlessConfResponseBody() {}
 
@@ -12569,6 +12620,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agileScaleMax) {
+      res["AgileScaleMax"] = boost::any(*agileScaleMax);
+    }
     if (allowShutDown) {
       res["AllowShutDown"] = boost::any(*allowShutDown);
     }
@@ -12611,10 +12665,16 @@ public:
     if (switchs) {
       res["Switchs"] = boost::any(*switchs);
     }
+    if (traditionalScaleMaxThreshold) {
+      res["TraditionalScaleMaxThreshold"] = boost::any(*traditionalScaleMaxThreshold);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgileScaleMax") != m.end() && !m["AgileScaleMax"].empty()) {
+      agileScaleMax = make_shared<string>(boost::any_cast<string>(m["AgileScaleMax"]));
+    }
     if (m.find("AllowShutDown") != m.end() && !m["AllowShutDown"].empty()) {
       allowShutDown = make_shared<string>(boost::any_cast<string>(m["AllowShutDown"]));
     }
@@ -12656,6 +12716,9 @@ public:
     }
     if (m.find("Switchs") != m.end() && !m["Switchs"].empty()) {
       switchs = make_shared<string>(boost::any_cast<string>(m["Switchs"]));
+    }
+    if (m.find("TraditionalScaleMaxThreshold") != m.end() && !m["TraditionalScaleMaxThreshold"].empty()) {
+      traditionalScaleMaxThreshold = make_shared<string>(boost::any_cast<string>(m["TraditionalScaleMaxThreshold"]));
     }
   }
 
@@ -26231,9 +26294,12 @@ public:
   shared_ptr<string> nodes{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> polarSccTimeoutAction{};
+  shared_ptr<string> polarSccWaitTimeout{};
   shared_ptr<string> readWriteMode{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> sccMode{};
 
   ModifyDBClusterEndpointRequest() {}
 
@@ -26269,6 +26335,12 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (polarSccTimeoutAction) {
+      res["PolarSccTimeoutAction"] = boost::any(*polarSccTimeoutAction);
+    }
+    if (polarSccWaitTimeout) {
+      res["PolarSccWaitTimeout"] = boost::any(*polarSccWaitTimeout);
+    }
     if (readWriteMode) {
       res["ReadWriteMode"] = boost::any(*readWriteMode);
     }
@@ -26277,6 +26349,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (sccMode) {
+      res["SccMode"] = boost::any(*sccMode);
     }
     return res;
   }
@@ -26306,6 +26381,12 @@ public:
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
+    if (m.find("PolarSccTimeoutAction") != m.end() && !m["PolarSccTimeoutAction"].empty()) {
+      polarSccTimeoutAction = make_shared<string>(boost::any_cast<string>(m["PolarSccTimeoutAction"]));
+    }
+    if (m.find("PolarSccWaitTimeout") != m.end() && !m["PolarSccWaitTimeout"].empty()) {
+      polarSccWaitTimeout = make_shared<string>(boost::any_cast<string>(m["PolarSccWaitTimeout"]));
+    }
     if (m.find("ReadWriteMode") != m.end() && !m["ReadWriteMode"].empty()) {
       readWriteMode = make_shared<string>(boost::any_cast<string>(m["ReadWriteMode"]));
     }
@@ -26314,6 +26395,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SccMode") != m.end() && !m["SccMode"].empty()) {
+      sccMode = make_shared<string>(boost::any_cast<string>(m["SccMode"]));
     }
   }
 

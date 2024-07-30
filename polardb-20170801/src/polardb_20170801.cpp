@@ -758,6 +758,12 @@ CreateDBClusterEndpointResponse Alibabacloud_Polardb20170801::Client::createDBCl
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->polarSccTimeoutAction)) {
+    query->insert(pair<string, string>("PolarSccTimeoutAction", *request->polarSccTimeoutAction));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->polarSccWaitTimeout)) {
+    query->insert(pair<string, string>("PolarSccWaitTimeout", *request->polarSccWaitTimeout));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->readWriteMode)) {
     query->insert(pair<string, string>("ReadWriteMode", *request->readWriteMode));
   }
@@ -766,6 +772,9 @@ CreateDBClusterEndpointResponse Alibabacloud_Polardb20170801::Client::createDBCl
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sccMode)) {
+    query->insert(pair<string, string>("SccMode", *request->sccMode));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5348,6 +5357,12 @@ ModifyDBClusterEndpointResponse Alibabacloud_Polardb20170801::Client::modifyDBCl
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->polarSccTimeoutAction)) {
+    query->insert(pair<string, string>("PolarSccTimeoutAction", *request->polarSccTimeoutAction));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->polarSccWaitTimeout)) {
+    query->insert(pair<string, string>("PolarSccWaitTimeout", *request->polarSccWaitTimeout));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->readWriteMode)) {
     query->insert(pair<string, string>("ReadWriteMode", *request->readWriteMode));
   }
@@ -5356,6 +5371,9 @@ ModifyDBClusterEndpointResponse Alibabacloud_Polardb20170801::Client::modifyDBCl
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sccMode)) {
+    query->insert(pair<string, string>("SccMode", *request->sccMode));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
