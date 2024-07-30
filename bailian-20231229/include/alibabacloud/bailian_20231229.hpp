@@ -14,6 +14,205 @@
 using namespace std;
 
 namespace Alibabacloud_Bailian20231229 {
+class AddCategoryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryName{};
+  shared_ptr<string> categoryType{};
+  shared_ptr<string> parentCategoryId{};
+
+  AddCategoryRequest() {}
+
+  explicit AddCategoryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryName) {
+      res["CategoryName"] = boost::any(*categoryName);
+    }
+    if (categoryType) {
+      res["CategoryType"] = boost::any(*categoryType);
+    }
+    if (parentCategoryId) {
+      res["ParentCategoryId"] = boost::any(*parentCategoryId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryName") != m.end() && !m["CategoryName"].empty()) {
+      categoryName = make_shared<string>(boost::any_cast<string>(m["CategoryName"]));
+    }
+    if (m.find("CategoryType") != m.end() && !m["CategoryType"].empty()) {
+      categoryType = make_shared<string>(boost::any_cast<string>(m["CategoryType"]));
+    }
+    if (m.find("ParentCategoryId") != m.end() && !m["ParentCategoryId"].empty()) {
+      parentCategoryId = make_shared<string>(boost::any_cast<string>(m["ParentCategoryId"]));
+    }
+  }
+
+
+  virtual ~AddCategoryRequest() = default;
+};
+class AddCategoryResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryId{};
+  shared_ptr<string> categoryName{};
+
+  AddCategoryResponseBodyData() {}
+
+  explicit AddCategoryResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryId) {
+      res["CategoryId"] = boost::any(*categoryId);
+    }
+    if (categoryName) {
+      res["CategoryName"] = boost::any(*categoryName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
+      categoryId = make_shared<string>(boost::any_cast<string>(m["CategoryId"]));
+    }
+    if (m.find("CategoryName") != m.end() && !m["CategoryName"].empty()) {
+      categoryName = make_shared<string>(boost::any_cast<string>(m["CategoryName"]));
+    }
+  }
+
+
+  virtual ~AddCategoryResponseBodyData() = default;
+};
+class AddCategoryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<AddCategoryResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+  shared_ptr<bool> success{};
+
+  AddCategoryResponseBody() {}
+
+  explicit AddCategoryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        AddCategoryResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<AddCategoryResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AddCategoryResponseBody() = default;
+};
+class AddCategoryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddCategoryResponseBody> body{};
+
+  AddCategoryResponse() {}
+
+  explicit AddCategoryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddCategoryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddCategoryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddCategoryResponse() = default;
+};
 class AddFileRequest : public Darabonba::Model {
 public:
   shared_ptr<string> categoryId{};
@@ -967,6 +1166,155 @@ public:
 
 
   virtual ~CreateIndexResponse() = default;
+};
+class DeleteCategoryResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryId{};
+
+  DeleteCategoryResponseBodyData() {}
+
+  explicit DeleteCategoryResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryId) {
+      res["CategoryId"] = boost::any(*categoryId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
+      categoryId = make_shared<string>(boost::any_cast<string>(m["CategoryId"]));
+    }
+  }
+
+
+  virtual ~DeleteCategoryResponseBodyData() = default;
+};
+class DeleteCategoryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<DeleteCategoryResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+  shared_ptr<bool> success{};
+
+  DeleteCategoryResponseBody() {}
+
+  explicit DeleteCategoryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DeleteCategoryResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DeleteCategoryResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteCategoryResponseBody() = default;
+};
+class DeleteCategoryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteCategoryResponseBody> body{};
+
+  DeleteCategoryResponse() {}
+
+  explicit DeleteCategoryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteCategoryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteCategoryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteCategoryResponse() = default;
 };
 class DeleteFileResponseBodyData : public Darabonba::Model {
 public:
@@ -1957,6 +2305,304 @@ public:
 
 
   virtual ~GetIndexJobStatusResponse() = default;
+};
+class ListCategoryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryType{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> parentCategoryId{};
+
+  ListCategoryRequest() {}
+
+  explicit ListCategoryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryType) {
+      res["CategoryType"] = boost::any(*categoryType);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (parentCategoryId) {
+      res["ParentCategoryId"] = boost::any(*parentCategoryId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryType") != m.end() && !m["CategoryType"].empty()) {
+      categoryType = make_shared<string>(boost::any_cast<string>(m["CategoryType"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("ParentCategoryId") != m.end() && !m["ParentCategoryId"].empty()) {
+      parentCategoryId = make_shared<string>(boost::any_cast<string>(m["ParentCategoryId"]));
+    }
+  }
+
+
+  virtual ~ListCategoryRequest() = default;
+};
+class ListCategoryResponseBodyDataCategoryList : public Darabonba::Model {
+public:
+  shared_ptr<string> categoryId{};
+  shared_ptr<string> categoryName{};
+  shared_ptr<string> categoryType{};
+  shared_ptr<bool> isDefault{};
+  shared_ptr<string> parentCategoryId{};
+
+  ListCategoryResponseBodyDataCategoryList() {}
+
+  explicit ListCategoryResponseBodyDataCategoryList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryId) {
+      res["CategoryId"] = boost::any(*categoryId);
+    }
+    if (categoryName) {
+      res["CategoryName"] = boost::any(*categoryName);
+    }
+    if (categoryType) {
+      res["CategoryType"] = boost::any(*categoryType);
+    }
+    if (isDefault) {
+      res["IsDefault"] = boost::any(*isDefault);
+    }
+    if (parentCategoryId) {
+      res["ParentCategoryId"] = boost::any(*parentCategoryId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
+      categoryId = make_shared<string>(boost::any_cast<string>(m["CategoryId"]));
+    }
+    if (m.find("CategoryName") != m.end() && !m["CategoryName"].empty()) {
+      categoryName = make_shared<string>(boost::any_cast<string>(m["CategoryName"]));
+    }
+    if (m.find("CategoryType") != m.end() && !m["CategoryType"].empty()) {
+      categoryType = make_shared<string>(boost::any_cast<string>(m["CategoryType"]));
+    }
+    if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
+      isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
+    }
+    if (m.find("ParentCategoryId") != m.end() && !m["ParentCategoryId"].empty()) {
+      parentCategoryId = make_shared<string>(boost::any_cast<string>(m["ParentCategoryId"]));
+    }
+  }
+
+
+  virtual ~ListCategoryResponseBodyDataCategoryList() = default;
+};
+class ListCategoryResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListCategoryResponseBodyDataCategoryList>> categoryList{};
+  shared_ptr<bool> hasNext{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> totalCount{};
+
+  ListCategoryResponseBodyData() {}
+
+  explicit ListCategoryResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (categoryList) {
+      vector<boost::any> temp1;
+      for(auto item1:*categoryList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CategoryList"] = boost::any(temp1);
+    }
+    if (hasNext) {
+      res["HasNext"] = boost::any(*hasNext);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CategoryList") != m.end() && !m["CategoryList"].empty()) {
+      if (typeid(vector<boost::any>) == m["CategoryList"].type()) {
+        vector<ListCategoryResponseBodyDataCategoryList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CategoryList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCategoryResponseBodyDataCategoryList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        categoryList = make_shared<vector<ListCategoryResponseBodyDataCategoryList>>(expect1);
+      }
+    }
+    if (m.find("HasNext") != m.end() && !m["HasNext"].empty()) {
+      hasNext = make_shared<bool>(boost::any_cast<bool>(m["HasNext"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListCategoryResponseBodyData() = default;
+};
+class ListCategoryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ListCategoryResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+  shared_ptr<bool> success{};
+
+  ListCategoryResponseBody() {}
+
+  explicit ListCategoryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListCategoryResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListCategoryResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListCategoryResponseBody() = default;
+};
+class ListCategoryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCategoryResponseBody> body{};
+
+  ListCategoryResponse() {}
+
+  explicit ListCategoryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCategoryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCategoryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCategoryResponse() = default;
 };
 class ListChunksRequest : public Darabonba::Model {
 public:
@@ -3896,6 +4542,11 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AddCategoryResponse addCategoryWithOptions(shared_ptr<string> WorkspaceId,
+                                             shared_ptr<AddCategoryRequest> request,
+                                             shared_ptr<map<string, string>> headers,
+                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddCategoryResponse addCategory(shared_ptr<string> WorkspaceId, shared_ptr<AddCategoryRequest> request);
   AddFileResponse addFileWithOptions(shared_ptr<string> WorkspaceId,
                                      shared_ptr<AddFileRequest> request,
                                      shared_ptr<map<string, string>> headers,
@@ -3912,6 +4563,11 @@ public:
                                              shared_ptr<map<string, string>> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateIndexResponse createIndex(shared_ptr<string> WorkspaceId, shared_ptr<CreateIndexRequest> request);
+  DeleteCategoryResponse deleteCategoryWithOptions(shared_ptr<string> CategoryId,
+                                                   shared_ptr<string> WorkspaceId,
+                                                   shared_ptr<map<string, string>> headers,
+                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteCategoryResponse deleteCategory(shared_ptr<string> CategoryId, shared_ptr<string> WorkspaceId);
   DeleteFileResponse deleteFileWithOptions(shared_ptr<string> FileId,
                                            shared_ptr<string> WorkspaceId,
                                            shared_ptr<map<string, string>> headers,
@@ -3937,6 +4593,11 @@ public:
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetIndexJobStatusResponse getIndexJobStatus(shared_ptr<string> WorkspaceId, shared_ptr<GetIndexJobStatusRequest> request);
+  ListCategoryResponse listCategoryWithOptions(shared_ptr<string> WorkspaceId,
+                                               shared_ptr<ListCategoryRequest> request,
+                                               shared_ptr<map<string, string>> headers,
+                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCategoryResponse listCategory(shared_ptr<string> WorkspaceId, shared_ptr<ListCategoryRequest> request);
   ListChunksResponse listChunksWithOptions(shared_ptr<string> WorkspaceId,
                                            shared_ptr<ListChunksRequest> request,
                                            shared_ptr<map<string, string>> headers,

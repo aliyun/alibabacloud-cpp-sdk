@@ -37,6 +37,45 @@ string Alibabacloud_Bailian20231229::Client::getEndpoint(shared_ptr<string> prod
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+AddCategoryResponse Alibabacloud_Bailian20231229::Client::addCategoryWithOptions(shared_ptr<string> WorkspaceId,
+                                                                                 shared_ptr<AddCategoryRequest> request,
+                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->categoryName)) {
+    body->insert(pair<string, string>("CategoryName", *request->categoryName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->categoryType)) {
+    body->insert(pair<string, string>("CategoryType", *request->categoryType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentCategoryId)) {
+    body->insert(pair<string, string>("ParentCategoryId", *request->parentCategoryId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddCategory"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(WorkspaceId)) + string("/datacenter/category/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddCategoryResponse(callApi(params, req, runtime));
+}
+
+AddCategoryResponse Alibabacloud_Bailian20231229::Client::addCategory(shared_ptr<string> WorkspaceId, shared_ptr<AddCategoryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return addCategoryWithOptions(WorkspaceId, request, headers, runtime);
+}
+
 AddFileResponse Alibabacloud_Bailian20231229::Client::addFileWithOptions(shared_ptr<string> WorkspaceId,
                                                                          shared_ptr<AddFileRequest> request,
                                                                          shared_ptr<map<string, string>> headers,
@@ -205,6 +244,33 @@ CreateIndexResponse Alibabacloud_Bailian20231229::Client::createIndex(shared_ptr
   return createIndexWithOptions(WorkspaceId, request, headers, runtime);
 }
 
+DeleteCategoryResponse Alibabacloud_Bailian20231229::Client::deleteCategoryWithOptions(shared_ptr<string> CategoryId,
+                                                                                       shared_ptr<string> WorkspaceId,
+                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCategory"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(WorkspaceId)) + string("/datacenter/category/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(CategoryId)) + string("/"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCategoryResponse(callApi(params, req, runtime));
+}
+
+DeleteCategoryResponse Alibabacloud_Bailian20231229::Client::deleteCategory(shared_ptr<string> CategoryId, shared_ptr<string> WorkspaceId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteCategoryWithOptions(CategoryId, WorkspaceId, headers, runtime);
+}
+
 DeleteFileResponse Alibabacloud_Bailian20231229::Client::deleteFileWithOptions(shared_ptr<string> FileId,
                                                                                shared_ptr<string> WorkspaceId,
                                                                                shared_ptr<map<string, string>> headers,
@@ -367,6 +433,48 @@ GetIndexJobStatusResponse Alibabacloud_Bailian20231229::Client::getIndexJobStatu
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getIndexJobStatusWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+ListCategoryResponse Alibabacloud_Bailian20231229::Client::listCategoryWithOptions(shared_ptr<string> WorkspaceId,
+                                                                                   shared_ptr<ListCategoryRequest> request,
+                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->categoryType)) {
+    body->insert(pair<string, string>("CategoryType", *request->categoryType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    body->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    body->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentCategoryId)) {
+    body->insert(pair<string, string>("ParentCategoryId", *request->parentCategoryId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCategory"))},
+    {"version", boost::any(string("2023-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(WorkspaceId)) + string("/datacenter/categories"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCategoryResponse(callApi(params, req, runtime));
+}
+
+ListCategoryResponse Alibabacloud_Bailian20231229::Client::listCategory(shared_ptr<string> WorkspaceId, shared_ptr<ListCategoryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listCategoryWithOptions(WorkspaceId, request, headers, runtime);
 }
 
 ListChunksResponse Alibabacloud_Bailian20231229::Client::listChunksWithOptions(shared_ptr<string> WorkspaceId,
