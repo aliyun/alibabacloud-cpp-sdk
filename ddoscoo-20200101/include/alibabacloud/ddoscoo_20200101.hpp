@@ -23342,6 +23342,7 @@ public:
 class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
+  shared_ptr<string> contentList{};
   shared_ptr<string> field{};
   shared_ptr<string> headerName{};
   shared_ptr<string> matchMethod{};
@@ -23359,6 +23360,9 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (contentList) {
+      res["ContentList"] = boost::any(*contentList);
+    }
     if (field) {
       res["Field"] = boost::any(*field);
     }
@@ -23374,6 +23378,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("ContentList") != m.end() && !m["ContentList"].empty()) {
+      contentList = make_shared<string>(boost::any_cast<string>(m["ContentList"]));
     }
     if (m.find("Field") != m.end() && !m["Field"].empty()) {
       field = make_shared<string>(boost::any_cast<string>(m["Field"]));
