@@ -8499,6 +8499,7 @@ public:
   shared_ptr<string> datasetName{};
   shared_ptr<string> projectName{};
   shared_ptr<vector<string>> URIs{};
+  shared_ptr<vector<string>> withFields{};
 
   BatchGetFileMetaRequest() {}
 
@@ -8518,6 +8519,9 @@ public:
     }
     if (URIs) {
       res["URIs"] = boost::any(*URIs);
+    }
+    if (withFields) {
+      res["WithFields"] = boost::any(*withFields);
     }
     return res;
   }
@@ -8539,6 +8543,16 @@ public:
       }
       URIs = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("WithFields") != m.end() && !m["WithFields"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WithFields"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WithFields"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      withFields = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
@@ -8549,6 +8563,7 @@ public:
   shared_ptr<string> datasetName{};
   shared_ptr<string> projectName{};
   shared_ptr<string> URIsShrink{};
+  shared_ptr<string> withFieldsShrink{};
 
   BatchGetFileMetaShrinkRequest() {}
 
@@ -8569,6 +8584,9 @@ public:
     if (URIsShrink) {
       res["URIs"] = boost::any(*URIsShrink);
     }
+    if (withFieldsShrink) {
+      res["WithFields"] = boost::any(*withFieldsShrink);
+    }
     return res;
   }
 
@@ -8581,6 +8599,9 @@ public:
     }
     if (m.find("URIs") != m.end() && !m["URIs"].empty()) {
       URIsShrink = make_shared<string>(boost::any_cast<string>(m["URIs"]));
+    }
+    if (m.find("WithFields") != m.end() && !m["WithFields"].empty()) {
+      withFieldsShrink = make_shared<string>(boost::any_cast<string>(m["WithFields"]));
     }
   }
 
@@ -22589,6 +22610,7 @@ public:
   shared_ptr<string> datasetName{};
   shared_ptr<string> projectName{};
   shared_ptr<string> URI{};
+  shared_ptr<vector<string>> withFields{};
 
   GetFileMetaRequest() {}
 
@@ -22609,6 +22631,9 @@ public:
     if (URI) {
       res["URI"] = boost::any(*URI);
     }
+    if (withFields) {
+      res["WithFields"] = boost::any(*withFields);
+    }
     return res;
   }
 
@@ -22622,10 +22647,70 @@ public:
     if (m.find("URI") != m.end() && !m["URI"].empty()) {
       URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
     }
+    if (m.find("WithFields") != m.end() && !m["WithFields"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WithFields"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WithFields"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      withFields = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~GetFileMetaRequest() = default;
+};
+class GetFileMetaShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> datasetName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> URI{};
+  shared_ptr<string> withFieldsShrink{};
+
+  GetFileMetaShrinkRequest() {}
+
+  explicit GetFileMetaShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (URI) {
+      res["URI"] = boost::any(*URI);
+    }
+    if (withFieldsShrink) {
+      res["WithFields"] = boost::any(*withFieldsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("URI") != m.end() && !m["URI"].empty()) {
+      URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
+    }
+    if (m.find("WithFields") != m.end() && !m["WithFields"].empty()) {
+      withFieldsShrink = make_shared<string>(boost::any_cast<string>(m["WithFields"]));
+    }
+  }
+
+
+  virtual ~GetFileMetaShrinkRequest() = default;
 };
 class GetFileMetaResponseBody : public Darabonba::Model {
 public:
@@ -31196,7 +31281,7 @@ public:
   GetDecodeBlindWatermarkResultResponse getDecodeBlindWatermarkResult(shared_ptr<GetDecodeBlindWatermarkResultRequest> request);
   GetFigureClusterResponse getFigureClusterWithOptions(shared_ptr<GetFigureClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetFigureClusterResponse getFigureCluster(shared_ptr<GetFigureClusterRequest> request);
-  GetFileMetaResponse getFileMetaWithOptions(shared_ptr<GetFileMetaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetFileMetaResponse getFileMetaWithOptions(shared_ptr<GetFileMetaRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetFileMetaResponse getFileMeta(shared_ptr<GetFileMetaRequest> request);
   GetImageModerationResultResponse getImageModerationResultWithOptions(shared_ptr<GetImageModerationResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetImageModerationResultResponse getImageModerationResult(shared_ptr<GetImageModerationResultRequest> request);

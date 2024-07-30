@@ -256,6 +256,9 @@ BatchGetFileMetaResponse Alibabacloud_Imm20200930::Client::batchGetFileMetaWithO
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->URIs)) {
     request->URIsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->URIs, make_shared<string>("URIs"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->withFields)) {
+    request->withFieldsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->withFields, make_shared<string>("WithFields"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
     query->insert(pair<string, string>("DatasetName", *request->datasetName));
@@ -265,6 +268,9 @@ BatchGetFileMetaResponse Alibabacloud_Imm20200930::Client::batchGetFileMetaWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->URIsShrink)) {
     query->insert(pair<string, string>("URIs", *request->URIsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->withFieldsShrink)) {
+    query->insert(pair<string, string>("WithFields", *request->withFieldsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3128,8 +3134,13 @@ GetFigureClusterResponse Alibabacloud_Imm20200930::Client::getFigureCluster(shar
   return getFigureClusterWithOptions(request, runtime);
 }
 
-GetFileMetaResponse Alibabacloud_Imm20200930::Client::getFileMetaWithOptions(shared_ptr<GetFileMetaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+GetFileMetaResponse Alibabacloud_Imm20200930::Client::getFileMetaWithOptions(shared_ptr<GetFileMetaRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetFileMetaShrinkRequest> request = make_shared<GetFileMetaShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->withFields)) {
+    request->withFieldsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->withFields, make_shared<string>("WithFields"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
     query->insert(pair<string, string>("DatasetName", *request->datasetName));
@@ -3139,6 +3150,9 @@ GetFileMetaResponse Alibabacloud_Imm20200930::Client::getFileMetaWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->URI)) {
     query->insert(pair<string, string>("URI", *request->URI));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->withFieldsShrink)) {
+    query->insert(pair<string, string>("WithFields", *request->withFieldsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
