@@ -36102,6 +36102,7 @@ public:
   shared_ptr<string> desc{};
   shared_ptr<string> name{};
   shared_ptr<string> remark{};
+  shared_ptr<string> supportSampleRate{};
   shared_ptr<string> tag{};
   shared_ptr<string> voice{};
   shared_ptr<string> voiceType{};
@@ -36125,6 +36126,9 @@ public:
     }
     if (remark) {
       res["Remark"] = boost::any(*remark);
+    }
+    if (supportSampleRate) {
+      res["SupportSampleRate"] = boost::any(*supportSampleRate);
     }
     if (tag) {
       res["Tag"] = boost::any(*tag);
@@ -36150,6 +36154,9 @@ public:
     }
     if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("SupportSampleRate") != m.end() && !m["SupportSampleRate"].empty()) {
+      supportSampleRate = make_shared<string>(boost::any_cast<string>(m["SupportSampleRate"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
