@@ -1434,6 +1434,201 @@ public:
 
   virtual ~ListEnrolledAccountsResponse() = default;
 };
+class UpdateAccountFactoryBaselineRequestBaselineItems : public Darabonba::Model {
+public:
+  shared_ptr<string> config{};
+  shared_ptr<string> name{};
+  shared_ptr<string> version{};
+
+  UpdateAccountFactoryBaselineRequestBaselineItems() {}
+
+  explicit UpdateAccountFactoryBaselineRequestBaselineItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["Config"] = boost::any(*config);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~UpdateAccountFactoryBaselineRequestBaselineItems() = default;
+};
+class UpdateAccountFactoryBaselineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> baselineId{};
+  shared_ptr<vector<UpdateAccountFactoryBaselineRequestBaselineItems>> baselineItems{};
+  shared_ptr<string> baselineName{};
+  shared_ptr<string> description{};
+  shared_ptr<string> regionId{};
+
+  UpdateAccountFactoryBaselineRequest() {}
+
+  explicit UpdateAccountFactoryBaselineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baselineId) {
+      res["BaselineId"] = boost::any(*baselineId);
+    }
+    if (baselineItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*baselineItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BaselineItems"] = boost::any(temp1);
+    }
+    if (baselineName) {
+      res["BaselineName"] = boost::any(*baselineName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaselineId") != m.end() && !m["BaselineId"].empty()) {
+      baselineId = make_shared<string>(boost::any_cast<string>(m["BaselineId"]));
+    }
+    if (m.find("BaselineItems") != m.end() && !m["BaselineItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["BaselineItems"].type()) {
+        vector<UpdateAccountFactoryBaselineRequestBaselineItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BaselineItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateAccountFactoryBaselineRequestBaselineItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        baselineItems = make_shared<vector<UpdateAccountFactoryBaselineRequestBaselineItems>>(expect1);
+      }
+    }
+    if (m.find("BaselineName") != m.end() && !m["BaselineName"].empty()) {
+      baselineName = make_shared<string>(boost::any_cast<string>(m["BaselineName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpdateAccountFactoryBaselineRequest() = default;
+};
+class UpdateAccountFactoryBaselineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateAccountFactoryBaselineResponseBody() {}
+
+  explicit UpdateAccountFactoryBaselineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateAccountFactoryBaselineResponseBody() = default;
+};
+class UpdateAccountFactoryBaselineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateAccountFactoryBaselineResponseBody> body{};
+
+  UpdateAccountFactoryBaselineResponse() {}
+
+  explicit UpdateAccountFactoryBaselineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateAccountFactoryBaselineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateAccountFactoryBaselineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAccountFactoryBaselineResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -1454,6 +1649,8 @@ public:
   ListAccountFactoryBaselinesResponse listAccountFactoryBaselines(shared_ptr<ListAccountFactoryBaselinesRequest> request);
   ListEnrolledAccountsResponse listEnrolledAccountsWithOptions(shared_ptr<ListEnrolledAccountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListEnrolledAccountsResponse listEnrolledAccounts(shared_ptr<ListEnrolledAccountsRequest> request);
+  UpdateAccountFactoryBaselineResponse updateAccountFactoryBaselineWithOptions(shared_ptr<UpdateAccountFactoryBaselineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateAccountFactoryBaselineResponse updateAccountFactoryBaseline(shared_ptr<UpdateAccountFactoryBaselineRequest> request);
 
   virtual ~Client() = default;
 };

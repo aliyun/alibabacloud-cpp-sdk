@@ -219,3 +219,43 @@ ListEnrolledAccountsResponse Alibabacloud_Governance20210120::Client::listEnroll
   return listEnrolledAccountsWithOptions(request, runtime);
 }
 
+UpdateAccountFactoryBaselineResponse Alibabacloud_Governance20210120::Client::updateAccountFactoryBaselineWithOptions(shared_ptr<UpdateAccountFactoryBaselineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->baselineId)) {
+    query->insert(pair<string, string>("BaselineId", *request->baselineId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateAccountFactoryBaselineRequestBaselineItems>>(request->baselineItems)) {
+    query->insert(pair<string, vector<UpdateAccountFactoryBaselineRequestBaselineItems>>("BaselineItems", *request->baselineItems));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->baselineName)) {
+    query->insert(pair<string, string>("BaselineName", *request->baselineName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateAccountFactoryBaseline"))},
+    {"version", boost::any(string("2021-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateAccountFactoryBaselineResponse(callApi(params, req, runtime));
+}
+
+UpdateAccountFactoryBaselineResponse Alibabacloud_Governance20210120::Client::updateAccountFactoryBaseline(shared_ptr<UpdateAccountFactoryBaselineRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateAccountFactoryBaselineWithOptions(request, runtime);
+}
+
