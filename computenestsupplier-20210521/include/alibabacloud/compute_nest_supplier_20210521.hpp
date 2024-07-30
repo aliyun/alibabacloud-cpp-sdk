@@ -11753,6 +11753,7 @@ public:
 };
 class UpdateServiceRequestUpdateOption : public Darabonba::Model {
 public:
+  shared_ptr<bool> updateArtifact{};
   shared_ptr<string> updateFrom{};
 
   UpdateServiceRequestUpdateOption() {}
@@ -11765,6 +11766,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (updateArtifact) {
+      res["UpdateArtifact"] = boost::any(*updateArtifact);
+    }
     if (updateFrom) {
       res["UpdateFrom"] = boost::any(*updateFrom);
     }
@@ -11772,6 +11776,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("UpdateArtifact") != m.end() && !m["UpdateArtifact"].empty()) {
+      updateArtifact = make_shared<bool>(boost::any_cast<bool>(m["UpdateArtifact"]));
+    }
     if (m.find("UpdateFrom") != m.end() && !m["UpdateFrom"].empty()) {
       updateFrom = make_shared<string>(boost::any_cast<string>(m["UpdateFrom"]));
     }
