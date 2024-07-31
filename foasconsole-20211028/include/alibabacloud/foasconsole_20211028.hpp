@@ -429,6 +429,7 @@ public:
 };
 class CreateInstanceRequestStorage : public Darabonba::Model {
 public:
+  shared_ptr<bool> fullyManaged{};
   shared_ptr<CreateInstanceRequestStorageOss> oss{};
 
   CreateInstanceRequestStorage() {}
@@ -441,6 +442,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (fullyManaged) {
+      res["FullyManaged"] = boost::any(*fullyManaged);
+    }
     if (oss) {
       res["Oss"] = oss ? boost::any(oss->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -448,6 +452,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FullyManaged") != m.end() && !m["FullyManaged"].empty()) {
+      fullyManaged = make_shared<bool>(boost::any_cast<bool>(m["FullyManaged"]));
+    }
     if (m.find("Oss") != m.end() && !m["Oss"].empty()) {
       if (typeid(map<string, boost::any>) == m["Oss"].type()) {
         CreateInstanceRequestStorageOss model1;
@@ -892,6 +899,8 @@ class CreateInstanceResponseBodyOrderInfo : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
   shared_ptr<long> orderId{};
+  shared_ptr<string> storageInstanceId{};
+  shared_ptr<long> storageOrderId{};
 
   CreateInstanceResponseBodyOrderInfo() {}
 
@@ -909,6 +918,12 @@ public:
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
     }
+    if (storageInstanceId) {
+      res["StorageInstanceId"] = boost::any(*storageInstanceId);
+    }
+    if (storageOrderId) {
+      res["StorageOrderId"] = boost::any(*storageOrderId);
+    }
     return res;
   }
 
@@ -918,6 +933,12 @@ public:
     }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("StorageInstanceId") != m.end() && !m["StorageInstanceId"].empty()) {
+      storageInstanceId = make_shared<string>(boost::any_cast<string>(m["StorageInstanceId"]));
+    }
+    if (m.find("StorageOrderId") != m.end() && !m["StorageOrderId"].empty()) {
+      storageOrderId = make_shared<long>(boost::any_cast<long>(m["StorageOrderId"]));
     }
   }
 
@@ -1726,6 +1747,42 @@ public:
 
   virtual ~DescribeInstancesShrinkRequest() = default;
 };
+class DescribeInstancesResponseBodyInstancesClusterUsedStorage : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<double> usedStorage{};
+
+  DescribeInstancesResponseBodyInstancesClusterUsedStorage() {}
+
+  explicit DescribeInstancesResponseBodyInstancesClusterUsedStorage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (usedStorage) {
+      res["UsedStorage"] = boost::any(*usedStorage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("UsedStorage") != m.end() && !m["UsedStorage"].empty()) {
+      usedStorage = make_shared<double>(boost::any_cast<double>(m["UsedStorage"]));
+    }
+  }
+
+
+  virtual ~DescribeInstancesResponseBodyInstancesClusterUsedStorage() = default;
+};
 class DescribeInstancesResponseBodyInstancesHaResourceSpec : public Darabonba::Model {
 public:
   shared_ptr<long> cpu{};
@@ -1872,6 +1929,8 @@ public:
 };
 class DescribeInstancesResponseBodyInstancesStorage : public Darabonba::Model {
 public:
+  shared_ptr<bool> fullyManaged{};
+  shared_ptr<string> orderState{};
   shared_ptr<DescribeInstancesResponseBodyInstancesStorageOss> oss{};
 
   DescribeInstancesResponseBodyInstancesStorage() {}
@@ -1884,6 +1943,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (fullyManaged) {
+      res["FullyManaged"] = boost::any(*fullyManaged);
+    }
+    if (orderState) {
+      res["OrderState"] = boost::any(*orderState);
+    }
     if (oss) {
       res["Oss"] = oss ? boost::any(oss->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1891,6 +1956,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FullyManaged") != m.end() && !m["FullyManaged"].empty()) {
+      fullyManaged = make_shared<bool>(boost::any_cast<bool>(m["FullyManaged"]));
+    }
+    if (m.find("OrderState") != m.end() && !m["OrderState"].empty()) {
+      orderState = make_shared<string>(boost::any_cast<string>(m["OrderState"]));
+    }
     if (m.find("Oss") != m.end() && !m["Oss"].empty()) {
       if (typeid(map<string, boost::any>) == m["Oss"].type()) {
         DescribeInstancesResponseBodyInstancesStorageOss model1;
@@ -1945,6 +2016,7 @@ public:
   shared_ptr<string> askClusterId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> clusterStatus{};
+  shared_ptr<DescribeInstancesResponseBodyInstancesClusterUsedStorage> clusterUsedStorage{};
   shared_ptr<bool> ha{};
   shared_ptr<DescribeInstancesResponseBodyInstancesHaResourceSpec> haResourceSpec{};
   shared_ptr<vector<string>> haVSwitchIds{};
@@ -1988,6 +2060,9 @@ public:
     }
     if (clusterStatus) {
       res["ClusterStatus"] = boost::any(*clusterStatus);
+    }
+    if (clusterUsedStorage) {
+      res["ClusterUsedStorage"] = clusterUsedStorage ? boost::any(clusterUsedStorage->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ha) {
       res["Ha"] = boost::any(*ha);
@@ -2075,6 +2150,13 @@ public:
     }
     if (m.find("ClusterStatus") != m.end() && !m["ClusterStatus"].empty()) {
       clusterStatus = make_shared<string>(boost::any_cast<string>(m["ClusterStatus"]));
+    }
+    if (m.find("ClusterUsedStorage") != m.end() && !m["ClusterUsedStorage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ClusterUsedStorage"].type()) {
+        DescribeInstancesResponseBodyInstancesClusterUsedStorage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ClusterUsedStorage"]));
+        clusterUsedStorage = make_shared<DescribeInstancesResponseBodyInstancesClusterUsedStorage>(model1);
+      }
     }
     if (m.find("Ha") != m.end() && !m["Ha"].empty()) {
       ha = make_shared<bool>(boost::any_cast<bool>(m["Ha"]));
