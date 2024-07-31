@@ -2262,6 +2262,7 @@ public:
 class DescAccountSummaryResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> dailyQuota{};
+  shared_ptr<string> dailyRemainFreeQuota{};
   shared_ptr<long> dayuStatus{};
   shared_ptr<long> domains{};
   shared_ptr<long> enableTimes{};
@@ -2291,6 +2292,9 @@ public:
     map<string, boost::any> res;
     if (dailyQuota) {
       res["DailyQuota"] = boost::any(*dailyQuota);
+    }
+    if (dailyRemainFreeQuota) {
+      res["DailyRemainFreeQuota"] = boost::any(*dailyRemainFreeQuota);
     }
     if (dayuStatus) {
       res["DayuStatus"] = boost::any(*dayuStatus);
@@ -2346,6 +2350,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DailyQuota") != m.end() && !m["DailyQuota"].empty()) {
       dailyQuota = make_shared<long>(boost::any_cast<long>(m["DailyQuota"]));
+    }
+    if (m.find("DailyRemainFreeQuota") != m.end() && !m["DailyRemainFreeQuota"].empty()) {
+      dailyRemainFreeQuota = make_shared<string>(boost::any_cast<string>(m["DailyRemainFreeQuota"]));
     }
     if (m.find("DayuStatus") != m.end() && !m["DayuStatus"].empty()) {
       dayuStatus = make_shared<long>(boost::any_cast<long>(m["DayuStatus"]));
