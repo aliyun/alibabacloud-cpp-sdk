@@ -428,6 +428,521 @@ public:
 
   virtual ~CopyDefenseTemplateResponse() = default;
 };
+class CreateCloudResourceRequestListenCertificates : public Darabonba::Model {
+public:
+  shared_ptr<string> appliedType{};
+  shared_ptr<string> certificateId{};
+
+  CreateCloudResourceRequestListenCertificates() {}
+
+  explicit CreateCloudResourceRequestListenCertificates(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appliedType) {
+      res["AppliedType"] = boost::any(*appliedType);
+    }
+    if (certificateId) {
+      res["CertificateId"] = boost::any(*certificateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppliedType") != m.end() && !m["AppliedType"].empty()) {
+      appliedType = make_shared<string>(boost::any_cast<string>(m["AppliedType"]));
+    }
+    if (m.find("CertificateId") != m.end() && !m["CertificateId"].empty()) {
+      certificateId = make_shared<string>(boost::any_cast<string>(m["CertificateId"]));
+    }
+  }
+
+
+  virtual ~CreateCloudResourceRequestListenCertificates() = default;
+};
+class CreateCloudResourceRequestListen : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateCloudResourceRequestListenCertificates>> certificates{};
+  shared_ptr<long> cipherSuite{};
+  shared_ptr<vector<string>> customCiphers{};
+  shared_ptr<bool> enableTLSv3{};
+  shared_ptr<bool> http2Enabled{};
+  shared_ptr<long> port{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> resourceInstanceId{};
+  shared_ptr<string> resourceProduct{};
+  shared_ptr<string> TLSVersion{};
+
+  CreateCloudResourceRequestListen() {}
+
+  explicit CreateCloudResourceRequestListen(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certificates) {
+      vector<boost::any> temp1;
+      for(auto item1:*certificates){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Certificates"] = boost::any(temp1);
+    }
+    if (cipherSuite) {
+      res["CipherSuite"] = boost::any(*cipherSuite);
+    }
+    if (customCiphers) {
+      res["CustomCiphers"] = boost::any(*customCiphers);
+    }
+    if (enableTLSv3) {
+      res["EnableTLSv3"] = boost::any(*enableTLSv3);
+    }
+    if (http2Enabled) {
+      res["Http2Enabled"] = boost::any(*http2Enabled);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (resourceInstanceId) {
+      res["ResourceInstanceId"] = boost::any(*resourceInstanceId);
+    }
+    if (resourceProduct) {
+      res["ResourceProduct"] = boost::any(*resourceProduct);
+    }
+    if (TLSVersion) {
+      res["TLSVersion"] = boost::any(*TLSVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Certificates") != m.end() && !m["Certificates"].empty()) {
+      if (typeid(vector<boost::any>) == m["Certificates"].type()) {
+        vector<CreateCloudResourceRequestListenCertificates> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Certificates"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCloudResourceRequestListenCertificates model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        certificates = make_shared<vector<CreateCloudResourceRequestListenCertificates>>(expect1);
+      }
+    }
+    if (m.find("CipherSuite") != m.end() && !m["CipherSuite"].empty()) {
+      cipherSuite = make_shared<long>(boost::any_cast<long>(m["CipherSuite"]));
+    }
+    if (m.find("CustomCiphers") != m.end() && !m["CustomCiphers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CustomCiphers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CustomCiphers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      customCiphers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EnableTLSv3") != m.end() && !m["EnableTLSv3"].empty()) {
+      enableTLSv3 = make_shared<bool>(boost::any_cast<bool>(m["EnableTLSv3"]));
+    }
+    if (m.find("Http2Enabled") != m.end() && !m["Http2Enabled"].empty()) {
+      http2Enabled = make_shared<bool>(boost::any_cast<bool>(m["Http2Enabled"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("ResourceInstanceId") != m.end() && !m["ResourceInstanceId"].empty()) {
+      resourceInstanceId = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceId"]));
+    }
+    if (m.find("ResourceProduct") != m.end() && !m["ResourceProduct"].empty()) {
+      resourceProduct = make_shared<string>(boost::any_cast<string>(m["ResourceProduct"]));
+    }
+    if (m.find("TLSVersion") != m.end() && !m["TLSVersion"].empty()) {
+      TLSVersion = make_shared<string>(boost::any_cast<string>(m["TLSVersion"]));
+    }
+  }
+
+
+  virtual ~CreateCloudResourceRequestListen() = default;
+};
+class CreateCloudResourceRequestRedirectRequestHeaders : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateCloudResourceRequestRedirectRequestHeaders() {}
+
+  explicit CreateCloudResourceRequestRedirectRequestHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateCloudResourceRequestRedirectRequestHeaders() = default;
+};
+class CreateCloudResourceRequestRedirect : public Darabonba::Model {
+public:
+  shared_ptr<bool> keepalive{};
+  shared_ptr<long> keepaliveRequests{};
+  shared_ptr<long> keepaliveTimeout{};
+  shared_ptr<long> readTimeout{};
+  shared_ptr<vector<CreateCloudResourceRequestRedirectRequestHeaders>> requestHeaders{};
+  shared_ptr<long> writeTimeout{};
+  shared_ptr<long> xffHeaderMode{};
+  shared_ptr<vector<string>> xffHeaders{};
+  shared_ptr<bool> xffProto{};
+
+  CreateCloudResourceRequestRedirect() {}
+
+  explicit CreateCloudResourceRequestRedirect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keepalive) {
+      res["Keepalive"] = boost::any(*keepalive);
+    }
+    if (keepaliveRequests) {
+      res["KeepaliveRequests"] = boost::any(*keepaliveRequests);
+    }
+    if (keepaliveTimeout) {
+      res["KeepaliveTimeout"] = boost::any(*keepaliveTimeout);
+    }
+    if (readTimeout) {
+      res["ReadTimeout"] = boost::any(*readTimeout);
+    }
+    if (requestHeaders) {
+      vector<boost::any> temp1;
+      for(auto item1:*requestHeaders){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RequestHeaders"] = boost::any(temp1);
+    }
+    if (writeTimeout) {
+      res["WriteTimeout"] = boost::any(*writeTimeout);
+    }
+    if (xffHeaderMode) {
+      res["XffHeaderMode"] = boost::any(*xffHeaderMode);
+    }
+    if (xffHeaders) {
+      res["XffHeaders"] = boost::any(*xffHeaders);
+    }
+    if (xffProto) {
+      res["XffProto"] = boost::any(*xffProto);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Keepalive") != m.end() && !m["Keepalive"].empty()) {
+      keepalive = make_shared<bool>(boost::any_cast<bool>(m["Keepalive"]));
+    }
+    if (m.find("KeepaliveRequests") != m.end() && !m["KeepaliveRequests"].empty()) {
+      keepaliveRequests = make_shared<long>(boost::any_cast<long>(m["KeepaliveRequests"]));
+    }
+    if (m.find("KeepaliveTimeout") != m.end() && !m["KeepaliveTimeout"].empty()) {
+      keepaliveTimeout = make_shared<long>(boost::any_cast<long>(m["KeepaliveTimeout"]));
+    }
+    if (m.find("ReadTimeout") != m.end() && !m["ReadTimeout"].empty()) {
+      readTimeout = make_shared<long>(boost::any_cast<long>(m["ReadTimeout"]));
+    }
+    if (m.find("RequestHeaders") != m.end() && !m["RequestHeaders"].empty()) {
+      if (typeid(vector<boost::any>) == m["RequestHeaders"].type()) {
+        vector<CreateCloudResourceRequestRedirectRequestHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RequestHeaders"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCloudResourceRequestRedirectRequestHeaders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        requestHeaders = make_shared<vector<CreateCloudResourceRequestRedirectRequestHeaders>>(expect1);
+      }
+    }
+    if (m.find("WriteTimeout") != m.end() && !m["WriteTimeout"].empty()) {
+      writeTimeout = make_shared<long>(boost::any_cast<long>(m["WriteTimeout"]));
+    }
+    if (m.find("XffHeaderMode") != m.end() && !m["XffHeaderMode"].empty()) {
+      xffHeaderMode = make_shared<long>(boost::any_cast<long>(m["XffHeaderMode"]));
+    }
+    if (m.find("XffHeaders") != m.end() && !m["XffHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["XffHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["XffHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      xffHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("XffProto") != m.end() && !m["XffProto"].empty()) {
+      xffProto = make_shared<bool>(boost::any_cast<bool>(m["XffProto"]));
+    }
+  }
+
+
+  virtual ~CreateCloudResourceRequestRedirect() = default;
+};
+class CreateCloudResourceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<CreateCloudResourceRequestListen> listen{};
+  shared_ptr<string> ownerUserId{};
+  shared_ptr<CreateCloudResourceRequestRedirect> redirect{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  CreateCloudResourceRequest() {}
+
+  explicit CreateCloudResourceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (listen) {
+      res["Listen"] = listen ? boost::any(listen->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ownerUserId) {
+      res["OwnerUserId"] = boost::any(*ownerUserId);
+    }
+    if (redirect) {
+      res["Redirect"] = redirect ? boost::any(redirect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Listen") != m.end() && !m["Listen"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Listen"].type()) {
+        CreateCloudResourceRequestListen model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Listen"]));
+        listen = make_shared<CreateCloudResourceRequestListen>(model1);
+      }
+    }
+    if (m.find("OwnerUserId") != m.end() && !m["OwnerUserId"].empty()) {
+      ownerUserId = make_shared<string>(boost::any_cast<string>(m["OwnerUserId"]));
+    }
+    if (m.find("Redirect") != m.end() && !m["Redirect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Redirect"].type()) {
+        CreateCloudResourceRequestRedirect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Redirect"]));
+        redirect = make_shared<CreateCloudResourceRequestRedirect>(model1);
+      }
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~CreateCloudResourceRequest() = default;
+};
+class CreateCloudResourceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> listenShrink{};
+  shared_ptr<string> ownerUserId{};
+  shared_ptr<string> redirectShrink{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  CreateCloudResourceShrinkRequest() {}
+
+  explicit CreateCloudResourceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (listenShrink) {
+      res["Listen"] = boost::any(*listenShrink);
+    }
+    if (ownerUserId) {
+      res["OwnerUserId"] = boost::any(*ownerUserId);
+    }
+    if (redirectShrink) {
+      res["Redirect"] = boost::any(*redirectShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Listen") != m.end() && !m["Listen"].empty()) {
+      listenShrink = make_shared<string>(boost::any_cast<string>(m["Listen"]));
+    }
+    if (m.find("OwnerUserId") != m.end() && !m["OwnerUserId"].empty()) {
+      ownerUserId = make_shared<string>(boost::any_cast<string>(m["OwnerUserId"]));
+    }
+    if (m.find("Redirect") != m.end() && !m["Redirect"].empty()) {
+      redirectShrink = make_shared<string>(boost::any_cast<string>(m["Redirect"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~CreateCloudResourceShrinkRequest() = default;
+};
+class CreateCloudResourceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> cloudResourceId{};
+  shared_ptr<string> requestId{};
+
+  CreateCloudResourceResponseBody() {}
+
+  explicit CreateCloudResourceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cloudResourceId) {
+      res["CloudResourceId"] = boost::any(*cloudResourceId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CloudResourceId") != m.end() && !m["CloudResourceId"].empty()) {
+      cloudResourceId = make_shared<string>(boost::any_cast<string>(m["CloudResourceId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateCloudResourceResponseBody() = default;
+};
+class CreateCloudResourceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateCloudResourceResponseBody> body{};
+
+  CreateCloudResourceResponse() {}
+
+  explicit CreateCloudResourceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateCloudResourceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateCloudResourceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCloudResourceResponse() = default;
+};
 class CreateDefenseResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> addList{};
@@ -1529,6 +2044,186 @@ public:
 
   virtual ~CreateDomainResponse() = default;
 };
+class CreateHybridCloudGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> backSourceMark{};
+  shared_ptr<long> clusterId{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> groupType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> loadBalanceIp{};
+  shared_ptr<string> locationCode{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  CreateHybridCloudGroupRequest() {}
+
+  explicit CreateHybridCloudGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (backSourceMark) {
+      res["BackSourceMark"] = boost::any(*backSourceMark);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (groupType) {
+      res["GroupType"] = boost::any(*groupType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (loadBalanceIp) {
+      res["LoadBalanceIp"] = boost::any(*loadBalanceIp);
+    }
+    if (locationCode) {
+      res["LocationCode"] = boost::any(*locationCode);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackSourceMark") != m.end() && !m["BackSourceMark"].empty()) {
+      backSourceMark = make_shared<string>(boost::any_cast<string>(m["BackSourceMark"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<long>(boost::any_cast<long>(m["ClusterId"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("GroupType") != m.end() && !m["GroupType"].empty()) {
+      groupType = make_shared<string>(boost::any_cast<string>(m["GroupType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("LoadBalanceIp") != m.end() && !m["LoadBalanceIp"].empty()) {
+      loadBalanceIp = make_shared<string>(boost::any_cast<string>(m["LoadBalanceIp"]));
+    }
+    if (m.find("LocationCode") != m.end() && !m["LocationCode"].empty()) {
+      locationCode = make_shared<string>(boost::any_cast<string>(m["LocationCode"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~CreateHybridCloudGroupRequest() = default;
+};
+class CreateHybridCloudGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> data{};
+  shared_ptr<string> requestId{};
+
+  CreateHybridCloudGroupResponseBody() {}
+
+  explicit CreateHybridCloudGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateHybridCloudGroupResponseBody() = default;
+};
+class CreateHybridCloudGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateHybridCloudGroupResponseBody> body{};
+
+  CreateHybridCloudGroupResponse() {}
+
+  explicit CreateHybridCloudGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateHybridCloudGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateHybridCloudGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateHybridCloudGroupResponse() = default;
+};
 class CreateMajorProtectionBlackIpRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -2426,6 +3121,151 @@ public:
 
 
   virtual ~DeleteApisecEventResponse() = default;
+};
+class DeleteCloudResourceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> port{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceInstanceId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<string> resourceProduct{};
+
+  DeleteCloudResourceRequest() {}
+
+  explicit DeleteCloudResourceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceInstanceId) {
+      res["ResourceInstanceId"] = boost::any(*resourceInstanceId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (resourceProduct) {
+      res["ResourceProduct"] = boost::any(*resourceProduct);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceInstanceId") != m.end() && !m["ResourceInstanceId"].empty()) {
+      resourceInstanceId = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+    if (m.find("ResourceProduct") != m.end() && !m["ResourceProduct"].empty()) {
+      resourceProduct = make_shared<string>(boost::any_cast<string>(m["ResourceProduct"]));
+    }
+  }
+
+
+  virtual ~DeleteCloudResourceRequest() = default;
+};
+class DeleteCloudResourceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteCloudResourceResponseBody() {}
+
+  explicit DeleteCloudResourceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteCloudResourceResponseBody() = default;
+};
+class DeleteCloudResourceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteCloudResourceResponseBody> body{};
+
+  DeleteCloudResourceResponse() {}
+
+  explicit DeleteCloudResourceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteCloudResourceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteCloudResourceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteCloudResourceResponse() = default;
 };
 class DeleteDefenseResourceGroupRequest : public Darabonba::Model {
 public:
@@ -5367,6 +6207,635 @@ public:
 
   virtual ~DescribeCertsResponse() = default;
 };
+class DescribeCloudResourceAccessPortDetailsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> port{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceInstanceId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<string> resourceProduct{};
+
+  DescribeCloudResourceAccessPortDetailsRequest() {}
+
+  explicit DescribeCloudResourceAccessPortDetailsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceInstanceId) {
+      res["ResourceInstanceId"] = boost::any(*resourceInstanceId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (resourceProduct) {
+      res["ResourceProduct"] = boost::any(*resourceProduct);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceInstanceId") != m.end() && !m["ResourceInstanceId"].empty()) {
+      resourceInstanceId = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+    if (m.find("ResourceProduct") != m.end() && !m["ResourceProduct"].empty()) {
+      resourceProduct = make_shared<string>(boost::any_cast<string>(m["ResourceProduct"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudResourceAccessPortDetailsRequest() = default;
+};
+class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates : public Darabonba::Model {
+public:
+  shared_ptr<string> appliedType{};
+  shared_ptr<string> certificateId{};
+  shared_ptr<string> certificateName{};
+
+  DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates() {}
+
+  explicit DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appliedType) {
+      res["AppliedType"] = boost::any(*appliedType);
+    }
+    if (certificateId) {
+      res["CertificateId"] = boost::any(*certificateId);
+    }
+    if (certificateName) {
+      res["CertificateName"] = boost::any(*certificateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppliedType") != m.end() && !m["AppliedType"].empty()) {
+      appliedType = make_shared<string>(boost::any_cast<string>(m["AppliedType"]));
+    }
+    if (m.find("CertificateId") != m.end() && !m["CertificateId"].empty()) {
+      certificateId = make_shared<string>(boost::any_cast<string>(m["CertificateId"]));
+    }
+    if (m.find("CertificateName") != m.end() && !m["CertificateName"].empty()) {
+      certificateName = make_shared<string>(boost::any_cast<string>(m["CertificateName"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates() = default;
+};
+class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders() {}
+
+  explicit DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders() = default;
+};
+class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates>> certificates{};
+  shared_ptr<long> cipherSuite{};
+  shared_ptr<vector<string>> customCiphers{};
+  shared_ptr<bool> enableTLSv3{};
+  shared_ptr<bool> http2Enabled{};
+  shared_ptr<bool> keepalive{};
+  shared_ptr<long> keepaliveRequests{};
+  shared_ptr<long> keepaliveTimeout{};
+  shared_ptr<vector<DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders>> logHeaders{};
+  shared_ptr<string> ownerUserId{};
+  shared_ptr<long> port{};
+  shared_ptr<string> protocol{};
+  shared_ptr<long> readTimeout{};
+  shared_ptr<long> status{};
+  shared_ptr<string> TLSVersion{};
+  shared_ptr<long> writeTimeout{};
+  shared_ptr<long> xffHeaderMode{};
+  shared_ptr<vector<string>> xffHeaders{};
+  shared_ptr<bool> xffProto{};
+
+  DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails() {}
+
+  explicit DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certificates) {
+      vector<boost::any> temp1;
+      for(auto item1:*certificates){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Certificates"] = boost::any(temp1);
+    }
+    if (cipherSuite) {
+      res["CipherSuite"] = boost::any(*cipherSuite);
+    }
+    if (customCiphers) {
+      res["CustomCiphers"] = boost::any(*customCiphers);
+    }
+    if (enableTLSv3) {
+      res["EnableTLSv3"] = boost::any(*enableTLSv3);
+    }
+    if (http2Enabled) {
+      res["Http2Enabled"] = boost::any(*http2Enabled);
+    }
+    if (keepalive) {
+      res["Keepalive"] = boost::any(*keepalive);
+    }
+    if (keepaliveRequests) {
+      res["KeepaliveRequests"] = boost::any(*keepaliveRequests);
+    }
+    if (keepaliveTimeout) {
+      res["KeepaliveTimeout"] = boost::any(*keepaliveTimeout);
+    }
+    if (logHeaders) {
+      vector<boost::any> temp1;
+      for(auto item1:*logHeaders){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["LogHeaders"] = boost::any(temp1);
+    }
+    if (ownerUserId) {
+      res["OwnerUserId"] = boost::any(*ownerUserId);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (readTimeout) {
+      res["ReadTimeout"] = boost::any(*readTimeout);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (TLSVersion) {
+      res["TLSVersion"] = boost::any(*TLSVersion);
+    }
+    if (writeTimeout) {
+      res["WriteTimeout"] = boost::any(*writeTimeout);
+    }
+    if (xffHeaderMode) {
+      res["XffHeaderMode"] = boost::any(*xffHeaderMode);
+    }
+    if (xffHeaders) {
+      res["XffHeaders"] = boost::any(*xffHeaders);
+    }
+    if (xffProto) {
+      res["XffProto"] = boost::any(*xffProto);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Certificates") != m.end() && !m["Certificates"].empty()) {
+      if (typeid(vector<boost::any>) == m["Certificates"].type()) {
+        vector<DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Certificates"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        certificates = make_shared<vector<DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates>>(expect1);
+      }
+    }
+    if (m.find("CipherSuite") != m.end() && !m["CipherSuite"].empty()) {
+      cipherSuite = make_shared<long>(boost::any_cast<long>(m["CipherSuite"]));
+    }
+    if (m.find("CustomCiphers") != m.end() && !m["CustomCiphers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CustomCiphers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CustomCiphers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      customCiphers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EnableTLSv3") != m.end() && !m["EnableTLSv3"].empty()) {
+      enableTLSv3 = make_shared<bool>(boost::any_cast<bool>(m["EnableTLSv3"]));
+    }
+    if (m.find("Http2Enabled") != m.end() && !m["Http2Enabled"].empty()) {
+      http2Enabled = make_shared<bool>(boost::any_cast<bool>(m["Http2Enabled"]));
+    }
+    if (m.find("Keepalive") != m.end() && !m["Keepalive"].empty()) {
+      keepalive = make_shared<bool>(boost::any_cast<bool>(m["Keepalive"]));
+    }
+    if (m.find("KeepaliveRequests") != m.end() && !m["KeepaliveRequests"].empty()) {
+      keepaliveRequests = make_shared<long>(boost::any_cast<long>(m["KeepaliveRequests"]));
+    }
+    if (m.find("KeepaliveTimeout") != m.end() && !m["KeepaliveTimeout"].empty()) {
+      keepaliveTimeout = make_shared<long>(boost::any_cast<long>(m["KeepaliveTimeout"]));
+    }
+    if (m.find("LogHeaders") != m.end() && !m["LogHeaders"].empty()) {
+      if (typeid(vector<boost::any>) == m["LogHeaders"].type()) {
+        vector<DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["LogHeaders"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        logHeaders = make_shared<vector<DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders>>(expect1);
+      }
+    }
+    if (m.find("OwnerUserId") != m.end() && !m["OwnerUserId"].empty()) {
+      ownerUserId = make_shared<string>(boost::any_cast<string>(m["OwnerUserId"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("ReadTimeout") != m.end() && !m["ReadTimeout"].empty()) {
+      readTimeout = make_shared<long>(boost::any_cast<long>(m["ReadTimeout"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TLSVersion") != m.end() && !m["TLSVersion"].empty()) {
+      TLSVersion = make_shared<string>(boost::any_cast<string>(m["TLSVersion"]));
+    }
+    if (m.find("WriteTimeout") != m.end() && !m["WriteTimeout"].empty()) {
+      writeTimeout = make_shared<long>(boost::any_cast<long>(m["WriteTimeout"]));
+    }
+    if (m.find("XffHeaderMode") != m.end() && !m["XffHeaderMode"].empty()) {
+      xffHeaderMode = make_shared<long>(boost::any_cast<long>(m["XffHeaderMode"]));
+    }
+    if (m.find("XffHeaders") != m.end() && !m["XffHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["XffHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["XffHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      xffHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("XffProto") != m.end() && !m["XffProto"].empty()) {
+      xffProto = make_shared<bool>(boost::any_cast<bool>(m["XffProto"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails() = default;
+};
+class DescribeCloudResourceAccessPortDetailsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails>> accessPortDetails{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeCloudResourceAccessPortDetailsResponseBody() {}
+
+  explicit DescribeCloudResourceAccessPortDetailsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessPortDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*accessPortDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AccessPortDetails"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessPortDetails") != m.end() && !m["AccessPortDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["AccessPortDetails"].type()) {
+        vector<DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AccessPortDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        accessPortDetails = make_shared<vector<DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudResourceAccessPortDetailsResponseBody() = default;
+};
+class DescribeCloudResourceAccessPortDetailsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCloudResourceAccessPortDetailsResponseBody> body{};
+
+  DescribeCloudResourceAccessPortDetailsResponse() {}
+
+  explicit DescribeCloudResourceAccessPortDetailsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCloudResourceAccessPortDetailsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCloudResourceAccessPortDetailsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCloudResourceAccessPortDetailsResponse() = default;
+};
+class DescribeCloudResourceAccessedPortsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceInstanceId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeCloudResourceAccessedPortsRequest() {}
+
+  explicit DescribeCloudResourceAccessedPortsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceInstanceId) {
+      res["ResourceInstanceId"] = boost::any(*resourceInstanceId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceInstanceId") != m.end() && !m["ResourceInstanceId"].empty()) {
+      resourceInstanceId = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudResourceAccessedPortsRequest() = default;
+};
+class DescribeCloudResourceAccessedPortsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> http{};
+  shared_ptr<vector<long>> https{};
+  shared_ptr<string> requestId{};
+
+  DescribeCloudResourceAccessedPortsResponseBody() {}
+
+  explicit DescribeCloudResourceAccessedPortsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (http) {
+      res["Http"] = boost::any(*http);
+    }
+    if (https) {
+      res["Https"] = boost::any(*https);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Http") != m.end() && !m["Http"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Http"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Http"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      http = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Https") != m.end() && !m["Https"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Https"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Https"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      https = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeCloudResourceAccessedPortsResponseBody() = default;
+};
+class DescribeCloudResourceAccessedPortsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCloudResourceAccessedPortsResponseBody> body{};
+
+  DescribeCloudResourceAccessedPortsResponse() {}
+
+  explicit DescribeCloudResourceAccessedPortsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCloudResourceAccessedPortsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCloudResourceAccessedPortsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCloudResourceAccessedPortsResponse() = default;
+};
 class DescribeCloudResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -6074,6 +7543,198 @@ public:
 
 
   virtual ~DescribeDDoSStatusResponse() = default;
+};
+class DescribeDefaultHttpsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeDefaultHttpsRequest() {}
+
+  explicit DescribeDefaultHttpsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeDefaultHttpsRequest() = default;
+};
+class DescribeDefaultHttpsResponseBodyDefaultHttps : public Darabonba::Model {
+public:
+  shared_ptr<string> certId{};
+  shared_ptr<string> cipherSuite{};
+  shared_ptr<string> customCiphers{};
+  shared_ptr<bool> enableTLSv3{};
+  shared_ptr<string> TLSVersion{};
+
+  DescribeDefaultHttpsResponseBodyDefaultHttps() {}
+
+  explicit DescribeDefaultHttpsResponseBodyDefaultHttps(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certId) {
+      res["CertId"] = boost::any(*certId);
+    }
+    if (cipherSuite) {
+      res["CipherSuite"] = boost::any(*cipherSuite);
+    }
+    if (customCiphers) {
+      res["CustomCiphers"] = boost::any(*customCiphers);
+    }
+    if (enableTLSv3) {
+      res["EnableTLSv3"] = boost::any(*enableTLSv3);
+    }
+    if (TLSVersion) {
+      res["TLSVersion"] = boost::any(*TLSVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertId") != m.end() && !m["CertId"].empty()) {
+      certId = make_shared<string>(boost::any_cast<string>(m["CertId"]));
+    }
+    if (m.find("CipherSuite") != m.end() && !m["CipherSuite"].empty()) {
+      cipherSuite = make_shared<string>(boost::any_cast<string>(m["CipherSuite"]));
+    }
+    if (m.find("CustomCiphers") != m.end() && !m["CustomCiphers"].empty()) {
+      customCiphers = make_shared<string>(boost::any_cast<string>(m["CustomCiphers"]));
+    }
+    if (m.find("EnableTLSv3") != m.end() && !m["EnableTLSv3"].empty()) {
+      enableTLSv3 = make_shared<bool>(boost::any_cast<bool>(m["EnableTLSv3"]));
+    }
+    if (m.find("TLSVersion") != m.end() && !m["TLSVersion"].empty()) {
+      TLSVersion = make_shared<string>(boost::any_cast<string>(m["TLSVersion"]));
+    }
+  }
+
+
+  virtual ~DescribeDefaultHttpsResponseBodyDefaultHttps() = default;
+};
+class DescribeDefaultHttpsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeDefaultHttpsResponseBodyDefaultHttps> defaultHttps{};
+  shared_ptr<string> requestId{};
+
+  DescribeDefaultHttpsResponseBody() {}
+
+  explicit DescribeDefaultHttpsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultHttps) {
+      res["DefaultHttps"] = defaultHttps ? boost::any(defaultHttps->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultHttps") != m.end() && !m["DefaultHttps"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DefaultHttps"].type()) {
+        DescribeDefaultHttpsResponseBodyDefaultHttps model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DefaultHttps"]));
+        defaultHttps = make_shared<DescribeDefaultHttpsResponseBodyDefaultHttps>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDefaultHttpsResponseBody() = default;
+};
+class DescribeDefaultHttpsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDefaultHttpsResponseBody> body{};
+
+  DescribeDefaultHttpsResponse() {}
+
+  explicit DescribeDefaultHttpsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDefaultHttpsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDefaultHttpsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDefaultHttpsResponse() = default;
 };
 class DescribeDefenseResourceRequest : public Darabonba::Model {
 public:
@@ -11049,6 +12710,463 @@ public:
 
   virtual ~DescribeFlowTopUrlResponse() = default;
 };
+class DescribeHybridCloudClusterRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> clusterId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<string> ruleType{};
+
+  DescribeHybridCloudClusterRuleRequest() {}
+
+  explicit DescribeHybridCloudClusterRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<long>(boost::any_cast<long>(m["ClusterId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudClusterRuleRequest() = default;
+};
+class DescribeHybridCloudClusterRuleResponseBodyClusterRule : public Darabonba::Model {
+public:
+  shared_ptr<string> ruleConfig{};
+  shared_ptr<string> ruleStatus{};
+  shared_ptr<string> ruleType{};
+
+  DescribeHybridCloudClusterRuleResponseBodyClusterRule() {}
+
+  explicit DescribeHybridCloudClusterRuleResponseBodyClusterRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ruleConfig) {
+      res["RuleConfig"] = boost::any(*ruleConfig);
+    }
+    if (ruleStatus) {
+      res["RuleStatus"] = boost::any(*ruleStatus);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RuleConfig") != m.end() && !m["RuleConfig"].empty()) {
+      ruleConfig = make_shared<string>(boost::any_cast<string>(m["RuleConfig"]));
+    }
+    if (m.find("RuleStatus") != m.end() && !m["RuleStatus"].empty()) {
+      ruleStatus = make_shared<string>(boost::any_cast<string>(m["RuleStatus"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudClusterRuleResponseBodyClusterRule() = default;
+};
+class DescribeHybridCloudClusterRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeHybridCloudClusterRuleResponseBodyClusterRule> clusterRule{};
+  shared_ptr<string> requestId{};
+
+  DescribeHybridCloudClusterRuleResponseBody() {}
+
+  explicit DescribeHybridCloudClusterRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterRule) {
+      res["ClusterRule"] = clusterRule ? boost::any(clusterRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterRule") != m.end() && !m["ClusterRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ClusterRule"].type()) {
+        DescribeHybridCloudClusterRuleResponseBodyClusterRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ClusterRule"]));
+        clusterRule = make_shared<DescribeHybridCloudClusterRuleResponseBodyClusterRule>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudClusterRuleResponseBody() = default;
+};
+class DescribeHybridCloudClusterRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeHybridCloudClusterRuleResponseBody> body{};
+
+  DescribeHybridCloudClusterRuleResponse() {}
+
+  explicit DescribeHybridCloudClusterRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeHybridCloudClusterRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeHybridCloudClusterRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudClusterRuleResponse() = default;
+};
+class DescribeHybridCloudClustersRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeHybridCloudClustersRequest() {}
+
+  explicit DescribeHybridCloudClustersRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudClustersRequest() = default;
+};
+class DescribeHybridCloudClustersResponseBodyClusterInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> accessMode{};
+  shared_ptr<string> accessRegion{};
+  shared_ptr<string> clusterName{};
+  shared_ptr<string> clusterResourceId{};
+  shared_ptr<string> httpPorts{};
+  shared_ptr<string> httpsPorts{};
+  shared_ptr<long> id{};
+  shared_ptr<long> protectionServerCount{};
+  shared_ptr<string> proxyStatus{};
+  shared_ptr<string> proxyType{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> ruleConfig{};
+  shared_ptr<string> ruleStatus{};
+  shared_ptr<string> ruleType{};
+
+  DescribeHybridCloudClustersResponseBodyClusterInfos() {}
+
+  explicit DescribeHybridCloudClustersResponseBodyClusterInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessMode) {
+      res["AccessMode"] = boost::any(*accessMode);
+    }
+    if (accessRegion) {
+      res["AccessRegion"] = boost::any(*accessRegion);
+    }
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
+    if (clusterResourceId) {
+      res["ClusterResourceId"] = boost::any(*clusterResourceId);
+    }
+    if (httpPorts) {
+      res["HttpPorts"] = boost::any(*httpPorts);
+    }
+    if (httpsPorts) {
+      res["HttpsPorts"] = boost::any(*httpsPorts);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (protectionServerCount) {
+      res["ProtectionServerCount"] = boost::any(*protectionServerCount);
+    }
+    if (proxyStatus) {
+      res["ProxyStatus"] = boost::any(*proxyStatus);
+    }
+    if (proxyType) {
+      res["ProxyType"] = boost::any(*proxyType);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (ruleConfig) {
+      res["RuleConfig"] = boost::any(*ruleConfig);
+    }
+    if (ruleStatus) {
+      res["RuleStatus"] = boost::any(*ruleStatus);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessMode") != m.end() && !m["AccessMode"].empty()) {
+      accessMode = make_shared<string>(boost::any_cast<string>(m["AccessMode"]));
+    }
+    if (m.find("AccessRegion") != m.end() && !m["AccessRegion"].empty()) {
+      accessRegion = make_shared<string>(boost::any_cast<string>(m["AccessRegion"]));
+    }
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
+    if (m.find("ClusterResourceId") != m.end() && !m["ClusterResourceId"].empty()) {
+      clusterResourceId = make_shared<string>(boost::any_cast<string>(m["ClusterResourceId"]));
+    }
+    if (m.find("HttpPorts") != m.end() && !m["HttpPorts"].empty()) {
+      httpPorts = make_shared<string>(boost::any_cast<string>(m["HttpPorts"]));
+    }
+    if (m.find("HttpsPorts") != m.end() && !m["HttpsPorts"].empty()) {
+      httpsPorts = make_shared<string>(boost::any_cast<string>(m["HttpsPorts"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("ProtectionServerCount") != m.end() && !m["ProtectionServerCount"].empty()) {
+      protectionServerCount = make_shared<long>(boost::any_cast<long>(m["ProtectionServerCount"]));
+    }
+    if (m.find("ProxyStatus") != m.end() && !m["ProxyStatus"].empty()) {
+      proxyStatus = make_shared<string>(boost::any_cast<string>(m["ProxyStatus"]));
+    }
+    if (m.find("ProxyType") != m.end() && !m["ProxyType"].empty()) {
+      proxyType = make_shared<string>(boost::any_cast<string>(m["ProxyType"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("RuleConfig") != m.end() && !m["RuleConfig"].empty()) {
+      ruleConfig = make_shared<string>(boost::any_cast<string>(m["RuleConfig"]));
+    }
+    if (m.find("RuleStatus") != m.end() && !m["RuleStatus"].empty()) {
+      ruleStatus = make_shared<string>(boost::any_cast<string>(m["RuleStatus"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudClustersResponseBodyClusterInfos() = default;
+};
+class DescribeHybridCloudClustersResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeHybridCloudClustersResponseBodyClusterInfos>> clusterInfos{};
+  shared_ptr<string> requestId{};
+
+  DescribeHybridCloudClustersResponseBody() {}
+
+  explicit DescribeHybridCloudClustersResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*clusterInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ClusterInfos"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterInfos") != m.end() && !m["ClusterInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ClusterInfos"].type()) {
+        vector<DescribeHybridCloudClustersResponseBodyClusterInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ClusterInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeHybridCloudClustersResponseBodyClusterInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        clusterInfos = make_shared<vector<DescribeHybridCloudClustersResponseBodyClusterInfos>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudClustersResponseBody() = default;
+};
+class DescribeHybridCloudClustersResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeHybridCloudClustersResponseBody> body{};
+
+  DescribeHybridCloudClustersResponse() {}
+
+  explicit DescribeHybridCloudClustersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeHybridCloudClustersResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeHybridCloudClustersResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudClustersResponse() = default;
+};
 class DescribeHybridCloudGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> clusterId{};
@@ -11946,6 +14064,459 @@ public:
 
 
   virtual ~DescribeHybridCloudResourcesResponse() = default;
+};
+class DescribeHybridCloudServerRegionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionCode{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> regionType{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeHybridCloudServerRegionsRequest() {}
+
+  explicit DescribeHybridCloudServerRegionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionCode) {
+      res["RegionCode"] = boost::any(*regionCode);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (regionType) {
+      res["RegionType"] = boost::any(*regionType);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionCode") != m.end() && !m["RegionCode"].empty()) {
+      regionCode = make_shared<string>(boost::any_cast<string>(m["RegionCode"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RegionType") != m.end() && !m["RegionType"].empty()) {
+      regionType = make_shared<string>(boost::any_cast<string>(m["RegionType"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudServerRegionsRequest() = default;
+};
+class DescribeHybridCloudServerRegionsResponseBodyRegions : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> name{};
+
+  DescribeHybridCloudServerRegionsResponseBodyRegions() {}
+
+  explicit DescribeHybridCloudServerRegionsResponseBodyRegions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudServerRegionsResponseBodyRegions() = default;
+};
+class DescribeHybridCloudServerRegionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeHybridCloudServerRegionsResponseBodyRegions>> regions{};
+  shared_ptr<string> requestId{};
+
+  DescribeHybridCloudServerRegionsResponseBody() {}
+
+  explicit DescribeHybridCloudServerRegionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regions) {
+      vector<boost::any> temp1;
+      for(auto item1:*regions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Regions"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Regions") != m.end() && !m["Regions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Regions"].type()) {
+        vector<DescribeHybridCloudServerRegionsResponseBodyRegions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Regions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeHybridCloudServerRegionsResponseBodyRegions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        regions = make_shared<vector<DescribeHybridCloudServerRegionsResponseBodyRegions>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudServerRegionsResponseBody() = default;
+};
+class DescribeHybridCloudServerRegionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeHybridCloudServerRegionsResponseBody> body{};
+
+  DescribeHybridCloudServerRegionsResponse() {}
+
+  explicit DescribeHybridCloudServerRegionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeHybridCloudServerRegionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeHybridCloudServerRegionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudServerRegionsResponse() = default;
+};
+class DescribeHybridCloudUnassignedMachinesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> clusterId{};
+  shared_ptr<string> hostName{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> ip{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  DescribeHybridCloudUnassignedMachinesRequest() {}
+
+  explicit DescribeHybridCloudUnassignedMachinesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (hostName) {
+      res["HostName"] = boost::any(*hostName);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<long>(boost::any_cast<long>(m["ClusterId"]));
+    }
+    if (m.find("HostName") != m.end() && !m["HostName"].empty()) {
+      hostName = make_shared<string>(boost::any_cast<string>(m["HostName"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudUnassignedMachinesRequest() = default;
+};
+class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines : public Darabonba::Model {
+public:
+  shared_ptr<long> cpu{};
+  shared_ptr<string> customName{};
+  shared_ptr<string> hostName{};
+  shared_ptr<string> ip{};
+  shared_ptr<string> mac{};
+  shared_ptr<long> memory{};
+  shared_ptr<string> mid{};
+
+  DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines() {}
+
+  explicit DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (customName) {
+      res["CustomName"] = boost::any(*customName);
+    }
+    if (hostName) {
+      res["HostName"] = boost::any(*hostName);
+    }
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    if (mac) {
+      res["Mac"] = boost::any(*mac);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (mid) {
+      res["Mid"] = boost::any(*mid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
+    if (m.find("CustomName") != m.end() && !m["CustomName"].empty()) {
+      customName = make_shared<string>(boost::any_cast<string>(m["CustomName"]));
+    }
+    if (m.find("HostName") != m.end() && !m["HostName"].empty()) {
+      hostName = make_shared<string>(boost::any_cast<string>(m["HostName"]));
+    }
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("Mac") != m.end() && !m["Mac"].empty()) {
+      mac = make_shared<string>(boost::any_cast<string>(m["Mac"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("Mid") != m.end() && !m["Mid"].empty()) {
+      mid = make_shared<string>(boost::any_cast<string>(m["Mid"]));
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines() = default;
+};
+class DescribeHybridCloudUnassignedMachinesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<vector<DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines>> unassignedMachines{};
+
+  DescribeHybridCloudUnassignedMachinesResponseBody() {}
+
+  explicit DescribeHybridCloudUnassignedMachinesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (unassignedMachines) {
+      vector<boost::any> temp1;
+      for(auto item1:*unassignedMachines){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UnassignedMachines"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("UnassignedMachines") != m.end() && !m["UnassignedMachines"].empty()) {
+      if (typeid(vector<boost::any>) == m["UnassignedMachines"].type()) {
+        vector<DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UnassignedMachines"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        unassignedMachines = make_shared<vector<DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudUnassignedMachinesResponseBody() = default;
+};
+class DescribeHybridCloudUnassignedMachinesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeHybridCloudUnassignedMachinesResponseBody> body{};
+
+  DescribeHybridCloudUnassignedMachinesResponse() {}
+
+  explicit DescribeHybridCloudUnassignedMachinesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeHybridCloudUnassignedMachinesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeHybridCloudUnassignedMachinesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeHybridCloudUnassignedMachinesResponse() = default;
 };
 class DescribeHybridCloudUserRequest : public Darabonba::Model {
 public:
@@ -19227,6 +21798,673 @@ public:
 
   virtual ~ModifyApisecLogDeliveryStatusResponse() = default;
 };
+class ModifyCloudResourceRequestListenCertificates : public Darabonba::Model {
+public:
+  shared_ptr<string> appliedType{};
+  shared_ptr<string> certificateId{};
+
+  ModifyCloudResourceRequestListenCertificates() {}
+
+  explicit ModifyCloudResourceRequestListenCertificates(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appliedType) {
+      res["AppliedType"] = boost::any(*appliedType);
+    }
+    if (certificateId) {
+      res["CertificateId"] = boost::any(*certificateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppliedType") != m.end() && !m["AppliedType"].empty()) {
+      appliedType = make_shared<string>(boost::any_cast<string>(m["AppliedType"]));
+    }
+    if (m.find("CertificateId") != m.end() && !m["CertificateId"].empty()) {
+      certificateId = make_shared<string>(boost::any_cast<string>(m["CertificateId"]));
+    }
+  }
+
+
+  virtual ~ModifyCloudResourceRequestListenCertificates() = default;
+};
+class ModifyCloudResourceRequestListen : public Darabonba::Model {
+public:
+  shared_ptr<vector<ModifyCloudResourceRequestListenCertificates>> certificates{};
+  shared_ptr<long> cipherSuite{};
+  shared_ptr<vector<string>> customCiphers{};
+  shared_ptr<bool> enableTLSv3{};
+  shared_ptr<bool> http2Enabled{};
+  shared_ptr<long> port{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> resourceInstanceId{};
+  shared_ptr<string> resourceProduct{};
+  shared_ptr<string> TLSVersion{};
+
+  ModifyCloudResourceRequestListen() {}
+
+  explicit ModifyCloudResourceRequestListen(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certificates) {
+      vector<boost::any> temp1;
+      for(auto item1:*certificates){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Certificates"] = boost::any(temp1);
+    }
+    if (cipherSuite) {
+      res["CipherSuite"] = boost::any(*cipherSuite);
+    }
+    if (customCiphers) {
+      res["CustomCiphers"] = boost::any(*customCiphers);
+    }
+    if (enableTLSv3) {
+      res["EnableTLSv3"] = boost::any(*enableTLSv3);
+    }
+    if (http2Enabled) {
+      res["Http2Enabled"] = boost::any(*http2Enabled);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (resourceInstanceId) {
+      res["ResourceInstanceId"] = boost::any(*resourceInstanceId);
+    }
+    if (resourceProduct) {
+      res["ResourceProduct"] = boost::any(*resourceProduct);
+    }
+    if (TLSVersion) {
+      res["TLSVersion"] = boost::any(*TLSVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Certificates") != m.end() && !m["Certificates"].empty()) {
+      if (typeid(vector<boost::any>) == m["Certificates"].type()) {
+        vector<ModifyCloudResourceRequestListenCertificates> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Certificates"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCloudResourceRequestListenCertificates model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        certificates = make_shared<vector<ModifyCloudResourceRequestListenCertificates>>(expect1);
+      }
+    }
+    if (m.find("CipherSuite") != m.end() && !m["CipherSuite"].empty()) {
+      cipherSuite = make_shared<long>(boost::any_cast<long>(m["CipherSuite"]));
+    }
+    if (m.find("CustomCiphers") != m.end() && !m["CustomCiphers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CustomCiphers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CustomCiphers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      customCiphers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EnableTLSv3") != m.end() && !m["EnableTLSv3"].empty()) {
+      enableTLSv3 = make_shared<bool>(boost::any_cast<bool>(m["EnableTLSv3"]));
+    }
+    if (m.find("Http2Enabled") != m.end() && !m["Http2Enabled"].empty()) {
+      http2Enabled = make_shared<bool>(boost::any_cast<bool>(m["Http2Enabled"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("ResourceInstanceId") != m.end() && !m["ResourceInstanceId"].empty()) {
+      resourceInstanceId = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceId"]));
+    }
+    if (m.find("ResourceProduct") != m.end() && !m["ResourceProduct"].empty()) {
+      resourceProduct = make_shared<string>(boost::any_cast<string>(m["ResourceProduct"]));
+    }
+    if (m.find("TLSVersion") != m.end() && !m["TLSVersion"].empty()) {
+      TLSVersion = make_shared<string>(boost::any_cast<string>(m["TLSVersion"]));
+    }
+  }
+
+
+  virtual ~ModifyCloudResourceRequestListen() = default;
+};
+class ModifyCloudResourceRequestRedirectRequestHeaders : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ModifyCloudResourceRequestRedirectRequestHeaders() {}
+
+  explicit ModifyCloudResourceRequestRedirectRequestHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ModifyCloudResourceRequestRedirectRequestHeaders() = default;
+};
+class ModifyCloudResourceRequestRedirect : public Darabonba::Model {
+public:
+  shared_ptr<bool> keepalive{};
+  shared_ptr<long> keepaliveRequests{};
+  shared_ptr<long> keepaliveTimeout{};
+  shared_ptr<long> readTimeout{};
+  shared_ptr<vector<ModifyCloudResourceRequestRedirectRequestHeaders>> requestHeaders{};
+  shared_ptr<long> writeTimeout{};
+  shared_ptr<long> xffHeaderMode{};
+  shared_ptr<vector<string>> xffHeaders{};
+  shared_ptr<bool> xffProto{};
+
+  ModifyCloudResourceRequestRedirect() {}
+
+  explicit ModifyCloudResourceRequestRedirect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keepalive) {
+      res["Keepalive"] = boost::any(*keepalive);
+    }
+    if (keepaliveRequests) {
+      res["KeepaliveRequests"] = boost::any(*keepaliveRequests);
+    }
+    if (keepaliveTimeout) {
+      res["KeepaliveTimeout"] = boost::any(*keepaliveTimeout);
+    }
+    if (readTimeout) {
+      res["ReadTimeout"] = boost::any(*readTimeout);
+    }
+    if (requestHeaders) {
+      vector<boost::any> temp1;
+      for(auto item1:*requestHeaders){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RequestHeaders"] = boost::any(temp1);
+    }
+    if (writeTimeout) {
+      res["WriteTimeout"] = boost::any(*writeTimeout);
+    }
+    if (xffHeaderMode) {
+      res["XffHeaderMode"] = boost::any(*xffHeaderMode);
+    }
+    if (xffHeaders) {
+      res["XffHeaders"] = boost::any(*xffHeaders);
+    }
+    if (xffProto) {
+      res["XffProto"] = boost::any(*xffProto);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Keepalive") != m.end() && !m["Keepalive"].empty()) {
+      keepalive = make_shared<bool>(boost::any_cast<bool>(m["Keepalive"]));
+    }
+    if (m.find("KeepaliveRequests") != m.end() && !m["KeepaliveRequests"].empty()) {
+      keepaliveRequests = make_shared<long>(boost::any_cast<long>(m["KeepaliveRequests"]));
+    }
+    if (m.find("KeepaliveTimeout") != m.end() && !m["KeepaliveTimeout"].empty()) {
+      keepaliveTimeout = make_shared<long>(boost::any_cast<long>(m["KeepaliveTimeout"]));
+    }
+    if (m.find("ReadTimeout") != m.end() && !m["ReadTimeout"].empty()) {
+      readTimeout = make_shared<long>(boost::any_cast<long>(m["ReadTimeout"]));
+    }
+    if (m.find("RequestHeaders") != m.end() && !m["RequestHeaders"].empty()) {
+      if (typeid(vector<boost::any>) == m["RequestHeaders"].type()) {
+        vector<ModifyCloudResourceRequestRedirectRequestHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RequestHeaders"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCloudResourceRequestRedirectRequestHeaders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        requestHeaders = make_shared<vector<ModifyCloudResourceRequestRedirectRequestHeaders>>(expect1);
+      }
+    }
+    if (m.find("WriteTimeout") != m.end() && !m["WriteTimeout"].empty()) {
+      writeTimeout = make_shared<long>(boost::any_cast<long>(m["WriteTimeout"]));
+    }
+    if (m.find("XffHeaderMode") != m.end() && !m["XffHeaderMode"].empty()) {
+      xffHeaderMode = make_shared<long>(boost::any_cast<long>(m["XffHeaderMode"]));
+    }
+    if (m.find("XffHeaders") != m.end() && !m["XffHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["XffHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["XffHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      xffHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("XffProto") != m.end() && !m["XffProto"].empty()) {
+      xffProto = make_shared<bool>(boost::any_cast<bool>(m["XffProto"]));
+    }
+  }
+
+
+  virtual ~ModifyCloudResourceRequestRedirect() = default;
+};
+class ModifyCloudResourceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<ModifyCloudResourceRequestListen> listen{};
+  shared_ptr<ModifyCloudResourceRequestRedirect> redirect{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  ModifyCloudResourceRequest() {}
+
+  explicit ModifyCloudResourceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (listen) {
+      res["Listen"] = listen ? boost::any(listen->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (redirect) {
+      res["Redirect"] = redirect ? boost::any(redirect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Listen") != m.end() && !m["Listen"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Listen"].type()) {
+        ModifyCloudResourceRequestListen model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Listen"]));
+        listen = make_shared<ModifyCloudResourceRequestListen>(model1);
+      }
+    }
+    if (m.find("Redirect") != m.end() && !m["Redirect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Redirect"].type()) {
+        ModifyCloudResourceRequestRedirect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Redirect"]));
+        redirect = make_shared<ModifyCloudResourceRequestRedirect>(model1);
+      }
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~ModifyCloudResourceRequest() = default;
+};
+class ModifyCloudResourceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> listenShrink{};
+  shared_ptr<string> redirectShrink{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  ModifyCloudResourceShrinkRequest() {}
+
+  explicit ModifyCloudResourceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (listenShrink) {
+      res["Listen"] = boost::any(*listenShrink);
+    }
+    if (redirectShrink) {
+      res["Redirect"] = boost::any(*redirectShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Listen") != m.end() && !m["Listen"].empty()) {
+      listenShrink = make_shared<string>(boost::any_cast<string>(m["Listen"]));
+    }
+    if (m.find("Redirect") != m.end() && !m["Redirect"].empty()) {
+      redirectShrink = make_shared<string>(boost::any_cast<string>(m["Redirect"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~ModifyCloudResourceShrinkRequest() = default;
+};
+class ModifyCloudResourceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> cloudResource{};
+  shared_ptr<string> requestId{};
+
+  ModifyCloudResourceResponseBody() {}
+
+  explicit ModifyCloudResourceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cloudResource) {
+      res["CloudResource"] = boost::any(*cloudResource);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CloudResource") != m.end() && !m["CloudResource"].empty()) {
+      cloudResource = make_shared<string>(boost::any_cast<string>(m["CloudResource"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyCloudResourceResponseBody() = default;
+};
+class ModifyCloudResourceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyCloudResourceResponseBody> body{};
+
+  ModifyCloudResourceResponse() {}
+
+  explicit ModifyCloudResourceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyCloudResourceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyCloudResourceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyCloudResourceResponse() = default;
+};
+class ModifyDefaultHttpsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> certId{};
+  shared_ptr<long> cipherSuite{};
+  shared_ptr<vector<string>> customCiphers{};
+  shared_ptr<bool> enableTLSv3{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<string> TLSVersion{};
+
+  ModifyDefaultHttpsRequest() {}
+
+  explicit ModifyDefaultHttpsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certId) {
+      res["CertId"] = boost::any(*certId);
+    }
+    if (cipherSuite) {
+      res["CipherSuite"] = boost::any(*cipherSuite);
+    }
+    if (customCiphers) {
+      res["CustomCiphers"] = boost::any(*customCiphers);
+    }
+    if (enableTLSv3) {
+      res["EnableTLSv3"] = boost::any(*enableTLSv3);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (TLSVersion) {
+      res["TLSVersion"] = boost::any(*TLSVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertId") != m.end() && !m["CertId"].empty()) {
+      certId = make_shared<string>(boost::any_cast<string>(m["CertId"]));
+    }
+    if (m.find("CipherSuite") != m.end() && !m["CipherSuite"].empty()) {
+      cipherSuite = make_shared<long>(boost::any_cast<long>(m["CipherSuite"]));
+    }
+    if (m.find("CustomCiphers") != m.end() && !m["CustomCiphers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CustomCiphers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CustomCiphers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      customCiphers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EnableTLSv3") != m.end() && !m["EnableTLSv3"].empty()) {
+      enableTLSv3 = make_shared<bool>(boost::any_cast<bool>(m["EnableTLSv3"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+    if (m.find("TLSVersion") != m.end() && !m["TLSVersion"].empty()) {
+      TLSVersion = make_shared<string>(boost::any_cast<string>(m["TLSVersion"]));
+    }
+  }
+
+
+  virtual ~ModifyDefaultHttpsRequest() = default;
+};
+class ModifyDefaultHttpsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyDefaultHttpsResponseBody() {}
+
+  explicit ModifyDefaultHttpsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyDefaultHttpsResponseBody() = default;
+};
+class ModifyDefaultHttpsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyDefaultHttpsResponseBody> body{};
+
+  ModifyDefaultHttpsResponse() {}
+
+  explicit ModifyDefaultHttpsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyDefaultHttpsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyDefaultHttpsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyDefaultHttpsResponse() = default;
+};
 class ModifyDefenseResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> addList{};
@@ -21149,6 +24387,883 @@ public:
 
   virtual ~ModifyHybridCloudClusterBypassStatusResponse() = default;
 };
+class ModifyHybridCloudClusterRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> clusterId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<string> ruleConfig{};
+  shared_ptr<string> ruleStatus{};
+  shared_ptr<string> ruleType{};
+
+  ModifyHybridCloudClusterRuleRequest() {}
+
+  explicit ModifyHybridCloudClusterRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (ruleConfig) {
+      res["RuleConfig"] = boost::any(*ruleConfig);
+    }
+    if (ruleStatus) {
+      res["RuleStatus"] = boost::any(*ruleStatus);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<long>(boost::any_cast<long>(m["ClusterId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+    if (m.find("RuleConfig") != m.end() && !m["RuleConfig"].empty()) {
+      ruleConfig = make_shared<string>(boost::any_cast<string>(m["RuleConfig"]));
+    }
+    if (m.find("RuleStatus") != m.end() && !m["RuleStatus"].empty()) {
+      ruleStatus = make_shared<string>(boost::any_cast<string>(m["RuleStatus"]));
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudClusterRuleRequest() = default;
+};
+class ModifyHybridCloudClusterRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyHybridCloudClusterRuleResponseBody() {}
+
+  explicit ModifyHybridCloudClusterRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudClusterRuleResponseBody() = default;
+};
+class ModifyHybridCloudClusterRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyHybridCloudClusterRuleResponseBody> body{};
+
+  ModifyHybridCloudClusterRuleResponse() {}
+
+  explicit ModifyHybridCloudClusterRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyHybridCloudClusterRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyHybridCloudClusterRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudClusterRuleResponse() = default;
+};
+class ModifyHybridCloudGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> clusterId{};
+  shared_ptr<long> groupId{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  ModifyHybridCloudGroupRequest() {}
+
+  explicit ModifyHybridCloudGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<long>(boost::any_cast<long>(m["ClusterId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudGroupRequest() = default;
+};
+class ModifyHybridCloudGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyHybridCloudGroupResponseBody() {}
+
+  explicit ModifyHybridCloudGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudGroupResponseBody() = default;
+};
+class ModifyHybridCloudGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyHybridCloudGroupResponseBody> body{};
+
+  ModifyHybridCloudGroupResponse() {}
+
+  explicit ModifyHybridCloudGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyHybridCloudGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyHybridCloudGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudGroupResponse() = default;
+};
+class ModifyHybridCloudGroupExpansionServerRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> clusterId{};
+  shared_ptr<long> groupId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> mids{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  ModifyHybridCloudGroupExpansionServerRequest() {}
+
+  explicit ModifyHybridCloudGroupExpansionServerRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (mids) {
+      res["Mids"] = boost::any(*mids);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<long>(boost::any_cast<long>(m["ClusterId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Mids") != m.end() && !m["Mids"].empty()) {
+      mids = make_shared<string>(boost::any_cast<string>(m["Mids"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudGroupExpansionServerRequest() = default;
+};
+class ModifyHybridCloudGroupExpansionServerResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyHybridCloudGroupExpansionServerResponseBody() {}
+
+  explicit ModifyHybridCloudGroupExpansionServerResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudGroupExpansionServerResponseBody() = default;
+};
+class ModifyHybridCloudGroupExpansionServerResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyHybridCloudGroupExpansionServerResponseBody> body{};
+
+  ModifyHybridCloudGroupExpansionServerResponse() {}
+
+  explicit ModifyHybridCloudGroupExpansionServerResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyHybridCloudGroupExpansionServerResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyHybridCloudGroupExpansionServerResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudGroupExpansionServerResponse() = default;
+};
+class ModifyHybridCloudGroupShrinkServerRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> clusterId{};
+  shared_ptr<long> groupId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> mids{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  ModifyHybridCloudGroupShrinkServerRequest() {}
+
+  explicit ModifyHybridCloudGroupShrinkServerRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (mids) {
+      res["Mids"] = boost::any(*mids);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<long>(boost::any_cast<long>(m["ClusterId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Mids") != m.end() && !m["Mids"].empty()) {
+      mids = make_shared<string>(boost::any_cast<string>(m["Mids"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudGroupShrinkServerRequest() = default;
+};
+class ModifyHybridCloudGroupShrinkServerResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyHybridCloudGroupShrinkServerResponseBody() {}
+
+  explicit ModifyHybridCloudGroupShrinkServerResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudGroupShrinkServerResponseBody() = default;
+};
+class ModifyHybridCloudGroupShrinkServerResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyHybridCloudGroupShrinkServerResponseBody> body{};
+
+  ModifyHybridCloudGroupShrinkServerResponse() {}
+
+  explicit ModifyHybridCloudGroupShrinkServerResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyHybridCloudGroupShrinkServerResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyHybridCloudGroupShrinkServerResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudGroupShrinkServerResponse() = default;
+};
+class ModifyHybridCloudSdkPullinStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> mid{};
+  shared_ptr<string> pullinStatus{};
+
+  ModifyHybridCloudSdkPullinStatusRequest() {}
+
+  explicit ModifyHybridCloudSdkPullinStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (mid) {
+      res["Mid"] = boost::any(*mid);
+    }
+    if (pullinStatus) {
+      res["PullinStatus"] = boost::any(*pullinStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Mid") != m.end() && !m["Mid"].empty()) {
+      mid = make_shared<string>(boost::any_cast<string>(m["Mid"]));
+    }
+    if (m.find("PullinStatus") != m.end() && !m["PullinStatus"].empty()) {
+      pullinStatus = make_shared<string>(boost::any_cast<string>(m["PullinStatus"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudSdkPullinStatusRequest() = default;
+};
+class ModifyHybridCloudSdkPullinStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyHybridCloudSdkPullinStatusResponseBody() {}
+
+  explicit ModifyHybridCloudSdkPullinStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudSdkPullinStatusResponseBody() = default;
+};
+class ModifyHybridCloudSdkPullinStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyHybridCloudSdkPullinStatusResponseBody> body{};
+
+  ModifyHybridCloudSdkPullinStatusResponse() {}
+
+  explicit ModifyHybridCloudSdkPullinStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyHybridCloudSdkPullinStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyHybridCloudSdkPullinStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudSdkPullinStatusResponse() = default;
+};
+class ModifyHybridCloudServerRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> continents{};
+  shared_ptr<string> customName{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> mid{};
+  shared_ptr<string> operator_{};
+  shared_ptr<string> regionCode{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+
+  ModifyHybridCloudServerRequest() {}
+
+  explicit ModifyHybridCloudServerRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (continents) {
+      res["Continents"] = boost::any(*continents);
+    }
+    if (customName) {
+      res["CustomName"] = boost::any(*customName);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (mid) {
+      res["Mid"] = boost::any(*mid);
+    }
+    if (operator_) {
+      res["Operator"] = boost::any(*operator_);
+    }
+    if (regionCode) {
+      res["RegionCode"] = boost::any(*regionCode);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Continents") != m.end() && !m["Continents"].empty()) {
+      continents = make_shared<string>(boost::any_cast<string>(m["Continents"]));
+    }
+    if (m.find("CustomName") != m.end() && !m["CustomName"].empty()) {
+      customName = make_shared<string>(boost::any_cast<string>(m["CustomName"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Mid") != m.end() && !m["Mid"].empty()) {
+      mid = make_shared<string>(boost::any_cast<string>(m["Mid"]));
+    }
+    if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
+    }
+    if (m.find("RegionCode") != m.end() && !m["RegionCode"].empty()) {
+      regionCode = make_shared<string>(boost::any_cast<string>(m["RegionCode"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudServerRequest() = default;
+};
+class ModifyHybridCloudServerResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyHybridCloudServerResponseBody() {}
+
+  explicit ModifyHybridCloudServerResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudServerResponseBody() = default;
+};
+class ModifyHybridCloudServerResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyHybridCloudServerResponseBody> body{};
+
+  ModifyHybridCloudServerResponse() {}
+
+  explicit ModifyHybridCloudServerResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyHybridCloudServerResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyHybridCloudServerResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudServerResponse() = default;
+};
 class ModifyMajorProtectionBlackIpRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -22520,6 +26635,8 @@ public:
   ClearMajorProtectionBlackIpResponse clearMajorProtectionBlackIp(shared_ptr<ClearMajorProtectionBlackIpRequest> request);
   CopyDefenseTemplateResponse copyDefenseTemplateWithOptions(shared_ptr<CopyDefenseTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CopyDefenseTemplateResponse copyDefenseTemplate(shared_ptr<CopyDefenseTemplateRequest> request);
+  CreateCloudResourceResponse createCloudResourceWithOptions(shared_ptr<CreateCloudResourceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateCloudResourceResponse createCloudResource(shared_ptr<CreateCloudResourceRequest> request);
   CreateDefenseResourceGroupResponse createDefenseResourceGroupWithOptions(shared_ptr<CreateDefenseResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDefenseResourceGroupResponse createDefenseResourceGroup(shared_ptr<CreateDefenseResourceGroupRequest> request);
   CreateDefenseRuleResponse createDefenseRuleWithOptions(shared_ptr<CreateDefenseRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -22528,6 +26645,8 @@ public:
   CreateDefenseTemplateResponse createDefenseTemplate(shared_ptr<CreateDefenseTemplateRequest> request);
   CreateDomainResponse createDomainWithOptions(shared_ptr<CreateDomainRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDomainResponse createDomain(shared_ptr<CreateDomainRequest> request);
+  CreateHybridCloudGroupResponse createHybridCloudGroupWithOptions(shared_ptr<CreateHybridCloudGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateHybridCloudGroupResponse createHybridCloudGroup(shared_ptr<CreateHybridCloudGroupRequest> request);
   CreateMajorProtectionBlackIpResponse createMajorProtectionBlackIpWithOptions(shared_ptr<CreateMajorProtectionBlackIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateMajorProtectionBlackIpResponse createMajorProtectionBlackIp(shared_ptr<CreateMajorProtectionBlackIpRequest> request);
   CreateMemberAccountsResponse createMemberAccountsWithOptions(shared_ptr<CreateMemberAccountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -22540,6 +26659,8 @@ public:
   DeleteApisecAbnormalResponse deleteApisecAbnormal(shared_ptr<DeleteApisecAbnormalRequest> request);
   DeleteApisecEventResponse deleteApisecEventWithOptions(shared_ptr<DeleteApisecEventRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteApisecEventResponse deleteApisecEvent(shared_ptr<DeleteApisecEventRequest> request);
+  DeleteCloudResourceResponse deleteCloudResourceWithOptions(shared_ptr<DeleteCloudResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteCloudResourceResponse deleteCloudResource(shared_ptr<DeleteCloudResourceRequest> request);
   DeleteDefenseResourceGroupResponse deleteDefenseResourceGroupWithOptions(shared_ptr<DeleteDefenseResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDefenseResourceGroupResponse deleteDefenseResourceGroup(shared_ptr<DeleteDefenseResourceGroupRequest> request);
   DeleteDefenseRuleResponse deleteDefenseRuleWithOptions(shared_ptr<DeleteDefenseRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -22572,12 +26693,18 @@ public:
   DescribeCertDetailResponse describeCertDetail(shared_ptr<DescribeCertDetailRequest> request);
   DescribeCertsResponse describeCertsWithOptions(shared_ptr<DescribeCertsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCertsResponse describeCerts(shared_ptr<DescribeCertsRequest> request);
+  DescribeCloudResourceAccessPortDetailsResponse describeCloudResourceAccessPortDetailsWithOptions(shared_ptr<DescribeCloudResourceAccessPortDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCloudResourceAccessPortDetailsResponse describeCloudResourceAccessPortDetails(shared_ptr<DescribeCloudResourceAccessPortDetailsRequest> request);
+  DescribeCloudResourceAccessedPortsResponse describeCloudResourceAccessedPortsWithOptions(shared_ptr<DescribeCloudResourceAccessedPortsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCloudResourceAccessedPortsResponse describeCloudResourceAccessedPorts(shared_ptr<DescribeCloudResourceAccessedPortsRequest> request);
   DescribeCloudResourcesResponse describeCloudResourcesWithOptions(shared_ptr<DescribeCloudResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCloudResourcesResponse describeCloudResources(shared_ptr<DescribeCloudResourcesRequest> request);
   DescribeCnameCountResponse describeCnameCountWithOptions(shared_ptr<DescribeCnameCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCnameCountResponse describeCnameCount(shared_ptr<DescribeCnameCountRequest> request);
   DescribeDDoSStatusResponse describeDDoSStatusWithOptions(shared_ptr<DescribeDDoSStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDDoSStatusResponse describeDDoSStatus(shared_ptr<DescribeDDoSStatusRequest> request);
+  DescribeDefaultHttpsResponse describeDefaultHttpsWithOptions(shared_ptr<DescribeDefaultHttpsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDefaultHttpsResponse describeDefaultHttps(shared_ptr<DescribeDefaultHttpsRequest> request);
   DescribeDefenseResourceResponse describeDefenseResourceWithOptions(shared_ptr<DescribeDefenseResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDefenseResourceResponse describeDefenseResource(shared_ptr<DescribeDefenseResourceRequest> request);
   DescribeDefenseResourceGroupResponse describeDefenseResourceGroupWithOptions(shared_ptr<DescribeDefenseResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -22614,10 +26741,18 @@ public:
   DescribeFlowTopResourceResponse describeFlowTopResource(shared_ptr<DescribeFlowTopResourceRequest> request);
   DescribeFlowTopUrlResponse describeFlowTopUrlWithOptions(shared_ptr<DescribeFlowTopUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeFlowTopUrlResponse describeFlowTopUrl(shared_ptr<DescribeFlowTopUrlRequest> request);
+  DescribeHybridCloudClusterRuleResponse describeHybridCloudClusterRuleWithOptions(shared_ptr<DescribeHybridCloudClusterRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeHybridCloudClusterRuleResponse describeHybridCloudClusterRule(shared_ptr<DescribeHybridCloudClusterRuleRequest> request);
+  DescribeHybridCloudClustersResponse describeHybridCloudClustersWithOptions(shared_ptr<DescribeHybridCloudClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeHybridCloudClustersResponse describeHybridCloudClusters(shared_ptr<DescribeHybridCloudClustersRequest> request);
   DescribeHybridCloudGroupsResponse describeHybridCloudGroupsWithOptions(shared_ptr<DescribeHybridCloudGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeHybridCloudGroupsResponse describeHybridCloudGroups(shared_ptr<DescribeHybridCloudGroupsRequest> request);
   DescribeHybridCloudResourcesResponse describeHybridCloudResourcesWithOptions(shared_ptr<DescribeHybridCloudResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeHybridCloudResourcesResponse describeHybridCloudResources(shared_ptr<DescribeHybridCloudResourcesRequest> request);
+  DescribeHybridCloudServerRegionsResponse describeHybridCloudServerRegionsWithOptions(shared_ptr<DescribeHybridCloudServerRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeHybridCloudServerRegionsResponse describeHybridCloudServerRegions(shared_ptr<DescribeHybridCloudServerRegionsRequest> request);
+  DescribeHybridCloudUnassignedMachinesResponse describeHybridCloudUnassignedMachinesWithOptions(shared_ptr<DescribeHybridCloudUnassignedMachinesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeHybridCloudUnassignedMachinesResponse describeHybridCloudUnassignedMachines(shared_ptr<DescribeHybridCloudUnassignedMachinesRequest> request);
   DescribeHybridCloudUserResponse describeHybridCloudUserWithOptions(shared_ptr<DescribeHybridCloudUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeHybridCloudUserResponse describeHybridCloudUser(shared_ptr<DescribeHybridCloudUserRequest> request);
   DescribeInstanceResponse describeInstanceWithOptions(shared_ptr<DescribeInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -22690,6 +26825,10 @@ public:
   ModifyApisecLogDeliveryResponse modifyApisecLogDelivery(shared_ptr<ModifyApisecLogDeliveryRequest> request);
   ModifyApisecLogDeliveryStatusResponse modifyApisecLogDeliveryStatusWithOptions(shared_ptr<ModifyApisecLogDeliveryStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyApisecLogDeliveryStatusResponse modifyApisecLogDeliveryStatus(shared_ptr<ModifyApisecLogDeliveryStatusRequest> request);
+  ModifyCloudResourceResponse modifyCloudResourceWithOptions(shared_ptr<ModifyCloudResourceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyCloudResourceResponse modifyCloudResource(shared_ptr<ModifyCloudResourceRequest> request);
+  ModifyDefaultHttpsResponse modifyDefaultHttpsWithOptions(shared_ptr<ModifyDefaultHttpsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyDefaultHttpsResponse modifyDefaultHttps(shared_ptr<ModifyDefaultHttpsRequest> request);
   ModifyDefenseResourceGroupResponse modifyDefenseResourceGroupWithOptions(shared_ptr<ModifyDefenseResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDefenseResourceGroupResponse modifyDefenseResourceGroup(shared_ptr<ModifyDefenseResourceGroupRequest> request);
   ModifyDefenseResourceXffResponse modifyDefenseResourceXffWithOptions(shared_ptr<ModifyDefenseResourceXffRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -22710,6 +26849,18 @@ public:
   ModifyDomainPunishStatusResponse modifyDomainPunishStatus(shared_ptr<ModifyDomainPunishStatusRequest> request);
   ModifyHybridCloudClusterBypassStatusResponse modifyHybridCloudClusterBypassStatusWithOptions(shared_ptr<ModifyHybridCloudClusterBypassStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyHybridCloudClusterBypassStatusResponse modifyHybridCloudClusterBypassStatus(shared_ptr<ModifyHybridCloudClusterBypassStatusRequest> request);
+  ModifyHybridCloudClusterRuleResponse modifyHybridCloudClusterRuleWithOptions(shared_ptr<ModifyHybridCloudClusterRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyHybridCloudClusterRuleResponse modifyHybridCloudClusterRule(shared_ptr<ModifyHybridCloudClusterRuleRequest> request);
+  ModifyHybridCloudGroupResponse modifyHybridCloudGroupWithOptions(shared_ptr<ModifyHybridCloudGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyHybridCloudGroupResponse modifyHybridCloudGroup(shared_ptr<ModifyHybridCloudGroupRequest> request);
+  ModifyHybridCloudGroupExpansionServerResponse modifyHybridCloudGroupExpansionServerWithOptions(shared_ptr<ModifyHybridCloudGroupExpansionServerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyHybridCloudGroupExpansionServerResponse modifyHybridCloudGroupExpansionServer(shared_ptr<ModifyHybridCloudGroupExpansionServerRequest> request);
+  ModifyHybridCloudGroupShrinkServerResponse modifyHybridCloudGroupShrinkServerWithOptions(shared_ptr<ModifyHybridCloudGroupShrinkServerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyHybridCloudGroupShrinkServerResponse modifyHybridCloudGroupShrinkServer(shared_ptr<ModifyHybridCloudGroupShrinkServerRequest> request);
+  ModifyHybridCloudSdkPullinStatusResponse modifyHybridCloudSdkPullinStatusWithOptions(shared_ptr<ModifyHybridCloudSdkPullinStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyHybridCloudSdkPullinStatusResponse modifyHybridCloudSdkPullinStatus(shared_ptr<ModifyHybridCloudSdkPullinStatusRequest> request);
+  ModifyHybridCloudServerResponse modifyHybridCloudServerWithOptions(shared_ptr<ModifyHybridCloudServerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyHybridCloudServerResponse modifyHybridCloudServer(shared_ptr<ModifyHybridCloudServerRequest> request);
   ModifyMajorProtectionBlackIpResponse modifyMajorProtectionBlackIpWithOptions(shared_ptr<ModifyMajorProtectionBlackIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyMajorProtectionBlackIpResponse modifyMajorProtectionBlackIp(shared_ptr<ModifyMajorProtectionBlackIpRequest> request);
   ModifyMemberAccountResponse modifyMemberAccountWithOptions(shared_ptr<ModifyMemberAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
