@@ -831,6 +831,9 @@ RecognizeEduPaperCutResponse Alibabacloud_Ocr-api20210707::Client::recognizeEduP
   if (!Darabonba_Util::Client::isUnset<string>(request->imageType)) {
     query->insert(pair<string, string>("ImageType", *request->imageType));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->outputOricoord)) {
+    query->insert(pair<string, bool>("OutputOricoord", *request->outputOricoord));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->subject)) {
     query->insert(pair<string, string>("Subject", *request->subject));
   }
