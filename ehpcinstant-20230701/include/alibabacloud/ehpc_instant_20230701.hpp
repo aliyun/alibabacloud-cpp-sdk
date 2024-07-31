@@ -1004,6 +1004,7 @@ public:
   shared_ptr<CreateJobRequestDeploymentPolicy> deploymentPolicy{};
   shared_ptr<string> jobDescription{};
   shared_ptr<string> jobName{};
+  shared_ptr<string> jobScheduler{};
   shared_ptr<vector<CreateJobRequestTasks>> tasks{};
 
   CreateJobRequest() {}
@@ -1024,6 +1025,9 @@ public:
     }
     if (jobName) {
       res["JobName"] = boost::any(*jobName);
+    }
+    if (jobScheduler) {
+      res["JobScheduler"] = boost::any(*jobScheduler);
     }
     if (tasks) {
       vector<boost::any> temp1;
@@ -1049,6 +1053,9 @@ public:
     if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
       jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
     }
+    if (m.find("JobScheduler") != m.end() && !m["JobScheduler"].empty()) {
+      jobScheduler = make_shared<string>(boost::any_cast<string>(m["JobScheduler"]));
+    }
     if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
       if (typeid(vector<boost::any>) == m["Tasks"].type()) {
         vector<CreateJobRequestTasks> expect1;
@@ -1072,6 +1079,7 @@ public:
   shared_ptr<string> deploymentPolicyShrink{};
   shared_ptr<string> jobDescription{};
   shared_ptr<string> jobName{};
+  shared_ptr<string> jobScheduler{};
   shared_ptr<string> tasksShrink{};
 
   CreateJobShrinkRequest() {}
@@ -1093,6 +1101,9 @@ public:
     if (jobName) {
       res["JobName"] = boost::any(*jobName);
     }
+    if (jobScheduler) {
+      res["JobScheduler"] = boost::any(*jobScheduler);
+    }
     if (tasksShrink) {
       res["Tasks"] = boost::any(*tasksShrink);
     }
@@ -1108,6 +1119,9 @@ public:
     }
     if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
       jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
+    }
+    if (m.find("JobScheduler") != m.end() && !m["JobScheduler"].empty()) {
+      jobScheduler = make_shared<string>(boost::any_cast<string>(m["JobScheduler"]));
     }
     if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
       tasksShrink = make_shared<string>(boost::any_cast<string>(m["Tasks"]));
@@ -2934,6 +2948,7 @@ public:
   shared_ptr<string> jobDescription{};
   shared_ptr<string> jobId{};
   shared_ptr<string> jobName{};
+  shared_ptr<string> jobScheduler{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<vector<GetJobResponseBodyJobInfoTasks>> tasks{};
@@ -2965,6 +2980,9 @@ public:
     }
     if (jobName) {
       res["JobName"] = boost::any(*jobName);
+    }
+    if (jobScheduler) {
+      res["JobScheduler"] = boost::any(*jobScheduler);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -3004,6 +3022,9 @@ public:
     }
     if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
       jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
+    }
+    if (m.find("JobScheduler") != m.end() && !m["JobScheduler"].empty()) {
+      jobScheduler = make_shared<string>(boost::any_cast<string>(m["JobScheduler"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));

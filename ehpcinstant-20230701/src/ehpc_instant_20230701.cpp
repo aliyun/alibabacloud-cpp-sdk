@@ -105,6 +105,9 @@ CreateJobResponse Alibabacloud_EhpcInstant20230701::Client::createJobWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->jobName)) {
     query->insert(pair<string, string>("JobName", *request->jobName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobScheduler)) {
+    query->insert(pair<string, string>("JobScheduler", *request->jobScheduler));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tasksShrink)) {
     query->insert(pair<string, string>("Tasks", *request->tasksShrink));
   }
