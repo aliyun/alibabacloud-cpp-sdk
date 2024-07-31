@@ -5421,6 +5421,37 @@ HotelOrderDetailInfoResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderD
   return hotelOrderDetailInfoWithOptions(request, headers, runtime);
 }
 
+HotelOrderInfoQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderInfoQueryWithOptions(shared_ptr<string> orderId, shared_ptr<HotelOrderInfoQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("HotelOrderInfoQuery"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/order/v1/hotelOrders/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(orderId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return HotelOrderInfoQueryResponse(callApi(params, req, runtime));
+}
+
+HotelOrderInfoQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderInfoQuery(shared_ptr<string> orderId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<HotelOrderInfoQueryHeaders> headers = make_shared<HotelOrderInfoQueryHeaders>();
+  return hotelOrderInfoQueryWithOptions(orderId, headers, runtime);
+}
+
 HotelOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderListQueryWithOptions(shared_ptr<HotelOrderListQueryRequest> request, shared_ptr<HotelOrderListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5908,6 +5939,58 @@ HotelStaticInfoResponse Alibabacloud_BtripOpen20220520::Client::hotelStaticInfo(
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<HotelStaticInfoHeaders> headers = make_shared<HotelStaticInfoHeaders>();
   return hotelStaticInfoWithOptions(request, headers, runtime);
+}
+
+HotelSuggestV2Response Alibabacloud_BtripOpen20220520::Client::hotelSuggestV2WithOptions(shared_ptr<HotelSuggestV2Request> request, shared_ptr<HotelSuggestV2Headers> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->btripUserId)) {
+    query->insert(pair<string, string>("btrip_user_id", *request->btripUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->checkIn)) {
+    query->insert(pair<string, string>("check_in", *request->checkIn));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->checkOut)) {
+    query->insert(pair<string, string>("check_out", *request->checkOut));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cityCode)) {
+    query->insert(pair<string, string>("city_code", *request->cityCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    query->insert(pair<string, string>("keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->searchType)) {
+    query->insert(pair<string, long>("search_type", *request->searchType));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("HotelSuggestV2"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dtb-hotel/v2/suggest-infos"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return HotelSuggestV2Response(callApi(params, req, runtime));
+}
+
+HotelSuggestV2Response Alibabacloud_BtripOpen20220520::Client::hotelSuggestV2(shared_ptr<HotelSuggestV2Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<HotelSuggestV2Headers> headers = make_shared<HotelSuggestV2Headers>();
+  return hotelSuggestV2WithOptions(request, headers, runtime);
 }
 
 IeFlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieFlightBillSettlementQueryWithOptions(shared_ptr<IeFlightBillSettlementQueryRequest> request, shared_ptr<IeFlightBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
