@@ -9282,6 +9282,205 @@ public:
 
   virtual ~DescribePlayListResponse() = default;
 };
+class DescribeRtcRobotInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  DescribeRtcRobotInstanceRequest() {}
+
+  explicit DescribeRtcRobotInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~DescribeRtcRobotInstanceRequest() = default;
+};
+class DescribeRtcRobotInstanceResponseBodyConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableVoiceInterrupt{};
+  shared_ptr<string> greeting{};
+  shared_ptr<string> voiceId{};
+
+  DescribeRtcRobotInstanceResponseBodyConfig() {}
+
+  explicit DescribeRtcRobotInstanceResponseBodyConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableVoiceInterrupt) {
+      res["EnableVoiceInterrupt"] = boost::any(*enableVoiceInterrupt);
+    }
+    if (greeting) {
+      res["Greeting"] = boost::any(*greeting);
+    }
+    if (voiceId) {
+      res["VoiceId"] = boost::any(*voiceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableVoiceInterrupt") != m.end() && !m["EnableVoiceInterrupt"].empty()) {
+      enableVoiceInterrupt = make_shared<bool>(boost::any_cast<bool>(m["EnableVoiceInterrupt"]));
+    }
+    if (m.find("Greeting") != m.end() && !m["Greeting"].empty()) {
+      greeting = make_shared<string>(boost::any_cast<string>(m["Greeting"]));
+    }
+    if (m.find("VoiceId") != m.end() && !m["VoiceId"].empty()) {
+      voiceId = make_shared<string>(boost::any_cast<string>(m["VoiceId"]));
+    }
+  }
+
+
+  virtual ~DescribeRtcRobotInstanceResponseBodyConfig() = default;
+};
+class DescribeRtcRobotInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> authToken{};
+  shared_ptr<string> channelId{};
+  shared_ptr<DescribeRtcRobotInstanceResponseBodyConfig> config{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+  shared_ptr<string> userData{};
+  shared_ptr<string> userId{};
+
+  DescribeRtcRobotInstanceResponseBody() {}
+
+  explicit DescribeRtcRobotInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authToken) {
+      res["AuthToken"] = boost::any(*authToken);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (config) {
+      res["Config"] = config ? boost::any(config->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthToken") != m.end() && !m["AuthToken"].empty()) {
+      authToken = make_shared<string>(boost::any_cast<string>(m["AuthToken"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Config"].type()) {
+        DescribeRtcRobotInstanceResponseBodyConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Config"]));
+        config = make_shared<DescribeRtcRobotInstanceResponseBodyConfig>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~DescribeRtcRobotInstanceResponseBody() = default;
+};
+class DescribeRtcRobotInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeRtcRobotInstanceResponseBody> body{};
+
+  DescribeRtcRobotInstanceResponse() {}
+
+  explicit DescribeRtcRobotInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeRtcRobotInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeRtcRobotInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRtcRobotInstanceResponse() = default;
+};
 class DetectAudioForCustomizedVoiceJobRequest : public Darabonba::Model {
 public:
   shared_ptr<long> audioRecordId{};
@@ -47784,6 +47983,269 @@ public:
 
   virtual ~SetEventCallbackResponse() = default;
 };
+class StartRtcRobotInstanceRequestConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableVoiceInterrupt{};
+  shared_ptr<string> greeting{};
+  shared_ptr<string> voiceId{};
+
+  StartRtcRobotInstanceRequestConfig() {}
+
+  explicit StartRtcRobotInstanceRequestConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableVoiceInterrupt) {
+      res["EnableVoiceInterrupt"] = boost::any(*enableVoiceInterrupt);
+    }
+    if (greeting) {
+      res["Greeting"] = boost::any(*greeting);
+    }
+    if (voiceId) {
+      res["VoiceId"] = boost::any(*voiceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableVoiceInterrupt") != m.end() && !m["EnableVoiceInterrupt"].empty()) {
+      enableVoiceInterrupt = make_shared<bool>(boost::any_cast<bool>(m["EnableVoiceInterrupt"]));
+    }
+    if (m.find("Greeting") != m.end() && !m["Greeting"].empty()) {
+      greeting = make_shared<string>(boost::any_cast<string>(m["Greeting"]));
+    }
+    if (m.find("VoiceId") != m.end() && !m["VoiceId"].empty()) {
+      voiceId = make_shared<string>(boost::any_cast<string>(m["VoiceId"]));
+    }
+  }
+
+
+  virtual ~StartRtcRobotInstanceRequestConfig() = default;
+};
+class StartRtcRobotInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authToken{};
+  shared_ptr<string> channelId{};
+  shared_ptr<StartRtcRobotInstanceRequestConfig> config{};
+  shared_ptr<string> robotId{};
+  shared_ptr<string> userData{};
+  shared_ptr<string> userId{};
+
+  StartRtcRobotInstanceRequest() {}
+
+  explicit StartRtcRobotInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authToken) {
+      res["AuthToken"] = boost::any(*authToken);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (config) {
+      res["Config"] = config ? boost::any(config->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (robotId) {
+      res["RobotId"] = boost::any(*robotId);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthToken") != m.end() && !m["AuthToken"].empty()) {
+      authToken = make_shared<string>(boost::any_cast<string>(m["AuthToken"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Config"].type()) {
+        StartRtcRobotInstanceRequestConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Config"]));
+        config = make_shared<StartRtcRobotInstanceRequestConfig>(model1);
+      }
+    }
+    if (m.find("RobotId") != m.end() && !m["RobotId"].empty()) {
+      robotId = make_shared<string>(boost::any_cast<string>(m["RobotId"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~StartRtcRobotInstanceRequest() = default;
+};
+class StartRtcRobotInstanceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authToken{};
+  shared_ptr<string> channelId{};
+  shared_ptr<string> configShrink{};
+  shared_ptr<string> robotId{};
+  shared_ptr<string> userData{};
+  shared_ptr<string> userId{};
+
+  StartRtcRobotInstanceShrinkRequest() {}
+
+  explicit StartRtcRobotInstanceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authToken) {
+      res["AuthToken"] = boost::any(*authToken);
+    }
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (configShrink) {
+      res["Config"] = boost::any(*configShrink);
+    }
+    if (robotId) {
+      res["RobotId"] = boost::any(*robotId);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthToken") != m.end() && !m["AuthToken"].empty()) {
+      authToken = make_shared<string>(boost::any_cast<string>(m["AuthToken"]));
+    }
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      configShrink = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("RobotId") != m.end() && !m["RobotId"].empty()) {
+      robotId = make_shared<string>(boost::any_cast<string>(m["RobotId"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~StartRtcRobotInstanceShrinkRequest() = default;
+};
+class StartRtcRobotInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> requestId{};
+
+  StartRtcRobotInstanceResponseBody() {}
+
+  explicit StartRtcRobotInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StartRtcRobotInstanceResponseBody() = default;
+};
+class StartRtcRobotInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartRtcRobotInstanceResponseBody> body{};
+
+  StartRtcRobotInstanceResponse() {}
+
+  explicit StartRtcRobotInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartRtcRobotInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartRtcRobotInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartRtcRobotInstanceResponse() = default;
+};
 class StartWorkflowRequest : public Darabonba::Model {
 public:
   shared_ptr<string> taskInput{};
@@ -47914,6 +48376,116 @@ public:
 
 
   virtual ~StartWorkflowResponse() = default;
+};
+class StopRtcRobotInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  StopRtcRobotInstanceRequest() {}
+
+  explicit StopRtcRobotInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~StopRtcRobotInstanceRequest() = default;
+};
+class StopRtcRobotInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  StopRtcRobotInstanceResponseBody() {}
+
+  explicit StopRtcRobotInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StopRtcRobotInstanceResponseBody() = default;
+};
+class StopRtcRobotInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StopRtcRobotInstanceResponseBody> body{};
+
+  StopRtcRobotInstanceResponse() {}
+
+  explicit StopRtcRobotInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopRtcRobotInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopRtcRobotInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopRtcRobotInstanceResponse() = default;
 };
 class SubmitASRJobRequest : public Darabonba::Model {
 public:
@@ -63400,6 +63972,206 @@ public:
 
   virtual ~UpdatePipelineResponse() = default;
 };
+class UpdateRtcRobotInstanceRequestConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableVoiceInterrupt{};
+  shared_ptr<string> greeting{};
+  shared_ptr<string> voiceId{};
+
+  UpdateRtcRobotInstanceRequestConfig() {}
+
+  explicit UpdateRtcRobotInstanceRequestConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableVoiceInterrupt) {
+      res["EnableVoiceInterrupt"] = boost::any(*enableVoiceInterrupt);
+    }
+    if (greeting) {
+      res["Greeting"] = boost::any(*greeting);
+    }
+    if (voiceId) {
+      res["VoiceId"] = boost::any(*voiceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableVoiceInterrupt") != m.end() && !m["EnableVoiceInterrupt"].empty()) {
+      enableVoiceInterrupt = make_shared<bool>(boost::any_cast<bool>(m["EnableVoiceInterrupt"]));
+    }
+    if (m.find("Greeting") != m.end() && !m["Greeting"].empty()) {
+      greeting = make_shared<string>(boost::any_cast<string>(m["Greeting"]));
+    }
+    if (m.find("VoiceId") != m.end() && !m["VoiceId"].empty()) {
+      voiceId = make_shared<string>(boost::any_cast<string>(m["VoiceId"]));
+    }
+  }
+
+
+  virtual ~UpdateRtcRobotInstanceRequestConfig() = default;
+};
+class UpdateRtcRobotInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<UpdateRtcRobotInstanceRequestConfig> config{};
+  shared_ptr<string> instanceId{};
+
+  UpdateRtcRobotInstanceRequest() {}
+
+  explicit UpdateRtcRobotInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["Config"] = config ? boost::any(config->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Config"].type()) {
+        UpdateRtcRobotInstanceRequestConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Config"]));
+        config = make_shared<UpdateRtcRobotInstanceRequestConfig>(model1);
+      }
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~UpdateRtcRobotInstanceRequest() = default;
+};
+class UpdateRtcRobotInstanceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> configShrink{};
+  shared_ptr<string> instanceId{};
+
+  UpdateRtcRobotInstanceShrinkRequest() {}
+
+  explicit UpdateRtcRobotInstanceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configShrink) {
+      res["Config"] = boost::any(*configShrink);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      configShrink = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~UpdateRtcRobotInstanceShrinkRequest() = default;
+};
+class UpdateRtcRobotInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateRtcRobotInstanceResponseBody() {}
+
+  explicit UpdateRtcRobotInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateRtcRobotInstanceResponseBody() = default;
+};
+class UpdateRtcRobotInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateRtcRobotInstanceResponseBody> body{};
+
+  UpdateRtcRobotInstanceResponse() {}
+
+  explicit UpdateRtcRobotInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateRtcRobotInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateRtcRobotInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateRtcRobotInstanceResponse() = default;
+};
 class UpdateTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> config{};
@@ -64060,6 +64832,8 @@ public:
   DescribeMeterImsSummaryResponse describeMeterImsSummary(shared_ptr<DescribeMeterImsSummaryRequest> request);
   DescribePlayListResponse describePlayListWithOptions(shared_ptr<DescribePlayListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePlayListResponse describePlayList(shared_ptr<DescribePlayListRequest> request);
+  DescribeRtcRobotInstanceResponse describeRtcRobotInstanceWithOptions(shared_ptr<DescribeRtcRobotInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeRtcRobotInstanceResponse describeRtcRobotInstance(shared_ptr<DescribeRtcRobotInstanceRequest> request);
   DetectAudioForCustomizedVoiceJobResponse detectAudioForCustomizedVoiceJobWithOptions(shared_ptr<DetectAudioForCustomizedVoiceJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectAudioForCustomizedVoiceJobResponse detectAudioForCustomizedVoiceJob(shared_ptr<DetectAudioForCustomizedVoiceJobRequest> request);
   DropSearchIndexResponse dropSearchIndexWithOptions(shared_ptr<DropSearchIndexRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -64268,8 +65042,12 @@ public:
   SetDefaultStorageLocationResponse setDefaultStorageLocation(shared_ptr<SetDefaultStorageLocationRequest> request);
   SetEventCallbackResponse setEventCallbackWithOptions(shared_ptr<SetEventCallbackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetEventCallbackResponse setEventCallback(shared_ptr<SetEventCallbackRequest> request);
+  StartRtcRobotInstanceResponse startRtcRobotInstanceWithOptions(shared_ptr<StartRtcRobotInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartRtcRobotInstanceResponse startRtcRobotInstance(shared_ptr<StartRtcRobotInstanceRequest> request);
   StartWorkflowResponse startWorkflowWithOptions(shared_ptr<StartWorkflowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartWorkflowResponse startWorkflow(shared_ptr<StartWorkflowRequest> request);
+  StopRtcRobotInstanceResponse stopRtcRobotInstanceWithOptions(shared_ptr<StopRtcRobotInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopRtcRobotInstanceResponse stopRtcRobotInstance(shared_ptr<StopRtcRobotInstanceRequest> request);
   SubmitASRJobResponse submitASRJobWithOptions(shared_ptr<SubmitASRJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitASRJobResponse submitASRJob(shared_ptr<SubmitASRJobRequest> request);
   SubmitAudioProduceJobResponse submitAudioProduceJobWithOptions(shared_ptr<SubmitAudioProduceJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -64348,6 +65126,8 @@ public:
   UpdateMediaToSearchLibResponse updateMediaToSearchLib(shared_ptr<UpdateMediaToSearchLibRequest> request);
   UpdatePipelineResponse updatePipelineWithOptions(shared_ptr<UpdatePipelineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePipelineResponse updatePipeline(shared_ptr<UpdatePipelineRequest> request);
+  UpdateRtcRobotInstanceResponse updateRtcRobotInstanceWithOptions(shared_ptr<UpdateRtcRobotInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateRtcRobotInstanceResponse updateRtcRobotInstance(shared_ptr<UpdateRtcRobotInstanceRequest> request);
   UpdateTemplateResponse updateTemplateWithOptions(shared_ptr<UpdateTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateTemplateResponse updateTemplate(shared_ptr<UpdateTemplateRequest> request);
   UploadMediaByURLResponse uploadMediaByURLWithOptions(shared_ptr<UploadMediaByURLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
