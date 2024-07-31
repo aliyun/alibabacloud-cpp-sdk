@@ -612,6 +612,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceLocation{};
+  shared_ptr<long> serviceManaged{};
   shared_ptr<string> status{};
   shared_ptr<vector<DescribeAnycastEipAddressResponseBodyTags>> tags{};
 
@@ -673,6 +674,9 @@ public:
     }
     if (serviceLocation) {
       res["ServiceLocation"] = boost::any(*serviceLocation);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -742,6 +746,9 @@ public:
     }
     if (m.find("ServiceLocation") != m.end() && !m["ServiceLocation"].empty()) {
       serviceLocation = make_shared<string>(boost::any_cast<string>(m["ServiceLocation"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<long>(boost::any_cast<long>(m["ServiceManaged"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
