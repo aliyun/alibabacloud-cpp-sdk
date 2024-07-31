@@ -8566,6 +8566,7 @@ class GetFileResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
   shared_ptr<string> dataSource{};
+  shared_ptr<map<string, vector<string>>> extend{};
   shared_ptr<string> fullPathName{};
   shared_ptr<bool> isDir{};
   shared_ptr<string> name{};
@@ -8586,6 +8587,9 @@ public:
     }
     if (dataSource) {
       res["dataSource"] = boost::any(*dataSource);
+    }
+    if (extend) {
+      res["extend"] = boost::any(*extend);
     }
     if (fullPathName) {
       res["fullPathName"] = boost::any(*fullPathName);
@@ -8608,6 +8612,21 @@ public:
     }
     if (m.find("dataSource") != m.end() && !m["dataSource"].empty()) {
       dataSource = make_shared<string>(boost::any_cast<string>(m["dataSource"]));
+    }
+    if (m.find("extend") != m.end() && !m["extend"].empty()) {
+      map<string, vector<string>> map1 = boost::any_cast<map<string, vector<string>>>(m["extend"]);
+      map<string, vector<string>> toMap1;
+      for (auto item:map1) {
+        vector<string> toVec2;
+        if (typeid(vector<boost::any>) == item.second.type()) {
+          vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item.second);
+          for (auto item:vec2) {
+             toVec2.push_back(boost::any_cast<string>(item));
+          }
+        }
+         toMap1[item.first] = toVec2;
+      }
+      extend = make_shared<map<string, vector<string>>>(toMap1);
     }
     if (m.find("fullPathName") != m.end() && !m["fullPathName"].empty()) {
       fullPathName = make_shared<string>(boost::any_cast<string>(m["fullPathName"]));
@@ -9070,6 +9089,7 @@ public:
   shared_ptr<GetIndexResponseBodyResultDataSourceInfo> dataSourceInfo{};
   shared_ptr<string> description{};
   shared_ptr<string> domain{};
+  shared_ptr<map<string, vector<string>>> extend{};
   shared_ptr<string> fullUpdateTime{};
   shared_ptr<long> fullVersion{};
   shared_ptr<string> incUpdateTime{};
@@ -9116,6 +9136,9 @@ public:
     }
     if (domain) {
       res["domain"] = boost::any(*domain);
+    }
+    if (extend) {
+      res["extend"] = boost::any(*extend);
     }
     if (fullUpdateTime) {
       res["fullUpdateTime"] = boost::any(*fullUpdateTime);
@@ -9206,6 +9229,21 @@ public:
     }
     if (m.find("domain") != m.end() && !m["domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["domain"]));
+    }
+    if (m.find("extend") != m.end() && !m["extend"].empty()) {
+      map<string, vector<string>> map1 = boost::any_cast<map<string, vector<string>>>(m["extend"]);
+      map<string, vector<string>> toMap1;
+      for (auto item:map1) {
+        vector<string> toVec2;
+        if (typeid(vector<boost::any>) == item.second.type()) {
+          vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item.second);
+          for (auto item:vec2) {
+             toVec2.push_back(boost::any_cast<string>(item));
+          }
+        }
+         toMap1[item.first] = toVec2;
+      }
+      extend = make_shared<map<string, vector<string>>>(toMap1);
     }
     if (m.find("fullUpdateTime") != m.end() && !m["fullUpdateTime"].empty()) {
       fullUpdateTime = make_shared<string>(boost::any_cast<string>(m["fullUpdateTime"]));
