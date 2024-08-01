@@ -14169,6 +14169,9 @@ InvokeCommandResponse Alibabacloud_Ecs20140526::Client::invokeCommandWithOptions
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceId)) {
     query->insert(pair<string, vector<string>>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->launcher)) {
+    query->insert(pair<string, string>("Launcher", *request->launcher));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -19672,6 +19675,9 @@ RunCommandResponse Alibabacloud_Ecs20140526::Client::runCommandWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->keepCommand)) {
     query->insert(pair<string, bool>("KeepCommand", *request->keepCommand));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->launcher)) {
+    query->insert(pair<string, string>("Launcher", *request->launcher));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
