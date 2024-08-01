@@ -2781,6 +2781,37 @@ ExternalUserDeleteResponse Alibabacloud_BtripOpen20220520::Client::externalUserD
   return externalUserDeleteWithOptions(externalUserId, headers, runtime);
 }
 
+ExternalUserQueryResponse Alibabacloud_BtripOpen20220520::Client::externalUserQueryWithOptions(shared_ptr<string> externalUserId, shared_ptr<ExternalUserQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExternalUserQuery"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/user/v1/externalUsers/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(externalUserId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExternalUserQueryResponse(callApi(params, req, runtime));
+}
+
+ExternalUserQueryResponse Alibabacloud_BtripOpen20220520::Client::externalUserQuery(shared_ptr<string> externalUserId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ExternalUserQueryHeaders> headers = make_shared<ExternalUserQueryHeaders>();
+  return externalUserQueryWithOptions(externalUserId, headers, runtime);
+}
+
 ExternalUserUpdateResponse Alibabacloud_BtripOpen20220520::Client::externalUserUpdateWithOptions(shared_ptr<string> externalUserId,
                                                                                                  shared_ptr<ExternalUserUpdateRequest> tmpReq,
                                                                                                  shared_ptr<ExternalUserUpdateHeaders> headers,
