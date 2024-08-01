@@ -2852,6 +2852,7 @@ public:
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateName{};
   shared_ptr<string> templateURL{};
+  shared_ptr<vector<string>> validationOptions{};
 
   CreateTemplateRequest() {}
 
@@ -2885,6 +2886,9 @@ public:
     if (templateURL) {
       res["TemplateURL"] = boost::any(*templateURL);
     }
+    if (validationOptions) {
+      res["ValidationOptions"] = boost::any(*validationOptions);
+    }
     return res;
   }
 
@@ -2916,6 +2920,16 @@ public:
     }
     if (m.find("TemplateURL") != m.end() && !m["TemplateURL"].empty()) {
       templateURL = make_shared<string>(boost::any_cast<string>(m["TemplateURL"]));
+    }
+    if (m.find("ValidationOptions") != m.end() && !m["ValidationOptions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ValidationOptions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ValidationOptions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      validationOptions = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -24714,10 +24728,13 @@ public:
 class UpdateTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<bool> isDraft{};
+  shared_ptr<string> rotateStrategy{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateName{};
   shared_ptr<string> templateURL{};
+  shared_ptr<vector<string>> validationOptions{};
 
   UpdateTemplateRequest() {}
 
@@ -24732,6 +24749,12 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (isDraft) {
+      res["IsDraft"] = boost::any(*isDraft);
+    }
+    if (rotateStrategy) {
+      res["RotateStrategy"] = boost::any(*rotateStrategy);
+    }
     if (templateBody) {
       res["TemplateBody"] = boost::any(*templateBody);
     }
@@ -24744,12 +24767,21 @@ public:
     if (templateURL) {
       res["TemplateURL"] = boost::any(*templateURL);
     }
+    if (validationOptions) {
+      res["ValidationOptions"] = boost::any(*validationOptions);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("IsDraft") != m.end() && !m["IsDraft"].empty()) {
+      isDraft = make_shared<bool>(boost::any_cast<bool>(m["IsDraft"]));
+    }
+    if (m.find("RotateStrategy") != m.end() && !m["RotateStrategy"].empty()) {
+      rotateStrategy = make_shared<string>(boost::any_cast<string>(m["RotateStrategy"]));
     }
     if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
       templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));
@@ -24762,6 +24794,16 @@ public:
     }
     if (m.find("TemplateURL") != m.end() && !m["TemplateURL"].empty()) {
       templateURL = make_shared<string>(boost::any_cast<string>(m["TemplateURL"]));
+    }
+    if (m.find("ValidationOptions") != m.end() && !m["ValidationOptions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ValidationOptions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ValidationOptions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      validationOptions = make_shared<vector<string>>(toVec1);
     }
   }
 

@@ -613,6 +613,9 @@ CreateTemplateResponse Alibabacloud_ROS20190910::Client::createTemplateWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->templateURL)) {
     query->insert(pair<string, string>("TemplateURL", *request->templateURL));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->validationOptions)) {
+    query->insert(pair<string, vector<string>>("ValidationOptions", *request->validationOptions));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
     body->insert(pair<string, string>("TemplateBody", *request->templateBody));
@@ -3735,6 +3738,12 @@ UpdateTemplateResponse Alibabacloud_ROS20190910::Client::updateTemplateWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isDraft)) {
+    query->insert(pair<string, bool>("IsDraft", *request->isDraft));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rotateStrategy)) {
+    query->insert(pair<string, string>("RotateStrategy", *request->rotateStrategy));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
@@ -3743,6 +3752,9 @@ UpdateTemplateResponse Alibabacloud_ROS20190910::Client::updateTemplateWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateURL)) {
     query->insert(pair<string, string>("TemplateURL", *request->templateURL));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->validationOptions)) {
+    query->insert(pair<string, vector<string>>("ValidationOptions", *request->validationOptions));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
