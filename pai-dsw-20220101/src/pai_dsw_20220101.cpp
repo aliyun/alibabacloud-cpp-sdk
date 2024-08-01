@@ -88,6 +88,9 @@ CreateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::createInstanceWithO
   if (!Darabonba_Util::Client::isUnset<vector<CreateInstanceRequestCloudDisks>>(request->cloudDisks)) {
     body->insert(pair<string, vector<CreateInstanceRequestCloudDisks>>("CloudDisks", *request->cloudDisks));
   }
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(request->credentialConfig)) {
+    body->insert(pair<string, CredentialConfig>("CredentialConfig", *request->credentialConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateInstanceRequestDatasets>>(request->datasets)) {
     body->insert(pair<string, vector<CreateInstanceRequestDatasets>>("Datasets", *request->datasets));
   }
@@ -1011,8 +1014,14 @@ UpdateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::updateInstanceWithO
   if (!Darabonba_Util::Client::isUnset<vector<UpdateInstanceRequestCloudDisks>>(request->cloudDisks)) {
     body->insert(pair<string, vector<UpdateInstanceRequestCloudDisks>>("CloudDisks", *request->cloudDisks));
   }
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(request->credentialConfig)) {
+    body->insert(pair<string, CredentialConfig>("CredentialConfig", *request->credentialConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<UpdateInstanceRequestDatasets>>(request->datasets)) {
     body->insert(pair<string, vector<UpdateInstanceRequestDatasets>>("Datasets", *request->datasets));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->disassociateCredential)) {
+    body->insert(pair<string, bool>("DisassociateCredential", *request->disassociateCredential));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->disassociateDatasets)) {
     body->insert(pair<string, bool>("DisassociateDatasets", *request->disassociateDatasets));

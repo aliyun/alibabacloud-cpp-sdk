@@ -14,6 +14,231 @@
 using namespace std;
 
 namespace Alibabacloud_Pai-dsw20220101 {
+class CredentialConfigConfigsRolesUserInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKeyId{};
+  shared_ptr<string> id{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> type{};
+
+  CredentialConfigConfigsRolesUserInfo() {}
+
+  explicit CredentialConfigConfigsRolesUserInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKeyId) {
+      res["AccessKeyId"] = boost::any(*accessKeyId);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKeyId") != m.end() && !m["AccessKeyId"].empty()) {
+      accessKeyId = make_shared<string>(boost::any_cast<string>(m["AccessKeyId"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CredentialConfigConfigsRolesUserInfo() = default;
+};
+class CredentialConfigConfigsRoles : public Darabonba::Model {
+public:
+  shared_ptr<string> assumeRoleFor{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> roleArn{};
+  shared_ptr<string> roleType{};
+  shared_ptr<CredentialConfigConfigsRolesUserInfo> userInfo{};
+
+  CredentialConfigConfigsRoles() {}
+
+  explicit CredentialConfigConfigsRoles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assumeRoleFor) {
+      res["AssumeRoleFor"] = boost::any(*assumeRoleFor);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (roleArn) {
+      res["RoleArn"] = boost::any(*roleArn);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
+    if (userInfo) {
+      res["UserInfo"] = userInfo ? boost::any(userInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssumeRoleFor") != m.end() && !m["AssumeRoleFor"].empty()) {
+      assumeRoleFor = make_shared<string>(boost::any_cast<string>(m["AssumeRoleFor"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("RoleArn") != m.end() && !m["RoleArn"].empty()) {
+      roleArn = make_shared<string>(boost::any_cast<string>(m["RoleArn"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<string>(boost::any_cast<string>(m["RoleType"]));
+    }
+    if (m.find("UserInfo") != m.end() && !m["UserInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserInfo"].type()) {
+        CredentialConfigConfigsRolesUserInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserInfo"]));
+        userInfo = make_shared<CredentialConfigConfigsRolesUserInfo>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CredentialConfigConfigsRoles() = default;
+};
+class CredentialConfigConfigs : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<vector<CredentialConfigConfigsRoles>> roles{};
+  shared_ptr<string> type{};
+
+  CredentialConfigConfigs() {}
+
+  explicit CredentialConfigConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (roles) {
+      vector<boost::any> temp1;
+      for(auto item1:*roles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Roles"] = boost::any(temp1);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Roles") != m.end() && !m["Roles"].empty()) {
+      if (typeid(vector<boost::any>) == m["Roles"].type()) {
+        vector<CredentialConfigConfigsRoles> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Roles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CredentialConfigConfigsRoles model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        roles = make_shared<vector<CredentialConfigConfigsRoles>>(expect1);
+      }
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CredentialConfigConfigs() = default;
+};
+class CredentialConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunEnvRoleKey{};
+  shared_ptr<vector<CredentialConfigConfigs>> configs{};
+  shared_ptr<bool> enable{};
+
+  CredentialConfig() {}
+
+  explicit CredentialConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunEnvRoleKey) {
+      res["AliyunEnvRoleKey"] = boost::any(*aliyunEnvRoleKey);
+    }
+    if (configs) {
+      vector<boost::any> temp1;
+      for(auto item1:*configs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Configs"] = boost::any(temp1);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunEnvRoleKey") != m.end() && !m["AliyunEnvRoleKey"].empty()) {
+      aliyunEnvRoleKey = make_shared<string>(boost::any_cast<string>(m["AliyunEnvRoleKey"]));
+    }
+    if (m.find("Configs") != m.end() && !m["Configs"].empty()) {
+      if (typeid(vector<boost::any>) == m["Configs"].type()) {
+        vector<CredentialConfigConfigs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Configs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CredentialConfigConfigs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        configs = make_shared<vector<CredentialConfigConfigs>>(expect1);
+      }
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+  }
+
+
+  virtual ~CredentialConfig() = default;
+};
 class DemoCategory : public Darabonba::Model {
 public:
   shared_ptr<string> categoryCode{};
@@ -905,6 +1130,7 @@ public:
   shared_ptr<string> accessibility{};
   shared_ptr<CreateInstanceRequestAffinity> affinity{};
   shared_ptr<vector<CreateInstanceRequestCloudDisks>> cloudDisks{};
+  shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<vector<CreateInstanceRequestDatasets>> datasets{};
   shared_ptr<string> driver{};
   shared_ptr<string> ecsSpec{};
@@ -944,6 +1170,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["CloudDisks"] = boost::any(temp1);
+    }
+    if (credentialConfig) {
+      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (datasets) {
       vector<boost::any> temp1;
@@ -1026,6 +1255,13 @@ public:
           }
         }
         cloudDisks = make_shared<vector<CreateInstanceRequestCloudDisks>>(expect1);
+      }
+    }
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
+        CredentialConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
+        credentialConfig = make_shared<CredentialConfig>(model1);
       }
     }
     if (m.find("Datasets") != m.end() && !m["Datasets"].empty()) {
@@ -8170,7 +8406,9 @@ public:
   shared_ptr<string> accessibility{};
   shared_ptr<UpdateInstanceRequestAffinity> affinity{};
   shared_ptr<vector<UpdateInstanceRequestCloudDisks>> cloudDisks{};
+  shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<vector<UpdateInstanceRequestDatasets>> datasets{};
+  shared_ptr<bool> disassociateCredential{};
   shared_ptr<bool> disassociateDatasets{};
   shared_ptr<bool> disassociateDriver{};
   shared_ptr<bool> disassociateForwardInfos{};
@@ -8210,12 +8448,18 @@ public:
       }
       res["CloudDisks"] = boost::any(temp1);
     }
+    if (credentialConfig) {
+      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (datasets) {
       vector<boost::any> temp1;
       for(auto item1:*datasets){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Datasets"] = boost::any(temp1);
+    }
+    if (disassociateCredential) {
+      res["DisassociateCredential"] = boost::any(*disassociateCredential);
     }
     if (disassociateDatasets) {
       res["DisassociateDatasets"] = boost::any(*disassociateDatasets);
@@ -8289,6 +8533,13 @@ public:
         cloudDisks = make_shared<vector<UpdateInstanceRequestCloudDisks>>(expect1);
       }
     }
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
+        CredentialConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
+        credentialConfig = make_shared<CredentialConfig>(model1);
+      }
+    }
     if (m.find("Datasets") != m.end() && !m["Datasets"].empty()) {
       if (typeid(vector<boost::any>) == m["Datasets"].type()) {
         vector<UpdateInstanceRequestDatasets> expect1;
@@ -8301,6 +8552,9 @@ public:
         }
         datasets = make_shared<vector<UpdateInstanceRequestDatasets>>(expect1);
       }
+    }
+    if (m.find("DisassociateCredential") != m.end() && !m["DisassociateCredential"].empty()) {
+      disassociateCredential = make_shared<bool>(boost::any_cast<bool>(m["DisassociateCredential"]));
     }
     if (m.find("DisassociateDatasets") != m.end() && !m["DisassociateDatasets"].empty()) {
       disassociateDatasets = make_shared<bool>(boost::any_cast<bool>(m["DisassociateDatasets"]));
