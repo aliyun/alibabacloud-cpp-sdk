@@ -391,6 +391,9 @@ CreateAggregateConfigDeliveryChannelResponse Alibabacloud_Config20200907::Client
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->compliantSnapshot)) {
+    query->insert(pair<string, bool>("CompliantSnapshot", *request->compliantSnapshot));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->configurationItemChangeNotification)) {
     query->insert(pair<string, bool>("ConfigurationItemChangeNotification", *request->configurationItemChangeNotification));
   }
@@ -744,6 +747,9 @@ CreateConfigDeliveryChannelResponse Alibabacloud_Config20200907::Client::createC
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->compliantSnapshot)) {
+    query->insert(pair<string, bool>("CompliantSnapshot", *request->compliantSnapshot));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->configurationItemChangeNotification)) {
     query->insert(pair<string, bool>("ConfigurationItemChangeNotification", *request->configurationItemChangeNotification));
@@ -4606,6 +4612,9 @@ UpdateAggregateConfigDeliveryChannelResponse Alibabacloud_Config20200907::Client
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->compliantSnapshot)) {
+    query->insert(pair<string, bool>("CompliantSnapshot", *request->compliantSnapshot));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->configurationItemChangeNotification)) {
     query->insert(pair<string, bool>("ConfigurationItemChangeNotification", *request->configurationItemChangeNotification));
   }
@@ -4947,6 +4956,9 @@ UpdateConfigDeliveryChannelResponse Alibabacloud_Config20200907::Client::updateC
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->compliantSnapshot)) {
+    query->insert(pair<string, bool>("CompliantSnapshot", *request->compliantSnapshot));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->configurationItemChangeNotification)) {
     query->insert(pair<string, bool>("ConfigurationItemChangeNotification", *request->configurationItemChangeNotification));

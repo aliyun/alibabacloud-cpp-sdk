@@ -2167,6 +2167,7 @@ class CreateAggregateConfigDeliveryChannelRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> compliantSnapshot{};
   shared_ptr<bool> configurationItemChangeNotification{};
   shared_ptr<bool> configurationSnapshot{};
   shared_ptr<string> deliveryChannelCondition{};
@@ -2193,6 +2194,9 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (compliantSnapshot) {
+      res["CompliantSnapshot"] = boost::any(*compliantSnapshot);
     }
     if (configurationItemChangeNotification) {
       res["ConfigurationItemChangeNotification"] = boost::any(*configurationItemChangeNotification);
@@ -2233,6 +2237,9 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("CompliantSnapshot") != m.end() && !m["CompliantSnapshot"].empty()) {
+      compliantSnapshot = make_shared<bool>(boost::any_cast<bool>(m["CompliantSnapshot"]));
     }
     if (m.find("ConfigurationItemChangeNotification") != m.end() && !m["ConfigurationItemChangeNotification"].empty()) {
       configurationItemChangeNotification = make_shared<bool>(boost::any_cast<bool>(m["ConfigurationItemChangeNotification"]));
@@ -4219,6 +4226,7 @@ public:
 class CreateConfigDeliveryChannelRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> compliantSnapshot{};
   shared_ptr<bool> configurationItemChangeNotification{};
   shared_ptr<bool> configurationSnapshot{};
   shared_ptr<string> deliveryChannelCondition{};
@@ -4242,6 +4250,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (compliantSnapshot) {
+      res["CompliantSnapshot"] = boost::any(*compliantSnapshot);
     }
     if (configurationItemChangeNotification) {
       res["ConfigurationItemChangeNotification"] = boost::any(*configurationItemChangeNotification);
@@ -4279,6 +4290,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("CompliantSnapshot") != m.end() && !m["CompliantSnapshot"].empty()) {
+      compliantSnapshot = make_shared<bool>(boost::any_cast<bool>(m["CompliantSnapshot"]));
     }
     if (m.find("ConfigurationItemChangeNotification") != m.end() && !m["ConfigurationItemChangeNotification"].empty()) {
       configurationItemChangeNotification = make_shared<bool>(boost::any_cast<bool>(m["ConfigurationItemChangeNotification"]));
@@ -10920,6 +10934,7 @@ class GetAggregateConfigDeliveryChannelResponseBodyDeliveryChannel : public Dara
 public:
   shared_ptr<string> accountId{};
   shared_ptr<string> aggregatorId{};
+  shared_ptr<bool> compliantSnapshot{};
   shared_ptr<bool> configurationItemChangeNotification{};
   shared_ptr<bool> configurationSnapshot{};
   shared_ptr<string> deliveryChannelAssumeRoleArn{};
@@ -10949,6 +10964,9 @@ public:
     }
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
+    }
+    if (compliantSnapshot) {
+      res["CompliantSnapshot"] = boost::any(*compliantSnapshot);
     }
     if (configurationItemChangeNotification) {
       res["ConfigurationItemChangeNotification"] = boost::any(*configurationItemChangeNotification);
@@ -10998,6 +11016,9 @@ public:
     }
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("CompliantSnapshot") != m.end() && !m["CompliantSnapshot"].empty()) {
+      compliantSnapshot = make_shared<bool>(boost::any_cast<bool>(m["CompliantSnapshot"]));
     }
     if (m.find("ConfigurationItemChangeNotification") != m.end() && !m["ConfigurationItemChangeNotification"].empty()) {
       configurationItemChangeNotification = make_shared<bool>(boost::any_cast<bool>(m["ConfigurationItemChangeNotification"]));
@@ -16397,6 +16418,7 @@ public:
 class GetConfigDeliveryChannelResponseBodyDeliveryChannel : public Darabonba::Model {
 public:
   shared_ptr<long> accountId{};
+  shared_ptr<bool> compliantSnapshot{};
   shared_ptr<bool> configurationItemChangeNotification{};
   shared_ptr<bool> configurationSnapshot{};
   shared_ptr<string> deliveryChannelAssumeRoleArn{};
@@ -16423,6 +16445,9 @@ public:
     map<string, boost::any> res;
     if (accountId) {
       res["AccountId"] = boost::any(*accountId);
+    }
+    if (compliantSnapshot) {
+      res["CompliantSnapshot"] = boost::any(*compliantSnapshot);
     }
     if (configurationItemChangeNotification) {
       res["ConfigurationItemChangeNotification"] = boost::any(*configurationItemChangeNotification);
@@ -16469,6 +16494,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
       accountId = make_shared<long>(boost::any_cast<long>(m["AccountId"]));
+    }
+    if (m.find("CompliantSnapshot") != m.end() && !m["CompliantSnapshot"].empty()) {
+      compliantSnapshot = make_shared<bool>(boost::any_cast<bool>(m["CompliantSnapshot"]));
     }
     if (m.find("ConfigurationItemChangeNotification") != m.end() && !m["ConfigurationItemChangeNotification"].empty()) {
       configurationItemChangeNotification = make_shared<bool>(boost::any_cast<bool>(m["ConfigurationItemChangeNotification"]));
@@ -22128,6 +22156,7 @@ class ListAggregateConfigDeliveryChannelsResponseBodyDeliveryChannels : public D
 public:
   shared_ptr<long> accountId{};
   shared_ptr<string> aggregatorId{};
+  shared_ptr<bool> compliantSnapshot{};
   shared_ptr<bool> configurationItemChangeNotification{};
   shared_ptr<bool> configurationSnapshot{};
   shared_ptr<string> deliveryChannelAssumeRoleArn{};
@@ -22157,6 +22186,9 @@ public:
     }
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
+    }
+    if (compliantSnapshot) {
+      res["CompliantSnapshot"] = boost::any(*compliantSnapshot);
     }
     if (configurationItemChangeNotification) {
       res["ConfigurationItemChangeNotification"] = boost::any(*configurationItemChangeNotification);
@@ -22206,6 +22238,9 @@ public:
     }
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("CompliantSnapshot") != m.end() && !m["CompliantSnapshot"].empty()) {
+      compliantSnapshot = make_shared<bool>(boost::any_cast<bool>(m["CompliantSnapshot"]));
     }
     if (m.find("ConfigurationItemChangeNotification") != m.end() && !m["ConfigurationItemChangeNotification"].empty()) {
       configurationItemChangeNotification = make_shared<bool>(boost::any_cast<bool>(m["ConfigurationItemChangeNotification"]));
@@ -26352,6 +26387,7 @@ public:
 class ListConfigDeliveryChannelsResponseBodyDeliveryChannels : public Darabonba::Model {
 public:
   shared_ptr<long> accountId{};
+  shared_ptr<bool> compliantSnapshot{};
   shared_ptr<bool> configurationItemChangeNotification{};
   shared_ptr<bool> configurationSnapshot{};
   shared_ptr<string> deliveryChannelAssumeRoleArn{};
@@ -26378,6 +26414,9 @@ public:
     map<string, boost::any> res;
     if (accountId) {
       res["AccountId"] = boost::any(*accountId);
+    }
+    if (compliantSnapshot) {
+      res["CompliantSnapshot"] = boost::any(*compliantSnapshot);
     }
     if (configurationItemChangeNotification) {
       res["ConfigurationItemChangeNotification"] = boost::any(*configurationItemChangeNotification);
@@ -26424,6 +26463,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
       accountId = make_shared<long>(boost::any_cast<long>(m["AccountId"]));
+    }
+    if (m.find("CompliantSnapshot") != m.end() && !m["CompliantSnapshot"].empty()) {
+      compliantSnapshot = make_shared<bool>(boost::any_cast<bool>(m["CompliantSnapshot"]));
     }
     if (m.find("ConfigurationItemChangeNotification") != m.end() && !m["ConfigurationItemChangeNotification"].empty()) {
       configurationItemChangeNotification = make_shared<bool>(boost::any_cast<bool>(m["ConfigurationItemChangeNotification"]));
@@ -33488,6 +33530,7 @@ class UpdateAggregateConfigDeliveryChannelRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> compliantSnapshot{};
   shared_ptr<bool> configurationItemChangeNotification{};
   shared_ptr<bool> configurationSnapshot{};
   shared_ptr<string> deliveryChannelCondition{};
@@ -33515,6 +33558,9 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (compliantSnapshot) {
+      res["CompliantSnapshot"] = boost::any(*compliantSnapshot);
     }
     if (configurationItemChangeNotification) {
       res["ConfigurationItemChangeNotification"] = boost::any(*configurationItemChangeNotification);
@@ -33558,6 +33604,9 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("CompliantSnapshot") != m.end() && !m["CompliantSnapshot"].empty()) {
+      compliantSnapshot = make_shared<bool>(boost::any_cast<bool>(m["CompliantSnapshot"]));
     }
     if (m.find("ConfigurationItemChangeNotification") != m.end() && !m["ConfigurationItemChangeNotification"].empty()) {
       configurationItemChangeNotification = make_shared<bool>(boost::any_cast<bool>(m["ConfigurationItemChangeNotification"]));
@@ -35484,6 +35533,7 @@ public:
 class UpdateConfigDeliveryChannelRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> compliantSnapshot{};
   shared_ptr<bool> configurationItemChangeNotification{};
   shared_ptr<bool> configurationSnapshot{};
   shared_ptr<string> deliveryChannelCondition{};
@@ -35508,6 +35558,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (compliantSnapshot) {
+      res["CompliantSnapshot"] = boost::any(*compliantSnapshot);
     }
     if (configurationItemChangeNotification) {
       res["ConfigurationItemChangeNotification"] = boost::any(*configurationItemChangeNotification);
@@ -35548,6 +35601,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("CompliantSnapshot") != m.end() && !m["CompliantSnapshot"].empty()) {
+      compliantSnapshot = make_shared<bool>(boost::any_cast<bool>(m["CompliantSnapshot"]));
     }
     if (m.find("ConfigurationItemChangeNotification") != m.end() && !m["ConfigurationItemChangeNotification"].empty()) {
       configurationItemChangeNotification = make_shared<bool>(boost::any_cast<bool>(m["ConfigurationItemChangeNotification"]));
