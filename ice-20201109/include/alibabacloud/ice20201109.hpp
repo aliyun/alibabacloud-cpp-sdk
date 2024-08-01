@@ -29904,6 +29904,341 @@ public:
 
   virtual ~ListDynamicImageJobsResponse() = default;
 };
+class ListEditingProjectsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> createSource{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> keyword{};
+  shared_ptr<string> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> projectType{};
+  shared_ptr<string> sortBy{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> templateType{};
+
+  ListEditingProjectsRequest() {}
+
+  explicit ListEditingProjectsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createSource) {
+      res["CreateSource"] = boost::any(*createSource);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (keyword) {
+      res["Keyword"] = boost::any(*keyword);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (projectType) {
+      res["ProjectType"] = boost::any(*projectType);
+    }
+    if (sortBy) {
+      res["SortBy"] = boost::any(*sortBy);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (templateType) {
+      res["TemplateType"] = boost::any(*templateType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateSource") != m.end() && !m["CreateSource"].empty()) {
+      createSource = make_shared<string>(boost::any_cast<string>(m["CreateSource"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<string>(boost::any_cast<string>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("ProjectType") != m.end() && !m["ProjectType"].empty()) {
+      projectType = make_shared<string>(boost::any_cast<string>(m["ProjectType"]));
+    }
+    if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
+      sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
+      templateType = make_shared<string>(boost::any_cast<string>(m["TemplateType"]));
+    }
+  }
+
+
+  virtual ~ListEditingProjectsRequest() = default;
+};
+class ListEditingProjectsResponseBodyProjectList : public Darabonba::Model {
+public:
+  shared_ptr<string> businessConfig{};
+  shared_ptr<string> businessStatus{};
+  shared_ptr<string> coverURL{};
+  shared_ptr<string> createSource{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> modifiedSource{};
+  shared_ptr<string> modifiedTime{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> projectType{};
+  shared_ptr<string> status{};
+  shared_ptr<string> templateType{};
+  shared_ptr<string> title{};
+
+  ListEditingProjectsResponseBodyProjectList() {}
+
+  explicit ListEditingProjectsResponseBodyProjectList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessConfig) {
+      res["BusinessConfig"] = boost::any(*businessConfig);
+    }
+    if (businessStatus) {
+      res["BusinessStatus"] = boost::any(*businessStatus);
+    }
+    if (coverURL) {
+      res["CoverURL"] = boost::any(*coverURL);
+    }
+    if (createSource) {
+      res["CreateSource"] = boost::any(*createSource);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (modifiedSource) {
+      res["ModifiedSource"] = boost::any(*modifiedSource);
+    }
+    if (modifiedTime) {
+      res["ModifiedTime"] = boost::any(*modifiedTime);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (projectType) {
+      res["ProjectType"] = boost::any(*projectType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (templateType) {
+      res["TemplateType"] = boost::any(*templateType);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessConfig") != m.end() && !m["BusinessConfig"].empty()) {
+      businessConfig = make_shared<string>(boost::any_cast<string>(m["BusinessConfig"]));
+    }
+    if (m.find("BusinessStatus") != m.end() && !m["BusinessStatus"].empty()) {
+      businessStatus = make_shared<string>(boost::any_cast<string>(m["BusinessStatus"]));
+    }
+    if (m.find("CoverURL") != m.end() && !m["CoverURL"].empty()) {
+      coverURL = make_shared<string>(boost::any_cast<string>(m["CoverURL"]));
+    }
+    if (m.find("CreateSource") != m.end() && !m["CreateSource"].empty()) {
+      createSource = make_shared<string>(boost::any_cast<string>(m["CreateSource"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("ModifiedSource") != m.end() && !m["ModifiedSource"].empty()) {
+      modifiedSource = make_shared<string>(boost::any_cast<string>(m["ModifiedSource"]));
+    }
+    if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
+      modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("ProjectType") != m.end() && !m["ProjectType"].empty()) {
+      projectType = make_shared<string>(boost::any_cast<string>(m["ProjectType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
+      templateType = make_shared<string>(boost::any_cast<string>(m["TemplateType"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~ListEditingProjectsResponseBodyProjectList() = default;
+};
+class ListEditingProjectsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<ListEditingProjectsResponseBodyProjectList>> projectList{};
+  shared_ptr<string> requestId{};
+
+  ListEditingProjectsResponseBody() {}
+
+  explicit ListEditingProjectsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (projectList) {
+      vector<boost::any> temp1;
+      for(auto item1:*projectList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ProjectList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("ProjectList") != m.end() && !m["ProjectList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ProjectList"].type()) {
+        vector<ListEditingProjectsResponseBodyProjectList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ProjectList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListEditingProjectsResponseBodyProjectList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        projectList = make_shared<vector<ListEditingProjectsResponseBodyProjectList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListEditingProjectsResponseBody() = default;
+};
+class ListEditingProjectsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListEditingProjectsResponseBody> body{};
+
+  ListEditingProjectsResponse() {}
+
+  explicit ListEditingProjectsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListEditingProjectsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListEditingProjectsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListEditingProjectsResponse() = default;
+};
 class ListLiveRecordFilesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
@@ -64948,6 +65283,8 @@ public:
   ListDNAFilesResponse listDNAFiles(shared_ptr<ListDNAFilesRequest> request);
   ListDynamicImageJobsResponse listDynamicImageJobsWithOptions(shared_ptr<ListDynamicImageJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDynamicImageJobsResponse listDynamicImageJobs(shared_ptr<ListDynamicImageJobsRequest> request);
+  ListEditingProjectsResponse listEditingProjectsWithOptions(shared_ptr<ListEditingProjectsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListEditingProjectsResponse listEditingProjects(shared_ptr<ListEditingProjectsRequest> request);
   ListLiveRecordFilesResponse listLiveRecordFilesWithOptions(shared_ptr<ListLiveRecordFilesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListLiveRecordFilesResponse listLiveRecordFiles(shared_ptr<ListLiveRecordFilesRequest> request);
   ListLiveRecordJobsResponse listLiveRecordJobsWithOptions(shared_ptr<ListLiveRecordJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
