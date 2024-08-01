@@ -13,6 +13,165 @@
 using namespace std;
 
 namespace Alibabacloud_Pvtz20180101 {
+class AddCustomLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dnsCategory{};
+  shared_ptr<vector<string>> ipv4s{};
+  shared_ptr<string> lang{};
+  shared_ptr<string> name{};
+  shared_ptr<string> shareScope{};
+
+  AddCustomLineRequest() {}
+
+  explicit AddCustomLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dnsCategory) {
+      res["DnsCategory"] = boost::any(*dnsCategory);
+    }
+    if (ipv4s) {
+      res["Ipv4s"] = boost::any(*ipv4s);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (shareScope) {
+      res["ShareScope"] = boost::any(*shareScope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DnsCategory") != m.end() && !m["DnsCategory"].empty()) {
+      dnsCategory = make_shared<string>(boost::any_cast<string>(m["DnsCategory"]));
+    }
+    if (m.find("Ipv4s") != m.end() && !m["Ipv4s"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ipv4s"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ipv4s"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipv4s = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ShareScope") != m.end() && !m["ShareScope"].empty()) {
+      shareScope = make_shared<string>(boost::any_cast<string>(m["ShareScope"]));
+    }
+  }
+
+
+  virtual ~AddCustomLineRequest() = default;
+};
+class AddCustomLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> lineId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> requestId{};
+
+  AddCustomLineResponseBody() {}
+
+  explicit AddCustomLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lineId) {
+      res["LineId"] = boost::any(*lineId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LineId") != m.end() && !m["LineId"].empty()) {
+      lineId = make_shared<string>(boost::any_cast<string>(m["LineId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AddCustomLineResponseBody() = default;
+};
+class AddCustomLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddCustomLineResponseBody> body{};
+
+  AddCustomLineResponse() {}
+
+  explicit AddCustomLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddCustomLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddCustomLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddCustomLineResponse() = default;
+};
 class AddResolverEndpointRequestIpConfig : public Darabonba::Model {
 public:
   shared_ptr<string> azId{};
@@ -1319,6 +1478,137 @@ public:
 
   virtual ~BindZoneVpcResponse() = default;
 };
+class ChangeZoneDnsGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> dnsGroup{};
+  shared_ptr<string> zoneId{};
+
+  ChangeZoneDnsGroupRequest() {}
+
+  explicit ChangeZoneDnsGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dnsGroup) {
+      res["DnsGroup"] = boost::any(*dnsGroup);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DnsGroup") != m.end() && !m["DnsGroup"].empty()) {
+      dnsGroup = make_shared<string>(boost::any_cast<string>(m["DnsGroup"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~ChangeZoneDnsGroupRequest() = default;
+};
+class ChangeZoneDnsGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> zoneId{};
+
+  ChangeZoneDnsGroupResponseBody() {}
+
+  explicit ChangeZoneDnsGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~ChangeZoneDnsGroupResponseBody() = default;
+};
+class ChangeZoneDnsGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ChangeZoneDnsGroupResponseBody> body{};
+
+  ChangeZoneDnsGroupResponse() {}
+
+  explicit ChangeZoneDnsGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ChangeZoneDnsGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ChangeZoneDnsGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ChangeZoneDnsGroupResponse() = default;
+};
 class CheckZoneNameRequest : public Darabonba::Model {
 public:
   shared_ptr<string> lang{};
@@ -1456,6 +1746,130 @@ public:
 
 
   virtual ~CheckZoneNameResponse() = default;
+};
+class DeleteCustomLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> lang{};
+  shared_ptr<string> lineId{};
+
+  DeleteCustomLineRequest() {}
+
+  explicit DeleteCustomLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (lineId) {
+      res["LineId"] = boost::any(*lineId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("LineId") != m.end() && !m["LineId"].empty()) {
+      lineId = make_shared<string>(boost::any_cast<string>(m["LineId"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomLineRequest() = default;
+};
+class DeleteCustomLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> lineId{};
+  shared_ptr<string> requestId{};
+
+  DeleteCustomLineResponseBody() {}
+
+  explicit DeleteCustomLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lineId) {
+      res["LineId"] = boost::any(*lineId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LineId") != m.end() && !m["LineId"].empty()) {
+      lineId = make_shared<string>(boost::any_cast<string>(m["LineId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomLineResponseBody() = default;
+};
+class DeleteCustomLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteCustomLineResponseBody> body{};
+
+  DeleteCustomLineResponse() {}
+
+  explicit DeleteCustomLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteCustomLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteCustomLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteCustomLineResponse() = default;
 };
 class DeleteResolverEndpointRequest : public Darabonba::Model {
 public:
@@ -2437,6 +2851,538 @@ public:
 
 
   virtual ~DescribeChangeLogsResponse() = default;
+};
+class DescribeCustomLineInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> lang{};
+  shared_ptr<string> lineId{};
+
+  DescribeCustomLineInfoRequest() {}
+
+  explicit DescribeCustomLineInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (lineId) {
+      res["LineId"] = boost::any(*lineId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("LineId") != m.end() && !m["LineId"].empty()) {
+      lineId = make_shared<string>(boost::any_cast<string>(m["LineId"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomLineInfoRequest() = default;
+};
+class DescribeCustomLineInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<long> createTimestamp{};
+  shared_ptr<string> creator{};
+  shared_ptr<string> creatorSubType{};
+  shared_ptr<string> creatorType{};
+  shared_ptr<vector<string>> ipv4s{};
+  shared_ptr<string> lineId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> updateTime{};
+  shared_ptr<long> updateTimestamp{};
+
+  DescribeCustomLineInfoResponseBody() {}
+
+  explicit DescribeCustomLineInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (createTimestamp) {
+      res["CreateTimestamp"] = boost::any(*createTimestamp);
+    }
+    if (creator) {
+      res["Creator"] = boost::any(*creator);
+    }
+    if (creatorSubType) {
+      res["CreatorSubType"] = boost::any(*creatorSubType);
+    }
+    if (creatorType) {
+      res["CreatorType"] = boost::any(*creatorType);
+    }
+    if (ipv4s) {
+      res["Ipv4s"] = boost::any(*ipv4s);
+    }
+    if (lineId) {
+      res["LineId"] = boost::any(*lineId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    if (updateTimestamp) {
+      res["UpdateTimestamp"] = boost::any(*updateTimestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
+      createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
+    if (m.find("Creator") != m.end() && !m["Creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["Creator"]));
+    }
+    if (m.find("CreatorSubType") != m.end() && !m["CreatorSubType"].empty()) {
+      creatorSubType = make_shared<string>(boost::any_cast<string>(m["CreatorSubType"]));
+    }
+    if (m.find("CreatorType") != m.end() && !m["CreatorType"].empty()) {
+      creatorType = make_shared<string>(boost::any_cast<string>(m["CreatorType"]));
+    }
+    if (m.find("Ipv4s") != m.end() && !m["Ipv4s"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ipv4s"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ipv4s"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipv4s = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LineId") != m.end() && !m["LineId"].empty()) {
+      lineId = make_shared<string>(boost::any_cast<string>(m["LineId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+    if (m.find("UpdateTimestamp") != m.end() && !m["UpdateTimestamp"].empty()) {
+      updateTimestamp = make_shared<long>(boost::any_cast<long>(m["UpdateTimestamp"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomLineInfoResponseBody() = default;
+};
+class DescribeCustomLineInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCustomLineInfoResponseBody> body{};
+
+  DescribeCustomLineInfoResponse() {}
+
+  explicit DescribeCustomLineInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCustomLineInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCustomLineInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCustomLineInfoResponse() = default;
+};
+class DescribeCustomLinesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> lang{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  DescribeCustomLinesRequest() {}
+
+  explicit DescribeCustomLinesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomLinesRequest() = default;
+};
+class DescribeCustomLinesResponseBodyCustomLinesCustomLineIpv4s : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> ipv4{};
+
+  DescribeCustomLinesResponseBodyCustomLinesCustomLineIpv4s() {}
+
+  explicit DescribeCustomLinesResponseBodyCustomLinesCustomLineIpv4s(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipv4) {
+      res["Ipv4"] = boost::any(*ipv4);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ipv4") != m.end() && !m["Ipv4"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ipv4"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ipv4"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipv4 = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeCustomLinesResponseBodyCustomLinesCustomLineIpv4s() = default;
+};
+class DescribeCustomLinesResponseBodyCustomLinesCustomLine : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<long> createTimestamp{};
+  shared_ptr<string> creator{};
+  shared_ptr<string> creatorSubType{};
+  shared_ptr<string> creatorType{};
+  shared_ptr<DescribeCustomLinesResponseBodyCustomLinesCustomLineIpv4s> ipv4s{};
+  shared_ptr<string> lineId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> updateTime{};
+  shared_ptr<long> updateTimestamp{};
+
+  DescribeCustomLinesResponseBodyCustomLinesCustomLine() {}
+
+  explicit DescribeCustomLinesResponseBodyCustomLinesCustomLine(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (createTimestamp) {
+      res["CreateTimestamp"] = boost::any(*createTimestamp);
+    }
+    if (creator) {
+      res["Creator"] = boost::any(*creator);
+    }
+    if (creatorSubType) {
+      res["CreatorSubType"] = boost::any(*creatorSubType);
+    }
+    if (creatorType) {
+      res["CreatorType"] = boost::any(*creatorType);
+    }
+    if (ipv4s) {
+      res["Ipv4s"] = ipv4s ? boost::any(ipv4s->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (lineId) {
+      res["LineId"] = boost::any(*lineId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    if (updateTimestamp) {
+      res["UpdateTimestamp"] = boost::any(*updateTimestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
+      createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
+    if (m.find("Creator") != m.end() && !m["Creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["Creator"]));
+    }
+    if (m.find("CreatorSubType") != m.end() && !m["CreatorSubType"].empty()) {
+      creatorSubType = make_shared<string>(boost::any_cast<string>(m["CreatorSubType"]));
+    }
+    if (m.find("CreatorType") != m.end() && !m["CreatorType"].empty()) {
+      creatorType = make_shared<string>(boost::any_cast<string>(m["CreatorType"]));
+    }
+    if (m.find("Ipv4s") != m.end() && !m["Ipv4s"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Ipv4s"].type()) {
+        DescribeCustomLinesResponseBodyCustomLinesCustomLineIpv4s model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Ipv4s"]));
+        ipv4s = make_shared<DescribeCustomLinesResponseBodyCustomLinesCustomLineIpv4s>(model1);
+      }
+    }
+    if (m.find("LineId") != m.end() && !m["LineId"].empty()) {
+      lineId = make_shared<string>(boost::any_cast<string>(m["LineId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+    if (m.find("UpdateTimestamp") != m.end() && !m["UpdateTimestamp"].empty()) {
+      updateTimestamp = make_shared<long>(boost::any_cast<long>(m["UpdateTimestamp"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomLinesResponseBodyCustomLinesCustomLine() = default;
+};
+class DescribeCustomLinesResponseBodyCustomLines : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeCustomLinesResponseBodyCustomLinesCustomLine>> customLine{};
+
+  DescribeCustomLinesResponseBodyCustomLines() {}
+
+  explicit DescribeCustomLinesResponseBodyCustomLines(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customLine) {
+      vector<boost::any> temp1;
+      for(auto item1:*customLine){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomLine"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomLine") != m.end() && !m["CustomLine"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomLine"].type()) {
+        vector<DescribeCustomLinesResponseBodyCustomLinesCustomLine> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomLine"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCustomLinesResponseBodyCustomLinesCustomLine model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customLine = make_shared<vector<DescribeCustomLinesResponseBodyCustomLinesCustomLine>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCustomLinesResponseBodyCustomLines() = default;
+};
+class DescribeCustomLinesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeCustomLinesResponseBodyCustomLines> customLines{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalItems{};
+  shared_ptr<long> totalPages{};
+
+  DescribeCustomLinesResponseBody() {}
+
+  explicit DescribeCustomLinesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customLines) {
+      res["CustomLines"] = customLines ? boost::any(customLines->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalItems) {
+      res["TotalItems"] = boost::any(*totalItems);
+    }
+    if (totalPages) {
+      res["TotalPages"] = boost::any(*totalPages);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomLines") != m.end() && !m["CustomLines"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomLines"].type()) {
+        DescribeCustomLinesResponseBodyCustomLines model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomLines"]));
+        customLines = make_shared<DescribeCustomLinesResponseBodyCustomLines>(model1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalItems") != m.end() && !m["TotalItems"].empty()) {
+      totalItems = make_shared<long>(boost::any_cast<long>(m["TotalItems"]));
+    }
+    if (m.find("TotalPages") != m.end() && !m["TotalPages"].empty()) {
+      totalPages = make_shared<long>(boost::any_cast<long>(m["TotalPages"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomLinesResponseBody() = default;
+};
+class DescribeCustomLinesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCustomLinesResponseBody> body{};
+
+  DescribeCustomLinesResponse() {}
+
+  explicit DescribeCustomLinesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCustomLinesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCustomLinesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCustomLinesResponse() = default;
 };
 class DescribeRegionsRequest : public Darabonba::Model {
 public:
@@ -5992,6 +6938,221 @@ public:
 
   virtual ~DescribeZoneInfoResponse() = default;
 };
+class DescribeZoneRecordRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> recordId{};
+
+  DescribeZoneRecordRequest() {}
+
+  explicit DescribeZoneRecordRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (recordId) {
+      res["RecordId"] = boost::any(*recordId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RecordId") != m.end() && !m["RecordId"].empty()) {
+      recordId = make_shared<long>(boost::any_cast<long>(m["RecordId"]));
+    }
+  }
+
+
+  virtual ~DescribeZoneRecordRequest() = default;
+};
+class DescribeZoneRecordResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<long> createTimestamp{};
+  shared_ptr<string> line{};
+  shared_ptr<long> priority{};
+  shared_ptr<long> recordId{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> rr{};
+  shared_ptr<string> status{};
+  shared_ptr<long> ttl{};
+  shared_ptr<string> type{};
+  shared_ptr<string> updateTime{};
+  shared_ptr<long> updateTimestamp{};
+  shared_ptr<string> value{};
+  shared_ptr<long> weight{};
+  shared_ptr<string> zoneId{};
+
+  DescribeZoneRecordResponseBody() {}
+
+  explicit DescribeZoneRecordResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (createTimestamp) {
+      res["CreateTimestamp"] = boost::any(*createTimestamp);
+    }
+    if (line) {
+      res["Line"] = boost::any(*line);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (recordId) {
+      res["RecordId"] = boost::any(*recordId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (rr) {
+      res["Rr"] = boost::any(*rr);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (ttl) {
+      res["Ttl"] = boost::any(*ttl);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    if (updateTimestamp) {
+      res["UpdateTimestamp"] = boost::any(*updateTimestamp);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
+      createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
+    if (m.find("Line") != m.end() && !m["Line"].empty()) {
+      line = make_shared<string>(boost::any_cast<string>(m["Line"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("RecordId") != m.end() && !m["RecordId"].empty()) {
+      recordId = make_shared<long>(boost::any_cast<long>(m["RecordId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Rr") != m.end() && !m["Rr"].empty()) {
+      rr = make_shared<string>(boost::any_cast<string>(m["Rr"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Ttl") != m.end() && !m["Ttl"].empty()) {
+      ttl = make_shared<long>(boost::any_cast<long>(m["Ttl"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+    if (m.find("UpdateTimestamp") != m.end() && !m["UpdateTimestamp"].empty()) {
+      updateTimestamp = make_shared<long>(boost::any_cast<long>(m["UpdateTimestamp"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~DescribeZoneRecordResponseBody() = default;
+};
+class DescribeZoneRecordResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeZoneRecordResponseBody> body{};
+
+  DescribeZoneRecordResponse() {}
+
+  explicit DescribeZoneRecordResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeZoneRecordResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeZoneRecordResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeZoneRecordResponse() = default;
+};
 class DescribeZoneRecordsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> keyword{};
@@ -7730,6 +8891,400 @@ public:
 
   virtual ~MoveResourceGroupResponse() = default;
 };
+class SearchCustomLinesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> createTimestampEnd{};
+  shared_ptr<long> createTimestampStart{};
+  shared_ptr<vector<string>> creator{};
+  shared_ptr<string> ipv4{};
+  shared_ptr<string> lang{};
+  shared_ptr<string> name{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> updateTimestampEnd{};
+  shared_ptr<long> updateTimestampStart{};
+
+  SearchCustomLinesRequest() {}
+
+  explicit SearchCustomLinesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTimestampEnd) {
+      res["CreateTimestampEnd"] = boost::any(*createTimestampEnd);
+    }
+    if (createTimestampStart) {
+      res["CreateTimestampStart"] = boost::any(*createTimestampStart);
+    }
+    if (creator) {
+      res["Creator"] = boost::any(*creator);
+    }
+    if (ipv4) {
+      res["Ipv4"] = boost::any(*ipv4);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (updateTimestampEnd) {
+      res["UpdateTimestampEnd"] = boost::any(*updateTimestampEnd);
+    }
+    if (updateTimestampStart) {
+      res["UpdateTimestampStart"] = boost::any(*updateTimestampStart);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTimestampEnd") != m.end() && !m["CreateTimestampEnd"].empty()) {
+      createTimestampEnd = make_shared<long>(boost::any_cast<long>(m["CreateTimestampEnd"]));
+    }
+    if (m.find("CreateTimestampStart") != m.end() && !m["CreateTimestampStart"].empty()) {
+      createTimestampStart = make_shared<long>(boost::any_cast<long>(m["CreateTimestampStart"]));
+    }
+    if (m.find("Creator") != m.end() && !m["Creator"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Creator"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Creator"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      creator = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Ipv4") != m.end() && !m["Ipv4"].empty()) {
+      ipv4 = make_shared<string>(boost::any_cast<string>(m["Ipv4"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("UpdateTimestampEnd") != m.end() && !m["UpdateTimestampEnd"].empty()) {
+      updateTimestampEnd = make_shared<long>(boost::any_cast<long>(m["UpdateTimestampEnd"]));
+    }
+    if (m.find("UpdateTimestampStart") != m.end() && !m["UpdateTimestampStart"].empty()) {
+      updateTimestampStart = make_shared<long>(boost::any_cast<long>(m["UpdateTimestampStart"]));
+    }
+  }
+
+
+  virtual ~SearchCustomLinesRequest() = default;
+};
+class SearchCustomLinesResponseBodyCustomLinesCustomLineIpv4s : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> ipv4{};
+
+  SearchCustomLinesResponseBodyCustomLinesCustomLineIpv4s() {}
+
+  explicit SearchCustomLinesResponseBodyCustomLinesCustomLineIpv4s(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipv4) {
+      res["Ipv4"] = boost::any(*ipv4);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ipv4") != m.end() && !m["Ipv4"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ipv4"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ipv4"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipv4 = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~SearchCustomLinesResponseBodyCustomLinesCustomLineIpv4s() = default;
+};
+class SearchCustomLinesResponseBodyCustomLinesCustomLine : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<long> createTimestamp{};
+  shared_ptr<string> creator{};
+  shared_ptr<string> creatorSubType{};
+  shared_ptr<string> creatorType{};
+  shared_ptr<SearchCustomLinesResponseBodyCustomLinesCustomLineIpv4s> ipv4s{};
+  shared_ptr<string> lineId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> updateTime{};
+  shared_ptr<long> updateTimestamp{};
+
+  SearchCustomLinesResponseBodyCustomLinesCustomLine() {}
+
+  explicit SearchCustomLinesResponseBodyCustomLinesCustomLine(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (createTimestamp) {
+      res["CreateTimestamp"] = boost::any(*createTimestamp);
+    }
+    if (creator) {
+      res["Creator"] = boost::any(*creator);
+    }
+    if (creatorSubType) {
+      res["CreatorSubType"] = boost::any(*creatorSubType);
+    }
+    if (creatorType) {
+      res["CreatorType"] = boost::any(*creatorType);
+    }
+    if (ipv4s) {
+      res["Ipv4s"] = ipv4s ? boost::any(ipv4s->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (lineId) {
+      res["LineId"] = boost::any(*lineId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    if (updateTimestamp) {
+      res["UpdateTimestamp"] = boost::any(*updateTimestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
+      createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
+    if (m.find("Creator") != m.end() && !m["Creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["Creator"]));
+    }
+    if (m.find("CreatorSubType") != m.end() && !m["CreatorSubType"].empty()) {
+      creatorSubType = make_shared<string>(boost::any_cast<string>(m["CreatorSubType"]));
+    }
+    if (m.find("CreatorType") != m.end() && !m["CreatorType"].empty()) {
+      creatorType = make_shared<string>(boost::any_cast<string>(m["CreatorType"]));
+    }
+    if (m.find("Ipv4s") != m.end() && !m["Ipv4s"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Ipv4s"].type()) {
+        SearchCustomLinesResponseBodyCustomLinesCustomLineIpv4s model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Ipv4s"]));
+        ipv4s = make_shared<SearchCustomLinesResponseBodyCustomLinesCustomLineIpv4s>(model1);
+      }
+    }
+    if (m.find("LineId") != m.end() && !m["LineId"].empty()) {
+      lineId = make_shared<string>(boost::any_cast<string>(m["LineId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+    if (m.find("UpdateTimestamp") != m.end() && !m["UpdateTimestamp"].empty()) {
+      updateTimestamp = make_shared<long>(boost::any_cast<long>(m["UpdateTimestamp"]));
+    }
+  }
+
+
+  virtual ~SearchCustomLinesResponseBodyCustomLinesCustomLine() = default;
+};
+class SearchCustomLinesResponseBodyCustomLines : public Darabonba::Model {
+public:
+  shared_ptr<vector<SearchCustomLinesResponseBodyCustomLinesCustomLine>> customLine{};
+
+  SearchCustomLinesResponseBodyCustomLines() {}
+
+  explicit SearchCustomLinesResponseBodyCustomLines(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customLine) {
+      vector<boost::any> temp1;
+      for(auto item1:*customLine){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomLine"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomLine") != m.end() && !m["CustomLine"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomLine"].type()) {
+        vector<SearchCustomLinesResponseBodyCustomLinesCustomLine> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomLine"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SearchCustomLinesResponseBodyCustomLinesCustomLine model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customLine = make_shared<vector<SearchCustomLinesResponseBodyCustomLinesCustomLine>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~SearchCustomLinesResponseBodyCustomLines() = default;
+};
+class SearchCustomLinesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<SearchCustomLinesResponseBodyCustomLines> customLines{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalItems{};
+  shared_ptr<long> totalPages{};
+
+  SearchCustomLinesResponseBody() {}
+
+  explicit SearchCustomLinesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customLines) {
+      res["CustomLines"] = customLines ? boost::any(customLines->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalItems) {
+      res["TotalItems"] = boost::any(*totalItems);
+    }
+    if (totalPages) {
+      res["TotalPages"] = boost::any(*totalPages);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomLines") != m.end() && !m["CustomLines"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomLines"].type()) {
+        SearchCustomLinesResponseBodyCustomLines model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomLines"]));
+        customLines = make_shared<SearchCustomLinesResponseBodyCustomLines>(model1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalItems") != m.end() && !m["TotalItems"].empty()) {
+      totalItems = make_shared<long>(boost::any_cast<long>(m["TotalItems"]));
+    }
+    if (m.find("TotalPages") != m.end() && !m["TotalPages"].empty()) {
+      totalPages = make_shared<long>(boost::any_cast<long>(m["TotalPages"]));
+    }
+  }
+
+
+  virtual ~SearchCustomLinesResponseBody() = default;
+};
+class SearchCustomLinesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SearchCustomLinesResponseBody> body{};
+
+  SearchCustomLinesResponse() {}
+
+  explicit SearchCustomLinesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SearchCustomLinesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SearchCustomLinesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SearchCustomLinesResponse() = default;
+};
 class SetProxyPatternRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -8373,6 +9928,151 @@ public:
 
 
   virtual ~UntagResourcesResponse() = default;
+};
+class UpdateCustomLineRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> ipv4s{};
+  shared_ptr<string> lang{};
+  shared_ptr<string> lineId{};
+  shared_ptr<string> name{};
+
+  UpdateCustomLineRequest() {}
+
+  explicit UpdateCustomLineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipv4s) {
+      res["Ipv4s"] = boost::any(*ipv4s);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (lineId) {
+      res["LineId"] = boost::any(*lineId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ipv4s") != m.end() && !m["Ipv4s"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ipv4s"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ipv4s"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipv4s = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("LineId") != m.end() && !m["LineId"].empty()) {
+      lineId = make_shared<string>(boost::any_cast<string>(m["LineId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomLineRequest() = default;
+};
+class UpdateCustomLineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> lineId{};
+  shared_ptr<string> requestId{};
+
+  UpdateCustomLineResponseBody() {}
+
+  explicit UpdateCustomLineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lineId) {
+      res["LineId"] = boost::any(*lineId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LineId") != m.end() && !m["LineId"].empty()) {
+      lineId = make_shared<string>(boost::any_cast<string>(m["LineId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomLineResponseBody() = default;
+};
+class UpdateCustomLineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateCustomLineResponseBody> body{};
+
+  UpdateCustomLineResponse() {}
+
+  explicit UpdateCustomLineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateCustomLineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateCustomLineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateCustomLineResponse() = default;
 };
 class UpdateRecordRemarkRequest : public Darabonba::Model {
 public:
@@ -9425,6 +11125,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AddCustomLineResponse addCustomLineWithOptions(shared_ptr<AddCustomLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddCustomLineResponse addCustomLine(shared_ptr<AddCustomLineRequest> request);
   AddResolverEndpointResponse addResolverEndpointWithOptions(shared_ptr<AddResolverEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddResolverEndpointResponse addResolverEndpoint(shared_ptr<AddResolverEndpointRequest> request);
   AddResolverRuleResponse addResolverRuleWithOptions(shared_ptr<AddResolverRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9439,8 +11141,12 @@ public:
   BindResolverRuleVpcResponse bindResolverRuleVpc(shared_ptr<BindResolverRuleVpcRequest> request);
   BindZoneVpcResponse bindZoneVpcWithOptions(shared_ptr<BindZoneVpcRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BindZoneVpcResponse bindZoneVpc(shared_ptr<BindZoneVpcRequest> request);
+  ChangeZoneDnsGroupResponse changeZoneDnsGroupWithOptions(shared_ptr<ChangeZoneDnsGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ChangeZoneDnsGroupResponse changeZoneDnsGroup(shared_ptr<ChangeZoneDnsGroupRequest> request);
   CheckZoneNameResponse checkZoneNameWithOptions(shared_ptr<CheckZoneNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckZoneNameResponse checkZoneName(shared_ptr<CheckZoneNameRequest> request);
+  DeleteCustomLineResponse deleteCustomLineWithOptions(shared_ptr<DeleteCustomLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteCustomLineResponse deleteCustomLine(shared_ptr<DeleteCustomLineRequest> request);
   DeleteResolverEndpointResponse deleteResolverEndpointWithOptions(shared_ptr<DeleteResolverEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteResolverEndpointResponse deleteResolverEndpoint(shared_ptr<DeleteResolverEndpointRequest> request);
   DeleteResolverRuleResponse deleteResolverRuleWithOptions(shared_ptr<DeleteResolverRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9453,6 +11159,10 @@ public:
   DeleteZoneRecordResponse deleteZoneRecord(shared_ptr<DeleteZoneRecordRequest> request);
   DescribeChangeLogsResponse describeChangeLogsWithOptions(shared_ptr<DescribeChangeLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeChangeLogsResponse describeChangeLogs(shared_ptr<DescribeChangeLogsRequest> request);
+  DescribeCustomLineInfoResponse describeCustomLineInfoWithOptions(shared_ptr<DescribeCustomLineInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCustomLineInfoResponse describeCustomLineInfo(shared_ptr<DescribeCustomLineInfoRequest> request);
+  DescribeCustomLinesResponse describeCustomLinesWithOptions(shared_ptr<DescribeCustomLinesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCustomLinesResponse describeCustomLines(shared_ptr<DescribeCustomLinesRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DescribeRequestGraphResponse describeRequestGraphWithOptions(shared_ptr<DescribeRequestGraphRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9477,6 +11187,8 @@ public:
   DescribeUserVpcAuthorizationsResponse describeUserVpcAuthorizations(shared_ptr<DescribeUserVpcAuthorizationsRequest> request);
   DescribeZoneInfoResponse describeZoneInfoWithOptions(shared_ptr<DescribeZoneInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeZoneInfoResponse describeZoneInfo(shared_ptr<DescribeZoneInfoRequest> request);
+  DescribeZoneRecordResponse describeZoneRecordWithOptions(shared_ptr<DescribeZoneRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeZoneRecordResponse describeZoneRecord(shared_ptr<DescribeZoneRecordRequest> request);
   DescribeZoneRecordsResponse describeZoneRecordsWithOptions(shared_ptr<DescribeZoneRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeZoneRecordsResponse describeZoneRecords(shared_ptr<DescribeZoneRecordsRequest> request);
   DescribeZoneVpcTreeResponse describeZoneVpcTreeWithOptions(shared_ptr<DescribeZoneVpcTreeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9487,6 +11199,8 @@ public:
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   MoveResourceGroupResponse moveResourceGroupWithOptions(shared_ptr<MoveResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   MoveResourceGroupResponse moveResourceGroup(shared_ptr<MoveResourceGroupRequest> request);
+  SearchCustomLinesResponse searchCustomLinesWithOptions(shared_ptr<SearchCustomLinesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SearchCustomLinesResponse searchCustomLines(shared_ptr<SearchCustomLinesRequest> request);
   SetProxyPatternResponse setProxyPatternWithOptions(shared_ptr<SetProxyPatternRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetProxyPatternResponse setProxyPattern(shared_ptr<SetProxyPatternRequest> request);
   SetZoneRecordStatusResponse setZoneRecordStatusWithOptions(shared_ptr<SetZoneRecordStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9495,6 +11209,8 @@ public:
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
+  UpdateCustomLineResponse updateCustomLineWithOptions(shared_ptr<UpdateCustomLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateCustomLineResponse updateCustomLine(shared_ptr<UpdateCustomLineRequest> request);
   UpdateRecordRemarkResponse updateRecordRemarkWithOptions(shared_ptr<UpdateRecordRemarkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateRecordRemarkResponse updateRecordRemark(shared_ptr<UpdateRecordRemarkRequest> request);
   UpdateResolverEndpointResponse updateResolverEndpointWithOptions(shared_ptr<UpdateResolverEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
