@@ -4492,6 +4492,7 @@ public:
 class CreatePdnsUdpIpSegmentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ip{};
+  shared_ptr<string> ipToken{};
   shared_ptr<string> lang{};
   shared_ptr<string> name{};
 
@@ -4508,6 +4509,9 @@ public:
     if (ip) {
       res["Ip"] = boost::any(*ip);
     }
+    if (ipToken) {
+      res["IpToken"] = boost::any(*ipToken);
+    }
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
@@ -4520,6 +4524,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
       ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("IpToken") != m.end() && !m["IpToken"].empty()) {
+      ipToken = make_shared<string>(boost::any_cast<string>(m["IpToken"]));
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
@@ -52181,6 +52188,7 @@ public:
 class ValidatePdnsUdpIpSegmentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ip{};
+  shared_ptr<string> ipToken{};
   shared_ptr<string> lang{};
 
   ValidatePdnsUdpIpSegmentRequest() {}
@@ -52196,6 +52204,9 @@ public:
     if (ip) {
       res["Ip"] = boost::any(*ip);
     }
+    if (ipToken) {
+      res["IpToken"] = boost::any(*ipToken);
+    }
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
@@ -52205,6 +52216,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
       ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("IpToken") != m.end() && !m["IpToken"].empty()) {
+      ipToken = make_shared<string>(boost::any_cast<string>(m["IpToken"]));
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));

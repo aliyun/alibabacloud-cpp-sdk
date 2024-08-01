@@ -1071,6 +1071,9 @@ CreatePdnsUdpIpSegmentResponse Alibabacloud_Alidns20150109::Client::createPdnsUd
   if (!Darabonba_Util::Client::isUnset<string>(request->ip)) {
     query->insert(pair<string, string>("Ip", *request->ip));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipToken)) {
+    query->insert(pair<string, string>("IpToken", *request->ipToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
@@ -8306,6 +8309,9 @@ ValidatePdnsUdpIpSegmentResponse Alibabacloud_Alidns20150109::Client::validatePd
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->ip)) {
     query->insert(pair<string, string>("Ip", *request->ip));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipToken)) {
+    query->insert(pair<string, string>("IpToken", *request->ipToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
