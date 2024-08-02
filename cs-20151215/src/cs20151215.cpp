@@ -4829,9 +4829,27 @@ UpdateClusterAuditLogConfigResponse Alibabacloud_CS20151215::Client::updateClust
   return updateClusterAuditLogConfigWithOptions(clusterid, request, headers, runtime);
 }
 
-UpdateContactGroupForAlertResponse Alibabacloud_CS20151215::Client::updateContactGroupForAlertWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+UpdateContactGroupForAlertResponse Alibabacloud_CS20151215::Client::updateContactGroupForAlertWithOptions(shared_ptr<string> ClusterId,
+                                                                                                          shared_ptr<UpdateContactGroupForAlertRequest> request,
+                                                                                                          shared_ptr<map<string, string>> headers,
+                                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertRuleGroupName)) {
+    body->insert(pair<string, string>("alert_rule_group_name", *request->alertRuleGroupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->contactGroupIds)) {
+    body->insert(pair<string, vector<long>>("contact_group_ids", *request->contactGroupIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->crName)) {
+    body->insert(pair<string, string>("cr_name", *request->crName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    body->insert(pair<string, string>("namespace_", *request->namespace_));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateContactGroupForAlert"))},
@@ -4842,15 +4860,15 @@ UpdateContactGroupForAlertResponse Alibabacloud_CS20151215::Client::updateContac
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
+    {"bodyType", boost::any(string("json"))}
   }));
   return UpdateContactGroupForAlertResponse(callApi(params, req, runtime));
 }
 
-UpdateContactGroupForAlertResponse Alibabacloud_CS20151215::Client::updateContactGroupForAlert(shared_ptr<string> ClusterId) {
+UpdateContactGroupForAlertResponse Alibabacloud_CS20151215::Client::updateContactGroupForAlert(shared_ptr<string> ClusterId, shared_ptr<UpdateContactGroupForAlertRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateContactGroupForAlertWithOptions(ClusterId, headers, runtime);
+  return updateContactGroupForAlertWithOptions(ClusterId, request, headers, runtime);
 }
 
 UpdateControlPlaneLogResponse Alibabacloud_CS20151215::Client::updateControlPlaneLogWithOptions(shared_ptr<string> ClusterId,

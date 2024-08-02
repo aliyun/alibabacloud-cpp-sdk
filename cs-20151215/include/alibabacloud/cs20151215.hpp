@@ -6493,15 +6493,15 @@ public:
 
   virtual ~DeleteAlertContactShrinkRequest() = default;
 };
-class DeleteAlertContactResponseBodyBody : public Darabonba::Model {
+class DeleteAlertContactResponseBody : public Darabonba::Model {
 public:
   shared_ptr<bool> status{};
   shared_ptr<string> msg{};
   shared_ptr<string> contactId{};
 
-  DeleteAlertContactResponseBodyBody() {}
+  DeleteAlertContactResponseBody() {}
 
-  explicit DeleteAlertContactResponseBodyBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit DeleteAlertContactResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -6534,56 +6534,13 @@ public:
   }
 
 
-  virtual ~DeleteAlertContactResponseBodyBody() = default;
-};
-class DeleteAlertContactResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<vector<DeleteAlertContactResponseBodyBody>> body{};
-
-  DeleteAlertContactResponseBody() {}
-
-  explicit DeleteAlertContactResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (body) {
-      vector<boost::any> temp1;
-      for(auto item1:*body){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["body"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(vector<boost::any>) == m["body"].type()) {
-        vector<DeleteAlertContactResponseBodyBody> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["body"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DeleteAlertContactResponseBodyBody model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        body = make_shared<vector<DeleteAlertContactResponseBodyBody>>(expect1);
-      }
-    }
-  }
-
-
   virtual ~DeleteAlertContactResponseBody() = default;
 };
 class DeleteAlertContactResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
   shared_ptr<long> statusCode{};
-  shared_ptr<DeleteAlertContactResponseBody> body{};
+  shared_ptr<vector<DeleteAlertContactResponseBody>> body{};
 
   DeleteAlertContactResponse() {}
 
@@ -6602,7 +6559,11 @@ public:
       res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*body){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["body"] = boost::any(temp1);
     }
     return res;
   }
@@ -6620,10 +6581,16 @@ public:
       statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        DeleteAlertContactResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<DeleteAlertContactResponseBody>(model1);
+      if (typeid(vector<boost::any>) == m["body"].type()) {
+        vector<DeleteAlertContactResponseBody> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["body"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DeleteAlertContactResponseBody model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        body = make_shared<vector<DeleteAlertContactResponseBody>>(expect1);
       }
     }
   }
@@ -28520,10 +28487,104 @@ public:
 
   virtual ~UpdateClusterAuditLogConfigResponse() = default;
 };
+class UpdateContactGroupForAlertRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> alertRuleGroupName{};
+  shared_ptr<vector<long>> contactGroupIds{};
+  shared_ptr<string> crName{};
+  shared_ptr<string> namespace_{};
+
+  UpdateContactGroupForAlertRequest() {}
+
+  explicit UpdateContactGroupForAlertRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertRuleGroupName) {
+      res["alert_rule_group_name"] = boost::any(*alertRuleGroupName);
+    }
+    if (contactGroupIds) {
+      res["contact_group_ids"] = boost::any(*contactGroupIds);
+    }
+    if (crName) {
+      res["cr_name"] = boost::any(*crName);
+    }
+    if (namespace_) {
+      res["namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("alert_rule_group_name") != m.end() && !m["alert_rule_group_name"].empty()) {
+      alertRuleGroupName = make_shared<string>(boost::any_cast<string>(m["alert_rule_group_name"]));
+    }
+    if (m.find("contact_group_ids") != m.end() && !m["contact_group_ids"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["contact_group_ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["contact_group_ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      contactGroupIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("cr_name") != m.end() && !m["cr_name"].empty()) {
+      crName = make_shared<string>(boost::any_cast<string>(m["cr_name"]));
+    }
+    if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
+    }
+  }
+
+
+  virtual ~UpdateContactGroupForAlertRequest() = default;
+};
+class UpdateContactGroupForAlertResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> msg{};
+  shared_ptr<bool> status{};
+
+  UpdateContactGroupForAlertResponseBody() {}
+
+  explicit UpdateContactGroupForAlertResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (msg) {
+      res["msg"] = boost::any(*msg);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("msg") != m.end() && !m["msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["msg"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<bool>(boost::any_cast<bool>(m["status"]));
+    }
+  }
+
+
+  virtual ~UpdateContactGroupForAlertResponseBody() = default;
+};
 class UpdateContactGroupForAlertResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
   shared_ptr<long> statusCode{};
+  shared_ptr<UpdateContactGroupForAlertResponseBody> body{};
 
   UpdateContactGroupForAlertResponse() {}
 
@@ -28541,6 +28602,9 @@ public:
     if (statusCode) {
       res["statusCode"] = boost::any(*statusCode);
     }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -28555,6 +28619,13 @@ public:
     }
     if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
       statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateContactGroupForAlertResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateContactGroupForAlertResponseBody>(model1);
+      }
     }
   }
 
@@ -30262,8 +30333,11 @@ public:
                                                                              shared_ptr<map<string, string>> headers,
                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateClusterAuditLogConfigResponse updateClusterAuditLogConfig(shared_ptr<string> clusterid, shared_ptr<UpdateClusterAuditLogConfigRequest> request);
-  UpdateContactGroupForAlertResponse updateContactGroupForAlertWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateContactGroupForAlertResponse updateContactGroupForAlert(shared_ptr<string> ClusterId);
+  UpdateContactGroupForAlertResponse updateContactGroupForAlertWithOptions(shared_ptr<string> ClusterId,
+                                                                           shared_ptr<UpdateContactGroupForAlertRequest> request,
+                                                                           shared_ptr<map<string, string>> headers,
+                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateContactGroupForAlertResponse updateContactGroupForAlert(shared_ptr<string> ClusterId, shared_ptr<UpdateContactGroupForAlertRequest> request);
   UpdateControlPlaneLogResponse updateControlPlaneLogWithOptions(shared_ptr<string> ClusterId,
                                                                  shared_ptr<UpdateControlPlaneLogRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
