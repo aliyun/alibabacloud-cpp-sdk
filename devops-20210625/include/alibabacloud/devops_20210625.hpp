@@ -20516,6 +20516,7 @@ public:
   shared_ptr<long> priority{};
   shared_ptr<string> productId{};
   shared_ptr<string> projectId{};
+  shared_ptr<long> serialNumber{};
   shared_ptr<string> source{};
   shared_ptr<string> sprintId{};
   shared_ptr<long> stage{};
@@ -20599,6 +20600,9 @@ public:
     }
     if (projectId) {
       res["projectId"] = boost::any(*projectId);
+    }
+    if (serialNumber) {
+      res["serialNumber"] = boost::any(*serialNumber);
     }
     if (source) {
       res["source"] = boost::any(*source);
@@ -20700,6 +20704,9 @@ public:
     }
     if (m.find("projectId") != m.end() && !m["projectId"].empty()) {
       projectId = make_shared<string>(boost::any_cast<string>(m["projectId"]));
+    }
+    if (m.find("serialNumber") != m.end() && !m["serialNumber"].empty()) {
+      serialNumber = make_shared<long>(boost::any_cast<long>(m["serialNumber"]));
     }
     if (m.find("source") != m.end() && !m["source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["source"]));
@@ -20939,6 +20946,7 @@ public:
   shared_ptr<string> productId{};
   shared_ptr<string> projectId{};
   shared_ptr<long> reopenNum{};
+  shared_ptr<long> serialNumber{};
   shared_ptr<long> seriousLevel{};
   shared_ptr<string> solution{};
   shared_ptr<string> source{};
@@ -21043,6 +21051,9 @@ public:
     }
     if (reopenNum) {
       res["reopenNum"] = boost::any(*reopenNum);
+    }
+    if (serialNumber) {
+      res["serialNumber"] = boost::any(*serialNumber);
     }
     if (seriousLevel) {
       res["seriousLevel"] = boost::any(*seriousLevel);
@@ -21171,6 +21182,9 @@ public:
     }
     if (m.find("reopenNum") != m.end() && !m["reopenNum"].empty()) {
       reopenNum = make_shared<long>(boost::any_cast<long>(m["reopenNum"]));
+    }
+    if (m.find("serialNumber") != m.end() && !m["serialNumber"].empty()) {
+      serialNumber = make_shared<long>(boost::any_cast<long>(m["serialNumber"]));
     }
     if (m.find("seriousLevel") != m.end() && !m["seriousLevel"].empty()) {
       seriousLevel = make_shared<long>(boost::any_cast<long>(m["seriousLevel"]));
