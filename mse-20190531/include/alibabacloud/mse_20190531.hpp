@@ -7606,6 +7606,7 @@ public:
 class CloneNacosConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> dataIds{};
   shared_ptr<string> ids{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> originNamespaceId{};
@@ -7624,6 +7625,9 @@ public:
     map<string, boost::any> res;
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (dataIds) {
+      res["DataIds"] = boost::any(*dataIds);
     }
     if (ids) {
       res["Ids"] = boost::any(*ids);
@@ -7646,6 +7650,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("DataIds") != m.end() && !m["DataIds"].empty()) {
+      dataIds = make_shared<string>(boost::any_cast<string>(m["DataIds"]));
     }
     if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
       ids = make_shared<string>(boost::any_cast<string>(m["Ids"]));
@@ -7671,6 +7678,7 @@ class CloneNacosConfigResponseBodyDataFailData : public Darabonba::Model {
 public:
   shared_ptr<string> dataId{};
   shared_ptr<string> group{};
+  shared_ptr<string> reason{};
 
   CloneNacosConfigResponseBodyDataFailData() {}
 
@@ -7688,6 +7696,9 @@ public:
     if (group) {
       res["Group"] = boost::any(*group);
     }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
     return res;
   }
 
@@ -7697,6 +7708,9 @@ public:
     }
     if (m.find("Group") != m.end() && !m["Group"].empty()) {
       group = make_shared<string>(boost::any_cast<string>(m["Group"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
     }
   }
 
@@ -20467,6 +20481,541 @@ public:
 
 
   virtual ~FetchLosslessRuleListResponse() = default;
+};
+class GatewayBlackWhiteListRequestFilterParams : public Darabonba::Model {
+public:
+  shared_ptr<long> gatewayId{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<bool> isWhite{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> searchContent{};
+  shared_ptr<string> searchType{};
+  shared_ptr<string> type{};
+
+  GatewayBlackWhiteListRequestFilterParams() {}
+
+  explicit GatewayBlackWhiteListRequestFilterParams(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (isWhite) {
+      res["IsWhite"] = boost::any(*isWhite);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (searchContent) {
+      res["SearchContent"] = boost::any(*searchContent);
+    }
+    if (searchType) {
+      res["SearchType"] = boost::any(*searchType);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<long>(boost::any_cast<long>(m["GatewayId"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("IsWhite") != m.end() && !m["IsWhite"].empty()) {
+      isWhite = make_shared<bool>(boost::any_cast<bool>(m["IsWhite"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("SearchContent") != m.end() && !m["SearchContent"].empty()) {
+      searchContent = make_shared<string>(boost::any_cast<string>(m["SearchContent"]));
+    }
+    if (m.find("SearchType") != m.end() && !m["SearchType"].empty()) {
+      searchType = make_shared<string>(boost::any_cast<string>(m["SearchType"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GatewayBlackWhiteListRequestFilterParams() = default;
+};
+class GatewayBlackWhiteListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<bool> descSort{};
+  shared_ptr<GatewayBlackWhiteListRequestFilterParams> filterParams{};
+  shared_ptr<string> orderItem{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  GatewayBlackWhiteListRequest() {}
+
+  explicit GatewayBlackWhiteListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (descSort) {
+      res["DescSort"] = boost::any(*descSort);
+    }
+    if (filterParams) {
+      res["FilterParams"] = filterParams ? boost::any(filterParams->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (orderItem) {
+      res["OrderItem"] = boost::any(*orderItem);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("DescSort") != m.end() && !m["DescSort"].empty()) {
+      descSort = make_shared<bool>(boost::any_cast<bool>(m["DescSort"]));
+    }
+    if (m.find("FilterParams") != m.end() && !m["FilterParams"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FilterParams"].type()) {
+        GatewayBlackWhiteListRequestFilterParams model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FilterParams"]));
+        filterParams = make_shared<GatewayBlackWhiteListRequestFilterParams>(model1);
+      }
+    }
+    if (m.find("OrderItem") != m.end() && !m["OrderItem"].empty()) {
+      orderItem = make_shared<string>(boost::any_cast<string>(m["OrderItem"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~GatewayBlackWhiteListRequest() = default;
+};
+class GatewayBlackWhiteListShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<bool> descSort{};
+  shared_ptr<string> filterParamsShrink{};
+  shared_ptr<string> orderItem{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  GatewayBlackWhiteListShrinkRequest() {}
+
+  explicit GatewayBlackWhiteListShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (descSort) {
+      res["DescSort"] = boost::any(*descSort);
+    }
+    if (filterParamsShrink) {
+      res["FilterParams"] = boost::any(*filterParamsShrink);
+    }
+    if (orderItem) {
+      res["OrderItem"] = boost::any(*orderItem);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("DescSort") != m.end() && !m["DescSort"].empty()) {
+      descSort = make_shared<bool>(boost::any_cast<bool>(m["DescSort"]));
+    }
+    if (m.find("FilterParams") != m.end() && !m["FilterParams"].empty()) {
+      filterParamsShrink = make_shared<string>(boost::any_cast<string>(m["FilterParams"]));
+    }
+    if (m.find("OrderItem") != m.end() && !m["OrderItem"].empty()) {
+      orderItem = make_shared<string>(boost::any_cast<string>(m["OrderItem"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~GatewayBlackWhiteListShrinkRequest() = default;
+};
+class GatewayBlackWhiteListResponseBodyDataResult : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<long> gatewayId{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<long> id{};
+  shared_ptr<bool> isWhite{};
+  shared_ptr<string> name{};
+  shared_ptr<string> note{};
+  shared_ptr<long> resourceId{};
+  shared_ptr<string> resourceIdJsonList{};
+  shared_ptr<string> resourceIdNameJson{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> status{};
+  shared_ptr<string> type{};
+
+  GatewayBlackWhiteListResponseBodyDataResult() {}
+
+  explicit GatewayBlackWhiteListResponseBodyDataResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (gatewayId) {
+      res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (isWhite) {
+      res["IsWhite"] = boost::any(*isWhite);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (note) {
+      res["Note"] = boost::any(*note);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceIdJsonList) {
+      res["ResourceIdJsonList"] = boost::any(*resourceIdJsonList);
+    }
+    if (resourceIdNameJson) {
+      res["ResourceIdNameJson"] = boost::any(*resourceIdNameJson);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
+      gatewayId = make_shared<long>(boost::any_cast<long>(m["GatewayId"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IsWhite") != m.end() && !m["IsWhite"].empty()) {
+      isWhite = make_shared<bool>(boost::any_cast<bool>(m["IsWhite"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Note") != m.end() && !m["Note"].empty()) {
+      note = make_shared<string>(boost::any_cast<string>(m["Note"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<long>(boost::any_cast<long>(m["ResourceId"]));
+    }
+    if (m.find("ResourceIdJsonList") != m.end() && !m["ResourceIdJsonList"].empty()) {
+      resourceIdJsonList = make_shared<string>(boost::any_cast<string>(m["ResourceIdJsonList"]));
+    }
+    if (m.find("ResourceIdNameJson") != m.end() && !m["ResourceIdNameJson"].empty()) {
+      resourceIdNameJson = make_shared<string>(boost::any_cast<string>(m["ResourceIdNameJson"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GatewayBlackWhiteListResponseBodyDataResult() = default;
+};
+class GatewayBlackWhiteListResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<GatewayBlackWhiteListResponseBodyDataResult>> result{};
+  shared_ptr<long> totalSize{};
+
+  GatewayBlackWhiteListResponseBodyData() {}
+
+  explicit GatewayBlackWhiteListResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Result"] = boost::any(temp1);
+    }
+    if (totalSize) {
+      res["TotalSize"] = boost::any(*totalSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(vector<boost::any>) == m["Result"].type()) {
+        vector<GatewayBlackWhiteListResponseBodyDataResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GatewayBlackWhiteListResponseBodyDataResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<GatewayBlackWhiteListResponseBodyDataResult>>(expect1);
+      }
+    }
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
+    }
+  }
+
+
+  virtual ~GatewayBlackWhiteListResponseBodyData() = default;
+};
+class GatewayBlackWhiteListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<GatewayBlackWhiteListResponseBodyData> data{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GatewayBlackWhiteListResponseBody() {}
+
+  explicit GatewayBlackWhiteListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GatewayBlackWhiteListResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GatewayBlackWhiteListResponseBodyData>(model1);
+      }
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GatewayBlackWhiteListResponseBody() = default;
+};
+class GatewayBlackWhiteListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GatewayBlackWhiteListResponseBody> body{};
+
+  GatewayBlackWhiteListResponse() {}
+
+  explicit GatewayBlackWhiteListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GatewayBlackWhiteListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GatewayBlackWhiteListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GatewayBlackWhiteListResponse() = default;
 };
 class GetAppMessageQueueRouteRequest : public Darabonba::Model {
 public:
@@ -71974,6 +72523,8 @@ public:
   ExportZookeeperDataResponse exportZookeeperData(shared_ptr<ExportZookeeperDataRequest> request);
   FetchLosslessRuleListResponse fetchLosslessRuleListWithOptions(shared_ptr<FetchLosslessRuleListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FetchLosslessRuleListResponse fetchLosslessRuleList(shared_ptr<FetchLosslessRuleListRequest> request);
+  GatewayBlackWhiteListResponse gatewayBlackWhiteListWithOptions(shared_ptr<GatewayBlackWhiteListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GatewayBlackWhiteListResponse gatewayBlackWhiteList(shared_ptr<GatewayBlackWhiteListRequest> request);
   GetAppMessageQueueRouteResponse getAppMessageQueueRouteWithOptions(shared_ptr<GetAppMessageQueueRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAppMessageQueueRouteResponse getAppMessageQueueRoute(shared_ptr<GetAppMessageQueueRouteRequest> request);
   GetApplicationInstanceListResponse getApplicationInstanceListWithOptions(shared_ptr<GetApplicationInstanceListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

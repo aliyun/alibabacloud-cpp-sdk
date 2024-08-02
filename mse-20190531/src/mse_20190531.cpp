@@ -1120,6 +1120,9 @@ CloneNacosConfigResponse Alibabacloud_Mse20190531::Client::cloneNacosConfigWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataIds)) {
+    query->insert(pair<string, string>("DataIds", *request->dataIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ids)) {
     query->insert(pair<string, string>("Ids", *request->ids));
   }
@@ -3500,6 +3503,54 @@ FetchLosslessRuleListResponse Alibabacloud_Mse20190531::Client::fetchLosslessRul
 FetchLosslessRuleListResponse Alibabacloud_Mse20190531::Client::fetchLosslessRuleList(shared_ptr<FetchLosslessRuleListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return fetchLosslessRuleListWithOptions(request, runtime);
+}
+
+GatewayBlackWhiteListResponse Alibabacloud_Mse20190531::Client::gatewayBlackWhiteListWithOptions(shared_ptr<GatewayBlackWhiteListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GatewayBlackWhiteListShrinkRequest> request = make_shared<GatewayBlackWhiteListShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<GatewayBlackWhiteListRequestFilterParams>(tmpReq->filterParams)) {
+    request->filterParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filterParams, make_shared<string>("FilterParams"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->descSort)) {
+    query->insert(pair<string, bool>("DescSort", *request->descSort));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterParamsShrink)) {
+    query->insert(pair<string, string>("FilterParams", *request->filterParamsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderItem)) {
+    query->insert(pair<string, string>("OrderItem", *request->orderItem));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GatewayBlackWhiteList"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GatewayBlackWhiteListResponse(callApi(params, req, runtime));
+}
+
+GatewayBlackWhiteListResponse Alibabacloud_Mse20190531::Client::gatewayBlackWhiteList(shared_ptr<GatewayBlackWhiteListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return gatewayBlackWhiteListWithOptions(request, runtime);
 }
 
 GetAppMessageQueueRouteResponse Alibabacloud_Mse20190531::Client::getAppMessageQueueRouteWithOptions(shared_ptr<GetAppMessageQueueRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
