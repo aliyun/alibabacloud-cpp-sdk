@@ -12022,6 +12022,7 @@ class UpgradePrePayOrderResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> code{};
   shared_ptr<string> message{};
+  shared_ptr<string> orderId{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -12041,6 +12042,9 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -12056,6 +12060,9 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
