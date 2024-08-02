@@ -8866,6 +8866,7 @@ public:
 };
 class ListRegionsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> bizSource{};
   shared_ptr<string> productType{};
 
   ListRegionsRequest() {}
@@ -8878,6 +8879,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bizSource) {
+      res["BizSource"] = boost::any(*bizSource);
+    }
     if (productType) {
       res["ProductType"] = boost::any(*productType);
     }
@@ -8885,6 +8889,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizSource") != m.end() && !m["BizSource"].empty()) {
+      bizSource = make_shared<string>(boost::any_cast<string>(m["BizSource"]));
+    }
     if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
       productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
     }

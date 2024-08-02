@@ -235,15 +235,17 @@ AuthorizeInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::au
   if (!Darabonba_Util::Client::isUnset<string>(request->appInstanceGroupId)) {
     body->insert(pair<string, string>("AppInstanceGroupId", *request->appInstanceGroupId));
   }
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->authorizeUserIds)) {
-    body->insert(pair<string, vector<string>>("AuthorizeUserIds", *request->authorizeUserIds));
+    bodyFlat->insert(pair<string, vector<string>>("AuthorizeUserIds", *request->authorizeUserIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->productType)) {
     body->insert(pair<string, string>("ProductType", *request->productType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->unAuthorizeUserIds)) {
-    body->insert(pair<string, vector<string>>("UnAuthorizeUserIds", *request->unAuthorizeUserIds));
+    bodyFlat->insert(pair<string, vector<string>>("UnAuthorizeUserIds", *request->unAuthorizeUserIds));
   }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -1306,6 +1308,9 @@ ListProjectsResponse Alibabacloud_Appstream-center20210901::Client::listProjects
 ListRegionsResponse Alibabacloud_Appstream-center20210901::Client::listRegionsWithOptions(shared_ptr<ListRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizSource)) {
+    query->insert(pair<string, string>("BizSource", *request->bizSource));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->productType)) {
     query->insert(pair<string, string>("ProductType", *request->productType));
   }
