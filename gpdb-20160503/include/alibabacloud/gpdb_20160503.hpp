@@ -819,6 +819,7 @@ public:
   shared_ptr<string> namespacePassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   CancelUpsertCollectionDataJobRequest() {}
 
@@ -851,6 +852,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -875,6 +879,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -1690,6 +1697,7 @@ public:
   shared_ptr<string> parser{};
   shared_ptr<long> pqEnable{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   CreateCollectionRequest() {}
 
@@ -1746,6 +1754,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -1794,6 +1805,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -3562,6 +3576,7 @@ public:
   shared_ptr<string> namespacePassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   CreateNamespaceRequest() {}
 
@@ -3594,6 +3609,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -3618,6 +3636,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -5142,6 +5163,7 @@ public:
   shared_ptr<string> namespacePassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   DeleteCollectionRequest() {}
 
@@ -5171,6 +5193,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -5192,6 +5217,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -5303,6 +5331,7 @@ public:
   shared_ptr<string> namespacePassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   DeleteCollectionDataRequest() {}
 
@@ -5338,6 +5367,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -5365,6 +5397,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -6716,6 +6751,7 @@ public:
   shared_ptr<string> namespace_{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   DeleteNamespaceRequest() {}
 
@@ -6745,6 +6781,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -6766,6 +6805,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -8669,6 +8711,7 @@ public:
   shared_ptr<string> namespacePassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   DescribeCollectionRequest() {}
 
@@ -8698,6 +8741,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -8719,6 +8765,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -19361,6 +19410,7 @@ public:
   shared_ptr<string> namespace_{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   DescribeNamespaceRequest() {}
 
@@ -19390,6 +19440,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -19411,6 +19464,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -25839,6 +25895,7 @@ public:
   shared_ptr<string> namespacePassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   GetUpsertCollectionDataJobRequest() {}
 
@@ -25871,6 +25928,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -25895,6 +25955,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -26460,6 +26523,7 @@ public:
   shared_ptr<string> managerAccountPassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   InitVectorDatabaseRequest() {}
 
@@ -26486,6 +26550,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -26504,6 +26571,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -26612,6 +26682,7 @@ public:
   shared_ptr<string> namespacePassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   ListCollectionsRequest() {}
 
@@ -26638,6 +26709,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -26656,6 +26730,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -28387,6 +28464,7 @@ public:
   shared_ptr<string> managerAccountPassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   ListNamespacesRequest() {}
 
@@ -28413,6 +28491,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -28431,6 +28512,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -34029,6 +34113,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<long> topK{};
   shared_ptr<vector<double>> vector{};
+  shared_ptr<string> workspaceId{};
 
   QueryCollectionDataRequest() {}
 
@@ -34090,6 +34175,9 @@ public:
     }
     if (vector) {
       res["Vector"] = boost::any(*vector);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
     }
     return res;
   }
@@ -34163,6 +34251,9 @@ public:
       }
       vector = make_shared<vector<double>>(toVec1);
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -34187,6 +34278,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<long> topK{};
   shared_ptr<string> vectorShrink{};
+  shared_ptr<string> workspaceId{};
 
   QueryCollectionDataShrinkRequest() {}
 
@@ -34249,6 +34341,9 @@ public:
     if (vectorShrink) {
       res["Vector"] = boost::any(*vectorShrink);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -34303,6 +34398,9 @@ public:
     }
     if (m.find("Vector") != m.end() && !m["Vector"].empty()) {
       vectorShrink = make_shared<string>(boost::any_cast<string>(m["Vector"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -37684,6 +37782,7 @@ public:
   shared_ptr<string> namespacePassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   UpdateCollectionDataMetadataRequest() {}
 
@@ -37721,6 +37820,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
     }
     return res;
   }
@@ -37765,6 +37867,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -37781,6 +37886,7 @@ public:
   shared_ptr<string> namespacePassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   UpdateCollectionDataMetadataShrinkRequest() {}
 
@@ -37819,6 +37925,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -37849,6 +37958,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -39561,6 +39673,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<UpsertCollectionDataRequestRows>> rows{};
+  shared_ptr<string> workspaceId{};
 
   UpsertCollectionDataRequest() {}
 
@@ -39597,6 +39710,9 @@ public:
       }
       res["Rows"] = boost::any(temp1);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -39632,6 +39748,9 @@ public:
         rows = make_shared<vector<UpsertCollectionDataRequestRows>>(expect1);
       }
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -39646,6 +39765,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> rowsShrink{};
+  shared_ptr<string> workspaceId{};
 
   UpsertCollectionDataShrinkRequest() {}
 
@@ -39678,6 +39798,9 @@ public:
     if (rowsShrink) {
       res["Rows"] = boost::any(*rowsShrink);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -39702,6 +39825,9 @@ public:
     }
     if (m.find("Rows") != m.end() && !m["Rows"].empty()) {
       rowsShrink = make_shared<string>(boost::any_cast<string>(m["Rows"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
@@ -39812,6 +39938,7 @@ public:
   shared_ptr<string> namespacePassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   UpsertCollectionDataAsyncRequest() {}
 
@@ -39844,6 +39971,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -39869,6 +39999,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
   }
 
 
@@ -39883,6 +40016,7 @@ public:
   shared_ptr<string> namespacePassword{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> workspaceId{};
 
   UpsertCollectionDataAsyncAdvanceRequest() {}
 
@@ -39915,6 +40049,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
     return res;
   }
 
@@ -39939,6 +40076,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
   }
 
