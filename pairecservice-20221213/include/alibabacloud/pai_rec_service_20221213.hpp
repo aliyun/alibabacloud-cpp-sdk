@@ -9309,6 +9309,35 @@ public:
 
   virtual ~GetInstanceResponseBodyConfig() = default;
 };
+class GetInstanceResponseBodyOperatingTool : public Darabonba::Model {
+public:
+  shared_ptr<bool> isEnable{};
+
+  GetInstanceResponseBodyOperatingTool() {}
+
+  explicit GetInstanceResponseBodyOperatingTool(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isEnable) {
+      res["IsEnable"] = boost::any(*isEnable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsEnable") != m.end() && !m["IsEnable"].empty()) {
+      isEnable = make_shared<bool>(boost::any_cast<bool>(m["IsEnable"]));
+    }
+  }
+
+
+  virtual ~GetInstanceResponseBodyOperatingTool() = default;
+};
 class GetInstanceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> chargeType{};
@@ -9318,6 +9347,7 @@ public:
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<string> instanceId{};
+  shared_ptr<GetInstanceResponseBodyOperatingTool> operatingTool{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
@@ -9353,6 +9383,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (operatingTool) {
+      res["OperatingTool"] = operatingTool ? boost::any(operatingTool->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -9394,6 +9427,13 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OperatingTool") != m.end() && !m["OperatingTool"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OperatingTool"].type()) {
+        GetInstanceResponseBodyOperatingTool model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OperatingTool"]));
+        operatingTool = make_shared<GetInstanceResponseBodyOperatingTool>(model1);
+      }
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -15848,6 +15888,35 @@ public:
 
   virtual ~ListInstancesResponseBodyInstancesConfig() = default;
 };
+class ListInstancesResponseBodyInstancesOperatingTool : public Darabonba::Model {
+public:
+  shared_ptr<bool> isEnable{};
+
+  ListInstancesResponseBodyInstancesOperatingTool() {}
+
+  explicit ListInstancesResponseBodyInstancesOperatingTool(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isEnable) {
+      res["IsEnable"] = boost::any(*isEnable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsEnable") != m.end() && !m["IsEnable"].empty()) {
+      isEnable = make_shared<bool>(boost::any_cast<bool>(m["IsEnable"]));
+    }
+  }
+
+
+  virtual ~ListInstancesResponseBodyInstancesOperatingTool() = default;
+};
 class ListInstancesResponseBodyInstances : public Darabonba::Model {
 public:
   shared_ptr<string> chargeType{};
@@ -15857,6 +15926,7 @@ public:
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<string> instanceId{};
+  shared_ptr<ListInstancesResponseBodyInstancesOperatingTool> operatingTool{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
   shared_ptr<string> type{};
@@ -15891,6 +15961,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (operatingTool) {
+      res["OperatingTool"] = operatingTool ? boost::any(operatingTool->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -15929,6 +16002,13 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OperatingTool") != m.end() && !m["OperatingTool"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OperatingTool"].type()) {
+        ListInstancesResponseBodyInstancesOperatingTool model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OperatingTool"]));
+        operatingTool = make_shared<ListInstancesResponseBodyInstancesOperatingTool>(model1);
+      }
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
