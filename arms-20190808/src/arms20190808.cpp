@@ -327,42 +327,6 @@ AddPrometheusIntegrationResponse Alibabacloud_ARMS20190808::Client::addPrometheu
   return addPrometheusIntegrationWithOptions(request, runtime);
 }
 
-AddPrometheusRemoteWriteResponse Alibabacloud_ARMS20190808::Client::addPrometheusRemoteWriteWithOptions(shared_ptr<AddPrometheusRemoteWriteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
-    query->insert(pair<string, string>("ClusterId", *request->clusterId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->remoteWriteYaml)) {
-    body->insert(pair<string, string>("RemoteWriteYaml", *request->remoteWriteYaml));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("AddPrometheusRemoteWrite"))},
-    {"version", boost::any(string("2019-08-08"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return AddPrometheusRemoteWriteResponse(callApi(params, req, runtime));
-}
-
-AddPrometheusRemoteWriteResponse Alibabacloud_ARMS20190808::Client::addPrometheusRemoteWrite(shared_ptr<AddPrometheusRemoteWriteRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return addPrometheusRemoteWriteWithOptions(request, runtime);
-}
-
 AddRecordingRuleResponse Alibabacloud_ARMS20190808::Client::addRecordingRuleWithOptions(shared_ptr<AddRecordingRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3123,40 +3087,6 @@ DeletePrometheusMonitoringResponse Alibabacloud_ARMS20190808::Client::deleteProm
   return deletePrometheusMonitoringWithOptions(request, runtime);
 }
 
-DeletePrometheusRemoteWriteResponse Alibabacloud_ARMS20190808::Client::deletePrometheusRemoteWriteWithOptions(shared_ptr<DeletePrometheusRemoteWriteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
-    query->insert(pair<string, string>("ClusterId", *request->clusterId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->remoteWriteNames)) {
-    query->insert(pair<string, string>("RemoteWriteNames", *request->remoteWriteNames));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DeletePrometheusRemoteWrite"))},
-    {"version", boost::any(string("2019-08-08"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DeletePrometheusRemoteWriteResponse(callApi(params, req, runtime));
-}
-
-DeletePrometheusRemoteWriteResponse Alibabacloud_ARMS20190808::Client::deletePrometheusRemoteWrite(shared_ptr<DeletePrometheusRemoteWriteRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return deletePrometheusRemoteWriteWithOptions(request, runtime);
-}
-
 DeleteRetcodeAppResponse Alibabacloud_ARMS20190808::Client::deleteRetcodeAppWithOptions(shared_ptr<DeleteRetcodeAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4672,40 +4602,6 @@ GetPrometheusMonitoringResponse Alibabacloud_ARMS20190808::Client::getPrometheus
   return getPrometheusMonitoringWithOptions(request, runtime);
 }
 
-GetPrometheusRemoteWriteResponse Alibabacloud_ARMS20190808::Client::getPrometheusRemoteWriteWithOptions(shared_ptr<GetPrometheusRemoteWriteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
-    query->insert(pair<string, string>("ClusterId", *request->clusterId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->remoteWriteName)) {
-    query->insert(pair<string, string>("RemoteWriteName", *request->remoteWriteName));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetPrometheusRemoteWrite"))},
-    {"version", boost::any(string("2019-08-08"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetPrometheusRemoteWriteResponse(callApi(params, req, runtime));
-}
-
-GetPrometheusRemoteWriteResponse Alibabacloud_ARMS20190808::Client::getPrometheusRemoteWrite(shared_ptr<GetPrometheusRemoteWriteRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getPrometheusRemoteWriteWithOptions(request, runtime);
-}
-
 GetRecordingRuleResponse Alibabacloud_ARMS20190808::Client::getRecordingRuleWithOptions(shared_ptr<GetRecordingRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5079,6 +4975,9 @@ GetRumUploadFilesResponse Alibabacloud_ARMS20190808::Client::getRumUploadFilesWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->versionId)) {
+    query->insert(pair<string, string>("VersionId", *request->versionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5904,6 +5803,9 @@ ListAlertsResponse Alibabacloud_ARMS20190808::Client::listAlertsWithOptions(shar
   if (!Darabonba_Util::Client::isUnset<string>(request->integrationType)) {
     query->insert(pair<string, string>("IntegrationType", *request->integrationType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->owner)) {
+    query->insert(pair<string, string>("Owner", *request->owner));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->page)) {
     query->insert(pair<string, long>("Page", *request->page));
   }
@@ -6333,6 +6235,9 @@ ListEnvironmentsResponse Alibabacloud_ARMS20190808::Client::listEnvironmentsWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->feePackage)) {
     query->insert(pair<string, string>("FeePackage", *request->feePackage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterRegionIds)) {
+    query->insert(pair<string, string>("FilterRegionIds", *request->filterRegionIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -6832,37 +6737,6 @@ ListPrometheusMonitoringResponse Alibabacloud_ARMS20190808::Client::listPromethe
 ListPrometheusMonitoringResponse Alibabacloud_ARMS20190808::Client::listPrometheusMonitoring(shared_ptr<ListPrometheusMonitoringRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listPrometheusMonitoringWithOptions(request, runtime);
-}
-
-ListPrometheusRemoteWritesResponse Alibabacloud_ARMS20190808::Client::listPrometheusRemoteWritesWithOptions(shared_ptr<ListPrometheusRemoteWritesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
-    query->insert(pair<string, string>("ClusterId", *request->clusterId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListPrometheusRemoteWrites"))},
-    {"version", boost::any(string("2019-08-08"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListPrometheusRemoteWritesResponse(callApi(params, req, runtime));
-}
-
-ListPrometheusRemoteWritesResponse Alibabacloud_ARMS20190808::Client::listPrometheusRemoteWrites(shared_ptr<ListPrometheusRemoteWritesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listPrometheusRemoteWritesWithOptions(request, runtime);
 }
 
 ListRetcodeAppsResponse Alibabacloud_ARMS20190808::Client::listRetcodeAppsWithOptions(shared_ptr<ListRetcodeAppsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -9397,45 +9271,6 @@ UpdatePrometheusMonitoringStatusResponse Alibabacloud_ARMS20190808::Client::upda
 UpdatePrometheusMonitoringStatusResponse Alibabacloud_ARMS20190808::Client::updatePrometheusMonitoringStatus(shared_ptr<UpdatePrometheusMonitoringStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updatePrometheusMonitoringStatusWithOptions(request, runtime);
-}
-
-UpdatePrometheusRemoteWriteResponse Alibabacloud_ARMS20190808::Client::updatePrometheusRemoteWriteWithOptions(shared_ptr<UpdatePrometheusRemoteWriteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
-    query->insert(pair<string, string>("ClusterId", *request->clusterId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->remoteWriteName)) {
-    query->insert(pair<string, string>("RemoteWriteName", *request->remoteWriteName));
-  }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->remoteWriteYaml)) {
-    body->insert(pair<string, string>("RemoteWriteYaml", *request->remoteWriteYaml));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("UpdatePrometheusRemoteWrite"))},
-    {"version", boost::any(string("2019-08-08"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return UpdatePrometheusRemoteWriteResponse(callApi(params, req, runtime));
-}
-
-UpdatePrometheusRemoteWriteResponse Alibabacloud_ARMS20190808::Client::updatePrometheusRemoteWrite(shared_ptr<UpdatePrometheusRemoteWriteRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return updatePrometheusRemoteWriteWithOptions(request, runtime);
 }
 
 UpdateRumAppResponse Alibabacloud_ARMS20190808::Client::updateRumAppWithOptions(shared_ptr<UpdateRumAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

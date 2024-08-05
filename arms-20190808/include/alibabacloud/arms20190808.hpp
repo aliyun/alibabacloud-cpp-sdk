@@ -3674,158 +3674,6 @@ public:
 
   virtual ~AddPrometheusIntegrationResponse() = default;
 };
-class AddPrometheusRemoteWriteRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> clusterId{};
-  shared_ptr<string> regionId{};
-  shared_ptr<string> remoteWriteYaml{};
-
-  AddPrometheusRemoteWriteRequest() {}
-
-  explicit AddPrometheusRemoteWriteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (clusterId) {
-      res["ClusterId"] = boost::any(*clusterId);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
-    if (remoteWriteYaml) {
-      res["RemoteWriteYaml"] = boost::any(*remoteWriteYaml);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
-      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("RemoteWriteYaml") != m.end() && !m["RemoteWriteYaml"].empty()) {
-      remoteWriteYaml = make_shared<string>(boost::any_cast<string>(m["RemoteWriteYaml"]));
-    }
-  }
-
-
-  virtual ~AddPrometheusRemoteWriteRequest() = default;
-};
-class AddPrometheusRemoteWriteResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<long> code{};
-  shared_ptr<string> data{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  AddPrometheusRemoteWriteResponseBody() {}
-
-  explicit AddPrometheusRemoteWriteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (data) {
-      res["Data"] = boost::any(*data);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~AddPrometheusRemoteWriteResponseBody() = default;
-};
-class AddPrometheusRemoteWriteResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<AddPrometheusRemoteWriteResponseBody> body{};
-
-  AddPrometheusRemoteWriteResponse() {}
-
-  explicit AddPrometheusRemoteWriteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        AddPrometheusRemoteWriteResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<AddPrometheusRemoteWriteResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~AddPrometheusRemoteWriteResponse() = default;
-};
 class AddRecordingRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -20008,158 +19856,6 @@ public:
 
   virtual ~DeletePrometheusMonitoringResponse() = default;
 };
-class DeletePrometheusRemoteWriteRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> clusterId{};
-  shared_ptr<string> regionId{};
-  shared_ptr<string> remoteWriteNames{};
-
-  DeletePrometheusRemoteWriteRequest() {}
-
-  explicit DeletePrometheusRemoteWriteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (clusterId) {
-      res["ClusterId"] = boost::any(*clusterId);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
-    if (remoteWriteNames) {
-      res["RemoteWriteNames"] = boost::any(*remoteWriteNames);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
-      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("RemoteWriteNames") != m.end() && !m["RemoteWriteNames"].empty()) {
-      remoteWriteNames = make_shared<string>(boost::any_cast<string>(m["RemoteWriteNames"]));
-    }
-  }
-
-
-  virtual ~DeletePrometheusRemoteWriteRequest() = default;
-};
-class DeletePrometheusRemoteWriteResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<long> code{};
-  shared_ptr<string> data{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  DeletePrometheusRemoteWriteResponseBody() {}
-
-  explicit DeletePrometheusRemoteWriteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (data) {
-      res["Data"] = boost::any(*data);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~DeletePrometheusRemoteWriteResponseBody() = default;
-};
-class DeletePrometheusRemoteWriteResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<DeletePrometheusRemoteWriteResponseBody> body{};
-
-  DeletePrometheusRemoteWriteResponse() {}
-
-  explicit DeletePrometheusRemoteWriteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        DeletePrometheusRemoteWriteResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<DeletePrometheusRemoteWriteResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~DeletePrometheusRemoteWriteResponse() = default;
-};
 class DeleteRetcodeAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -30820,10 +30516,13 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
+  shared_ptr<string> dbInstanceStatus{};
+  shared_ptr<string> enableAuthToken{};
   shared_ptr<string> grafanaInstanceId{};
   shared_ptr<string> httpApiInterUrl{};
   shared_ptr<string> httpApiIntraUrl{};
   shared_ptr<string> paymentType{};
+  shared_ptr<string> product{};
   shared_ptr<string> pushGatewayInterUrl{};
   shared_ptr<string> pushGatewayIntraUrl{};
   shared_ptr<string> regionId{};
@@ -30836,6 +30535,7 @@ public:
   shared_ptr<string> securityGroupId{};
   shared_ptr<long> storageDuration{};
   shared_ptr<string> subClustersJson{};
+  shared_ptr<vector<string>> surpportAuthTypes{};
   shared_ptr<vector<GetPrometheusInstanceResponseBodyDataTags>> tags{};
   shared_ptr<string> userId{};
   shared_ptr<string> vSwitchId{};
@@ -30869,6 +30569,12 @@ public:
     if (clusterType) {
       res["ClusterType"] = boost::any(*clusterType);
     }
+    if (dbInstanceStatus) {
+      res["DbInstanceStatus"] = boost::any(*dbInstanceStatus);
+    }
+    if (enableAuthToken) {
+      res["EnableAuthToken"] = boost::any(*enableAuthToken);
+    }
     if (grafanaInstanceId) {
       res["GrafanaInstanceId"] = boost::any(*grafanaInstanceId);
     }
@@ -30880,6 +30586,9 @@ public:
     }
     if (paymentType) {
       res["PaymentType"] = boost::any(*paymentType);
+    }
+    if (product) {
+      res["Product"] = boost::any(*product);
     }
     if (pushGatewayInterUrl) {
       res["PushGatewayInterUrl"] = boost::any(*pushGatewayInterUrl);
@@ -30916,6 +30625,9 @@ public:
     }
     if (subClustersJson) {
       res["SubClustersJson"] = boost::any(*subClustersJson);
+    }
+    if (surpportAuthTypes) {
+      res["SurpportAuthTypes"] = boost::any(*surpportAuthTypes);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -30955,6 +30667,12 @@ public:
     if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
       clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
     }
+    if (m.find("DbInstanceStatus") != m.end() && !m["DbInstanceStatus"].empty()) {
+      dbInstanceStatus = make_shared<string>(boost::any_cast<string>(m["DbInstanceStatus"]));
+    }
+    if (m.find("EnableAuthToken") != m.end() && !m["EnableAuthToken"].empty()) {
+      enableAuthToken = make_shared<string>(boost::any_cast<string>(m["EnableAuthToken"]));
+    }
     if (m.find("GrafanaInstanceId") != m.end() && !m["GrafanaInstanceId"].empty()) {
       grafanaInstanceId = make_shared<string>(boost::any_cast<string>(m["GrafanaInstanceId"]));
     }
@@ -30966,6 +30684,9 @@ public:
     }
     if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
       paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
+    }
+    if (m.find("Product") != m.end() && !m["Product"].empty()) {
+      product = make_shared<string>(boost::any_cast<string>(m["Product"]));
     }
     if (m.find("PushGatewayInterUrl") != m.end() && !m["PushGatewayInterUrl"].empty()) {
       pushGatewayInterUrl = make_shared<string>(boost::any_cast<string>(m["PushGatewayInterUrl"]));
@@ -31002,6 +30723,16 @@ public:
     }
     if (m.find("SubClustersJson") != m.end() && !m["SubClustersJson"].empty()) {
       subClustersJson = make_shared<string>(boost::any_cast<string>(m["SubClustersJson"]));
+    }
+    if (m.find("SurpportAuthTypes") != m.end() && !m["SurpportAuthTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SurpportAuthTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SurpportAuthTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      surpportAuthTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
@@ -31645,205 +31376,6 @@ public:
 
 
   virtual ~GetPrometheusMonitoringResponse() = default;
-};
-class GetPrometheusRemoteWriteRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> clusterId{};
-  shared_ptr<string> regionId{};
-  shared_ptr<string> remoteWriteName{};
-
-  GetPrometheusRemoteWriteRequest() {}
-
-  explicit GetPrometheusRemoteWriteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (clusterId) {
-      res["ClusterId"] = boost::any(*clusterId);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
-    if (remoteWriteName) {
-      res["RemoteWriteName"] = boost::any(*remoteWriteName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
-      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("RemoteWriteName") != m.end() && !m["RemoteWriteName"].empty()) {
-      remoteWriteName = make_shared<string>(boost::any_cast<string>(m["RemoteWriteName"]));
-    }
-  }
-
-
-  virtual ~GetPrometheusRemoteWriteRequest() = default;
-};
-class GetPrometheusRemoteWriteResponseBodyData : public Darabonba::Model {
-public:
-  shared_ptr<string> clusterId{};
-  shared_ptr<string> remoteWriteName{};
-  shared_ptr<string> remoteWriteYaml{};
-
-  GetPrometheusRemoteWriteResponseBodyData() {}
-
-  explicit GetPrometheusRemoteWriteResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (clusterId) {
-      res["ClusterId"] = boost::any(*clusterId);
-    }
-    if (remoteWriteName) {
-      res["RemoteWriteName"] = boost::any(*remoteWriteName);
-    }
-    if (remoteWriteYaml) {
-      res["RemoteWriteYaml"] = boost::any(*remoteWriteYaml);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
-      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("RemoteWriteName") != m.end() && !m["RemoteWriteName"].empty()) {
-      remoteWriteName = make_shared<string>(boost::any_cast<string>(m["RemoteWriteName"]));
-    }
-    if (m.find("RemoteWriteYaml") != m.end() && !m["RemoteWriteYaml"].empty()) {
-      remoteWriteYaml = make_shared<string>(boost::any_cast<string>(m["RemoteWriteYaml"]));
-    }
-  }
-
-
-  virtual ~GetPrometheusRemoteWriteResponseBodyData() = default;
-};
-class GetPrometheusRemoteWriteResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<long> code{};
-  shared_ptr<GetPrometheusRemoteWriteResponseBodyData> data{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  GetPrometheusRemoteWriteResponseBody() {}
-
-  explicit GetPrometheusRemoteWriteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Data"].type()) {
-        GetPrometheusRemoteWriteResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
-        data = make_shared<GetPrometheusRemoteWriteResponseBodyData>(model1);
-      }
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~GetPrometheusRemoteWriteResponseBody() = default;
-};
-class GetPrometheusRemoteWriteResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<GetPrometheusRemoteWriteResponseBody> body{};
-
-  GetPrometheusRemoteWriteResponse() {}
-
-  explicit GetPrometheusRemoteWriteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetPrometheusRemoteWriteResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetPrometheusRemoteWriteResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetPrometheusRemoteWriteResponse() = default;
 };
 class GetRecordingRuleRequest : public Darabonba::Model {
 public:
@@ -34761,6 +34293,7 @@ public:
   shared_ptr<string> appType{};
   shared_ptr<string> pid{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> versionId{};
 
   GetRumUploadFilesRequest() {}
 
@@ -34781,6 +34314,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (versionId) {
+      res["VersionId"] = boost::any(*versionId);
+    }
     return res;
   }
 
@@ -34793,6 +34329,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("VersionId") != m.end() && !m["VersionId"].empty()) {
+      versionId = make_shared<string>(boost::any_cast<string>(m["VersionId"]));
     }
   }
 
@@ -43644,6 +43183,7 @@ public:
   shared_ptr<long> dispatchRuleId{};
   shared_ptr<string> endTime{};
   shared_ptr<string> integrationType{};
+  shared_ptr<string> owner{};
   shared_ptr<long> page{};
   shared_ptr<string> regionId{};
   shared_ptr<string> severity{};
@@ -43674,6 +43214,9 @@ public:
     }
     if (integrationType) {
       res["IntegrationType"] = boost::any(*integrationType);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
     }
     if (page) {
       res["Page"] = boost::any(*page);
@@ -43714,6 +43257,9 @@ public:
     }
     if (m.find("IntegrationType") != m.end() && !m["IntegrationType"].empty()) {
       integrationType = make_shared<string>(boost::any_cast<string>(m["IntegrationType"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
     }
     if (m.find("Page") != m.end() && !m["Page"].empty()) {
       page = make_shared<long>(boost::any_cast<long>(m["Page"]));
@@ -47233,6 +46779,7 @@ public:
   shared_ptr<string> bindResourceId{};
   shared_ptr<string> environmentType{};
   shared_ptr<string> feePackage{};
+  shared_ptr<string> filterRegionIds{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<ListEnvironmentsRequestTag>> tag{};
@@ -47258,6 +46805,9 @@ public:
     }
     if (feePackage) {
       res["FeePackage"] = boost::any(*feePackage);
+    }
+    if (filterRegionIds) {
+      res["FilterRegionIds"] = boost::any(*filterRegionIds);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -47287,6 +46837,9 @@ public:
     }
     if (m.find("FeePackage") != m.end() && !m["FeePackage"].empty()) {
       feePackage = make_shared<string>(boost::any_cast<string>(m["FeePackage"]));
+    }
+    if (m.find("FilterRegionIds") != m.end() && !m["FilterRegionIds"].empty()) {
+      filterRegionIds = make_shared<string>(boost::any_cast<string>(m["FilterRegionIds"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -47318,6 +46871,7 @@ public:
   shared_ptr<string> bindResourceId{};
   shared_ptr<string> environmentType{};
   shared_ptr<string> feePackage{};
+  shared_ptr<string> filterRegionIds{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> tagShrink{};
@@ -47344,6 +46898,9 @@ public:
     if (feePackage) {
       res["FeePackage"] = boost::any(*feePackage);
     }
+    if (filterRegionIds) {
+      res["FilterRegionIds"] = boost::any(*filterRegionIds);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -47368,6 +46925,9 @@ public:
     }
     if (m.find("FeePackage") != m.end() && !m["FeePackage"].empty()) {
       feePackage = make_shared<string>(boost::any_cast<string>(m["FeePackage"]));
+    }
+    if (m.find("FilterRegionIds") != m.end() && !m["FilterRegionIds"].empty()) {
+      filterRegionIds = make_shared<string>(boost::any_cast<string>(m["FilterRegionIds"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -52373,208 +51933,6 @@ public:
 
   virtual ~ListPrometheusMonitoringResponse() = default;
 };
-class ListPrometheusRemoteWritesRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> clusterId{};
-  shared_ptr<string> regionId{};
-
-  ListPrometheusRemoteWritesRequest() {}
-
-  explicit ListPrometheusRemoteWritesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (clusterId) {
-      res["ClusterId"] = boost::any(*clusterId);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
-      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-  }
-
-
-  virtual ~ListPrometheusRemoteWritesRequest() = default;
-};
-class ListPrometheusRemoteWritesResponseBodyData : public Darabonba::Model {
-public:
-  shared_ptr<string> clusterId{};
-  shared_ptr<string> remoteWriteName{};
-  shared_ptr<string> remoteWriteYaml{};
-
-  ListPrometheusRemoteWritesResponseBodyData() {}
-
-  explicit ListPrometheusRemoteWritesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (clusterId) {
-      res["ClusterId"] = boost::any(*clusterId);
-    }
-    if (remoteWriteName) {
-      res["RemoteWriteName"] = boost::any(*remoteWriteName);
-    }
-    if (remoteWriteYaml) {
-      res["RemoteWriteYaml"] = boost::any(*remoteWriteYaml);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
-      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("RemoteWriteName") != m.end() && !m["RemoteWriteName"].empty()) {
-      remoteWriteName = make_shared<string>(boost::any_cast<string>(m["RemoteWriteName"]));
-    }
-    if (m.find("RemoteWriteYaml") != m.end() && !m["RemoteWriteYaml"].empty()) {
-      remoteWriteYaml = make_shared<string>(boost::any_cast<string>(m["RemoteWriteYaml"]));
-    }
-  }
-
-
-  virtual ~ListPrometheusRemoteWritesResponseBodyData() = default;
-};
-class ListPrometheusRemoteWritesResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<long> code{};
-  shared_ptr<vector<ListPrometheusRemoteWritesResponseBodyData>> data{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  ListPrometheusRemoteWritesResponseBody() {}
-
-  explicit ListPrometheusRemoteWritesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (data) {
-      vector<boost::any> temp1;
-      for(auto item1:*data){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Data"] = boost::any(temp1);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(vector<boost::any>) == m["Data"].type()) {
-        vector<ListPrometheusRemoteWritesResponseBodyData> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListPrometheusRemoteWritesResponseBodyData model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        data = make_shared<vector<ListPrometheusRemoteWritesResponseBodyData>>(expect1);
-      }
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~ListPrometheusRemoteWritesResponseBody() = default;
-};
-class ListPrometheusRemoteWritesResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<ListPrometheusRemoteWritesResponseBody> body{};
-
-  ListPrometheusRemoteWritesResponse() {}
-
-  explicit ListPrometheusRemoteWritesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ListPrometheusRemoteWritesResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ListPrometheusRemoteWritesResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ListPrometheusRemoteWritesResponse() = default;
-};
 class ListRetcodeAppsRequestTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -56806,8 +56164,9 @@ public:
 };
 class QueryCommercialUsageResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
+  shared_ptr<long> code{};
   shared_ptr<QueryCommercialUsageResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -56828,6 +56187,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
@@ -56842,7 +56204,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(map<string, boost::any>) == m["Data"].type()) {
@@ -56850,6 +56212,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<QueryCommercialUsageResponseBodyData>(model1);
       }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -68023,165 +67388,6 @@ public:
 
   virtual ~UpdatePrometheusMonitoringStatusResponse() = default;
 };
-class UpdatePrometheusRemoteWriteRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> clusterId{};
-  shared_ptr<string> regionId{};
-  shared_ptr<string> remoteWriteName{};
-  shared_ptr<string> remoteWriteYaml{};
-
-  UpdatePrometheusRemoteWriteRequest() {}
-
-  explicit UpdatePrometheusRemoteWriteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (clusterId) {
-      res["ClusterId"] = boost::any(*clusterId);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
-    if (remoteWriteName) {
-      res["RemoteWriteName"] = boost::any(*remoteWriteName);
-    }
-    if (remoteWriteYaml) {
-      res["RemoteWriteYaml"] = boost::any(*remoteWriteYaml);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
-      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("RemoteWriteName") != m.end() && !m["RemoteWriteName"].empty()) {
-      remoteWriteName = make_shared<string>(boost::any_cast<string>(m["RemoteWriteName"]));
-    }
-    if (m.find("RemoteWriteYaml") != m.end() && !m["RemoteWriteYaml"].empty()) {
-      remoteWriteYaml = make_shared<string>(boost::any_cast<string>(m["RemoteWriteYaml"]));
-    }
-  }
-
-
-  virtual ~UpdatePrometheusRemoteWriteRequest() = default;
-};
-class UpdatePrometheusRemoteWriteResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<long> code{};
-  shared_ptr<string> data{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  UpdatePrometheusRemoteWriteResponseBody() {}
-
-  explicit UpdatePrometheusRemoteWriteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (data) {
-      res["Data"] = boost::any(*data);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~UpdatePrometheusRemoteWriteResponseBody() = default;
-};
-class UpdatePrometheusRemoteWriteResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<UpdatePrometheusRemoteWriteResponseBody> body{};
-
-  UpdatePrometheusRemoteWriteResponse() {}
-
-  explicit UpdatePrometheusRemoteWriteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        UpdatePrometheusRemoteWriteResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<UpdatePrometheusRemoteWriteResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~UpdatePrometheusRemoteWriteResponse() = default;
-};
 class UpdateRumAppRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRestart{};
@@ -71021,8 +70227,6 @@ public:
   AddPrometheusInstanceResponse addPrometheusInstance(shared_ptr<AddPrometheusInstanceRequest> request);
   AddPrometheusIntegrationResponse addPrometheusIntegrationWithOptions(shared_ptr<AddPrometheusIntegrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddPrometheusIntegrationResponse addPrometheusIntegration(shared_ptr<AddPrometheusIntegrationRequest> request);
-  AddPrometheusRemoteWriteResponse addPrometheusRemoteWriteWithOptions(shared_ptr<AddPrometheusRemoteWriteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  AddPrometheusRemoteWriteResponse addPrometheusRemoteWrite(shared_ptr<AddPrometheusRemoteWriteRequest> request);
   AddRecordingRuleResponse addRecordingRuleWithOptions(shared_ptr<AddRecordingRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddRecordingRuleResponse addRecordingRule(shared_ptr<AddRecordingRuleRequest> request);
   AddTagToFlinkClusterResponse addTagToFlinkClusterWithOptions(shared_ptr<AddTagToFlinkClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -71155,8 +70359,6 @@ public:
   DeletePrometheusIntegrationResponse deletePrometheusIntegration(shared_ptr<DeletePrometheusIntegrationRequest> request);
   DeletePrometheusMonitoringResponse deletePrometheusMonitoringWithOptions(shared_ptr<DeletePrometheusMonitoringRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeletePrometheusMonitoringResponse deletePrometheusMonitoring(shared_ptr<DeletePrometheusMonitoringRequest> request);
-  DeletePrometheusRemoteWriteResponse deletePrometheusRemoteWriteWithOptions(shared_ptr<DeletePrometheusRemoteWriteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeletePrometheusRemoteWriteResponse deletePrometheusRemoteWrite(shared_ptr<DeletePrometheusRemoteWriteRequest> request);
   DeleteRetcodeAppResponse deleteRetcodeAppWithOptions(shared_ptr<DeleteRetcodeAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteRetcodeAppResponse deleteRetcodeApp(shared_ptr<DeleteRetcodeAppRequest> request);
   DeleteRumAppResponse deleteRumAppWithOptions(shared_ptr<DeleteRumAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -71245,8 +70447,6 @@ public:
   GetPrometheusIntegrationResponse getPrometheusIntegration(shared_ptr<GetPrometheusIntegrationRequest> request);
   GetPrometheusMonitoringResponse getPrometheusMonitoringWithOptions(shared_ptr<GetPrometheusMonitoringRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPrometheusMonitoringResponse getPrometheusMonitoring(shared_ptr<GetPrometheusMonitoringRequest> request);
-  GetPrometheusRemoteWriteResponse getPrometheusRemoteWriteWithOptions(shared_ptr<GetPrometheusRemoteWriteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetPrometheusRemoteWriteResponse getPrometheusRemoteWrite(shared_ptr<GetPrometheusRemoteWriteRequest> request);
   GetRecordingRuleResponse getRecordingRuleWithOptions(shared_ptr<GetRecordingRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetRecordingRuleResponse getRecordingRule(shared_ptr<GetRecordingRuleRequest> request);
   GetRetcodeAppByPidResponse getRetcodeAppByPidWithOptions(shared_ptr<GetRetcodeAppByPidRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -71361,8 +70561,6 @@ public:
   ListPrometheusIntegrationResponse listPrometheusIntegration(shared_ptr<ListPrometheusIntegrationRequest> request);
   ListPrometheusMonitoringResponse listPrometheusMonitoringWithOptions(shared_ptr<ListPrometheusMonitoringRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPrometheusMonitoringResponse listPrometheusMonitoring(shared_ptr<ListPrometheusMonitoringRequest> request);
-  ListPrometheusRemoteWritesResponse listPrometheusRemoteWritesWithOptions(shared_ptr<ListPrometheusRemoteWritesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListPrometheusRemoteWritesResponse listPrometheusRemoteWrites(shared_ptr<ListPrometheusRemoteWritesRequest> request);
   ListRetcodeAppsResponse listRetcodeAppsWithOptions(shared_ptr<ListRetcodeAppsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRetcodeAppsResponse listRetcodeApps(shared_ptr<ListRetcodeAppsRequest> request);
   ListScenarioResponse listScenarioWithOptions(shared_ptr<ListScenarioRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -71487,8 +70685,6 @@ public:
   UpdatePrometheusMonitoringResponse updatePrometheusMonitoring(shared_ptr<UpdatePrometheusMonitoringRequest> request);
   UpdatePrometheusMonitoringStatusResponse updatePrometheusMonitoringStatusWithOptions(shared_ptr<UpdatePrometheusMonitoringStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePrometheusMonitoringStatusResponse updatePrometheusMonitoringStatus(shared_ptr<UpdatePrometheusMonitoringStatusRequest> request);
-  UpdatePrometheusRemoteWriteResponse updatePrometheusRemoteWriteWithOptions(shared_ptr<UpdatePrometheusRemoteWriteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdatePrometheusRemoteWriteResponse updatePrometheusRemoteWrite(shared_ptr<UpdatePrometheusRemoteWriteRequest> request);
   UpdateRumAppResponse updateRumAppWithOptions(shared_ptr<UpdateRumAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateRumAppResponse updateRumApp(shared_ptr<UpdateRumAppRequest> request);
   UpdateRumFileStatusResponse updateRumFileStatusWithOptions(shared_ptr<UpdateRumFileStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
