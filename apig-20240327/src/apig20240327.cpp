@@ -1032,6 +1032,9 @@ ListHttpApiOperationsResponse Alibabacloud_APIG20240327::Client::listHttpApiOper
   if (!Darabonba_Util::Client::isUnset<string>(request->method)) {
     query->insert(pair<string, string>("method", *request->method));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("name", *request->name));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->nameLike)) {
     query->insert(pair<string, string>("nameLike", *request->nameLike));
   }
@@ -1073,6 +1076,9 @@ ListHttpApisResponse Alibabacloud_APIG20240327::Client::listHttpApisWithOptions(
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
     query->insert(pair<string, string>("keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("name", *request->name));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("pageNumber", *request->pageNumber));

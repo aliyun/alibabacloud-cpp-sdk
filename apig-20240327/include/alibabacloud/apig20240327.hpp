@@ -10997,6 +10997,7 @@ public:
 class ListHttpApiOperationsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> method{};
+  shared_ptr<string> name{};
   shared_ptr<string> nameLike{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -11014,6 +11015,9 @@ public:
     map<string, boost::any> res;
     if (method) {
       res["method"] = boost::any(*method);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
     }
     if (nameLike) {
       res["nameLike"] = boost::any(*nameLike);
@@ -11033,6 +11037,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("method") != m.end() && !m["method"].empty()) {
       method = make_shared<string>(boost::any_cast<string>(m["method"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
     if (m.find("nameLike") != m.end() && !m["nameLike"].empty()) {
       nameLike = make_shared<string>(boost::any_cast<string>(m["nameLike"]));
@@ -11224,6 +11231,7 @@ public:
 class ListHttpApisRequest : public Darabonba::Model {
 public:
   shared_ptr<string> keyword{};
+  shared_ptr<string> name{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<bool> publishedOnly{};
@@ -11241,6 +11249,9 @@ public:
     if (keyword) {
       res["keyword"] = boost::any(*keyword);
     }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
     if (pageNumber) {
       res["pageNumber"] = boost::any(*pageNumber);
     }
@@ -11256,6 +11267,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("keyword") != m.end() && !m["keyword"].empty()) {
       keyword = make_shared<string>(boost::any_cast<string>(m["keyword"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
     if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
