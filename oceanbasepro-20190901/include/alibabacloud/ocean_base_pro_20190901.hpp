@@ -36799,7 +36799,7 @@ public:
   shared_ptr<bool> enableReadOnlyReplica{};
   shared_ptr<bool> enableReadWriteSplit{};
   shared_ptr<string> instanceType{};
-  shared_ptr<vector<uint8_t>> lowerCaseTableNames{};
+  shared_ptr<long> lowerCaseTableNames{};
   shared_ptr<string> masterIntranetAddressZone{};
   shared_ptr<long> maxParallelQueryDegree{};
   shared_ptr<string> payType{};
@@ -37008,7 +37008,7 @@ public:
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
     if (m.find("LowerCaseTableNames") != m.end() && !m["LowerCaseTableNames"].empty()) {
-      lowerCaseTableNames = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["LowerCaseTableNames"]));
+      lowerCaseTableNames = make_shared<long>(boost::any_cast<long>(m["LowerCaseTableNames"]));
     }
     if (m.find("MasterIntranetAddressZone") != m.end() && !m["MasterIntranetAddressZone"].empty()) {
       masterIntranetAddressZone = make_shared<string>(boost::any_cast<string>(m["MasterIntranetAddressZone"]));
