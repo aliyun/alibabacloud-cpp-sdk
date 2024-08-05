@@ -877,6 +877,9 @@ CreateNotificationConfigurationResponse Alibabacloud_Ess20220222::Client::create
   if (!Darabonba_Util::Client::isUnset<string>(request->scalingGroupId)) {
     query->insert(pair<string, string>("ScalingGroupId", *request->scalingGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeZone)) {
+    query->insert(pair<string, string>("TimeZone", *request->timeZone));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3863,6 +3866,9 @@ ModifyNotificationConfigurationResponse Alibabacloud_Ess20220222::Client::modify
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scalingGroupId)) {
     query->insert(pair<string, string>("ScalingGroupId", *request->scalingGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeZone)) {
+    query->insert(pair<string, string>("TimeZone", *request->timeZone));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

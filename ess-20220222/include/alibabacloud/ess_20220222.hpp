@@ -5004,6 +5004,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<string> scalingGroupId{};
+  shared_ptr<string> timeZone{};
 
   CreateNotificationConfigurationRequest() {}
 
@@ -5033,6 +5034,9 @@ public:
     if (scalingGroupId) {
       res["ScalingGroupId"] = boost::any(*scalingGroupId);
     }
+    if (timeZone) {
+      res["TimeZone"] = boost::any(*timeZone);
+    }
     return res;
   }
 
@@ -5061,6 +5065,9 @@ public:
     }
     if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
       scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
     }
   }
 
@@ -16262,6 +16269,7 @@ public:
   shared_ptr<string> notificationArn{};
   shared_ptr<vector<string>> notificationTypes{};
   shared_ptr<string> scalingGroupId{};
+  shared_ptr<string> timeZone{};
 
   DescribeNotificationConfigurationsResponseBodyNotificationConfigurationModels() {}
 
@@ -16282,6 +16290,9 @@ public:
     if (scalingGroupId) {
       res["ScalingGroupId"] = boost::any(*scalingGroupId);
     }
+    if (timeZone) {
+      res["TimeZone"] = boost::any(*timeZone);
+    }
     return res;
   }
 
@@ -16301,6 +16312,9 @@ public:
     }
     if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
       scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
     }
   }
 
@@ -29556,6 +29570,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<string> scalingGroupId{};
+  shared_ptr<string> timeZone{};
 
   ModifyNotificationConfigurationRequest() {}
 
@@ -29585,6 +29600,9 @@ public:
     if (scalingGroupId) {
       res["ScalingGroupId"] = boost::any(*scalingGroupId);
     }
+    if (timeZone) {
+      res["TimeZone"] = boost::any(*timeZone);
+    }
     return res;
   }
 
@@ -29613,6 +29631,9 @@ public:
     }
     if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
       scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
     }
   }
 
